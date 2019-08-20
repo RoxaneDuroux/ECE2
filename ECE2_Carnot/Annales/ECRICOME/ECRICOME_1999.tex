@@ -1,0 +1,442 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 1999} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dint}{\int}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 1999}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\Huge ECRICOME Eco 1999}
+\end{center}
+
+\begin{center}
+\textbf{\large Exercice 1 }
+\end{center}
+
+
+
+\noindent\textbf{\ Préliminaire}
+
+Soit $(x_{n})$ une suite numérique qui vérifie, pour tout entier
+naturel $n
+$, la relation~ : 
+\[
+x_{n + 2} = \frac{1}{3} x_{n + 1} + \frac{1}{3} x_{n}
+\]
+Montrer que~ : $ \dlim{n \rightarrow + \infty} x_{n} = 0$\\
+(on donne : $\frac{1 + \sqrt{13}}{6} = 0,77$ à $10^{-2}$ près par excès
+et $\frac{1-\sqrt{13}}{ 6} = -0,44$ à $10^{-2}$ près par défaut).
+
+$a$ et $b$ sont deux réels supérieurs ou égaux à 1.\\
+On étudie la suite numérique $(u_{n})$ définie par~ : $u_{0} = a
+\;\;u_{1} = b$
+et pour tout entier naturel $n$~ : 
+\[
+u_{n + 2} = \sqrt{u_{n}} + \sqrt{u_{n + 1}}
+\]
+
+\textbf{\ Question 1}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{\ 1.a)}] Montrer que, pour tout entier naturel $n$,
+$u_{n}$ est
+bien défini et vérifie $u_{n} \geq 1$.
+
+\item[ \ \textbf{\ 1.b)}] Montrer que la seule limite possible de la
+suite $(u_{n})$ est 4.
+
+\item[ \ \textbf{\ 1.c)}] Écrire un programme en \Scilab{} qui calcule
+et
+affiche la valeur de $u_{n}$ pour des valeurs de $a$ et $b$ réelles
+supérieures ou égales à 1 et de $n$ entier supérieur ou égal à
+2, entrées par l'utilisateur.
+\end{noliste}
+
+\textbf{\ Question 2}
+
+On se propose d'établir la convergence de la suite $(u_{n})$ par
+l'étude
+d'une suite auxiliaire $(v_{n})$ définie, pour tout entier naturel $n$,
+par~ : 
+\[
+v_{n} = \frac{1}{2} \sqrt{u_{n}} -1
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{\ 2.a)}] Montrer que si $ \dlim{n \rightarrow
+ + \infty}v_{n} = 0$ alors $ \dlim{n \rightarrow + \infty}u_{n} = 4.$
+
+\item[ \ \textbf{\ 2.b)}] Vérifier, pour tout entier naturel $n$~ : $
+v_{n + 2} = \frac{v_{n + 1} + v_{n}}{ 2(2 + v_{n + 2})}.$
+
+En déduire que~ : $ |v_{n + 2}|\leq \frac{1}{ 3}\left(|v_{n + 1}| + 
+|v_{n}| \right).$
+
+\item[ \ \textbf{\ 2.c)}] On note $(x_{n})$ la suite définie par~ :
+$x_{0} = |v_{0}|$, 
+$x_{1} = |v_{1}|$ et, pour tout entier naturel $n$, 
+\[
+x_{n + 2} = \frac{1}{3} x_{n + 1} + \frac{1}{3}x_{n}
+\]
+Montrer que, pour tout entier naturel $n$, $|v_{n}| \leq x_{n}$ et
+conclure
+quant à la convergence de la suite $(u_{n})$.
+\end{noliste}
+
+\newpage
+
+\begin{center}
+\textbf{\large Exercice 2 }
+\end{center}
+
+\noindent Toutes les matrices de cet exercice sont des éléments
+de l'ensemble $E$ des matrices carrées d'ordre 2 à coefficients réels.
+
+On pose~ : $O = 
+\begin{smatrix}
+0 & 0 \\
+0 & 0
+\end{smatrix}
+$, $I = 
+\begin{smatrix}
+1 & 0 \\
+0 & 1
+\end{smatrix}
+$ et $H = \left\{M \in E \; / \; \text{il existe}\; \alpha \in \R
+\;\text{ tel que }\; M = \alpha I \right\}$ et pour toute matrice
+réelle $M = 
+\begin{smatrix}
+a & b \\
+c & d
+\end{smatrix}
+$, $\tau(M) = a + d$ et $\delta(M) = ad-bc$.
+
+\textbf{\ Question 1}
+
+On dit que la suite de matrices $(A_{n})_{n \in \N}$ où $A_{n} = 
+\begin{smatrix}
+a_{n} & b_{n} \\
+c_{n} & d_{n}
+\end{smatrix}
+$ converge vers la matrice $O$ si $(a_{n})$, $(b_{n})$, $(c_{n})$ et
+$(d_{n})$ sont
+des suites réelles de limite nulle.
+
+Justifier les résultats suivants :
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{\ 1 a)}] Soient $(A_{n})_{n \in \N}$ et $(B_{n})_{n
+\in 
+\N}$ deux suites de matrices, $\lambda$ un réel et $M$ une matrice :
+
+si $(A_{n})_{n \in \N}$ et $(B_{n})_{n \in \N}$ convergent vers
+la matrice $O$, alors $(A_{n} + B_{n})_{n \in \N}$, $(\lambda \
+A_{n})_{n
+\in \N}$, $(M \ A_{n})_{n \in \N}$ et $(A_{n}\ M)_{n \in \N}$
+convergent aussi vers $O$.
+
+\item[ \ \textbf{\ 1 b)}] Si $D = 
+\begin{smatrix}
+\lambda & 0 \\
+0 & \mu
+\end{smatrix}
+$ avec $|\lambda|<1$ et $|\mu|<1$,la suite de matrices $(D^{n})_{n \in
+\N}$ converge vers $O$.
+
+\item[ \ \textbf{\ 1 c)}] Si une matrice $A$ est diagonalisable, de
+valeurs
+propres $\lambda$ et $\mu$ tels que $|\lambda|<1$ et $|\mu|<1$, alors
+la
+suite $(A^{n})_{n \in \N}$ converge vers la matrice $O$.
+\end{noliste}
+
+\textbf{\ Question 2}
+
+Dans toute cette question, $A$ désigne un élément de $E$ tel que
+$\delta(A)<0$.\\
+On se propose de montrer qu'une telle matrice est diagonalisable.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{\ 2 a)}] Montrer que $A$ n'est pas élément de $H$.
+
+\item[ \ \textbf{\ 2 b)}] Vérifier par le calcul que, pour tout élément
+$M
+$ de $E$, on a : 
+\[
+M^{2} = \tau(M) \ M - \delta(M) \ I \qquad(*)
+\]
+
+\item[ \ \textbf{\ 2 c)}] Montrer qu'il existe deux réels distincts
+$\lambda$
+et $\mu$ tels que : $\lambda + \mu = \tau(A)$ et $\lambda \mu =
+\delta(A).$
+
+\item[ \ \textbf{\ 2 d)}] On pose $M = A - \lambda I$ et $N = A - \mu
+I.$\\
+Montrer que $M N = O$ et en déduire que l'hypothèse ``$M$ est
+inversible"
+conduit à une contradiction.\\
+Montrer de même que $N$ n'est pas inversible.
+
+\item[ \ \textbf{\ 2 e)}] En déduire que $A$ est diagonalisable et
+qu'il
+existe une matrice $P$ de $E$ inversible telle que $A = P \ D \ P^{-1}$
+avec $D = 
+\begin{smatrix}
+\lambda & 0 \\
+0 & \mu
+\end{smatrix}
+$.
+\end{noliste}
+
+\textbf{\ Question 3}
+
+On note $U$ l'ouvert de $\R^{2}$ défini par $ U = \ ]\frac{1}{ 3},
+\frac{2}{ 3 }[ \ \times ]0,1[$ et $f$ l'application définie sur $U$
+par~ : 
+\[
+(x,y) \rightarrow f(x,y) = x^{2}-x + x y^{2}-xy
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{\ 3 a)}] Montrer que $f$ est strictement négative sur
+$U$.
+
+\item[ \ \textbf{\ 3 b)}] Montrer (en rédigeant soigneusement) que $f$
+admet
+un unique extremum sur $U$ et que celui-ci est un minimum dont on
+donnera la
+valeur.
+
+En déduire que, pour tout élément $(x,y)$ de $U$ : $ -\frac{25}{64}
+\leq f(x,y) <0$.
+\end{noliste}
+
+\textbf{\ Question 4}
+
+Soient $a$ et $b$ deux réels tels que $(a,b)$ soit un élément de
+l'ouvert $U$ défini précédemment.
+
+On pose $Q = 
+\begin{smatrix}
+a & b \\
+a(1-b) & a-1
+\end{smatrix}.$
+
+On se propose de montrer que la suite de matrices $(Q^{n})_{n \in \N}$
+converge vers $O$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{\ 4 a)}] Calculer $\tau(Q)$ et $\delta(Q).$\\
+Vérifier que les résultats de la question 2 s'appliquent pour $A = Q$
+et
+en déduire que $Q$ admet deux valeurs propres distinctes $\lambda$ et
+$\mu$
+telles que : 
+\[
+-\frac{1}{3} < \lambda + \mu < \frac{1}{3} \;\;\;\text{ et } \;\;\;
+-\frac{25}{64} \leq \lambda \mu \leq 0
+\]
+
+\item[ \ \textbf{\ 4 b)}] Exprimer $\lambda^{2} + \mu^{2}$ en fonction
+de $\lambda + \mu
+$ et $\lambda \mu$ et en déduire que $\lambda^{2} + \mu^{2} <1$.\\
+Pourquoi peut on affirmer que la suite $(Q^{n})_{n \in \N}$ converge
+vers $O$~ ?
+\end{noliste}
+
+
+
+\begin{center}
+\textbf{\large Exercice 3 }
+\end{center}
+
+On modélise la durée de fonctionnement d'un appareil par une
+variable aléatoire réelle $T$ définie sur un certain espace
+probabilisé $(\Omega,\mathcal{A},P)$, admettant une densité $f$.
+
+On note $F$ sa fonction de répartition et on suppose que $F$ vérifie
+les
+propriétés~ :
+
+\begin{noliste}{$\sbullet$}
+\item $F(t) = 0$ pour tout réel $t \leq 0$.
+
+\item $F$ est de classe $C^{1}$ et strictement croissante sur $\R^+ $.
+\end{noliste}
+
+Sous une hypothèse introduite dans la question 2, on se propose
+d'expliciter $F$ et $f$, puis de calculer l'espérance $\E(T)$ de $T$,
+\emph{``temps moyen de fonctionnement''}.
+
+
+
+\textbf{\ Question 1}
+
+On rappelle que l'intégrale généralisée $\dint{0}{+
+\infty}e^{-u^{2}}du$ converge et vaut $ \frac{1}{2} 
+\sqrt{\pi}$.\\
+Soit $\alpha$ un réel strictement positif; si $x$ est un élément de
+$\R^+ $, on pose~ : 
+\[
+I(x) = \dint{0}{x}2u^{2}e^{-u^{2}}du \;\; \text{ et } \;\; J(x) =
+\dint{0}{x}
+t^{2}e^{-(t/\alpha)^{2}}dt
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{\ 1 a)}] À l'aide d'un changement de variable,
+exprimer,
+pour tout élément $x$ de $\R^+ $, $J(x)$ en fonction de $
+I\left(\frac{x}{ \alpha}\right)$.
+
+\item[ \ \textbf{\ 1 b)}] À l'aide d'une intégration par parties,
+montrer
+que, pour tout élément $x$ de $\R^+ $ :
+\[
+I(x) = \dint{0}{x} e^{-u^{2}} du - x e^{-x^{2}}
+\]
+
+\item[ \ \textbf{\ 1 c)}] En déduire que l'intégrale généralisée $
+\dint{0}{+ \infty} t^{2}e^{-(t/\alpha)^{2}}dt$ converge et vaut $
+\frac{\alpha^{3} \sqrt{\pi}}{4}$.
+\end{noliste}
+
+\textbf{\ Question 2}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{\ 2 a)}] Montrer que, pour tout élément $u$ de $\R^+
+$, $F(u)<1$, puis en déduire que $P\left(\Ev{T \geq u}\right) \neq 0$.
+
+\item[ \ \textbf{\ 2 b)}] Soient $t_{0}$ et $t$ des réels tels que
+$0\leq
+t_{0}\leq t$.\\
+On pose~ : $q(t_{0},t) = \frac{1}{t-t_{0}}P_{T\geq
+t_{0}}(t_{0}\leq T\leq t\,)$ (probabilité conditionnelle).\\
+$q(t_{0},t)$ est \emph{le taux d'arrêt de fonctionnement entre les
+instants $t_{0}$ et $t$}.\\
+On définit ensuite, sous réserve d'existence, le \emph{taux d'arrêt de
+fonctionnement instantané en $t_{0}$} par~ : $\tau
+(t_{0}) = \dlim{t\rightarrow t_{0}{+}}q(t_{0},t).$
+
+Exprimer $q(t_{0},t)$ en fonction de $t$, $t_{0}$, $F(t_{0})$ et
+$F(t)$.\\
+En déduire que $\tau (t_{0})$ existe et que $\tau (t_{0}) =
+\frac{F^{\prime }(t_{0})}{1-F(t_{0})}.$
+
+\hspace{-1cm}Dans la suite de l'énoncé, on fait l'hypothèse
+suivante :
+
+il existe un réel $c>0$ tel que, pour tout élément $t$ de $\R^{+}$,
+$\tau (t) = ct$.
+
+\item[ \ \textbf{\ 2 c)}] Montrer que, pour tout élément $t$ de
+$\R^{+}$, on a~ : $\ln \left[ 1-F(t)\right] = c\frac{t^{2}}{2}$
+
+\item[ \ \textbf{\ 2 d)}] Soit $t$ un élément de $\R^{+}$.\\
+Expliciter $F(t)$, puis montrer, en posant $\alpha =
+\sqrt{\frac{2}{c}}$, que $f(t) = \frac{2}{\alpha ^{2}}te^{-(t/\alpha
+)^{2}}$.
+
+\item[ \ \textbf{\ 2 e)}] Montrer enfin que $\E(T)$ existe et donner sa
+valeur
+en fonction de $c$.
+\end{noliste}
+
+\end{document}
+

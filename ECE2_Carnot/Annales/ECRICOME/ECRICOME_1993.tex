@@ -1,0 +1,473 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 1993} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dint}{\int}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 1993}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\Huge ECRICOME Eco 1993}
+\end{center}
+
+\section*{EXERCICE1}
+
+Soit $x$ un réel strictement positif.\\
+On pose pour tout entier naturel $n :$
+\[
+S_{n}(x) = \Sum{k = 0}{n}(-1)^{k}\dfrac{1}{k + x + 1} = \dfrac{1}{x +
+1}-\dfrac{1}{x + 2} + \cdots + (-1)^{n}\dfrac{1}{n + x + 1}.
+\]
+On se propose d'étudier la limite $S(x)$ de la somme $S_{n}(x)$ lorsque
+$n$
+tend vers $ + \infty.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour tout entier naturel $p,$ on pose $f_{p}(x) = \left\{ 
+\begin{array}{ccc}
+\dfrac{t^{x + p}}{1 + t} & \text{si} & 0\leq t\leq 1 \\
+0 & \text{si} & t = 0
+\end{array}
+\right. $ et $I_{p}(x) = \dint{0}{1}f_{p}(t)dt.$\\
+Montrer que, pour tout entier naturel $p,$ l'intégrale $I_{p}(x)$
+existe.
+
+\item Montrer que, pour tout réel $t$ élément de $[0,1],$ on a :
+\[
+\dfrac{1}{1 + t} = \Sum{k = 0}{n}(-1)^{k}t^{k} + (-1)^{n +
+1}\dfrac{t^{n + 1}}{1 + t}.
+\]
+
+\item Déduire de ce qui précède que l'on a :
+\[
+\dint{0}{1}\dfrac{t^{x}}{1 + t}dt = S_{n}(x) + R_{n}(x)\quad
+\text{où}\quad R_{n}(x) = (-1)^{n + 1}\dint{0}{1}\dfrac{t^{n + x +
+1}}{1 + t}dt.
+\]
+
+\item Démonter que l'on a pour tout entier naturel $n :0\leq
+\dint{0}{1}\dfrac{t^{n + x + 1}}{1 + t}dt\leq \dfrac{1}{n + 2}.$
+
+\item Conclure que l'on a $ :\quad S(x) = \dint{0}{1}\dfrac{t^{x}}{1 +
+t}dt.$
+
+\item Étude du cas particulier où $x = \dfrac{1}{2}.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En utilisant le changement de variable $u = t^{1/2},$ calculer
+$S(\dfrac{1}{2})$.\\
+(On rappelle que $\dint{0}{1}\dfrac{dx}{1 + x^{2}}).$
+
+\item En déduire que l'on a $ :\quad \dlim{n\rightarrow + \infty
+}\Sum{k = 0}{n}(-1)^{k}\dfrac{1}{2k + 1} = \dfrac{\pi }{4}.$
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+Les produits référencés $X,Y,Z$ se partagent un marché. On note
+$x_{n},y_{n},z_{n}$ les proportions de consommateurs utilisant
+respectivement
+les produits $X,Y,Z$ au $n^{i\grave{e}me}$ mois, où $n$ est un entier
+naturel.\\
+On observe les données suivantes $ :x_{0} = 0,1,\quad y_{0} = 0,2,\quad
+z_{0} = 0,7.
+$\\
+Par ailleurs les sondages mensuels ont permis de déterminer les
+intentions
+des consommateurs, supposées constantes :
+
+\begin{noliste}{$\sbullet$}
+\item Utilisant le produit $X$ un mois donné, respectivement $40$ \%,
+$30$
+\%, $30$ \% des consommateurs ont l'intention d'adopter les produits
+$X,Y,Z$
+le mois suivant.
+
+\item Utilisant le produit $Y$ un mois donné, respectivement $30$ \%,
+$40$
+\%, $30$ \% des consommateurs ont l'intention d'adopter les produits
+$X,Y,Z$
+le mois suivant.
+
+\item Utilisant le produit $Z$ un mois donné, respectivement $20$ \%,
+$10$
+\%, $70$ \% des consommateurs ont l'intention d'adopter les produits
+$X,Y,Z$
+le mois suivant.
+\end{noliste}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Exprimer $x_{n + 1},$ $y_{n + 1},$ $z_{n + 1}$ en fonction de
+$x_{n},$ $y_{n},$ $z_{n}.$
+
+\item On considère la matrice $A = 
+\begin{smatrix}
+0,2 & 0,1 \\
+0,2 & 0,3
+\end{smatrix}
+;\quad U_{n} = 
+\begin{smatrix}
+x_{n} \\
+y_{n}\end{smatrix}
+;\quad B = 
+\begin{smatrix}
+0,2 \\
+0,1
+\end{smatrix}.$\\
+Montrer que l'on a, pour tout entier $n,$ l'égalité matricielle $ :U_{n
++ 1} = AU_{n} + B.$
+
+\item Déterminer la matrice $C$ telle que $C = AC + B.$
+
+\item On considère la matrice $V_{n} = U_{n}-C;$ démonter, pour tout
+entier $n,
+$ que $V_{n} = A^{n}V_{0}.$
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer les valeurs propres de la matrice $A.$
+
+\item Trouver une matrice $P$ inversible telle que $P^{-1}AP$ soit
+diagonale.
+
+\item En déduire, pour tout entier naturel non nul, l'expression de la
+matrice $A^{n}.$
+\end{noliste}
+
+\item En déduire les valeurs $x_{n},y_{n}$ en fonction de $n.$
+
+\item Calculer $z_{n}$ en fonction de $n.$
+
+\item Quelles sont à long terme les proportions des consommateurs
+utilisant
+respectivement les produits $X,Y,Z$ ?
+\end{noliste}
+
+\section*{PROBLEME}
+
+\begin{center}
+\textbf{Les deux parties sont indépendantes}
+\end{center}
+
+\subsection*{Première partie}
+
+La société ALFDIS étudie à la fin de chaque mois le coût mensuel de
+gestion
+de l'article A, lié au nombre $n$ de centaines d'articles A en stock au
+début du mois (le stock est dit de niveau $100n)$ et au nombre $k$ de
+centaines d'articles A demandés pendant ce même mois.\\
+La demande mensuelle de cet article A est une variable aléatoire $X$
+qui
+suit une loi de Poisson de paramètre $5$ (en centaines d'articles).\\
+La société estime qu'un article A restant en stock à la fin du mois
+coûte à
+l'entreprise $300\ $francs alors qu'un article A manquant lui coûte
+$500$
+francs.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour tout entier naturel $n,$ on pose $p_{n} = P\left(\Ev{X\leq
+n}\right).$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer, pour $n$ non nul, $p_{n}$ et $\Sum{k =
+0}{n}k.P\left(\Ev{X = k}\right)$
+en fonction de $p_{n-1}$ et de $n.$
+
+\item En utilisant les probabilités $p_{n},$ calculer les sommes
+$u_{n}$ et $v_{n}$ suivantes :
+\[
+u_{n} = \Sum{k = n + 1}{+ \infty }P\left(\Ev{X = k}\right)\quad
+\text{et}\quad
+v_{n} = \Sum{k = n + 1}{+ \infty }k.P\left(\Ev{X = k}\right).
+\]
+
+\item Calculer $u_{4}$ et $v_{4}$ à $10^{-6}$ près au mieux (on
+utilisera la
+table de la page \ref{fin}).
+\end{noliste}
+
+\item Montrer que, pour un stock de niveau $100n$ et pour une demande
+mensuelle de $X = k$ centaines d'articles, le coût $C_{n}(k)$ de
+gestion de
+l'article A s'écrit :
+\[
+C_{n}(k) = \left\{ 
+\begin{array}{ccc}
+3.10^{4}.(n-k) & \text{si} & 0\leq k\leq n \\
+5.10^{4}(k-n) & \text{si} & n<k
+\end{array}
+\right. 
+\]
+
+\item On note $C_{n}$ la variable aléatoire prenant les valeurs
+$C_{n}(k).$\\
+Calculer, en fonction de $n,$ de $p_{n-1}$ et de $p_{n},$ l'espérance
+mathématique :
+\[
+\E(C_{n}) = \Sum{k = 0}{+ \infty }C_{n}(k).P\left(\Ev{X = k}\right).
+\]
+
+\item Démontrer la relation $ :\E(C_{n + 1})-\E(C_{n}) =
+(8p_{n}-5).10^{4}.$
+
+\item Trouver la valeur de l'entier naturel $n$ solution arrondie par
+excès
+de l'équation :
+\[
+\E(C_{n + 1}) = E(C_{n}).
+\]
+
+\item En déduire le sens de variation de la suite de terme général
+$\E(C_{n}).
+$\\
+Montrer que $\E(C_{5})>\E(C_{6}).$\\
+Conclure quant à l'existence d'un niveau $100n$ du stock d'articles A
+qui
+minimise l'espérance $\E(C_{n})$ du coût de gestion de cet article.
+\end{noliste}
+
+\subsection*{Deuxième partie}
+
+La société ALFDIS distribue aussi de l'essence dont la demande est
+aléatoire. Elle a procédé à une étude des coûts mensuels de gestion de
+ce
+produit.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On considère la fonction $f$ définie pour tout réel $t$ par $
+:f(t) = \left\{ 
+\begin{array}{ccc}
+0 & \text{si} & t\leq 0 \\
+4.t.e^{-2t} & \text{si} & t>0
+\end{array}
+\right..$\\
+On appelle $\mathcal{C}$ la courbe représentative de $f$ dans un repère
+$(O,\overrightarrow{i},\overrightarrow{j})$, d'unités $4$ cm sur l'axe
+des
+abscisses et $10$ cm sur l'axe des ordonnées.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier la dérivabilité de $f$ en $0.$ Conclure pour la courbe
+$\mathcal{C}.$
+
+\item Construire le tableau de variation de $f.$
+
+\item Déterminer les coordonnées du point d'inflexion $1$ de
+$\mathcal{C}.$
+
+\item Tracer la courbe $\mathcal{C}.$
+\end{noliste}
+
+\item Pour tout entier naturel $p,$ on pose $I_{p} = \dint{0}{+ \infty
+}t^{p}e^{-2t}dt$ et pour $a\geq 0,$ $I_{p}(a) =
+\dint{0}{a}t^{p}e^{-2t}dt.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $I_{0}(a).$
+
+\item Déterminer une relation de récurrence entre $I_{p + 1}(a)$ et
+$I_{p}(a).$
+
+\item En déduire la valeur de $I_{1}(a)$ et de $I_{2}(a).$
+
+\item Prouver que $I_{p}$ est une intégrale impropre convergente.
+Calculer $I_{p}$ en fonction de $p.$
+
+\item Démontrer que la fonction $f$ est la densité de probabilité d'une
+variable aléatoire $Y$, dont on déterminera la fonction de répartition
+$F.$
+
+\item Les statistiques des ventes de la société permettent de
+considérer
+dans toute la suite du problème que la variable aléatoire $Y$
+représente la
+demande mensuelle, en millions de litres d'essence.\\
+Déterminer la valeur du moment d'ordre $p$ de la variable aléatoire
+$Y.$ En déduire la demande mensuelle en litre que la société ALFDIS
+peut espérer, et
+avec quel écart-type (les valeurs seront arrondies au $100$ litres près
+au
+mieux).
+\end{noliste}
+
+\item Les services de gestion de la société ALFDIS indiquent que pour
+un
+niveau $s$ de stock d'essence fixé et réalisé en début de mois ($s$ en
+millions de litres), le coût de gestion mensuel est une variable
+$g_{s}$ dépendant du nombre aléatoire $t$ de millions de litres
+d'essence demandés, et
+dont la valeur en millions de francs est :
+\[
+g_{s}(t) = \left\{ 
+\begin{array}{ccc}
+0 & \text{si} & t<0 \\
+3.(s-t) & \text{si} & 0\leq t\leq s \\
+2.(t-s) & \text{si} & t>s
+\end{array}
+\right. 
+\]
+\\
+On admet que l'espérance du coût mensuel est définie par $ :\E(g_{s}) =
+\dint{-\infty }{+ \infty }g_{s}(t)f(t)dt.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer $\dint{s}{+ \infty }t.f(t)dt$ en fonction de $\E(Y)$ et
+de $I_{2}(s)$ pour $s\geq 0.$
+
+\item En déduire que l'on a $ :\E(g_{s}) = 5s.F(s) +
+2\E(Y)-2s-20I_{2}(s).$
+
+\item Déterminer alors l'expression de $\E(g_{s})$ en fonction de $s.$
+\end{noliste}
+
+\item On considère la fonction $\varphi $ définie, pour tout $s$
+positif ou
+nul, par :
+\[
+\varphi (s) = 5.(s + 1)e^{-2s} + 3.(s-1).
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer $\varphi ^{\prime }(s)$ et $\varphi "(s).$
+
+\item En déduire que l'équation $\varphi ^{\prime }(s) = 0$ admet une
+unique
+solution $s_{0}.$ Donner l'entier naturel $q$ tel que l'on ait :
+\[
+\dfrac{q}{10^{3}}<s_{0}<\dfrac{q + 1}{10^{3}}.
+\]
+
+\item Construire le tableau de variation de la fonction $\varphi.$
+
+\item Conclure que l'espérance du coût mensuel $\E(g_{s})$ admet pour
+valeur
+minimale le nombre réel :\begin{gather*}
+\dfrac{6s_{0}{2}}{2s_{0} + 1}. \\
+\underline{\hspace{6cm}}
+\end{gather*}
+\end{noliste}
+\end{noliste}
+
+Table donnant certaines valeurs des probabilités $P\left(\Ev{X =
+n}\right)$ et $p_{n} = P\left(\Ev{X\leq n}\right),$ si $X$ suit une loi
+de Poisson de paramètre $5$
+
+\[
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+$n$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ \\
+\hline
+$P\left(\Ev{X = n}\right)$ & $0,0067379$ & $0,0336897$ & $0,0842243$ &
+$0,1403739$ & $0,1754674 $ & $0,1754674$ & $0,1462228$ & $0,1044449$ \\
+\hline
+$p_{n}$ & $0,0067379$ & $0,0404277$ & $0,1246520$ & $0,2650259$ &
+$0,4404933$
+ & $0,6159607$ & $0,7621835$ & $0,8666283$ \\
+\hline
+\end{tabular}
+\]
+
+\label{fin}
+
+\end{document}
+

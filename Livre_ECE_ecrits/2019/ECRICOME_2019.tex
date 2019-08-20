@@ -1,0 +1,482 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+% \input{../macros_Livre.tex}
+\input{../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} ECRICOME 2019} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{-.2cm}
+
+%%DEBUT
+
+\section*{Exercice 1}
+
+\noindent
+On considère dans cet exercice l'espace vectoriel $E=\R^3$, dont on
+note $\B=(e_1,e_2,e_3)$ la base canonique. Soit $f$ l'endomorphisme de
+$E$ dont la matrice dans la base $\B$ est la matrice :
+\[
+A \ = \ \dfrac{1}{3} \
+\begin{smatrix}
+  -1 & 2 & 1\\
+  -1 & -1 & -2\\
+  1 & 1 & 2
+\end{smatrix}
+\]
+
+\subsection*{Partie A}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item  
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Calculer $A^2$ puis vérifier que $A^3$ est la matrice nulle de 
+    $\M{3}$.
+    
+  \item Justifier que $0$ est l'unique valeur propre possible de $f$.
+    
+  \item Déterminer une base et la dimension du noyau de $f$. 
+    
+  \item L'endomorphisme $f$ est-il diagonalisable ?
+  \end{noliste}
+  
+\item Soient $e_1'=(-1,-1,1)$, $e_2'=(2,-1,1)$ et $e_3'=(-1,2,1)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Démontrer que la famille $\B'=(e_1',e_2',e_3')$ est une base
+    de $E$.
+    
+  \item Démontrer que la matrice représentative de $f$ dans la base
+    $\B'$ est la matrice $T =
+    \begin{smatrix}
+      0 & 1 & 0\\
+      0 & 0 & 1\\
+      0 & 0 & 0
+    \end{smatrix}$.
+  \end{noliste}
+  
+\item On pose : $M \ = \ \dfrac{1}{3} \ 
+  \begin{smatrix}
+    4 & -2 & -1\\
+    1 & 4 & 2\\
+    -1 & -1 & 1
+  \end{smatrix}$.\\[.1cm]
+  On note $h$ l'endomorphisme de $E$ dont la matrice représentative dans la 
+  base $\B$ est la matrice $M$. 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer deux réels $\alpha$ et $\beta$ tels que $M=\alpha A
+    + \beta I$, où $I$ est la matrice identité d'ordre $3$.
+    
+  \item Déterminer la matrice $M'$ de $h$ dans la base $\B'$.
+    
+  \item En déduire que $M$ est inversible.
+    
+  \item À l'aide de la question \itbf{1.a)}, calculer $(M-I)^3$. En
+    déduire l'expression de $M^{-1}$ en fonction des matrices $I$, $M$
+    et $M^2$.
+    
+  \item À l'aide de la formule du binôme de Newton, exprimer $M^n$ pour 
+    tout entier naturel $n$, en fonction des matrices $I$, $A$ et $A^2$.\\
+    Cette formule est-elle vérifiée pour $n=-1$ ?
+  \end{noliste}
+\end{noliste}
+
+
+% \newpage
+
+
+\subsection*{Partie B} 
+
+\noindent
+Dans cette partie, on veut montrer qu'il n'existe aucun endomorphisme $g$ de 
+$E$ vérifiant $g \circ g=f$.\\
+On suppose donc par l'absurde qu'il existe une matrice $V$ carrée d'ordre 3 
+telle que :
+\[
+V^2 \ = \ T
+\]
+On note $g$ l'endomorphisme dont la matrice représentative dans la base 
+$\B'$ est $V$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{3}
+\item Montrer : $V \, T \ = \  T \, V$. En déduire : $g \circ f= f \circ 
+  g$.
+  
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $g(e_1')$ appartient au noyau de $f$.\\
+    En déduire qu'il existe un réel $a$ tel que : $g(e_1')=a \cdot e_1'$.
+    
+    
+    \newpage
+    
+    
+  \item Montrer que $g(e_2')-a \cdot e_2'$ appartient aussi au noyau
+    de $f$.\\
+    En déduire qu'il existe un réel $b$ tel que : $g(e_2') \ = \ b
+    \cdot e_1' + a \cdot e_2'$.
+    
+  \item Montrer : $f \circ g (e_3') \ = \ g \circ f (e_3') \ = \ a
+    \cdot e_2'+ b \cdot e_1'$.\\
+    En déduire que $g(e_3')-a \cdot e_3' - b \cdot e_2'$ appartient au
+    noyau de $f$.
+    
+  \item En déduire qu'il existe un réel $c$ tel que : $V \ = \
+    \begin{smatrix}
+      a & b & c\\
+      0 & a & b\\
+      0 & 0 & a
+    \end{smatrix}$.
+  \end{noliste}
+\item Calculer $V^2$ en fonction de $a$, $b$ et $c$, puis en utilisant 
+  l'hypothèse $V^2=T$, obtenir une contradiction.
+\end{noliste}
+
+
+\section*{Exercice 2}
+
+\noindent
+On considère la fonction $f$ définie sur l'ouvert de $\R_+^{*} \times
+\R_+^{*}$ par :
+\[
+\forall (x,y) \in \R_+^{*} \times \R_+^{*}, \ f(x,y) = \dfrac{x}{y^2}
++ y^2 + \dfrac{1}{x}
+\]
+La première partie consiste en l'étude des extrema éventuels de la
+fonction $f$, et la deuxième partie a pour objectif l'étude d'une
+suite implicite définie à l'aide de la fonction $f$.\\
+Ces deux parties sont indépendantes.
+
+\subsection*{Partie A}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item On utilise \Scilab{} pour tracer les lignes de niveau de la
+  fonction $f$. On obtient le graphe suivant :~\\[-.4cm]
+  \begin{center}
+    \includegraphics[width=11.5cm,height=11.5cm]{../Figures/ECRICOME_2019/Ecricome_2019_figure1.pdf}
+  \end{center}
+  Établir une conjecture à partir du graphique quant à l'existence
+  d'un extremum local pour $f$, dont on donnera la nature, la valeur
+  approximative et les coordonnées du point en lequel il semble être
+  atteint.
+  
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Démontrer que $f$ est de classe $\Cont{2}$ sur $\R_+^{*}
+    \times \R_+^{*}$.
+    
+  \item Calculer les dérivées partielles premières de $f$, puis
+    démontrer que $f$ admet un unique point critique, noté $A$, que
+    l'on déterminera.
+    
+  \item Calculer les dérivées partielles secondes de $f$, puis
+    démontrer que la matrice hessienne de $f$ au point $A$ est la
+    matrice $H$ définie par : $H \ = \
+    \begin{smatrix}
+      2 & -2\\
+      -2 & 8
+    \end{smatrix}$.
+  \item En déduire que la fonction $f$ admet au point $A$ un extremum
+    local, préciser si cet extremum est un minimum, et donner sa
+    valeur.
+  \end{noliste}
+\end{noliste}
+
+\subsection*{Partie B} 
+
+\noindent
+Pour tout entier $n$ non nul, on note $h_n$ la fonction définie sur
+$\R_+^{*}$ par :
+\[
+\forall x >0, \ \ h_n(x) \ = \ f(x^n,1) \ = \ x^n + 1 + \dfrac{1}{x^n}
+\]
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{2}
+\item Démontrer que pour tout entier naturel $n$ non nul, la fonction
+  $h_n$ est strictement décroissante sur $]0,1[$ et strictement
+  croissante sur $[1,+\infty[$.
+  
+\item En déduire que pour tout entier $n$ non nul, l'équation
+  $h_n(x)=4$ admet exactement deux solutions, notées $u_n$ et $v_n$ et
+  vérifiant : $0 < u_n < 1 <v_n$.
+  
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Démontrer :
+    \[
+    \forall x > 0, \ \forall n \in \N^*, \ h_{n+1}(x) - h_n(x) = 
+    \dfrac{(x-1)(x^{2n+1}-1)}{x^{n+1}}
+    \]
+    
+  \item En déduire : $\forall n \in \N^*, \ h_{n+1}(v_n) \geq 4$.
+    
+  \item Montrer alors que la suite $(v_n)$ est décroissante.
+  \end{noliste}
+  
+\item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Démontrer que la suite $(v_n)$ converge vers un réel $\ell$ et 
+    montrer : $\ell \geq 1$.
+    
+  \item En supposant que $\ell >1$, démontrer : $\dlim{n \to +\infty}
+    v_n^n = +\infty$.\\
+    En déduire une contradiction.
+    
+  \item Déterminer la limite de $(v_n)$.
+  \end{noliste}
+  
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer : $\forall n \geq 1, \ v_n \leq 3$.
+    
+  \item Écrire une fonction \Scilab{} d'en-tête {\tt function y =
+      h(n,x)} qui renvoie la valeur de $h_n(x)$ lorsqu'on lui fournit
+    un entier naturel $n$ non nul et un réel $x \in \R_+^{*}$ en
+    entrée.
+    
+    
+    \newpage
+    
+    
+  \item Compléter la fonction suivante pour qu'elle renvoie une valeur
+    approchée à $10^{-5}$ près de $v_n$ par la méthode de dichotomie
+    lorsqu'on lui fournit un entier $n \geq 1$ en entrée :
+    \begin{scilab}
+      & \tcFun{function} \tcVar{res}=\underline{v}(\tcVar{n}) \nl %
+      & \quad a = 1 \nl %
+      & \quad b = 3 \nl %
+      & \quad \tcFor{while} (b-a) > 10\puis{}(-5) \nl %
+      & \quad \quad c = (a+b)/2 \nl %
+      & \quad \quad \tcIf{if} h(\tcVar{n},c) < 4 \tcIf{then} \nl %
+      & \quad \quad \quad ........ \nl %
+      & \quad \quad \tcIf{else} \nl %
+      & \quad \quad \quad ........ \nl %
+      & \quad \quad \tcIf{end} \nl %
+      & \quad \tcFor{end} \nl %
+      & \quad .......... \nl %
+      & \tcFun{endfunction}
+    \end{scilab}
+    
+  \item À la suite de la fonction {\tt v}, on écrit le code suivant :
+    \begin{scilab}
+      & X = 1:20 \nl %
+      & Y = zeros(1,20) \nl %
+      & \tcFor{for} k = 1:20 \nl %
+      & \quad Y(k) = v(k)\puis{}k \nl %
+      & \tcFor{end} \nl %
+      & plot2d(X, Y, style=-2, rect=[1,1,20,3])
+    \end{scilab}
+    À l'exécution du programme, on obtient la sortie graphique
+    suivante :~\\[-.4cm]
+    \begin{center}
+      \includegraphics[width=9.5cm,height=9.5cm]{../Figures/ECRICOME_2019/Ecricome_2019_figure2.pdf}
+    \end{center}
+    Expliquer ce qui est affiché sur le graphique ci-dessus.\\
+    Que peut-on conjecturer ?
+    
+  \item Montrer : $\forall n \geq 1, \ (v_n)^n = \dfrac{3+
+      \sqrt{5}}{2}$.
+    
+  \item Retrouver ainsi le résultat de la question \itbf{4.c)}.
+  \end{noliste}
+\end{noliste}
+
+
+\newpage
+
+
+\section*{Exercice 3}
+
+\noindent
+On suppose que toutes les variables aléatoires présentées dans cet
+exercice sont définies sur le même espace probabilisé.
+
+\subsection*{Partie A}
+
+\noindent
+Soit $f$ la fonction définie sur $\R$ par :
+\[
+\forall t \in \R, \ f(t) = %
+\left\{
+  \begin{array}{cR{2.5cm}}
+    \dfrac{1}{t^3} & si $t \geq 1$
+    \nl
+    \nl[-.2cm]
+    0 & si $-1 < t < 1$
+    \nl
+    \nl[-.2cm]
+    -\dfrac{1}{t^3} & si $t \leq -1$
+  \end{array}
+\right.
+\]
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item Démontrer que la fonction $f$ est paire.
+  
+\item Justifier que l'intégrale $\dint{1}{+\infty} f(t) \dt$ converge
+  et calculer sa valeur.
+  
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item À l'aide d'un changement de variable, montrer que pour tout
+    réel $A$ strictement supérieur à 1, on a :
+    \[
+    \dint{-A}{-1} f(t) \dt \ = \ \dint{1}{A} f(u) \ du
+    \]
+    En déduire que l'intégrale $\dint{-\infty}{-1} f(t) \dt$ converge et 
+    donner sa valeur.
+    
+  \item Montrer que la fonction $f$ est une densité de probabilité.
+  \end{noliste}
+  
+\item On considère une variable aléatoire $X$ admettant $f$ pour
+  densité. On note $F_X$ la fonction de répartition de $X$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que, pour tout réel $x$, on a : 
+    \[
+    F_X(x) \ = \ \left\{
+      \begin{array}{cR{2.5cm}}
+        \dfrac{1}{2x^2} & si $x \leq -1$
+        \nl
+        \nl[-.2cm]
+        \dfrac{1}{2} & si $-1 < x < 1$
+        \nl
+        \nl[-.2cm]
+        1 - \dfrac{1}{2 x^2} & si $x \geq 1$
+      \end{array}
+    \right.
+    \]
+    
+  \item Démontrer que $X$ admet une espérance, puis que cette espérance 
+    est nulle.
+    
+  \item La variable aléatoire $X$ admet-elle une variance ?
+  \end{noliste}
+  
+\item Soit $Y$ la variable aléatoire définie par $Y=|X|$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Donner la fonction de répartition de $Y$, et montrer que $Y$
+    est une variable aléatoire à densité.
+    
+  \item Montrer que $Y$ admet pour densité la fonction $f_Y$ définie par :
+    \[
+    f_Y : x \mapsto \left\{
+      \begin{array}{cR{2cm}}
+        \dfrac{2}{x^3} & si $x \geq 1$
+        \nl
+        \nl[-.2cm]
+        0 & sinon 
+      \end{array}
+    \right. 
+    \]
+    
+  \item Montrer que $Y$ admet une espérance et la calculer.
+  \end{noliste}
+\end{noliste}
+
+
+\newpage
+
+
+\subsection*{Partie B} 
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{5}
+\item Soit $D$ une variable aléatoire prenant les valeurs $-1$ et $1$
+  avec équiprobabilité, indépendante de la variable aléatoire $Y$.\\
+  Soit $T$ la variable aléatoire définie par $T=DY$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer la loi de la variable $Z = \dfrac{D+1}{2}$. En déduire 
+    l'espérance et la variance de $D$.
+    
+  \item Justifier que $T$ admet une espérance et préciser sa valeur.
+    
+  \item Montrer que pour tout réel $x$, on a :
+    \[
+    \Prob(\Ev{T \leq x}) \ = \ \dfrac{1}{2} \ \Prob(\Ev{Y \leq x}) +
+    \dfrac{1}{2} \ \Prob(\Ev{Y \geq -x})
+    \]
+    
+  \item En déduire la fonction de répartition de $T$.
+  \end{noliste}
+  
+\item Soit $U$ une variable aléatoire suivant la loi uniforme sur $]0,1[$ 
+  et $V$ la variable aléatoire définie par : $V = \dfrac{1}{\sqrt{1-U}}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Rappeler la fonction de répartition de $U$.
+      
+  \item Déterminer la fonction de répartition de $V$ et vérifier que les 
+    variable $V$ et $Y$ suivent la même loi.
+  \end{noliste}
+  
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Écrire une fonction en langage \Scilab{}, d'en-tête {\tt
+      function a = D(n)}, qui prend un entier $n \geq 1$ en entrée, et
+    renvoie une matrice ligne contenant $n$ réalisations de la
+    variable aléatoire $D$.
+    
+  \item On considère le script suivant :
+    \begin{scilab}
+      & n = input(\ttq{}entrer n\ttq{}) \nl %
+      & a = D(n) \nl %
+      & b = rand(1,n) \nl %
+      & c = a / sqrt(1-b) \nl %
+      & disp( sum(c) / n)
+    \end{scilab}
+    De quelle variable aléatoire les coefficients du vecteur {\tt c}
+    sont- ils une simulation ? Pour {\tt n} assez grand, quelle sera
+    la valeur affichée ? Justifier votre réponse.
+  \end{noliste}
+\end{noliste}
+
+\end{document}

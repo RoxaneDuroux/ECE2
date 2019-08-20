@@ -1,0 +1,465 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 2001 - voie Générale} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION SCIENTIFIQUE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 2001}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent L'objet du problème est l'étude, dans certains cas, des
+sous-espaces stables par un endomorphisme d'un espace vectoriel.\\
+Dans tout le problème, on considère un entier naturel $n$ non nul et on
+note 
+$E$ le $\R$-espace vectoriel $\R^{n}$. On note $0_{E}$ le
+vecteur nul de $E$ et $Id_{E}$ l'endomorphisme identité de $E$. On dira
+qu'un sous-espace vectoriel $F$ de $E$ est stable par un endomorphisme
+$f$
+de $E$ (ou que $f$ laisse stable $F$) si l'inclusion $f(F)\subset F$
+est vérifiée.\\
+\textit{On observera que le sous-espace vectoriel réduit à
+}$\{0_{E}\}$\textit{\ et }$E$\textit{\ lui-même sont stables par tout
+endomorphisme de }$E$\textit{. }\\
+On note $\R[X]$ l'espace vectoriel des polynômes à coefficients réels
+et, pour tout entier naturel $k$, on note $\R_{k}[X]$ le
+sous-espace vectoriel formé par les éléments de $\R[X]$ qui sont de
+degré inférieur ou égal à $k$.\\
+Si $f$ est un endomorphisme de $E$ on pose $f^{0} = Id_{E}$, $f^{1} =
+f$, $f^{2} = f\circ f$, $f^{3} = f\circ f\circ f$, etc.\\
+Si $f$ est un endomorphisme de $E$ et si $P = \Sum{k = 0}{n}a_{k}X^{k}$
+est un élément de $\R[X]$, on rappelle qu'on note
+$P\left(\Ev{f}\right)$
+l'endomorphisme de $E$ égal à $P\left(\Ev{f}\right) = \Sum{k =
+0}{n}a_{k}f^{k}$.
+
+\section*{Partie I : {Préliminaires}}
+
+Soit $f$ un endomorphisme de $E$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $P$ un élément de $\R[X]$. Montrer que le sous-espace
+vectoriel $\ker P\left(\Ev{f}\right)$ est stable par $f$.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que les droites de $E$ stables par $f$ sont exactement
+celles
+qui sont engendrées par un vecteur propre de l'endomorphisme $f$.
+
+\item On note $\mathcal{B} = (e_{1},e_{2},e_{3})$ la base canonique de
+$\R^{3}$ et on considère l'endomorphisme $g$ de $\R^{3}$ dont
+la matrice dans la base $\mathcal{B}$ est 
+\[
+B = 
+\begin{smatrix}
+1 & 1 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 2
+\end{smatrix}
+\]
+Déterminer (en en donnant une base) les droites de $\R^{3}$ stables
+par $g$.
+\end{noliste}
+
+\item Soit $p$ un entier naturel non nul.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Si $F_{1},\dots,F_{p}$ sont $p$ sous-espaces vectoriels de $E$
+stables par $f$, montrer qu'alors la somme $\Sum{k = 1}{p}F_{k}$ est
+un sous-espace vectoriel stable par $f$.
+
+\item Si $\lambda_{1},\dots,\lambda_{p}$ sont $p$ valeurs propres de
+$f$
+et si $n_{1},\dots,n_{p}$ sont $p$ entiers naturels montrer qu'alors la
+somme $\Sum{k = 1}{p}\ker (f-\lambda_{k}Id_{E})^{n_{k}}$ est stable
+par $f$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $a$ un réel. Vérifier que les sous-espaces vectoriels de $E$
+stables par un endomorphisme $f$ sont exactement ceux qui sont stables
+par
+l'endomorphisme $f-\lambda Id_{E}$.
+
+\item Quel lien y-a-t-il entre les sous-espaces vectoriels stables par
+un
+endomorphisme $f$ et ceux qui sont stables par l'endomorphisme $f^{2}$
+?
+
+\item Quel lien y-a-t-il entre les sous-espaces vectoriels stables par
+un
+automorphisme $f$ et ceux qui sont stables par l'endomorphisme $f^{-1}$
+?
+
+\item Que dire d'un endomorphisme de $E$ laissant stable tout
+sous-espace
+vectoriel de $E$ ?
+
+\item Donner un exemple d'endomorphisme de $\R^{2}$ ne laissant
+stable que le sous-espace vectoriel réduit au vecteur nul et l'espace
+$\R^{2}$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On rappelle qu'une forme linéaire sur $E$ est une application
+linéaire
+de $E$ dans $\R$ et qu'un hyperplan de $E$ est un sous-espace
+vectoriel de $E$ de dimension $n-1$.\\
+Montrer que les hyperplans de $E$ sont exactement les noyaux de formes
+linéaires non nulles sur $E$. \textit{On pourra compléter une base d'un
+hyperplan en une base de }$E$\textit{. }
+
+\item Soit $\varphi $ une forme linéaire non nulle sur $E$ et $H = \ker
+\varphi $.
+
+\begin{nonoliste}{(i)}
+\item Montrer que l'hyperplan $H$ est stable par $f$ si et seulement si
+il
+existe un élément $\lambda $ de $\R$ vérifiant l'égalité : $\varphi
+\circ f = \lambda \varphi $.
+
+\item On note $A$ la matrice de $f$ relativement à la base canonique de
+$E$
+et $L$ la matrice (ligne) de $\varphi $ relativement aux bases
+canoniques de 
+$E$ et $\R$.\\
+Montrer que l'hyperplan $H$ est stable par $f$ si et seulement si il
+existe
+un réel $\lambda $ vérifiant l'égalité $^{t}A$ $^{t}L = \lambda $
+$^{t}L$.
+\end{nonoliste}
+
+\item Déterminer (en en donnant une base) les plans de $\R^{3}$
+stables par l'endomorphisme $g$ défini à la question 2).
+\end{noliste}
+\end{noliste}
+
+\section*{Partie II : {Le cas où l'endomorphisme est diagonalisable}}
+
+Dans cette partie, on considère un endomorphisme $f$ de $E$
+diagonalisable
+et on note $\lambda_{1},\dots,\lambda_{p}$ ses valeurs propres
+distinctes
+et $E_{1},\dots,E_{p}$ les sous-espaces propres correspondants.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Que dire des sous-espaces vectoriels de $E$ stables par $f$ si $p
+= 1$ ?
+
+\item On suppose l'entier $p$ au moins égal à $2$. On considère un
+sous-espace vectoriel $F$ de $E$ stable par $f$ et un élément $x$ de
+$F$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier l'existence d'un unique élément
+$(x_{1},x_{2},\dots,x_{p})$
+de $\prod\limits_{k = 1}{p}E_{k}$ vérifiant l'égalité : $x = \Sum{k =
+1}{p}x_{k}$.
+
+\item Montrer que le vecteur $\Sum{k = 1}{p}(\lambda_{k}-\lambda
+_{1})x_{k}$ est élément de $F$.
+
+\item Montrer que les vecteurs $x_{1},\dots,x_{p}$ sont tous dans $F$.
+\end{noliste}
+
+\item Déduire de la question précédente que les sous-espaces vectoriels
+de $E $ stables par $f$ sont exactement les sous-espaces vectoriels de
+la forme $\Sum{k = 1}{p}F_{k}$ où, pour tout entier $k$ vérifiant les
+inégalités $1\leq k\leq p$, $F_{k}$ est un sous-espace vectoriel de
+$E_{k}$.
+
+\item Montrer que l'endomorphisme induit par $f$ sur l'un de ses
+sous-espaces vectoriels stables $F$ est un endomorphisme diagonalisable
+de $F $.
+
+\item Donner une condition nécessaire et suffisante portant sur les
+valeurs
+propres de $f$ pour que $E$ possède un nombre fini de sous-espaces
+vectoriels stables par $f$. Quel est alors ce nombre ?
+\end{noliste}
+
+\section*{Partie III : {Le cas où l'endomorphisme est nilpotent d'ordre
+$n$}}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On note $D$ l'endomorphisme de $\R_{n-1}[X]$ qui à tout polynôme
+$P$ associe son polynôme dérivé $P^{\prime }$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $D^{n}$ est l'endomorphisme nul et que $D^{n-1}$ ne
+l'est
+pas.
+
+\item Vérifier que les sous-espaces vectoriels de $\R_{n-1}[X]$
+stables par $D$ sont, en dehors du sous-espace vectoriel réduit au
+polynôme
+nul, les $n$ sous-espaces vectoriels suivants :
+$\R_{0}[X],\R_{1}[X],\dots,\R_{n-1}[X]$.
+\end{noliste}
+
+\item On note $\mathbf{0}$ l'endomorphisme nul de $E$ et on considère
+un
+endomorphisme $f$ de $E$ nilpotent d'ordre $n$, c'est-à-dire vérifiant
+les
+conditions : $f^{n} = \mathbf{0}$ et $f^{n-1}\not = \mathbf{0}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir qu'il existe une base $\mathcal{B} =
+(e_{1},e_{2},\dots,e_{n})$
+de $E$ dans laquelle la matrice $A$ de $f$ est 
+\[
+A = 
+\begin{smatrix}
+0 & 1 & 0 & \dots & 0 \\
+0 & 0 & 1 & \ddots & \vdots \\
+\vdots & \ddots & \ddots & \ddots & 0 \\
+\vdots & & \ddots & 0 & 1 \\
+0 & \dots & \dots & 0 & 0
+\end{smatrix}
+\]
+$A$ est donc la matrice dont le coefficient de la ligne $i$ et de la
+colonne 
+$j$ ($1\leq i\leq n,1\leq j\leq n$) vaut $1$ si $j = i + 1$
+et $0$ sinon.
+
+\item Montrer que la matrice $A$ est semblable à la matrice $B$
+suivante 
+\[
+B = 
+\begin{smatrix}
+0 & 1 & 0 & \dots & 0 \\
+0 & 0 & 2 & \ddots & \vdots \\
+\vdots & \ddots & \ddots & \ddots & 0 \\
+\vdots & & \ddots & 0 & n-1 \\
+0 & \dots & \dots & 0 & 0
+\end{smatrix}
+\]
+$B$ est donc la matrice dont le coefficient de la ligne $i$ et de la
+colonne 
+$j$ ($1\leq i\leq n,1\leq j\leq n$) vaut $i$ si $j = i + 1$
+et $0$ sinon.
+
+\item Déterminer (en en donnant une base) les sous-espaces vectoriels
+de $E$
+stables par $f$.
+\end{noliste}
+\end{noliste}
+
+\section*{Partie IV : {Le cas où l'endomorphisme est nilpotent d'ordre
+2}}
+
+Dans cette partie on considère un endomorphisme $f$ de $E$ nilpotent
+d'ordre 
+$2$ c'est à dire un endomorphisme non nul de $E$ tel que $f\circ f$ est
+l'endomorphisme nul.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On considère un sous-espace vectoriel $F_{2}$ de $E$ vérifiant
+$F_{2}\cap \ker f = \{0_{E}\}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier l'inclusion : $f(F_{2})\subset \ker f$.
+
+\item On considère de plus un sous-espace vectoriel $F_{1}$ de $\ker f$
+contenant $f(F_{2})$. Montrer que la somme $F_{1} + F_{2}$ est directe
+et que
+c'est un sous-espace vectoriel de $E$ stable par $f$.
+
+\item Étant donné $A$, $B$, $C$ trois sous-espaces vectoriels de $E$,
+établir l'inclusion : 
+\[
+(A\cap C) + (B\cap C)\subset (A + B)\cap C
+\]
+A-t-on nécessairement l'égalité ?
+
+\item Déterminer l'intersection $(F_{1} + F_{2})\cap \ker f$.
+\end{noliste}
+
+\item Réciproquement on considère un sous-espace vectoriel $F$ de $E$
+stable
+par $f$. On pose $F_{1} = F\cap \ker f$ et on considère un sous-espace
+vectoriel $F_{2}$ supplémentaire de $F_{1}$ dans $F$.\\
+Vérifier l'inclusion $f(F)\subset \ker f$ et prouver que l'intersection
+$F_{2}\cap \ker f$ est réduite au vecteur nul.
+
+\item \textbf{Dans cette question}, on suppose que l'entier $n$ est
+égal à $4 $ (i.e. $E = \R^{4}$) et on considère l'endomorphisme $h$ de
+$E$
+dont la matrice dans la base canonique $\mathcal{B} =
+(e_{1},e_{2},e_{3},e_{4}) $ de $\R^{4}$ est la matrice $M$ suivante 
+\[
+M = 
+\begin{smatrix}
+1 & 1 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 2 & 1 \\
+0 & 0 & 0 & 2
+\end{smatrix}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que les sous-espaces vectoriels $G_{1} = \ker
+(h-Id)^{2}$ et $G_{2} = \ker (h-2Id)^{2}$ sont supplémentaires.
+
+\item Montrer que les sous-espaces vectoriels stables par $h$ sont
+exactement les sommes $H_{1} + H_{2}$ où $H_{1}$ (resp. $H_{2}$) est un
+sous-espace vectoriel de $G_{1}$ (resp. $G_{2}$) stable par $h$.
+
+\item Déterminer (en en donnant une base) les sous-espaces vectoriels
+de $E$
+stables par $h$.
+\end{noliste}
+\end{noliste}
+
+\section*{Partie V : {Existence d'un plan stable par un endomorphisme}}
+
+Soit $f$ un endomorphisme non nul de $E$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Justifier l'existence d'un polynôme non nul à coefficients réels
+annulant $f$.\\
+On note $M$ un polynôme non nul à coefficients réels de plus bas degré
+annulant $f$. \textit{On observera que }$M$\textit{\ n'est pas
+constant. }
+
+\item \textbf{Dans cette question}, on suppose que le polynôme $M$ n'a
+pas
+de racine réelle et on note $z$ l'une de ses racines complexes.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que le conjugué de $z$ est aussi racine de $M$ et en
+déduire
+qu'il existe un polynôme du second degré à coefficients réels noté
+$X^{2} + bX + c$ qui divise $M$.
+
+\item Montrer que l'endomorphisme $f^{2} + bf + cId_{E}$ n'est pas
+injectif.
+
+\item En déduire qu'il existe un plan de $E$ stable par $f$.
+\end{noliste}
+
+\item \textbf{Dans cette question}, on suppose qu'il existe un réel
+$\lambda 
+$, un réel $\alpha $ non nul et un entier $p$ au moins égal à $2$
+vérifiant
+l'égalité : $M = \alpha (X-\lambda )^{p}$. On pose $g = f-\lambda
+Id_{E}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer qu'il existe un vecteur $x$ de E tel que la famille
+$(x,g(x),\dots,g^{(p-1)}(x))$ est libre.
+
+\item En déduire qu'il existe un plan de $E$ stable par $f$.
+\end{noliste}
+
+\item Montrer que, dans tous les cas, il existe un plan de $E$ stable
+par $f$.
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

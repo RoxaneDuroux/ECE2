@@ -1,0 +1,403 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../../macros.tex}
+%\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \\
+  Mathématiques\\[.2cm]
+  \hrule} %
+\chead{} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} ESSEC II 2012} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+
+
+
+
+
+
+
+
+
+\noindent
+En psychologie, on s'intéresse à la fa\c con dont un individu est 
+amené à sélectionner une action quand un choix se présente entre 
+différentes actions possibles. Ce choix peut être influencé par un 
+grand nombre de facteurs impondérables, ce qui fait qu'il est 
+légitime de le modéliser à l'aide de variables aléatoires. 
+L'objet du problème est de présenter quelques éléments simples 
+de la théorie des modèles de choix discret. Dans le modèle binaire 
+le plus simple, le choix se fait en fonction de la réaction à un 
+stimulus. Dans une première partie, on étudie la modélisation 
+élémentaire de la réponse à un stimulus. Dans une deuxième 
+partie, on considère une importante modélisation de choix 
+dépendant du hasard, dit {\it modèle de Luce}, et on étudie ses 
+propriétés. Enfin, dans une troisième partie, on regarde le cas 
+o\`u les différents choix possibles engendrent des réactions 
+aléatoires et on étudie des propriétés de la réaction 
+optimale.  {\bf Les trois parties sont indépendantes}.\\
+
+\noindent
+Toutes les variables aléatoires sont définies sur un même espace 
+probabilisé $(\Omega , \A , \Prob)$. Si elles existent, on note $\E(T)$ 
+et $\V(T)$ l'espérance et la variance d'une variable aléatoire $T$.
+
+\section{Modèles avec réponse discrète}
+\noindent
+Soit $\alpha $ un réel (positif ou négatif) représentant un niveau 
+de stimulus. On considère une variable aléatoire réelle $X$ à 
+valeurs dans $\R$ représentant la tolérance de l'individu au 
+stimulus en question. On considère donc que l'individu réagit si $X 
+\leq \alpha$ et ne réagit pas si $X >\alpha $. On considère la 
+variable aléatoire $Y$ indicatrice de la réaction définie par 
+\[
+ Y = 
+ \left\{ \begin{array}{lll}
+  1 & {\rm si} & X\leq \alpha \\
+  0 & {\rm si} & X>\alpha 
+  \end{array} \right.
+\]
+Soit $F$ la fonction de répartition de la variable aléatoire $X$.
+\begin{noliste}{1.} 
+ \item Déterminer la loi de $Y$, son espérance $\theta$ et 
+ sa variance.
+ 
+ \item  On considère $n$ individus dont on observe la réaction 
+ au stimulus. La tolérance de l'individu $i$ est une variable 
+ aléatoire $X_i$ dont on suppose qu'elle suit la  même loi que $X$. 
+ En outre, les tolérances pour les différents individus  sont 
+ supposées indépendantes.
+ \begin{noliste}{a)}
+  \item Soit $N$ la variable aléatoire égale au nombre 
+  d'individus réagissant au stimulus. Déterminer la loi de $N$, son 
+  espérance et sa variance.
+  
+  \item Construire à l'aide de $N$ un estimateur sans biais de 
+  $\theta$.
+ \end{noliste}
+ 
+ \item Soient $m$ un réel et $\sigma$ un réel strictement 
+ positif.\\
+ \noindent
+ On suppose que la tolérance $X$ est obtenue comme résultante d'un 
+ \og grand nombre \fg{} $n$ de facteurs indépendants de petite taille 
+ c'est-à-dire  $X = \Sum{i=1}{n} X_i$, où les $X_i$ sont 
+ supposées être des variables aléatoires de même loi 
+ d'espérance $\dfrac{m}{n}$ et de variance $\dfrac{\sigma^2}{n}$.
+ \begin{noliste}{a)}
+  \item Déterminer l'espérance et l'écart-type de $X$.
+  
+  \item Montrer que pour tout réel $a$, 
+  \[
+   \dlim{n\to +\infty}\Prob\Big(\Ev{X- \dfrac{m}{\sigma}\leq a}\Big) 
+   = \dfrac{1}{\sqrt{2\pi}} \dint{-\infty}{a} \ee^{-\frac{u^2}{2}} \ du
+  \]
+  
+  \item Le résultat précédent justifie que pour $n$ grand on 
+  peut considérer que la variable aléatoire  $X- \dfrac{m}{\sigma}$ 
+  suit la loi normale centrée réduite.  Trouver dans ce cas 
+  l'expression de $\theta$ en fonction de $\alpha $, $m$ et $\sigma$.
+  
+  \item Déterminer $\dlim{\sigma \to +\infty} \theta$ et interpréter le 
+  résultat.
+ \end{noliste}
+ 
+ \item Plutôt que d'utiliser la loi normale, on préfère 
+ souvent une loi plus simple dont on étudie dans cette question 
+ quelques propriétés.
+ \begin{noliste}{a)}
+  \item Soit $F$ la fonction définie sur $\R$ par : 
+  \[
+   \forall y\in \R, \ F(y)= \dfrac{1}{1+\ee^{-y}}
+  \]
+  Montrer que $F$ est la fonction de répartition d'une variable 
+  aléatoire réelle. On dit alors que cette variable aléatoire suit la 
+  {\it loi logistique}.
+  
+  \item \label{niv_stimulus} On suppose que $X$ suit une loi 
+  logistique. Déterminer $\theta$.\\[.2cm]
+  On considère $Z$ une variable aléatoire suivant la loi logistique.
+  
+  \item Déterminer une densité de probabilité de $Z$.
+  
+  \item Soit $y$ un réel positif. Etablir une relation entre 
+  $F(y)$ et $F(-y)$.
+  
+  \item Montrer que $Z$ admet une espérance et la déterminer.
+  
+  \item Soit $U$ une variable aléatoire de loi uniforme sur 
+  $]0,1[$. Déterminer la loi de la variable aléatoire $\ln \Big( 
+  \dfrac{U}{1-U} \Big)$.
+ \end{noliste}
+\end{noliste}
+
+
+
+
+
+
+
+
+\section{Règles de décisions stochastiques : le modèle de Luce}
+
+\noindent
+On suppose maintenant que l'individu doit choisir une action dans un 
+ensemble fini d'actions possibles $A$. On note ${\cal F} =\{ S\subset 
+A \ / \ \vert S \vert \geq 2 \}$ où $\vert S \vert$ désigne le cardinal 
+de l'ensemble $S$. Quand le nombre d'actions possibles est très grand, 
+la procédure de choix se passe en deux temps : l'individu commence par 
+sélectionner une partie $S$ de ${\cal F}$ à laquelle il va restreindre 
+son choix, puis choisit une action précise à l'intérieur de $S$.\\[.1cm]
+Pour chaque élément $S$ de ${\cal F}$, on définit une probabilité 
+$\Prob_S$ sur $S$ : pour $a$ un élément de  $S$, $\Prob_S(\{ a\})$ 
+représente la probabilité pour que l'individu ayant sélectionné 
+$S$ choisisse l'action $a$. Pour simplifier la notation, on notera 
+$\Prob_S(a)$ pour $\Prob_S(\{ a\} )$.  En particulier, 
+$\Prob_A(S)= \Sum{a\in S}{} \Prob_A(a)$ est la probabilité pour 
+que l'individu prenne dans $S$ l'action qu'il choisit.\\[.1cm]
+Pour $a$ et $b$ distincts dans $A$ on note $\Prob(a,b) = \Prob_{\{ 
+a,b\} }(\{ a\} )$; il s'agit donc de la probabilité de préférer l'action 
+$a$ à l'action $b$ dans le cas d'un choix à faire entre $a$ et 
+$b$.\\[.1cm]
+On suppose que pour tout $S$ appartenant à ${\cal F}$ et tout $a$ dans 
+$S$, $\Prob_S(a)\neq 0$.\\[.1cm]
+On fait l'hypothèse suivante sur le modèle : \\[.1cm]
+$(*)$ \qquad Pour tout couple $(S,T)$ d'éléments de ${\cal F}$ tel 
+que $S$ est inclus dans $T$, pour tout $a$ élément de $S$, 
+\[
+ \Prob_T(a)=\Prob_T(S) \, \Prob_S(a)
+\]
+
+\begin{noliste}{1.}
+ \item Interpréter le sens de la condition $(*)$ en termes de 
+  probabilités conditionnelles.
+  
+  \item 
+  \begin{noliste}{a)}
+    \item Soit $k$ un réel strictement positif. On pose pour tout 
+    $a\in A$,  $v(a)=k \, \Prob_A(a)$. Montrer que pour tout $S$ 
+    appartenant à ${\cal F}$ et pour tout $a$ dans $S$, 
+    \begin{equation}\label{**}
+     \Prob_S(a)= \dfrac{v(a)}{\Sum{b\in S}v(b)}. 
+    \end{equation}
+    
+    \item Montrer que si $v$ et $w$ sont deux fonctions réelles 
+    définies sur $A$ satisfaisant (\ref{**}), il existe un réel $\mu$ 
+    strictement positif tel que $v=\mu \cdot w$. 
+    Une telle fonction $v$ s'appelle une {\it utilité associée au 
+    système de probabilités} $(\Prob_S)_{S\in {\cal F}}$.
+  \end{noliste}
+  
+  \item Réciproquement, soit $v$ une fonction réelle 
+  strictement positive sur $A$. On pose,  pour tout $S$ dans ${\cal F}$ 
+  et tout $a$ appartenant à $S$, 
+  \[
+   Q_S(a)= \dfrac{v(a)}{\Sum{b\in S}{} v(b)}
+  \]
+  Montrer qu'on définit ainsi un système de probabilités vérifiant 
+  $(*)$.
+  
+  \item 
+  \begin{noliste}{a)}
+    \item Soit $v$ une utilité associée au système 
+    de probabilités $(\Prob_S)_{S\in {\cal F}}$. Montrer que pour tout 
+    $S\in {\cal F}$, et pour tous $a$ et $b$ dans $S$, 
+    \[
+     v(a)\leq v(b) \ \Rightarrow \ \Prob_S(a) \leq \Prob_S(b)
+    \]
+    La probabilité que $a$ soit choisi augmente donc avec son utilité.
+    
+    \item Montrer qu'il existe une fonction $\rho $ sur $A$ telle 
+    que pour tous $a$ et $b$ distincts dans $A$,
+    \[
+     \Prob(a,b) = \dfrac{1}{1+\exp(\rho (b)-\rho (a))}
+    \]
+    
+    \item Soit $X$ une variable aléatoire suivant la loi 
+    logistique de fonction de répartition $F$ définie par 
+    \[
+      F(y)=\dfrac{1}{ 1+\ee^{-y}}
+    \]
+    Soient $a$ et $b$ distincts dans $A$. Trouver  en fonction de $\rho$ 
+    un réel $\alpha_{a,b}$ tel que $\Prob(a,b)=\Prob(\Ev{X\leq 
+    \alpha_{a,b}})$.
+  \end{noliste}
+  
+  \item 
+  \begin{noliste}{a)}
+    \item Montrer que pour tout couple $(S,T)$ 
+    d'éléments de ${\cal F}$ tel que $S$ est inclus dans $T$,  et pour 
+    tous $a$ et $b$ dans $S$, on a 
+    \[
+     \dfrac{\Prob_S(a)}{\Prob_S(b)} = \dfrac{\Prob_T(a)}{\Prob_T(b)}
+    \]
+    Le rapport des probabilités de choix respectives de $a$ et $b$ est 
+    donc indépendant de la sélection de l'ensemble d'actions contenant 
+    $a$ et $b$.
+    
+    \item On examine ici un cas concret. On suppose que l'individu 
+    devant se rendre de son domicile à son travail ait le choix entre 
+    utiliser sa voiture (symbolisée par V) ou le bus, dont deux lignes 
+    sont possibles : le bus rouge (symbolisé par R) ou le bus bleu (B). 
+    On a donc l'ensemble d'actions $A=\{ V,R,B \}$ . On suppose que 
+    l'individu est indifférent au fait de choisir sa voiture ou un bus, 
+    et est également indifférent à la couleur du bus. On définit ainsi 
+    un système de probabilités comme précédemment avec  
+    $\Prob(V,R)=\Prob(V,B)=\dfrac{1}{2}$ et de plus 
+    $\Prob_A(R)=\Prob_A(B)$. 
+    Montrer que $\Prob_A(V)=\dfrac{1}{3}$. Ce résultat est-il 
+    satisfaisant? 
+    Interpréter.
+  \end{noliste}
+\end{noliste}
+
+
+
+
+
+
+
+
+\section{Utilités aléatoires}
+
+\noindent
+Dans cette partie, on aborde la question du choix sous un autre aspect. 
+A chaque action $i$ de l'ensemble d'actions $A =\{ 1,2, \dots , n\} $ 
+est associée une variable aléatoire $U_i$ représentant l'utilité 
+de l'action $i$. L'individu est alors amené à choisir l'action qui 
+maximise ces utilités. On suppose que les variables $U_i$ sont 
+indépendantes et que la loi de $U_i$ est donnée par la fonction de 
+répartition $F_i$. On s'intéresse dans cette partie à la valeur 
+$U$ de l'utilité maximale, c'est à dire à $U=\max (U_1,\dots , 
+U_n)$.
+
+\begin{noliste}{1.}
+ \item 
+ \begin{noliste}{a)}
+  \item Déterminer la fonction de répartition 
+  $G_n$ de $U$. Que vaut $G_n$ dans le cas particulier où les $U_i$ 
+  suivent la même loi de fonction de répartition $F$ ?\\[.2cm]
+  
+  \noindent
+  On suppose désormais que les $U_i$ ont même loi.
+  
+  \item Pour $x$ réel donné, étudier $\dlim{n\to +\infty}G_n(x)$.
+  
+  \item Montrer que les seules lois pour lesquelles on a $G_n=F$ 
+  pour tout $n\geq 1$ sont les lois de variables aléatoires 
+  constantes.
+ \end{noliste}
+ 
+ \item Pour obtenir un type de loi plus intéressant pour $U$, on va 
+ chercher des lois admettant une densité strictement positive sur $\R$ 
+ et dont la fonction de répartition $F$ vérifie que pour tout $n\geq 1$ 
+ il existe $b_n\leq 0$ tel que pour tout $x$ réel, 
+ $(F(x))^n=F(x+b_n)$.\\[.1cm]
+ \noindent 
+ On suppose qu'une telle loi existe et on cherche des conditions 
+ qu'elle vérifie.
+ \begin{noliste}{a)}
+  \item Montrer que $F$ est une fonction continue et strictement 
+  croissante telle que $\dlim{x\to -\infty}F(x)=0$ et 
+  $\dlim{x\to +\infty}F(x)=1$. $F$ définit donc une bijection de $\R$ 
+  sur $]0,1[$.
+  
+  \item Montrer que la suite $(b_n)_{n\geq 1}$ est décroissante.
+  
+  \item Soit $(n,N)$ un couple d'entiers strictement positifs. On 
+  considère $U_1, \dots , U_{nN}$,   $nN$ variables aléatoires 
+  indépendantes de même loi $F$, et on pose pour $j$ tel que  $1\leq j 
+  \leq n$ : 
+  \[
+   Y_j=\max (U_{(j-1)N+1}, \dots , U_{jN})
+  \]
+  Montrer que les variables $Y_j$ sont indépendantes.
+  
+  \item Quelle est  la fonction de répartition de $Y_j$ ?
+  
+  \item En remarquant que $\max (Y_1,\dots , Y_n) = \max (U_1, 
+  \dots , U_{nN})$, montrer que pour tout $x$ réel, 
+  \[
+   F(x)^{nN}=F(x+b_n+b_N)=F(x+b_{nN})
+  \]
+  Déduire que pour tout couple $(n,N)$ d'entiers strictement positifs , 
+  $b_{nN}=b_n+b_N$.
+  
+  \item Montrer que pour tout entier $n$ strictement positif et 
+  tout $k\in \N$ , $b_{n^k}=kb_n$.
+  
+  \item Soient $p$ et $m$ deux entiers strictement positifs. 
+  Montrer qu'il existe un unique $k_m\in \N$ tel que 
+  $2^{k_m} \leq p^m< 2^{{k_m}+1}$ et que 
+  $\dlim{m\to +\infty } \dfrac{k_m}{m}=\ln \left(\dfrac{p}{\ln 
+  2}\right)$.
+  
+  \item En déduire qu'il existe un réel $\gamma$ tel que pour 
+  tout entier $p$ strictement positif,  $b_p=\gamma \ln (p)$.
+  
+  \item Montrer que la fonction $F(x)=\exp(-\ee^{-x})$ 
+  satisfait aux conditions cherchées. La loi ainsi définie est dite 
+  loi de Gumbel.
+ \end{noliste}
+ 
+ \item Dans cette section, on étudie un certain nombre de 
+ propriétés de la loi de Gumbel. Soit $X$ une variable aléatoire de 
+ loi de Gumbel c'est-à-dire de fonction de répartition $F$ telle que 
+ $F(x)=\exp(-\ee^{-x})$.
+ \begin{noliste}{a)}
+  \item Déterminer une densité de probabilité de $X$.
+  
+  \item On pose $Z=\ee^{-X}$. Déterminer la loi de la variable 
+  aléatoire $Z$.
+  
+  \item Soient $x$ et $y$ deux réels strictement positifs.\\
+  Établir une relation entre $\Prob_{\Ev{X\leq -\ln (x)}}(\Ev{X\leq 
+  -\ln(x+y)})$ et $\Prob(\Ev{X\leq -\ln(y)})$.
+  
+  \item On considère  $(Y_i)_{i\ge 1}$ une suite de variables 
+  aléatoires indépendantes de même loi exponentielle de paramètre 
+  1. Soit $L$ une variable aléatoire suivant une loi de Poisson de 
+  paramètre 1 indépendante de $(Y_i)_{i\geq 1}$. 
+  On considère la variable aléatoire $W=\max (Y_1,\dots , Y_L)$ telle 
+  que pour tout $k\geq 1$,  et tout $\omega \in \Ev{L=k}$, $W(\omega 
+  )=\max (Y_1(\omega ), \dots , Y_k(\omega ))$ et $W(\omega )=0$ si 
+  $L(\omega)=0$. \\
+  Montrer que pour tous réels $a$ et $b$ tels que $0< a<b$, on a 
+  $\Prob(\Ev{a\leq W\leq b})=\Prob(\Ev{a\leq X\leq b})$. Que vaut 
+  $\Prob(\Ev{W=0})$ ?
+ \end{noliste}
+\end{noliste}
+
+\end{document}
+
+
+
+
+

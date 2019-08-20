@@ -1,0 +1,519 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 2002} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{ESCP 2002}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2002}}
+
+
+
+{\large \textbf{Concepteur : ESCP}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{EXERCICE}
+
+On désigne par $I$, $O$, $J$ et $A$ les matrices carrées d'ordre $3$
+suivantes : 
+\[
+I = 
+\begin{smatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{smatrix},\qquad O = 
+\begin{smatrix}
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 0
+\end{smatrix},\qquad J = 
+\begin{smatrix}
+1 & 1 & 1 \\
+1 & 1 & 1 \\
+1 & 1 & 1
+\end{smatrix},\qquad A = 
+\begin{smatrix}
+-3 & 1 & 1 \\
+1 & -3 & 1 \\
+1 & 1 & -3
+\end{smatrix}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer la matrice $A$ en fonction des matrices $I$ et $J$, puis
+la
+matrice $J$ en fonction des matrices $A$ et $I$.
+
+\item Exprimer $J^{2}$ en fonction de $J$ et en déduire que la matrice
+$A$ vérifie l'égalité $A^{2} + 5A + 4I = O$.
+
+\item Montrer que la matrice $A$ est inversible et exprimer son inverse
+$A^{-1}$ en fonction des matrices $I$ et $J$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $U$ la matrice-colonne $\begin{smatrix}
+1 \\
+1 \\
+1
+\end{smatrix}
+$. Calculer le produit matriciel $J\,U$. \\
+En déduire une valeur propre de la matrice $J$.
+
+\item Montrer que $0$ est valeur propre de $J$ et donner une base du
+sous-espace propre associé.
+
+\item La matrice $J$ est-elle inversible ? La matrice $J$ est-elle
+diagonalisable ?
+
+\item Soit $X$ une matrice-colonne non nulle à trois éléments et
+$\lambda $
+un réel vérifiant $J\,X = \lambda X$. Montrer qu'il existe un réel $\mu
+$ que
+l'on donnera en fonction de $\lambda $ vérifiant $AX = \mu X$.
+
+\item En déduire que $A$ est diagonalisable et que ses valeurs propres
+sont $-1$ et $-4$.
+
+\item Sans expliciter la matrice $A^{-1}$, calculer ses valeurs propres
+et
+montrer qu'elle est diagonalisable.
+\end{noliste}
+
+\item Soit $a$ un paramètre réel et $F_{a}$ la fonction définie sur
+$\R^{2}$ par : 
+\[
+\begin{matrix}
+F_{a}(x,y) = & \mathbf{(}x & y & a\mathbf{)} \\
+ & & & \\
+ & & & 
+\end{matrix}\begin{smatrix}
+-3 & 1 & 1 \\
+1 & -3 & 1 \\
+1 & 1 & -3
+\end{smatrix}
+\begin{smatrix}
+x \\
+y \\
+a
+\end{smatrix}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que cette fonction est de classe $C^{1}$ sur $\R^{2}$
+et calculer ses dérivées partielles d'ordre $1$ en tout point $(x,y)$
+de $\R^{2}$.
+
+\item Montrer qu'il existe un unique point $(x_{0},y_{0})$ de $\R^{2}
+$, que l'on précisera, en lequel les dérivées partielles d'ordre $1$ de
+
+$F_{a}$ sont nulles. Calculer $F_{a}(x_{0},y_{0})$.
+
+\item Calculer, pour tout couple $(x,y)$ de $\R^{2}$, le nombre :\
+$G_{a}(x,y) = F_{a}(x,y) + \dfrac{1}{3}(3x-y-a)^{2} + 2a^{2}$\ et
+préciser son
+signe.
+
+\item En déduire que la fonction $F_{a}$ admet un unique extremum sur
+$\R^{2}$. Préciser s'il s'agit d'un minimum ou d'un maximum et donner
+sa valeur notée $M(a)$.
+
+\item Montrer que la fonction $M$ qui, à tout réel $a$ associe le
+nombre $M(a)$, admet un unique extremum que l'on précisera. Que peut-on
+en conclure ?
+\end{noliste}
+\end{noliste}
+
+\section*{Problème\ }
+
+Pour toutes suites numériques $u = (u_{n})_{n\in \N}$ et $v =
+(v_{n})_{n\in \N}$, on définit la suite $u\times v = w$ par :
+\[
+\forall n\in \N,\;w_{n} = \Sum{k = 0}{n}u_{k}\,v_{n-k}
+\]
+\vspace{-8mm} \vspace{0.3cm} \vspace{0.2cm}
+
+\subsection*{Partie A : Exemples}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \textbf{Premiers exemples }\\
+Pour tout entier naturel $n$, calculer $w_{n}$ en fonction de $n$ dans
+chacun des cas suivants :
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item pour tout entier naturel $n$, $u_{n} = 2$ et $v_{n} = 3$.
+
+\item pour tout entier naturel $n$, $u_{n} = 2^{n}$ et $v_{n} = 3^{n}$.
+
+\item \label{Poisson} pour tout entier naturel $n$, $u_{n} =
+\dfrac{2^{n}}{n!}$
+et $v_{n} = \dfrac{3^{n}}{n!}$
+\end{noliste}
+
+\item \textbf{Programmation }\\
+Dans cette question, les suites $u$ et $v$ sont définies par :\quad\
+$\forall n\in \N,\;u_{n} = \ln (n + 1)\quad \text{et}\quad v_{n} =
+\dfrac{1}{n + 1}$
+
+Écrire un programme en -\Scilab{} qui demande à l'utilisateur une
+valeur
+de l'entier naturel $n$, qui calcule et affiche les valeurs \
+$w_{0},\;w_{1},\;\ldots,\;w_{n}$.
+
+\item \label{q3}\textbf{Un résultat de convergence }\\
+Dans cette question, la suite $u$ est définie par : \ $\forall n\in
+\N,\;u_{n} = \left( \dfrac{1}{2}\right) ^{n}$ et $v$ est une suite de
+réels
+positifs, décroissante à partir du rang $1$ et de limite nulle.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir, pour tout couple d'entiers naturels $(n,m)$ vérifiant
+$n<m$,
+l'inégalité :$\qquad \Sum{k = n + 1}{m}u_{k}\leq u_{n}$\.
+
+\item Soit $n$ un entier strictement supérieur à $1$. Prouver les
+inégalités : 
+\[
+w_{2n}\leq v_{0}\,u_{2n} + 2v_{n} + v_{1}\,u_{n}\quad \text{et}\quad
+w_{2n + 1}\leq v_{0}\,u_{2n + 1} + 2v_{n + 1} + v_{1}\,u_{n}
+\]
+
+\item En déduire que les deux suites \ $(w_{2n})_{n\in \N}$
+\ et \ $(w_{2n + 1})_{n\in \N}$ convergent vers $0$
+ainsi que la suite $(w_{n})_{n\in \N}$.
+
+\item Soit $u^{\prime }$ la suite définie par : \ $\forall n\in
+\N,\;u_{n}{\prime } = \left( -\dfrac{1}{2}\right) ^{n}$. À l'aide de la
+question précédente, montrer que la suite $u^{\prime }\times v$\ est
+convergente et de limite nulle.
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie B : Application à l'étude d'un ensemble de suites}
+
+Dans cette partie, $A$ désigne l'ensemble des suites $a = (a_{n})_{n\in
+
+\N}$ de réels positifs vérifiant : 
+\[
+\forall n\in \N^{\times },\quad a_{n + 1}\leq \dfrac{1}{2}(a_{n} +
+a_{n-1})
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que toute suite décroissante de réels positifs est
+élément de $A$ et qu'une suite strictement croissante ne peut
+appartenir à $A$.
+
+\item Soit $z = (z_{n})_{n\in \N}$ une suite réelle vérifiant :
+$\forall n\in \N^{\times },\;z_{n + 1} = \dfrac{1}{2}(z_{n} +
+z_{n-1})$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer qu'il existe deux constantes réelles $\alpha $ et $\beta
+$
+telles que l'on a : 
+\[
+\forall n\in \N,\quad z_{n} = \alpha + \beta \left(
+-\dfrac{1}{2}\right) ^{n}
+\]
+
+\item En déduire qu'il existe des suites appartenant à $A$ et non
+monotones.
+\end{noliste}
+
+\item Soit $a = (a_{n})_{n\in \N}$ un élément de $A$ et $b$ la suite
+définie par : $\forall n\in \N,\;b_{n} = \left( -\dfrac{1}{2}\right)
+^{n} $.
+
+On définit alors la suite $c$ par : \ $c_{0} = a_{0}$ \ et \ $\forall
+n\in 
+\N^{\times },\;c_{n} = a_{n} + \dfrac{1}{2}a_{n-1}$. \ 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la suite $c$ est décroissante à partir du rang $1$ et
+qu'elle converge vers un nombre $\ell $ que l'on ne cherchera pas à
+calculer.
+
+\item Pour tout entier naturel $n$, établir l'égalité :\quad\ $\Sum{k =
+0}{n}\left( -\dfrac{1}{2}\right) ^{k}c_{n-k} = a_{n}$.
+
+Que peut-on en déduire pour les suites \ $b\times c$ et $a$ ?
+
+\item Soit $\varepsilon $ la suite définie par : $\forall n\in
+\N,\;\varepsilon_{n} = c_{n}-\ell $ et $d$ la suite $b\times
+\varepsilon $.
+
+En utilisant le résultat de la question \textbf{3}. de la Partie
+\textbf{1},
+montrer que la suite $d$ converge vers $0$.
+
+\item Pour tout entier naturel $n$, établir l'égalité : $d_{n} =
+a_{n}-\dfrac{2}{3}\ell \left( 1-\left( -\dfrac{1}{2}\right) ^{n +
+1}\right) $.
+
+En déduire que la suite $a$ converge et préciser sa limite.
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie C : Application aux variables aléatoires}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \textbf{Résultats préliminaires }
+
+On suppose que $X$ et $Y$ sont deux variables aléatoires indépendantes,
+à
+valeurs dans $\N$ et on désigne par $S$ leur somme.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout entier naturel $n$, on pose : $u_{n} = P\left(\Ev{X =
+n]}\right)$\ et \ $v_{n} = P\left(\Ev{Y = n]}\right)$. \\
+Montrer que l'on a : \ $\forall n\in \N,\;P\left(\Ev{S = n]}\right) =
+w_{n}$, \ ($w$ étant la suite définie à partir des suites $u$ et $v$ en
+tête du problème).
+
+\item Retrouver alors le résultat de la question \textbf{1}.c) de la
+Partie 
+\textbf{1} par un choix adéquat des lois de $X$ et de $Y$.
+
+\item Pour toute variable aléatoire $Z$ à valeurs dans $\N$, on note
+$2^{-Z}$\ la variable aléatoire prenant, pour tout
+entier naturel $n$, la valeur $2^{-n}$\ si et seulement
+si l'évènement $\lbrack Z = n]$\ est réalisé. Montrer que
+la variable aléatoire $2^{-Z}$ admet une espérance donnée par : 
+\[
+\E\left( 2^{-Z}\right) = \Sum{n = 0}{\infty }P\left(\Ev{Z =
+n]}\right)\left(\Ev{ \dfrac{1}{2}}\right) ^{n}
+\]
+On note $r(Z)$ cette espérance.
+
+\item Que peut-on dire des variables aléatoires $2^{-X}$ et $2^{-Y}$ ? 
+\\
+En déduire l'égalité : \ $r(S) = r(X)\,r(Y)$.
+
+\item On suppose que $(X_{n})_{n\in \N^{\times }}$ est une suite de
+variables aléatoires indépendantes, à valeurs dans $\N$ et de même
+loi. Pour tout entier naturel non nul $q$, on désigne par $S_{q}$ la
+variable aléatoire définie par : \quad\ $S_{q} = \Sum{i = 1}{q}X_{i}$\.
+Établir l'égalité : \ $r(S_{q}) = \left( r(X_{1})\right) ^{q}$.
+\end{noliste}
+
+\item \textbf{Une formule sommatoire }
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item \ Montrer que les égalités :$\qquad \forall n\in
+\N,\;P\left(\Ev{Z = n]}\right) = \left( \dfrac{1}{2}\right) ^{n + 1}$
+définissent la loi de
+probabilité d'une variable aléatoire $Z$ à valeurs dans $\N$.
+Calculer alors le nombre $r(Z)$.
+
+\item On suppose que $(X_{n})_{n\in \N^{\times }}$ est une suite de
+variables aléatoires indépendantes, à valeurs dans $\N$, de même loi
+que $Z$ et, pour tout entier naturel non nul $q$, on désigne encore par
+$S_{q}$ la variable : 
+\[
+S_{q} = \Sum{i = 1}{q}X_{i}
+\]
+En admettant, pour tout entier naturel non nul $q$, l'égalité \ $\Sum{k
+= 0}{n}C_{k + q}{q} = C_{n + q + 1}{q + 1}$, montrer par récurrence
+que la loi de $S_{q}$ est donnée par : 
+\[
+\forall n\in \N,\;P\left(\Ev{S_{q} = n]}\right) = C_{n +
+q-1}{q-1}\left( \dfrac{1}{2}\right) ^{n + q}
+\]
+
+\item \label{Q2d} Pour tout entier naturel non nul $q$, calculer le
+nombre $r(S_{q})$ et en déduire la relation : 
+\[
+\Sum{n = 0}{\infty }C_{n + q-1}{q-1}\left( \dfrac{1}{4}\right) ^{n} =
+\left( 
+\dfrac{4}{3}\right) ^{q}
+\]
+\end{noliste}
+
+\item \textbf{Un exemple concret }
+
+On admet, dans cette question, que la variable aléatoire $Z$ définie à
+la
+question \textbf{2}.a) représente le nombre de petits devant naître en
+2003
+d'un couple de kangourous. Chaque petit kangourou a la même probabilité
+$\dfrac{1}{2}$ d'être mâle ou femelle, indépendamment des autres. On
+note $F$
+la variable aléatoire égale au nombre de femelles devant naître en
+$2003$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Préciser, pour tout entier naturel $n,$ la loi conditionnelle de
+$F$
+sachant $[Z = n]$.
+
+\item À l'aide de la formule obtenue en \ref{Q2d}, montrer que la loi
+de $F$
+est donnée par : 
+\[
+\forall n\in \N,\;P\left(\Ev{F = n]}\right) = \dfrac{2}{3}\left(
+\dfrac{1}{3}\right)
+^{n}
+\]
+
+\item Justifier l'existence des espérances $\E(Z)$\ et $\E(F)$\ des
+variables
+aléatoires $Z$ et $F$, puis vérifier l'égalité : \ $\E(Z) = 2\E(F).$\ 
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

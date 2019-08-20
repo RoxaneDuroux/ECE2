@@ -1,0 +1,309 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 1991} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 1991}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\huge HEC Eco 1991}
+\end{center}
+
+\section*{EXERCICE 1}
+
+On considère la matrice : $M = {{\begin{smatrix}
+{1} & {-3} & {3} \\
+{-2} & {0} & {2} \\
+{1} & {-1} & {3}\end{smatrix}
+}}$ et l'endomorphisme $f$ de $\R^{3}$ représenté par $M$ dans la
+base canonique de $\R^{3}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Résoudre par la méthode du pivot de Gauss, en discutant suivant
+la
+valeur du paramètre $\lambda $, le système d'équations : 
+\[
+\left\{ 
+\begin{array}{c}
+\left( {1-\lambda }\right) x_{1}-3x_{2} + 3x_{3} = 0 \\
+{-2x_{1}-\lambda x_{2} + 2x_{3} = 0} \\
+{x_{1}-\,x_{2} + \left( {3-\lambda }\right) x_{3} = 0}
+\end{array}
+\right. 
+\]
+En déduire les valeurs propres de la matrice $M.$
+
+\item Montrer que l'endomorphisme $f$ est diagonalisable. Déterminer
+une
+base $(V_{1};V_{2};V_{3}\ )$ de vecteurs propres de $f$ que l'on
+choisira de
+manière que chacun ait, dans la base canonique de $\R^{3}$ des
+coordonnées égales à $0$ ou à $1$.
+\end{noliste}
+
+\item A tout vecteur $y = (y_{1};y_{2};y_{3})$ de $\R^{3}$ fixé, on
+associe la fonction $\varphi_{y}$ de $\R^{3}$ dans $\R$
+telle que, pour tout élément $x = (x_{1};x_{2};x_{3})$ de $\R^{3}$ :
+\[
+\varphi_{y}(x) = (y_{1} + y_{2})x_{1} + (y_{1} + 2y_{2})x_{2} +
+y_{3}x_{3}.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Le vecteur $y = (y_{1};y_{2};y_{3})$ étant fixé dans $\R^{3}$,
+exprimer $\varphi_{y}(f(x))$ en fonction des coordonnées
+$x_{1}$;$x_{2}$;$x_{3}$ de $x$.
+
+\item Montrer qu'à chaque vecteur $y = (y_{1};y_{2};y_{3})$ de
+$\R^{3}$, on peut faire correspondre un vecteur $Y =
+(Y_{1};Y_{2};Y_{3})$ et un seul
+de $\R^{3}$ tel que pour tout vecteur $x$ de $\R^{3}$ :
+$\varphi_{y}(f(x)) = \varphi_{Y}(x)$ à cet effet, on exprimera
+$Y_{1}$,$Y_{2}$
+et $Y_{3}$ en fonction de $y_{1}$,$y_{2}$ et $y_{3}$.\\
+On pose $Y = g(y)$. Vérifier que $g$ est une application linéaire de
+$\R^{3}$ dans $\R^{3}$ ; en donner la matrice $N$ dans la base
+canonique de $\R^{3}$.
+\end{noliste}
+
+\item On considère la matrice : $S = {{\begin{smatrix}
+{1} & {1} & {0} \\
+{1} & {2} & {0} \\
+{0} & {0} & {1}\end{smatrix}
+}}$, et l'endomorphisme $s$ de $\R^{3}$ représenté par $S$ dans la
+base canonique de $\R^{3}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer l'inverse $S^{-1}$de $S$.
+
+\item Calculer le produit matriciel $SMS^{-1}$.
+
+\item En déduire que les vecteurs $s(V_{1})$, $s(V_{2})$ et $s(V_{3})$
+sont
+des vecteurs propres de la matrice $^{t}N$, transposée de la matrice
+$N.$Préciser les valeurs propres associées.
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+Soit $a$ un nombre réel strictement positif. Pour tout nombre entier
+nature1
+non nul $n$, on considère la fonction polynomiale $P_{n}$ définie par
+la
+relation : $P_{n}(x) = \Sum{k = 1}{n}x^{k}-a$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que l'équation $P_{n}(x) = 0$ admet une solution positive
+et une
+seule, que l'on notera $x_{n}$. Montrer que $x_{n}\leq a$.
+
+\item Étudier le signe de $P_{n + 1}(x_{n})$. En déduire que la suite
+$(x_{n})_{n\geq 1}$est monotone.
+
+\item Montrer que la suite $(x_{n})_{n\geq 1}$ est convergente. On note
+
+$l$ sa limite. Prouver que $0\leq l<1$.
+
+\item Montrer que, pour tout nombre entier naturel non nul $n$, le
+nombre $x_{n}$ est solution de l'équation : 
+\[
+x^{n + 1}-(a + 1)x + a = 0.
+\]
+En déduire que : $l = \dfrac{{a}}{{a + 1}}$.
+\end{noliste}
+
+\section*{EXERCICE 3}
+
+On désigne par $(\Omega ;A;P)$ un espace probabilisé et par $p$ un
+nombre réel tel que $0<p<1$.\\
+On rappelle que le symbole $P\left(\Ev{A/B}\right)$ désigne la
+probabilité conditionnelle de 
+$A$ sachant que $B$ est réalisé.
+
+\subsection*{I. }
+
+Un jour donné, un modèle de voiture est successivement examiné par $N$
+clients éventuels. On suppose que $N$ est une variable aléatoire
+définie sur 
+$(\Omega ;A;P)$, à valeurs dans l'ensemble $N$ des nombres entiers
+naturels
+telle que, pour tout couple $(r;s)$ de nombre entiers naturels :
+\[
+P\left(\Ev{N\geq r + s/N\geq r}\right) = P\left(\Ev{N\geq s}\right).
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer la probabilité $P\left(\Ev{N\geq 1}\right)$. En
+choisissant $r = s = 1$,
+calculer $P\left(\Ev{N\geq 2}\right)$. En déduire la valeur de
+$P\left(\Ev{N = 1}\right)$.
+
+\item En raisonnant par récurrence, trouver, pour tout nombre entier
+naturel 
+$n$, les probabilités $P\left(\Ev{N\geq n}\right)$ et $P\left(\Ev{N =
+n}\right)$.
+
+\item Trouver l'espérance $\E(N)$ et la variance $\V(N)$ de $N$.
+
+\item Application numérique. On suppose que $p = \dfrac{{1}}{{10}}$.
+Calculer$P\left(\Ev{N = n}\right)$, $\E\left(\Ev{N}\right)$ et $\V(N)$.
+\end{noliste}
+
+\subsection*{II.}
+
+Parmi les clients qui examinent le modèle, certains passent commande,
+les
+autres non. Pour tout nombre entier naturel non nul $i$, on note
+$X_{i}$ la
+variable aléatoire qui prend la valeur 1 si le $i^{i\grave{e}me}$
+client
+passe commande d'une voiture et 0 dans le cas contraire. On convient
+que $X_{0} = 0$.\\
+On désigne par $\alpha $ un nombre réel tel que $0<\alpha <1$. On
+suppose
+que la suite $(X_{i})_{i\in \N}$ est définie sur l'espace probabilisé
+$(\Omega ;A;P)$ et que, pour tout nombre entier naturel non nul $i$,
+$P\left(\Ev{X_{i} = 1}\right) = \alpha.$\\
+On suppose enfin que les variables aléatoires $X_{i}$ sont mutuellement
+indépendantes et indépendantes de $N.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour tout nombre entier naturel $n$, on pose $S_{n} = X_{0} +
+X_{1} +... + X_{n}$.\\
+Déterminer la loi de probabilité de $S_{n}$.
+
+\item On note $S$ la variable aléatoire définie sur $(\Omega ;A;P)$ de
+la façon suivante : pour tout élément $\omega $ de $\Omega $, si
+$N(\omega ) = n$,
+on pose $S(\omega ) = S_{n}(\omega )$. Ainsi, $S$ représente le nombre
+de
+voitures commandées. On se propose de trouver la loi de probabilité de
+$S.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $k$un nombre entier naturel. On admet (la justification
+n'est pas
+demandée) que, pour tout nombre réel fixé $x$ appartenant à
+l'intervalle $[0;1[$ la série $\Sum{n = k}{+ \infty }C_{n}{k}x^{n}$ est
+convergente.\\
+On note $\sigma_{k}$ la somme de cette série. Ainsi $\sigma
+_{k} = \Sum{n = k}{+ \infty }C_{n}{k}x^{n}$.\\
+Montrer que pour tout entier naturel $k$ : $\sigma_{k + 1} = x\sigma
+_{k} + x\sigma_{k + 1}$.
+
+\item En déduire par récurrence sur $k$, que : $\sigma_{k} =
+\dfrac{{x^{k}}}{{\left( {1-x}\right) ^{k + 1}}}$
+
+\item Trouver la loi de probabilité de $S$.
+
+\item Application numérique.\\
+On suppose que $p = \dfrac{1}{10}$ et $\alpha = \dfrac{1}{2}$.
+Déterminer la
+loi de probabilité de $S$.\\
+Vérifier qu'elle est du même type que la loi de $N$ obtenue dans la
+partie I.\\
+Calculer l'espérance et la variance de $S$.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

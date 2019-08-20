@@ -1,0 +1,272 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1988} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{ESCP 1988}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1988}}
+
+
+
+{\large \textbf{Concepteur : ESCP}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{EXERCICE 1 }
+
+On considère la matrice $A = \left( 
+\begin{array}{cc}
+1 & 3 \\
+3 & 1
+\end{array}
+\right) $.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que la matrice $A$ est diagonalisable et expliciter une
+matrice diagonale $D$ semblable à $A$.\\
+Soit $k$ un nombre entier naturel. Calculer $D^{k}$; en déduire
+$A^{k}$.
+
+\item On considère la suite $\left( u_{n}\right) $ définie par la
+relation
+de récurrence : \quad $u_{n + 1} = \dfrac{u_{n} + 3}{3u_{n} + 1}$, et
+la condition
+initiale $u_{0} = c$, où $c$ est un nombre réel strictement positif.\\
+On considère en outre les suites $\left( v_{n}\right) $ et $\left(
+w_{n}\right) $ définies par les relations de récurrence : $\left\{ 
+\begin{array}{l}
+v_{n + 1} = v_{n} + 3w_{n} \\
+w_{n + 1} = 3v_{n} + w_{n}
+\end{array}
+\right. $ et les conditions initiales : $v_{0} = c$, $w_{0} = 1$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout nombre entier naturel $n$ exprimer $u_{n}$ à l'aide de
+$v_{n}
+$, et de $w_{n}$.
+
+\item Pour tout nombre entier naturel $n$, exprimer $u_{n}$ en fonction
+de $n
+$ et de $c$.
+
+\item Montrer que la suite $\left( u_{n}\right) $ converge et calculer
+sa
+limite.
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE 2 }
+
+Soit $f$ la fonction définie par la relation : $f\left( x\right) = x\ln
+x$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Étudier la variation de $f$.
+
+\item Montrer qu'il existe une fonction réelle $g$ et une seule définie
+sur
+l'intervalle $\left[ -\dfrac{1}{e}; + \infty \right[ $ telle que, pour
+tout
+point $x$ de cet intervalle : $g\left( x\right) \,\ln g\left( x\right)
+= x$.
+
+\item Étudier la variation de la fonction $g$. En particulier,
+déterminer la
+limite de $g$ en $ + \infty $. Tracer sur une même figure les courbes
+représentatives de $f$ et de $g$.
+
+\item Montrer que $\underset{x\rightarrow + \infty }{\lim }\dfrac{\ln
+g\left(
+x\right) }{\ln x} = 1$. En déduire lorsque $x$ tend vers $ + \infty $
+la limite
+de $\dfrac{g\left( x\right) \ln x}{x}$.
+\end{noliste}
+
+\section*{EXERCICE 3}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Une urne contient des boules rouges et des boules blanches. La
+proportion de boules rouges est égale à $q$, où $0\leq q\leq 1$. On
+effectue 
+$n$ tirages indépendants. avec remise, dans cette urne et on note $N$
+la
+variable aléatoire représentant le nombre de boules rouges tirées.\\
+Déterminer la loi de probabilité de $N$. Calculer son espérance et sa
+variance.
+
+\item Soit $r$ un nombre entier naturel non nul. On suppose qu'on a
+$\left(
+r + 1\right) $ urnes $U_{0},U_{1},...,U_{r}$, et que, pour tout entier
+$j$ tel
+que $0\leq j\leq r$, la proportion de boules rouges contenues dans
+l'urne $U_{j}$, vaut $\dfrac{j}{r}$. On choisit une urne au hasard
+(avec la même
+probabilité pour chaque urne d'être choisie) et on effectue dans cette
+urne $n$ tirages indépendants, avec remise. On note $N_{r}$, la
+variable aléatoire
+représentant le nombre de boules rouges ainsi tirées : pour tout entier
+$k$
+tel que $0\leq k\leq n$, on note $p_{r}\left( k\right) $ la probabilité
+que $N_{r}$, prenne la valeur $k$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Trouver la loi de probabilité de $N_{r}$, et calculer l'espérance
+de
+cette variable aléatoire.
+
+\item Montrer que : 
+\[
+\underset{r\rightarrow + \infty }{\lim }p_{r}\left( k\right) =
+\dbinom{n}{k}\dint\limits_{0}{1}x^{k}\left( 1-x\right) ^{n-k}dx
+\]
+\end{noliste}
+
+\item Soit $I_{k} = \dint\limits_{0}{1}x^{k}\left( 1-x\right)
+^{n-k}dx$. A
+l'aide d'intégrations par parties, calculer la valeur de $I_{k}$. En
+déduire
+que les nombres $\underset{r\rightarrow + \infty }{\lim }p_{r}\left(
+k\right) 
+$ ne dépendent pas de $k$.
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

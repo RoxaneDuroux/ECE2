@@ -1,0 +1,248 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2018} %
+\author{} %
+\date{} %
+\begin{document}
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+%%DEBUT
+
+\subsection*{Sujet E 1}
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \item Question de cours : Définition d'une famille génératrice
+    d'un espace vectoriel $E$ de dimension $n$.\\
+    Relation entre cardinal d'une famille génératrice et dimension 
+    de $E$.
+    
+    \item On note ${\cal C}(f) = \{g \in \LL{E} \ | \ f \circ g = 
+    g \circ f \}$.
+    \begin{noliste}{a)}
+      \item Montrer que ${\cal C}(f)$ est un espace vectoriel.
+      
+      \item Quelle peut être la dimension maximale de ${\cal C}(f)$ ?
+    \end{noliste}
+    
+    \item On note $J = 
+    \begin{smatrix}
+      0 & 1\\
+      0 & 0
+    \end{smatrix}$.
+    \begin{noliste}{a)}
+      \item Déterminer $\{ M \in \M{2} \ | \ MJ = JM\}$.
+      
+      \item On note $j$ l'endomorphisme de $E$ dont une matrice 
+      représentative est $J$. \\
+      Quelle est la dimension de ${\cal C}(j)$ ?
+    \end{noliste}
+    
+  \item Soit $a \in E \setminus \{0_E\}$ et soit $f \in \LL{E}$.\\
+    On suppose qu'il existe $n_0 \in \N^*$ tel que la famille $(a,
+    f(a), f^2(a), \ldots, f^{n_0}(a))$ est génératrice de $E$.
+    \begin{noliste}{a)}
+      \item Montrer qu'il existe un plus grand entier $p\in \N^*$ tel 
+      que la famille $(a, f(a), \ldots, f^{p-1}(a))$ est libre.
+      
+    \item Montrer que $(a,f(a), \ldots, f^{p-1}(a))$ est une base de
+      $E$.
+      
+    \item Que vaut $p$ ?
+      
+    \item Montrer que, pour tout $g \in {\cal C}[f)$, il existe
+      $(\alpha_0, \ldots, \alpha_{n-1}) \in \R^{n}$ tel que $g =
+      \Sum{i=0}{n-1} \alpha_i \, f^i$.
+      
+    \item En déduire $\dim({\cal C}(f))$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+
+\begin{exerciceSP}~\\
+  On considère une urne contenant initialement une boule rouge et une 
+  boule verte.\\
+  On effectue des tirages dans cette urne de la manière suivante : 
+  si on tire une boule d'une couleur, on la remet dans l'urne et on 
+  ajoute une boule de la couleur opposée.\\
+  On note $X$ la \var associée au rang d'obtention de la première 
+  boule rouge.\\
+  Montrer que $X$ admet une espérance et la calculer.
+\end{exerciceSP}
+
+
+
+
+\newpage
+
+
+
+
+\subsection*{Sujet E 2}
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \item Question de cours : Formule de Taylor-Young.
+    
+    \item On note $f: t \mapsto \ln(1+t) -t$.
+    \begin{noliste}{a)}
+      \item Quel est l'ensemble de définition de $f$ ?
+      
+      \item Donner un équivalent de $f$ en $0$.
+      
+      \item Montrer que la série de terme général $f\left( \frac{1}{n}
+        \right)$ est convergente.
+    \end{noliste}
+    
+  \item Soit $(u_n)_{n \in \N^*}$ une suite de réels strictement
+    positifs et soit $a>0$. \\
+    On définit une suite $(w_n)_{n \in \N^*}$ de la manière suivante :
+    \[
+      \forall n \in \N^*, \ w_n = \dfrac{u_{n+1}}{u_n} -1 + 
+      \dfrac{a}{n}
+    \]
+    On suppose que la série $\Sum{n \geq 1}{} w_n$ converge 
+    absolument.
+    \begin{noliste}{a)}
+      \item Montrer que la série $\Sum{n \geq 1}{} \dfrac{w_n}{n}$
+      est convergente.
+      
+      \item Montrer que la série $\Sum{n \geq 1}{} w_n^2$ est 
+      convergente.
+    \end{noliste}
+    
+  \item On définit la suite $(l_n)_{n \in \N^*}$ par : $\forall n \in
+    \N^*$, $l_n = \ln (n^a \, u_n)$.
+    \begin{noliste}{a)}
+      \item Montrer que, pour tout $n \in \N^*$ :
+      \[
+        l_{n+1} - l_n \ = \ ...
+      \]
+      
+      \item Montrer que la série $\Sum{n \geq 1}{} (l_{n+1} - l_n)$
+      est convergente.
+    \end{noliste}
+    
+    \item 
+    \begin{noliste}{a)}
+      \item Montrer que la suite $(l_n)_{n \in \N^*}$ converge.
+      
+      \item En déduire que : $u_n \eqn{} \dfrac{A}{n^a}$, où $A>0$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+
+\begin{exerciceSP}~
+  \begin{noliste}{1.}
+    \item Tracer la fonction de répartition d'une loi normale 
+    $\Norm{0}{1}$.
+    
+    \item 
+    
+    \item Que fait le programme suivant ?
+    \begin{scilab}
+      & N = 1000 \nl %
+      & X = zeros(N,1) \nl %
+      & \tcFor{for} i = 1:N \nl %
+      & \qquad X(i,1) = grand(1,1,\ttq{}norm\ttq{},0,1) \Sfois{}
+      grand(1,1,\ttq{}bin\ttq{},1,1/2) \nl %
+      & \tcFor{end} \nl %
+      & p = length(find(X < 1,96)) / N
+    \end{scilab}
+  \end{noliste}
+\end{exerciceSP}
+
+
+
+
+\newpage
+
+
+
+\subsection*{Sujet E 3}
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \item Question de cours : énoncé de l'inégalité de Markov.\\
+    Citer une conséquence de cette inégalité.
+    
+  \item Soit $X_1$, $\ldots$, $X_n$ des \var mutuellement
+    indépendantes, de même loi définie par :
+    \[
+      \begin{array}{l}
+        X_1(\Omega) = \{-1,1\} \\[.2cm]
+        \Prob(\Ev{X_1 = -1}) = \dfrac{1}{2} \quad \text{et} \quad
+        \Prob(\Ev{X_1=1}) = \dfrac{1}{2}
+      \end{array}
+    \]
+    On note : $S_n = \Sum{k=1}{n} X_k$.
+    \begin{noliste}{a)}
+      \item Calculer $\E(S_n)$.
+      
+      \item Calculer $\V(S_n)$.
+    \end{noliste}
+    
+    \item Déterminer $\E(S_n^4)$.
+    
+    \item Soit $\alpha >0$.\\
+      Montrer que $\Prob\left(\Ev{ \dfrac{\vert S_n \vert}{n} \geq
+          \dfrac{1}{n^\alpha}}\right) \leq ...$.
+  \end{noliste}
+\end{exerciceAP}
+
+
+
+
+\begin{exerciceSP}~\\
+  Soit $f \in \LL{E}$.
+  \begin{noliste}{1.}
+  \item Quel est le lien entre le spectre de $f$ et un polynôme
+    annulateur de $f$ ?
+    
+  \item Supposons que l'endomorphisme $f$ est diagonalisable et
+    que : $\im(f) \subset \kr(f)$.\\
+    Que dire de l'endomorphisme $f$ ?
+  \end{noliste}
+\end{exerciceSP}
+
+
+
+
+%%FIN
+
+
+\end{document}

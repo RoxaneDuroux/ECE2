@@ -1,0 +1,358 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 2008} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 2008}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+\fbox{\bf {\large ECRICOME 2008}}
+\end{center}
+\vspace{1,5 cm}
+\underline{\bf Exercice 1}\\
+A tout couple $(a,b)$ de deux réels, on associe la matrice $M(a,b)$
+définie par :
+\[
+M(a,b) = 
+\begin{smatrix}
+a + 2b & -b & -2b\\
+2b & a-b & -4b\\
+-b & b & a + 3b
+\end{smatrix}
+\]
+On désigne par $E$ l'ensemble des matrices $M(a,b)$ où $a$ et $b$
+décrivent $\R$. Ainsi : 
+\[
+E = \{M(a,b)/ (a,b)\in \R^{2} \}
+\]
+On note $I$ la matrice identité $M(0,1)$ et $A$ la matrice suivante :
+\[
+A = 
+\begin{smatrix}
+2 & -1 & -2\\
+2 & -1 & -4\\
+-1 & 1 & 3
+\end{smatrix}
+\]
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $E$ est un sous-espace vectoriel de l'espace
+vectoriel $\mathfrak{M}_{3}(\R)$ des matrices carrées d'ordre 3.
+\item Donner une base de $E$ ainsi que sa dimension.
+\item Vérifier que les réels 1 et 2 sont deux valeurs propres de $A$.\\
+Donner les dimensions des sous-espaces propres associés à ces valeurs
+propres. \\
+En déduire que $A$ est diagonalisable.
+\item Déterminer deux matrices $P$ et $D$ de $\mathfrak{M}_{3}(\R)$
+vérifiant les conditions suivantes :
+ \begin{noliste}{$\sbullet$}
+ \item $P$ est inversible et ses trois éléments diagonaux sont égaux à
+1.
+ \item $D = (d_{i,j})$ est diagonale avec $d_{1,1} = 2$
+ \item $D = P^{-1}AP$
+ \end{noliste}
+ Donner l'expression de la matrice $P^{-1}$.
+\item Prouver que la matrice $D(a,b) = P^{-1}M(a,b)P$ est une matrice
+diagonale.
+\item Montrer que $M(a,b)$ est inversible si et seulement si $D(a,b)$
+est inversible.\\
+En déduire une condition nécessaire et suffisante portant sur $a$ et
+$b$ pour que $M(a,b)$ soit inversible.
+\item Prouver que $[M(a,b)]^{2} = I$ si et seulement si $[D(a,b)]^{2} =
+I$\\
+En déduire l'existence de quatre matrices $M(a,b)$ que l'on
+déterminera, vérifiant \\
+$[M(a,b)]^{2} = I$.
+\end{noliste}
+
+\newpage
+
+\underline{\bf Exercice 2}\\
+
+On considère les fonctions suivantes :
+$g(x,y) = 1 + \ln(x + y) $ (fonction des variables $x$ et $y$)\\
+et pour $p\in \N^*, \left\{ 
+\begin{array}{ll}
+ f_{p}(x) = g(x,p) \\
+h_{p}(x) = x-f_{p}(x)
+\end{array}
+\right.$ (famille de fonctions de la variable réelle $x$).\\
+On note $(C_{p})$ la courbe représentative de la fonction $f_{p}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item {\bf Recherche d'extremum éventuel de la fonction $g$}
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Représenter, relativement à un repère orthonormé du plan, le
+domaine de définition $D$ de la fonction $g$. On hachurera $D$. On
+admet que cet ensemble de définition est un ouvert de $\R^{2}$.
+\item Déterminer sur $D$ les dérivées partielles premières de $g$. La
+fonction $g$ admet-elle un extremum sur $D$ ?
+\end{noliste}
+\item {\bf Étude de la fonction $f_{1}$}
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner le domaine de définition de $f_{1}$.
+\item Déterminer le développement limité en 0, à l'ordre 2, de la
+fonction $f_{1}$.
+\item En déduire une équation de la tangente à $C_{1}$ au point
+d'abscisse 0, et la position locale de la courbe $C_{1}$ par rapport à
+cette tangente.
+\item Déterminer $\underset{x\to + \infty}{\lim}f_{1}(x)$,
+$\underset{x\to + \infty}{\lim}\dfrac{f_{1}(x)}{x}$. Donner une
+interprétation graphique de ces limites.
+\end{noliste}
+\item {\bf Étude d'une suite $(\alpha_{p})_{p\in \N^*}$}
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que l'équation $f_{p}(x) = x$ admet une unique solution
+$\alpha_{p}$ sur l'intevalle $]0; + \infty[$. (On ne cherchera pas à
+calculer $\alpha_{p}$).
+\item Déterminer le signe de $h_{p}(\alpha_{p + 1})$ et en déduire que
+la suite $(\alpha_{p})_{p\geq 1}$ est monotone.
+\item Prouver que l'on a :
+\[
+\forall p\in \N^*, \quad \alpha_{p}\geq 1 + \ln(p)
+\]
+Quel est le comportement de la suite $(\alpha_{p})_{p\geq 1}$ lorsque
+$p$ tend vers $ + \infty$ ?
+\end{noliste}
+\item {\bf Valeur approchée de $\alpha_{1}$}\\
+On admet que le réel $\alpha_{1}$ appartient à l'intervalle $[1;3]$.
+On définit la suite $(u_{n})_{n\in \N}$ par : $\left\{ 
+\begin{array}{ll}
+ u_{0} = 1\\
+\forall n\in \N, u_{n + 1} = f_{1}(u_{n})
+\end{array}
+\right.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Démontrer par récurrence que pour tout entier naturel $n$ :
+$u_{n}\geq 1$.
+\item Appliquer à $f_{1}$ l'inégalité des accroissements finis entre
+$\alpha_{1}$ et $u_{n}$ et en déduire que pour tout entier naturel $n$
+: 
+\[
+|u_{n}-\alpha_{1}|\leq (\dfrac{1}{2})^{n-1}
+\]
+\item Déterminer un entier naturel $n_{0}$ de telle sorte que si $n$
+est supérieur ou égal à $n_{0}$ alors $|u_{n}-\alpha_{1}|$ est
+inférieur ou égal à $10^{-4}$.
+\item Écrire un programme en langage \Scilab{} permettant d'obtenir les
+valeurs de $n_{0}$ et de $u_{n_{0}}$
+\end{noliste}
+\end{noliste}
+
+\underline{\bf Exercice 3}\\
+On s'intéresse dans cet exercice à l'étude de trois jeux présents dans
+une fête foraine.
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item {\bf Premier jeu}\\
+Pour ce premier jeu de hasard, la mise pour chaque partie est de 1
+euro. L'observation montre qu'une partie est gagnée avec la probabilité
+$\dfrac{1}{10}$, perdue avec la probabilité $\dfrac{9}{10}$.\\
+Toute partie gagnée rapporte 3 euros. Les différentes parties sont
+indépendantes.
+Une personne décide de jouer $N$ parties $(N\geq 2)$. On note $X_{N}$
+la variable aléatoire représentant le nombre de parties gagnées et
+$Y_{N}$ la variable aléatoire représentant le gain algébrique du
+joueur.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner la loi de $X_{N}$ ainsi que la valeur de l'espérance et de
+la variance de cette variable.
+\item Exprimer $Y_{N}$ en fonction de $X_{N}$. En déduire la valeur de
+l'espérance et de la variance de $Y_{N}$.
+\item La personne décide de jouer 60 parties. On admet que l'on peut
+approcher $X_{60}$ par une loi de Poisson.
+\begin{nonoliste}{(i)}
+\item Donner le paramètre de cette loi de Poisson.
+\item A l'issue des 60 parties, quelle est la probabilité que le joueur
+perde moins de 50 euros ? (cette probabilité sera impérativement
+calculée en utilisant l'annexe située à la fin de l'exercice)\\
+\end{nonoliste}
+\end{noliste}
+\newpage
+\item{\bf Deuxième jeu}\\
+Pour ce deuxième jeu, le participant lance trois fléchettes dans une
+cible circulaire de centre O et de rayon 1. Pour $1\leq i\leq 3$, on
+note $X_{i}$ la variable aléatoire égale à la distance du point
+d'impact de centre O de la $i^{ème}$ fléchette. Ces trois variables
+aléatoires $X_{1}, X_{2}, X_{3}$ de même loi, indépendantes, sont des
+variables à densité dont une densité $f$ est définie par :
+\[
+f(x) = \left\{ 
+\begin{array}{ll}
+ 2x \quad si \quad x\in [0;1] \\
+0\quad sinon
+\end{array}
+\right.
+\]
+Le joueur gagne si la distance la plus proche du centre O se trouve à
+une distance inférieure à $\dfrac{1}{5}$ de ce centre. Enfin, on note
+$M$ la variable aléatoire représentant la plus petite des trois
+distances $X_{1}, X_{2}, X_{3}$.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $f$ est une densité de probabilité et déterminer la
+fonction de répartition $F$ de $X_{i}$.
+\item Déterminer l'espérance de $X_{i}$.
+\item Exprimer l'évènement $[M>t]$ à l'aide des évènements $[X_{1}>t],
+[X_{2}>t], [X_{3}>t]$ pour tout réel $t$.
+\item Déterminer la fonction de répartition $F_{M}$ de $M$ et montrer
+que $M$ est une variable à densité et en donner une densité notée
+$f_{M}$.
+\item Quelle est la probabilité de l'évènement $G = $"le joueur gagne
+la partie" ?\\
+\end{noliste}
+\underline{\bf Troisième jeu}\\
+Pour ce dernier jeu, le participant lance successivement $n$ boules au
+hasard dans $N$ cases numérotées de 1 à $N$ avec $N\geq 2$. On suppose
+que les différents lancers de boules sont indépendants et que la
+probabilité pour qu'une boule quelconque tombe dans une case donnée est
+$\dfrac{1}{N}$. Une case peut contenir plusieurs boules. \\
+Le gain étant fonction du nombre de cases atteintes, on étudie la
+variable aléatoire $T_{n}$ égale au nombre de cases non vides à l'issue
+des $n$ lancers.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer en fonction de $n$ et de $N$ les valeurs prises par
+$T_{n}$. 
+\item Donner les lois de $T_{1}$ et $T_{2}$.
+\item Déterminer, lorsque $n\geq 2$, la probabilité des évènements
+$[T_{n} = 1], [T_{n} = 2]$,\\
+$[T_{n} = n]$. (pour la dernière probabilité on distinguera deux cas
+$n>N$ et $n\leq N$).
+\item À l'aide de la formule des probabilités totales, justifier
+l'égalité $(I)$ suivante, pour tout entier $k$ tel que $1\leq k \leq
+n$,
+ 
+\[
+(I)\qquad P\left(\Ev{T_{n + 1} = k]}\right) =
+\dfrac{k}{N}P\left(\Ev{T_{N} = k]}\right) + \dfrac{N-k +
+1}{N}P\left(\Ev{T_{n} = k-1]}\right)
+\]
+\item Afin de calculer l'espérance $\E(T_{n})$ de la variable $T_{n}$,
+on considère la fonction polynômiale $G_{n}$ définie par :
+\[
+\forall x\in \R, \quad G_{n}(x) = \Sum{k = 1}{n} P\left(\Ev{T_{n} =
+k]}\right)x^{k}
+\]
+ \begin{nonoliste}{(i)}
+ \item Quelle est la valeur de $G_{n}(1)$ ?
+ \item Exprimer $\E(T_{n})$ en fonction de $G_{n}'(1)$.
+ \item En utilisant la relation $(I)$, montrer que :
+ 
+\[
+\forall x\in \R, \quad G_{n + 1}(x) = \dfrac{1}{N}(x-x^{2})G_{N}'(x) +
+xG_{n}(x)
+\]
+ \item En dérivant l'expression précédente, en déduire que :
+ 
+\[
+\E(T_{n + 1}) = (1-\dfrac{1}{N})\E(T_{n}) + 1
+\]
+ \item Prouver enfin que l'espérance de la variable $T_{n}$ est donnée
+par :
+ 
+\[
+\E(T_{n}) = N\left[1-\left(1-\dfrac{1}{N}\right)^{n} \right]
+\]
+\end{nonoliste}
+\end{noliste}
+
+
+
+\end{noliste}
+
+
+
+\end{document} 

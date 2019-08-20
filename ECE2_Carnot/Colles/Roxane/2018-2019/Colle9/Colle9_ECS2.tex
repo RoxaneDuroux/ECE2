@@ -1,0 +1,207 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECS2 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 9}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Série 1}
+\subsection*{Question de cours}
+\noindent
+Calculer $\dint{1}{+\infty} \dfrac{\ln(x)}{x(1+(\ln(x))^4} \dx$.
+
+\subsection*{Exercice} % EDHEC 2010
+\noindent
+Dans cet exercice, $a$ désigne un réel strictement positif.\\
+On considère deux variables aléatoires $X$ et $Y$, définies sur
+un espace probabilisé $(\Omega,\mathcal{A},\Prob)$, indépendantes, et 
+suivant toutes deux la loi uniforme sur $[0,a[$.\\
+On pose $Z=|X-Y|$ et on admet que $-Y$, $X-Y$ et $Z$ sont des
+variables aléatoires à  densité, elles aussi définies sur l'espace
+probabilisé $(\Omega,\mathcal{A},\Prob)$.
+\begin{noliste}{1.}
+\item 
+\begin{noliste}{a)}
+\item Déterminer une densité de $-Y$.
+\item En déduire que la variable aléatoire $X-Y$ admet pour densité la
+fonction $g$ définie par :\vspace{-0.3cm}
+$$
+g(x)=\begin{cases}
+\dfrac{a-|x|}{a^{2}} & \text{ si } x\in[-a,a]\\
+0 & \text{ sinon }\end{cases}
+\vspace{-0.3cm}$$
+On note $G$ la fonction de répartition de $X-Y$.
+\end{noliste}
+\item 
+\begin{noliste}{a)}
+\item Exprimer la fonction de répartition $H$ de la variable $Z$ en 
+fonction
+de $G$.
+\item En déduire qu'une densité de $Z$ est la fonction $h$ définie par :
+$\quad 
+h(x)=\begin{cases}
+\dfrac{2(a-x)}{a^{2}} & \text{ si } x\in[0,a]\\
+0 & \text{ sinon }\end{cases}
+$
+\end{noliste}
+\item Montrer que $Z$ possède une espérance et une variance et les 
+déterminer.
+\item Simulation informatique.\\
+On rappelle qu'en \Scilab{}, la commande \texttt{rand()} permet
+de simuler la loi uniforme sur $[0,1[$.\\
+Compléter la déclaration de fonction suivante pour qu'elle retourne
+à  chaque appel un nombre réel choisi selon la loi de $Z$.
+
+\begin{scilab}
+  & \tcFun{function} \tcVar{v}=z(\tcVar{a}) \nl %
+  & \quad x = ........... \nl %
+  & \quad y = ........... \nl %
+  & \quad \tcVar{v} = ........... \nl %
+  & \tcFun{endfunction}
+\end{scilab}
+\end{noliste}
+
+
+
+
+\newpage
+
+\section*{Série 2}
+\subsection*{Question de cours}
+\noindent
+Déterminer les valeurs propres de $A=
+\begin{smatrix}
+ 3 & 0 & 1\\
+ -1 & 2 & -1\\
+ -2 & 0 & 0
+\end{smatrix}$.
+
+\subsection*{Exercice} % ESCP 2017
+\noindent
+Dans cette exercice, $E=\R_n[X]$ désigne l'espace vectoriel des 
+polynômes à coefficients réels de degré inférieur ou égal à $n$, avec 
+$n\in\N^*$, $D$ représente l'endomorphisme de dérivation $D:P\mapsto 
+P'$.
+\begin{noliste}{1.}
+ \item Montrer que $\varphi : P \mapsto P\left(\dfrac{X}{2}\right)$ est 
+ un automorphisme de $E$. Les endomorphismes $\varphi$ et $D$ 
+ commutent-ils ?
+ 
+ \item Soit $\Phi$ l'application définie sur $E$ par :
+ \[
+  \forall P\in E, \ \Phi(P) = \Sum{k=0}{+\infty} P^{(k)}\left( 
+  \dfrac{X}{2}\right)
+ \]
+ \begin{noliste}{a)}
+  \item Montrer que $\Phi$ est bien définie et appartient à $\LL{E}$.
+  
+  \item Montrer que $\varphi^{-1} \circ \Phi = (I-D)^{-1}$ et que $\Phi 
+  \circ \varphi^{-1} = (I-2D)^{-1}$, où $I$ représente l'endomorphisme 
+  identité de $E$.
+  
+  \item En déduire que $\Phi$ est un automorphisme de $E$.
+ \end{noliste}
+ 
+ \item 
+ \begin{noliste}{a)}
+  \item Déterminer les valeurs propres possibles de $\Phi$.
+  
+  \item Soit $(\lambda, P)\in \R\times E$ un couple propre de $\Phi$, 
+  c'est-à-dire vérifiant $\Phi(P)=\lambda P$, avec $P\neq 0$. Montrer 
+  que cette équation est équivalente à l'équation :
+  \[
+   \mu P(X) = P(2X) - 2P'(2X)
+  \]
+  où $\mu$ s'exprime en fonction de $\lambda$.
+  
+  \item Soit $P$ un polynôme propre unitaire (\ie de coefficient 
+  dominant égal à $1$) de $\Phi$ de degré $n$. Déterminer l'expression 
+  de ses coefficients en fonction de $n$.\\
+  %Que peut-on en conclure ?
+ \end{noliste}
+\end{noliste}
+
+
+
+
+
+\newpage
+ 
+\section*{Série 3}
+\subsection*{Question de cours}
+\noindent
+Soit $X$ une \var à densité. Soit $(a,b)\in\R^2$. Étudier la \var 
+$Y=aX+b$.
+
+\subsection*{Exercice} % ESCP 2017
+\noindent
+\begin{noliste}{1.}
+ \item Soit $F$ la fonction définie sur $\R$ par : $\forall x\in\R$, 
+ $F(x)=\exp\left(-\ee^{-x}\right)$.
+ \begin{noliste}{a)}
+  \item Justifier que $F$ est une fonction de répartition.
+  \item Soit $X$ une \var de fonction de répartition $F$. Déterminer 
+  une densité $f$ de $X$.
+ \end{noliste}
+ {\it On suppose désormais que $X$ est une \var sur $(\Omega, \A, 
+ \Prob)$ et que toutes les \var citées sont définies sur ce même 
+ espace.}
+ 
+ \item 
+ \begin{noliste}{a)}
+  \item Soit $Z=\ee^{-X}$. Justifier que $Z$ est une variable aléatoire 
+  réelle sur $(\Omega, \A, \Prob)$ et déterminer sa loi.
+  \item On rappelle que {\tt grand(1,1,\ttq{}exp\ttq{},1)} simule
+    une variable aléatoire et suivant une loi
+    exponentielle de paramètre $1$. Écrire une
+    fonction {\tt Scilab} qui simule la variable
+    aléatoire $X$.
+  \item Soient $x$ et $y$ deux réels strictement positifs. Établir une 
+  relation entre la probabilité conditionnelle 
+  $\Prob_{\Ev{X\leq -\ln(X)}}(\Ev{X\leq -\ln(x+y)})$ et 
+  $\Prob(\Ev{X\leq - \ln(y)})$.
+ \end{noliste}
+ 
+ \item Soit $(Y_i)_{i\in\N^*}$ une suite de \var définies sur $(\Omega, 
+ \A, \Prob)$, mutuellement indépendantes et de même loi exponentielle 
+ de paramètre $1$.\\
+ Soit d'autre part $L$ une \var de loi de Poisson de paramètre $1$ 
+ indépendante des variables aléatoires de la suite $(Y_i)_{i\in\N^*}$.\\
+ On définit $S$ par :
+ \begin{noliste}{$\stimes$}
+  \item si $L(\omega)=0$, alors $S(\omega)=0$.
+  \item si $L(\omega)=k$, avec $k\in\N^*$, alors $S(\omega) = 
+  \max(Y_1(\omega), \hdots, Y_k(\omega))$.
+ \end{noliste}
+ \begin{noliste}{a)}
+  \item Soit $k$ un entier naturel non nul.\\
+  Déterminer la loi de la variable aléatoire $S_k=\max(Y_1,\hdots, 
+  Y_k)$.
+  \item Démontrer que pour tous réels $a$ et $b$ tels que $0<a<b$, 
+  on a :
+  \[
+   \Prob(\Ev{a\leq S \leq b}) = \Prob(\Ev{a\leq X \leq b})
+  \]
+  \item Calculer $\Prob(\Ev{S=0})$.
+ \end{noliste}
+\end{noliste}
+
+
+\end{document}
+

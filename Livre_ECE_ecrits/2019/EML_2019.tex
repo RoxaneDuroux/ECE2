@@ -1,0 +1,433 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+% \input{../macros_Livre.tex}
+\input{../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} EML 2019} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{-.2cm}
+
+%%DEBUT
+
+\section*{EXERCICE 1}
+
+\noindent %
+Dans ce problème, toutes les variables aléatoires sont supposées
+définies sur un même espace probabilisé noté $(\Omega, \A, \Prob)$. %
+
+\subsection*{PARTIE A : Des résultats préliminaires} %
+
+\noindent %
+Soient $U$ et $V$ deux variables aléatoires à densité indépendantes,
+de densités respectives $f_U$ et $f_V$ et de fonctions de répartition
+respectives $F_U$ et $F_V$.\\
+On suppose que les fonctions $f_U$ et $f_V$ sont nulles sur $]-\infty,
+0[$ et continues sur $[0,+\infty[$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier : $\forall t \in [0,+\infty[$, $0 \ \leq \ F_U(t) \,
+    f_V(t) \ \leq \ f_V(t)$.
+    
+  \item En déduire que l'intégrale $\dint{0}{+\infty} F_U(t) \, f_V(t)
+    \dt$ converge.
+  \end{noliste}
+  On admet le résultat suivant :
+  \[
+    \dint{0}{+\infty} F_U(t) \, f_V(t) \dt \ = \ \Prob(\Ev{U \leq V})
+  \]
+  
+\item En déduire : $\Prob(\Ev{U > V}) \ = \ \dint{0}{+\infty} \big(1 -
+  F_U(t)\big) \, f_V(t) \dt$.
+  
+\item {\bf Exemple} : Soient $\lambda, \mu \in \R^2$. On suppose dans
+  cette question que $U$ suit la loi exponentielle de paramètre
+  $\lambda$ et que $V$ suit la loi exponentielle de paramètre $\mu$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Rappeler, pour tout $t$ de $\R_+$, une expression de $F_U(t)$
+    et de $f_V(t)$.
+    
+  \item En déduire : $\Prob(\Ev{U > V}) \ = \ \dfrac{\mu}{\lambda + \mu}$.
+  \end{noliste}
+\end{noliste}
+
+
+\subsection*{PARTIE B : Une application} %
+
+\noindent %
+Soit $\lambda \in \R_+^*$. On considère une suite $(T_n)_{n \in \N}$
+de variables aléatoires indépendantes, suivant toutes la loi
+exponentielle de paramètre $\lambda$.\\
+On définit ensuite la variable aléatoire $N$ égale au plus petit
+entier $k$ de $\N^*$ tel que $T_k \leq T_0$ si un tel entier existe et
+égale à $0$ sinon.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{3}
+\item Soit $n \in \N^*$. On définit la variable aléatoire $M_n$ par :
+  $M_n  = \min(T_1, \ldots, T_n)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Calculer, pour tout $t$ de $\R_+$, $\Prob(\Ev{M_n > t})$.
+    
+  \item En déduire la fonction de répartition de $M_n$ sur $\R$.\\
+    Reconnaître la loi de $M_n$ et préciser son (ses) paramètre(s).
+  \end{noliste}
+  
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer : $\Prob(\Ev{N = 1}) \ = \ \Prob(\Ev{T_1 \leq T_0}) \
+    = \ \dfrac{1}{2}$.
+    
+  \item Justifier : $\forall n \in \N^*$, $\Ev{N > n} \cup \Ev{N = 0}
+    \ = \ \Ev{M_n >  T_0}$.\\
+    En déduire, pour tout $n$ de $\N^* $, une expression de
+    $\Prob(\Ev{N > n} \cup \Ev{N = 0})$ en fonction de $n$.
+    
+  \item Montrer alors : $\forall n \in \N \, \setminus \, \{0,1\}$,
+    $\Prob(\Ev{ N = n}) = \dfrac{1}{n(n+1)}$.
+    
+  \item En déduire la valeur de $\Prob(\Ev{N = 0})$.
+  \end{noliste}
+  
+\item La variable aléatoire $N$ admet-elle une espérance ?
+\end{noliste}
+
+
+\newpage %
+
+
+\section*{Exercice 2}
+
+\noindent
+On rappelle que deux matrices $A$ et $B$ de $\M{3}$ sont dites
+semblables lorsqu'il existe $P$ de $\M{3}$ inversible telle que : 
+\[
+B \ = \ P^{-1} \, A \, P
+\]
+L'objectif de cet exercice est d'étudier des exemples de matrices
+inversibles qui sont semblables à leur inverse. Les trois parties de
+cet exercice sont indépendantes entre elles.
+
+\subsection*{PARTIE A : Premier exemple}
+
+\noindent
+On considère la matrice $A$ de $\M{3}$ définie par : $A \ = \ 
+\begin{smatrix}
+  1 & -1 & 1 \\
+  0 & \frac{1}{2} & 0 \\
+  0 & 0 & 2
+\end{smatrix}
+$.
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+\item Déterminer les valeurs propres de $A$.\\
+  Justifier que $A$ est inversible et diagonalisable.
+
+\item Déterminer une matrice $D$ de $\M{3}$ diagonale où les
+  coefficients diagonaux sont rangés dans l'ordre croissant, et une
+  matrice $P$ de $\M{3}$ inversible telles que : $A \ = \ P \, D \,
+  P^{-1}$.\\
+  Expliciter la matrice $D^{-1}$.
+
+\item On note $Q \ = \
+  \begin{smatrix}
+    0 & 0 & 1 \\
+    0 & 1 & 0 \\
+    1 & 0 & 0
+  \end{smatrix}
+  $. Calculer $Q^2$ et $Q \, D \, Q$.
+
+\item En déduire que les matrices $A$ et $A^{-1}$ sont semblables.
+  
+\end{noliste}
+
+\subsection*{PARTIE B : Deuxième exemple}
+
+\noindent
+On considère $f$ l'endomorphisme de $\R^3$ défini par : 
+\[
+\forall (x, y, z) \in \R^3, \quad f(x, y, z) \ = \ (x, -z, y + 2z)
+\]
+On note $M$ la matrice de $f$ dans la base canonique de $\R^3$.\\
+On considère également les vecteurs $u_1$ et $u_2$ de $\R^3$ définis
+par : $u_1 = (1, 0, 0)$ et $u_2 = (0, 1, -1)$.
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{4}
+\item Expliciter la matrice $M$ et montrer que $M$ est inversible.
+
+\item
+  \begin{noliste}{a.}
+    \setlength{\itemsep}{2mm} %
+  \item Vérifier que $1$ est valeur propre de $f$ et $(u_1, u_2)$ est
+    une base du sous-espace propre associée.
+
+  \item Déterminer un vecteur $u_3$ de $\R^3$ tel que : $f(u_3) - u_3
+    = u_2$.
+
+  \item Montrer que la famille $\B_1 = (u_1, u_2, u_3)$ est une base
+    de $\R^3$.
+  \end{noliste}
+\end{noliste}
+On admet que $\B_2 = (u_1, -u_2, u_3)$ est également une base de $\R^3$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{6}
+\item
+  \begin{noliste}{a.}
+    \setlength{\itemsep}{2mm} %
+  \item Écrire la matrice $M_1$ de $f$ dans la base $\B_1$ et la
+    matrice $M_2$ de $f$ dans la base $\B_2$.
+
+  \item Justifier que les matrices $M_1$ et $M_2$ sont semblables, et
+    calculer $M_1 M_2$.
+  \end{noliste}
+
+\item En déduire que les matrices $M$ et $M^{-1}$ sont semblables.
+\end{noliste}
+
+
+\newpage
+
+
+\subsection*{PARTIE C : Troisième exemple}
+
+\noindent 
+On considère la matrice $T$ de $\M{3}$ définie par : $T =
+\begin{smatrix}
+  1 & -1 & 1 \\
+  0 & 1 & -1 \\
+  0 & 0 & 1
+\end{smatrix}
+$.\\
+On note $I_3$ la matrice identité de $\M{3}$ et on pose : $N = T -
+I_3$.
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{8}
+\item Justifier que la matrice $T$ est inversible. Est-elle
+  diagonalisable ?
+
+\item 
+  \begin{noliste}{a.}
+    \setlength{\itemsep}{2mm} %
+  \item Calculer $N^3$ puis $(I_3 + N)(I_3 - N + N^2)$.
+
+  \item En déduire une expression de $T^{-1}$ en fonction de $I_3$,
+    $N$ et $N^2$.
+
+  \end{noliste}
+
+\item On note $g$ l'endomorphisme de $\R^3$ dont la matrice dans la
+  base canonique est $N$.
+  \begin{noliste}{a.}
+    \setlength{\itemsep}{2mm} %
+  \item Justifier qu'il existe un vecteur $u$ de $\R^3$ tel que : $g
+    \circ g (u) \neq 0_{\R^3}$ \ et \ $g \circ g \circ g (u) =
+    0_{\R^3}$.
+
+  \item Montrer que la famille $\B_3 = (g \circ g(u), g(u), u)$ est
+    une base de $\R^3$.
+
+  \item Écrire la matrice de $g$ dans la base $\B_3$.
+
+  \item Calculer $N^2 - N$ et en déduire que les matrices $N$ et $N^2
+    - N$ sont semblables.
+  \end{noliste}
+
+\item Montrer que les matrices $T$ et $T^{-1}$ sont semblables.
+
+\end{noliste}
+
+
+% \newpage %
+
+
+\section*{EXERCICE 3} %
+
+\noindent %
+On considère la fonction $f$ définie sur $]0,+\infty[$ par :
+\[
+  \forall t \in \ ]0,+\infty[, \ f(t) = t + \dfrac{1}{t}
+\]
+
+\subsection*{PARTIE A : \'Etude d'une fonction d'une variable} %
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item \'Etudier les variations de la fonction $f$ sur $]0,+\infty[$.\\
+  Dresser le tableau de variations de $f$ en précisant les limites en
+  $0$ et $+\infty$.
+  
+\item Montrer que $f$ réalise une bijection de $[1,+\infty[$ vers $[2,+\infty[$.
+\end{noliste}
+On note $g : [2,+\infty[ \ \to [1,+\infty[$ la bijection réciproque de
+la restriction de $f$ à $[1,+\infty[$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{2}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Dresser le tableau de variations de $g$.
+    
+  \item Justifier que la fonction $g$ est dérivable sur $]2,+\infty[$.
+    
+  \item Soit $y \in [2,+\infty[$.
+    En se ramenant à une équation du second degré, résoudre l'équation
+    $f(t) = y$ d'inconnue $t \in \ ]0,+\infty[$. En déduire une
+    expression de $g(y)$ en fonction de $y$.
+  \end{noliste}
+\end{noliste}
+
+
+\subsection*{PARTIE B : \'Etude d'une fonction de deux variables} %
+
+\noindent %
+On considère la fonction $h$ de classe $\Cont{2}$ sur l'ouvert $U = \
+]0,+\infty[ \, \times \, ]0,+\infty[$ définie par :
+\[
+  \forall (x,y) \in U, \ h(x,y) = \left(\dfrac{1}{x} +
+    \dfrac{1}{y}\right) (1+x) (1+y)
+\]
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{3}
+\item Calculer les dérivées partielles d'ordre $1$ de $h$ en tout
+  $(x,y)$ de $U$.
+  
+\item Soit $(x,y) \in U$. Montrer :
+  \[
+    \text{$(x,y)$ est un point critique de $h$} \ \Leftrightarrow \
+    \left\{
+      \begin{array}{l}
+        y = x^2\\
+        x = y^2
+      \end{array}
+    \right.
+   \]
+    
+\item En déduire que $h$ admet un unique point critique sur $U$ dont
+  on précisera les coordonnées $(a,b)$.
+  
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Vérifier : $\forall (x,y) \in U$, $h(x,y) = 2+ f(x) + f(y) +
+    f\left( \dfrac{x}{y} \right)$.
+    
+  \item En déduire que $h$ admet en $(a,b)$ un minimum global sur $U$.
+  \end{noliste}
+\end{noliste}
+
+
+\subsection*{PARTIE C : \'Etude d'une suite} %
+
+\noindent %
+On introduit la suite $(u_n)_{n \in \N^*}$ définie par :
+\[
+  u_1 = 1 \quad \text{et} \quad \forall n \in \N^*, \ u_{n+1} = u_n +
+  \dfrac{1}{n^2 \, u_n} = \dfrac{1}{n} \, f(n \, u_n)
+\]
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{7}
+\item Montrer que, pour tout $n$ de $\N^*$, $u_n$ existe et $u_n \geq
+  1$.
+
+
+  % \newpage
+  
+  
+\item Recopier et compléter les lignes \ligne{3} et \ligne{4} de la
+  fonction \Scilab{} suivante afin que, prenant en argument un entier
+  $n$ de $\N^*$, elle renvoie la valeur de $u_n$.
+  \begin{scilab}
+    & \tcFun{function} \tcVar{u}=\underline{suite}(\tcVar{n}) \nl %
+    & \quad \tcVar{u} = 1 \nl %
+    & \quad \tcFor{for} k = .................. \nl %
+    & \quad \quad \tcVar{u} = .................. \nl %
+    & \quad \tcFor{end} \nl %
+    & \tcFun{endfunction}
+  \end{scilab}
+  
+\item On pose, pour tout $n$ de $\N^*$, $v_n = u_{n+1} - u_n$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer : $\forall n \in \N^*$, $0 \leq v_n \leq
+    \dfrac{1}{n^2}$.
+    
+  \item En déduire la nature de la série $\Sum{n \geq 1}{} v_n$.
+    
+  \item Calculer, pour tout $n$ supérieur ou égal à $2$,
+    $\Sum{k=1}{n-1} v_k$.\\
+    En déduire que la suite $(u_n)_{n\in \N^*}$ converge vers un réel
+    $\ell$, que l'on ne cherchera pas à déterminer.
+  \end{noliste}
+  
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que, pour tout entier $k$ supérieur ou égal à $2$, on
+    a : $\dfrac{1}{k^2} \ \leq \ \dint{k-1}{k} \dfrac{1}{t^2} \dt$.
+    
+  \item Pour tous entiers $n$ et $p$ tels que $2 \leq p < n$, calculer
+    $\Sum{k=p}{n-1} v_k$ et en déduire :
+    \[
+      0 \ \leq \ u_n - u_p \ \leq \ \dint{p-1}{n-1} \dfrac{1}{t^2} \dt
+    \]
+    
+  \item En déduire, pour tout entier $n$ supérieur ou égal à $3$ :
+    $u_2 \leq u_n \leq 1 + u_2$.\\
+    Montrer alors que $\ell$ appartient à l'intervalle $[2,3]$.
+    
+  \item Montrer, pour tout entier $p$ supérieur ou égal à $2$ :
+    \[
+      0 \ \leq \ \ell - u_p \ \leq \ \dfrac{1}{p-1}
+    \]
+    
+  \item En déduire une fonction \Scilab{} qui renvoie une valeur
+    approchée de $\ell$ à $10^{-4}$ près.
+  \end{noliste}
+\end{noliste}
+
+\end{document}

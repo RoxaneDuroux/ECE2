@@ -1,0 +1,426 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 1995} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dint}{\int}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 1995}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\Huge ECRICOME Eco 1995}
+\end{center}
+
+\section*{Exercice I}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour $n\in \N,$ on pose 
+\[
+I_{n} = \dint{0}{2\pi }x^{n}\sin xdx\qquad \text{et}\qquad
+J_{n} = \dint{0}{2\pi }x^{n}\cos x
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier l'existence de $I_{n}$ et $J_{n}.$
+
+\item Pour $n\in \N,$ établir les relations 
+\[
+I_{n + 1} = (n + 1)J_{n}-(2\pi )^{n + 1}\qquad \text{et}\qquad J_{n +
+1} = -(n + 1)J_{n}
+\]
+
+\item Pour $n\in \{0,1,2,3\}$, calculer $I_{n}$ et $J_{n}.$
+\end{noliste}
+
+\item On considère $f :\mathbb{R\rightarrow R}$ définie par : 
+\[
+f(x) = \left\{ 
+\begin{array}{ccc}
+\dfrac{x}{2\pi ^{2}}(1-\cos x) & \text{si} & x\in [0,2\pi ] \\
+0 & \text{si} & x\notin [0,2\pi ]
+\end{array}
+\right.
+\]
+Montrer que $f$ est la densité d'une variable aléatoire réelle $X.$
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la fonction de répartition $F$ de $X.$
+
+\item Montrer que $F$ est dérivable sur $\R.$ Préciser les valeurs
+de $F^{\prime }(0)$ et $F^{\prime }(2\pi ).$
+
+\item Donner le tableau de variation de $F$ sur $\R.$
+\end{noliste}
+
+\item Calculer l'espérance mathématique $\E(X)$ et l'écart-type $\sigma
+(X)$
+de la variable aléatoire $X.$\\
+Donner une valeur approchée à $10^{-2}$ près de $\E(X)$ et de $\sigma
+(X).$
+
+\item Calculer les probabilités suivantes
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item $P\left(\Ev{X>\dfrac{\pi }{2}}\right)$
+
+\item $P\left(\Ev{X<\dfrac{\pi }{2}$ ou $X>\dfrac{3\pi }{2}}\right)$
+
+\item $P\left(\Ev{\left| X-\pi \right| \leq \dfrac{\pi }{2}}\right)$
+
+\item $P[(X\geq \dfrac{\pi }{2})/(X\leq \dfrac{3\pi }{2}))$\\
+(Probabilité conditionnelle de l'évènement $(X\geq \dfrac{\pi }{2})$
+sachant $(X\leq \dfrac{3\pi }{2})$
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE II}
+
+Pour $x\in \R,$ on pose $ :\quad f(x) = x^{3} + 5x-1$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier les variations de $f$ sur $\R.$
+
+\item \label{alpha}Montrer que l'équation $x^{3} + 5x-1 = 0$ admet une
+unique
+solution $\alpha $ dans $\R.$
+
+\item Établir que $0<\alpha <\dfrac{1}{2}.$
+\end{noliste}
+
+\item Le plan étant rapporté à un repère orthonormal
+$(O,\overrightarrow{i},\overrightarrow{j}),$ on note $(C)$ la courbe
+représentative de $f$ dans ce
+repère.\\
+$M_{0}$ est le point de $(C)$ d'abscisse $1.$ La tangente à $(C)$ au
+point $M_{0}$ coupe l'axe $(O,\overrightarrow{i})$ en un point
+d'abscisse $x_{1}.$
+Soit $M_{1}$ le point de $(C)$ d'abscisse $x_{1}.$ En traçant la
+tangente à $(C)$ au point $M_{1},$ on détermine de façon analogue le
+point $M_{2}.$ On
+construit ainsi par récurrence une suite $(M_{n})$ de points de $(C).$
+On désigne enfin par $x_{n}$ l'abscisse du point $M_{n}.$\\
+Établir que $ :\forall n\in \N,\quad x_{n + 1} = \dfrac{2x_{n}{3} +
+1}{3x_{n}{2} + 5}.$
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour $x\in \R,$ on pose 
+\[
+g(x) = 2x^{3}-3\alpha x^{2} + 1-5\alpha
+\]
+où $\alpha $ est le nombre défini à la question \ref{alpha}.\\
+Étudier les variation de $g$ sur $\R.$\\
+Exprimer, pour $n\in \N,$ $x_{n + 1}-\alpha $ à l'aide de $g$ et
+$x_{n}.$\\
+Établir que 
+\[
+\forall n\in \N,\quad x_{n}>\alpha.
+\]
+
+\item Montrer que la suite $(x_{n})$ est strictement décroissante.\\
+En déduire qu'elle est convergente. Quelle est la limite ?
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour $n\in \N,$ on pose $u_{n} = (x_{n + 1}-\alpha
+)-(x_{n}-x_{n + 1}).$\\
+Exprimer, pour $n\in \N,$ $u_{n}$ à l'aide de $\alpha $ et de $x_{n}. $
+
+\item Pour $x\in \R,$ on pose $h(x) = x^{3}-3\alpha x^{2}-5x +
+2-5\alpha.$\\
+Étudier les variations de $h$ sur $[0,1].$
+
+\item Établir que $ :\quad \forall n\in \N,\quad x_{n + 1}-\alpha
+<x_{n}-x_{n + 1}.$
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Écrire en \Scilab{} un programme qui calcule $x_{N}$ et $x_{N +
+1},$ où $N$
+est le plus petit entier $n$ pour lequel la condition $\left|
+x_{n + 1}-x_{n}\right| \leq 10^{-5}$ est réalisée.
+
+\item Expliquer pourquoi un tel programme permet d'obtenir une valeur
+approchée de $\alpha $ à $10^{-5}$ près.
+\end{noliste}
+\end{noliste}
+
+\section*{PROBLEME}
+
+\subsection*{Notations}
+
+On note $\mathfrak{M}_{3}(\R)$ l'espace vectoriel des matrices carrées
+d'ordre $3$ à coefficients dans $\R.$\\
+On désigne par $\mathcal{E} =
+(\varepsilon_{1},\varepsilon_{2},\varepsilon
+_{3})$ la base canonique de $\R^{3}.$\\
+On rappelle que, par définition $ :\varepsilon_{1} = (1,0,0),\quad
+\varepsilon
+_{2} = (0,1,0),\quad \varepsilon_{3} = (0,0,1).$\\
+On pose : 
+\[
+A = 
+\begin{smatrix}
+16 & 4 & -4 \\
+-18 & -4 & 5 \\
+30 & 8 & -7
+\end{smatrix}
+\]
+Enfin, on désigne par $u$ l'endomorphisme de $\R^{3}$ ayant $A$ pour
+matrice dans la base $\mathcal{E}.$
+
+\subsection*{PREMIERE PARTIE : étude de la matrice $A$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les valeurs propres de $A.$
+
+\item $A$ est-elle inversible ?
+
+\item $A$ est-elle diagonalisable ?
+\end{noliste}
+
+\item On pose 
+\[
+P = 
+\begin{smatrix}
+1 & 0 & -1 \\
+-2 & 1 & 1 \\
+2 & 1 & -2
+\end{smatrix}
+\qquad \text{et}\qquad D = 
+\begin{smatrix}
+0 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 4
+\end{smatrix}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer qu'il existe une base $E = (e_{1},e_{2},e_{3})$ de
+$\R^{3}$ telle que $P$ soit la matrice de passage de la base
+$\mathcal{E}$ dans
+la base $E$ et telle que $D$ soit la matrice de $u$ dans la base $E.$
+
+\item En utilisant la méthode du pivot de Gauss, montrer que $P$ est
+inversible et calculer $P^{-1}.$
+
+\item Justifier rapidement et sans calcul l'égalité $ :P^{-1}AP = D;$
+
+\item Montrer qu'une matrice $\Delta $ de $\mathfrak{M}_{3}(\R)$
+vérifie $\Delta D = D\Delta $ si et seulement $\Delta $ est diagonale.
+\end{noliste}
+\end{noliste}
+
+\subsection*{DEUXIEME PARTIE : résolution dans $\mathfrak{M}_{3}(\R)$
+de l'équation du second degré $ :X^{2} = A$}
+
+On se propose dans cette partie de déterminer toutes les matrices $X$
+de $\mathfrak{M}_{3}(\R)$ vérifiant 
+\[
+X^{2} = A
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On considère $X\in \mathfrak{M}_{3}(\R)$ telle que $ :X^{2} = A;$
+on pose $Y = P^{-1}XP.$\\
+Vérifier que $Y^{2} = D;$ montrer que $YD = DY,$ puis établir que $Y$
+est de la
+forme : 
+\[
+Y = 
+\begin{smatrix}
+0 & 0 & 0 \\
+0 & \gamma & 0 \\
+0 & 0 & 2\gamma ^{\prime }\end{smatrix}
+\qquad \text{avec }\gamma \in \{-1,1\}\text{ et }\gamma ^{\prime }\in
+\{-1,1\}.
+\]
+En déduire la forme de la matrice $X$ puis montrer, sans calculer
+explicitement les coefficients de $X^{2},$ qu'une telle matrice $X$
+vérifie
+bien $ :X^{2} = A.$
+
+\item Quel est le nombre $m$ de solutions dans $\mathfrak{M}_{3}(\R) 
+$ de l'équation du second degré $X^{2} = A$ ?\\
+Sans calculer explicitement ces $m$ solutions $X_{1},X_{2},...,X_{m},$
+déterminer leur somme $S = X_{1} + X_{2} + \cdots + X_{m}$ et exprimer
+leur produit $T = X_{1}X_{2}\cdots X_{m}$ en fonction de $A.$
+\end{noliste}
+
+\subsection*{TROISIEME PARTIE : calcul de $A^{n}$ et application à une
+étude
+de suites}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $n\in \N^{\times };$ calculer $D^{n}$ puis en déduire
+l'expression de $A^{n}$ en fonction de $n.$
+
+\item Soient $a,b$ et $c$ trois réels.\\
+On considère les suites $(p_{n}),(q_{n})$ et $(r_{n})$ définies par 
+\[
+p_{0} = a,\quad q_{0} = b,\quad r_{0} = c\quad \text{et, pour tout
+}n\in \N,\quad \left\{ 
+\begin{array}{c}
+p_{n + 1} = 16p_{n} + 4q_{n}-4r_{n} \\
+q_{n + 1} = -18p_{n}-4q_{n} + 5r_{n} \\
+r_{n + 1} = 30p_{n} + 8q_{n}-7r_{n}
+\end{array}
+\right.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour $n\in \N,$ on pose $U_{n} = 
+\begin{smatrix}
+p_{n} \\
+q_{n} \\
+r_{n}\end{smatrix}.$\\
+Exprimer $U_{n}$ à l'aide de $A$ et de $U_{0};$ en déduire, que pour
+$n\geq 1,$ les expressions de $p_{n},q_{n}$ et $r_{n}$ en fonction de
+$a,b,c$ et de $n.$
+
+\item Déterminer une condition nécessaire et suffisante portant sur
+$a,b$ et 
+$c$ pour que les suites $(p_{n}),(q_{n})$ et $(r_{n})$ tendent vers une
+limite finie lorsque $n$ tend vers plus l'infini.\\
+Cette condition étant supposée remplie, que peut-on dire des suites
+$(p_{n}), $ $(q_{n})$ et $(r_{n})$ ?
+\end{noliste}
+\end{noliste}
+
+\subsection*{QUATRIEME PARTIE : $C(A) = \{M\in \mathfrak{M}_{3}(\R)$
+telle que $AM = MA\}$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $M\in C(A)$ si et seulement $P^{-1}MP$ est diagonale.
+
+\item En déduire que $C(A)$ est égal à l'ensemble des matrices de
+$\mathfrak{M}_{3}(\R)$ de la forme : 
+\begin{equation}
+aM_{1} + bM_{2} + cM_{3}\text{ avec }(a,b,c)\in \R^{3} \label{CL}
+\end{equation}
+où $M_{1},M_{2}$ et $M_{3}$ sont trois matrices que l'on déterminera.
+
+\item Montrer que $(M_{1},M_{2},M_{3})$ est une famille libre
+d'éléments de $C(A).$ En déduire l'unicité de l'écriture d'une matrice
+$M$ de $C(A)$ sous
+la forme (\ref{CL}).
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

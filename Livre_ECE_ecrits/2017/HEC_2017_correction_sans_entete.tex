@@ -1,0 +1,3420 @@
+\chapter*{HEC 2017 : le corrigé}
+  
+%
+
+% \begin{remark}[Retour de commission]~\\
+%   Le 31 mai 2017 s'est tenue la commission HEC. Les informations
+%   suivantes ont été signalées.
+%   \begin{noliste}{$\sbullet$}
+%   \item {\bf Barème}. La répartition des points s'est faite de la
+%     manière suivante :
+%     \begin{noliste}{$\stimes$}
+%     \item l'exercice a pesé pour 32\% des points attribués.
+%     \item le problème a pesé 68 \% des points attribués. Plus
+%       précisément : 
+%       \begin{noliste}{}
+%       \item partie I : 32 \%
+%       \item partie II : 15 \%
+%       \item partie III : 21 \%        
+%       \end{noliste}
+%       Pour obtenir 20, le jury estime qu'il fallait recueillir 75\%
+%       des points attribués. Il précise que cela correspond par exemple
+%       à traiter entièrement l'exercice puis la moitié du problème. Ou
+%       encore de traiter tout le problème.    
+%     \end{noliste}
+
+%   \item {\bf Contenu mathématique}. Le jury a précisé cette année que
+%     les candidats s'en sont plutôt bien sortis sur l'algèbre linéaire
+%     (exercice 1). C'est un changement par rapport aux années
+%     précédentes où le jury estimait insuffisant le niveau des
+%     candidats sur ce chapitre.
+
+%   \item {\bf Présentation des copies}. Le jury a souligné une forte
+%     dégradation de la qualité de présentation des copies : lisibilité
+%     / encadrement des résultats / numérotation approximative /
+%     utilisation d'abréviations (dont certaines connues uniquement par
+%     le candidat \ldots). Devant ce constat alarmant, le jury a promis
+%     que la présentation des copies serait maintenant sanctionné.
+
+%   \item {\bf Informatique}. Le jury a précisé que les questions
+%     \Scilab{} représentent à elles seules 12\% des points
+%     attribués. Ce poids est un signal fort du jury envers
+%     l'informatique. Il valide l'importance de ce contenu dans la
+%     formation. Si par le passé certains candidats ont pu estimer que
+%     sécher la partie informatique représentait un bon calcul, il est
+%     maintenant hautement déconseillé de le faire.
+    
+%   \end{noliste}
+% \end{remark}
+
+\section*{EXERCICE}
+
+\noindent
+Pour tout $n\in\N^*$, on note $\M{n}$ l'ensemble des matrices carrés à
+$n$ lignes et $n$ colonnes à coefficients réels et $\Bc{n}$ l'ensemble
+des matrices de $\M{n}$ dont tous les coefficients sont égaux à $0$ ou
+à $1$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item {\it Exemple 1}. Soit $A$ la matrice de $\Bc{2}$ définie par :
+  $A = 
+  \begin{smatrix} 
+    0 & 1 \\ 
+    1 & 0
+  \end{smatrix}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Calculer la matrice $A^2$.
+    
+    \begin{proof}~\\[-.6cm]%
+      \conc{$A^2 = %
+        \begin{smatrix}
+          0 & 1 \\
+          1 & 0
+        \end{smatrix} 
+        \begin{smatrix}
+          0 & 1 \\ 
+          1 & 0
+        \end{smatrix} = I_2$.}~\\[-1cm]
+    \end{proof}
+    
+  \item Quelles sont les valeurs propres de $A$ ?
+	
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item D'après la question \itbf{1.a)}, $A^2 - I_2 = 0$.\\
+        On en déduit que le polynôme $P(X) = X^2-1 = (X-1)(X+1)$ est
+        un polynôme annulateur de $A$. Le polynôme $P$ admet donc $1$
+        et $-1$ comme racines.\\
+        Or, le spectre de $A$ est inclus dans l'ensemble des racines
+        de $P$. %
+        \conc{Autrement dit : $\spc(A) \subset \{-1, 1\}$.}
+
+      \item Vérifions que $1$ est valeur propre de $A$.
+	\[
+	\det (A-I_2) = \det
+        \left(
+        \begin{smatrix}
+          -1 & 1 \\
+          1 & -1
+	\end{smatrix}
+        \right) = 1 - 1 = 0
+	\]
+	Ainsi, $A-I_2$ n'est pas inversible. Donc $1$ est valeur
+        propre de $A$.
+      \item Vérifions que $-1$ est valeur propre de $A$.
+	\[
+	\det (A+I_2) = \det \left(
+          \begin{smatrix} 
+            1 & 1 \\
+            1 & 1
+          \end{smatrix} \right) = 1 - 1 = 0
+	\]
+        Donc $A+I_2$ n'est pas inversible. Donc $-1$ est valeur propre
+        de $A$.
+      \end{noliste}
+      \conc{$\spc(A)=\{-1,1\}$.}~\\[-1.4cm]      
+      \begin{remark}%~\\
+        \begin{noliste}{$\sbullet$}
+        \item Étant en présence d'une matrice de $\M{2}$, on privilégie
+          ici l'utilisation du déterminant. Cependant, on peut aussi
+          rédiger à l'aide d'un calcul de rang. Par exemple :
+          \[
+          \rg (A+I_2) = \rg \left(
+            \begin{smatrix} 
+              1 & 1 \\
+              1 & 1
+            \end{smatrix} \right) < 2 \quad \text{ car $L_1 = L_2$}
+          \]
+        \item Au vu de la première question, introduire un polynôme
+          annulateur est un bon réflexe. Cependant, on peut faire une
+          démonstration directe.\\
+        Détaillons là. Soit $\lambda \in \R$.
+          \[
+          \begin{array}{rcl}
+            \lambda \in \spc(A) & \Leftrightarrow & \text{$A-\lambda \ I$
+              non inversible}
+            \\[.1cm]
+            & \Leftrightarrow & \det(A - \lambda \ I_2) = 0
+            \\[-.4cm]
+          \end{array}
+          \]
+          Or : $\det(A-\lambda I_2) = \det \left(
+            \begin{smatrix}
+              -\lambda & 1 \\
+              1 & -\lambda
+            \end{smatrix}
+          \right) = \lambda^2-1 = (\lambda-1)(\lambda+1)$.\\          
+          On obtient bien que $\spc(A) = \{-1,1\}$.
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+	
+
+    \newpage
+
+
+  \item La matrice $A$ est-elle diagonalisable ?
+	
+    \begin{proof}~\\
+      La matrice $A$ est carrée d'ordre $2$ et admet $2$ valeurs
+      propres {\bf distinctes}. %
+      \conc{Ainsi, la matrice $A$ est diagonalisable.}~\\[-1cm]
+    \end{proof}
+  \end{noliste}
+
+\item {\it Exemple 2}. Soit $B$ la matrice de $\Bc{3}$ définie par :
+  $B =
+  \begin{smatrix} 
+    0 & 1 & 0 \\
+    1 & 0 & 0 \\
+    0 & 0 & 1
+  \end{smatrix}$.\\
+  On considère les instructions et la sortie ({\tt
+    ans}) % (-$\rightarrow$)
+  \Scilab{} suivantes :
+  \begin{scilab}
+    & B = [0,1,0;1,0,0;0,0,1] \nl %
+    & P = [1,1,0;1,-1,0;0,0,1] \nl %
+    & inv(P) \Sfois{} B \Sfois{} P \nl %
+  \end{scilab}
+  % \hspace*{1cm}   -$\rightarrow$ \\
+  % \\
+  % \hspace*{1cm} $ \quad\begin{matrix}
+  %   1. & 0. & 0.\\
+  %   0. & -1. & 0.\\
+  %   0. & 0. & 1.
+  % \end{matrix}$
+  \[
+  \begin{console}
+    \lDisp{\qquad ans \ =} \nl %
+    \lDisp{\qquad \qquad 1. \quad 0. \quad 0.} \nl %
+    \lDisp{\qquad \qquad 0. \quad \moins 1. \quad 0.} \nl %
+    \lDisp{\qquad \qquad 0. \quad 0. \quad 1.} \nle %
+  \end{console}
+  \]
+
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Déduire les valeurs propres de $B$ de la séquence \Scilab{}
+    précédente.
+    
+    \begin{proof}~\\[.2cm]
+      Notons $D = 
+      \begin{smatrix} 
+        1 & 0 & 0 \\ 
+        0 & -1 & 0 \\ 
+        0 & 0 & 1
+      \end{smatrix}$ et $P = 
+      \begin{smatrix} 
+        1 & 1 & 0 \\ 
+        1 & -1 & 0 \\ 
+        0 & 0 & 1
+      \end{smatrix}$.\\[.2cm]
+      D'après la séquence \Scilab{}, $P^{-1}BP = D$, d'où $B =
+      PDP^{-1}$. \\
+      Ainsi, $B$ est semblable à une matrice diagonale.\\
+      Elle est donc diagonalisable et ses valeurs propres sont les
+      coefficients diagonaux de $D$. %
+      \conc{$\spc(B) = \{-1,1\}$}~\\[-1cm]
+    \end{proof}
+   	
+  \item Déterminer une base de chacun des sous-espaces propres de $B$.
+   	
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item Le programme \Scilab{} précédent nous fournit la
+        diagonalisation de la matrice $B$ :
+        \[
+        B = PDP^{-1}
+        \]
+        La famille ${\cal F} = \left(
+          \begin{smatrix}
+            1 \\
+            1 \\
+            0
+          \end{smatrix},
+          \begin{smatrix}
+            1 \\
+            -1 \\
+            0
+          \end{smatrix},
+          \begin{smatrix}
+            0 \\
+            0 \\
+            1
+          \end{smatrix}\right)$ constituée des colonnes de la matrice
+        $P$ est une base de vecteurs propres de $B$. Plus
+        précisément, pour tout $i \in \llb 1, 3 \rrb$, le $\eme{i}$
+        vecteur de ${\cal F}$ est un vecteur propre associé au
+        coefficient diagonal $d_{i,i}$.
+
+      \item On en déduit :
+        \[
+        E_{-1}(B) \supset \Vect{
+          \begin{smatrix}
+            1 \\
+            -1 \\
+            0
+          \end{smatrix}} 
+        \qquad \text{ et } \qquad
+        E_1(B) \supset \Vect{
+          \begin{smatrix}
+            1 \\
+            1 \\
+            0
+          \end{smatrix},
+          \begin{smatrix}
+            0 \\
+            0 \\
+            1
+          \end{smatrix}}
+        \]
+
+
+        \newpage
+
+
+      \item Ainsi, $\dim(E_{-1}(B)) \geq 1$ et $\dim(E_{1}(B)) \geq
+        2$.\\
+        Or, comme $B$ est diagonalisable :
+        \[
+        \dim(E_{-1}(B)) + \dim(E_{1}(B)) = \dim(\M{3,1}) = 3
+        \]
+        On en déduit : $\dim(E_{-1}(B)) = 1$ et $\dim(E_{1}(B)) = 2$.%
+        \conc{Ainsi : $E_{-1}(B) = \Vect{
+            \begin{smatrix}
+              1 \\
+              -1 \\
+              0
+            \end{smatrix}}$ \quad et \quad $E_1(B) = \Vect{
+            \begin{smatrix}
+              1 \\
+              1 \\
+              0
+            \end{smatrix},
+            \begin{smatrix}
+              0 \\
+              0 \\
+              1
+            \end{smatrix}}$.}
+      \end{noliste}
+      \begin{remark}%~\\
+        \begin{noliste}{$\sbullet$}
+        \item On aurait aussi pu déterminer ces deux sous-espaces
+          propres \og à la main \fg{}.
+
+        \item Détaillons la méthode. Soit $X =
+          \begin{smatrix}
+            x \\
+            y \\
+            z
+          \end{smatrix}
+          \in \M{3,1}$.
+          \[
+          \begin{array}{rcl}
+            X \in E_{-1}(B)
+            & \Leftrightarrow & (B + I_3) \ X = 0
+            \\[.2cm]
+            & \Leftrightarrow & 
+            \begin{smatrix}
+              1 & 1 & 0 \\ 
+              1 & 1 & 0 \\
+              0 & 0 & 2
+            \end{smatrix} %
+            \begin{smatrix}
+              x \\
+              y \\
+              z
+            \end{smatrix}
+            = 
+            \begin{smatrix}
+              0 \\
+              0 \\
+              0
+            \end{smatrix}
+            \\[.8cm]
+            & \Leftrightarrow & 
+            \left\{
+              \begin{array}{rcrcrcr}
+                x & + & y & & & = & 0 \\[.2cm]
+                x & + & y & & & = & 0 \\[.2cm]
+                & & & & 2 \ z & = & 0
+              \end{array}
+            \right.
+            \\[1cm]
+            &            
+            \Leftrightarrow 
+            &
+            \left\{
+              \begin{array}{rcrcr}
+                x & & & = & -y \\[.2cm]
+                & & z & = & 0
+              \end{array}
+            \right.
+          \end{array}
+          \]
+          Ainsi : 
+          \[
+          \begin{array}{rcl}
+            E_{-1}(B) & = & \{
+            X = 
+            \begin{smatrix}
+              x \\
+              y \\
+              z
+            \end{smatrix}
+            \in \M{3,1}
+            \ | \ X \in E_{-1}(B) \}
+            \\[.4cm]
+            & = & \{
+            \begin{smatrix}
+              x \\
+              y \\
+              z
+            \end{smatrix}
+            \ | \ x = -y \ \ET{} \ z = 0 \}
+            \\[.6cm]
+            & = & \{
+            \begin{smatrix}
+              -y \\
+              y \\
+              0
+            \end{smatrix}
+            \ | \ y \in \R \}
+            \\[.6cm]
+            & = & \{
+            y \cdot 
+            \begin{smatrix}
+              -1 \\
+              1 \\
+              0
+            \end{smatrix}
+            \ | \ y \in \R \}
+            \ = \ \Vect{
+              \begin{smatrix}
+                -1 \\
+                1 \\
+                0
+              \end{smatrix}
+            }
+          \end{array}          
+          \]~\\[-.8cm]
+          La famille $\left(
+              \begin{smatrix}
+                -1 \\
+                1 \\
+                0
+              \end{smatrix}\right)$ est donc :
+              \begin{noliste}{$\stimes$}
+              \item génératrice de  $E_{-1}(B)$,
+              \item libre car constituée d'un unique vecteur non nul.
+              \end{noliste}
+            C'est donc une base de $E_{-1}(B)$.~\\[-.8cm]
+
+          \item De même, on démontre : $E_{1}(B) =
+            \Vect{ \begin{smatrix}
+                1 \\
+                1 \\
+                0
+              \end{smatrix}
+              , 
+              \begin{smatrix}
+                0 \\
+                0 \\
+                1
+              \end{smatrix}
+            }$.
+          \end{noliste}
+        \end{remark}~\\[-1.4cm]
+      \end{proof}
+    \end{noliste}
+
+
+\newpage
+
+
+\item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Combien existe-t-il de matrices appartenant à $\Bc{n}$ ?
+	
+    \begin{proof}~\\%
+      Une matrice $M$ de $\Bc{n}$ est une matrice de $\M{n}$ dont
+      chaque coefficient vaut soit $0$ soit $1$.\\
+      Une telle matrice est entièrement déterminée par :
+      \begin{noliste}{$\stimes$}
+      \item le choix du coefficient $m_{11}$ : 2 possibilités.
+      \item \ldots
+      \item le choix du coefficient $m_{1n}$ : 2 possibilités.
+      \item le choix du coefficient $m_{21}$ : 2 possibilités.
+      \item \ldots
+      \item le choix du coefficient $m_{2n}$ : 2 possibilités.
+      \item \ldots
+      \item le choix du coefficient $m_{n1}$ : 2 possibilités.
+      \item \ldots
+      \item le choix du coefficient $m_{nn}$ : 2 possibilités.
+      \end{noliste}
+      Il y a donc $2^{n^2}$ telles matrices.%
+      \conc{On en déduit : $\Card(\Bc{n}) = 2^{n^2}$.}~\\[-1cm]
+    \end{proof}
+    
+  \item Combien existe-t-il de matrices de $\Bc{n}$ dont chaque ligne
+    et chaque colonne comporte exactement un coefficient égal à $1$
+    ?
+	
+    \begin{proof}~\\
+      Une matrice $M$ de $\Bc{n}$ dont chaque ligne et chaque colonne
+      comporte exactement un coefficient égal à $1$ est entièrement
+      déterminée par :
+      \begin{noliste}{$\stimes$}
+      \item la position du $1$ sur la $\ere{1}$ ligne : $n$
+        possibilités.\\
+        {\it (on peut le placer sur n'importe quelle colonne)}
+      \item la position du $1$ sur la $\eme{2}$ ligne : $n-1$
+        possibilités.\\
+        {\it (on peut le placer sur n'importe quelle colonne non déjà
+          choisie)}
+      \item la position du $1$ sur la $\eme{3}$ ligne : $n-2$
+        possibilités.\\
+        {\it (on peut le placer sur n'importe quelle colonne non déjà
+          choisie)}
+      \item \ldots
+      \item la position du $1$ sur la $\eme{n}$ ligne : $1$
+        possibilité.\\
+        {\it (on peut le placer sur n'importe quelle colonne non déjà
+          choisie)}
+      \end{noliste}
+      Il existe donc $n \ (n-1) \ (n-2) \cdots 1 = n!$ telles
+      matrices.~\\[-.8cm]%
+      \concL{L'ensemble des matrices de $\Bc{n}$ dont chaque ligne et
+        chaque colonne comporte exactement un coefficient égal à
+        $1$ comporte exactement $n!$ éléments.}{15.4}%~\\[-1cm]
+      \begin{remark}%~\\
+        \begin{noliste}{$\sbullet$}
+        \item Une matrice de $\Bc{n}$ dont chaque ligne et chaque
+          colonne comporte exactement un coefficient égal à $1$
+          peut être représentée par le $n$-uplet $(c_1, \ldots, c_n)$
+          où $c_i \in \llb 1, n \rrb$ est le numéro de colonne où se
+          situe le coefficient égal à $1$ de la ligne $i$.
+        \item Dans cette question, on demande donc de dénombrer
+          l'ensemble des $n$-uplets d'éléments distincts (il n'y a
+          qu'un $1$ sur chaque ligne) de $\llb 1 , n \rrb$. Autrement
+          dit, on s'intéresse aux $n$-arrangements de $\llb 1 , n
+          \rrb$ ou encore aux permutations de $\llb 1 , n \rrb$.\\
+          Il y en a exactement $n!$
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+
+
+  \newpage
+
+  
+\item Dans cette question, $n$ est un entier supérieur ou égal à $2$.\\
+  Soit $E$ un espace vectoriel de dimension $n$ et $u$ un
+  endomorphisme de $E$. On note :
+  \begin{noliste}{$-$}
+  \item $\id$ l'endomorphisme identité de $E$ ;
+  \item $F$ le noyau de l'endomorphisme $(u+\id)$ et $G$ le noyau de
+    l'endomorphisme $(u-\id)$ ;
+  \item $p$ la dimension de $F$ et $q$ la dimension de $G$.
+  \end{noliste}
+  On suppose que $u \circ u =\id$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier que l'image de $(u-\id)$ est incluse dans $F$.
+	
+    \begin{proof}~\\
+      Il s'agit de montrer que $\im(u-\id) \subset \kr(u + \id) = F$.\\[.2cm]
+      Soit $y \in \im(u - \id)$. Par définition, il existe $x\in E$
+      tel que $y = (u-\id)(x) = u(x)-x$.\\
+      Démontrons que $y \in \kr(u + \id)$.
+      \[
+      \begin{array}{rcl@{\quad}>{\it}R{3.5cm}}
+	(u + \id)(y) & = & u(y) + y
+        \\[.2cm]
+	& = & u(u(x)-x)+(u(x)-x) & (par définition de $y$) 
+        \nl
+        \nl[-.2cm]
+	& = & u(u(x)) - \bcancel{u(x)}+\bcancel{u(x)}-x & (par
+        linéarité de $u$) 
+        \nl
+        \nl[-.2cm]
+	& = & \bcancel{x} - \bcancel{x} \ = \ 0_E & (car $u\circ u=\id$)
+        % \nl
+        % \nl[-.2cm]
+        % & = & 0_E
+      \end{array}
+      \]
+      Donc $y\in\kr(u+\id) = F$.%
+      \conc{$\im(u-\id)\subset F$}~\\[-1cm]
+    \end{proof}
+    
+  \item En déduire l'inégalité : $p + q \geq n$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item D'après la question \itbf{4.a)}, $\im(u-\id) \subset \kr(u
+        + \id)$.%
+	\conc{Ainsi : $\dim(\im(u-\id)) \leq \dim(\kr(u+\id)) = p$.}
+
+      \item D'après le théorème du rang :
+        % appliqué à l'endomorphisme $u-\id$,
+	\[
+        \begin{array}{ccccc}
+          \dim(E) & = & \dim(\kr(u-\id)) & + & \dim(\im(u-\id))
+          \\[.2cm]
+          \shortparallel & & \shortparallel & & 
+          \\[.2cm]
+          n & & q & & 
+        \end{array}        
+	\]
+	\conc{$\dim(\im(u-\id)) = n - q$}~
+
+      \item En combinant ces deux résultats, on obtient : $n - q \leq
+        p$.\\%
+        \conc{Ainsi, on a bien : $p + q \geq n$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+    {\it On suppose désormais que $1\leq p<q$.}\\
+    Soit $(f_1, f_2, \ldots, f_p)$ une base de $F$ et $(g_1, g_2,
+    \ldots, g_q)$ une base de $G$.
+
+  \item Justifier que $(f_1, f_2, \hdots, f_p, \ g_1,g_2,\hdots,g_q)$
+    est une base de $E$.
+    
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item On suppose ici que $\dim(\kr(u + \id)) = p \geq 1$. En
+        particulier : $\kr(u + \id) \neq \{ 0_E \}$.%
+        \conc{Ainsi, $-1$ est valeur propre de $u$ et $F = \kr(u +
+          \id) = E_{-1}(u)$.}
+
+      \item De même, $\dim(\kr(u - \id)) = q > 1$. En particulier :
+        $\kr(u - \id) \neq \{ 0_E \}$.%
+        \conc{Ainsi, $1$ est valeur propre de $u$ et $G = \kr(u -
+          \id) = E_{1}(u)$.}
+
+
+        \newpage
+
+        
+      \item On a alors :
+        \begin{noliste}{$\stimes$}
+        \item la famille $(f_1, f_2, \ldots, f_p)$ est une base de
+          $E_{-1}(u)$.\\
+          En particulier, c'est donc une famille libre de $E_{-1}(u)$.
+        \item la famille $(g_1, g_2, \ldots, g_q)$ est une base de
+          $E_{1}(u)$.\\
+          En particulier, c'est donc une famille libre de $E_{1}(u)$.
+        \end{noliste}
+        La famille ${\cal F} = (f_1, f_2, \ldots, f_p, \ g_1, g_2,
+        \ldots, g_q)$ est la concaténation de deux familles libres de
+        sous-espaces propres associés à des valeurs propres
+        distinctes.%
+        \conc{Ainsi, ${\cal F}$ est une famille libre de $E$.}
+      \end{noliste}
+      \begin{remark}
+        L'énoncé demande de \og Justifier \fg{} que ${\cal F}$ est une
+        base de $G$. Cette terminologie est souvent associée à des
+        démonstrations courtes. Ici, il est aussi possible de
+        démontrer que ${\cal F} = (f_1, f_2, \ldots, f_p, g_1, g_2,
+        \ldots, g_q)$ est libre en revenant à la définition. Ce
+        raisonnement est tout aussi rigoureux mais plus long à mettre
+        en place, ce qui provoque une perte de temps pénalisante pour
+        la suite. Détaillons cette rédaction.
+        \begin{noliste}{$\sbullet$}
+        \item Soit $(\lambda_1, \ldots, \lambda_p, \mu_1, \ldots,\mu_q)
+          \in \R^{p+q}$. On suppose :
+          \[
+          \begin{array}{rcccccccccccl}
+            \lambda_1 \cdot f_1 & + & \ldots & + & \lambda_p \cdot f_p &
+            + & \mu_1 \cdot g_1 & + & \ldots & + & \mu_q \cdot g_q & = &
+            0_E \quad (*)
+          \end{array}
+          \]
+          En appliquant l'endomorphisme $u$ de part et d'autre, on
+          obtient par linéarité :
+          \[
+          \begin{array}{C{1cm}rcl}
+            & u\big(  \lambda_1 \cdot f_1  +  \ldots  +  \lambda_p \cdot
+            f_p  +   \mu_1 \cdot g_1  +  \ldots  +  \mu_q \cdot
+            g_q  \big) & = & u(0_E)
+            \\[.4cm]
+            puis & \lambda_1 \cdot u(f_1)  +  \ldots  +  \lambda_p \cdot
+            u(f_p)  +  \mu_1 \cdot u(g_1)  +  \ldots  +  \mu_q
+            \cdot u(g_q)  & = & 0_E 
+            \\[.4cm]
+            et & -\lambda_1 \cdot f_1  -  \ldots  -  \lambda_p \cdot
+            f_p  +  \mu_1 \cdot g_1  +  \ldots  +  \mu_q \cdot
+            g_q & = & 0_E \quad (**)
+          \end{array}
+          \]
+%           \[
+%           \begin{array}{C{.4cm}rcccccccccccccl}
+%             & u\big( & \lambda_1 \cdot f_1 & + & \ldots & + & \lambda_p \cdot
+%             f_p & + &  \mu_1 \cdot g_1 & + & \ldots & + & \mu_q \cdot
+%             g_q & \big) & = & u(0_E)
+%             \\[.4cm]
+%             puis & & \lambda_1 \cdot u(f_1) & + & \ldots & + & \lambda_p \cdot
+%             u(f_p) & + & \mu_1 \cdot u(g_1) & + & \ldots & + & \mu_q
+%             \cdot u(g_q) & & = & 0_E 
+%             \\[.4cm]
+%             et & & -\lambda_1 \cdot f_1 & - & \ldots & - & \lambda_p \cdot
+%             f_p & + & \mu_1 \cdot g_1 & + & \ldots & + & \mu_q \cdot
+%             g_q & & = & 0_E \quad (**)
+%           \end{array}
+%           \]
+          En effet :
+          \begin{noliste}{$\stimes$}
+          \item pour tout $i \in \llb 1, p \rrb$, $f_i\in F = \kr(u +
+            \id)$. Et ainsi :
+            \[
+            \begin{array}{ccl}
+              (u + \id) (f_i) & = & 0_E
+              \\[.2cm]
+              \shortparallel 
+              \\[.2cm]
+              u(f_i) + \id(f_i) & = & u(f_i) + f_i
+            \end{array}
+            % \ie $u(f_i)+f_i=0$, c'est-à-dire $u(f_i)=-f_i$
+            \]
+            On en déduit : $\forall i \in \llb 1, p \rrb$, $u(f_i) =
+            -f_i$.
+            
+          \item pour tout $j \in \llb 1, q \rrb$, $g_j \in G = \kr(u -
+            \id)$. Et ainsi : $(u - \id) (g_j) = 0_E$.\\[.1cm]%
+            On obtient de même : $\forall j \in \llb 1, q \rrb$,
+            $u(g_j) = g_j$.
+          \end{noliste}
+          
+        \item En sommant membre à membre les égalités $(*)$ et $(**)$,
+          on obtient :
+          \[
+          \mu_1 \cdot g_1 + \ldots + \mu_q \cdot g_q = 0_E
+          \]
+          Or $(g_1,\hdots, g_q)$ est une base de $G$. En particulier,
+          c'est une famille libre.\\
+          On en déduit : $\mu_1 = \ldots = \mu_q = 0_{\R}$.
+          
+        \item On reporte dans $(*)$ et on obtient : $\lambda_1 \cdot
+          f_1 + \ldots + \lambda_p \cdot f_p = 0_E$.\\
+          Or $(f_1,\hdots, f_q)$ est une base de $F$. En particulier,
+          c'est une famille libre.\\
+          On en déduit : $\lambda_1 = \ldots = \lambda_p = 0_{\R}$.
+          
+        \item Finalement : $\lambda_1 = \ldots = \lambda_p = \mu_1 =
+          \ldots = \mu_q = 0$.%
+          \conc{La famille $(f_1,f_2,\hdots,f_p,g_1,g_2,\hdots,g_q)$ est
+            libre.}
+        \end{noliste}
+      \end{remark}
+
+
+    \newpage
+
+
+    \begin{noliste}{$\sbullet$}
+    \item La famille ${\cal F}$ est une famille libre de $E$, espace
+      vectoriel de dimension $n$. Ainsi :
+      \[
+      \Card({\cal F}) = p+q \ \leq \ n = \dim(E)
+      \]
+      Or, d'après la question précédente : $p+q \geq n$.%
+      \conc{On en déduit : $p + q = n$.}
+      
+    \item En résumé :
+      \begin{noliste}{$\stimes$}
+      \item la famille ${\cal F}$ est libre.
+      \item $\Card({\cal F}) = n = \dim(E)$.
+      \end{noliste}
+      \conc{La famille ${\cal F} = (f_1, f_2, \ldots, f_p, g_1, g_2,
+        \ldots, g_q)$ est donc une base de $E$.}~\\[-1.6cm]
+    \end{noliste}    
+    \end{proof}
+  
+  \item Calculer $u(g_1-f_1)$ et $u(g_1+f_1)$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord : 
+        \[
+        \begin{array}{rcccc@{\quad}>{\it}R{4cm}}
+          u(g_1 - f_1) & = & u(g_1) & - & u(f_1) & (par linéarité de $u$) 
+          \nl
+          \nl[-.2cm]
+          & = & 1 \cdot g_1 & - & (-1) \cdot f_1 & (car $g_1 \in
+          E_1(u)$ \\ et $f_1 \in E_{-1}(u)$) 
+          \nl
+          \nl[-.2cm]
+          & = & g_1 & + & f_1
+        \end{array}
+        \]
+
+      \item On démontre de même : $u(g_1+f_1) = u(g_1) + u(f_1) =
+        g_1-f_1$.%
+      \end{noliste}
+      \conc{$u(g_1-f_1) = g_1+f_1$ \quad et \quad $u(g_1+f_1) =
+        g_1-f_1$}~\\[-1.2cm]
+    \end{proof}
+    
+  \item Trouver une base de $E$ dans laquelle la matrice de $u$
+    appartient à $\Bc{n}$.
+	
+    \begin{proof}~\\
+      On considère $\B'$ la famille :
+      \[
+      \B' = (g_1 - f_1, \ g_1 + f_1, \ g_2 - f_2, \ g_2 + f_2, \ldots,
+      \ g_p - f_p, \ g_p + f_p, \ g_{p+1} , \ g_{p+2}, \ldots, \ g_q)
+      \]
+      (qui est bien définie car $p < q$)	
+      \begin{noliste}{$\sbullet$}
+      \item Montrons tout d'abord que $\B'$ est une famille libre.\\
+        Soit $(\lambda_1, \hdots, \lambda_p, \mu_1, \hdots, \mu_p,
+        \gamma_{p+1},\hdots,\gamma_q)\in\R^n$. Supposons :
+        \[
+        \lambda_1 \cdot (g_1-f_1) + \mu_1 \cdot (g_1+f_1) + \ldots +
+        \lambda_p \cdot (g_p-f_p) + \mu_p \cdot (g_p+f_p) +
+        \gamma_{p+1} \cdot g_{p+1} + \ldots + \gamma_q \cdot g_q = 0_E
+        \]
+        En réordonnant :
+        \[
+        (\mu_1-\lambda_1) \cdot f_1 + \ldots + (\mu_p-\lambda_p) \cdot
+        f_p + (\mu_1+\lambda_1) \cdot g_1 + \ldots + (\mu_p+\lambda_p)
+        \cdot g_p + \gamma_{p+1} \cdot g_{p+1} + \ldots + \gamma_q
+        \cdot g_q = 0_E
+        \]
+        Or, d'après la question \itbf{4.c)},
+        $(f_1,\hdots,f_p,g_1,\hdots,g_q)$ est une base de $E$.\\
+        C'est donc une famille libre. Ainsi :
+        \[
+        \left\{
+          \begin{array}{l}
+            \forall i\in\llb 1,p\rrb, \quad \mu_i-\lambda_i=0 \\[.2cm]
+            \forall i\in\llb 1,p\rrb, \quad \mu_i+\lambda_i=0 \\[.2cm]
+            \forall j\in\llb p+1,q\rrb, \quad \gamma_j=0 
+          \end{array}
+        \right.
+        \]
+        Or, pour tout $i\in\llb 1,p\rrb$ :
+        \[
+        \begin{array}{ccccl}
+        \left\{
+          \begin{matrix}
+            \mu_i & - & \lambda_i & = & 0 \\
+            \mu_i & + & \lambda_i & = & 0
+          \end{matrix}
+        \right. 
+        &
+        \begin{arrayEq}
+          L_2 \leftarrow L_2 - L_1
+        \end{arrayEq}
+        & 
+        \left\{
+          \begin{matrix}
+            \mu_i & - & \lambda_i & = & 0 \\
+            & & 2 \ \lambda_i & = & 0
+          \end{matrix}
+        \right. 
+        &
+        \Longleftrightarrow
+        &
+        \left\{
+          \begin{matrix}
+            \mu_i & & & = & 0 \\
+            & & \lambda_i & = & 0
+          \end{matrix}
+        \right.
+        \\[.4cm]
+        & & & & \text{\it (par remontées successives)}
+      \end{array}
+      \]
+      Ainsi : $\lambda_1 = \ldots = \lambda_p = \mu_1 = \ldots = \mu_p
+      = \gamma_{p+1} = \ldots = \gamma_q = 0$. %
+      \conc{La famille $\B'$ est libre.}
+
+
+      \newpage
+
+
+    \item On a alors : 
+      \begin{noliste}{$\stimes$}
+      \item la famille $\B'$ est libre.
+      \item $\Card(\B') = n = \dim(E)$.
+      \end{noliste}~\\[-1cm]
+      \conc{Ainsi, $\B'$ est une base de $E$.}
+    
+    \item Déterminons la matrice de $u$ dans cette base.\\
+      Pour plus de lisibilité, notons : $\forall i \in \llb 1,p\rrb$,
+      $r_i = g_i - f_i$ \ et \ $s_i = g_i + f_i$.\\
+      On démontre, par le même raisonnement que dans la question
+      précédente : 
+      \[
+      \forall i \in \llb 1, p \rrb, \ u(g_i - f_i) = g_i + f_i \quad
+      \text{ et } \quad u(g_i + f_i) = g_i - f_i
+      \]
+      La base $\B'$ s'écrit alors : $\B' = (r_1, \ s_1, \ \ldots, \
+      r_i, \ s_i, \ldots, \ r_p, \ s_p, \ g_{p+1}, \ \ldots, \ g_q)$
+      et :
+      \[
+      \left\{
+        \begin{array}{l}
+          \forall i\in\llb 1, p \rrb, \quad u(r_i) = s_i
+          \\[.2cm]
+          \forall i \in\llb 1, p \rrb, \quad u(s_i) = r_i 
+          \\[.2cm]
+          \forall j \in\llb p+1, q \rrb, \quad u(g_j) = g_j
+        \end{array}
+      \right.      
+      \]
+      On en déduit la matrice représentative de $u$ dans la base $\B'$
+      :
+      \[
+      \Mat_{\B'}(u) = %
+      \scalebox{.8}{$
+        \begin{array}{l}
+          \begin{array}{C{.cm}*{8}{>{$}C{.8cm}<{$}}>{$}C{1cm}<{$}*{2}{>{$}C{.8cm}<{$}}}
+            & u(r_1) & u(s_1) & \ldots & u(r_i) & u(s_i) & \ldots & u(r_p)
+            & u(s_p) & u(g_{p+1}) & \ldots & u(g_q)
+          \end{array}
+          \\[.6cm]
+          \left(
+            \begin{array}{*{8}{>{$}C{.8cm}<{$}}>{$}C{1cm}<{$}*{2}{>{$}C{.8cm}<{$}}}
+              0 & 1 & & & & & & & 0 & \cdots & 0
+              \nl
+              \nl[-.2cm]
+              1 & 0 & & & & & & & \vdots & & \vdots
+              \nl
+              \nl[-.2cm]
+              & & \ddots & & & & & & \vdots & & \vdots
+              \nl
+              \nl[-.2cm]
+              & & & 0 & 1 & & & & \vdots & & \vdots
+              \nl
+              \nl[-.2cm]
+              & & & 1 & 0 & & & & \vdots & & \vdots
+              \nl
+              \nl[-.2cm]
+              & & & & & \ddots & & & \vdots & & \vdots
+              \nl
+              \nl[-.2cm]
+              & & & & & & 0 & 1 & \vdots & & \vdots
+              \nl
+              \nl[-.2cm]
+              & & & & & & 1 & 0 & 0 & \cdots & 0
+              \nl
+              \nl[-.2cm]
+              0 & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots
+              & 0 & 1 & &  
+              \nl
+              \nl[-.2cm]
+              \vdots & & & & & & & \vdots & & \ddots & 
+              \nl
+              \nl[-.2cm]
+              0 & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots
+              & 0 & & & 1 
+            \end{array}
+          \right)
+          \begin{array}{>{$}C{.8cm}<{$}}
+            r_1 \phantom{0}
+            \nl
+            \nl[-.2cm]
+            s_1 \phantom{\vdots}
+            \nl
+            \nl[-.2cm]
+            \vdots 
+            \nl
+            \nl[-.2cm]
+            r_i \phantom{\vdots}
+            \nl
+            \nl[-.2cm]
+            s_i \phantom{\vdots}
+            \nl
+            \nl[-.2cm]
+            \vdots
+            \nl
+            \nl[-.2cm]
+            r_p \phantom{\vdots}
+            \nl
+            \nl[-.2cm]
+            s_p \phantom{0}
+            \nl
+            \nl[-.2cm]
+            g_{p+1} \phantom{0}
+            \nl
+            \nl[-.2cm]
+            \vdots 
+            \nl
+            \nl[-.22cm]
+            g_q \phantom{0}
+          \end{array}
+        \end{array}
+        $}
+    \]%~\\[-.4cm]
+    \conc{Dans la base $\B'$, la matrice de $u$ appartient à
+      $\Bc{n}$.}
+  \end{noliste}
+  \begin{remark}%~\\
+      Cette question est difficile car elle demande de prendre
+      beaucoup d'initiatives. 
+      \begin{noliste}{$\sbullet$}
+      \item Il faut tout d'abord se rendre compte que la base ${\cal
+          F} = (f_1, \ldots, f_p, g_1, \ldots, g_q)$ ne convient
+        pas. En effet, comme : 
+        \[
+        \left\{
+          \begin{array}{l}
+            \forall i\in\llb 1, p \rrb, \quad u(f_i) = - f_i
+            \\[.2cm]
+            \forall i \in\llb 1, q \rrb, \quad u(g_i) = g_i 
+          \end{array}
+        \right.      
+      \]        
+      la matrice représentative de $u$ dans ${\cal F}$ contient des
+      $-1$ (en plus des $0$ et des $1$).
+    \item L'idée est alors de créer une base sur laquelle $u$ a pour
+      effet d'échanger les éléments de cette base. Cette idée est
+      guidée par la question précédente dans laquelle on démontre :
+      $u(g_1 - f_1) = g_1 + f_1$ \ et \ $u(g_1 + f_1) = g_1 - f_1$.
+    \end{noliste}
+    \end{remark}~\\[-1.4cm]
+\end{proof}
+\end{noliste}
+%       \[
+%       \Mat_{\B'}(u) = %
+%       \begin{array}{l}
+%         \left(
+%         \begin{array}{cccccccccccccc}        
+%           0 & 1 & 0 & 0 & \cdots & 0 & 0
+%           & 0 & 0 & \cdots &
+%           0 &  0 &  \cdots &  0 \\
+%           1 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 & 0 & \cdots & 0 & 0 &
+%           \cdots & 0 \\
+%           0 & 0 & 0 & 1 & \cdots & 0 & 0 & 0 & 0 & \cdots &
+%           0 &  0 &  \cdots &  0 \\
+%           0 & 0 & 1 & 0 & \cdots & 0 & 0 & 0 & 0 & \cdots & 0 & 0 &
+%           \cdots & 0 \\
+%           \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots &
+%           \vdots & \vdots & \vdots & & \vdots & &
+%           \vdots \\
+%           0 & 0 & 0 & 0 & \cdots & 0 & 1 & 0 & 0 & \cdots &
+%           0 &  0 &  \cdots &  0 \\
+%           0 & 0 & 0 & 0 & \cdots & 1 & 0 & 0 & 0 & \cdots &
+%           0 &  0 &  \cdots &  0 \\
+%           0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 & 1 & \cdots &
+%           0 &  0 &  \cdots &  0 \\
+%           0 & 0 & 0 & 0 & \cdots & 0 & 0 & 1 & 0 & \cdots &
+%           0 &  0 &  \cdots &  0 \\
+%           \vdots & \vdots & \vdots & \vdots & & \vdots & \vdots & \vdots
+%           & \vdots & \ddots & \vdots & \vdots &
+%           &  \vdots \\
+%           0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 & 0 & \cdots &
+%           1 &  0 &  \cdots &  0 \\
+%           0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 & 0 & \cdots &
+%           0 &  1 &  \cdots &  0 \\
+%           \vdots & \vdots & \vdots & \vdots & & \vdots & \vdots & \vdots
+%           & \vdots & & \vdots & \vdots &
+%           \ddots &  \vdots \\
+%           0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 & 0 & \cdots &
+%           0 &  0 &  \cdots &  1 \\
+%         \end{array}
+%       \right)
+%       \begin{array}{c}
+%         g_1-f_1 \\ 
+%         g_1+f_1 \\ 
+%         g_2-f_2 \\
+%         g_2+f_2 \\ 
+%         \vdots \\ 
+%         g_i-f_i \\
+%         g_i+f_i \\ 
+%         g_{i+1}-f_{i+1} \\
+%         g_{i+1}+f_{i+1} \\ 
+%         \vdots \\ 
+%         g_{p+1}\\ 
+%         g_{p+2}\\ 
+%         \vdots \\ 
+%         g_q
+%       \end{array}
+%     \end{array}
+%     \]
+
+
+\newpage
+
+
+\begin{remark}%L}{.95}%~
+  Prenons un peu de recul sur le thème développé dans cet exercice.
+  \begin{noliste}{$\sbullet$}
+  \item Dans cet exercice, on s'intéresse aux endomorphismes
+    involutifs de $E$, c'est à dire aux applications $s \in \LL{E}$
+    qui vérifient :
+    \[
+    s \circ s = \id
+    \]
+    (cette égalité démontre que $s$ est bijectif de réciproque $s$)\\
+    Les cas les plus simples de telles applications sont : $s = \id$
+    et $s = -\id$.
+    % Un tel endomorphisme est appelé une symétrie.
+
+  \item Lors de l'étude de $s$, on considère généralement les espaces
+    vectoriels suivants :
+    \begin{noliste}{$\stimes$}
+    \item $F = \kr(s - \id)$ : c'est l'ensemble des vecteurs
+      invariants par $s$.\\
+      En effet, si $x \in F$, alors : $(s - \id)(x) = 0$ et donc $s(x)
+      = x$.
+    \item $G = \kr(s + \id)$ : c'est l'ensemble des vecteurs changés
+      en leur opposé par $s$.\\
+      En effet, si $x \in G$, alors : $(s + \id)(x) = 0$ et donc $s(x)
+      = -x$.      
+    \end{noliste}
+    {\it (on prend ici les notations classiques - dans l'énoncé, les
+      rôles de $F$ et $G$ sont échangés)}\\[.2cm]
+    Dès lors, on comprend pourquoi un endomorphisme involutif $s \in
+    \LL{E}$ est appelé {\bf symétrie} par rapport à $F$ parallèlement
+    à $G$.
+  \item On peut aussi étudier les symétries dans le cadre de la
+    réduction.\\
+    On suppose que $F \neq \{ 0_E \}$ et $G \neq \{ 0_E \}$. Alors : 
+    \[
+    F = \kr(s - \id) = E_{1}(s) \quad \text{ et } \quad G = \kr(s +
+    \id) = E_{-1}(s)
+    \]
+    On peut démontrer : 
+    \[
+    E \ = \ \kr(s - \id) \ \oplus \ \kr(s + \id)
+    \]
+    Cette égalité signifie que tout vecteur de $E$ s'écrit de manière
+    unique sous la forme d'une somme d'un vecteur de $\kr(s - \id)$ et
+    d'un vecteur de $\kr(s + \id)$.\\
+    Autrement dit :
+    \[
+    \forall x \in E, \exists ! (y, z) \in \kr(s - \id) \times \kr(s +
+    \id), \ x = y + z
+    \]
+%     Il faut expliciter la notation $\oplus$ qui n'est pas un attendu
+%     du programme.\\
+%     L'égalité précédente signifie :
+%     \begin{noliste}{$\stimes$}
+%     \item $E \ = \ \kr(s - \id) \ + \ \kr(s + \id)$\\
+%       Ceci signifie que tout vecteur de $E$ peut s'écrire sous la
+%       forme d'une somme d'un vecteur de $\kr(s - \id)$ et d'un vecteur
+%       de $\kr(s + \id)$.\\
+%       ($\forall x \in E$, $\exists (y, z) \in \kr(s - \id) \times
+%       \kr(s + \id)$, $x = y+z$)
+%     \item $\kr(s - \id) \ \cap \ \kr(s + \id) \ = \ \{ 0_E \}$\\
+%       Ceci permet de démontrer que la décomposition sous forme de
+%       somme est unique.% pour chaque vecteur de $E$.
+%     \end{noliste}
+    Considérons alors la famille $\B = \B_1 \cup \B_{-1}$ obtenue en
+    concaténant une base $\B_1$ de $E_1(s) = \kr(s-\id)$ et une base
+    $\B_{-1}$ de $E_{-1}(s) = \kr(s+\id)$.\\
+    Cette famille est libre par construction.\\
+    De plus, elle est génératrice de $E$ par la décomposition
+    précédente $E = F + G$ (tout vecteur de $E$ peut s'écrire comme
+    somme d'un vecteur de $F$ et d'un vecteur de $G$).\\[.2cm]
+    Finalement $\B$ est une base de vecteurs propres et $s$ s'écrit
+    dans cette base comme matrice diagonale dont la diagonale ne
+    contient que des $1$ et des $-1$.
+
+  \item La notion de symétrie n'est pas au programme de la voie ECE.\\
+    Toutefois, on peut faire l'étude de tels endomorphismes avec des
+    outils au programme. C'est donc un candidat idéal pour faire un
+    sujet de concours.
+
+  \item Cette notion est très liée à la notion de {\bf projecteurs}
+    qui ne sont autres que les endomorphismes idempotents de $E$,
+    c'est à dire les applications $p \in \LL{E}$ qui vérifient :
+    \[
+    p \circ p = p
+    \]
+    Ceci n'est pas non plus au programme mais revient
+    régulièrement pour les raisons citées au-dessus.
+    %   Un tel endomorphisme est appelé un {\bf projecteur}. L'étude de
+    %   tels endomorphismes est très similaire à la précédente. On
+    %   démontre notamment que :
+    %   \[
+    %   E \ = \ \kr(p - \id) \ \oplus \ \kr(p)
+    %   \]
+  \end{noliste}
+  % Faire un topo de contenu sur les symétries.
+\end{remark}%L}
+\end{noliste}
+
+
+\newpage
+
+
+\section*{PROBLÈME}
+
+\noindent %
+{\it Les tables de mortalité sont utilisées en démographie et en
+  actuariat pour prévoir l'espérance de vie des individus d'une
+  population. On s'intéresse dans ce problème à un modèle qui permet
+  d'ajuster la durée de vie à des statistiques portant sur les décès
+  observés au sein d'une génération.}\\
+{\bf Dans tout le problème}, on note :
+\begin{noliste}{$\sbullet$}
+\item $a$ et $b$ deux réels strictement positifs ;
+\item $(\Omega,\mathcal{A},\Prob)$ un espace probabilisé sur lequel sont
+  définies toutes les variables aléatoires du problème ;
+\item $G_{a,b}$ la fonction définie sur $\R_+$ par :
+  $G_{a,b}(x)=\exp\left(-ax-\dfrac{b}{2}x^2\right)$.
+\end{noliste}
+
+\subsection*{Partie I. Loi exponentielle linéaire}
+
+\begin{noliste}{1.}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que la fonction $G_{a,b}$ réalise une bijection de
+    $\R_+$ sur l'intervalle $]0,1]$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item La fonction $G_{a, b}$ est de classe $\Cont{\infty}$ sur $[0,
+        +\infty[$ car elle est la composée $G_{a, b} = g_2 \circ g_1$ 
+	où :
+      \end{noliste}
+      \begin{liste}{$\stimes$}
+      \item $g_1 : x \mapsto -a x - \dfrac{b}{2} x^2$ est :
+        \begin{noliste}{-}
+        \item de classe $\Cont{\infty}$ sur $[0, +\infty[$ car
+          polynomiale,
+        \item telle que : $g_1([0, +\infty[) \subset \R$.
+        \end{noliste}
+      \item $g_2 : x \mapsto \exp(x)$, de classe $\Cont{\infty}$ sur $\R$.
+      \end{liste}
+
+      \begin{noliste}{$\sbullet$}
+      \item Pour tout $x \in [0, +\infty[$ :
+        \[
+        \begin{array}{cccccc}
+          G'_{a, b}(x) = (- a - b x) \ \exp\left( -a x - \dfrac{b}{2}
+            x^2 \right) & = & - & (a+bx) & \exp\left( -a x - \dfrac{b}{2} x^2
+          \right) & < \ 0 \\[-.5cm]
+          & & & \bbacc{1.4cm} & \bbacc{2.4cm} & \\[.4cm]
+          & & & > 0 & > 0 
+        \end{array}
+        \]
+        La fonction $G_{a, b}$ est donc strictement décroissante sur
+        $[0, +\infty[$.
+
+      \item La fonction $G_{a,b}$ est :
+        \begin{noliste}{$\stimes$}
+        \item continue sur $[0, +\infty[$,
+        \item strictement décroissante sur $[0, +\infty[$.        
+        \end{noliste}
+        Ainsi, $G_{a,b}$ réalise une bijection de $[0, +\infty[$ sur
+        $G_{a,b}([0,+\infty[) = \ ]\dlim{x \tend +\infty} G_{a,b}(x),
+        G_{a,b}(0)]$.\\
+        Enfin : $G_{a, b}(0) = \exp(0) = 1$.\\
+        Et : $\dlim{x \tend +\infty} G_{a,b}(x) = 0$ car $\dlim{x
+          \tend +\infty} \left(-a x - \dfrac{b}{2} x^2\right) = - 
+	\infty$.
+      \end{noliste}
+      \conc{Ainsi, $G_{a, b}$ réalise une bijection de $[0, +\infty[$
+        sur $]0, 1]$.}~\\[-1.2cm]
+    \end{proof}
+    
+
+    \newpage
+
+
+  \item Pour tout réel $y>0$, résoudre l'équation d'inconnue $x\in\R$
+    : $ax + \dfrac{b}{2} x^2 = y$.
+
+    \begin{proof}~\\
+      Soit $y > 0$. Notons : $P(x) = \dfrac{b}{2} \ x^2 + a x - y$.
+      \begin{noliste}{$\sbullet$}
+      \item Calculons le discriminant du polynôme $P$ :
+        \[
+        \Delta = a^2 - 4 \times \dfrac{b}{2} \times (-y) = a^2 + 2by \
+        > \ 0
+        \]
+
+      \item On en déduit que $P$ admet exactement deux racines notées
+        $r_+$ et $r_-$ :
+        \[
+        r_+ = \dfrac{-a + \sqrt{\Delta}}{2 \frac{b}{2}} = \dfrac{-a +
+          \sqrt{a^2 + 2by}}{b} \qquad \mbox{ et } \qquad r_- =
+        \dfrac{-a - \sqrt{\Delta}}{2 \frac{b}{2}} = - \dfrac{a +
+          \sqrt{a^2 + 2by}}{b}
+        \]
+
+      \item Or $b > 0$ et $y > 0$ donc $a^2 + 2by > a^2$ et $\sqrt{a^2
+          + 2by} > \sqrt{a^2} = \vert a \vert = a$. \\
+          On en déduit que $r_+ > 0$.\\[.2cm]
+        D'autre part, $r_- < 0$ car $a > 0$, $\sqrt{a^2 + 2by} > 0$ et
+        $b > 0$.
+      \end{noliste}
+      \conc{L'équation $ax + \dfrac{b}{2} x^2 = y$ admet deux
+        solutions : $r_+ > 0$ et $r_- < 0$.}~\\[-1cm]
+    \end{proof}
+
+  \item On note $G_{a,b}^{-1}$ la bijection réciproque de
+    $G_{a,b}$. \\
+    Quelle est, pour tout $u\in[0,1[$, l'expression de
+    $G_{a,b}^{-1}(1-u)$ ?
+
+    \begin{proof}~\\
+      Soit $u \in [0, 1[$. 
+      \begin{noliste}{$\sbullet$}
+      \item On remarque tout d'abord que $1 - u \in \ ]0, 1]$. Notons
+        alors : $v = G_{a,b}^{-1}(1-u)$. \\
+        Par définition de $G_{a,b}$ et $G^{-1}_{a,b}$ :
+        \[
+        \begin{array}{crcl}
+          & v & = & G^{-1}_{a,b}(1-u) \\[.4cm]
+          \Leftrightarrow & G_{a,b}(v) & = & 1 - u \\[.4cm]
+          \Leftrightarrow & \exp\left(- a v - \dfrac{b}{2} v^2 \right) &
+          = & 1 - u \\[.4cm] 
+          \Leftrightarrow & - a v - \dfrac{b}{2} v^2 & = & \ln(1 - u) \\[.4cm]
+          \Leftrightarrow & a v + \dfrac{b}{2} v^2 & = & -\ln(1 - u) 
+        \end{array}
+        \]
+
+      \item Notons alors : $y = -\ln(1-u)$. Comme $1-u \in \ ]0,1]$,
+        $\ln(1-u) \in \ ]-\infty, 0]$ et donc $y \geq 0$.\\
+        On retombe alors sur l'équation de la question précédente dont
+        la résolution est valable pour $y = 0$ (car on a toujours dans
+        ce cas $\Delta > 0$).\\
+        Cette équation admet pour solution :
+        \[
+        r_+ = \dfrac{-a + \sqrt{a^2 + 2by}}{b} = \dfrac{-a + \sqrt{a^2
+            - 2b \ \ln(1-u)}}{b} \ \geq 0 \quad \mbox{ et } \quad r_- < 0
+        \]
+
+      \item Or, comme $G^{-1}_{a,b}$ est à valeurs dans $[0, +\infty[$,
+        on en déduit :
+        \[
+        v = G^{-1}_{a,b}(1-u) \ \Leftrightarrow \ v = \dfrac{-a +
+          \sqrt{a^2 - 2b \ \ln(1-u)}}{b}
+        \]
+      \end{noliste}
+      \conc{Pour tout $u \in [0,1[$, $G^{-1}_{a,b}(1-u) = \dfrac{-a +
+          \sqrt{a^2 - 2b \ \ln(1-u)}}{b}$.}~\\[-1cm]
+    \end{proof}
+  \end{noliste}
+
+
+  \newpage
+
+
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier la convergence de l'intégrale $\dint{0}{+\infty}
+    G_{a,b}(x)\dx$.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item L'intégrale $\dint{0}{1} G_{a,b}(x) \dx$ est bien définie
+        comme intégrale sur le segment $[0,1]$ de la fonction
+        $G_{a,b}$ continue sur $[0,1]$.
+
+      \item
+        \begin{noliste}{$\stimes$}
+        \item Or : $G_{a,b}(x) = \exp\left(-ax - \dfrac{b}{2} \
+            x^2\right) = \oox{+\infty} \left( \dfrac{1}{x^2}
+          \right)$.\\
+          En effet :
+          \[
+          x^2 \ G_{a,b}(x) = x^2 \ \exp\left(-ax - \dfrac{b}{2} \
+            x^2\right) = \dfrac{x^2}{(\ee^a)^x} \times
+          \dfrac{1}{\ee^{\frac{b}{2} x^2}} \tendx{+\infty} 0 \times 0
+          = 0
+          \]
+          par croissances comparées.
+
+        \item $\forall x \in [1, +\infty[$, $G_{a,b}(x) \geq 0$ \quad
+          et \quad $\dfrac{1}{x^2} \geq 0$.
+
+        \item L'intégrale impropre $\dint{1}{+\infty} \dfrac{1}{x^2}
+          \dx$ est convergente en tant qu'intégrale de Riemann
+          impropre en $+\infty$, d'exposant $2$ ($2 > 1$).
+        \end{noliste}%~\\
+        Par critère d'équivalence des intégrales généralisées de
+        fonctions continues positives, l'intégrale impropre
+        $\dint{1}{+\infty} G_{a,b}(x) \dx$ est elle aussi convergente.
+      \end{noliste}
+      \conc{L'intégrale $\dint{0}{1} G_{a,b}(x) \dx$ est convergente.}~\\[-1cm]
+    \end{proof}
+
+  \item Soit $f$ la fonction définie sur $\R$ par : $f(x) =
+    \sqrt{\dfrac{b}{2\pi}}\times \exp \left(-\dfrac{1}{2} b
+      \left(x+\dfrac{a}{b}\right)^2 \right)$.\\
+    Montrer que $f$ est une densité d'une variable aléatoire suivant
+    une loi normale dont on précisera les paramètres (espérance et
+    variance).
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item On rappelle qu'une \var $X$ suit la loi normale de
+        paramètres $(m, \sigma^2)$ si :
+        \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+        \item $X(\Omega) = \R$,
+        \item $X$ admet pour densité la fonction $x \mapsto
+          \dfrac{1}{\sigma \ \sqrt{2 \pi}} \ \ee^{-\frac{1}{2}
+            (\frac{x-m}{\sigma})^2}$ (définie sur $\R$).
+        \end{noliste}
+
+      \item Soit $x \in \R$.
+        \[
+        \begin{array}{rcl}
+          f(x) & = & \sqrt{\dfrac{b}{2\pi}} \times \exp \left(-\dfrac{1}{2} b
+            \left(x+\dfrac{a}{b}\right)^2 \right) \\[.6cm]
+          & = & \dfrac{\sqrt{b}}{\sqrt{2\pi}} \times \exp
+          \left(-\dfrac{1}{2} b \left(\dfrac{bx + a}{b}\right)^2
+          \right) \\[.6cm]  
+          & = & \dfrac{1}{\frac{1}{\sqrt{b}} \ \sqrt{2\pi}} \times \exp
+          \left(-\dfrac{1}{2} \left(\sqrt{b} \ \dfrac{\bcancel{b}(x +
+                \frac{a}{b})}{\bcancel{b}}\right)^2 \right) \\[.6cm]
+          & = & \dfrac{1}{\frac{1}{\sqrt{b}} \ \sqrt{2\pi}}
+          \times \exp \left(-\dfrac{1}{2} \left(\dfrac{x +
+                \frac{a}{b}}{\frac{1}{\sqrt{b}}}\right)^2 \right)  
+        \end{array}        
+        \]
+        \conc{On en déduit que $f$ est la densité d'une \var $X$ qui
+          suit la loi $\Norm{- \frac{a}{b} }{ \frac{1}{b} }$.\\
+          Ainsi, $\E(X) = - \dfrac{a}{b}$ et $\V(X) =
+          \dfrac{1}{b}$.}~\\[-1.2cm]
+      \end{noliste}
+    \end{proof}
+
+
+    \newpage
+
+
+  \item Soit $\Phi$ la fonction de répartition de la loi normale
+    centrée réduite. \\
+    Déduire de la question \itbf{2.b)}, l'égalité :
+    \[
+    \dint{0}{+\infty} G_{a,b}(x)\dx = \sqrt{\frac{2\pi}{b}}\times
+    \exp\left(\frac{a^2}{2b}\right) \times
+    \Phi\left(-\frac{a}{\sqrt{b}}\right)
+    \]
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Soit $x \in [0, +\infty[$. Remarquons tout d'abord :
+        \[
+        \begin{array}{rcl}
+          -a x - \dfrac{b}{2} \ x^2 & = & - \dfrac{1}{2} \ b \ \left(
+            2 \ \dfrac{a}{b} \ x + x^2 \right) \\[.4cm]
+          & = & - \dfrac{1}{2} \ b \ \left( \left( x + \dfrac{a}{b}
+            \right)^2 - \dfrac{a^2}{b^2} \right) % \\[.4cm]
+          \ = \ - \dfrac{1}{2} \ b \ \left( x + \dfrac{a}{b}
+          \right)^2 \ + \ \dfrac{1}{2} \dfrac{a^2}{b}
+        \end{array}
+        \]
+
+      \item On en déduit : 
+        \[
+        \begin{array}{rcl}
+          G_{a, b}(x) & = & \exp\left( -ax - \dfrac{b}{2} x^2 \right)
+          \\[.4cm]
+          & = & \exp\left( - \dfrac{1}{2} \ b \ \left( x + \dfrac{a}{b}
+            \right)^2 \ + \ \dfrac{1}{2} \dfrac{a^2}{b} \right)
+          \\[.4cm]
+          & = & \exp\left( \dfrac{a^2}{2b} \right) \times \exp\left( -
+            \dfrac{1}{2} \ b \ \left( x + \dfrac{a}{b} \right)^2 \right)
+          \\[.4cm]
+          & = & \sqrt{\dfrac{2 \pi}{b}} \times \exp\left(
+            \dfrac{a^2}{2b} \right) \times \sqrt{\dfrac{b}{2 \pi}}
+          \times \exp\left( - \dfrac{1}{2} \ b \ \left( x +
+              \dfrac{a}{b} \right)^2 \right) 
+          \\[.4cm]
+          & = & \sqrt{\dfrac{2 \pi}{b}} \times \exp\left(
+            \dfrac{a^2}{2b} \right) \times f(x)
+        \end{array}
+        \]
+
+      \item Et ainsi : 
+        \[
+        \dint{0}{+\infty} G_{a,b}(x) \dx = \sqrt{\dfrac{2 \pi}{b}}
+        \times \exp\left( \dfrac{a^2}{2b} \right) \times
+        \dint{0}{+\infty} f(x) \dx
+        \]
+
+      \item On rappelle : $X \suit \Norm{-\frac{a}{b}}{\frac{1}{b}} \
+        \Leftrightarrow \ X^* = \dfrac{X -
+          (-\frac{a}{b})}{\frac{1}{\sqrt{b}}} \suit
+        \Norm{0}{1}$.\\[.2cm]
+        On effectue alors le changement de variable $u =
+        \dfrac{x+\frac{a}{b}}{\frac{1}{\sqrt{b}}}$, autrement dit
+        $\Boxed{u = \sqrt{b} \ \left(x + \dfrac{a}{b} \right)}$ :
+        \[
+        \left|
+          \begin{array}{P{11cm}}
+            $u = \sqrt{b} \ \left(x + \dfrac{a}{b} \right)$ \quad (et donc
+            $x =
+            \dfrac{1}{\sqrt{b}} \ u - \dfrac{a}{b}$) \nl    
+            $\hookrightarrow$ $du = \sqrt{b} \, \dx$ \quad et \quad $dx
+            = \dfrac{1}{\sqrt{b}} \ du$ \nl
+            \vspace{-.4cm}
+            \begin{noliste}{$\sbullet$}
+            \item $x = 0 \ \Rightarrow \ u = \dfrac{a}{\sqrt{b}}$
+            \item $x = +\infty \ \Rightarrow \ u = +\infty$ %
+              \vspace{-.4cm}
+            \end{noliste}
+          \end{array}
+        \right.
+        \]
+        Ce changement de variable est valide car la fonction $\varphi
+        : u \mapsto \dfrac{1}{\sqrt{b}} u - \dfrac{a}{b}$ est
+        $\Cont{1}$ sur $[\frac{a}{\sqrt{b}}, +\infty[$.
+
+
+        \newpage
+
+
+        \noindent
+        Et donc : 
+        \[
+        \begin{array}{rcl}
+          \dint{0}{+\infty} f(x) \dx & = & \sqrt{\dfrac{b}{2 \pi}} \ 
+          \dint{0}{+\infty} \exp\left( -\dfrac{1}{2} \ b \ \left( x +
+              \dfrac{a}{b} \right)^2 \right) \dx \\[.6cm]
+          & = & \sqrt{\dfrac{b}{2 \pi}} \
+          \dint{\frac{a}{\sqrt{b}}}{+\infty} \exp\left( - \dfrac{1}{2}
+            \ u^2 \right) \ \dfrac{1}{\sqrt{b}} \ du \ = \
+          \dint{\frac{a}{\sqrt{b}}}{+\infty} \dfrac{1}{\sqrt{2 \pi}} \
+          \ee^{-\frac{u^2}{2}} \ du
+          \\[.6cm]
+          & = & \dint{\frac{a}{\sqrt{b}}}{+\infty} \varphi(u) \ du \ =
+          \ 1 - \dint{+\infty}{\frac{a}{\sqrt{b}}} \varphi(u) \ du \ =
+          \ 1 - \Phi\left( \dfrac{a}{\sqrt{b}} \right) \ = \
+          \Phi\left( -\dfrac{a}{\sqrt{b}} \right)
+        \end{array}      
+        \]
+      \end{noliste}
+      \conc{$\dint{0}{+\infty} G_{a,b}(x)\dx =
+        \sqrt{\frac{2\pi}{b}}\times \exp\left(\frac{a^2}{2b}\right)
+        \times \Phi\left(-\frac{a}{\sqrt{b}}\right)$}
+      \begin{remark}%~\\
+        On utilise ici la propriété :
+        %\[
+        $\Boxed{X \suit \Norm{m}{\sigma^2} \ \Leftrightarrow \ X^* = \dfrac{X
+          - m}{\sigma} \suit \Norm{0}{1}}$\\
+        %\]
+        dans le cas particulier où $m = -\dfrac{a}{b}$ et $\sigma^2 =
+        \dfrac{1}{b}$ (propriété à connaître !).
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+
+\item Pour tout $a>0$ et pour tout $b>0$, on pose : $f_{a,b}(x) =
+  \left\{
+    \begin{array}{cR{1.4cm}}
+      (a+bx) \ \exp\left(-ax-\dfrac{b}{2}x^2\right) & si $x\geq 0$ \nl
+      0 & si $x<0$
+    \end{array}
+  \right.$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier que la fonction $f_{a,b}$ est une densité de
+    probabilité.\\
+    {\it On dit qu'une variable aléatoire suit la loi exponentielle
+      linéaire de paramètres $a$ et $b$, notée
+      $\mathcal{E}_\ell(a,b)$, si elle admet $f_{a,b}$ pour densité.}
+
+    \begin{proof}~\\
+      On vérifie les trois propriétés des densités de probabilité.
+      \begin{nonoliste}{(i)}
+      \item La fonction $f_{a,b}$ est :
+        \begin{noliste}{$\stimes$}
+        \item continue sur $]-\infty, 0[$ car constante sur cet intervalle,
+        \item continue sur $]0, +\infty[$ comme composée et produit de
+          fonctions continues sur $]0,+\infty[$.
+        \end{noliste}
+
+      \item D'autre part, pour tout $x \in \R$, $f_{a, b}(x) \geq 0$
+        car :
+        \begin{noliste}{$\stimes$}
+        \item \dashuline{si $x \geq 0$} : $f_{a, b}(x) =
+          (a+bx)\exp\left(-ax-\dfrac{b}{2}x^2\right) > 0$ (car $a>0$ et 
+	  $b>0$),
+        \item \dashuline{si $x < 0$} : $f_{a, b}(x) = 0 \geq 0$.
+        \end{noliste}
+        
+      \item $\dint{-\infty}{+\infty} f_{a, b}(x) \dx =
+        \dint{0}{+\infty} f_{a, b}(x) \dx$ car $f_{a, b}$ est nulle en
+        dehors de $[0, +\infty[$.\\
+        La fonction $f_{a, b}$ est continue par morceaux sur $[0, +\infty[$.\\
+        Soit $A \in [0, +\infty[$.
+        \[
+        \begin{array}{rcl}
+          \dint{0}{A} f_{a, b}(x) \dx & = & \dint{0}{A} (a+bx) \
+          \exp\left(-ax-\dfrac{b}{2}x^2\right) \dx \\[.6cm]
+          & = & - \Prim{ \exp\left(-ax-\dfrac{b}{2}x^2\right) }{0}{A}
+          \\[.6cm]
+          & = & - \left( \exp\left(-a A - \dfrac{b}{2} A^2\right) -
+            \exp(0) \right) \\[.6cm]
+          & = & 1 - \ee^{-a A} \times \ee^{-\frac{b}{2} A^2} \
+          \tendd{A}{+\infty} 1
+        \end{array}
+        \]
+
+
+        \newpage
+
+
+        \noindent
+        Ainsi, l'intégrale impropre $\dint{-\infty}{+\infty} f_{a,
+          b}(x) \dx$ est convergente et vaut $1$.
+      \end{nonoliste}
+      \conc{On en conclut que $f_{a, b}$ est une densité de
+        probabilité.}~\\[-1cm] 
+    \end{proof}
+
+  \item Soit $X$ une variable aléatoire suivant la loi
+    $\mathcal{E}_\ell(a,b)$. À l'aide d'une intégration par parties,
+    justifier que $X$ admet une espérance $\E(X)$ telle que : $\E(X) =
+    \dint{0}{+\infty} G_{a,b}(x)\dx$.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item La \var $X$ admet une espérance si et seulement si
+        l'intégrale $\dint{-\infty}{+\infty} x \ f_{a, b}(x) \dx$
+        converge absolument, ce qui équivaut à démontrer la
+        convergence pour des calculs de moment du type $\dint{-\infty}
+        {+\infty} x^n f_{a,b}(x) \dx$.
+
+      \item La fonction $f_{a, b}$ est nulle en dehors de $[0,
+        +\infty[$. Donc :
+        \[
+        \dint{-\infty}{+\infty} x f_{a, b}(x) \dx = \dint{0}{+\infty}
+        x f_{a, b}(x) \dx
+        \]
+
+      \item Soit $A \in [0, +\infty[$.\\
+        La fonction $x \mapsto x \ f_{a, b}(x)$ est continue par
+        morceaux sur $[0, A]$.\\
+        On procède par intégration par parties (IPP).
+        \[
+        \renewcommand{\arraystretch}{2}
+        \begin{array}{|rcl@{\qquad}rcl}
+          u(x) & = & x & u'(x) & = & 1 \\
+          v'(x) & = & f_{a, b}(x) & v(x) & = & - G_{a, b}(x)
+        \end{array}
+        \]
+        Cette IPP est valide car les fonctions $u$ et $v$ sont 
+	de classe $\Cont{1}$
+        sur $[0, A]$. On obtient :
+        \[
+        \begin{array}{rcl}
+          \dint{0}{A} x \ f_{a, b}(x) \dx & = & \Prim{-x \ G_{a,
+              b}(x)}{0}{A} + \dint{0}{A} G_{a, b}(x) \dx \\[.6cm]
+          & = & - (A \ G_{a, b}(A) - 0) + \dint{0}{A} G_{a, b}(x) \dx 
+%           \\[.6cm]
+%           & \tendd{A}{+\infty} & 0 \ + \ \dint{0}{+\infty} G_{a, b}(x) 
+% 	    \dx
+        \end{array}
+        \]
+        De plus, par croissances comparées :
+        \[
+        A \ G_{a,b}(A) = A \ \exp\left(-a A - \dfrac{b}{2} \
+          A^2\right) = \dfrac{A}{(\ee^a)^A} \times
+        \dfrac{1}{\ee^{\frac{b}{2} A^2}} \tendd{A}{+\infty} 0 \times 0
+        = 0
+        \]
+        Et, comme l'intégrale $\dint{0}{+\infty} G_{a, b}(x) \dx$ est
+        convergente d'après la question \itbf{2.a)} : 
+        \[
+        \dint{0}{A} x \ f_{a, b}(x) \dx \tendd{A}{+\infty} 0+
+        \dint{0}{+\infty} G_{a, b}(x) \dx
+        \]
+      \end{noliste}
+      \conc{On en déduit que $X$ admet une espérance et que $\E(X) =
+        \dint{0}{+\infty} G_{a, b}(x) \dx$.}~\\[-1.2cm]
+    \end{proof}
+  \end{noliste}
+
+
+  \newpage
+
+
+\item Soit $Y$ une variable aléatoire suivant la loi exponentielle de
+  paramètre $1$. On pose : $X = \dfrac{-a+\sqrt{a^2+2bY}}{b}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier que pour tout réel $x\in\R_+$, on a : $\Prob(\Ev{X\geq
+      x}) = G_{a,b}(x)$.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item D'après la question \itbf{1.c)} :
+        \[
+        \forall u \in [0,1[, \ G^{-1}_{a,b}(1-u) = \dfrac{-a +
+          \sqrt{a^2 - 2b \ \ln(1-u)}}{b}
+        \]
+
+%       \item Considérons $u\in [0,1[$ et $y \geq 0$. et notons $u = 1 - 
+% \ee^{-y}$. Comme
+%         $y \geq 0$, $\ee^{-y} \in \ ]0, 1]$ et donc $u \in [0, 1[$.\\
+%         On peut donc appliquer la formule précédente.\\
+        On remarque :
+        \[
+         -\ln(1-u) = y \ \Leftrightarrow \ \ln(1-u) = -y \ 
+	 \Leftrightarrow \ 1 - u = \ee^{-y} \ \Leftrightarrow \
+	 u = 1 - \ee^{-y}
+        \]
+        Si $y \geq 0$, $\ee^{-y} \in \ ]0, 1]$ et donc $u \in [0, 1[$.\\
+        On peut donc appliquer la formule précédente et
+        on obtient :
+        \[
+        G^{-1}_{a,b}(\ee^{-y}) = \dfrac{-a + \sqrt{a^2 + 2b \ y}}{b}
+        \]
+
+      \item Comme $Y \suit \Exp{1}$, $Y(\Omega) = [0,
+        +\infty[$. Ainsi, d'après ce qui précède : $X =
+        G^{-1}_{a,b}(\ee^{-Y})$.\\[.2cm]
+        On a alors, pour tout $x \in [0, +\infty[$ :
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          \Prob(\Ev{X \geq x}) & = &
+          \Prob\left(\Ev{G^{-1}_{a,b}(\ee^{-Y}) \ \geq \ x} \right) \\[.2cm]
+          & = & \Prob\left(\Ev{\ee^{-Y} \ \leq \ G_{a,b}(x)}\right) & (par
+          stricte décroissance \\ de $G_{a, b}$ sur $[0, +\infty[$)
+          \nl
+          \nl[-.2cm]
+          & = & \Prob\left(\Ev{-Y \ \leq \ \ln(G_{a,b}(x))}\right) & (par
+          stricte croissance \\ de $\ln$ sur $]0, 1]$)
+          \nl
+          \nl[-.2cm]
+          & = & \Prob\left(\Ev{Y \ \geq \ -\ln(G_{a,b}(x))}\right) 
+          \\[.4cm]
+          & = & 1 - \Prob\left(\Ev{Y \ < \ -\ln(G_{a,b}(x))}\right)
+          \\[.2cm]          
+          & = & 1 - F_{y}(-\ln(G_{a,b}(x))) & (car $Y$ est une \\ \var à
+          densité) \nl
+          \nl[-.2cm]
+          & = & \bcancel{1} - \left(\bcancel{1} -
+            \ee^{-(-\ln(G_{a,b}(x)))} \right) & (car $Y \suit
+          \Exp{1}$ \\ et $-\ln(G_{a,b}(x)) \geq 0$) \nl 
+          \nl[-.2cm]
+          & = & \ee^{\ln(G_{a,b}(x))} \ = \ G_{a,b}(x)
+        \end{array}
+        \]
+      \end{noliste}
+      \conc{$\forall x \in [0, +\infty[$, $\Prob(\Ev{ X \geq x }) =
+        G_{a, b}(x)$}
+
+
+      \newpage
+
+
+      \begin{remarkL}{0.96}%~
+        \begin{noliste}{$\sbullet$}
+        \item Il est aussi possible de traiter cette question même
+          sans avoir traité la question \itbf{1.c)}. \\
+          Précisons ci-dessous cette rédaction :
+          \[
+          \begin{array}{rcl@{\qquad}>{\it}R{5.9cm}}
+            \Prob(\Ev{X \geq x}) & = & \Prob\left(\Ev{
+                \dfrac{-a+\sqrt{a^2+2bY}}{b} \geq x } \right) \\[.6cm] 
+            & = & \Prob\left(\Ev{ -a+\sqrt{a^2+2bY} \geq b x } \right)
+            & (car $b > 0$) \nl
+            \nl[-.2cm]
+            & = & \Prob\left(\Ev{ \sqrt{a^2+2bY} \geq a + b x }
+            \right) \\[.2cm]
+            & = & \Prob\left(\Ev{ a^2 + 2bY \geq (a + b x)^2 }
+            \right) & (par stricte croissance de la fonction élévation
+            au carré sur $\R_+$) \nl
+            \nl[-.2cm]
+            & = & \Prob\left(\Ev{ 2bY \geq (a + b x)^2 - a^2 } \right)
+            \\[.2cm]
+            & = & \Prob\left(\Ev{ Y \geq \dfrac{1}{2b} \left((a + b
+                  x)^2 - a^2 \right) } \right) & (car $2b > 0$)
+          \end{array}         
+          \]
+          On remarque alors : 
+          \[
+          \begin{array}{rcl}
+            \dfrac{1}{2b} \left((a + b x)^2 - a^2 \right) & = &
+            \dfrac{1}{2b} \left((\bcancel{a^2} + 2 ab \ x + b^2 x^2) -
+              \bcancel{a^2} \right) \\[.2cm]
+            & = & a \ x + \dfrac{b}{2} \ x^2
+          \end{array}          
+          \]
+          Et, en reprenant le calcul précédent :
+          \[
+          \begin{array}{rcl@{\qquad}>{\it}R{3.5cm}}
+            \Prob(\Ev{X \geq x}) & = & \Prob\left(\Ev{ Y \geq
+                a \ x + \dfrac{b}{2} \ x^2 } \right) \\[.6cm]
+            & = & 1 - \Prob\left(\Ev{ Y < a \ x + \dfrac{b}{2} \
+                x^2 } \right) \\[.4cm]
+            & = & \bcancel{1} - \left(\bcancel{1} - \ee^{-(a \ x +
+                \frac{b}{2} \ x^2)} \right) & (car $Y \suit \Exp{1}$
+            et $a \ x + \dfrac{b}{2} \ x^2 \geq 0$) \nl
+            \nl[-.2cm]
+            & = & \exp\left(-a \ x - \dfrac{b}{2} \ x^2 \right) \ = \
+            G_{a, b}(x)
+          \end{array}         
+          \]
+
+        \item En réalité, il s'agit de deux présentations différentes
+          d'une seule et même démonstration. Il s'agit simplement \og
+          d'inverser \fg{} l'inégalité : $X \geq x$, 
+	  c'est-à-dire d'isoler $Y$.
+          \begin{noliste}{$\stimes$}
+          \item dans la première rédaction, on sait que $X =
+            G^{-1}_{a, b}(Y)$ et il suffit donc d'appliquer $G_{a, b}$
+            de part et d'autre. On aboutit tout de suite à l'inégalité 
+	    : $Y \geq a \ x + \dfrac{b}{2} \ x^2$.\\
+            {\it (notée $Y \geq - \ln(G_{a,b}(x))$ dans la
+              démonstration)}
+
+          \item dans la deuxième rédaction, on prend moins de recul :
+            on part de la définition de $X$ donnée par l'énoncé et,
+            par opérations successives, on tombe encore
+            une fois sur l'inégalité : $Y \geq a \ x + \dfrac{b}{2} \
+            x^2$.
+          \end{noliste}
+        \end{noliste}
+      \end{remarkL}~\\[-1.4cm]
+    \end{proof}
+
+
+    \newpage
+
+
+  \item En déduire que $X$ suit la loi $\mathcal{E}_\ell(a,b)$.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Notons $g : x \mapsto \dfrac{-a + \sqrt{a^2 + 2b \
+            x}}{b}$. Tout d'abord :
+        \[
+        \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+          X(\Omega) & = & \big( g(Y) \big)
+          \hspace{.1cm} (\Omega)
+          \\[.2cm]
+          & = & g \hspace{.1cm} \big(Y(\Omega) \big)
+          \\[.2cm]
+          & = & g \hspace{.1cm} \big( [0, +\infty[ \big) 
+          % \\[.2cm]
+          % & \subset & ]0,1[ & (d'après les implications précédentes)
+        \end{array}
+        \]
+        Or, comme $g$ est continue et strictement croissante sur $[0,
+        +\infty[$ :
+        \[
+        g \hspace{.1cm} \big( [0, +\infty[ \big) = \ [g(0), \dlim{x
+          \tend +\infty} g(x)[ \ = \ [0, +\infty[
+        \]
+        \conc{Ainsi : $X(\Omega) = [0, +\infty[$.}
+        
+      \item Déterminons alors la fonction de répartition de $X$.\\
+        Soit $x \in \R$. Deux cas se présentent.
+        \begin{noliste}{$\stimes$}
+        \item \dashuline{Si $x < 0$} alors $\Ev{X \leq x} = \emptyset$
+          car $X(\Omega) = [0, +\infty[$. Ainsi :
+          \[
+          F_X(x) = \Prob(\Ev{X \leq x}) = 0
+          \]
+
+        \item \dashuline{Si $x \geq 0$} alors :
+          \[
+          \begin{array}{rcl@{\qquad}>{\it}R{7.4cm}}
+            F_X(x) & = & \Prob(\Ev{X \leq x}) \\[.2cm]
+            & = & 1 - \Prob(\Ev{X > x}) \\[.2cm]
+            & = & 1 - G_{a, b}(x) & (en reprenant la démonstration 
+            précédente \\ en remplaçant $\Ev{X \geq x}$ par $\Ev{X > x}$)
+          \end{array}
+          \]          
+        \end{noliste}
+        En résumé :
+        \[
+          F_X \ : \ x  \mapsto 
+          \left\{
+          \begin{array}{cR{3cm}}
+            0 & si $x < 0$ \nl
+            1 - G_{a, b}(x) & si $x \geq 0$
+          \end{array}
+          \right.
+        \]
+
+      \item La fonction $F_X$ est :
+      \end{noliste}
+      \begin{liste}{1)}
+      \item continue sur $\R$ puisque :
+        \begin{noliste}{$\stimes$}
+        \item $x \mapsto 1 - G_{a, b}(x)$ est continue sur $]0,
+          +\infty[$ car $G_{a, b}$ l'est.
+        \item $x \mapsto 0$ est continue sur $]-\infty, 0[$.
+        \item $\dlim{x \tend 0} \left(1 - G_{a,b}(x)\right) = 1 - 1 = 0 
+	= F_X(0) = \dlim{x \tend 0} 0$.
+        \end{noliste}
+
+      \item de classe $\Cont{1}$ sur $]-\infty, 0[$ et sur $]0, 
+      +\infty[$ car :
+        \begin{noliste}{$\stimes$}
+        \item $x \mapsto 0$ est de classe $\Cont{1}$ sur $]-\infty, 0[$,
+        \item $x \mapsto 1 - G_{a, b}(x)$ est de classe $\Cont{1}$ sur 
+	$]0, +\infty[$ car $G_{a, b}$ l'est.
+        \end{noliste}        
+      \end{liste}
+      \conc{On en déduit que $X$ est une \var à densité.}
+
+
+      \newpage
+
+
+      \begin{noliste}{$\sbullet$}
+      \item On obtient une densité $f_X$ de $X$ en dérivant sur les
+        intervalles ouverts.\\
+        On {\bf pose} de plus : $f_X(0) = (a + b \times 0) \ \exp(0) =
+        a$.
+        \[
+	  f_X \ : \ x \mapsto
+          \left\{
+          \begin{array}{cR{3cm}}
+            0 & si $x < 0$ \nl
+            (a + bx) \ \exp\left( -ax - \dfrac{b}{2} x^2 \right) & si 
+	    $x \geq 0$
+          \end{array}
+          \right.
+        \]
+      \end{noliste}
+      \conc{Ainsi, $f_X$ coïncide avec $f_{a, b}$. On en déduit : $X
+        \suit \mathcal{E}_\ell(a,b)$.}
+      \begin{remark}%~
+        \begin{noliste}{$\sbullet$}
+        \item L'énoncé demande de déterminer, en question \itbf{4.a)}
+          : $\Prob(\Ev{X \geq x})$. Le caractère large de l'inégalité
+          est étonnant puisque pour déterminer la fonction de
+          répartition de $X$ on se sert de l'égalité :
+          \[
+          \Prob(\Ev{X \leq x}) = 1 - \Prob(\Ev{X > x})
+          \]
+
+        \item Ce choix est validé après coup puisqu'on démontre, {\bf
+            après avoir déterminé $F_X$}, que $X$ est une \var à
+          densité et donc : $\Prob(\Ev{X \geq x}) = \Prob(\Ev{X >
+            x})$.
+
+        \item La même remarque peut être faite en question
+          \itbf{7.}. Par contre, la question \itbf{8.a)} ne détaillant
+          pas précisément la méthode à suivre, on en profitera pour
+          déterminer $\Prob(\Ev{U_n > x})$, ce qui est bien plus
+          judicieux (d'autant plus que la \var $U_n$ étudiée n'est pas
+          à densité !).
+          
+        \end{noliste}
+      \end{remark}%~\\[-1.2cm]
+    \end{proof}
+
+  \item On note $U$ une variable aléatoire suivant la loi uniforme sur
+    $[0,1[$.\\
+    Déterminer la loi de la variable aléatoire $G_{a,b}^{-1}(1-U)$.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Si $U \suit \Ucfo{0}{1}$ et $\lambda > 0$, alors $-
+        \dfrac{1}{\lambda} \ln(1-U) \suit \Exp{\lambda}$.\\[.2cm]
+        On note alors : $Y = - \ln(1-U)$. On obtient ainsi $Y \suit
+        \Exp{1}$.
+
+      \item Or, comme vu en question \itbf{4.a)} et \itbf{4.b)} :
+        \[
+        G^{-1}_{a, b}(\ee^{-Y}) \suit \mathcal{E}_\ell(a, b)
+        \]
+
+      \item On remarque enfin :
+        \[
+        \ee^{-Y} = \ee^{-(- \ln(1-U))} = \ee^{\ln(1-U)} = 1 - U
+        \]       
+      \end{noliste}
+      \conc{On en déduit que $G^{-1}_{a, b}(1-U) \suit
+        \mathcal{E}_\ell(a, b)$.}
+      
+      
+      \newpage
+      
+      
+      \begin{remarkL}{.97}%~
+        \begin{noliste}{$\sbullet$}
+        \item Rappelons que si $U \suit \Ucfo{0}{1}$ alors $V =
+          -\dfrac{1}{\lambda} \ln(1-U) \suit \Exp{\lambda}$.\\
+          C'est un attendu du programme qu'on demande souvent de
+          démontrer dans les énoncés. Rappelons ici la démonstration.
+        \item Notons $g : x \mapsto - \frac{1}{\lambda} \
+          \ln(1-x)$. Tout d'abord :
+          \[
+          V(\Omega) \ = \ \big( g(U) \big) \hspace{.1cm} (\Omega)
+          \ = \ g \hspace{.1cm} \big(U(\Omega) \big) \ = \ g
+          \hspace{.1cm} \big( [0, 1[ \big) \ = \ [0, +\infty[
+          \]
+          En effet, comme $g$ est continue et strictement croissante
+          sur $[0, 1[$ :
+          \[
+          g \hspace{.1cm} \big( [0, 1[ \big) = \ [g(0), \dlim{x \tend 1}
+          g(x)[ \ = \ [0, +\infty[
+          \]
+%           En effet :
+%           \begin{noliste}{$\stimes$}
+%           \item $g(0) = - \frac{1}{\lambda} \ \ln(1) = 0$.
+%           \item $\dlim{x \tend 1} g(x) = \dlim{x \tend 1} -
+%             \frac{1}{\lambda} \ \ln(1-x) = +\infty$ \ car \ $\dlim{x
+%               \tend 1} \ln(1-x) = -\infty$.
+%           \end{noliste}
+%           \conc{$V(\Omega) \ = \ [0, +\infty[$}
+          
+        \item Déterminons la fonction de répartition de $V$.\\
+          Soit $x\in\R$. Deux cas se présentent.
+          \begin{noliste}{$\stimes$}
+          \item \dashuline{Si $x<0$}, alors 
+            $\Ev{V\leq x}=\varnothing$ car $V(\Omega)=[0,+\infty[$. Donc :
+            \[
+            F_V(x) = \Prob(\Ev{V\leq X}) = \Prob(\varnothing) 
+            = 0
+            \]~\\[-1.2cm]
+            
+          \item \dashuline{Si $x \geq 0$}.
+            \[
+            \begin{array}{rcl@{\quad}>{\it}R{5.5cm}}
+              F_V(x) & = & \multicolumn{2}{l}{\Prob(\Ev{V\leq x}) 
+                \ = \ \Prob\left(\Ev{ -\dfrac{1}{\lambda} \ln(1-U) 
+                  \leq x}\right)}
+              \\[.6cm]
+              & = & \Prob(\Ev{\ln(1-U) \geq -\lambda x}) & (car $-\lambda<0$)
+              \nl
+              \nl[-.2cm]
+              & = & \Prob\left(\Ev{1-U \geq \ee^{-\lambda x}}\right) & (car la 
+              fonction $\exp$ est strictement croissante sur $\R$)
+              \nl
+              \nl[-.4cm]
+              & = & \Prob\left(\Ev{ U \leq  1 - \ee^{-\lambda x}}\right)
+              \\[.2cm]
+              & = & F_U\left( 1-\ee^{-\lambda x} \right)
+              \\[.2cm]
+              & = & 1 - \ee^{-\lambda x} & (car $1 - \ee^{-\lambda x} \in [0,1[$)
+            \end{array}
+            \]
+%             La dernière égalité est justifié par les équivalences suivantes :
+%             \[
+%             \begin{array}{rcl@{\quad}>{\it}R{5.5cm}}
+%               0\leq x < +\infty & \Leftrightarrow & 0 \geq -\lambda x > 
+%               -\infty & (car $-\lambda <0$)
+%               \nl
+%               \nl[-.2cm]
+%               & \Leftrightarrow & 1=\ee^0 \geq \ee^{-\lambda x} > 0 & (car 
+%               la fonction $\exp$ est strictement croissante sur $\R$)
+%               \nl[-.4cm]
+%               \nl
+%               & \Leftrightarrow & 0 \leq 1-\ee^{-\lambda x} < 1
+%             \end{array}
+%             \]
+          \end{noliste}
+
+        \item Il est possible de faire une 
+	  démonstration identique à celle de la question \itbf{4.a)}. En 
+	  reprenant la $\eme{2}$
+          rédaction et en posant : $Y = \ln(1-U)$, on obtient, pour
+          tout $x \geq 0$ :
+          \[
+          \begin{array}{rcl@{\quad}>{\it}R{4.4cm}}
+            \Prob(\Ev{X \geq x}) & = & \multicolumn{2}{l}{1 -
+              \Prob\left(\Ev{ Y < a \ x + \dfrac{b}{2} \ x^2} \right) 
+            \ = \ 1 - \Prob\left(\Ev{ -\ln(1-U) < a \ x + \dfrac{b}{2} \ x^2}
+            \right)} %& (par définition de $Y$) \nl
+            \\[.6cm]
+            & = & 1 - \Prob\left(\Ev{ \ln(1-U) > - a \ x - \dfrac{b}{2} \ x^2}
+            \right) \\[.6cm] 
+            & = & 1 - \Prob\left(\Ev{ 1-U > \exp\left(- a \ x -
+                  \dfrac{b}{2} \ x^2 \right)} \right) & (par stricte
+            croissance \\ de la fonction $\exp$ sur $\R$) \nl
+            \nl[-.2cm] 
+            & = & 1 - \Prob\left(\Ev{ U < 1 - \exp\left(- a \ x -
+                  \dfrac{b}{2} \ x^2 \right)} \right) \\[.6cm] 
+            & = & \bcancel{1} - \left(\bcancel{1} - \exp\left(- a \ x -
+                  \dfrac{b}{2} \ x^2 \right) \right) \ = \ G_{a, b}(x)
+          \end{array}
+          \]
+          et on conclut en utilisant la question \itbf{4.b)}.
+        \end{noliste}
+%         \begin{liste}{$-$}
+%         \item On note $Y = - \dfrac{1}{\lambda} \
+%           \ln(1-U)$. Commençons par déterminer $Y(\Omega)$.\\[.2cm]
+%           Comme $U(\Omega) = [0, 1[$, $(1-U)(\Omega) = \ ]0,1]$.\\[.2cm]
+%           Et ainsi : $(\ln(1-U))(\Omega) = \ln\left( (1-U)(\Omega)
+%           \right) = \ ]\dlim{x \tend 0} \ln(x), \ln(1)] = \ ]-\infty,
+%           0]$.\\
+%           On en déduit : $Y(\Omega) = [0, +\infty[$.
+
+%         \item Soit $x \in \R$. On déterminer $F_Y$ en procédant par
+%           disjonction de cas :
+%           \begin{noliste}{$\stimes$}
+%           \item \dashuline{si $x < 0$} \ alors $\Ev{Y \leq x} = \emptyset$.\\
+%             Ainsi $F_Y(x) = \Prob(\Ev{Y \leq x}) = \Prob(\emptyset) = 0$.
+            
+%           \item \dashuline{si $x \geq 0$} \ alors :
+%             \[
+%             \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+%               F_Y(x) & = & \Prob(\Ev{Y \leq x}) \\[.2cm]
+%               & = & \Prob\left( \Ev{- \dfrac{1}{\lambda} \
+%                   \ln\left(1 - U\right) \leq x} \right) \\[.6cm]
+%               & = & \Prob\left( \Ev{ \ln\left(1 - U\right) \geq
+%                   -\lambda \ x} \right) & (car $-\lambda < 0$) \nl
+%               \nl[-.2cm]
+%               & = & \Prob\left( \Ev{ 1-U \geq \ee^{-\lambda \ x}} \right) &
+%               (par stricte croissance \\ de la fonction $\exp$) \nl
+%               \nl[-.2cm]
+%               & = & \Prob\left( \Ev{ U \leq 1 - \ee^{-\lambda \ x}}
+%               \right) \\[.2cm] 
+%               & = & F_U(1 - \ee^{-\lambda \ x}) \\[.2cm]
+%               & = & 1 - \ee^{-\lambda \ x} & (car $1 - \ee^{-\lambda \
+%                 x} \in [0,1]$)
+%             \end{array}
+%             \]            
+%           \end{noliste}
+%           On reconnaît la fonction de répartition d'une \var qui suit
+%           une loi exponentielle de paramètre $\lambda$. Donc $Y \suit
+%           \Exp{\lambda}$.
+%         \end{liste}
+%         \begin{noliste}{$\sbullet$}
+%         \end{noliste}
+      \end{remarkL}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+
+
+  \newpage
+
+
+\item La fonction \Scilab{} suivante génère des simulations de la loi
+  exponentielle linéaire.
+  \begin{scilab}
+    & \tcFun{function} \tcVar{x} =
+    grandlinexp(\tcVar{a},\tcVar{b},\tcVar{n}) \nl %
+    & \qquad u = rand(\tcVar{n},1) \nl %
+    & \qquad y = ............ \nl %
+    & \qquad \tcVar{x} = (-\tcVar{a} + sqrt(\tcVar{a}\puis 2 + 2
+    \Sfois{} \tcVar{b} \Sfois{} y)) / \tcVar{b} \nl %
+    & \tcFun{endfunction} \nl %
+  \end{scilab}
+
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Quelle est la signification de la ligne de code \ligne{2} ?
+
+    \begin{proof}~\\[-1cm]%
+      \concL{L'instruction {\tt rand(n,1)} renvoie un vecteur colonne
+        de taille $\mathtt{n} \times 1$ contenant le résultat de la
+        simulation de {\tt n} \var aléatoires indépendantes qui
+        suivent toutes la même loi $\Uc{0}{1}$.}{15.6}~\\[-.8cm]
+    \end{proof}
+
+  \item Compléter la ligne de code \ligne{3} pour que la fonction {\tt
+      grandlinexp} génère les simulations désirées.
+
+    \begin{proof}~\\
+      D'après la question \itbf{4.c)}, il suffit d'écrire :
+      \begin{scilabC}{2}
+        & \qquad y = - log(1 - u)
+      \end{scilabC}~\\[-1cm]
+    \end{proof}
+
+  \end{noliste}
+
+\item De quel nombre réel peut-on penser que les six valeurs générées
+  par la boucle \Scilab{} suivante fourniront des valeurs approchées
+  de plus en plus précises et pourquoi ?
+  \begin{scilab}
+    & \tcFor{for} k = 1:6 \nl %
+    & \qquad mean(grandlinexp(0, 1, 10\puis{}k) \nl %
+    & \tcFor{end} \nl %
+  \end{scilab}
+
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item Soit $X$ une \var telle que $X \suit \mathcal{E}_\ell(0,
+      1)$.\\
+      Pour $m \in \N^*$, on considère $(X_1, \ldots, X_m)$ un
+      $m$-échantillon de la \var $X$.\\
+      Autrement dit, on considère $(X_i)_{i \in \N^*}$ une suite de \var
+      indépendantes et toutes de même loi $\mathcal{E}_\ell(0, 1)$. On
+      note alors :
+      \[
+      \overline{X_{m}} \ = \ \dfrac{X_1 + \ldots + X_{m}}{m}
+      \]
+      la \var donnant la moyenne empirique associée à \var $X$.
+
+    \item Pour chaque {\tt k}, l'instruction {\tt mean(grandlinexp(0,
+        1, 10\puis{}k))} permet de simuler la \var
+      $\overline{X_{10^{\mathtt{k}}}}$.
+
+    \item En vertu de la loi faible des grands nombres, la \var
+      $\overline{X_{10^{\mathtt{k}}}}$ converge en probabilité vers la
+      variable aléatoire constante égale à $\E(X)$.
+
+    \item L'entier {\tt k} prenant des valeurs de plus en plus grandes 
+      (on
+      considère une simulation de $\overline{X_{10}}$, puis
+      $\overline{X_{100}}$, \ldots, puis $\overline{X_{1000000}}$), on
+      peut penser que le résultat sera de plus en plus proche de
+      $\E(X)$.
+    \end{noliste}
+    \concL{Les six valeurs générées par la boucle \Scilab{} fourniront
+      des valeurs de plus en plus précises de $\E(X)$.}{15}~\\[-1cm]
+  \end{proof}
+\end{noliste}
+
+
+\newpage
+
+
+\noindent%
+{\it Dans la suite du problème, on note $(X_n)_{n\in\N^*}$ une suite
+  de variables aléatoires indépendantes suivant chacune la loi
+  exponentielle linéaire $\mathcal{E}_\ell(a,b)$ dont les paramètres
+  $a>0$ et $b>0$ sont inconnus.\\
+  Soit $h$ un entier supérieur ou égal à $2$. On suit pendant une
+  période de $h$ années, une \og cohorte \fg{} de $n$ individus de
+  même âge au début de l'étude et on modélise leurs durées de vie
+  respectives à partir de cette date par les variables aléatoires
+  $X_1$, $X_2$, $\hdots$, $X_n$.}
+
+
+\subsection*{Partie II. Premier décès et intervalle de confiance de $a$}
+
+\noindent
+Pour tout $n\in\N^*$, on définit les variables aléatoires $M_n$, $H_n$
+et $U_n$ par :
+\[
+M_n = \min(X_1,X_2,\hdots,X_n), \quad H_n=\min(h,X_1,X_2,\hdots,X_n)
+\quad \mbox{et} \quad U_n=nH_n.
+\]
+\begin{noliste}{1.}
+  \setcounter{enumi}{6}
+\item Calculer pour tout $x \in \R_+$, la probabilité 
+$\Prob(\Ev{M_n\geq x})$.\\
+  Reconnaître la loi de la variable aléatoire $M_n$.
+
+  \begin{proof}~\\
+    Soit $n \in \N^*$.
+    \begin{noliste}{$\sbullet$}
+    \item Tout d'abord : $M_n(\Omega) \subset [0, +\infty[$. En effet :
+    $\forall i \in \llb 1,n \rrb$, $X_i(\Omega) = [0,+\infty[$.
+
+    \item Soit $x \in \R$. Deux cas se présentent :
+      \begin{noliste}{$\stimes$}
+      \item \dashuline{si $x < 0$} alors $\Ev{M_n \geq x} =
+        \Omega$ car $M_n(\Omega) \subset [0,+\infty[$.\\[.1cm]
+        Ainsi : $\Prob(\Ev{M_n \geq x}) = \Prob(\Omega) = 1$.
+
+      \item \dashuline{si $x \geq 0$} alors :
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          \Prob(\Ev{M_n \geq x}) & = & \Prob(\Ev{\min(X_1, \ldots,
+            X_n) \geq x}) \\[.2cm]
+          & = & \Prob(\Ev{X_1 \geq x} \ \cap \ \ldots \ \cap \ \Ev{X_n
+            \geq x} ) \\[.2cm]
+          & = & \Prob(\Ev{X_1 \geq x}) \ \times \ \ldots \ \times \
+          \Prob(\Ev{X_n \geq x} ) & (car les \var $X_i$ \\ sont
+          indépendantes) \nl
+          \nl[-.2cm]
+          & = & G_{a, b}(x) \ \times \ \ldots \ \times \ G_{a, b}(x) &
+          (d'après la question \itbf{4.a)}) \nl
+          \nl[-.2cm]
+          & = & (G_{a, b}(x))^n
+        \end{array}
+        \]        
+      \end{noliste}
+      Enfin, comme $\Prob(\Ev{M_n \leq x}) = 1 - \Prob(\Ev{M_n > x})$
+      (on peut remplacer, sans modification du résultat, $\Ev{M_n \geq
+        x}$ par $\Ev{M_n > x}$ dans la démonstration ci-dessus), on
+      obtient :
+      \[
+        F_{M_n} \ : \ x \mapsto
+        \left\{
+          \begin{array}{cR{3cm}}
+            0 & si $x < 0$ \nl
+            1 - (G_{a, b}(x))^n & si $x \geq 0$
+          \end{array}
+        \right.
+      \]
+
+    \item La fonction $F_{M_n}$ (\cf \itbf{4.b)}) est :
+      \begin{noliste}{1)}
+      \item continue sur $\R$,
+      \item de classe $\Cont{1}$ sur $]-\infty, 0[$ et sur $]0, 
+      +\infty[$.
+      \end{noliste}
+      On en déduit que $M_n$ est une \var à densité.
+
+    \item On obtient une densité $f_{M_n}$ de $M_n$ en dérivant 
+    $F_{M_n}$ sur
+      les intervalles ouverts.\\
+      On choisit de plus : $f_{M_n}(0) = -n \ (G_{a, b}(0))^{n-1} \ 
+      G'_{a, b}(0)$. 
+      On obtient :\\
+      \[
+	f_{M_n} \ : \ x \mapsto
+        \left\{
+          \begin{array}{cR{3cm}}
+            0 & si $x < 0$ \nl
+            - n \ (G_{a, b}(x))^{n-1} \ G'_{a, b}(x) & si $x \geq 0$
+          \end{array}
+        \right.
+      \]
+
+
+      \newpage
+
+
+      \noindent
+      Or : 
+      \[
+      \begin{array}{rcl}
+        - n \ (G_{a, b}(x))^{n-1} \ G'_{a, b}(x) & = & - n \ \left(\exp\left(-ax
+            - \frac{b}{2} \ x^2\right)\right)^{n-1} \ (-a - bx) \
+        \exp\left(-ax - \frac{b}{2} \ x^2\right)  \\[.2cm]
+        & = & n \ (a + bx) \ \left(\exp\left(-ax - \frac{b}{2} \
+            x^2 \right) \right)^{n} \\[.2cm]
+        & = & ((na) + (nb) x) \ \exp\left(-(na) x - \frac{(nb)}{2} \
+            x^2 \right) \ = \ f_{na, nb}(x)
+      \end{array}
+      \]
+    \end{noliste}
+    \conc{On en déduit que $M_n \suit \mathcal{E}_{\ell}(na, nb)$.}~\\[-1cm]
+  \end{proof}
+
+\item Pour tout $n\in\N^*$, on note $F_{U_n}$ la fonction de
+  répartition de la variable aléatoire $U_n$.
+  
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que pour tout $x\in\R$, on a : $F_{U_n}(x) = %
+    \left\{
+      \begin{array}{lR{2.3cm}}
+	0 & si $x < 0$ \nl
+	1 - \exp\left(- ax - \dfrac{b}{2n}x^2\right) & si $0\leq x < nh$ \nl
+	1 & si $x \geq nh$
+      \end{array}
+    \right.$.
+
+    \begin{proof}~\\
+      Soit $n \in \N^*$.
+      \begin{noliste}{$\sbullet$}
+      \item Commençons par déterminer $U_n(\Omega)$.\\
+        Remarquons tout d'abord :
+        \[
+        \begin{array}{rcl}
+          H_n & = & \min(h, X_1, X_2, \ldots, X_n) \\[.2cm]
+          & = & \min(h, \min(X_1, X_2, \ldots, X_n)) \\[.2cm]
+          & = & \min(h, M_n) \\[.2cm]
+        \end{array}
+        \]
+        On en déduit : $H_n(\Omega) \subset [0, +\infty[$.%
+        \conc{$U_n(\Omega) \subset [0, +\infty[$}
+
+      \item Soit $x \in \R$. Trois cas se présentent :
+        \begin{noliste}{$\stimes$}
+        \item \dashuline{si $x < 0$} alors $\Ev{U_n > x} =
+          \Omega$ car $U_n(\Omega) \subset [0,+\infty[$.\\[.1cm]
+          Ainsi, $\Prob(\Ev{U_n > x}) = \Prob(\Omega) = 1$.
+          
+        \item \dashuline{si $x \in [0, nh[$} alors :
+          \[
+          \begin{array}{rcl@{\qquad}>{\it}R{5.4cm}}
+            \Prob(\Ev{U_n > x}) & = & \Prob(\Ev{n H_n > x}) \\[.2cm]
+            & = & \Prob(\Ev{H_n > \frac{x}{n}}) & (puisque $n > 0$)
+            \nl
+            \nl[-.2cm]
+            & = & \Prob(\Ev{\min(h, M_n) > \frac{x}{n}}) \\[.4cm]
+            & = & \Prob(\Ev{h > \frac{x}{n}} \cap \Ev{M_n >
+              \frac{x}{n}}) \\[.4cm] 
+            & = & \Prob(\Ev{h > \frac{x}{n}}) \ \times \ 
+            \Prob(\Ev{M_n > \frac{x}{n}}) & (car la \var constante
+            $h$ et la \var $M_n$ sont indépendantes) \nl
+            \nl[-.2cm]
+            & = & 1 \ \times \ \Prob(\Ev{M_n > \frac{x}{n}}) & (car
+            $\Ev{x < nh} = \Omega$ \\ puisque $x \in [0, nh[$) \nl
+            \nl[-.2cm]
+            & = & \left(G_{a, b}(\frac{x}{n}) \right)^n & (d'après la
+            question \itbf{7}) 
+          \end{array}
+          \]        
+
+        \item \dashuline{si $x \geq nh$} alors (en reprenant la
+          démonstration ci-dessus) :
+          \[
+          \begin{array}{rcl@{\qquad}>{\it}R{5.4cm}}
+            \Prob(\Ev{U_n > x}) & = & \Prob(\Ev{h > \frac{x}{n}}) \
+            \times \ \Prob(\Ev{M_n > \frac{x}{n}}) \\[.2cm]
+            & = & 0 \ \times \ \Prob(\Ev{M_n > \frac{x}{n}}) \ = \ 0 & (car
+            $\Ev{x < nh} = \emptyset$ \\ puisque $x \geq nh$) \nl
+          \end{array}
+          \]        
+        \end{noliste}
+        
+        
+        \newpage
+
+
+      \item Enfin, comme $\Prob(\Ev{U_n \leq x}) = 1 - \Prob(\Ev{U_n >
+          x})$, on obtient : %
+        \conc{$
+          F_{U_n} \ : \ x \mapsto
+          \left\{
+            \begin{array}{cR{3cm}}
+              0 & si $x < 0$ \nl
+              \nl[-.2cm]
+              1 - \left(G_{a, b}\left( \frac{x}{n} \right) \right)^n &
+              si $x \in [0, nh[$ \nl 
+              \nl[-.2cm]
+              1 & si $x \geq nh$ 
+            \end{array}
+          \right.
+        $}%
+      Il suffit alors de remarquer : 
+      \[
+      \left(G_{a, b}\left(\dfrac{x}{n} \right)\right)^n = \exp\left(
+        -a \dfrac{x}{n} - \dfrac{b}{2} \left(\dfrac{x}{n}\right)^2
+      \right)^n = \exp\left( -a\bcancel{n} \dfrac{x}{\bcancel{n}} -
+        \dfrac{b}{2} \bcancel{n} \ \dfrac{x^2}{n^{\bcancel{2}}}\right)
+      = \exp\left( -a x - \dfrac{b}{2n} x^2 \right)
+      \]
+      \end{noliste}~\\[-1cm]
+    \end{proof}
+
+  \item Étudier la continuité de la fonction $F_{U_n}$.
+
+    \begin{proof}~\\
+      La fonction $F_{U_n}$ est :
+      \begin{noliste}{$\stimes$}
+      \item continue sur $]-\infty, 0[$ et sur $]nh, +\infty[$ car
+        constante sur chacun de ces intervalles.
+
+      \item continue sur $]0, nh[$ car $G_{a, b}$ l'est sur $[0,
+        +\infty[$.
+
+      \item continue en $0$ puisque : 
+        \begin{noliste}{1)}
+        \item $\dlim{x \tend 0^-} F_{U_n}(x) = \dlim{x \tend 0} 0 = 0$,
+        \item $\dlim{x \tend 0^+} F_{U_n}(x) = \dlim{x \tend 0} 1 -
+          \left(G_{a, b}\left( \frac{x}{n} \right) \right)^n = 1 -
+          \left(G_{a, b}( 0 ) \right)^n = 1 - 1^n = 0$,
+        \item $F_{U_n}(0) = 0$.
+        \end{noliste}
+
+      \item non continue en $nh$. En effet :
+        \[
+        \dlim{x \tend (nh)^-} F_{U_n}(x) = \dlim{x \tend nh} 1 -
+        \left(G_{a, b}\left( \frac{x}{n} \right) \right)^n = 1 -
+        \left(G_{a, b}\left( \frac{nh}{n} \right) \right)^n = 1 -
+        \exp\left(-a nh - \dfrac{b}{2\bcancel{n}} n^{\bcancel{2}} \
+          h^2 \right) < 1
+        \]
+        et $F_{U_n}(nh) = 1$ 
+      \end{noliste}
+      \conc{Ainsi, $F_{U_n}$ est continue uniquement sur $]-\infty,
+        nh[$ et sur $]nh, +\infty[$.}~\\[-1.2cm]
+    \end{proof}
+
+  \item La variable aléatoire $U_n$ admet-elle une densité ?
+
+    \begin{proof}~%
+      \concL{D'après la question précédente, $F_{U_n}$ n'est pas
+        continue sur $\R$. Ainsi, $U_n$ n'est pas une variable à
+        densité.}{15}~\\[-1cm]
+    \end{proof}
+
+  \item Montrer que la suite de variables aléatoires
+    $(U_n)_{n\in\N^*}$ converge en loi vers une variable aléatoire
+    dont on précisera la loi.
+
+    \begin{proof}~\\
+      Deux cas se présentent.
+      \begin{noliste}{$\sbullet$}
+      \item \dashuline{Si $x < 0$} alors :
+        \[
+        \dlim{n \tend +\infty} F_{U_n}(x) = \dlim{n \tend +\infty} 0 = 0
+        \]
+
+      \item \dashuline{Si $x \geq 0$} alors, pour $n$ suffisamment
+        grand (plus précisément pour tout $n > \left\lceil
+          \dfrac{x}{h} \right\rceil$) :
+        \[
+        \dlim{n \tend +\infty} F_{U_n}(x) = \dlim{n \tend +\infty} 
+        \left(1 -
+        \exp\left( -ax - \dfrac{b}{2n} x^2 \right)\right)  = 1
+        - \exp( -ax )
+        \]
+        
+        
+        \newpage
+
+
+      \item On reconnaît la fonction de répartition d'une variable
+        aléatoire $Z$ telle que $Z \suit \Exp{a}$.
+      \end{noliste}
+      \conc{Ainsi, $U_n \tendL Z$ où $Z \suit \Exp{a}$.}~\\[-1cm]
+    \end{proof}
+  \end{noliste}
+
+\item Soit $\alpha \in \ ]0,1[$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Soit $Y$ une variable aléatoire qui suit la loi exponentielle
+    de paramètre $1$.\\
+    Trouver deux réels $c$ et $d$ strictement positifs tels que :
+    \[
+    \Prob(\Ev{c\leq Y\leq d}) = 1-\alpha \quad \mbox{et} \quad 
+    \Prob(\Ev{Y\leq
+      c}) = \dfrac{\alpha}{2}
+    \]
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Comme $Y \suit \Exp{1}$ et que les réels $c$ et $d$ doivent
+      être strictement positifs :
+        \[
+        \begin{array}{rcl}
+          \Prob(\Ev{c\leq Y\leq d}) & = & F_Y(d) - F_Y(c) \ = \ (\bcancel{1} -
+          \ee^{-d}) - (\bcancel{1} - \ee^{-c}) \ = \ \ee^{-c} - \ee^{-d}
+          \\[.6cm]
+          \Prob(\Ev{Y \leq c}) & = & F_Y(c) \ = \ 1 - \ee^{-c}
+        \end{array}
+        \]
+        
+      \item On obtient ainsi :
+        \[
+        \begin{array}{rcl}
+          \left\{
+            \begin{array}{ccccc}
+              \ee^{-c} & - & \ee^{-d} & = & 1 - \alpha \\[.4cm]
+              -\ee^{-c} & & & = & -1 + \dfrac{\alpha}{2}
+            \end{array}
+          \right. %
+          & \Leftrightarrow &
+          \left\{
+            \begin{array}{ccccc}
+              & - & \ee^{-d} & = & - \dfrac{\alpha}{2} \\[.4cm]
+              - \ee^{-c} & & & = & -1 + \dfrac{\alpha}{2}
+            \end{array}
+          \right. \\[1cm]
+          & \Leftrightarrow &
+          \left\{
+            \begin{array}{l}
+              \ee^{-d} = \dfrac{\alpha}{2} \\[.4cm]
+              \ee^{-c} = 1 - \dfrac{\alpha}{2}
+            \end{array}
+          \right. \\[1cm]
+          & \Leftrightarrow &
+          \left\{
+            \begin{array}{l}
+              -d = \ln\left( \dfrac{\alpha}{2} \right) \\[.4cm]
+              -c = \ln\left(1 - \dfrac{\alpha}{2} \right)
+            \end{array}
+          \right.
+        \end{array}
+        \]
+        Ainsi, $c = -\ln\left(1 - \dfrac{\alpha}{2} \right) > 0$ car
+        $1 - \dfrac{\alpha}{2} \in \ ]0,1[$ puisque $\alpha \in \
+        ]0,1[$.\\[.2cm]
+        De même, $d = - \ln\left( \dfrac{\alpha}{2} \right) > 0$ car
+        $\dfrac{\alpha}{2} \in \ ]0,1[$.
+      \end{noliste}
+      \conc{$c = -\ln\left(1 - \dfrac{\alpha}{2} \right)$ \quad et
+        \quad $d = - \ln\left( \dfrac{\alpha}{2} \right)$}
+      \begin{remarkL}{0.99}%~\\
+        On pouvait bien évidemment faire les calculs de probabilité à
+        l'aide d'une densité de probabilité :
+        \[
+        \begin{array}{rcl}
+          \Prob(\Ev{c\leq Y\leq d}) & = & \dint{c}{d} f_Y(x) \dx =
+          \dint{c}{d} 1 \times \ee^{-x} \dx = \Prim{-\ee^{-x}}{c}{d} = -
+          (\ee^{-d} - \ee^{-c}) = \ee^{-c} - \ee^{-d}
+          \\[.6cm]
+          \Prob(\Ev{Y \leq c}) & = & \dint{-\infty}{c} f_Y(x) \dx =
+          \dint{0}{c} \ee^{-x} \dx = \Prim{-\ee^{-x}}{0}{c} = -(\ee^{-c}
+          - \ee^{0}) = 1 - \ee^{-c}
+        \end{array}
+        \]
+      \end{remarkL}~\\[-1.4cm]
+    \end{proof}
+
+
+    \newpage
+
+
+  \item Montrer que $\left[ \dfrac{c}{U_n} \ , \ \dfrac{d}{U_n} \right]$
+    est un intervalle de confiance asymptotique de $a$, de niveau de
+    confiance $1-\alpha$.
+
+    \begin{proof}~
+      \[
+      \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+        \Prob\left( a \in \left[ \dfrac{c}{U_n}, \dfrac{d}{U_n} \right]
+        \right) & = & \Prob\left(\Ev{ \dfrac{c}{U_n} \leq a \leq \dfrac{d}{U_n}}
+        \right) \\[.6cm]
+        & = & \Prob\left( \Ev{c \leq a \ U_n \leq d} \right) & (car $U_n >
+        0$) \nl
+        \nl[-.2cm]
+        & = & \Prob\left( \Ev{\dfrac{c}{a} \leq U_n \leq \dfrac{d}{a}}
+        \right) & (car $a > 0$) \nl
+        \nl[-.2cm]
+        & \tendn & \Prob\left( \Ev{\dfrac{c}{a} \leq Z \leq \dfrac{d}{a}}
+        \right) & (d'après la question \itbf{8.d)}) \nl
+        \nl[-.2cm]         
+      \end{array}
+      \]
+      On constate enfin :
+      \[
+      \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+        \Prob\left(\Ev{ \dfrac{c}{a} \leq Z \leq \dfrac{d}{a} } \right) & = &
+        F_Z\left( \dfrac{d}{a} \right) - F_Z\left( \dfrac{c}{a}
+        \right) \\[.4cm]
+        & = & (\bcancel{1}- \ee^{-a \frac{d}{a}}) - (\bcancel{1}-
+        \ee^{-a \frac{c}{a}}) & (car $Z \suit \Exp{a}$) \nl 
+        \nl[-.2cm]
+        & = & \ee^{-c} - \ee^{-d} \\[.2cm]
+        & = & 1 - \alpha & (d'après la question précédente)
+      \end{array}
+      \]
+      \concL{Ainsi, $\Prob\left( a \in \left[ \dfrac{c}{U_n},
+            \dfrac{d}{U_n} \right] \right) \tendn 1 - \alpha$ ce qui
+        démontre que $\left[ \dfrac{c}{U_n} \ , \ \dfrac{d}{U_n} 
+	\right]$
+        est un intervalle \\[.2cm] de confiance asymptotique de $a$, de niveau
+        de confiance $1 - \alpha$.}{16}
+      \begin{remark}%~
+        \begin{noliste}{$\sbullet$}
+        \item Avec une telle rédaction, il est difficile de comprendre
+          pourquoi on a introduit la loi $\Exp{1}$ dans la question
+          précédente. Pour bien comprendre ce point, on peut utiliser
+          la propriété :
+          \[
+          Z \suit \Exp{a} \ \Leftrightarrow \ a Z \suit \Exp{1}
+          \]
+          Ainsi, on peut écrire dans la rédaction précédente :
+          \[
+          \Prob\left( \Ev{\dfrac{c}{a} \leq Z \leq \dfrac{d}{a}} \right) =
+          \Prob\left( \Ev{c \leq a Z \leq d} \right) = \Prob(\Ev{c
+            \leq Y \leq d}) = \ee^{-c} - \ee^{-d}
+          \]
+          où $Y \suit \Exp{1}$.
+          
+        \item Attention toutefois : si la transformée affine d'une
+          \var est bien au programme, la transformée affine d'une \var
+          suivant une loi exponentielle n'est pas explicitement
+          mentionnée. Il faudrait donc démontrer la propriété
+          précédente ! C'est assez simple :
+          \begin{noliste}{$\stimes$}
+          \item $(aZ) (\Omega) = [0, +\infty[$ car $Z(\Omega) = [0,
+            +\infty[$ et $a > 0$.
+          \item Ainsi, si $x < 0$, $\Prob(\Ev{aZ \leq x}) =
+            \Prob(\emptyset) = 0$.\\
+            Et si $x \geq 0$, $\Prob(\Ev{aZ \leq x}) = \Prob(\Ev{Z
+              \leq \dfrac{x}{a}}) = F_Z\left( \dfrac{x}{a} \right) = 1
+            - \ee^{- a \ \frac{x}{a}} = 1 - \ee^{-x}$.\\
+            On reconnaît la fonction de répartition d'une \var qui
+            suit la loi $\Exp{1}$.            
+          \end{noliste}
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+  
+
+\newpage
+
+
+\subsection*{Partie III. Nombre de survivants et estimateur convergent de $b$}
+
+\noindent
+Pour tout $i \in \N^*$, soit $S_i$ et $D_i$ les variables aléatoires
+telles que :
+\[
+S_i = \left\{
+  \begin{array}{lR{1.6cm}}
+    1 & si $X_i\geq h$ \nl
+    0 & sinon
+  \end{array}
+\right. %
+\qquad \mbox{ et } \qquad %
+D_i = \left\{
+  \begin{array}{lR{1.6cm}}
+    1 & si $X_i\leq 1$ \nl
+    0 & sinon
+  \end{array}
+\right.
+\]
+Pour tout $n\in\N^*$, on pose : $\overline{S}_n = \dfrac{1}{n} \
+\Sum{i=1}{n} S_i$ et $\overline{D}_n = \dfrac{1}{n} \ \Sum{i=1}{n}
+D_i$.
+\begin{noliste}{1.}
+  \setcounter{enumi}{9}
+\item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier que pour tout $i\in\llb 1,n\rrb$, on a $\E(S_i) =
+    G_{a,b}(h)$ et calculer $\E(S_iD_i)$.
+
+    \begin{proof}~\\
+      Soit $i \in \llb 1, n \rrb$.
+      \begin{noliste}{$\sbullet$}
+      \item Comme $S_i(\Omega) = \{0, 1\}$, la \var $S_i$ suit une loi
+      de Bernoulli de paramètre : 
+      \[
+	p=\Prob(\Ev{X_i \geq h}) = G_{a,b}(h)
+      \]
+      \conc{Ainsi, la \var $S_i$ admet une espérance et : $\E(S_i) = 
+      G_{a, b}(h)$.}
+% 
+%       \item Par définition, on a alors :
+%         \[
+%         \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+%           \E(S_i) & = & 1 \times \Prob(\Ev{X_i \geq h}) + 0 \times
+%           \Prob(\Ev{X_i < h}) \\[.2cm]
+%           & = & \Prob(\Ev{X_i \geq h}) \\[.2cm]
+%           & = & G_{a, b}(h) & (d'après la question \itbf{4.a)})
+%         \end{array}
+%         \]
+%         \conc{$\E(S_i) = G_{a, b}(h)$}~
+
+      \item De même, $(S_i D_i)(\Omega) = \{0, 1\}$. Plus précisément :
+        \[
+        S_i D_i = \left\{
+          \begin{array}{lR{3.6cm}}
+            1 & si $X_i\geq h$ et $X_i \leq 1$ \nl
+            0 & sinon
+          \end{array}
+        \right.
+        \]
+        Donc la \var $S_i \, D_i$ suit une loi de Bernoulli de 
+        paramètre :
+        \[
+	  p= \Prob(\Ev{X_i \geq h} \cap \Ev{X_i \leq 1})
+	  = \Prob(\Ev{h \leq X_i \leq 1}) = 0
+	\]
+        En effet, $\Ev{h \leq X_i \leq 1} = \emptyset$ puisque $h \geq
+        2$.%
+        \conc{On en déduit : $\E(S_i D_i) = 0$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+
+  \item Pour quels couples $(i,j) \in \llb 1,n\rrb^2$, les variables
+    aléatoires $S_i$ et $D_j$ sont-elles indépendantes ?
+
+    \begin{proof}~\\
+      Soit $i \in \llb 1,n\rrb$. On raisonne comme dans la question
+      précédente.
+      \begin{noliste}{$\sbullet$}
+      \item Comme $D_i(\Omega) = \{0, 1\}$, , la \var $S_i$ suit une loi
+      de Bernoulli de paramètre : 
+      \[
+	p= \Prob(\Ev{X_i \leq h}) = 1-G_{a,b}(1)
+      \]
+      \conc{Ainsi la \var $D_i$ admet une espérance et : $\E(D_i) =1- 
+      G_{a, b}(1)$.}
+%         \[
+%         \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+%           \E(D_i) & = & 1 \times \Prob(\Ev{X_i \leq 1}) + 0 \times
+%           \Prob(\Ev{X_i > 1}) \\[.2cm]
+%           & = & \Prob(\Ev{X_i \leq 1}) \\[.2cm]
+%           & = & 1 - G_{a, b}(1) & (d'après la question \itbf{4.b)})
+%         \end{array}
+%         \]
+%         \conc{$\E(D_i) = 1 - G_{a, b}(1)$} %
+        De plus, $\E(D_i) \neq 0$ puisque $G_{a, b}(1) \in \ ]0,1[$
+        (d'après la question \itbf{1.a)}).
+
+      \item On en déduit que $D_i$ et $S_i$ ne sont pas indépendantes
+        puisque, d'après ce qui précède :
+        \[
+        \E(S_i D_i) \ = \ 0 \ \neq \ \E(S_i) \ \E(D_i)
+        \]
+
+      \item Considérons maintenant $j \in \llb 1, n\rrb$ tel que $j
+        \neq i$. Comme $X_i$ et $X_j$ sont indépendantes :
+        \[
+        \begin{array}{rcl}
+          \Prob(\Ev{S_i = 0} \cap \Ev{D_j = 0}) & = & \Prob(\Ev{X_i < h}
+          \cap \Ev{X_j > 1}) \ = \ \Prob(\Ev{X_i < h}) \times 
+	  \Prob(\Ev{X_j > 1}) 
+	  \\[.2cm]
+	  &=& \Prob(\Ev{S_i=0}) \times \Prob(\Ev{D_j=0})
+        \end{array}
+        \]
+        \[
+          \begin{array}{rcl}
+            \Prob(\Ev{S_i = 0} \cap \Ev{D_j = 1}) & = & \Prob(\Ev{X_i < 
+	    h} \cap \Ev{X_j \leq 1}) \ = \ \Prob(\Ev{X_i < h}) \times
+           \Prob(\Ev{X_j \leq 1}) 
+           \\[.2cm]
+           &=& \Prob(\Ev{S_i=0}) \times \Prob(\Ev{D_j=1})
+          \end{array}
+        \]
+        
+        
+        \newpage
+        
+        
+        \[
+          \begin{array}{rcl}
+            \Prob(\Ev{S_i = 1} \cap \Ev{D_j = 0}) & = & \Prob(\Ev{X_i 
+	    \geq h} \cap \Ev{X_j > 1}) \ = \ \Prob(\Ev{X_i \geq h}) 
+	    \times \Prob(\Ev{X_j > 1}) 
+	    \\[.2cm]
+	    &=& \Prob(\Ev{S_i=1}) \times \Prob(\Ev{D_j=0})
+          \end{array}
+        \]
+        
+        \[
+          \begin{array}{rcl}
+            \Prob(\Ev{S_i = 1} \cap \Ev{D_j = 1}) & = & \Prob(\Ev{X_i 
+	    \geq h} \cap \Ev{X_j \leq 1}) \ = \ \Prob(\Ev{X_i \geq h}) 
+	    \times \Prob(\Ev{X_j \leq 1})
+	    \\[.2cm]
+	    &=& \Prob(\Ev{S_i=1}) \times \Prob(\Ev{D_j=1})
+          \end{array}
+        \]
+        On en déduit que $S_i$ et $D_j$ sont indépendantes.
+      \end{noliste}
+      \conc{$S_i$ et $D_j$ sont indépendantes si et seulement si $i
+        \neq j$.}%~\\[-1.2cm]
+        
+      \begin{remark}%~
+        \begin{noliste}{$\sbullet$}
+        \item Rappelons :
+          $
+          \mbox{$X$ et $Y$ indépendantes} \ \Rightarrow \ \E(XY) =
+          \E(X) \ \E(Y)
+          $\\
+          On se sert dans la démonstration de la contraposée de cet
+          énoncé à savoir : 
+          \[
+          \E(XY) \neq \E(X) \ \E(Y) \Rightarrow \mbox{$X$ et $Y$ ne
+            sont pas indépendantes}
+          \]
+        \item Ce résultat {\tt N'EST PAS} une équivalence. Autrement
+          dit :
+          \[
+          \E(XY) = \E(X) \ \E(Y) \quad \xcancel{\rule[-.15cm]{0cm}{.5cm}
+            \Rightarrow \rule[-.15cm]{0cm}{.5cm}} \quad \mbox{$X$ et
+            $Y$ sont indépendantes}
+          \]
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+
+  \item Déduire des questions précédentes l'expression de la
+    covariance $\cov(\overline{S}_n, \overline{D}_n)$ de
+    $\overline{S}_n$ et $\overline{D}_n$ en fonction de $n$,
+    $G_{a,b}(h)$ et $G_{a,b}(1)$. Le signe de cette covariance
+    était-il prévisible ?
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item D'après ce qui précède, pour tout $(i, j) \in \llb 1, n
+        \rrb^2$ tel que $i \neq j$ :
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          \Cov(S_i, D_j) & = & \E(S_i D_j) - \E(S_i) \ \E(D_j) \ = \ 0
+          & (car $S_i$ et $D_j$ sont indépendantes) \nl
+          \nl[-.2cm]
+          \Cov(S_i, D_i) & = & \E(S_i D_i) - \E(S_i) \ \E(D_i)
+          \\[.2cm]
+          & = & 0 - G_{a,b}(h) \ (1 - G_{a, b}(1)) \\[.2cm]
+          & = & - G_{a,b}(h) \ (1 - G_{a, b}(1))
+        \end{array}
+        \]
+
+      \item On a alors :
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          \Cov\left( \overline{S_n}, \overline{D_n} \right) & = & 
+          \Cov\left( \dfrac{1}{n} \ \Sum{i=1}{n} S_i, \overline{D_n}
+          \right) & (par définition de $\overline{S_n}$) \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{n} \ \Cov\left( \Sum{i=1}{n} S_i, \overline{D_n}
+          \right) & (par linéarité à gauche) \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{n} \ \Sum{i=1}{n} \Cov\left( S_i, \overline{D_n}
+          \right) & (par linéarité à gauche) \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{n} \ \Sum{i=1}{n} \Cov\left( S_i, \dfrac{1}{n} \
+            \Sum{j=1}{n} D_j \right) & (par définition de 
+	    $\overline{D_n}$) \nl
+          \nl[-.2cm]
+           & = & \dfrac{1}{n^2} \ \Sum{i=1}{n} \Sum{j=1}{n} \Cov(S_i,
+           D_j) & (par linéarité à droite) \nl
+          \nl[-.2cm]
+        \end{array}
+        \]
+        
+
+        \newpage
+
+
+        \noindent
+        Ainsi :
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          \Cov\left( \overline{S_n}, \overline{D_n} \right) 
+          & = & \dfrac{1}{n^2} \ \Sum{1 \leq i, j \leq n}{} \Cov(S_i,
+          D_j) \\[.6cm] 
+          & = & \dfrac{1}{n^2} \ \Sum{ %
+              \scriptsize
+              \begin{array}{c}
+                1 \leq i, j \leq n \\
+                i = j  
+              \end{array}
+            }{} \Cov(S_i, D_j) %
+            + 
+            \bcancel{%
+              \dfrac{1}{n^2} \ 
+              \Sum{ %
+                \scriptsize
+                \begin{array}{c}
+                  1 \leq i, j \leq n \\
+                  i \neq j  
+                \end{array}
+              }{} \Cov(S_i, D_j) %
+            }
+            \\[.8cm]
+            & = & \dfrac{1}{n^2} \ \Sum{i=1}{n} \Cov(S_i, D_i) \\[.6cm]
+            & = & \dfrac{1}{n^2} \ \Sum{i=1}{n} (-G_{a,b}(h) \ (1 -
+            G_{a,b}(1))) \\[.6cm]
+            & = & \dfrac{1}{n^2} \ n \ (-G_{a,b}(h) \ (1 -
+            G_{a,b}(1))) \ = \ - \dfrac{G_{a,b}(h) \ (1 -
+              G_{a,b}(1))}{n}
+          \end{array}
+          \]
+          \conc{$\Cov\left( \overline{S_n}, \overline{D_n} \right) = -
+            \dfrac{G_{a,b}(h) \ (1 - G_{a,b}(1))}{n}$}~
+
+        \item Comme $G_{a, b}(h) > 0$ et $1 - G_{a, b}(1) > 0$,
+          $\Cov(\overline{S_n}, \overline{D_n}) < 0$.\\
+          Revenons à la définition de $S_i$ et $D_i$ pour comprendre
+          ce signe.
+          \begin{noliste}{$\stimes$}
+          \item $S_i = 1$ ($0$ sinon) si le $\eme{i}$ individu de la
+            cohorte est encore en vie après $h$ années,
+          \item $D_i = 1$ ($0$ sinon) si le $\eme{i}$ individu de la
+            cohorte est mort au cours de la première année.
+          \end{noliste}
+          Ainsi, $\overline{S_n}$ représente la proportion d'individus
+          encore en vie après $h$ années et $\overline{D_n}$
+          représente la proportion d'individus morts au cours de la
+          première année. %
+          \concL{Lorsqu'une de ces deux proportions augmente, l'autre
+            à tendance à diminuer.\\
+            Le signe négatif de la quantité était donc
+            prévisible.}{15}~\\[-1.2cm]
+      \end{noliste}
+    \end{proof}
+  \end{noliste}
+
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $\overline{S}_n$ est un estimateur sans biais et
+    convergent du paramètre $G_{a,b}(h)$.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item La \var $\overline{S_n}$ admet une espérance en tant que
+        combinaison linéaire des $\var$ $S_1$, \ldots, $S_n$ qui
+        admettent toutes une espérance. De plus : 
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          \E(\overline{S_n}) & = & \E\left(\dfrac{1}{n} \ \Sum{i=1}{n}
+            S_i \right) \\[.6cm]
+          & = & \dfrac{1}{n} \ \Sum{i=1}{n} \ \E\left( S_i \right) &
+          (par linéarité de l'espérance) \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{n} \ \Sum{i=1}{n} \ G_{a, b}(h) & (d'après
+          la question \itbf{10.a)}) \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{n} \ n \ G_{a, b}(h) \ = \ G_{a, b}(h)
+        \end{array}
+        \]
+        Donc : $b(\overline{S_n}) = \E(\overline{S_n}) - G_{a,b}(h)
+        =0$.
+        \conc{Ainsi, $\overline{S_n}$ est un estimateur sans biais de
+          $G_{a, b}(h)$.}
+
+
+        \newpage
+
+
+      \item La \var $\overline{S_n}$ admet un moment d'ordre $2$ en
+        tant que combinaison linéaire des $\var$ $S_1$, \ldots, $S_n$
+        qui sont {\bf indépendantes} (car les \var $X_1$, \ldots,
+        $X_n$ le sont) et admettent toutes un moment d'ordre $2$
+        puisqu'elles sont finies.\\
+        Ainsi, $\overline{S_n}$ admet un risque quadratique et d'après
+        la décomposition biais-variance :
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{6.6cm}}
+          r(\overline{S_n}) & = & \V(\overline{S_n}) +
+          \left(\bcancel{b(\overline{S_n}}) \right)^2 \\[.2cm]
+          & = & \V\left( \dfrac{1}{n} \ \Sum{i=1}{n} S_i \right)
+          \\[.6cm] 
+          & = & \dfrac{1}{n^2} \ \V\left( \Sum{i=1}{n} S_i \right) &
+          (par propriété de la variance) \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{n^2} \ \Sum{i=1}{n} \V(S_i) &
+          (par indépendance \\ des \var $S_1$, \ldots, $S_n$) \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{n^2} \ n \ \V(S_1) & (les \var $X_i$ étant
+          toutes de même loi, \\ il en est de même des \var $S_i$) \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{n} \ \V(S_1) \tendn 0
+          & (car $\V(S_1)$ est une constante)
+        \end{array}
+        \]
+        \conc{$\overline{S_n}$ est un estimateur convergent de 
+	$G_{a,b}(h)$.}~\\[-1.6cm]
+      \end{noliste}
+    \end{proof}
+
+  \item De quel paramètre, $\overline{D}_n$ est-il un estimateur sans
+    biais et convergent ?
+    
+    \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item Montrons que $\overline{D_n}$ est un estimateur sans biais
+      de $1-G_{a,b}(1)$.\\
+      La \var $\overline{D_n}$ admet une espérance en tant que
+      combinaison linéaire des $\var$ $D_1$, \ldots, $D_n$ qui
+      admettent toutes une espérance. De plus :
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          \E(\overline{D_n}) & = & \E\left(\dfrac{1}{n} \ \Sum{i=1}{n}
+            D_i \right) \\[.6cm]
+          & = & \dfrac{1}{n} \ \Sum{i=1}{n} \ \E\left( D_i \right) &
+          (par linéarité de l'espérance) \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{n} \ \Sum{i=1}{n} \ (1-G_{a, b}(1)) & (d'après
+          la question \itbf{10.b)}) \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{n} \ n \ (1-G_{a, b}(1)) \ = \ 1-G_{a, b}(1)
+        \end{array}
+        \]
+        Donc : $b(\overline{D_n}) = \E(\overline{D_n}) - \Big(
+        1- G_{a,b}(1)\Big)=0$.
+    \conc{$\overline{D_n}$ est un estimateur sans biais de 
+$1-G_{a,b}(1)$.}
+
+
+
+\newpage
+
+
+
+  \item Montrons que $\overline{D_n}$ est un estimateur convergent de
+    $1-G_{a,b}(1)$.\\
+    La \var $\overline{D_n}$ admet un moment d'ordre $2$ comme
+    combinaison linéaire des \var $D_1$, \ldots, $D_n$ qui sont {\bf
+      indépendantes} (car les \var $X_1$, \ldots, $X_n$ le sont) et
+    admettent toutes un moment d'ordre $2$
+    puisqu'elles sont finies.\\
+    Ainsi, $\overline{D_n}$ admet un risque quadratique et d'après la
+    décomposition biais-variance :
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{6.6cm}}
+          r(\overline{D_n}) & = & \V(\overline{D_n}) +
+          \left(\bcancel{b(\overline{D_n}}) \right)^2 
+          \ = \ \V\left( \dfrac{1}{n} \ \Sum{i=1}{n} D_i \right)
+          \\[.6cm] 
+          & = & \dfrac{1}{n^2} \ \V\left( \Sum{i=1}{n} D_i \right) &
+          (par propriété de la variance) \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{n^2} \ \Sum{i=1}{n} \V(D_i) &
+          (par indépendance \\ des \var $D_1$, \ldots, $D_n$) \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{n^2} \ n \ \V(D_1) & (les \var $X_i$ étant
+          toutes de même loi, \\ il en est de même des \var $D_i$) \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{n} \ \V(D_1) \tendn 0
+          & (car $\V(D_1)$ est une constante)
+        \end{array}
+        \]
+        \conc{$\overline{D_n}$ est un estimateur convergent de $1-G_{a,b}(1)$.}
+    \end{noliste}
+    
+    \begin{remarkL}{.97}%~\\
+    Le caractère \og convergent \fg{} est 
+    une qualité recherchée pour un estimateur. Il permet 
+    notamment de classer entre eux les estimateurs d'un même 
+    paramètre.\\
+    Considérons par exemple un $n$-échantillon 
+    $(X_1,\hdots,X_n)$ de loi $\Bern{\theta}$, où $\theta\in]0,1[$ est 
+    inconnu, et les estimateurs $T_n=X_n$ et 
+    $\overline{X_n}=\dfrac{1}{n}\Sum{i=1}{n} X_i$.\\[.1cm]
+    On cherche en fait à savoir si on obtient une estimation plus
+    précise de $\theta$ en augmentant la taille de notre
+    échantillon. C'est ce qu'indique le caractère convergent.
+    \begin{noliste}{$\sbullet$}
+    \item Pour $T_n$, on sait :
+      $T_n(\Omega)=X_n(\Omega)=\{0,1\}$. Donc $\vert
+      T_n-\theta\vert(\Omega)=\{\theta,1-\theta\}$. Donc
+      \[
+      \Prob(\vert T_n-\theta\vert \geq \min(\theta,1-\theta))=1 
+      \]
+      Donc : $\dlim{n\to + \infty} \Prob(\Ev{\vert T_n - \theta \vert 
+      \geq \min(\theta, 1-\theta)}) \neq 0$.\\
+      Donc $T_n$ n'est pas un estimateur convergent de $\theta$.
+    \item Pour $\overline{X_n}$, comme cet estimateur est sans biais 
+    (se démontre grâce à la linéarité de l'espérance), on obtient :
+      \[
+      \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+        r_\theta(\overline{X_n}) = \V(\overline{X_n}) & = &
+        \dfrac{1}{n^2} \ \Sum{i=1}{n} \V(X_i) 
+        & (par indépendance de $X_1,\hdots,X_n$) 
+        \nl
+        \nl[-.2cm]
+        & = &\dfrac{1}{n^2} \ \Sum{i=1}{n} (\theta(1-\theta)) \\[.4cm]
+        & = &\dfrac{\theta(1-\theta)}{n} \tendn 0
+      \end{array}
+    \]
+    Donc $\overline{X_n}$ est un estimateur convergent de $\theta$.
+  \end{noliste}
+  L'estimation de $\theta$ donnée par $\overline{X_n}$ va donc être de
+  plus en plus précise, contrairement à celle de $T_n$, qui n'est pas un
+  estimateur convergent.\\
+  Dans cet exemple, le meilleur estimateur est donc $\overline{X_n}$.
+    \end{remarkL}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+  
+
+  \newpage
+  
+  
+  
+  \begin{remark}%~\\
+    On rappelle qu'il existe deux manières de montrer qu'un estimateur 
+    $T_n$ est convergent pour un paramètre $\theta$.
+    \begin{noliste}{1)}
+    \item \underline{La définition} : $T_n$ est un estimateur convergent 
+    de $\theta$ si et seulement si
+    \[
+    \forall \eps>0, \ \dlim{n\to+\infty} \Prob(\vert 
+    T_n-\theta\vert \geq \eps)=0.
+    \]
+    \item \underline{L'utilisation du risque quadratique} : 
+    \[
+    \dlim{n\to+\infty} r_\theta(T_n)=0 \quad \Rightarrow \quad
+    \mbox{$T_n$ est un estimateur convergent de $\theta$.}
+    \]
+    C'est la méthode employée pour la question \itbf{11.}.\\
+    Cette méthode est à privilégier lorsque l'estimateur $T_n$ est sans 
+    biais.
+    \end{noliste}
+    \end{remark}
+
+
+\item On pose : $z(a,b)=\ln(G_{a,b}(1))$ et $r(a,b)=\ln(G_{a,b}(h))$.\\
+  Pour tout $n\in\N^*$, on pose : $Z_n = \ln\left(1-\overline{D}_n
+    +\dfrac{1}{n}\right)$ et $R_n =
+  \ln\left(\overline{S}_n+\dfrac{1}{n}\right)$.\\
+  {\it On admet} que $Z_n$ et $R_n$ sont des estimateurs convergents
+  de $z(a,b)$ et $r(a,b)$ respectivement.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Soit $\eps$, $\lambda$ et $\mu$ des réels strictement
+    positifs.
+    \begin{noliste}{(i)}
+    \item Justifier l'inclusion suivante :
+      \[
+      \Ev{ \left\vert (\lambda Z_n-\mu R_n) - (\lambda z(a,b) -\mu
+          r(a,b))\right\vert \geq \eps} \subset \Ev{\lambda
+        \vert Z_n - z(a,b)\vert + \mu \vert R_n-r(a,b)\vert \geq
+        \eps}.
+      \]
+      
+    \begin{proof}~\\
+    Soit $\omega \in \Omega$.\\
+    Supposons : $\omega \ \in \ \Ev{ \left\vert (\lambda Z_n-\mu R_n) - 
+    (\lambda \, z(a,b) -\mu \, r(a,b))\right\vert \geq \eps}$.\\[.1cm]
+    Autrement dit : $\left\vert (\lambda Z_n(\omega)-\mu R_n(\omega)) - 
+    (\lambda \, z(a,b) -\mu \, r(a,b))\right\vert \geq \eps$.\\
+    Or :
+    \[
+    \begin{array}{rcl@{\qquad}>{\it}R{6.6cm}}
+      & &\left\vert \ (\lambda Z_n(\omega)-\mu R_n(\omega)) \ - \ 
+      (\lambda \, z(a,b) -\mu \,
+        r(a,b)) \ \right\vert \\[.2cm]
+      & = & \left\vert \ \lambda Z_n(\omega) - \lambda \, z(a,b)- \mu 
+      R_n(\omega) +\mu \,
+        r(a,b)) \ \right\vert\\[.2cm]
+      & = & \left\vert \ \lambda (Z_n(\omega) - z(a,b)) \ - \ \mu 
+      (R_n(\omega) -r(a,b)) \ \right\vert\\[.2cm]
+      &\leq&  \left\vert \ \lambda (Z_n(\omega) - z(a,b)) \ \right\vert 
+      \ + \ \left\vert \ \mu (R_n(\omega) -r(a,b)) \ \right\vert & (par 
+      inégalité triangulaire)
+      \nl
+      \nl[-.2cm]
+      & = & \lambda \left\vert \ (Z_n(\omega) - z(a,b)) \ \right\vert \ 
+      + \ \mu \left\vert \ (R_n(\omega) - r(a,b)) \ \right\vert & (car 
+      $\lambda>0$ et $\mu>0$)
+    \end{array}
+    \]
+    Donc : $\lambda \left\vert \ (Z_n(\omega) - z(a,b)) \ \right\vert \ 
+      + \ \mu \left\vert \ (R_n(\omega) - r(a,b)) \ \right\vert
+      \geq \eps$.\\[.1cm]
+    Autrement dit : $\omega \in \Ev{\lambda \vert Z_n - z(a,b)\vert + 
+      \mu \vert R_n-r(a,b)\vert \geq \eps}$.~\\[-.8cm]
+      
+    \conc{D'où : $\Ev{ \left\vert (\lambda Z_n-\mu R_n) - (\lambda
+          z(a,b) -\mu r(a,b))\right\vert \geq \eps} \subset
+      \Ev{\lambda \vert Z_n - z(a,b)\vert + \mu \vert R_n-r(a,b)\vert
+        \geq \eps}$.}
+        
+    \begin{remarkL}{.98}%~%
+      \begin{noliste}{$\sbullet$}
+      \item Par définition, un événement est un ensemble. Démontrer
+        l'inclusion de deux ensembles c'est démontrer que tout élément
+        du premier ensemble est dans le second.
+        % Ou encore qu'un élément est dans le premier ensemble si et
+        % seulement si il est aussi dans le second.
+      \item En terme d'événement, cela signifie que si le premier
+        événement est réalisé (il existe $\omega$ réalisant cet
+        événement \ie il existe $\omega$ appartenant à cet événement)
+        alors le second événement est réalisé (l'élément $\omega$
+        précédent est aussi élément de cet événement).
+      \end{noliste}
+    \end{remarkL}~\\[-1.4cm]
+  \end{proof}
+	
+	
+	
+	\newpage
+	
+      
+    \item En déduire l'inégalité suivante :
+    \end{noliste}
+    \[
+    \Prob([\vert(\lambda Z_n-\mu R_n)-\left(\lambda z(a,b) -\mu
+      r(a,b)\right)\vert \geq \eps ]) \leq \Prob\left(\left[ \vert
+        Z_n-z(a,b)\vert \geq \dfrac{\eps}{2\lambda}\right]\right) +
+    \Prob\left(\left[\vert R_n-r(a,b)\vert \geq
+        \dfrac{\eps}{2\mu}\right]\right).
+    \]
+    
+    \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item D'après la question précédente, on a déjà :
+    \[
+    \Prob(\Ev{\left\vert (\lambda Z_n-\mu R_n) - (\lambda z(a,b) -\mu
+          r(a,b))\right\vert \geq \eps}) \ \leq \ \Prob(\Ev{\lambda
+        \vert Z_n - z(a,b)\vert + \mu \vert R_n-r(a,b)\vert \geq
+        \eps}) \quad (\star)
+    \]
+    \item On note :
+    \[
+      \begin{array}{l}
+        A \ = \ \Ev{\lambda \vert Z_n - z(a,b)\vert + \mu \vert 
+	R_n-r(a,b)\vert \geq \eps}
+	\\[.2cm]
+	B \ = \ \Ev{\lambda \vert Z_n - 
+      z(a,b)\vert \geq \dfrac{\eps}{2}}
+      \\[.4cm]
+      C \ = \ \Ev{\mu \vert 
+      R_n - r(a,b)\vert \geq \dfrac{\eps}{2}}
+      \end{array}
+    \]
+    Si on parvient à démontrer : $A \ \subset \ B \cup C$,
+    alors par croissance de $\Prob$ :
+    \[
+      \Prob(A) \ \leq \ \Prob( B\cup C)
+    \]
+    Et comme :
+    \[
+    \begin{array}{rcll}
+    \Prob(B\cup C) & = & \Prob(B)+\Prob(C)-\Prob(B\cap C)
+    \\[.2cm]
+    & \leq & \Prob(B)+\Prob(C)
+    \end{array}
+    \]
+    En utilisant la propriété $(\star)$, on obtient 
+    alors :
+    \[
+    \begin{array}{rcl@{\qquad}>{\it}R{6.6cm}}
+    \Prob(\Ev{\left\vert (\lambda Z_n-\mu R_n) - (\lambda z(a,b) -\mu
+    r(a,b))\right\vert \geq \eps})
+    &\leq& \Prob(A) & (d'après $(\star)$)
+    \nl
+    \nl[-.2cm]
+    &\leq& \Prob\left(B \cup C\right) 
+    \\[.2cm]
+    &\leq& \Prob\left(B\right) + \Prob\left(C \right)
+    \end{array}
+    \]
+    ce qui permet de conclure la question.
+
+    \item Il reste alors à montrer :
+    $A \ \subset \ B \cup C$. Autrement dit :
+    \[
+      \forall \omega \in \Omega, \ \omega \in A \ \Rightarrow \ \omega 
+      \in B \cup C
+    \]
+    ce qui équivaut par contraposée à :
+    \[
+      \forall \omega \in \Omega, \ \NON{\omega \in B \cup C} \ 
+      \Rightarrow \ \NON{\omega \in A}
+    \]
+    Soit $\omega \in \Omega$.
+    Supposons donc : 
+    $
+      \NON{\omega \in B \cup C}
+    $.\\[.1cm]
+    Ainsi : $\omega \in \overline{B \cup C} = \overline{B} \cap 
+    \overline{C}$, ou encore :
+    \[
+      \lambda \vert Z_n(\omega) - z(a,b) \vert < \dfrac{\eps}{2}
+      \quad \text{et} \quad \mu \vert R_n(\omega) -r(a,b) \vert 
+      < \dfrac{\eps}{2}
+    \]
+    Alors, en sommant membre à membre :
+    \[
+      \lambda \vert Z_n(\omega) - z(a,b) \vert + \mu \vert R_n(\omega) 
+      -r(a,b) \vert < \eps
+    \]
+    D'où :
+    \[
+      \omega \ \in \ \Ev{\lambda \vert Z_n(\omega) - z(a,b) \vert + \mu 
+      \vert R_n(\omega) -r(a,b) \vert < \eps} \ = \
+      \overline{A}
+    \]
+    De plus : $\omega \in \overline{A} \ \Leftrightarrow \
+    \NON{\omega \in A}$.\\[.1cm]
+    On a donc bien démontré : $A \ \subset \ B \cup C$.
+    
+    {\small
+    \hspace*{-1.4cm}\fbox{
+      \begin{tabular}{c}
+    	$\Prob([\vert(\lambda Z_n-\mu R_n)-\left(\lambda z(a,b) -\mu
+      r(a,b)\right)\vert \geq \eps ]) \leq \Prob\left(\left[ \vert
+        Z_n-z(a,b)\vert \geq \dfrac{\eps}{2\lambda}\right]\right) +
+    \Prob\left(\left[\vert R_n-r(a,b)\vert \geq
+        \dfrac{\eps}{2\mu}\right]\right).$
+      \end{tabular}
+      }}
+      \end{noliste}
+      
+      
+      
+      \newpage
+      
+      
+    
+      \begin{remark}%~\\
+        On utilise dans cette question la formule du crible : pour
+        tout $(A,B)\in\A$,
+        \[
+        \Prob(A\cup B) = \Prob(A) + \Prob(B) - \Prob(A\cap B).
+        \]
+        On peut distinguer $3$ corollaires usuels de cette formule.
+        \begin{noliste}{1)}
+        \item \underline{En toute généralité} :
+          \[
+          \Prob(A\cup B) \leq \Prob(A) + \Prob(B),
+          \]
+          car une probabilité est toujours positive. \\
+          C'est le
+          corollaire utilisé dans cette question.\\
+          On remarquera bien que celui-ci est valable pour tout
+          type d'événements $A$ et $B$.
+        \item \underline{Si $A$ et $B$ sont incompatibles} :
+          \[
+          \Prob(A\cup B) = \Prob(A) + \Prob(B).
+          \]
+          En effet, si $A$ et $B$ sont incompatibles, alors $A\cap
+          B = \varnothing$ et donc $\Prob(A\cap B)=0$.
+        \item \underline{Si $A$ et $B$ sont indépendants} :
+          \[
+          \Prob(A\cup B)=\Prob(A)+\Prob(B)-\Prob(A) \, \Prob(B).
+          \]
+          En effet, si $A$ et $B$ sont indépendants, alors :
+          $\Prob(A\cap B) = \Prob(A) \, \Prob(B)$.
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+    
+  \item Pour tout $n\in\N^*$, on pose : $B_n=\dfrac{2}{h-1}Z_n -
+    \dfrac{2}{h(h-1)}R_n$.\\
+    Montrer que $B_n$ est un estimateur convergent du paramètre $b$.
+    
+    \begin{proof}~\\
+    On pose $\lambda=\dfrac{2}{h-1}$ et $\mu=\dfrac{2}{h(h-1)}$. \\
+    On remarque que $\lambda>0$ et $\mu>0$, car $h\geq 2$, et 
+    $B_n=\lambda Z_n-\mu R_n$.\\
+    D'après la question précédente et puisqu'une probabilité est 
+    toujours positive, on obtient :
+    \[
+    0 \ \leq \ \Prob([\vert B_n-\left(\lambda z(a,b) -\mu
+      r(a,b)\right)\vert \geq \eps ]) \ \leq \ \Prob\left(\left[ \vert
+        Z_n-z(a,b)\vert \geq \dfrac{\eps}{2\lambda}\right]\right) +
+    \Prob\left(\left[\vert R_n-r(a,b)\vert \geq
+        \dfrac{\eps}{2\mu}\right]\right)
+    \]
+    Or :
+    \begin{noliste}{$\stimes$}
+    \item par hypothèse, $Z_n$ est un estimateur convergent de 
+    $z(a,b)$. \\[.1cm]
+    D'où : $\dlim{n\to+\infty} \Prob\left( \left[\vert 
+    Z_n-z(a,b)\vert \geq \dfrac{\eps}{2\lambda}\right]\right)=0$.
+    \item de plus, $R_n$ est un estimateur convergent de 
+    $r(a,b)$.\\[.1cm] 
+    D'où :
+    $\dlim{n\to+\infty} \Prob\left( \left[\vert 
+    R_n-r(a,b)\vert \geq \dfrac{\eps}{2\mu}\right]\right)=0$.
+    \end{noliste}
+    D'après le théorème d'encadrement, on a donc :
+    \[
+    \dlim{n\to+\infty} \Prob([\vert B_n-\left(\lambda z(a,b) -\mu
+      r(a,b)\right)\vert \geq \eps ])=0
+    \]
+    c'est-à-dire que $B_n$ est un estimateur convergent de $\lambda 
+    z(a,b)-\mu r(a,b)$.\\
+    Or :
+    \[
+    \begin{array}{rcl@{\qquad}>{\it}R{6.6cm}}
+      \lambda z(a,b)-\mu r(a,b) & = & \dfrac{2}{h-1}\ln\left(G_{a,b}(1)\right) - \dfrac{2}{h(h-1)} \ln\left(G_{a,b}(h)\right)\\[.4cm]
+      & = & \dfrac{2}{h-1}\left[\ln\left(\exp\left(-a-\dfrac{b}{2}\right)\right)-\dfrac{1}{h}\ln\left(\exp\left(-ah-\dfrac{b}{2}h^2\right)\right)\right]\\[.4cm]
+      & = & \dfrac{2}{h-1}\left[\left(-a-\dfrac{b}{2}\right)-\dfrac{1}{h}\left(-ah-\dfrac{b}{2}h^2\right)\right]\\[.4cm]
+      & = & \dfrac{2}{h-1}\left[-\bcancel{a}-\dfrac{b}{2}+\bcancel{a}+\dfrac{b}{2}h\right]\\[.4cm]
+      & = & \dfrac{\bcancel{2}}{\bcancel{h-1}}\left[\dfrac{b}{\bcancel{2}}\bcancel{(h-1)}\right]\\[.4cm]
+      & = & b
+    \end{array}
+    \]
+    \conc{$B_n$ est un estimateur convergent de $b$.}
+    
+    \begin{remark}%~\\
+    On utilise ici la définition d'un estimateur convergent et non la 
+    propriété nécessitant le risque quadratique.
+    \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+
+% \begin{remark}[Commentaires sur le problème]~
+%   \begin{noliste}{$\sbullet$}
+%   \item On peut considérer que ce problème est classique dans sa
+%     conception. En effet, il s'agit d'étudier une loi (la loi
+%     exponentielle linéaire) qui n'est pas abordée dans le programme
+%     ECE.
+%   \item De tels sujets sont excellents pour juger du niveau d'un
+%     candidat. Si l'objet à étudier est nouveau, les méthodes d'étude,
+%     elles, sont classiques. Le niveau d'exigence se situe alors bien
+%     au-delà du simple bachotage : il s'agit de mesurer la capacité
+%     d'un candidat à réinvestir ses connaissances.
+%   \end{noliste}
+%   % Faire un topo de contenu sur les symétries.
+% \end{remark}
+
+

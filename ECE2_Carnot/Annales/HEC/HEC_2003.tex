@@ -1,0 +1,461 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 2003} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 2003}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\vbox{} \vskip 3cm
+
+\begin{center}
+{\Large {\textbf{ÉCOLE DES HAUTES ÉTUDES COMMERCIALES}} \vspace{0.3cm}
+}
+
+{\normalsize CONCOURS D'ADMISSION SUR CLASSES PREPARATOIRES
+\vspace{0.5cm}}
+
+{\normalsize \hskip 0.0cm\hbox to 3cm{\hrulefill}}
+
+{\normalsize \vspace{0.3cm} }
+
+{\normalsize \textbf{OPTION ÉCONOMIQUE} \vspace{0.5cm} }
+
+{\Large {\textbf{MATHEMATIQUES III}} \vspace{0.5cm} }
+
+{\normalsize Mercredi 7 mai 2003, de 8h à 12h.}
+
+{\normalsize \hskip 0.0cm\hbox to 3cm{\hrulefill}}
+
+{\normalsize \vspace{0.3cm} }
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité de
+la rédaction, la clarté et la précision des\hfill\break raisonnements
+entreront pour une part importante dans l'appréciation des copies.
+\hfill\break Les candidats sont invités à encadrer dans la mesure du
+possible les résultats de leurs calculs. \hfill\break Ils ne doivent
+faire
+usage d'aucun document ; l'utilisation de toute calculatrice et de tout
+matériel\break électronique est interdite. \hfill\break Seule
+l'utilisation d'une règle graduée est autorisée.} \vspace{0.5cm}
+
+\hrule
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{EXERCICE}
+\end{center}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $a$ et $b$ deux réels strictement positifs et $A$ la matrice
+carré d'ordre $2$ définie par :\ $ A = 
+\begin{smatrix}
+a & b \\
+b & a
+\end{smatrix}
+$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que si $a$ et $b$ sont égaux, la matrice $A$ n'est pas
+inversible.
+
+\item Calculer la matrice \ $A^{2}-2aA$. En déduire que, si $a$ et $b$
+sont distincts, la matrice $A$ est inversible et donner la matrice
+$A^{-1}$.
+
+\item Montrer que les valeurs propres de $A$ sont $a + b$ et $a-b$.
+
+\item On pose $ \Delta = 
+\begin{smatrix}
+a + b & 0 \\
+0 & a-b
+\end{smatrix}
+$\. Déterminer une matrice $Q$, carrée d'ordre $2$ à
+coefficients réels, inversible et dont les éléments de la première
+ligne sont égaux à $1$, vérifiant \ $A = Q\Delta Q^{-1}$.
+
+\item Calculer la matrice $Q^{-1}$ et, à l'aide de la question
+précédente, calculer la matrice $A^{n}$ pour tout entier naturel non
+nul $n$.
+\end{noliste}
+
+\item Soit $p$ un réel vérifiant $0<p<1$ et $q$ le réel $1-p$.
+On suppose que $X$ et $Y$ sont deux variables aléatoires définies
+sur le même espace probabilisé $(\Omega,\mathcal{A},\mathbf{P})$,
+indépendantes et suivant la même loi géométrique de paramètre $p$.\\
+Pour tout $\omega $ de $\Omega $, on désigne par $M(\omega )$ la
+matrice
+carrée d'ordre $2$ :\ $ 
+\begin{smatrix}
+X(\omega) & Y(\omega) \\
+Y(\omega) & X(\omega)\end{smatrix}
+$ et on note $S(\omega )$ (respectivement $D(\omega )$) la plus grande
+(respectivement la plus petite) valeur propre de $M(\omega )$ et on
+définit ainsi deux variables aléatoires sur
+$(\Omega,\mathcal{A},\mathbf{P})$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la probabilité de l'événement $[X = Y]$ est donnée
+par :\ $\mathbf{P}([X = Y]) = \dfrac{p}{2-p}$ \ et en déduire la
+probabilité de l'événement $\{\omega \in \Omega \;;\;M(\omega
+)\;\text{est inversible}\}$.
+
+\item Calculer la covariance des variables aléatoires $S$ et $D$.
+
+\item Calculer les probabilités \ $\mathbf{P}([S = 2]\cap [D =
+0]),\;\mathbf{P}([S = 2])$ \ et\ $\mathbf{P}([D = 0])$.\\
+Les variables aléatoires $S$ et $D$ sont-elles indépendantes ?
+
+\item Établir, pour tout entier naturel $n$ supérieur ou égal 
+à $2$ : \ $\mathbf{P}([S = n]) = (n-1)p^{2}q^{n-2}$.
+
+\item En déduire, lorsque $p$ est égal à $\dfrac{2}{21}$\,\ que
+la valeur la plus probable de la plus grande valeur propre des matrices
+$M(\omega )$ possibles est $11$.
+\end{noliste}
+\end{noliste}
+
+\section*{PROBL\`{E}ME}
+
+\subsection*{Partie A : Étude d'une fonction\protect\vspace{0.4cm}}
+
+{\normalsize \label{P1} }
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On suppose, dans cette question, qu'il existe une fonction $f$ de
+classe $\mathcal{C}{1}$ sur les intervalles $]-\infty,0[$ et $]0,1[$,
+vérifiant pour tout réel $x$ appartenant à $]-\infty,0[ \ \cup ]0,1[
+$, l'égalité :
+\[
+x(1-x)f^{\prime }(x) + (1-x)f(x) = 1
+\]
+Soit $h$ la fonction définie sur $]-\infty,0[ \ \cup ]0,1[$, par : \
+$h(x) = xf(x)$.\\
+Montrer que $h$ est de classe $\mathcal{C}{1}$ sur les intervalles
+$]-\infty,0[$, $]0,1[$ et calculer sa dérivée.\\
+En déduire qu'il existe deux constantes réelles $c_{1}$ et $c_{2}$
+vérifiant 
+\[
+\left\{ 
+\begin{array}{cccc}
+\forall x\in \ ]-\infty,0[, & h(x) & = & -\ln (1-x) + c_{1} \\
+\forall x\in \ ]0,1[, & h(x) & = & -\ln (1-x) + c_{2}
+\end{array}
+\right. 
+\]
+
+\item On définit une fonction $f$ sur les intervalles $]-\infty,0[$ et
+$]0,1[$ par :
+\[
+\left\{ 
+\begin{array}{cccc}
+\forall x\in \ ]-\infty,0[, & f(x) & = & \dfrac{-\ln (1-x) + c_{1}}{x}
+\\
+\forall x\in \ ]0,1[, & f(x) & = & \dfrac{-\ln (1-x) + c_{2}}{x}
+\end{array}
+\right. 
+\]
+où $c_{1}$ et $c_{2}$ sont deux constantes réelles.\\
+Déterminer les constantes $c_{1}$ et $c_{2}$ pour que la fonction $f$
+soit prolongeable par continuité en $0$.
+\end{noliste}
+
+\item \label{deff} Dans toute la suite de cette partie, $f$ désigne la
+fonction définie sur $]-\infty,1[$ par :
+\[
+\left\{ 
+\begin{array}{cc}
+f(x) = -\dfrac{\ln (1-x)}{x} & \text{si }x\neq 0 \\
+f(0) = 1 & 
+\end{array}
+\right. 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner le développement limité en $0$ à l'ordre $3$ de la
+fonction \ $x\mapsto \ln (1-x)$ puis le développement limité en $0$ 
+à l'ordre $2$ de la fonction $ x\mapsto -\frac{\ln (1-x)}{x}\;\cdotp$
+
+\item En déduire que la fonction $f$ est continue en $0$, dérivable
+en $0$ et préciser la valeur de $f^{\prime }(0)$.
+
+\item Montrer que, pour tout $x$ de $]-\infty,0[ \ \cup ]0,1[$, on a : 
+\[
+f^{\prime }(x) = \left( \frac{1}{1-x}-f(x)\right) \,\frac{1}{x}
+\]
+En utilisant le développement limité de la question précédente, montrer
+que $f$ est de classe $\mathcal{C}{1}$ sur $]-\infty,1[$.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier le signe de la fonction $\varphi $ définie sur
+$]-\infty,1[$ par : \ $\varphi (x) = \dfrac{x}{1-x} + \ln
+(1-x)\;\cdotp$ \\
+En déduire les variations de la fonction $f$
+
+\item Donner le tableau de variation de la fonction $f$ et l'allure de
+la
+représentation graphique de $f$ en précisant les asymptotes, la
+tangente à l'origine et la position de la courbe par rapport à cette
+tangente au voisinage de l'origine.
+\end{noliste}
+
+\newpage
+
+\item Soit $x$ un réel de l'intervalle $]0,1[$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $h$ la fonction définie sur $]-\infty,1[$ par : \ $h(t) =
+-\ln
+(1-t)$\.\\
+Calculer, pour tout réel $t$ de $]-\infty,1[$, $h^{\prime
+}(t),\;h^{\prime \prime }(t)$, puis pour tout entier naturel $n$ non
+nul, $h^{(n)}(t)$.
+
+\item Justifier, pour tout entier naturel $n$, l'égalité : 
+\[
+h(x) = \Sum{k = 1}{n + 1}\frac{x^{k}}{k} + \dint{0}{x}\frac{(x-t)^{n +
+1}}{(1-t)^{n + 2}}\;\text{d}t
+\]
+
+\item Établir, pour tout réel $t$ de l'intervalle $[0,x]$, la double
+inégalité :\ $0\leq \dfrac{x-t}{1-t}\leq x\;\cdotp$ \\
+En déduire, pour tout entier naturel $n$ non nul, la double inégalité :
+\[
+0\leq f(x)-\Sum{k = 0}{n}\frac{x^{k}}{k + 1}\leq x^{n + 1}f(x)
+\]
+
+\item Justifier l'égalité :\qquad $ f(x) = \Sum{n = 0}{\infty
+}\frac{x^{n}}{n + 1}\;\cdotp$\ 
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie B : Étude d'une variable aléatoire à densité}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Dans cette question $f$ est la fonction définie à la question
+\ref{deff} de la partie \ref{P1}.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $f_{1}$ la fonction définie sur $]0,1]$ par :\ $\left\{ 
+\begin{matrix}
+f_{1}(t) = \dfrac{\ln t}{t-1} & \text{si} & t\neq 1 \\
+f_{1}(1) = 1 & & 
+\end{matrix}\right. $\\
+Justifier la continuité de $f_{1}$ sur $]0,1]$ et établir, pour tout
+réel $x$ de $]0,1[$, l'égalité :\ 
+\[
+\dint{0}{x}f(t)\,\text{d}t = \dint{1-x}{1}f_{1}(t)\,\text{d}t
+\]
+
+\item \label{1b} Soit $a$ un réel de l'ntervalle $]0,1[$. Établir
+pour tout entier naturel $n$, l'égalité :
+\[
+\dint{a}{1}t^{n}\ln t\,\text{d}t = -\frac{a^{n + 1}\ln a}{n +
+1}-\frac{1}{(n + 1)^{2}}(1-a^{n + 1})
+\]
+En déduire la convergence de l'intégrale\ $\dint{0}{1}t^{n}\ln
+t\,\text{d}t$ et l'égalité :\quad $\dint{0}{1}t^{n}\ln t\,\text{d}t =
+-\frac{1}{(n + 1)^{2}}\;\cdotp$
+
+\item Soit $a$ un réel de l'intervalle $]0,1[$ et $n$ un entier
+naturel,
+démontrer pour tout $t$ de $[a,1]$, l'égalité
+\[
+\dint{a}{1}f_{1}(t)\,\text{d}t + \Sum{k = 0}{n}\dint{a}{1}t^{k}\ln
+t\,\text{d}t = \dint{a}{1}t^{n + 1}f_{1}(t)\,\text{d}t
+\]
+
+\item Montrer que la fonction $t\mapsto t\,f_{1}(t)$ est prolongeable
+en une
+fonction $h_{1}$ continue sur $[0,1]$.\\
+En déduire que l'intégrale \ $\dint{0}{1}f_{1}(t)\,\text{d}t$ converge
+et qu'elle vérifie :
+\[
+\dint{0}{1}f_{1}(t)\,\text{d}t = \Sum{k = 0}{n}\frac{1}{(k + 1)^{2}} +
+\dint{0}{1}t^{n}\,h_{1}(t)\,\text{d}t
+\]
+
+\item On désigne alors par $M$ le maximum sur $[0,1]$ de la fonction
+$h_{1}$.\\
+Établir, pour tout entier naturel $n$, l'inégalité : 
+\[
+0\leq \dint{0}{1}f_{1}(t)\,\text{d}t-\Sum{k = 0}{n}\frac{1}{(k +
+1)^{2}}\leq \frac{M}{n + 1}
+\]
+
+\item Justifier la convergence de la série de terme général
+$\dfrac{1}{n^{2}}$\ \ puis l'égalité : \ $\dint{0}{1}f(t)\,\text{d}t =
+\Sum{n = 1}{\infty }\frac{1}{n^{2}}\;\cdotp$
+\end{noliste}
+
+\item On donne : \ $\Sum{n = 1}{\infty }\frac{1}{n^{2}} = \frac{\pi
+^{2}}{6}$\ et on désigne par $g$ la fonction définie sur $\R$ par : 
+\[
+\left\{ 
+\begin{array}{cc}
+g(t) = \dfrac{6}{\pi ^{2}}\,f(t) & \text{si}\quad t\in \lbrack 0,1[ \
+\\
+g(t) = 0 & \text{sinon}
+\end{array}
+\right. 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $g$ est une densité de probabilité.
+
+\item Soit $X$ une variable aléatoire ayant pour densité $g$. 
+\\
+Vérifier, pour tout réel $x$ de $]0,1[$, l'égalité \ $ \dint{0}{x}\ln
+(1-t)\,\text{d}t = \dint{1-x}{1}\ln t\,\text{d}t $.\ \\
+Utiliser alors le résultat de la question \ref{1b} pour prouver que $X$
+possède une espérance et la calculer.
+
+\item Par une méthode analogue, montrer que l'intégrale \ $
+\dint{0}{1}(t-1)\ln (1-t)\,\text{d}t$ est égale à
+$\dfrac{1}{4}\;\cdotp$ \\
+En déduire que laa variable aléatoire $X^{2}$ admet une espérance,
+préciser sa valeur et calculer la variance de la variable aléatoire
+$X$.
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie C : Encadrement d'une fonction de deux variables}
+
+Dans cette partie, on désigne par $V$ l'ensemble ouvert défini par :
+\[
+V = \{(x,y)\in
+\R^{2};\;-\dfrac{1}{2}<x<\dfrac{1}{2},\;-\dfrac{1}{2}<y<\dfrac{1}{2}\}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $u$ la fonction de $V$ dans $\R$ :\quad $(x,y)\mapsto
+u(x,y) = xy^{2} + x^{2} + y^{2} + \dfrac{1}{4}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la fonction $u$ admet un minimum sur $V$ dont on
+précisera la valeur, mais n'admet pas de maximum.
+
+\item Montrer que la fonction $u$ est majorée par $\dfrac{7}{8}$ sur
+l'ouvert $V$.
+\end{noliste}
+
+\item Soit $F$ la fonction :\qquad $ (x,y)\longmapsto F(x,y) =
+\dfrac{\ln \left( \dfrac{3}{4}-xy^{2}-x^{2}-y^{2}\right) }{\dfrac{1}{4}
++ xy^{2} + x^{2} + y^{2}}\;\cdotp$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item \`{A} l'aide des résultats de la partie \ref{P1}, montrer que $F$
+est définie sur l'ouvert $V$ et qu'elle y admet un maximum. Préciser
+la valeur de ce maximum.
+
+\item Donner un encadrement de $F(x,y)$ pour tout $(x,y)$ de $V$.
+\end{noliste}
+\end{noliste}
+
+\label{derniere_{p}age}
+
+\end{document}
+

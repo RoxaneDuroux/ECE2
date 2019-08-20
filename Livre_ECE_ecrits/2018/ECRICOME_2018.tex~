@@ -1,0 +1,437 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} ECRICOME 2018} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+\maketitle \vspace{-1.2cm}\hrule \thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+%%DEBUT
+
+\textbf{Partie I}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $A$ la matrice de ${\cal M}_{3}(\R)$ donnée par : \quad $A =
+
+\begin{smatrix}
+2 & 1 & -2\\
+0 & 3 & 0\\
+1 & -1 & 5
+\end{smatrix}
+$ 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $A^{2}-7A$.
+\item En déduire que les seuls réels susceptibles d'être valeurs
+propres de $A$ sont les réels $3$ et $4$.
+\item Trouver alors toutes les valeurs propres de $A$, et pour chacune
+d'entre elles, donner une base du sous espace propre associé.
+\item La matrice $A$ est-elle inversible ? Est-elle diagonalisable ?
+\end{noliste}
+\item Soit ${\cal B} = (e_{1},e_{2},e_{3})$ la base canonique de
+$\R^{3}$ et $f$ l'endomorphisme de $\R^{3}$ dont la matrice
+représentative dans la base ${\cal B}$ est la matrice : \quad $B = 
+\begin{smatrix}
+1 & -1 & -1\\
+-3 & 3 & -3\\
+-1 & 1 & 1
+\end{smatrix}
+$\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer le noyau de $f$. En déduire une valeur propre de $f$
+et l'espace propre associé.
+\item Déterminer le rang de la matrice $B-2I_{3}$.
+\item Calculer $f(e_{1}-e_{2}-e_{3})$.
+\item Déduire des questions précédentes que l'endomorphisme $f$ est
+diagonalisable.
+\end{noliste}
+
+\item Trouver une matrice $P$ inversible vérifiant toutes les
+conditions ci-dessous :
+\begin{noliste}{$\sbullet$}
+\item[$\bullet$] La matrice $D_{2} = P^{-1} \ B \ P$ est égale à
+$\begin{smatrix}
+3 & 0 & 0\\
+0 & 0 & 0\\
+0 & 0 & 2
+\end{smatrix}
+$,
+\item[$\bullet$] Les coefficients situés sur la première ligne de $P$
+sont $1$, $1$ et $-1$ (de gauche à droite),
+\item[$\bullet$] La matrice $D_{1} = P^{-1}\ A \ P$ est également
+diagonale.
+\end{noliste}
+\end{noliste}
+
+\textbf{Partie II} 
+\par \noindent
+On pose $X_{0} = 
+\begin{smatrix}
+3\\
+0\\
+-1
+\end{smatrix}
+$, $X_{1} = 
+\begin{smatrix}
+3\\
+0\\
+-2
+\end{smatrix}
+$, et pour tout entier naturel $n$ : \quad $X_{n + 2} = \dfrac16 A X_{n
++ 1} + \dfrac16 B X_{n}$.\\
+Soit $(Y_{n})_{n \in \N}$ la suite matricielle définie par : \quad
+$\forall n \in \N, \quad Y_{n} = P^{-1} X_{n}$. 
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Démontrer que : \qquad $\forall n \in \N \qquad Y_{n + 2} =
+\dfrac16 D_{1} Y_{n + 1} + \dfrac16 D_{2} Y_{n}$.
+\item Pour tout entier naturel $n$, on note $Y_{n} = 
+\begin{smatrix}
+a_{n}\\
+b_{n}\\
+c_{n}
+\end{smatrix}
+$.\\
+Déduire de la question précédente que :
+\[
+\forall n \in \N \qquad \left\{
+\begin{array}{ll}
+a_{n + 2} & = \dfrac12 \ a_{n + 1} + \dfrac12 \ a_{n}\\
+ & \\
+b_{n + 2} & = \dfrac12\ b_{n + 1}\\
+ & \\
+c_{n + 2} & = \dfrac23 \ c_{n + 1} + \dfrac13 \ c_{n}
+\end{array}
+\right.
+\]
+\item Démontrer que $P^{-1} = 
+\begin{smatrix}
+1 & -1 & 1\\
+1 & 0 & 1\\
+1 & -1 & 2
+\end{smatrix}
+$, puis calculer les matrices $Y_{0}$ et $Y_{1}$.
+\item Pour tout entier naturel $n$, calculer $a_{n}$, $b_{n}$ et
+$c_{n}$ en fonction de $n$.
+\item En déduire l'expression de $X_{n}$ en fonction de $n$, pour tout
+entier naturel $n$.\\
+On notera $X_{n} = 
+\begin{smatrix}
+\alpha_{n}\\
+\beta_{n}\\
+\gamma_{n}
+\end{smatrix}
+$, et on vérifiera que :
+\[
+\beta_{n} = \left(\dfrac12\right)^{n-1}-\dfrac23
+\left(-\dfrac12\right)^{n}-\dfrac43
+\]
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Compléter la fonction ci-dessous qui prend en argument un entier
+$n$ supérieur ou égal à $2$ et qui renvoie la matrice $X_{n}$ :
+\begin{verbatim}
+function res = X(n)
+ Xold = [3;0;-1]
+ Xnew = [3;0;-2]
+ A = [2,1,-2;0, 3,0; 1, -1, 5]
+ B = [1,-1,-1; -3,3,-3;-1, 1, 1]
+ for i = 2 :n
+ Aux =................
+ Xold =................
+ Xnew =..............
+ end
+ res =..........
+endfunction
+\end{verbatim}
+\item La fonction précédente a été utilisée dans un script permettant
+d'obtenir graphiquement (voir figure 1) les valeurs de $\alpha_{n}$,
+$\beta_{n}$ et $\gamma_{n}$ en fonction de $n$.\\
+Associer chacune des trois représentations graphiques à chacune des
+suites $(\alpha_{n})_{n\in \N}$, $(\beta_{n})_{n\in \N}$,
+$(\gamma_{n})_{n\in \N}$ en justifiant votre réponse.
+\begin{figure}[h!]
+\begin{center}
+\caption{}
+\includegraphics[width = 10cm,height = 10cm]{graph_{e}xo1.pdf}
+\end{center}
+\end{figure}
+\end{noliste}
+
+\end{noliste}
+
+
+\par \vspace{0.5cm}
+
+%----------------------------------------------------------------------
+
+{\bfseries \large \sffamily{Exercice 2}}
+\par \noindent
+\textbf{Partie I : Étude de deux suites}
+\par \noindent
+Pour tout entier naturel $n$ non nul, on pose : \quad $u_{n} =  \Sum{k
+= 1}{n} \dfrac1k - \ln(n)$ \quad et \quad $v_{n} = u_{n}-\dfrac1n$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item
+Soit $f$ la fonction définie sur $\R^{+ *}$ par $f(x) = \dfrac1{x + 1}
++ \ln(x)-\ln(x + 1)$.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer $ \dlim{x \to 0} f(x)$ et $ \dlim{x \to + \infty}
+f(x)$.
+\item Étudier les variations de la fonction $f$ sur $\R^{+ *}$ et
+dresser son tableau de variations.
+\item Démontrer que : \quad $\forall n \in \N^*, \quad u_{n + 1}-u_{n}
+= f(n)$.
+\item En déduire la monotonie de la suite $(u_{n})_{n\in \N^*}$.
+\item Écrire une fonction d'en-tête : {\tt function y = u(n)} \quad qui
+prend en argument un entier naturel $n$ non nul et qui renvoie la
+valeur de $u_{n}$.
+\end{noliste}
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : \quad $\forall n \in \N^* \quad v_{n + 1}-v_{n} =
+\dfrac1n - \ln \left(1 + \dfrac1n\right)$.
+\item Montrer que pour tout réel $x$ positif : \qquad $\ln(1 + x) \leq
+x$.\\
+En déduire que la suite $(v_{n})_{n \in \N^*}$ est croissante.
+\item Donner le développement limité d'ordre 2 de $\ln(1 + x)$ en $0$.
+En déduire que :
+\[
+v_{n + 1}-v_{n} \underset{n\to + \infty}{\sim} \frac{1}{2n^{2}}
+\]
+\item Déterminer la nature de la série de terme général $v_{n +
+1}-v_{n}$. On note $\gamma =  \Sum{n = 1}{+ \infty}(v_{n + 1}-v_{n})$.
+\item Pour $n \geq 2$, simplifier la somme partielle : \quad $ \Sum{k =
+1}{n-1} (v_{k + 1}-v_{k})$.\\
+En déduire que la suite $(v_{n})_{n \geq 2}$ converge vers $\gamma$.
+\end{noliste}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item {\itshape Déterminer } $ \dlim{n \to \infty} u_{n}$.
+\item Montrer que \quad $\forall n \in \N^* \quad v_{n} \leq \gamma
+\leq u_{n}$ \qquad puis que $\quad \forall n \in \N^* \quad |u_{n} -
+\gamma| \leq \dfrac1n$
+\item On rappelle que l'instruction {\tt floor(x)} renvoie la partie
+entière d'un réel $x$ et on suppose que la fonction {\tt u} de la
+question 1) e : a été correctement programmée. Expliquer l'intérêt et
+le fonctionnement du script ci-dessous :
+\begin{verbatim}
+eps = input('Entrer un réel strictement positif : '}
+n = floor(1/eps) + 1
+disp(u(n))
+\end{verbatim}
+\end{noliste}
+\end{noliste}
+\noindent
+\textbf{Partie II : Étude d'une série}
+\par \noindent
+Pour tout entier naturel $n$, on pose \quad $a_{n} = \dfrac1{n(2n-1)}$.
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Démontrer que la série de terme général $a_{n}$ converge.
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier que : \qquad $ \forall n \in \N^*, \quad \Sum{k = 1}{n}
+\dfrac1{2k-1} = \Sum{k = 1}{2n} \dfrac1k - \Sum{k = 1}{n} \dfrac1{2k}$.
+\item Déterminer deux réels $\alpha$ et $\beta$ tels que : \qquad
+$\forall n \in \N^*, \quad a_{n} = \dfrac{\alpha}n +
+\dfrac{\beta}{2n-1}$.
+\item En déduire que : \qquad $\forall n \in \N^*, \qquad  \Sum{k =
+1}{n} a_{k} = 2 \Sum{k = n + 1}{2n} \dfrac1k$.
+\end{noliste}
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que :\qquad $\forall n \in \N^*, \quad  \Sum{k = n +
+1}{2n} \dfrac1k = u_{2n}-u_{n} + \ln(2)$\\
+où $(u_{n})_{n \in \N^*}$ est la suite définie dans la partie I.
+\item Calculer alors \quad $ \Sum{k = 1}{+ \infty} a_{k}$.
+\end{noliste}
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : \quad $\forall n \in \N^*, \quad  \Sum{k = n +
+1}{2n} \frac{1}{k} = \frac{1}{n}\Sum{k = 1}{n}\frac{1}{1 +
+\dfrac{k}{n}}$.
+\item Retrouver alors le résultat de la question 3) b :
+\end{noliste}
+\end{noliste}
+
+\par \vspace{0.5cm}
+%----------------------------------------------------------------------
+
+{\bfseries \large \sffamily{Exercice 3}}
+\par \noindent
+Soit $n$ un entier naturel non nul.\\
+Dans une fête foraine, un stand propose le jeu suivant : le joueur
+lance $n$ fois une pièce et compte le nombre de Pile obtenus. Si ce
+nombre est pair, le joueur est déclaré vainqueur, et s'il est impair,
+il est déclaré perdant.\\
+Si le joueur est déclaré vainqueur, il gagne 10 euros pour chaque Pile
+obtenu, mais s'il a perdu, il doit payer 10 euros pour chaque Pile
+obtenu.\\
+En particulier, s'il n'obtient aucun Pile, il est déclaré vainqueur,
+mais ne remporte rien. La pièce est truquée, et à chaque lancer, la
+probabilité d'obtenir Pile est égale à $p$ ($p \in \ ]0,1[$), et celle
+d'obtenir Face est de $1-p$.\\
+On notera $X$ la variable aléatoire égale au nombre de Pile obtenus, et
+$G$ la variable aléatoire égale au gain algébrique du joueur.\\
+Enfin, on notera $A$ l'événement : \og le joueur est déclaré vainqueur
+\fg \ et on dira que le jeu est favorable au joueur si l'espérance
+mathématique de la variable aléatoire $G$ est positive.
+\par \noindent
+\textbf{Partie I}
+\par \noindent
+Dans cette partie, on suppose que $n = 3$ et $p = \dfrac23$.
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Reconnaître la loi de $X$ et vérifier que : \quad
+$P\left(\Ev{A}\right) = \dfrac{13}{27}$.
+\item Montrer que : \quad $G(\Omega) = \{-30, -10, 0, 20\}$, puis
+expliciter la loi de $G$.
+\item Calculer l'espérance de $G$. Le jeu est-il favorable au joueur ?
+\end{noliste}
+\par \noindent
+\textbf{Partie II}
+\par \noindent
+Dans cette partie, on revient au cas général, où $n$ est entier naturel
+non nul et $p \in \ ]0,1[$.\\
+Celui qui tient le stand souhaite rendre le jeu plus attractif en
+affichant \og À ce jeu, il y a plus de gagnants que de perdants ! \fg,
+et cherche donc les conditions nécessaires sur $p$ et $n$ pour que son
+affichage ne soit pas mensonger.\\
+Soit $Y$ la variable aléatoire définie par : \qquad $Y = (-1)^{X}$.\\
+Autrement dit, $Y$ prend la valeur $1$ lorsque $X$ prend une valeur
+paire, et $Y$ prend la valeur $-1$ lorsque $X$ prend une valeur
+impaire.
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On note $Z = \dfrac{Y + 1}2$. Déterminer $Y(\Omega)$, puis
+montrer que $Z$ suit une loi de Bernoulli de paramètre
+$P\left(\Ev{A}\right)$.
+\item Démontrer que : \quad $\E(Y) = 2 P\left(\Ev{A}\right)-1$.
+\end{noliste}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner la loi de $X$.
+\item En déduire que l'on a également : \qquad $
+\E(Y) =  \Sum{k = 1}{n} (-1)^{k} {n\choose k}p^{k}(1-p)^{n-k}$, \\
+puis que : \quad $\E(Y) = (1-2p)^{n}$.
+\end{noliste}
+\item Exprimer alors la valeur de $P\left(\Ev{A}\right)$ en fonction de
+$n$ et $p$.
+\item Démontrer que 
+\[
+ P\left(\Ev{A}\right)\geq \dfrac{1}{2} \Longleftrightarrow \left[ p
+\leq \dfrac12 \hbox{ OU \og $n$ est pair \fg} \right]
+\]
+\end{noliste}
+\par \noindent
+\textbf{Partie III}
+\par \noindent
+Le concepteur du jeu souhaite cependant vérifier que, tout en laissant
+son jeu attractif (c'est à dire en faisant en sorte que
+$P\left(\Ev{A}\right) \geq \dfrac12$ ), son activité soit rentable pour
+lui, autrement dit que le jeu soit défavorable au joueur (c'est à dire
+que $\E(G) \leq 0$). 
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Exprimer $G$ en fonction de $X$ et $Y$. En déduire que : \qquad
+$\E(G) = 10  \Sum{k = 0}{n} (-1)^{k} k P\left(\Ev{X = k}\right)$.
+\item Démontrer que : \quad $\forall k \in \ento 1, n\entf, \quad
+k{n\choose k} = n{n-1 \choose k-1}$.
+\item Montrer que : \quad $\E(G) = -10np (1-2p)^{n-1}$
+\item Démontrer alors que : 
+\[
+\left\{ 
+\begin{array}{r}
+P\left(\Ev{A}\right) \geq \dfrac{1}{2}\\
+\\
+\E(G) \leq 0
+\end{array}
+\right. \Longleftrightarrow p\leq \dfrac{1}{2}
+\]
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier la fonction $f$ définie sur $\left[0, \dfrac12\right]$
+par : \quad $\forall x \in \left[0, \dfrac12\right] \qquad f(x) =
+x(1-2x)^{n-1}$.
+\item Pour une valeur de $n$ fixée, comment le concepteur du jeu
+doit-il truquer sa pièce (c'est à dire quelle valeur doit-il donner à
+$p \in \left[0,\dfrac12\right]$ ) pour optimiser la rentabilité de son
+activité ?
+\end{noliste}
+\end{noliste}
+\par \noindent
+\textbf{Partie IV}
+\par \noindent
+Le forain décide de fixer $n = 2$ et $p = \dfrac14$. En période
+estivale, il pense pouvoir compter sur la participation de $200$
+clients dans le journée. Avant de se décider à installer son stand, il
+voudrait être certain, avec un risque d'erreur inférieur à $10 \%$,
+qu'il gagnera plus de $100$ euros dans la journée.\\
+Pour tout entier $i$ compris ente $1$ et $200$, on note alors $G_{i}$
+le gain algébrique du $i$-ième joueur.\\
+On note aussi $J$ la variable aléatoire égale au gain du forain sur
+toute la journée. 
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour tout entier $i \in \ento 1,200 \entf$, donner la loi de
+$G_{i}$ et calculer son espérance et sa variance.
+\item Exprimer la variable aléatoire $J$ en fonction des variables
+aléatoires $G_{i}$.
+\\
+Démontrer alors que $\E(J) = 500$ et $\V(J) = 11250$.
+\item Justifier que : \quad $P\left(\Ev{J\leq 100}\right) \leq
+P\left(\Ev{|J-500|\geq 400}\right)$.
+\item Rappeler l'inégalité de Bienaymé-Tchébychev, puis montrer que :
+\quad $P\left(\Ev{J \leq 100}\right) \leq \dfrac9{128}$.
+\item Compte tenu de ses exigences de rentabilité, le forain peut-il
+installer son stand ?
+\end{noliste}
+\end{document}
+

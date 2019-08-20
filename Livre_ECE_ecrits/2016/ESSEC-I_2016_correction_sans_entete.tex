@@ -1,0 +1,2986 @@
+\chapter*{ESSEC-I 2016 : le corrigé}
+  
+%
+
+\noindent
+On s'intéresse dans ce problème à deux mesures du risque utilisées 
+par les marchés financiers.\\
+Pour cela, on considère des variables aléatoires sur un espace 
+probabilisé $(\Omega,\A,\Prob)$, qui modélisent des pertes 
+financières subies par des acteurs économiques sur une période donnée.\\
+{\bf Toutes les variables aléatoires définies dans ce problème 
+sont des variables aléatoires sur cet espace probabilisé.}\\
+Soit ${\cal D}$ l'ensemble des variables aléatoires réelles à 
+densité $X$ vérifiant :
+\begin{noliste}{$\sbullet$}
+  \item $X$ admet une espérance notée $\E(X)$.
+  \item il existe un intervalle $I_X$ (dont on admet 
+  l'unicité) sur lequel la fonction de répartition de $X$, notée 
+  $F_X$, réalise une bijection de classe $\Cont{1}$ strictement 
+  croissante de $I_X$ sur $]0,1[$.\\
+  On note $G_X$ la bijection réciproque, définie de $]0,1[$ sur 
+  $I_X$. Les notations $F_X$ et $G_X$ seront utilisées dans tout 
+  le sujet.
+\end{noliste}
+Dans tout le problème $\beta$ est un réel appartenant à $]0,1[$ et 
+représentant un niveau de confiance.
+
+\section*{Partie I - Définition et propriétés de la \og Value at 
+Risk \fg}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \item Soit $X \in {\cal D}$. Montrer qu'il existe un unique réel 
+  $v$ tel que $\Prob(\Ev{X \leq v})=\beta$, et que l'on a 
+  $v=G_X(\beta)$.
+  
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+      \item La \var $X$ appartient à ${\cal D}$.\\
+      Donc $F_X$ réalise une bijection de $I_X$ dans $]0,1[$.\\
+      Or $\beta \in \ ]0,1[$.
+      \conc{Donc il existe un unique $v\in I_X \subset \R$ tel que 
+      $\Prob(\Ev{X \leq v})=F_X(v)=\beta$.}
+      
+      \item D'après l'énoncé, la fonction $G_X$ est la
+      bijection réciproque de $F_X$ sur $I_X$.
+      \conc{Donc : $v = G_X(F_X(v))=G_X(\beta)$.}~\\[-1.4cm]
+    \end{noliste}
+  \end{proof}
+
+\end{noliste}
+
+\begin{noliste}{$\sbullet$}
+  \item On définit alors $r_\beta(X)$ appelé la \og Value at 
+  Risk \fg au niveau de confiance $\beta$ de $X$, par 
+  $r_\beta(X)=G_X(\beta)$. C'est une grandeur qui permet d'évaluer 
+  le risque pris par l'acteur qui détient l'actif dont les pertes 
+  sont modélisées par $X$.
+  
+  \item {\bf On remarque que $r_\beta(X)$ est égal au 
+  capital minimal qu'il faut détenir pour être en mesure de 
+  couvrir les pertes de l'actif associé à $X$ avec une probabilité 
+  égale à $\beta$.}
+\end{noliste}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{1}
+  \item On suppose que, dans cette question, $X$ est une variable 
+  aléatoire suivant la loi exponentielle de paramètre $\lambda \in 
+  \ ]0,+\infty[$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Rappeler la valeur de $F_X(x)$ pour tout réel $x$.
+    
+    \begin{proof}~
+      \conc{$F_X: x \mapsto \left\{
+      \begin{array}{cR{1.5cm}}
+        1- \ee^{-\lambda \, x} & si $x\geq 0$
+        \nl
+        0 & si $x<0$
+      \end{array}
+      \right.$}~\\[-1cm]
+    \end{proof}
+
+    
+    \item En déduire que $X \in {\cal D}$ et que l'on a 
+    $r_\beta(X)=-\dfrac1\lambda \ln(1-\beta)$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item La \var $X$ est à densité.
+	\item Elle admet une espérance ($\E(X) = \dfrac{1}{\lambda}$).
+	
+	
+	\newpage
+	
+	
+	\item La fonction $F_X$ est :
+	\begin{noliste}{$\stimes$}
+	  \item continue sur $]0,+\infty[$,
+	  \item strictement croissante sur $]0,+\infty[$.\\
+	  En effet, la fonction $F_X$ est dérivable sur 
+	  $]0+\infty[$ et :
+	  \[
+	    \forall x \in \ ]0,+\infty[, \ 
+	    F_X'(x) = -(-\lambda) \ee^{-\lambda \, x} = 
+	    \lambda \, \ee^{-\lambda \, x} >0
+	  \]
+	\end{noliste}
+	Ainsi, $F_X$ réalise une bijection de $]0,+\infty[$ sur 
+	$F_X(]0,+\infty[)$.\\
+	Comme $F_X$ est une fonction de répartition, on a :
+	$\dlim{x\to +\infty} F_X(x)=1$.\\
+	D'où :
+	\[
+	  F_X(]0,+\infty[) = \left] \dlim{x\to 0^+} F_X(x), 
+	  \dlim{x\to +\infty} F_X(x) \right[ = \ ]0,1[
+	\]
+	Ainsi, la fonction $F_X$ réalise une bijection de 
+	$]0,+\infty[$ sur $]0,1[$.
+      \end{noliste}
+      \conc{Finalement : $X \in {\cal D}$.}
+      
+      \begin{noliste}{$\sbullet$}
+	\item Déterminons $G_X$.\\
+	Soit $x \in \ ]0,+\infty[$. Soit $\beta \in \ ]0,1[$.
+	\[
+	  \begin{array}{rcccl}
+	    G_X(\beta) = x & \Leftrightarrow & 
+	    \beta = F_X(x) & \Leftrightarrow &
+	    \beta = 1-\ee^{-\lambda \, x}
+	    \\[.2cm]
+	    & \Leftrightarrow & 1-\beta = \ee^{-\lambda \, x}
+	    & \Leftrightarrow & \ln(1-\beta) = - \lambda \, x
+	    \\[.2cm]
+	    & \Leftrightarrow & -\dfrac{1}{\lambda} \, 
+	    \ln(1-\beta) = x
+	  \end{array}
+	\]
+	Ainsi : $\forall \beta \in \ ]0,1[$, $G_X(\beta) = 
+	-\dfrac{1}{\lambda} \, \ln(1-\beta)$.
+	\conc{$r_\beta(X) = -\dfrac{1}{\lambda} \, 
+	\ln(1-\beta)$}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+
+  \end{noliste}
+
+  \item On suppose dans cette question que $X$ et $Y$ sont deux 
+  variables aléatoires indépendantes suivant la loi normale de 
+  paramètres $m$ et $\sigma^2$ pour $X$ et de paramètres $\mu$ et 
+  $s^2$ pour $Y$.\\
+  On note $\Phi$ la fonction de répartition de la loi normale 
+  centrée réduite et $\varphi$ sa densité usuelle.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item 
+    \begin{nonoliste}{(i)}
+      \item Justifier que $\Phi$ réalise une bijection de $\R$ sur 
+      $]0,1[$. On note $\Phi^{-1}$ la bijection réciproque.
+      
+      \begin{proof}~\\
+          La fonction $\varphi : x \mapsto \dfrac{1}{
+	  \sqrt{2 \pi}} \, \ee^{-\frac{x^2}{2}}$ est continue
+	  sur $\R$.\\
+	  Donc $\Phi$ est de classe $\Cont{1}$ sur $\R$ en tant 
+	  que primitive de $\varphi$ et :
+	  \[
+	    \forall x \in \R, \ \Phi'(x) = \varphi(x) >0
+	  \]
+	  \conc{Donc la fonction $\Phi$ est strictement croissante 
+	  sur $\R$.}
+	  En résumé, la fonction $\Phi$ est :
+	  \begin{noliste}{$\stimes$}
+	    \item continue sur $\R$ (car de classe $\Cont{1}$ 
+	    sur $\R$),
+	    \item strictement croissante sur $\R$.
+	  \end{noliste}
+	  Ainsi $\Phi$ réalise une bijection de $\R= \ ]-\infty,
+	  +\infty[$ sur $\Phi(]-\infty,+\infty[)$.\\
+	  Or $\Phi$ est une fonction de répartition, donc :
+	  $\dlim{x\to -\infty} \Phi(x)=0$ et $\dlim{x\to + \infty}
+	  \Phi(x)=1$.\\
+	  On en déduit :
+	  \[
+	    \Phi(]-\infty, +\infty[) = \left] \dlim{x\to -\infty}
+	    \Phi(x), \dlim{x\to +\infty} \Phi(x) \right[ = \
+	    ]0,1[
+	  \]
+        \conc{Ainsi, la fonction $\Phi$ réalise une bijection de $\R$ 
+	sur $]0,1[$.}~\\[-1cm]
+      \end{proof}
+      
+      
+      
+      \newpage
+      
+
+      
+      \item Pour tout $x \in\R$, exprimer $F_X(x)$ en fonction de 
+      $\Phi$, $m$, $\sigma$ et $x$.
+      
+      \begin{proof}~
+        \begin{noliste}{$\sbullet$}
+	  \item D'après l'énoncé : $X \suit \Norm{m}{\sigma^2}$.\\
+	  On note $Z$ la \var centrée réduite associée à $X$.
+	  Alors :
+	  \[
+	    Z = \dfrac{X-\E(X)}{\sqrt{\V(X)}} = \dfrac{X-m}{
+	    \sigma}
+	  \]
+	  La \var $Z$ est une transformée affine de $X$ qui 
+	  suit une loi normale. Donc $Z$ suit également
+	  une loi normale.\\
+	  De plus : $\E(Z)=0$ et $\V(Z)=1$.
+	  \conc{Donc : $Z \suit \Norm{0}{1}$.}
+	  
+	  \begin{remark}
+	    On rappelle le résultat de cours suivant : $\forall
+	    (a,b) \in \R^* \times \R$,
+	    \[
+	      X \suit \Norm{m}{\sigma^2} \ \Leftrightarrow \
+	      aX+b \suit \Norm{am+b}{\sigma^2}
+	    \]
+	    En particulier : $X \suit \Norm{m}{\sigma^2} \
+	    \Leftrightarrow \ X^* = \dfrac{X-m}{\sigma} \suit
+	    \Norm{0}{1}$.
+	  \end{remark}
+
+	  
+	  \item Soit $x\in \R$.
+	  \[
+	  \begin{array}{rcl}
+	    F_X(x) &=& \Prob(\Ev{X \leq x}) \ = \ \Prob(\Ev{
+	    X-m \leq x-m})
+	    \\[.2cm]
+	    &=& \Prob\left(\Ev{\dfrac{X-m}{\sigma} \leq 
+	    \dfrac{x-m}{\sigma}}\right) \ = \ \Prob\left(\Ev{
+	    Z \leq \dfrac{x-m}{\sigma}}\right)
+	    \\[.4cm]
+	    &=& \Phi \left(\dfrac{x-m}{\sigma}\right)
+	  \end{array}
+	  \]
+        \end{noliste}
+        \conc{$\forall x \in \R$, $F_X(x) = \Phi\left( 
+        \dfrac{x-m}{\sigma}\right)$}
+        
+        \begin{remark}
+          La démonstration de ce résultat pouvait également 
+          s'effectuer par calcul direct.\\
+          Soit $x\in \R$.
+          \[
+            F_X(x) = \Prob(\Ev{X \leq x}) = \dint{-\infty}{x}
+            f_X(t) \dt
+          \]
+          Or $X \suit \Norm{m}{\sigma^2}$. Donc :
+          \[
+            f_X(x) = \dfrac{1}{\sigma \, \sqrt{2 \pi}} \,
+            \ee^{-\frac{(x-m)^2}{2 \sigma^2}} = \dfrac{1}{\sigma}
+            \, \varphi\left(\dfrac{x-m}{\sigma}\right)
+          \]
+          D'où :
+          \[
+            F_X(x) = \dint{-\infty}{x} \dfrac{1}{\sigma} \,
+            \varphi\left(\dfrac{t-m}{\sigma}\right) \dt
+          \]
+          \end{remark}
+          
+          
+          \newpage
+          
+          \begin{remarkL}{.95}
+          Deux méthodes de résolution sont alors possibles :\\
+          {$\sbullet$} \ \dashuline{Méthode 1}. On remarque : 
+	    \[
+	      \forall t \in \R, \ \Phi\left( \dfrac{t-m}{\sigma}\right)
+	      = \dfrac{1}{\sigma} \, \varphi\left( 
+	      \dfrac{t-m}{\sigma}\right)
+	    \]
+	    Soit $A \in \ ]-\infty,x]$.
+	    \[
+	      \dint{A}{x} \dfrac{1}{\sigma} \, \varphi\left( 
+	      \dfrac{t-m}{\sigma} \right) \dt
+	      \ = \ \Prim{\Phi\left( \dfrac{t-m}{\sigma}\right)}
+	      {A}{x}
+	      \ = \ \Phi \left( \dfrac{x-m}{\sigma} \right) - 
+	      \Phi \left( \dfrac{A-m}{\sigma} \right)
+	    \]
+	    Or, comme $\Phi$ est une fonction de répartition :
+	    $\dlim{A \to -\infty} \Phi \left( \dfrac{A-m}{\sigma}
+	    \right) =0$.\\
+	    D'où : $F_X(x) \ = \ \Phi\left( \dfrac{x-m}{\sigma} 
+	  \right)$.
+    
+   {$\sbullet$} \ \dashuline{Méthode 2}. On effectue le changement de 
+    variable 
+    $\Boxed{u =
+    \dfrac{t-m}{\sigma}}$.
+      \[
+      \left|
+        \begin{array}{P{8cm}}
+          $u = \dfrac{t-m}{\sigma}$ (et donc $t = \sigma \, u+m$) \nl
+          $\hookrightarrow$ $du = \dfrac{1}{\sigma} \dt$ 
+          \quad et \quad $dt = \sigma \ du$ 
+          \nl
+          \vspace{-.2cm}
+          \begin{noliste}{$\sbullet$}
+          \item $t = -\infty \ \Rightarrow \ u = -\infty$
+          \item $t = x \ \Rightarrow \ u = \dfrac{x-m}{\sigma}$ %
+            \vspace{-.4cm}
+          \end{noliste}
+        \end{array}
+      \right.
+      \]
+      Ce changement de variable est valide car $\psi: u \mapsto 
+      \sigma \, u +m$ est de classe $\Cont{1}$ sur $]-\infty, x]$.\\
+      On obtient alors :
+      \[
+        F_X(x) \ = \ \dint{-\infty}{x} \varphi\left(\dfrac{t-m}
+        {\sigma}\right) \ \dfrac{1}{\sigma} \dt \ = \
+        \dint{-\infty}{\frac{x-m}{\sigma}} \varphi(u) \ du
+        \ = \ \Phi\left(\dfrac{x-m}{\sigma}\right)
+      \]
+        \end{remarkL}~\\[-1.4cm]
+      \end{proof}
+
+      
+      \item En déduire que $X \in {\cal D}$ et que 
+      $r_\beta(X)=m+\sigma \Phi^{-1}(\beta)$.
+      
+      \begin{proof}~
+        \begin{noliste}{$\sbullet$}
+	  \item La \var $X$ est à densité.
+	  \item Elle admet une espérance ($\E(X)=m$).
+	  \item On note $f$ la fonction définie par : 
+	  \[
+	    f : x \mapsto \dfrac{x-m}{\sigma}
+	  \]
+	  Alors : $F_X=\Phi \circ f$.\\
+	  D'après la question \itbf{3.a)(i)}, on sait que 
+	  $\Phi$ réalise une bijection de $\R$ sur $]0,1[$.\\
+	  Montrons alors que $f$ réalise une bijection de $\R$ sur 
+	  $\R$.\\
+	  Soit $y\in \R$. Soit $x\in\R$.
+	  \[
+	    y=f(x) \ \Leftrightarrow \ y = \dfrac{x-m}{\sigma}
+	    \ \Leftrightarrow \ \sigma \, y = x-m \ 
+	    \Leftrightarrow \ \sigma \, y+m = x
+	  \]
+	  Ainsi, la fonction $f$ réalise une bijection de $\R$ sur 
+	  $\R$, de 
+	  réciproque $f^{-1} : x \mapsto \sigma \, x+m$.\\
+	  Finalement, la fonction $F_X$ réalise une bijection de 
+	  $\R$ dans $]0,1[$.
+	  \conc{Ainsi : $X\in {\cal D}$.}
+	  
+	  
+	  
+	  \newpage
+	  
+	  
+	  
+	  \item Déterminons $G_X$.\\
+	  Tout d'abord : $F_X=\Phi \circ f$. Donc :
+	  $G_X=F_X^{-1} = f^{-1} \circ \Phi^{-1}$.\\
+	  Soit $\beta \in \ ]0,1[$. On obtient alors :
+	  \[
+	    G_X(\beta) = f^{-1}(\Phi^{-1}(\beta)) = \sigma \,
+	    \Phi^{-1}(\beta) +m
+	  \]
+	  \conc{Ainsi : $r_{\beta}(X) = m + \sigma \, 
+	  \Phi^{-1}(\beta)$.}~\\[-1.4cm]
+        \end{noliste}
+      \end{proof}
+    \end{nonoliste}
+    
+    \item Quelle est la loi de $X+Y$ ?\\
+    En déduire $r_\beta(X+Y)$ en fonction de $m$, $\mu$, $\sigma$, 
+    $s$ et $\beta$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item Les \var $X$ et $Y$ :
+	\begin{noliste}{$\stimes$}
+	  \item sont indépendantes,
+	  \item suivent des lois normales ($X \suit \Norm{m}{
+	  \sigma^2}$ et $Y \suit \Norm{\mu}{s^2}$).
+	\end{noliste}
+	Donc par stabilité des lois normales, $X+Y$ suit une loi 
+	normale.\\
+	De plus, par linéarité de l'espérance :
+	\[
+	  \E(X+Y) = \E(X) + \E(Y) = m+\mu
+	\]
+	Par indépendance de $X$ et $Y$ :
+	\[
+	  \V(X+Y) = \V(X)+\V(Y) = \sigma^2+s^2
+	\]
+	\conc{D'où : $X+Y \suit \Norm{m+\mu}{\sigma^2+s^2}$}
+	
+	\item On applique le résultat de la question \itbf{3.a)}
+	pour $m=m+\mu$ et $\sigma^2=\sigma^2+s^2$.
+	\conc{On obtient : $r_{\beta}(X+Y) = (m+\mu) + 
+	\sqrt{\sigma^2+s^2} \ \Phi^{-1}(\beta)$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+
+    
+    \item Pour quels $\beta \in \ ]0,1[$ a-t-on $r_{\beta}(X+Y) \leq
+    r_\beta(X)+r_\beta(Y)$ ?
+    
+    \begin{proof}~\\
+      Soit $\beta \in \ ]0,1[$.
+      \[
+        r_{\beta}(X) + r_{\beta}(Y) = (m+\sigma \, \Phi^{-1}(\beta))
+        +(\mu + s \, \Phi^{-1}(\beta)) = (m+\mu) + (\sigma + s)
+        \Phi^{-1}(\beta)
+      \]
+      Donc :
+      \[
+        \begin{array}{rcl}
+          r_{\beta}(X+Y) \leq r_{\beta}(X) + r_{\beta}(Y) 
+          & \Leftrightarrow & \bcancel{(m+\mu)} + 
+          \sqrt{\sigma^2+s^2} \ \Phi^{-1}(\beta) \leq \bcancel{(m+\mu)} 
+          +(\sigma + s) \Phi^{-1}(\beta)
+          \\[.4cm]
+          & \Leftrightarrow & \sqrt{\sigma^2+s^2} \ \Phi^{-1}(\beta)
+          \leq (\sigma +s) \Phi^{-1}(\beta)
+        \end{array}
+      \]
+      Trois cas se présentent alors.
+      \begin{noliste}{$\sbullet$}
+	\item \dashuline{Si $\Phi^{-1}(\beta)> 0$}. Alors :
+	\[
+	\begin{array}{rcl@{\quad}>{\it}R{4.5cm}}
+	  r_{\beta}(X+Y) \leq r_{\beta}(X) + r_{\beta}(Y)
+	  & \Leftrightarrow & \sqrt{\sigma^2+s^2} \leq 
+	  \sigma + s
+	  \\[.2cm]
+	  & \Leftrightarrow & \sigma^2+s^2 \leq (\sigma+s)^2
+	  & (car $\sigma>0$, $s>0$ et $x\mapsto x^2$ est 
+	  strictement croissante sur $]0,+\infty[$)
+	  \nl
+	  \nl[-.2cm]
+	  & \Leftrightarrow & \xcancel{\sigma^2} + \bcancel{s^2} \leq 
+	  \xcancel{\sigma^2} +
+	  2\, \sigma \, s + \bcancel{s^2}
+	  \\[.2cm]
+	  & \Leftrightarrow & 0 \leq \sigma \, s
+	\end{array}
+	\]
+	Or $\sigma>0$ et $s>0$, donc la dernière assertion est vraie.\\
+	D'où, par équivalence, la première aussi, c'est-à-dire :
+	\[
+	  r_{\beta}(X+Y) \leq r_{\beta}(X) + r_{\beta}(Y)
+	\]
+	
+	
+	\newpage
+	
+	
+	\item \dashuline{Si $\Phi^{-1}(\beta) <0$}. Alors, 
+	avec le même raisonnement que précédemment :
+	\[
+	  r_{\beta}(X+Y) \leq r_{\beta}(X) + r_{\beta}(Y)
+	  \ \Leftrightarrow \ \sqrt{\sigma^2+s^2} \geq 
+	  \sigma + s
+	  \ \Leftrightarrow \ 0 \geq \sigma \, s
+	\]
+	Cette dernière assertion est fausse. Donc, par équivalence,
+	la première aussi.
+	
+	\item \dashuline{Si $\Phi^{-1}(\beta)= 0$}. Alors 
+	l'inégalité : $\sqrt{\sigma^2+s^2} \ \Phi^{-1}(\beta)
+	\leq (\sigma +s) \Phi^{-1}(\beta)$, est trivialement vérifiée.\\
+	On a donc encore par équivalence :
+	\[
+	  r_{\beta}(X+Y) \leq r_{\beta}(X) + r_{\beta}(Y)
+	\]
+      \end{noliste}
+      De plus :
+	\[
+	  \Phi^{-1}(\beta) =0 \ \Leftrightarrow \ \beta=
+	  \Phi(0)=\dfrac{1}{2}
+	\]
+      \conc{Finalement :
+      $r_{\beta}(X+Y) \leq r_{\beta}(X) + r_{\beta}(Y)$ \
+      $\Leftrightarrow$ \ $\beta \geq \dfrac{1}{2}$.}~\\[-1.2cm]
+    \end{proof}
+  \end{noliste}
+  
+  \item Soit $X$ une variable aléatoire appartenant à ${\cal D}$, 
+  $c$ un réel et $\lambda$ un réel strictement positif.\\
+  On pose $Y=X+c$ et $Z=\lambda X$ et on admet que $Y$ et $Z$ 
+  appartiennent à ${\cal D}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $r_\beta(Y)=r_\beta(X)+c$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item Déterminons le lien entre $F_Y$ et $F_X$.\\
+	Soit $x\in \R$.
+	\[
+	  F_Y(x) \ = \ \Prob(\Ev{Y \leq x})
+	  \ = \ \Prob(\Ev{X+c \leq x})
+	  \ = \ \Prob(\Ev{X \leq x-c})
+	  \ = \ F_X(x-c)
+	\]
+	\item De plus, par définition de $r_\beta$ :
+	\begin{noliste}{$\stimes$}
+	  \item $\beta = F_X(r_\beta(X))$
+	  \item $\beta = F_Y(r_\beta(Y))=F_X(r_\beta(Y)-c)$, 
+	  d'après la relation précédente.
+	\end{noliste}
+	D'où :
+	\[
+	  F_X(r_\beta(X)) = F_X(r_\beta(Y)-c)
+	\]
+	Or, comme $X\in {\cal D}$, la fonction $F_X$ réalise 
+	une bijection de $I_X$ sur $]0,1[$. Donc :
+	\[
+	  r_\beta(X) = r_\beta(Y)-c
+	\]
+      \end{noliste}
+      \conc{$r_\beta(Y) = r_{\beta}(X)+c$}~\\[-1cm]
+    \end{proof}
+
+    
+    \item Montrer que $r_\beta(Z)=\lambda \, r_\beta(X)$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item Déterminons le lien entre $F_Z$ et $F_X$.\\
+	Soit $x\in \R$.
+	\[
+	  F_Z(x) \ = \ \Prob(\Ev{Z \leq x})
+	  \ = \ \Prob(\Ev{\lambda \,X \leq x})
+	  \ = \ \Prob\left(\Ev{X \leq \dfrac{x}{\lambda}}\right)
+	  \ = \ F_X\left(\dfrac{x}{\lambda}\right)
+	\]
+	\item De plus, par définition de $r_\beta$ :
+	\begin{noliste}{$\stimes$}
+	  \item $\beta = F_X(r_\beta(X))$
+	  \item $\beta = F_Z(r_\beta(Z))=F_X\left( 
+	  \dfrac{r_\beta(Z)}{\lambda} \right)$, 
+	  d'après la relation précédente.
+	\end{noliste}
+	
+	
+	\newpage
+	
+	
+	D'où :
+	\[
+	  F_X(r_\beta(X)) = F_X\left(\dfrac{r_\beta(Z)}{\lambda}
+	  \right)
+	\]
+	Or, comme $X\in {\cal D}$, la fonction $F_X$ réalise 
+	une bijection de $I_X$ sur $]0,1[$. Donc :
+	\[
+	  r_\beta(X) = \dfrac{r_\beta(Z)}{\lambda}
+	\]
+      \end{noliste}
+      \conc{$r_\beta(Z) = \lambda \, r_{\beta}(X)$}~\\[-1cm]
+    \end{proof}
+  \end{noliste}
+  
+  \item Soit $X$ et $Y$ deux variables aléatoires appartenant à
+  ${\cal D}$ et telles que pour tout $\omega \in \Omega$, 
+  $X(\omega) \leq Y(\omega)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Comparer, pour tout réel $x$, $F_X(x)$ et $F_Y(x)$.
+    
+    \begin{proof}~\\
+      Soit $x\in \R$. Soit $\omega \in \Omega$.\\
+      Supposons $\omega \in \Ev{Y \leq x}$, autrement dit :
+      $Y(\omega) \leq x$.\\[.1cm]
+      Comme $X(\omega) \leq Y(\omega)$, on obtient : $X(\omega) \leq 
+      x$, 
+      c'est-à-dire $\omega \in \Ev{X \leq x}$.\\
+      On en déduit :
+      \[
+        \Ev{Y \leq x} \subset \Ev{X \leq x}
+      \]
+      Donc, par croissance de $\Prob$ :
+      \[
+        \Prob(\Ev{Y \leq x}) \leq \Prob(\Ev{X \leq x})
+      \]
+      \conc{Ainsi : $\forall x \in \R$, $F_Y(x) \leq F_X(x)$.}
+      
+      \begin{remark}
+        En général, pour comparer des probabilités, on s'efforcera
+        de raisonner dans un premier temps sur les événements.
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+
+    
+    \item En déduire que $r_\beta(X) \leq r_\beta(Y)$. 
+    
+    \begin{proof}~\\
+      Par définition de $r_\beta$ :
+      \[
+        F_X(r_\beta(X)) \ = \ \beta \ = \
+        F_Y(r_\beta(Y))
+      \]
+      Or, d'après la question précédente : $F_Y(r_\beta(Y)) \ \leq 
+      \ F_X(r_\beta(Y))$. Donc :
+      \[
+        F_X(r_\beta(X)) \ \leq \ F_X(r_\beta(Y))
+      \]
+      Or, comme $X \in {\cal D}$, la fonction $F_X$ réalise une 
+      bijection strictement croissante de $I_X$ sur $]0,1[$.
+      \conc{Ainsi : $r_\beta(X) \leq r_\beta(Y)$.}~\\[-1cm]
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+
+
+\newpage
+
+
+\section*{Partie II - Estimation de la valeur de $r_\beta(X)$}
+\noindent
+Dans la pratique la loi de $X$ n'est pas totalement connue et on a 
+besoin d'avoir une idée assez précise de la \og Value at Risk \fg{} 
+ne connaissant qu'un certain nombre de valeurs de cette variable.\\
+On modélise cette situation en supposant, dans cette partie, que 
+la loi de $X$ dépend d'un paramètre $\theta$ inconnu appartenant à 
+un sous ensemble $\Theta$ de $\R$ ou $\R^2$, que 
+$r_\beta(X)=g(\theta)$ où $g$ est une fonction définie sur 
+$\Theta$ et que pour tout $\theta \in \Theta$, $X \in {\cal D}$.\\
+On utilise aussi les hypothèses et notations suivantes :
+\begin{noliste}{$\sbullet$}
+  \item $(X_k)_{k\geq 1}$ est une suite de variables 
+  aléatoires réelles appartenant à ${\cal D}$, mutuellement 
+  indépendantes, de même loi que $X$.
+  
+  \item pour tout $\omega \in \Omega$ et $n \in \N^*$, on 
+  ordonne $X_1(\omega), \ldots, X_n(\omega)$ dans l'ordre
+  croissant et on note alors $X_{1,n}(\omega), \ldots, 
+  X_{n,n}(\omega)$ les valeurs obtenues.\\
+  En particulier, $X_{1,n}(\omega)$ est la plus petite des valeurs   
+  $X_1(\omega), \ldots, X_n(\omega)$ et $X_{n,n}(\omega)$ la plus 
+  grande.
+  
+  \item on admet que pour tout $n \in \N^*$ et $k \in \llb 
+  1,n \rrb$, les $X_{k,n}$ sont des variables aléatoires.
+  
+  \item pour tout réel $x$ et tout entier naturel non nul 
+  $n$, on définit la variable aléatoire $N_{x,n}$ ainsi :\\
+  pour tout $\omega \in \Omega$, $N_{x,n}(\omega)$ est le nombre 
+  d'indices $k$ compris entre $1$ et $n$ tels que l'on ait 
+  $X_k(\omega) \leq x$.
+\end{noliste}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{5}
+  \item Montrer que pour tout $x \in \R$ et tout $n \in \N^*$, 
+  $N_{x,n}$ suit une loi binomiale dont on précisera les 
+  paramètres. En déduire l'espérance et la variance de $N_{x,n}$.
+  
+  \begin{proof}~
+  \begin{noliste}{$\sbullet$}
+    \item Soit $\omega \in \Omega$. Pour déterminer le nombre d'indices 
+    $k \in \llb 1,n \rrb$ tels que $X_k(\omega) \leq x$, on teste 
+    successivement pour chaque $k \in \llb 1, n \rrb$ si $X_k(\omega)$
+    est inférieur à $x$.\\
+    On considère alors le test à deux issues suivant :
+    \begin{noliste}{$\stimes$}
+      \item soit $X$ est inférieur à $x$,
+      \item soit $X$ est strictement supérieur à $x$.
+    \end{noliste}
+    Il définit donc une épreuve de Bernoulli.
+    
+    \item On considère alors l'expérience consistant en la succession 
+    de $n$ épreuves de Bernoulli identiques et indépendantes.
+    En effet :
+    \begin{noliste}{$\stimes$}
+      \item il y a autant d'épreuves que de \var $X_1$, $\hdots$, $X_n$,
+      \item ces épreuves sont identiques car $X_1$, $\hdots$, $X_n$ 
+      ont même loi,
+      \item elles sont indépendantes car $X_1$, $\hdots$, $X_n$ sont 
+      indépendantes.
+    \end{noliste}
+    Le succès de celles-ci est d'obtenir $X$ inférieure 
+    à $x$, ce qui se produit avec probabilité :
+    \[
+      \Prob(\Ev{X \leq x}) = F_X(x)
+    \]
+    \item La \var $N_{x,n}$ est la \var associée au nombre de 
+    succès de cette expérience.\\
+    Donc $N_{x,n}$ suit la loi binomiale de paramètres $n$ et $F_X(x)$
+    \conc{$N_{x,n} \suit \Bin{n}{F_X(x)}$}
+  \end{noliste}
+  \conc{On en déduit : $\E(N_{x,n}) = n\, F_X(x)$ et 
+  $\V(N_{x,n}) = n\, F_X(x) (1-F_X(x))$.}~\\[-1cm]
+  \end{proof}
+  
+  
+  
+  \newpage
+  
+
+
+  \item Montrer que pour tout $x \in \R$ et $\eps > 0$ :
+  \[
+    \dlim{n \to +\infty} \Prob\left(\Ev{ \left\vert 
+    \dfrac{N_{x,n}}{n} - F_X(x)\right\vert \geq \eps} 
+    \right)=0
+  \]
+  
+  \begin{proof}~\\
+    Soit $x\in \R$. Soit $\eps >0$.
+    \begin{noliste}{$\sbullet$}
+    \item La \var $\dfrac{N_{x,n}}{n}$ admet une variance car $N_{x,n}$
+    en admet une.\\
+    On peut donc appliquer l'inégalité de Bienaymé-Tchebychev. On
+    obtient :
+    \[
+      \Prob\left(\Ev{ \left\vert \dfrac{N_{x,n}}{n} - 
+      \E\left( \dfrac{N_{x,n}}{n} \right) \right\vert \geq \eps}
+      \right) \leq \dfrac{\V\left(\frac{N_{x,n}}{n}\right)}
+      {\eps^2} \qquad (*)
+    \]
+    
+    \item De plus, par linéarité de l'espérance :
+    \[
+      \E\left(\dfrac{N_{x,n}}{n} \right) \ = \ \dfrac{\E(N_{x,n})}{n} \ 
+      = \ \dfrac{\bcancel{n} \, F_X(x)}{\bcancel{n}} \ = \
+      F_X(x)
+    \]
+    
+    Par propriété de la variance :
+    \[
+      \V\left(\dfrac{N_{x,n}}{n} \right) \ = \ \dfrac{\V(N_{x,n})}{n^2} 
+      \ = \ \dfrac{\bcancel{n} \, 
+      F_X(x)(1-F_X(x))}{n^{\bcancel{2}}} \ = \
+      \dfrac{F_X(x)(1-F_X(x))}{n}
+    \]
+    
+    \item L'inégalité $(*)$ devient donc :
+    \[
+      \Prob\left(\Ev{ \left\vert \dfrac{N_{x,n}}{n} - 
+      F_X(x) \right\vert \geq \eps}
+      \right) \leq \dfrac{F_X(x)(1-F_X(x))}
+      {n \, \eps^2}
+    \]
+    
+    \item Par propriété d'une probabilité :
+    \[
+      0 \ \leq \ \Prob\left(\Ev{ \left\vert \dfrac{N_{x,n}}{n} - 
+      F_X(x) \right\vert \geq \eps}
+      \right) \ \leq \ \dfrac{F_X(x)(1-F_X(x))}
+      {n \, \eps^2}
+    \]
+    
+    \item Or : $\dlim{n\to +\infty} \dfrac{F_X(x)(1-F_X(x))}{n
+    \, \eps^2} = 0$.
+    \conc{Donc, par théorème d'encadrement :\\[.1cm]
+    $\dlim{n\to +\infty} \Prob\left(\Ev{ \left\vert 
+    \dfrac{N_{x,n}}{n} - F_X(x) \right\vert \geq \eps}
+      \right) \ = \ 0$.}~\\[-1.2cm]
+  \end{noliste}
+  \end{proof}
+
+  
+  \item Soit $x \in \R$ et $n \in \N^*$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que pour tout $k \in\llb 1,n \rrb$, il y a 
+    égalité entre les événements $\Ev{X_{k,n} \leq x}$ et 
+    $\Ev{N_{x,n} \geq k}$.
+    
+    \begin{proof}~\\
+    Soit $k \in \llb 1,n \rrb$.
+      \begin{noliste}{$\sbullet$}
+	\item Les \var $X_{1,n}$, $\ldots$, $X_{n,n}$ 
+	sont ordonnées dans l'ordre croissant, c'est-à-dire :
+	\[
+	  \forall \omega \in \Omega, \quad
+	  X_{1,n}(\omega) \leq X_{2,n}(\omega) \leq \cdots \leq 
+	  X_{k,n}(\omega) \leq 
+	  X_{k+1,n}(\omega) \leq \cdots \leq X_{n,n}(\omega)
+	\]
+	
+	\item Or, par définition de $N_{x,n}$, l'événement 
+	$\Ev{N_{x,n} \geq k}$ est réalisé si et seulement s'il 
+	existe au moins $k$ \var parmi $X_1$, $\ldots$, $X_n$ telles 
+	que les événements $\Ev{X_i \leq x}$ soient réalisés.\\
+	Donc, comme : $\forall \omega \in \Omega, \ X_{1,n}(\omega) 
+	\leq \cdots \leq X_{k,n}(\omega) \leq 
+	X_{k+1,n}(\omega) \leq \cdots \leq X_{n,n}(\omega)$ :
+	\[
+	  \Ev{N_{x,n}\geq k} \ = \ \Ev{X_{1,n} \leq x} \cap
+	  \cdots \cap \Ev{X_{k,n}\leq x}
+	\]
+	
+	\item Or : pour tout $i\in \llb 1,k\rrb$, 
+	$\Ev{X_{k,n} \leq x} \subset \Ev{X_{i,n} \leq x}$ 
+	(car : $\forall \omega \in \Omega, \ X_{i,n}(\omega) \leq 
+	X_{k,n}(\omega)$).
+	\conc{Donc, finalement : $\forall k \in \llb 1,n \rrb$,
+	$\Ev{N_{x,n}\geq k} = \Ev{X_{k,n}\leq x}$.}~\\[-1.6cm]
+      \end{noliste}
+    \end{proof}
+    
+    
+    
+    \newpage
+    
+
+    
+    \item En déduire que pour tout $k \in \llb 1,n \rrb$ :
+    \[
+      \Prob(\Ev{X_{k,n} \leq x}) = \Sum{r=k}{n} \dbinom{n}{r} 
+      \left(F_X(x) \right)^r\left(1-F_X(x)\right)^{n-r}
+    \]
+    et que $X_{k,n}$ est une variable aléatoire à densité.
+    
+    \begin{proof}~\\
+    Soit $k \in \llb 1,n \rrb$.
+    \begin{noliste}{$\sbullet$}
+      \item D'après la question précédente et comme $N_{x,n}(\Omega)
+      =\llb 0,n \rrb$ :
+      \[
+        \Prob(\Ev{X_{k,n} \leq x}) \ = \ \Prob(\Ev{N_{x,n}\geq k})
+        \ = \ \Prob\left( \dcup{r=k}{n} \Ev{N_{x,n}=r}\right)
+      \]
+      Or les événements $\Ev{N_{x,n}=k}$, $\ldots$, 
+      $\Ev{N_{x,n}=n}$ sont incompatibles. Donc :
+      \[
+        \Prob\left(\dcup{r=k}{n} \Ev{N_{x,n}=r}\right) 
+        \ = \ \Sum{r=k}{n} \Prob(\Ev{N_{x,n}=r})
+      \]
+      Or, d'après la question \itbf{6.} : $N_{x,n} \suit 
+      \Bin{n}{F_X(x)}$. Donc : $\forall r \in \llb k,n \rrb$,
+      \[
+        \Prob(\Ev{N_{x,n}=r}) = \dbinom{n}{r} (F_X(x))^r
+        (1-F_X(x))^{n-r}
+      \]
+      \conc{D'où :
+      $
+        \Prob(\Ev{X_{k,n}\leq x}) = \Sum{r=k}{n} 
+        \dbinom{n}{r} (F_X(x))^r (1-F_X(x))^{n-r}
+      $}
+      
+      \item Comme $X \in {\cal D}$, la \var $X$ est une \var à 
+      densité.\\
+      En particulier, sa fonction de répartition $F_X$ est :
+      \begin{noliste}{$\stimes$}
+	\item continue sur $\R$,
+	\item de classe $\Cont{1}$ sur $\R$ sauf éventuellement 
+	en un nombre fini de points.
+      \end{noliste}
+      Or, d'après ce qui précède :
+      \[
+        F_{X_{k,n}}(x) = \Prob(\Ev{X_{k,n} \leq x})
+        = \Sum{r=k}{n} \dbinom{n}{r} (F_X(x))^r 
+        (1-F_X(x))^{n-r}
+      \]
+      Donc la fonction de répartition $F_{X_{k,n}}$ est :
+      \begin{noliste}{$\stimes$}
+	\item continue sur $\R$ en tant que somme et 
+	produit de fonctions continues sur $\R$,
+	\item de classe $\Cont{1}$ sur $\R$ sauf éventuellement
+	en un nombre fini de points, pour la même raison.
+      \end{noliste}
+      \conc{La \var $X_{k,n}$ est une \var à densité.}
+    \end{noliste}
+    
+    \begin{remark}
+      Il n'est pas nécessaire, dans cette question, de détailler 
+      la continuité et le caractère $\Cont{1}$ sur $\R$ de la fonction
+      $F_{X_{k,n}}$ : ce qui est testé ici, c'est la connaissance de la 
+      définition d'une \var à densité.
+    \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+
+  
+  
+  \newpage
+  
+  
+  
+  \item Soit $(U_n)_{n \in \N^*}$ une suite de variables 
+  aléatoires et $c$ un réel. On suppose que pour tout $\eps >0$ :
+  \[
+    \dlim{n \to +\infty} \Prob\left(\Ev{ \left\vert U_n-c 
+    \right\vert \geq \eps} \right)=0
+  \]
+  On considère $(u_n)_{n \geq 1}$ une suite convergente de réels 
+  et on pose $\ell = \dlim{n \to +\infty} u_n$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Établir que : $\dlim{n \to +\infty} 
+    \Prob(\Ev{U_n \geq t})=\left\{
+    \begin{array}{cR{1.5cm}}
+      0 & si $t>c$
+      \nl
+      1 & si $t<c$ 
+    \end{array} 
+    \right.$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item Étudions tout d'abord l'hypothèse de l'énoncé.\\
+	Soit $\eps >0$. Soit $n\in \N^*$.
+	\[
+	  \Prob(\Ev{\vert U_n -c \vert \geq \eps}) \ = \
+	  1 - \Prob(\Ev{ \vert U_n-c \vert < \eps})
+	\]
+      
+% 	\item Soit $\eps >0$. Soit $n\in \N^*$.
+% 	\[
+% 	  \begin{array}{rcl}
+% 	    \Prob(\Ev{\vert U_n -c \vert \geq \eps})
+% 	    &=& 1 - \Prob(\Ev{ \vert U_n-c \vert < \eps})
+% 	    \\[.2cm]
+% 	    &=& 1 - \Prob(\Ev{-\eps < U_n -c < \eps})
+% 	    \\[.2cm]
+% 	    &=& 1 - \Prob(\Ev{c-\eps <U_n < c+\eps})
+% 	    \\[.2cm]
+% 	    &=& \Prob(\Ev{c-\eps \geq U_n} \cup 
+% 	    \Ev{U_n \geq c+\eps})
+% 	  \end{array}
+% 	\]
+	L'hypothèse de l'énoncé apporte donc deux informations.
+	\begin{noliste}{$\stimes$}
+	  \item Tout d'abord : $\dlim{n\to +\infty} 
+	  \Prob(\Ev{\vert U_n-c \vert \geq \eps}) = 0$ (évidemment)
+	  \item Ensuite : $\dlim{n\to +\infty} \Prob(\Ev{\vert U_n-c 
+	  \vert <\eps}) =1$
+	\end{noliste}
+	
+	\item Soit $t>c$. Alors il existe $\eps_0>0$ tel que :
+	$t=c+\eps_0$. Donc : 
+	\[
+	  \Ev{U_n \geq t} \ = \ \Ev{U_n \geq c+\eps_0} \ = \
+	  \Ev{U_n - c \geq \eps_0}
+	\]
+	Montrons : $\Ev{U_n - c \geq \eps_0} \ \subset \ 
+	\Ev{\vert U_n -c \vert \geq \eps_0}$.\\
+	Soit $\omega \in \Omega$.\\
+	Supposons $\omega \in \Ev{U_n - c \geq \eps_0}$, autrement dit
+	$U_n(\omega) -c \geq \eps_0$.\\[.1cm]
+	Donc, par croissance de la fonction $x \mapsto \vert x \vert$
+	sur $[0,+\infty[$ (on a bien $\eps_0>0$) :
+	$\vert U_n(\omega) - c \vert \geq \eps_0$, c'est-à-dire 
+	$\omega \in \Ev{\vert U_n - c \vert \geq \eps_0}$.\\
+	D'où : $\Ev{U_n - c \geq \eps_0} \ \subset \ 
+	\Ev{\vert U_n -c \vert \geq \eps_0}$.
+	\conc{Ainsi : $\Ev{U_n \geq t} \ \subset \ \Ev{\vert U_n - 
+	c\vert \geq \eps_0}$.}
+	
+	On en déduit, par propriétés d'une probabilité :
+	\[
+	  0 \ \leq \ \Prob(\Ev{U_n \geq t}) \ \leq \ 
+	  \Prob(\Ev{\vert U_n -c \vert \geq \eps_0})
+	\]
+	Or, d'après l'énoncé :
+	\[
+	  \dlim{n\to +\infty} \Prob(\Ev{\vert U_n -c \vert \geq 
+	  \eps_0}) \ = \ 0
+	\]
+	\conc{Donc, par théorème d'encadrement : 
+	$\forall t>c$, $\dlim{n\to +\infty}
+	\Prob(\Ev{U_n \geq t}) =0$.}
+	
+	\item Soit $t<c$. Alors il existe $\eps_1>0$ tel que :
+	$t=c-\eps_1$. Donc :
+	\[
+	  \Ev{U_n \geq t} = \Ev{U_n \geq c-\eps_1}
+	\]
+	Montrons : $\Ev{\vert U_n -c \vert < \eps_1} \ \subset \ 
+	\Ev{U_n \geq c-\eps_1}$.\\
+	Soit $\omega \in \Omega$.\\
+	Supposons $\omega \in \Ev{\vert U_n -c\vert < \eps_1}$, 
+	autrement dit $\vert U_n(\omega) -c \vert < \eps_1$. Or :
+	\[
+	   \vert U_n(\omega) -c \vert < \eps_1
+	  \ \Leftrightarrow \ -\eps_1 < U_n(\omega) -c < \eps_1
+	  \ \Leftrightarrow \ c-\eps_1 < U_n < c+\eps_1
+	\]
+	En particulier : $U_n(\omega) \geq c-\eps_1$, c'est-à-dire 
+	$\omega \in \Ev{U_n \geq c-\eps_1}$.\\
+	D'où : $\Ev{\vert U_n - c \vert < \eps_1} \ \subset \
+	\Ev{U_n \geq c-\eps_1}$
+	\conc{Ainsi : $\Ev{\vert U_n -c \vert < \eps_1} \ 
+	\subset \ \Ev{U_n \geq t}$.}
+	
+	
+	
+	\newpage
+	
+	
+	
+	D'où, par propriétés d'une probabilité :
+	\[
+	  \Prob(\Ev{\vert U_n -c\vert < \eps_1}) \ \leq \
+	  \Prob(\Ev{U_n \geq t}) \ \leq \ 1
+	\]
+	Or, d'après l'énoncé :
+	\[
+	  \dlim{n\to +\infty} \Prob(\Ev{\vert U_n - c \vert < \eps_1}) 
+	  = 1
+	\]
+	\conc{Donc, par théorème d'encadrement :
+	$\forall t<c$, $\dlim{n\to +\infty}
+	\Prob(\Ev{U_n \geq t}) =1$.}
+      \end{noliste}
+      \conc{Finalement : $\dlim{n\to +\infty} \Prob(\Ev{U_n \geq 
+      t}) = \left\{
+      \begin{array}{cR{1.5cm}}
+        0 & si $t>c$
+        \nl
+        1 & si $t<c$
+      \end{array}
+      \right.$.}~\\[-1cm]
+    \end{proof}
+
+    
+    \item On suppose $\ell >c$ et on pose $\eps = 
+    \dfrac{\ell-c}{2}$.\\
+    En remarquant que $\ell-\eps=c+\eps$, montrer qu'à 
+    partir d'un certain rang, $u_n \geq c+\eps$.\\
+    En déduire que $\dlim{n \to +\infty}\Prob(\Ev{U_n \geq 
+    u_n})=0$. 
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item D'après l'énoncé $\dlim{n\to+\infty}
+	u_n = \ell$.\\
+	Donc il existe $N\in \N$ tel que, pour tout $n\geq N$ :
+	$\vert u_n - \ell \vert \leq \eps$.\\
+	Or, pour tout $n \geq N$ :
+	\[
+	  \vert u_n - \ell \vert \leq \eps \ \Leftrightarrow \
+	  -\eps \leq u_n - \ell \leq \eps \ \Leftrightarrow \
+	  \ell - \eps \leq u_n \leq \ell + \eps
+	\]
+	En particulier, pour tout $n \geq N$ :
+	\[
+	  u_n \geq \ell - \eps = c+\eps
+	\]
+	\conc{D'où, à partir du rang $N$ : $u_n \geq c +\eps$.}
+	
+	\item Soit $n\geq N$. Alors : $u_n \geq c +\eps$.\\
+	Donc :
+	\[
+	  \Ev{U_n \geq u_n} \ \subset \ \Ev{U_n \geq c+\eps}
+	\]
+	D'où, d'après les propriétés d'une probabilité :
+	\[
+	  0 \ \leq \ \Prob(\Ev{U_n \geq u_n}) \ \leq \ 
+	  \Prob(\Ev{U_n \geq c+\eps})
+	\]
+	Or, d'après la question \itbf{9.a)} : 
+	$\dlim{n\to +\infty} \Prob(\Ev{U_n \geq c+\eps}) =0$.
+	\conc{Donc, par théorème d'encadrement :
+	$\dlim{n\to +\infty} \Prob(\Ev{U_n \geq u_n})=0$.}
+      \end{noliste}
+      
+      \begin{remark}
+      \begin{noliste}{$\sbullet$}
+        \item On utilise ici la définition de la 
+        convergence d'une suite $(u_n)$ vers $\ell$ :
+        \[
+          \text{($(u_n)$ converge vers $\ell \in \R$)} \ 
+          \Leftrightarrow \ (\forall \eps >0, \ \exists N \in 
+          \N, \ (n \geq N) \Rightarrow (\vert u_n - \ell \vert
+          \leq \eps))
+        \]
+        
+        \item Démontrons : $\ell - \eps = c+\eps$.\\
+        D'une part :
+        \[
+          \ell - \eps \ = \ \ell - \dfrac{\ell - c}{2} \ = \
+          \dfrac{2\ell -(\ell -c)}{2} \ = \ 
+          \dfrac{\ell + c}{2}
+        \]
+        D'autre part :
+        \[
+          c+ \eps \ = \ c + \dfrac{\ell - c}{2} \ = \
+          \dfrac{2c +(\ell -c)}{2} \ = \ 
+          \dfrac{\ell + c}{2}
+        \]
+        On a donc bien : $\ell - \eps = c+\eps$.
+      \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+    
+    
+    \newpage
+
+    
+    \item Montrer de même que si $\ell <c$, $\dlim{n 
+    \to +\infty} \Prob(\Ev{U_n \geq u_n})=1$. 
+    
+    \begin{proof}~\\[.1cm]
+    On pose $\eps'=\dfrac{c-\ell}{2}$.
+      \begin{noliste}{$\sbullet$}
+	\item D'après l'énoncé $\dlim{n\to+\infty}
+	u_n = \ell$.\\
+	Donc il existe $N'\in \N$ tel que, pour tout $n \geq N'$ :
+	\[
+	  u_n \leq \ell + \eps'
+	\]
+	\conc{D'où, puisque $\ell + \eps' = c- \eps'$, à partir du rang 
+	$N'$ : $u_n \leq c -\eps'$.}
+	
+	\item Soit $n\geq N'$. Alors : $u_n \leq c -\eps'$.
+	Donc :
+	\[
+	  \Ev{U_n \geq c-\eps'} \subset \Ev{U_n \geq u_n}
+	\]
+	D'où, d'après les propriétés d'une probabilité :
+	\[
+	  \Prob(\Ev{U_n \geq c-\eps'}) \ \leq \ 
+	  \Prob(\Ev{U_n \geq u_n}) \ \leq \ 1
+	\]
+	Or, d'après la question \itbf{9.a)} : 
+	$\dlim{n\to +\infty} \Prob(\Ev{U_n \geq c-\eps'}) =1$.
+	\conc{Donc, par théorème d'encadrement, si $\ell<c$ :
+	$\dlim{n\to +\infty} \Prob(\Ev{U_n \geq u_n})=1$.}
+      \end{noliste}
+      
+      \begin{remark}
+        Détaillons l'égalité $\ell + \eps' = c-\eps'$.\\
+        D'une part :
+        \[
+          \ell + \eps' \ = \ \ell + \dfrac{c-\ell}{2} \ = \
+          \dfrac{2\ell +(c-\ell)}{2} \ = \ 
+          \dfrac{\ell + c}{2}
+        \]
+        D'autre part :
+        \[
+          c- \eps' \ = \ c - \dfrac{c-\ell}{2} \ = \
+          \dfrac{2c -(c-\ell)}{2} \ = \ 
+          \dfrac{\ell + c}{2}
+        \]
+        On a donc bien : $\ell + \eps' = c-\eps'$.
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+
+  \item On définit pour tout $n \in \N^*$ tel que $n \beta \geq 1$, 
+  la variable aléatoire $Y_n$ sur $(\Omega,\A,\Prob)$ par 
+  $Y_n=X_{\lfloor n\beta \rfloor, n}$ où $\lfloor n\beta \rfloor$ 
+  désigne la partie entière de $n\beta$ et on pose 
+  $\theta'=r_{\beta}(X)$.\\
+  Soit $\eps >0$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que : $\Prob(\Ev{|Y_n-\theta'| \leq
+    \eps})=\Prob(\Ev{Y_n \leq \theta'+\eps}) - \Prob(\Ev{Y_n \leq
+    \theta'-\eps})$. 
+    
+    \begin{proof}~\\
+      On a les égalités suivantes :
+      \[
+        \begin{array}{rcl@{\quad}>{\it}R{6cm}}
+          & & \Prob(\Ev{\vert Y_n - \theta' \vert \leq \eps})
+          \\[.2cm]
+          &=& \Prob(\Ev{-\eps \leq Y_n -\theta' \leq \eps})
+          \\[.2cm]
+          &=& \Prob(\Ev{\theta' -\eps \leq Y_n \leq \theta' 
+          +\eps})
+          \\[.2cm]
+          &=& \Prob(\Ev{Y_n \leq \theta' +\eps} \setminus 
+          \Ev{Y_n < \theta'-\eps})
+          \\[.2cm]
+          &=& \Prob(\Ev{Y_n \leq \theta' +\eps}) - 
+          \Prob(\Ev{Y_n \leq \theta'+\eps} \cap 
+          \Ev{Y_n < \theta' -\eps})
+          \\[.2cm]
+          &=& \Prob(\Ev{Y_n \leq \theta' +\eps}) -
+          \Prob(\Ev{Y_n < \theta'-\eps}) 
+          & (car $\Ev{Y_n < \theta'-\eps} \subset 
+          \Ev{Y_n \leq \theta' +\eps}$)
+          \nl
+          \nl[-.2cm]
+          &=& \Prob(\Ev{Y_n \leq \theta' +\eps}) - 
+          \Prob(\Ev{Y_n \leq \theta' -\eps})
+          & (car, d'après \itbf{8.b)}, 
+          $X_{\lfloor n\, \beta \rfloor, n}$ est une \var 
+          à densité)
+        \end{array}
+      \]
+      \conc{$\Prob(\Ev{ \vert Y_n - \theta' \vert \leq \eps})
+      = \Prob(\Ev{ Y_n \leq \theta'+\eps}) - 
+      \Prob(\Ev{Y_n \leq \theta'-\eps})$}~\\[-1cm]
+    \end{proof}
+    
+    
+    
+    \newpage
+
+    
+    \item En déduire que :
+    \[
+     \Prob( \Ev{ |Y_n- \theta' | \leq\eps} )=\Prob\left( \Ev{ 
+     \dfrac{N_{\theta'+\eps,n}}{n} \geq \dfrac{\lfloor n\beta 
+     \rfloor}{n}} \right)-\Prob\left( \Ev{ 
+     \dfrac{N_{\theta'-\eps,n}}{n} \geq \dfrac{\lfloor n\beta 
+     \rfloor}{n}} \right)
+    \]
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item Par définition de la \var $Y_n$ :
+	\[
+	  \begin{array}{rcl@{\quad}>{\it}R{4.5cm}}
+	    \Prob(\Ev{Y_n \leq \theta'+\eps}) &=& 
+	    \Prob(\Ev{X_{\lfloor n\, \beta \rfloor,n} \leq 
+	    \theta'+\eps})
+	    \\[.4cm]
+	    &=& \Prob(\Ev{N_{\theta'+\eps,n} \geq 
+	    \lfloor n\, \beta \rfloor})
+	    & (d'après la question \itbf{8.a)})
+	    \nl
+	    \nl[.2cm]
+	    &=& \Prob\left(\Ev{ \dfrac{N_{\theta' +\eps,n}}{n}
+	    \geq \dfrac{\lfloor n \, \beta \rfloor}{n}}
+	    \right)
+	    & (car $n>0$)
+	  \end{array}
+	\]
+	
+	\item De même :
+	\[
+	  \Prob(\Ev{Y_n \leq \theta' -\eps}) \ = \
+	  \Prob\left( \Ev{ \dfrac{N_{\theta' -\eps,n}}{n} \geq 
+	  \dfrac{\lfloor n\, \beta \rfloor}{n}}\right)
+	\]
+	
+	\item Or, d'après la question précédente :
+	\[
+	  \Prob(\Ev{ \vert Y_n - \theta' \vert \leq \eps})
+	  \ = \ \Prob(\Ev{Y_n \leq \theta' +\eps}) -
+	  \Prob(\Ev{Y_n \leq \theta' - \eps})
+	\]
+	\conc{Donc : $\Prob(\Ev{\vert Y_n - \theta' \vert \leq 
+	\eps }) \ = \ \Prob\left( \Ev{ \dfrac{N_{\theta'
+	+\eps,n}}{n} \geq \dfrac{\lfloor n\, \beta \rfloor}{n}}
+	\right) - \Prob\left( \Ev{\dfrac{N_{\theta'-\eps,n}}{n}
+	\geq \dfrac{\lfloor n\, \beta \rfloor}{n}}\right)$.
+	}~\\[-1.2cm]
+      \end{noliste}
+    \end{proof}
+    
+    \item En déduire : $\dlim{n \to +\infty} 
+    \Prob(\Ev{|Y_n - \theta'| \leq \eps})=1$.\\
+    Que peut-on en déduire concernant l'estimateur $Y_n$ de 
+    $r_\beta(X)$ ?
+    
+    \begin{proof}~\\
+    Soit $n\in \N^*$.
+      \begin{noliste}{$\sbullet$}
+	\item D'après le résultat obtenu à la question 
+	précédente, on souhaite appliquer les résultats des questions 
+	\itbf{9.b)} et \itbf{9.c)} à :
+	\begin{noliste}{\scriptsize 1)}
+	  \item $U_n = \dfrac{N_{\theta'+\eps,n}}{n}$ et $u_n = 
+	  \dfrac{\lfloor n \, \beta \rfloor}{n}$
+	  \item $U_n = \dfrac{N_{\theta'-\eps,n}}{n}$ et $u_n = 
+	  \dfrac{\lfloor n \, \beta \rfloor}{n}$
+	\end{noliste}
+	Commençons par le premier cas.\\
+	On démontre que toutes les hypothèses 
+	d'application des questions \itbf{9.b)} ou \itbf{9.c)} sont 
+	vérifiées.
+	\begin{noliste}{$\stimes$}
+	  \item D'après la question \itbf{7.} :
+	  \[
+	    \dlim{n\to +\infty} \Prob\left( \Ev{ \left\vert
+	    \dfrac{N_{\theta' + \eps,n}}{n} - F_X(\theta' +\eps) 
+	    \right\vert \geq \eps}\right) = 0
+	  \]
+	  \conc{En choisissant $c=F_X(\theta'+\eps)$ et $U_n =
+	  \dfrac{N_{\theta' +\eps,n}}{n}$, on a bien :\\[.2cm]
+	  $\dlim{n\to +\infty} \Prob(\Ev{\vert U_n - c \vert \geq 
+	  \eps}) =0$.}
+	  
+	  
+	  
+	  \newpage
+	  
+	  
+	  
+	  \item Pour tout $n\in \N^*$, on pose : $u_n = 
+	  \dfrac{\lfloor n\, \beta \rfloor}{n}$.\\
+	  Montrons maintenant que $(u_n)$ converge 
+	  et déterminons sa limite.\\
+	  Soit $n\in\N^*$. Par définition de la partie entière :
+	  \[
+	    \lfloor n\, \beta \rfloor \ \leq \ n\, \beta \
+	    < \ \lfloor n\, \beta \rfloor +1
+	  \]
+	  Donc :
+	  \[
+	    n\, \beta -1 \ < \ \lfloor n\, \beta \rfloor \leq n\, \beta
+	  \]
+	  Comme $n>0$, on obtient :
+	  \[
+	    \beta - \dfrac{1}{n} \ < \ \dfrac{\lfloor n\, \beta 
+	    \rfloor}{n} \ \leq \ \beta
+	  \]
+	  Or : $\dlim{n\to +\infty} \left(\beta + \dfrac{1}{n} \right)
+	  = \beta$.
+	  \conc{Donc, par théorème d'encadrement : $\dlim{n\to 
+	  +\infty} u_n=\beta$.\\[.1cm]
+	  On choisit alors : $\ell = \beta$.}
+	  
+	  \item Pour savoir si l'on applique la question \itbf{9.b)}
+	  ou la question \itbf{9.c)}, il faut maintenant comparer les 
+	  réels $c$ et $\ell$.\\
+	  Par définition de $r_\beta(X)$ :
+	  \[
+	    \ell < c \ \Leftrightarrow \ \beta < F_X(\theta' +\eps)
+	    \ \Leftrightarrow \ F_X(r_\beta(X)) < F_X(\theta' +\eps)
+	  \]
+	  Or, comme $X\in {\cal D}$, la fonction $F_X$ est une 
+	  bijection strictement croissante de $I_X$ sur $]0,1[$. Donc :
+	  \[
+	    \ell < c \ \Leftrightarrow r_\beta(X) < \theta'+\eps
+	  \]
+	  Or $\theta'=r_\beta(X)$ et $\eps >0$, donc la dernière 
+	  assertion est vraie.
+	  \conc{Par équivalence, on obtient donc : $\ell < c$.}
+	  
+	  \item On est donc ici dans le cadre d'application de la 
+	question \itbf{9.c)}. Donc :
+	\[
+	  \dlim{n\to +\infty} \Prob(\Ev{U_n \geq u_n})=1
+	\]
+	\conc{On en déduit : $\dlim{n\to+\infty} \Prob\left( \Ev{ 
+	\dfrac{N_{\theta' + \eps,n}}{n} \geq \dfrac{\lfloor n\, \beta 
+	\rfloor}{n}}\right) = 1$.}
+	
+	\item On démontrerait de même, avec la question \itbf{9.b)}, en 
+	choisissant :
+	\[
+	  U_n = \dfrac{N_{\theta'-\eps,n}}{n}, \quad u_n = 
+	  \dfrac{\lfloor n \, \beta \rfloor}{n}, \quad c = F_X(\theta'
+	  -\eps) \quad \text{et} \quad \ell = \beta
+	\]
+	la convergence suivante :
+	\[
+	  \dlim{n\to +\infty} \Prob(\Ev{U_n \geq u_n})=0
+	\]
+	\conc{On en déduit : $\dlim{n\to +\infty} \Prob\left( \Ev{ 
+	\dfrac{N_{\theta' - \eps,n}}{n} \geq \dfrac{\lfloor n\, \beta 
+	\rfloor}{n}}\right) = 0$.}
+	\end{noliste}
+	\conc{D'après la question précédente, on obtient donc :\\
+	$ \dlim{n\to +\infty} \Prob(\Ev{ \vert Y_n - \theta'\vert 
+	\leq \eps}) = 1-0=1$.}
+	
+	
+	
+	\newpage
+	
+	
+	
+	\item On sait :
+	\[
+	  \Prob(\Ev{\vert Y_n - \theta' \vert >\eps}) = 
+	  1-\Prob(\Ev{\vert Y_n - \theta'\vert \leq \eps})
+	\]
+	Donc, d'après ce qui précède :
+	\[
+	  \dlim{n\to +\infty} \Prob(\Ev{\vert Y_n - \theta' 
+	  \vert >\eps}) = 0
+	\]
+	D'où $(Y_n)$ converge en probabilité vers $\theta'$.
+	\conc{On en déduit que $Y_n$ est un estimateur 
+	convergent de $\theta'= r_\beta(X)$.}
+      \end{noliste}
+      
+      \begin{remark}
+        Il peut être intéressant de garder en tête le résultat 
+        suivant : $\lfloor x \rfloor \eqx{+\infty} x$.\\
+        Ce résultat est à savoir redémontrer. Détaillons 
+        cette démonstration.\\
+        Soit $x\in \ ]0,+\infty[$.\\
+        Par définition de la partie entière : $\lfloor x 
+        \rfloor \leq x < \lfloor x \rfloor +1$. Donc :
+        \[
+          x-1< \lfloor x \rfloor \leq x
+        \]
+        D'où, comme $x >0$ :
+        \[
+          1-\dfrac{1}{x} < \dfrac{\lfloor x \rfloor}{x} 
+          \leq 1
+        \]
+        Or : $\dlim{x\to +\infty} \left(1-\dfrac{1}{x}\right) 
+        =1$.\\
+        Ainsi, par théorème d'encadrement : $\dlim{x \to +\infty}
+        \dfrac{\lfloor x \rfloor}{x}=1$. C'est-à-dire : 
+        $\lfloor x \rfloor \eqx{+\infty} x$.
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+  
+  \item On suppose que l'on a défini un fonction d'en-tête {\tt 
+  function R = triCroissant(T)} qui renvoie le tableau des valeurs 
+  se trouvant dans {\tt T} rangées dans l'ordre croissant.\\ 
+  Par exemple, si {\tt T=[0 -1 0 2 4 2 3]} alors {\tt 
+  disp(triCroissant(T))} affiche :
+  \[
+  \begin{console}
+    \lDisp{\qquad ans \ =} \nl %
+    \lDisp{\qquad \qquad -1. \quad 0. \quad 0. \quad 2. \quad 2. \quad 
+    3. \quad 4.} \nle %
+  \end{console}
+  \]
+  Écrire une fonction \Scilab{} d'en-tête {\tt function r = 
+  VaR(X,beta)} qui renvoie la valeur de l'estimation obtenue avec 
+  l'estimateur $Y_n$ pour $r_\beta(X)$ si le tableau {\tt X} 
+  contient la réalisation de l'échantillon $(X_1, \ldots, X_n)$ et 
+  {\tt beta} la valeur de $\beta$. 
+  
+  \begin{proof}~
+    \begin{scilab}
+      & \tcFun{function} \tcVar{r} = VaR(\tcVar{X},\tcVar{beta}) \nl %
+      & \quad n = length(\tcVar{X}) \nl %
+      & \quad Z = triCroissant(\tcVar{X}) \nl %
+      & \quad \tcVar{r} = Z(floor(n \Sfois{} \tcVar{beta})) \nl %
+      & \tcFun{endfunction}
+    \end{scilab}
+    
+    
+    
+    \newpage
+    
+    
+    
+    Détaillons l'obtention de cette fonction.\\
+    D'après la question précédente, on sait que $Y_n
+    =X_{\lfloor n\, \beta \rfloor,n}$ est 
+    un estimateur convergent de $r_\beta(X)$.\\
+    Pour déterminer $Y_n$ à partir de $X_1$, $\ldots$, $X_n$, 
+    on souhaite donc :
+    \begin{noliste}{\scriptsize 1)}
+      \item définir $n$. Il s'agit de la taille de 
+      l'échantillon $X_1$, $\ldots$, $X_n$.\\
+      Donc on stocke cette valeur dans la variable {\tt n} avec
+      la commande suivante :
+      \begin{scilabC}{1}
+        & \quad n = length(\tcVar{X})
+      \end{scilabC}
+      
+      \item obtenir une réalisation de $X_{1,n}$, $\ldots$, $X_{n,n}$, 
+      c'est-à-dire
+      ordonner une réalisation de $X_1$, $\ldots$, $X_n$ dans l'ordre 
+      croissant.\\
+      On stocke ce nouveau vecteur dans la variable {\tt Z}
+      avec la commande suivante :
+      \begin{scilabC}{2}
+        & \quad Z = triCroissant(\tcVar{x})
+      \end{scilabC}
+      
+      \item sélectionner dans ce vecteur la réalisation de $X_{\lfloor 
+      n\, \beta \rfloor,n}$, ce qui correspond à la $\eme{\lfloor n \,
+      \beta \rfloor}$ coordonnée du vecteur {\tt Z}.\\
+      On stocke ce résultat dans la variable de sortie {\tt r},
+      ce qui donne :
+      \begin{scilabC}{3}
+        & \quad \tcVar{r} = Z(floor(n \Sfois{} \tcVar{beta}))
+      \end{scilabC}
+      où la commande {\tt floor} correspond à la fonction 
+      partie entière.
+    \end{noliste}~\\[-1cm]
+  \end{proof}
+\end{noliste}
+
+
+
+
+
+
+\section*{Partie III - L'\og Expected Shortfall\fg (ES)}
+\noindent
+On conserve les notations de la partie I.\\
+Pour qu'une mesure de risque soit acceptable, on souhaite qu'elle 
+vérifie un certaines propriétés.\\
+On dit qu'une fonction $\rho$ définie sur ${\cal D}$ à valeurs 
+réelles est une {\bf mesure de risque cohérente} sur ${\cal D}$ 
+si elle vérifie les quatre propriétés :
+\begin{noliste}{}
+  \item $(R_1) \quad \forall X \in {\cal D}, \forall c \in \R, \
+  \rho(X+c)=\rho(X)+c$ ;
+  
+  \item $(R_2) \quad \forall X \in {\cal D}, \forall \lambda \in 
+  \R, \ \rho(\lambda X)=\lambda \rho(X)$ ;
+  
+  \item $(R_3) \quad \forall(X,Y) \in {\cal D}^2$, si pour tout 
+  $\omega \in \Omega$, $X(\omega) \leq Y(\omega)$ alors $\rho(X) 
+  \leq \rho(Y)$ ;
+  
+  \item $(R_4) \quad \forall(X,Y) \in {\cal D}^2$, telles que $X+Y 
+  \in {\cal D}, \ \rho(X+Y) \leq \rho(X)+\rho(Y)$.
+\end{noliste}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{11}
+  \item Montrer que l'espérance est une mesure de risque cohérente 
+  sur ${\cal D}$.
+  
+  \begin{proof}~\\
+    Montrons que l'espérance vérifie les propriétés $(R_1)$ à $(R_4)$.\\
+    Soit $(X,Y) \in {\cal D}^2$. Soit $(c,\lambda) \in \R^2$.
+    \begin{noliste}{$\sbullet$}
+      \item Par linéarité de l'espérance : 
+      \[
+        \E(X+c) = \E(X) + \E(c) = \E(X) + c \quad \text{et} \quad
+        \E(\lambda \, X)= \lambda \, \E(X)
+      \]
+      Donc $(R_1)$ et $(R_2)$ sont vérifiées.
+      
+      \item Par croissance de l'espérance : 
+      \[
+        \text{si pour tout } \omega \in \Omega, \ X(\omega) \leq 
+	Y(\omega), \ \text{alors} \ \E(X) \leq \E(Y)
+      \]
+      Donc $(R_3)$ est vérifiée.
+      
+      \item Par linéarité de l'espérance :
+      \[
+        \E(X+Y) = \E(X) + \E(Y)
+      \]
+      Donc, en particulier : $\E(X+Y) \leq \E(X) + \E(Y)$.\\
+      Ainsi, $(R_4)$ est vérifiée.
+    \end{noliste}
+    \conc{On en déduit que l'espérance est une mesure de risque sur 
+    ${\cal D}$.}~\\[-1cm]
+  \end{proof}
+  
+  
+  \newpage
+
+  
+  \item La \og Value at Risk \fg{} $r_\beta$ est-elle une mesure de 
+  risque cohérente sur ${\cal D}$ pour toute valeur de $\beta \in \
+  ]0,1[$ ?\\
+  On détaillera si chacune des propriétés de $(R_1)$ à $(R_4)$ est 
+  satisfaite ou non.
+  
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+      \item D'après la question \itbf{4.a)}, $r_\beta$ vérifie $(R_1)$.
+      
+      \item D'après la question \itbf{4.b)}, $r_\beta$ vérifie 
+      $(R_2)$.
+      
+      \item D'après la question \itbf{5.}, $r_\beta$ vérifie $(R_3)$.
+      
+      \item D'après la question \itbf{3.}, si on considère :
+      \[
+        X \suit \Norm{m}{\sigma^2} \quad \text{et} \quad 
+        Y \suit \Norm{\mu}{s^2}
+      \]
+      Alors $r_{\frac{1}{4}}$ ne vérifie pas $(R_4)$.\\
+      {\it (en fait, pour tout $\beta < \dfrac{1}{2}$, $r_\beta$ ne 
+      satisfait pas $(R_4)$)}
+    \end{noliste}
+    \conc{On en déduit que $r_\beta$ n'est pas une mesure de risque
+    cohérente pour tout $\beta \in \ ]0,1[$.}
+    
+    \begin{remark}
+      Attention : la question \itbf{3.} démontre :
+      \begin{center}
+        $\beta <\dfrac{1}{2}$ \ $\Rightarrow$ \ $(R_4)$ n'est pas 
+	vérifié.
+      \end{center}
+      Elle utilise pour cela un contre-exemple.\\
+      Cependant, ce résultat n'est pas une équivalence !\\
+      En particulier, rien ne dit :
+      \begin{center}
+        $\beta \geq \dfrac{1}{2}$ \ $\Rightarrow$ \ $(R_4)$ est 
+	vérifiée.
+      \end{center}
+      Pour démontrer un tel résultat, il faudrait considérer deux \var 
+      $X$ et $Y$ dans ${\cal D}$ quelconque (et non des \var 
+      gaussiennes).
+    \end{remark}~\\[-1.4cm]
+  \end{proof}
+
+  Soit $X$ une variable aléatoire appartenant à ${\cal D}$, 
+  admettant une densité $f_X$. On définit l' \og Expected 
+  Shortfall\fg{} de $X$ de niveau de confiance $\beta$ par :
+  \[
+    ES_\beta(X)=\dfrac1{1-\beta} \int_{r_\beta(X)}^{+\infty} x 
+    f_X(x) \dx \quad(1)
+  \]
+  {\bf Le but de cette partie est de démontrer que, pour tout 
+  $\beta \in \ ]0,1[$, $ES_\beta$ est une mesure de risque cohérente 
+  sur ${\cal D}$, assez \og proche \fg{} de $r_\beta$.}
+  
+  \item Soit $X$ une variable aléatoire appartenant à ${\cal D}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $ES_\beta(X)$ est bien définie, et que 
+    $ES_\beta(X) \geq r_\beta(X)$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item Comme $X\in {\cal D}$, en particulier la \var $X$ 
+	admet une espérance.\\
+	Donc l'intégrale $\dint{-\infty}{+\infty} x \, f_X(x) \dx$
+	converge absolument.\\
+	Ainsi, l'intégrale $\dint{r_\beta(X)}{+\infty} x\, f_X(x) \dx$
+	converge aussi absolument.
+	\conc{On en déduit que $ES_\beta(X)$ est bien définie.}
+	
+	
+	\newpage
+	
+	
+	\item Soit $x \geq r_\beta(X)$.\\
+	Alors, comme $f_X(x) \geq 0$ (car $f_X$ est une densité), on 
+	obtient :
+	\[
+	  r_\beta(X) \, f_X(x) \ \leq \ x \, f_X(x)
+	\]
+	Par croissance de l'intégrale (les bornes sont bien 
+	ordonnées) et comme les intégrales en présence convergent :
+	\[
+	  \dint{r_\beta(X)}{+\infty} r_\beta(X) \, f_X(X) \dx
+	  \leq \dint{r_\beta(X)}{+\infty} x\, f_X(x) \dx
+	\]
+	Or :
+	\[
+	\begin{array}{rcl}
+	  \dint{r_\beta(X)}{+\infty} r_\beta(X) \, f_X(x) \dx
+	  & = & r_\beta(X) \, \dint{r_\beta(X)}{+\infty} f_X(x) \dx
+	  \ = \ r_\beta(X) \, \Prob(\Ev{X \geq r_\beta(X)})
+	  \\[.6cm]
+	  & = & r_\beta(X) (1-F_X(r_\beta(X)))
+	\end{array}
+	\]
+	De plus, par définition de $r_\beta(X)$ : $F_X(r_\beta(X)) 
+	=\beta$. Donc :
+	\[
+	  \dint{r_\beta(X)}{+\infty} r_\beta(X) \, f_X(x) \dx \ = \
+	  r_\beta(X)(1-\beta)
+	\]
+	D'où :
+	\[
+	  r_\beta(X) (1-\beta) \ \leq \ \dint{r_\beta(X)}{+\infty}
+	  x\, f_X(x) \dx
+	\]
+	Comme $1-\beta>0$ :
+	\[
+	  \dfrac{1}{\bcancel{1-\beta}} r_\beta(X) \bcancel{(1-\beta)}
+	  \ \leq \ \dfrac{1}{1-\beta} \, \dint{r_\beta(X)}{+\infty}
+	  x\, f_X(x) \dx
+	\]
+	\conc{On en déduit, par définition de $ES_\beta(X)$ :
+	$r_\beta(X) \leq ES_\beta(X)$.}~\\[-1.2cm]
+      \end{noliste}
+    \end{proof}
+    
+    \item À l'aide du changement de variable $t=F_X(x)$, établir :
+    \[
+      ES_\beta(X)=\dfrac{1}{1-\beta} \dint{\beta}{1} G_X(t) \dt 
+      \quad (2)
+    \]
+    
+    \begin{proof}~\\
+      Soit $A \geq r_\beta(X)$.\\
+      On effectue le changement de 
+      variable $\Boxed{t =F_X(x)}$. 
+      \[
+      \left|
+        \begin{array}{P{8cm}}
+          $t = F_X(x)$ (et donc $x = G_X(t)$) \nl
+          $\hookrightarrow$ $dt = f_X(x)\dx$ 
+          %\quad et \quad $dt
+          %= \dfrac{1}{\ee^{-t}}\ du = \dfrac{1}{1-u} \ du$ 
+          \nl
+          \vspace{-.4cm}
+          \begin{noliste}{$\sbullet$}
+          \item $x = r_\beta(X) \ \Rightarrow \ t = F_X(r_\beta(X)) =
+          \beta$
+          \item $x = A \ \Rightarrow \ t = F_X(A)$ %
+            \vspace{-.4cm}
+          \end{noliste}
+        \end{array}
+      \right.
+      \]
+      Ce changement de variable est valide car $\psi : t \mapsto 
+      G_X(t)$ est de classe $\Cont{1}$ sur $I_X$ (car $X \in {\cal 
+      D}$).\\
+      On obtient finalement :
+      \[
+        \dint{r_\beta(X)}{A} x\, f_X(x) \dx = \dint{\beta}{F_X(A)}
+        G_X(t) \dt
+      \]
+      Or, comme $F_X$ est une fonction de répartition :
+      $\dlim{A \to +\infty} F_X(A) = 1$.
+      \conc{On en déduit : $ES_\beta(X) = \dfrac{1}{1-\beta}
+      \dint{\beta}{1} G_X(t) \dt$.}~\\[-1cm]
+    \end{proof}
+  \end{noliste}
+  
+  
+  \newpage
+  
+  
+  On pourra utiliser $(1)$ ou $(2)$ au choix dans la suite pour 
+  définir $ES_\beta(X)$.
+  
+  \item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $ES_\beta$ vérifie la propriété $(R_1)$.
+    
+    \begin{proof}~\\
+      Soit $X\in {\cal D}$. Soit $c\in\R$.
+      \begin{noliste}{$\sbullet$}
+	\item D'après la question \itbf{4.a)} : $r_\beta(X+c) = 
+	r_\beta(X)+c$.
+	
+	\item De plus, d'après la démonstration de la question 
+	\itbf{4.a)} :
+	\[
+	  \forall x \in \R, \ F_{X+c}(x) = F_X(x-c)
+	\]
+	On a admis en question \itbf{4.a)} que $X+c \in {\cal D}$. En 
+	particulier, $(X+c)$ est une \var à densité. On en déduit :
+	\[
+	  \forall x \in \R, f_{X+c}(x) = f_X(x-c)
+	\]
+	
+	\item On obtient alors avec $(1)$ :
+	\[
+	  ES_\beta(X+c) \ = \ \dfrac{1}{1-\beta} 
+	  \dint{r_\beta(X+c)}{+\infty} x \, f_{X+c}(x) \dx \ = \
+	  \dfrac{1}{1-\beta} \dint{r_\beta(X)+c}{+\infty} x\, 
+	  f_X(x-c) \dx
+	\]
+	On effectue le changement de 
+      variable $\Boxed{t =x-c}$.
+      \[
+      \left|
+        \begin{array}{P{8cm}}
+          $t = x-c$ (et donc $x = t+c$) \nl
+          $\hookrightarrow$ $dt = \dx$ 
+%           \quad et \quad $dx = \dt$ 
+          \nl
+          \vspace{-.4cm}
+          \begin{noliste}{$\sbullet$}
+          \item $x = r_\beta(X)+c \ \Rightarrow \ t = r_\beta(X)$
+          \item $x = +\infty \ \Rightarrow \ t = +\infty$ %
+            \vspace{-.4cm}
+          \end{noliste}
+        \end{array}
+      \right.
+      \]
+      Ce changement de variable est valide car $\psi : t \mapsto 
+      t+c$ est de classe $\Cont{1}$ sur $[r_\beta(X), +\infty[$.\\
+      On obtient finalement :
+      \[
+      \begin{array}{rcl@{\quad}>{\it}R{4.5cm}}
+        ES_\beta(X+c) & = & \dfrac{1}{1-\beta} 
+	\dint{r_\beta(X)}{+\infty}
+        (t+c)f_X(t) \dt 
+        \\[.6cm]
+        & = & \dfrac{1}{1-\beta} \left(
+        \dint{r_\beta(X)}{+\infty} t \, f_X(t) \dt + 
+        c \, \dint{r_\beta(X)}{+\infty} f_X(t) \dt\right)
+        \\[.6cm]
+        &=& ES_\beta(X) + \dfrac{c}{1-\beta}(1-F_X(r_\beta(X)))
+        \\[.4cm]
+        &=& ES_\beta(X) + \dfrac{c}{\bcancel{1-\beta}} 
+        \bcancel{(1-\beta)}
+        & (par définition de $r_\beta(X)$)
+        \nl
+        \nl[-.2cm]
+        &=& ES_\beta(X)+c
+      \end{array}
+      \]
+      \conc{Ainsi, $ES_\beta$ vérifie $(R_1)$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+
+    
+    \item Montrer que $ES_\beta$ vérifie la propriété $(R_2)$.
+    
+    \begin{proof}~\\
+      Soit $X\in {\cal D}$. Soit $\lambda\in\R$.
+      \begin{noliste}{$\sbullet$}
+	\item D'après la question \itbf{4.b)} : $r_\beta(\lambda \, X) 
+	= \lambda \, r_\beta(X)$.
+	
+	\item De plus, d'après la démonstration de la question 
+	\itbf{4.b)} :
+	\[
+	  \forall x \in \R, \ F_{\lambda \, X}(x) = F_X\left(\dfrac{x}
+	  {\lambda}\right)
+	\]
+	
+	
+	\newpage
+	
+	
+	On a admis en question \itbf{4.b)} que $\lambda \, X \in {\cal 
+	D}$. En 
+	particulier, $\lambda \, X$ est une \var à densité. \\
+	On en déduit :
+	\[
+	  \forall x \in \R, f_{\lambda \, X}(x) = \dfrac{1}{\lambda} \, 
+	  f_X\left(\dfrac{x}{\lambda}\right)
+	\]
+	
+	\item On obtient alors avec $(1)$ :
+	\[
+	  ES_\beta(\lambda \, X) \ = \ \dfrac{1}{1-\beta} 
+	  \dint{r_\beta(\lambda \,X)}{+\infty} x \, f_{\lambda \,X}(x) 
+	  \dx \ = \
+	  \dfrac{1}{1-\beta} \dint{\lambda \, r_\beta(X)}{+\infty} 
+	  x\, \dfrac{1}{\lambda} f_X\left(\dfrac{x}{\lambda}\right) \dx
+	\]
+	On effectue le changement de 
+      variable $\Boxed{t = \dfrac{x}{\lambda}}$.
+      \[
+      \left|
+        \begin{array}{P{8cm}}
+          $t = \dfrac{x}{\lambda}$ (et donc $x = \lambda \, t$) \nl
+          $\hookrightarrow$ $dt = \dfrac{1}{\lambda} \dx$ 
+          \quad et \quad $dx = \lambda \dt$ 
+          \nl
+          \vspace{-.4cm}
+          \begin{noliste}{$\sbullet$}
+          \item $x = \lambda \, r_\beta(X) \ \Rightarrow \ t = 
+	  r_\beta(X)$
+          \item $x = +\infty \ \Rightarrow \ t = +\infty$ (car $\lambda
+          >0$) %
+            \vspace{-.4cm}
+          \end{noliste}
+        \end{array}
+      \right.
+      \]
+      Ce changement de variable est valide car $\psi : t \mapsto 
+      \lambda \, t$ est de classe $\Cont{1}$ sur $[r_\beta(X),
+      +\infty[$.\\
+      On obtient finalement :
+      \[
+      \begin{array}{rcl@{\quad}>{\it}R{4.5cm}}
+        ES_\beta(\lambda \, X) & = & \dfrac{1}{1-\beta} 
+	\dint{r_\beta(X)}{+\infty}
+        \lambda \, t \, f_X(t) \dt 
+        \\[.6cm]
+        & = & \lambda \, \dfrac{1}{1-\beta} \,
+        \dint{r_\beta(X)}{+\infty} t \, f_X(t) \dt
+        \\[.6cm]
+        &=& \lambda \, ES_\beta(X)
+      \end{array}
+      \]
+      \conc{Ainsi, $ES_\beta$ vérifie $(R_2)$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+  \end{noliste}
+  
+  \item On suppose dans cette question que $X$ suit la loi 
+  exponentielle de paramètre $\lambda>0$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $ES_\beta(X)=r_\beta(X)+\dfrac{1}{\lambda}$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item D'après la question \itbf{2.b)} : $r_\beta(X) = -
+	\dfrac{1}{\lambda} \, \ln(1-\beta)$.\\
+	Donc, en particulier : $r_\beta(X) \geq 0$. D'où :
+	\[
+	  ES_\beta(X) \ = \ \dfrac{1}{1-\beta} \, \dint{r_\beta(X)}
+	  {+\infty} x \, f_X(x) \dx \ = \ \dfrac{1}{1-\beta} \,
+	  \dint{r_\beta(X)}{+\infty} \lambda \, x \, \ee^{-\lambda \, 
+	  x} \dx
+	\]
+	
+	\item Soit $A\geq r_\beta(X)$. On effectue l'intégration par 
+	parties (IPP) suivante.
+      \[
+	\renewcommand{\arraystretch}{2.2}
+	\begin{array}{|rcl@{\qquad}rcl}
+	  u(x) & = & x & u'(x) & = & 1 \\
+	  v'(x) & = & \lambda \, \ee^{-\lambda \, x} & v(x) & = & -
+	  \ee^{-\lambda \, x}
+	\end{array}
+      \]
+      
+      
+      \newpage
+      
+      
+      Cette IPP est valide car les fonctions $u$ et $v$ sont de classe 
+      $\Cont{1}$ sur $[r_\beta(X),A]$. On obtient :
+      \[
+        \begin{array}{rcl}
+          \dint{r_\beta(X)}{A} \lambda \, x \, \ee^{-\lambda \, x} \dx
+          &=& \Prim{-x \, \ee^{-\lambda \, x}}{r_\beta(X)}{A}
+          + \dint{r_\beta(X)}{A} \ee^{-\lambda \, x} \dx
+          \\[.6cm]
+          &=& -A \ee^{-\lambda \, A} + r_\beta(X) \, \ee^{-\lambda \,
+          r_\beta(X)} + \Prim{-\dfrac{1}{\lambda} \, \ee^{-\lambda \,
+          x}}{r_\beta(X)}{A}
+          \\[.6cm]
+          &=& -A \ee^{-\lambda \, A} + r_\beta(X) \, \ee^{-\lambda \,
+          r_\beta(X)} - \dfrac{1}{\lambda} \, \ee^{-\lambda \, A} 
+          + \dfrac{1}{\lambda} \ee^{-\lambda \, r_\beta(X)}
+          \\[.6cm]
+          &=& \ee^{-\lambda \, r_\beta(X)}\left(r_\beta(X) +
+          \dfrac{1}{\lambda}\right) -A \ee^{-\lambda \, A} - 
+          \dfrac{1}{\lambda} \, \ee^{-\lambda \, A}
+        \end{array}
+      \]
+      
+      \item Or : $\dlim{A\to +\infty} \ee^{-\lambda \, A} =0$.\\[.2cm]
+      De plus, par croissances comparées : $\dlim{A\to +\infty}
+      A \ee^{-\lambda \, A} =0$.\\
+      Donc :
+      \[
+        \dint{r_\beta(X)}{+\infty} \lambda \, x \, \ee^{-\lambda \, x}
+        \dx \ = \ \ee^{-\lambda \, r_\beta(X)} \left( r_\beta(X) +
+        \dfrac{1}{\lambda}\right)
+      \]
+      
+      \item Or, d'après la question \itbf{2.b)} : $r_\beta(X) = -
+	\dfrac{1}{\lambda} \, \ln(1-\beta)$. Donc :
+	\[
+	    \ee^{-\lambda \, r_\beta(X)} \ = \ 
+	    \ee^{-\bcancel{\lambda} \times \left(-\frac{1}
+	    {\bcancel{\lambda}} \, \ln(1-\beta)\right)}
+	    \ = \ \ee^{\ln(1-\beta)} \ = \ 1-\beta
+	\]
+	D'où : 
+	\[
+	  \dint{r_\beta(X)}{+\infty} \lambda \, x \, \ee^{-\lambda \, x}
+        \dx \ = \ (1-\beta) \left( r_\beta(X) +
+        \dfrac{1}{\lambda}\right)
+	\]
+	
+	\item On en déduit :
+	\[
+	  ES_\beta(X) \ = \ \dfrac{1}{\bcancel{1-\beta}} \times 
+	  \bcancel{(1-\beta)} \left( r_\beta(X) +
+        \dfrac{1}{\lambda}\right) \ = \ r_\beta(X) +
+        \dfrac{1}{\lambda}
+	\]
+      \end{noliste}
+      \conc{$ES_\beta(X) = r_\beta(X) + \dfrac{1}{\lambda}$}~\\[-1cm]
+    \end{proof}
+
+    
+    \item En déduire que $ES_\beta(X) \eq{\beta}{1} r_\beta(X)$.
+    
+    \begin{proof}~\\
+      D'après la question précédente :
+      \[
+        \dfrac{ES_\beta(X)}{r_\beta(X)} \ = \ \dfrac{r_\beta(X) + 
+        \frac{1}{\lambda}}{r_\beta(X)} \ = \ 1 + 
+        \dfrac{1}{\lambda \, r_\beta(X)}
+      \]
+      Or, d'après la question \itbf{2.b)} : $r_\beta(X) = -\dfrac{1}
+      {\lambda} \, \ln(1-\beta)$. Donc :
+      \[
+        \dfrac{ES_\beta(X)}{r_\beta(X)} \ = \ 1 + \dfrac{1}{
+        \bcancel{\lambda} \left(-\frac{1}{\bcancel{\lambda}} \, 
+        \ln(1-\beta)\right)} \ = \ 1 - \dfrac{1}{\ln(1-\beta)}
+      \]
+      De plus : $\dlim{\beta \to 1} \ln(1-\beta) = -\infty$. D'où :
+      \[
+        \dlim{\beta \to 1} \dfrac{ES_\beta(X)}{r_\beta(X)} = 
+        1-0 =1
+      \]
+      \conc{On en déduit : $ES_\beta(X) \eq{\beta}{1} 
+      r_\beta(X)$}~\\[-1cm]
+    \end{proof}
+  \end{noliste}
+  
+  
+  
+  \newpage
+  
+  
+  
+  \item On suppose dans cette question que $X$ suit la loi normale 
+  centrée réduite.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer $ES_\beta(X) = 
+    \dfrac{\varphi(r_\beta(X))}{1-\Phi(r_\beta(X))}$.
+    
+    \begin{proof}~\\
+      Par définition de $\varphi$ :
+      \[
+        ES_\beta(X) = \dfrac{1}{1-\beta} \, \dint{r_\beta(X)}
+        {+\infty} x \, \dfrac{1}{\sqrt{2 \pi}} \, \ee^{-\frac{x^2}{2}}
+        \dx \ = \ \dfrac{1}{1-\beta} \, \dfrac{1}{\sqrt{2 \pi}} \,
+        \dint{r_\beta(X)}{+\infty} x \, \ee^{-\frac{x^2}{2}} \dx
+      \]
+      Soit $A \in [r_\beta(X), +\infty[$.
+      \[
+        \dint{r_\beta(X)}{A} x\, \ee^{-\frac{x^2}{2}} \dx \ = \
+          \Prim{-\ee^{-\frac{x^2}{2}}}{r_\beta(X)}{A}
+          \ = \ -\ee^{-\frac{A^2}{2}} + \ee^{-\frac{(r_\beta(X))^2}{2}}
+      \]
+      Or : $\dlim{A \to +\infty} \ee^{-\frac{A^2}{2}} =
+      0$.\\
+      Donc l'intégrale $\dint{r_\beta(X)}{+\infty} x \, 
+      \ee^{-\frac{x^2}{2}} \dx$ converge et : 
+      $\dint{r_\beta(X)}{+\infty} x \, \ee^{-\frac{x^2}{2}} \dx = 
+      \ee^{-\frac{(r_\beta(X))^2}{2}}$.\\
+      De plus, par définition de $r_\beta(X)$ : $\beta = 
+      \Phi(r_\beta(X))$. Donc :
+      \[
+        ES_\beta(X) \ = \ \dfrac{1}{1-\Phi(r_\beta(X))} \, 
+        \dfrac{1}{\sqrt{2 \pi}} \, \ee^{-\frac{(r_\beta(X))^2}{2}}
+        \ = \ \dfrac{\varphi(r_\beta(X))}{1-\Phi(r_\beta(X))}
+      \]
+      \conc{$ES_\beta(X) = \dfrac{\varphi(r_\beta(X))}{1- 
+      \Phi(r_\beta(X))}$}~\\[-1cm]
+    \end{proof}
+    
+    \item Pour tout $x >0$, établir l'égalité : $1-\Phi(x)=
+    \dfrac{\varphi(x)}{x}-\dint{x}{+\infty} \dfrac{\varphi(t)}{t^2} 
+    \dt$.
+    
+    \begin{proof}~\\
+      Soit $x>0$.
+      \begin{noliste}{$\sbullet$}
+	\item Par définition de $\Phi$ :
+	\[
+	  1-\Phi(x) \ = \ 1- \dint{-\infty}{x} \varphi(t) \dt
+	  \ = \ \dint{x}{+\infty} \varphi(t) \dt \ = \
+	  \dfrac{1}{\sqrt{2 \pi}} \dint{x}{+\infty} 
+	  \ee^{-\frac{t^2}{2}} \dt \ = \ \dfrac{1}{\sqrt{2 \pi}}
+	  \dint{x}{+\infty} \dfrac{1}{t} \times t \, 
+	  \ee^{-\frac{t^2}{2}} \dt
+	\]
+	
+	  \item Soit $A \geq x$. On effectue l'intégration par 
+	parties (IPP) suivante.
+      \[
+	\renewcommand{\arraystretch}{2.2}
+	\begin{array}{|rcl@{\qquad}rcl}
+	  u(t) & = & \dfrac{1}{t} & u'(t) & = & -\dfrac{1}{t^2} \\
+	  v'(t) & = & t \, \ee^{-\frac{t^2}{2}} & v(t) & = & -
+	  \ee^{-\frac{t^2}{2}}
+	\end{array}
+      \]
+      Cette IPP est valide car les fonctions $u$ et $v$ sont de classe 
+      $\Cont{1}$ sur $[x,A]$. On obtient :
+      \[
+        \begin{array}{rcl}
+          \dint{x}{A} \dfrac{1}{t} \, t \, \ee^{-\frac{t^2}{2}} \dt
+          &=& \Prim{-\dfrac{1}{t} \, \ee^{-\frac{t^2}{2}}}{x}{A} - 
+          \dint{x}{A} \dfrac{\ee^{-\frac{t^2}{2}}}{t^2} \dt
+          \\[.6cm]
+          &=& - \dfrac{\ee^{-\frac{-A^2}{2}}}{A} + \dfrac{\ee^{-
+          \frac{x^2}{2}}}{x} - \dint{x}{A} \dfrac{\ee^{-
+          \frac{t^2}{2}}}{t^2} \dt
+        \end{array}
+      \]
+      
+      
+      
+      \newpage
+      
+      
+      
+      \item Or : $\dlim{A \to +\infty} \dfrac{\ee^{-\frac{A^2}{2}}}
+      {A} =0$.\\[.2cm]
+      De plus :
+      \[
+        \dint{x}{A} \dfrac{\ee^{-
+          \frac{t^2}{2}}}{t^2} \dt \ = \
+        - \dfrac{\ee^{-\frac{-A^2}{2}}}{A} + \dfrac{\ee^{-
+          \frac{x^2}{2}}}{x}
+        - \dint{x}{A} \dfrac{1}{t} \, t \, \ee^{-\frac{t^2}{2}} \dt
+        \ = \ - \dfrac{\ee^{-\frac{-A^2}{2}}}{A} + \dfrac{\ee^{-
+          \frac{x^2}{2}}}{x} - \sqrt{2 \pi} \,
+          \dint{x}{A} \varphi(t) \dt
+      \]
+      Donc l'intégrale $\dint{x}{+\infty} \dfrac{\ee^{-
+          \frac{t^2}{2}}}{t^2} \dt$ converge, car l'intégrale 
+      $\dint{x}{+\infty} \varphi(t) \dt$ converge.
+      
+      \item On en déduit :
+      \[
+        \begin{array}{rcl}
+          1- \Phi(x) &=& \dfrac{1}{\sqrt{2 \pi}} \left(
+          \dfrac{\ee^{-\frac{x^2}{2}}}{x} - \dint{x}{+\infty}
+          \dfrac{\ee^{-\frac{t^2}{2}}}{t^2} \dt \right)
+          \ = \ \dfrac{\frac{1}{\sqrt{2 \pi}} \, 
+	  \ee^{-\frac{x^2}{2}}}{x} - \dint{x}{+\infty}
+          \dfrac{\frac{1}{\sqrt{2 \pi}} \, \ee^{-\frac{t^2}{2}}}{t^2} 
+	  \dt
+	  \\[.6cm]
+	  &=& \dfrac{\varphi(x)}{x} - \dint{x}{+\infty} 
+	  \dfrac{\varphi(t)}{t^2} \dt
+        \end{array}
+      \]
+      \end{noliste}
+      \conc{$\forall x >0$, $1-\Phi(x) \ = \ \dfrac{\varphi(x)}{x} -
+      \dint{x}{+\infty} \dfrac{\varphi(t)}{t^2} \dt$}~\\[-1cm]      
+    \end{proof}
+
+    \item Montrer que, pour tout $x>0$ : $0 \ \leq \ \dint{x}{+\infty}  
+    \dfrac{\varphi(t)}{t^2} \dt \ \leq \ \dfrac{1}{x^2}\, 
+    (1-\Phi(x))$.\\
+    En déduire que : $1-\Phi(x) \eq{x}{+\infty} 
+    \dfrac{\varphi(x)}{x}$.
+    
+    \begin{proof}~\\
+      Soit $x>0$.
+      \begin{noliste}{$\sbullet$}
+      \item Soit $t \geq x$. Alors, par décroissance de $t\mapsto 
+      \dfrac{1}{t^2}$ sur $]0,+\infty[$ : $ \dfrac{1}{t^2} \leq 
+      \dfrac{1}{x^2}$.\\
+      De plus : $\dfrac{1}{t^2} \geq 0$. Donc : 
+      \[
+        0 \ \leq \ \dfrac{1}{t^2} \ \leq \ \dfrac{1}{x^2}
+      \]
+      Or, comme $\varphi$ est une densité, en particulier : 
+      $\varphi(t) \geq 0$. D'où :
+      \[
+        0 \ \leq \ \dfrac{\varphi(t)}{t^2} \ \leq \ 
+        \dfrac{\varphi(t)}{x^2}
+      \]
+      
+    \item Par croissance de l'intégrale (les bornes sont bien
+      ordonnées) et comme les intégrales en présence sont convergentes
+      :
+      \[
+        0 \ \leq \ \dint{x}{+\infty} \dfrac{\varphi(t)}{t^2} \dt \
+        \leq \ \dint{x}{+\infty} \dfrac{\varphi(t)}{x^2} \dt
+      \]
+      
+      \item Or :
+      \[
+        \dint{x}{+\infty} \dfrac{\varphi(t)}{x^2} \dt \ = \
+        \dfrac{1}{x^2} \, \dint{x}{+\infty} \varphi(t) \dt \ = \
+        \dfrac{1}{x^2} \, \Prob(\Ev{X \geq x}) \ = \
+        \dfrac{1}{x^2} (1-\Phi(x))
+      \]
+      \end{noliste}
+      \conc{On en déduit : $\forall x >0$, $0 \ \leq \ 
+      \dint{x}{+\infty} \dfrac{\varphi(t)}{t^2} \dt \ \leq \
+      \dfrac{1}{x^2} (1-\Phi(x))$.}
+      
+      
+      \newpage
+      
+      
+      \begin{remark}
+        Le schéma de résolution de cette question est plutôt 
+	classique.\\
+        Afin de comparer deux intégrales $\dint{a}{b} f(t) \dt$ et 
+        $\dint{a}{b} g(t) \dt$ :
+        \begin{noliste}{\scriptsize 1)}
+	  \item on cherche d'abord à comparer leurs 
+	  intégrandes, c'est-à-dire montrer :
+	  \[
+	    \forall t \in [a,b], \ f(t) \leq g(t) \quad \text{ou} \quad 
+	    \forall t \in [a,b], \ f(t) \geq g(t)
+	  \]
+	  \item on utilise ensuite la croissance de l'intégrale (si 
+	  les bornes $a$ et $b$ sont bien ordonnées, c'est-à-dire 
+	  $a \leq b$) pour conclure :
+	  \[
+	    \dint{a}{b} f(t) \dt \leq \dint{a}{b} g(t) \dt \quad 
+	    \text{ou} \quad \dint{a}{b} f(t) \dt \geq 
+	    \dint{a}{b} g(t) \dt
+	  \]
+        \end{noliste}
+      \end{remark}
+      
+      Soit $x>0$.
+      \begin{noliste}{$\sbullet$}
+	\item D'après la question précédente :
+	\[
+	  -\dfrac{1}{x^2}(1-\Phi(x)) \ \leq \ - \dint{x}{+\infty}
+	  \dfrac{\varphi(t)}{t^2} \dt \ \leq \ 0
+	\]
+	Donc, d'après la question \itbf{17.b)}, en ajoutant $\dfrac{
+	\varphi(x)}{x}$ à chaque membre de cet encadrement :
+	\[
+	  \dfrac{\varphi(x)}{x} - \dfrac{1}{x^2}(1-\Phi(x)) \ \leq \
+	  1-\Phi(x) \ \leq \ \dfrac{\varphi(x)}{x}
+	\]
+	
+	\item On en déduit :
+	\[
+	  1-\Phi(x) \ \leq \ \dfrac{\varphi(x)}{x} \ \leq \
+	  1-\Phi(x) + \dfrac{1}{x^2}(1-\Phi(x)) = (1-\Phi(x))
+	  \left(1+\dfrac{1}{x^2}\right)
+	\]
+	D'où, comme $1-\Phi(x) >0$ :
+	\[
+	  1 \ \leq \ \dfrac{\dfrac{\varphi(x)}{x}}{1-\Phi(x)} \ \leq \
+	  1+ \dfrac{1}{x^2}
+	\]
+	\item Or : $\dlim{x\to +\infty} \left(1+ \dfrac{1}{x^2}\right) 
+	=1$.\\
+	Donc, par théorème d'encadrement : $\dlim{x\to + \infty} 
+	\dfrac{\frac{\varphi(x)}{x}}{1-\Phi(x)}=1$.
+	\conc{Ainsi : $1- \Phi(x) \eqx{+\infty} 
+	\dfrac{\varphi(x)}{x}$.}~\\[-1.2cm]
+      \end{noliste}
+    \end{proof}
+
+    
+    \item En conclure que l'on a aussi dans ce cas : $ES_\beta(X) 
+    \eq{\beta}{1} r_\beta(X)$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item D'après la question \itbf{3.a)(iii)} : $r_\beta(X) = 
+	\Phi^{-1}(\beta)$.\\
+	Or, d'après la question \itbf{3.a)(i)}, la fonction $\Phi$
+	réalise une bijection strictement croissante de 
+	$]-\infty, +\infty[$ sur $]0,1[$.\\
+	On en déduit : $\dlim{\beta \to 1} \Phi^{-1}(\beta)=+\infty$.
+	D'où : $\dlim{\beta \to 1} r_\beta(X)=+\infty$.
+	
+	
+	\newpage
+	
+	
+	\item De plus, d'après la question précédente : $1-\Phi(x) 
+	\eqx{+\infty} \dfrac{\varphi(x)}{x}$.\\
+	D'où : $1-\Phi(r_\beta(X)) \eq{\beta}{1} \dfrac{\varphi(r_\beta
+	(X))}{r_\beta(X)}$.\\[.1cm]
+	Ainsi, d'après la question \itbf{17.a)} :
+	\[
+        ES_\beta(X) = \dfrac{\varphi(r_\beta(X))}{1-\Phi(r_\beta(X))}
+        \eq{\beta}{1}
+        \dfrac{\varphi(r_\beta(X))}{\frac{\varphi(r_\beta(X))}{r_\beta(X)}}
+        = \bcancel{\varphi(r_{\beta}(X))} \
+        \dfrac{r_{\beta}(X)}{\bcancel{\varphi(r_{\beta}(X))}} =
+        r_\beta(X)
+	\]
+      \end{noliste}
+      \conc{$ES_\beta(X) \eq{\beta}{1} r_\beta(X)$}~\\[-1cm]
+    \end{proof}
+  \end{noliste}
+  Dans les questions qui suivent, $X$ est une variable aléatoire 
+  appartenant à ${\cal D}$.
+  \begin{noliste}{$\sbullet$}
+    \item On note $h$ la fonction définie par : $\forall x 
+    \in \R$, $h(x)=\max(x,0)$.
+    
+    \item On admet que si $U$ et $V$ sont deux variables 
+    aléatoires telles que, $0 \leq U \leq V$ et $\E(V)$ existe 
+    alors $\E(U)$ existe et $0 \leq \E(U) \leq \E(V)$.
+    
+    \item On note pour tout événement $A$, 
+    $\unq_A$ la variable aléatoire indicatrice de 
+    l'événement $A$. Rappelons qu'il s'agit de la variable 
+    aléatoire prenant la valeur $1$ si $A$ est réalisé, et la 
+    valeur $0$ sinon.
+  \end{noliste}
+  
+  \item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $h(X-r_\beta(X))$ admet une espérance, et 
+    que l'on a :
+    \[
+      \E\left(h(X-r_\beta(X))\right)=\dint{r_\beta(X)}{+\infty} t 
+      f_X(t) \dt - (1-\beta)r_\beta(X)
+    \]
+    où $f_X$ désigne une densité de $X$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item Soit $t\in \R$.\\
+	Par définition de la fonction $h$ : 
+	\[
+	  h(t-r_\beta(X)) \ = \ \max(t- r_\beta(X),0) \ = \
+	  \left\{
+	  \begin{array}{cR{3cm}}
+	    t - r_\beta(X) & si $t-r_\beta(X) \geq 0$
+	    \nl
+	    0 & sinon
+	  \end{array}
+	  \right.
+	\]
+	\conc{D'où : $\forall t \in \R$,
+	$
+	  h(t-r_\beta(X)) \ = \ \left\{
+	  \begin{array}{cR{2.1cm}}
+	    t-r_\beta(X) & si $t\geq r_\beta(X)$
+	    \nl
+	    0 & sinon
+	  \end{array}
+	  \right.
+	$.}
+	
+    \item D'après le théorème de transfert, la \var $h(X- r_\beta(X))$
+      admet une espérance si et seulement si l'intégrale
+      $\dint{-\infty}{+\infty} h(t- r_\beta(X)) f_X(t) \dt$ converge
+      absolument. Or :
+	\begin{noliste}{$\stimes$}
+	  \item comme $f_X$ est une densité : $\forall t\in \R$, 
+	  $f_X(t) \geq 0$ ;
+	  \item d'après ce qui précède : $\forall t \in \R$, 
+	  $h(t- r_\beta(X)) \geq 0$.
+	\end{noliste}
+	Donc cela revient à montrer que l'intégrale $\dint{-\infty}
+	{+\infty} h(t-r_\beta(X)) f_X(t) \dt$ converge.
+	
+	\item Toujours d'après ce qui précède, la fonction $t \mapsto 
+	h(t-r_\beta(X))$ est nulle en dehors de $[r_\beta(X), 
+	+\infty[$. Donc :
+	\[
+	  \dint{-\infty}{+\infty} h(t-r_\beta(X)) f_X(t) \dt \ = \
+	  \dint{r_\beta(X)}{+\infty} h(t-r_\beta(X)) f_X(t) \dt
+	\]
+	
+	
+	
+	\newpage
+	
+	
+	\item Soit $A \geq r_\beta(X)$.\\
+	Par définition de la fonction $t\mapsto h(t- r_\beta(X))$ 
+	sur $[r_\beta(X), +\infty[$ :
+	\[
+	  \begin{array}{rcl}
+	    \dint{r_\beta(X)}{A} h(t-r_\beta(X)) f_X(t) \dt &=& 
+	    \dint{r_\beta(X)}{A} (t-r_\beta(X)) f_X(t) \dt
+	    \\[.6cm]
+	    &=& \dint{r_\beta(X)}{A} t \, f_X(t) \dt - 
+	    r_\beta(X) \dint{r_\beta(X)}{A} f_X(t) \dt
+% 	    \\[.6cm]
+% 	    &=& \dint{r_\beta(X)}{A} t\, f_X(t) \dt - r_\beta(X)
+% 	    \, \Prob(\Ev{r_\beta(X) \leq X \leq A})
+% 	    \\[.6cm]
+% 	    &=& \dint{r_\beta(X)}{A} t\, f_X(t) \dt - r_\beta(X)
+% 	    (F_X(A) - F_X(r_\beta(X))
+% 	    \\[.6cm]
+% 	    &=& \dint{r_\beta(X)}{A} t\, f_X(t) \dt - r_\beta(X)
+% 	    (F_X(A)-\beta)
+	  \end{array}
+	\]
+	
+	\item Or, $X\in {\cal D}$, donc la \var $X$ admet une 
+	espérance.\\[.1cm]
+	Ainsi l'intégrale $\dint{-\infty}{+\infty} t \, f_X(t) \dt$
+	converge absolument.\\[.1cm]
+	Donc l'intégrale $\dint{r_\beta(X)}{+\infty} t\, f_X(t) \dt$
+	converge absolument.
+	
+	\item De plus, par définition de $r_\beta(X)$ :
+	\[
+	  \dint{r_\beta(X)}{A} f_X(t) \dt \ = \ F_X(A) - F_X(r_\beta(X))
+	  \ = \ F_X(A) - \beta \ \tendd{A}{+\infty} \ 1-\beta
+	\]
+	
+	\item On en déduit que l'intégrale $\dint{r_\beta(X)}{+\infty}
+	h(t-r_\beta(X)) f_X(t) \dt$ converge.
+	\conc{Donc la \var $h(X-r_\beta(X))$ admet une espérance.}
+	
+	De plus :
+	\[
+	  \E(h(X-r_\beta(X))) \ = \
+	  \dint{r_\beta(X)}{+\infty} h(t- r_\beta(X)) f_X(t) \dt 
+	  \ = \ \dint{r_\beta(X)}{+\infty} t \, f_X(t) \dt - 
+	  r_\beta(X) (1-\beta)
+	\]
+	\conc{$\E(h(X-r_\beta(X)) \ = \ \dint{r_\beta(X)}{+\infty}
+	t\, f_X(t) \dt - (1-\beta) r_\beta(X)$}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+
+    
+    \item En déduire : 
+    \[
+      ES_\beta(X)=r_\beta(X)+\dfrac{1}{1-\beta} 
+      \E\left(h(X-r_\beta(X))\right)
+    \]
+    
+    \begin{proof}~\\
+      D'après l'équation $(1)$ :
+      \[
+        ES_\beta(X) \ = \ \dfrac{1}{1-\beta} \dint{r_\beta(X)}{+\infty}
+        t \, f_X(t) \dt
+      \]
+      Or, d'après la question précédente :
+      \[
+        \dint{r_\beta(X)}{+\infty} t \, f_X(t) \dt \ = \ 
+        \E(h(X- r_\beta(X))) + (1-\beta) r_\beta(X)
+      \]
+      Donc : 
+      \[
+        ES_\beta(X) \ = \ \dfrac{1}{1-\beta} \Big(
+        \E(h(X- r_\beta(X))) + (1-\beta) r_\beta(X)) \Big) \ = \
+        \dfrac{1}{1-\beta} \E(h(X- r_\beta(X))) + r_\beta(X)
+      \]
+      \conc{$ES_\beta(X) \ = \ r_\beta(X) + \dfrac{1}{1-\beta} 
+      \E(h(X- r_\beta(X)))$}~\\[-1cm]
+    \end{proof}
+  \end{noliste}
+  
+  
+  
+  \newpage
+  
+  
+  
+  \item En utilisant la méthode de Monte-Carlo, dont on supposera 
+  la validité, et la fonction {\tt VaR} définie dans la question 
+  \itbf{11.}, écrire une fonction \Scilab{} qui calcule une valeur 
+  approchée de $ES_\beta(X)$ à partir de la réalisation d'un 
+  échantillon de taille $n$ de la loi de $X$ dont les valeurs se 
+  trouvent dans le tableau \Scilab{} {\tt X} et de la valeur de 
+  $\beta$ se trouvant dans la variable \Scilab{} {\tt beta}.
+  
+  \begin{proof}~\\%
+    On souhaite obtenir une valeur approchée de $ES_{\beta}(X)$. Pour
+    ce faire, on doit tout d'abord obtenir une valeur approchée de
+    l'espérance de la \var $V = h(X- r_\beta(X))$.
+    \begin{noliste}{$\sbullet$}
+    \item L'idée naturelle pour obtenir une approximation de cette
+      espérance est :
+      \begin{noliste}{$\stimes$}
+      \item de simuler un grand nombre de fois ($N = 10000$ par
+        exemple) la \var $V$.\\
+        Formellement, on souhaite obtenir un $N$-uplet $(v_1,
+        \ldots, v_N)$ qui correspond à l'observation d'un
+        $N$-échantillon $(V_1, \ldots, V_N)$ de la \var $V$.
+      \item de réaliser la moyenne des résultats de cette
+        observation.
+      \end{noliste}
+      Cette idée est justifiée par la loi faible des grands nombres
+      (LfGN) qui affirme :
+      \[
+      \mbox{moyenne de l'observation} = \dfrac{1}{N} \ \Sum{i =
+        1}{N} v_i \ \simeq \ \E(V)
+      \]
+
+    \item Il reste à obtenir le $N$-uplet $(v_1, \ldots, v_N)$. Pour
+      ce faire, on dispose d'un $N$-uplet $(x_1, \ldots, x_N)$ qui
+      correspond à l'observation d'un $N$-échantillon $(X_1, \ldots,
+      X_N)$ de la \var $X$.\\
+      Cette observation permet d'obtenir $(v_1, \hdots, v_N)$ en 
+      écrivant :
+      \[
+      v_i \ = \ h\big(x_i - r_{\beta}(X)\big)
+      \]
+      Il est à noter que, comme le suggère l'énoncé, la valeur de
+      $r_{\beta}(X)$ sera obtenue par l'appel à la fonction {\tt VaR}.
+
+    \item La valeur approchée de $ES_{\beta}(X)$ est alors obtenue par
+      le calcul : $r_{\beta}(X) + \dfrac{1}{1-\beta} \ \dfrac{1}{N} \
+      \Sum{i = 1}{N} v_i$.
+
+    \item Ce qui aboutit à la fonction
+      suivante :\\[-.2cm]
+        \begin{scilab}
+          & \tcFun{function} \tcVar{ES} =
+          \underline{ExpectedShortfall}(\tcVar{X}, \tcVar{beta}) \nl %
+          & \qquad N = length(\tcVar{X}) \nl %
+          & \qquad V = zeros(1, N) \nl %
+          & \qquad r = VaR(\tcVar{X}, \tcVar{beta}) \nl %
+          & \qquad \tcFor{for} i=1:N \nl %
+          & \qquad \qquad V(i) = max(\tcVar{X}(i)-r, 0) \nl %
+          & \qquad \tcFor{end} \nl %
+          & \qquad \tcVar{ES} = r + 1/(1-beta) \Sfois{} 1/N \Sfois{}
+          sum(V) \nl %
+          & \tcFun{endfunction}
+        \end{scilab}~\\%[-.2cm]
+        Détaillons les différents éléments de ce code :
+        \begin{noliste}{$\stimes$}
+        \item le paramètre \tcVar{X} correspond à l'observation $(x_1,
+          \ldots, x_N)$.
+        \item en ligne \ligne{2}, on récupère la taille de
+          l'échantillon fourni en paramètre.
+        \item en ligne \ligne{3}, on crée une matrice ligne de taille
+          $N$ permettant à terme de stocker l'observation $(v_1,
+          \ldots, v_N)$.
+        \item en lignes \ligne{5} à \ligne{7}, on effectue une boucle
+          permettant d'obtenir successivement chaque $v_i$ à l'aide de
+          la valeur $x_i$ fournit en paramètre.
+        \item en ligne \ligne{8}, on obtient la valeur approchée de
+          $ES_{\beta}(X)$ en effectuant le calcul annoncé.
+        \end{noliste}
+      \end{noliste}
+      
+      
+      \newpage
+      
+      
+      \begin{remark}%~%
+        \begin{noliste}{$\sbullet$}
+        \item Afin de permettre une bonne compréhension des mécanismes
+          en jeu, on a détaillé la réponse à cette
+          question. Cependant, écrire correctement la fonction
+          \Scilab{} démontre la bonne compréhension et permet
+          certainement d'obtenir tous les points alloués.
+        \item On s'est servi en ligne \ligne{6} de la fonction {\tt
+            max} prédéfinie en \Scilab{}.\\
+          Il était aussi possible d'utiliser une structure
+          conditionnelle :%\\[-.2cm]
+          \begin{scilabC}{5}
+            & \qquad \qquad \tcIf{if} \tcVar{X}(i)-r > 0
+            \tcIf{then} \nl %
+            & \qquad \qquad \qquad V(i) = \tcVar{X}(i)-r \nl %
+            & \qquad \qquad \tcIf{else} \nl %
+            & \qquad \qquad \qquad V(i) = 0 \nl %
+            & \qquad \qquad \tcIf{end}
+          \end{scilabC}
+        % On procédera de même dans les autres questions \Scilab{}.
+      \item Enfin, il est possible de calculer la somme $\Sum{i =
+          1}{N} v_i$ sans créer une matrice de taille $N$. Pour ce
+        faire, on crée une variable {\tt S} qu'on initialise à $0$ et
+        qu'on met à jour dans la boucle. On obtient le programme
+        suivant :
+        \begin{scilab}
+          & \tcFun{function} \tcVar{ES} =
+          \underline{ExpectedShortfall}(\tcVar{X}, \tcVar{beta}) \nl %
+          & \qquad N = length(\tcVar{X}) \nl %
+          & \qquad S = 0 \nl %
+          & \qquad r = VaR(\tcVar{X}, \tcVar{beta}) \nl %
+          & \qquad \tcFor{for} i=1:N \nl %
+          & \qquad \qquad S = S + max(\tcVar{X}(i)-r, 0) \nl %
+          & \qquad \tcFor{end} \nl %
+          & \qquad \tcVar{ES} = r + 1/(1-beta) \Sfois{} 1/N \Sfois{}
+          S \nl %
+          & \tcFun{endfunction}
+        \end{scilab}
+      \end{noliste}
+    \end{remark}~\\[-1.4cm]
+  \end{proof}
+  
+  \item Soit $Z$ une variable aléatoire telle que : 
+  $\E(Z)=1$ et $0\leq Z \leq \dfrac1{1-\beta}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Justifier l'égalité entre variables aléatoires : 
+    $h(X-r_\beta(X))=(X-r_\beta(X)) \times \unq_{\Ev{X > 
+    r_\beta(X)}}$.
+    
+    \begin{proof}~\\
+      Soit $\omega \in \Omega$.\\
+      Deux cas se présentent.
+      \begin{noliste}{$\sbullet$}
+	\item \dashuline{Si $X(\omega) > r_\beta(X)$}, alors :
+	\begin{noliste}{$\stimes$}
+	  \item par définition de la \var indicatrice $\unq_{\Ev{ X >
+	  r_\beta(X)}}$ : $\unq_{\Ev{ X> r_\beta(X)}}(\omega) = 1$.\\
+	  Donc :
+	  \[
+	    (X(\omega) - r_\beta(X)) \times \unq_{\Ev{ X > r_\beta(X)}}
+	    (\omega) \ = \ X(\omega) - r_\beta(X)
+	  \]
+	  
+	  \item par définition de $t \mapsto h(t- r_\beta(X))$ : 
+	  $h(X(\omega) - r_\beta(X)) = X(\omega) - r_\beta(X)$.
+	\end{noliste}
+	D'où :
+	\[
+	  h(X(\omega) - r_\beta(X)) \ = \ (X(\omega) - r_\beta(X))
+	  \times \unq_{\Ev{ X> r_\beta(X)}}(\omega)
+	\]
+	
+	\item \dashuline{Si $X(\omega) \leq r_\beta(X)$}, alors :
+	\begin{noliste}{$\stimes$}
+	  \item par définition de la \var indicatrice $\unq_{\Ev{ X >
+	  r_\beta(X)}}$ : $\unq_{\Ev{ X> r_\beta(X)}}(\omega) = 0$.\\
+	  Donc :
+	  \[
+	    (X(\omega) - r_\beta(X)) \times \unq_{\Ev{ X > r_\beta(X)}}
+	    (\omega) \ = \ 0
+	  \]
+	  
+	  \item par définition de $t \mapsto h(t- r_\beta(X))$ : 
+	  $h(X(\omega) - r_\beta(X)) = 0$.
+	\end{noliste}
+	
+	
+	\newpage
+	
+	
+	D'où :
+	\[
+	  h(X(\omega) - r_\beta(X)) \ = \ (X(\omega) - r_\beta(X))
+	  \times \unq_{\Ev{ X> r_\beta(X)}}(\omega)
+	\]
+      \end{noliste}
+      Finalement : $\forall \omega \in \Omega$, $h(X(\omega) - 
+      r_\beta(X)) = (X(\omega)- r_\beta(X)) \times \unq_{\Ev{X > 
+      r_\beta(X)}}(\omega)$.
+      \conc{$h(X- r_\beta(X)) = (X- r_\beta(X)) \times \unq_{ \Ev{
+      X > r_\beta(X)}}$}~\\[-1cm]
+    \end{proof}
+
+    
+    \item Montrer que $\E(XZ)$ existe et établir l'égalité :
+    \[
+    ES_\beta(X) -\E(XZ) = \dfrac{1}{1-\beta} \E\left[(X-r_\beta(X))
+      (\unq_{\Ev{X > r_\beta(X)}}-(1-\beta)Z)\right]
+    \]
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+        % \item \begin{noliste}{$\stimes$}
+      \item D'après l'énoncé : $0 \leq Z \leq \dfrac{1}{1-\beta}$.\\
+        Donc, comme $\vert X \vert$ est à valeurs positives : $ 0 \
+        \leq \ \vert X \vert \, Z \ \leq \ \dfrac{1}{1-\beta} \,
+	\vert X \vert$.\\
+	D'où, comme $Z$ est aussi à valeurs positives :
+	\[
+	  0 \ \leq \ \vert X Z \vert \ \leq \dfrac{1}{1-\beta} \, \vert 
+	  X \vert \quad (\star)
+	\]
+
+      \item Démontrons alors que $|X|$ admet une espérance.\\
+        D'après le théorème de transfert, $|X|$ admet une espérance si
+        et seulement si l'intégrale impropre $\dint{-\infty}{+\infty}
+        |t| \ f_X(t) \dt$ est absolument convergente.\\[.2cm]
+        Or, comme $X \in {\cal D}$, alors $X$ admet une
+        espérance. Cela signifie que l'intégrale impropre
+        $\dint{-\infty}{+\infty} t \ f_X(t) \dt$ est absolument
+        convergente. Enfin, comme $f$ est à valeurs positives :
+        \[
+        \forall t \in \R, \ |t \ f_X(t)| \ = \ |t| \ |f_X(t)| \ = \
+        |t| \ f_X(t)
+        \]
+        On en conclut que $|X|$ admet une espérance si et seulement si
+        $X$ admet une espérance.%
+        \conc{Et comme $X$ admet une espérance, il en est de même de $|X|$.}
+
+%       \item De plus, comme $X$ est une \var à densité, elle admet une
+%         espérance si et seulement si l'intégrale
+%         $\dint{-\infty}{+\infty} t\, f_X(t) \dt$ converge absolument,
+%         c'est-à-dire $\dint{-\infty}{+\infty} \vert t \vert \, f_X(t)
+%         \dt$ converge (car, comme $f_X$ est une densité : $\forall t
+%         \in \R$, $f_X(t) \geq 0$).\\
+
+% 	Finalement, la \var $X$ admet une espérance ssi $\vert X
+%         \vert$ admet une espérance.
+	
+      \item Or, il est précisé dans l'énoncé la propriété suivante :
+	\[
+	  \left\{
+	  \begin{array}{l}
+	    0 \leq U \leq V \\[.1cm]
+	    \text{$\E(V)$ existe}
+	  \end{array}
+	  \right. 
+	  \ \Rightarrow \ 
+	  \left\{
+	  \begin{array}{l}
+	    \text{$\E(U)$ existe}\\[.1cm]
+	    0 \leq \E(U) \leq \E(V)
+	  \end{array}
+	  \right. \qquad (\star \star)
+	\]
+        La propriété $(\star)$ étant vérifiée, et comme $|X|$ admet
+        une espérance, on peut appliquer la propriété rappelée
+        ci-dessus à $U= \vert XZ \vert$ et $V=\dfrac{1}{1- \beta}
+        \vert X \vert$.\\
+        On en déduit que la \var $\vert XZ \vert$ admet une
+        espérance.%
+        \conc{Ainsi, $XZ$ admet une espérance.}
+        % \end{noliste}
+	
+      \item Il s'agit maintenant d'établir l'égalité énoncée. \\
+        Tout d'abord, d'après la question \itbf{20.a)} :
+	\[
+	  \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+	    (X- r_\beta(X)) \Big(\unq_{\Ev{X > r_\beta(X)}} - (1-\beta)
+	    Z \Big) & = & (X-r_\beta(X)) \, \unq_{\Ev{X > r_\beta(X)}}
+	    - (X- r_\beta(X))(1-\beta) Z
+	    \\[.4cm]
+	    & = & h(X- r_\beta(X)) - (1-\beta) XZ + (1-\beta)r_\beta(X)
+	    Z
+	  \end{array}
+	\]
+	
+	
+	\newpage
+	
+	
+      \item De plus les \var $h(X- r_\beta(X))$, $XZ$ et $Z$ admettent
+	une espérance.\\
+	Ainsi, la \var $(X- r_\beta(X)) \Big(\unq_{\Ev{X >
+            r_\beta(X)}} - (1-\beta)Z \Big)$ admet une espérance en
+        tant que combinaison linéaire de \var qui en admettent une.\\
+        Enfin, par linéarité de l'espérance :
+	\[
+	  \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+	    & & \E\Big((X- r_\beta(X)) (\unq_{\Ev{X > r_\beta(X)}} - 
+	    (1-\beta) Z )\Big) 
+	    \\[.4cm]
+	    &=& \E(h(X-r_\beta(X))) - 
+	    (1-\beta) \E(XZ) + (1-\beta) r_\beta(X) \E(Z)
+	    \\[.4cm]
+	    &=& (1-\beta) (ES_\beta(X)- \bcancel{r_\beta(X)})
+	    -(1-\beta) \E(XZ)
+	    +\bcancel{(1-\beta) r_\beta(X)}
+	    & (d'après \itbf{18.b)} et car $\E(Z)=1$ d'après l'énoncé)
+	    \nl
+	    \nl[-.2cm]
+	    &=& (1-\beta)\Big(ES_\beta(X) - \E(XZ)\Big)
+	  \end{array}
+	\]
+	\conc{$ES_\beta(X) - \E(XZ) \ = \ \dfrac{1}{1-\beta} \, 
+	\E\Big( (X- r_\beta(X)) (\unq_{\Ev{X > r_\beta(X)}} - 
+	    (1-\beta) Z )\Big)$}
+      \end{noliste}
+      
+      \begin{remark}
+        \begin{noliste}{$\sbullet$}
+	  \item Pour les \var à densité ou discrètes, la propriété :
+	  \[
+	    \text{$X$ admet une espérance \ $\Leftrightarrow$ \ $\vert 
+	    X \vert$ admet une espérance}
+	  \]
+	  est immédiate par définition de l'espérance (comme 
+	  démontré plus haut).
+	  
+	  \item Elle est cependant bien moins triviale pour des \var 
+	  quelconques puisque l'on n'a pas accès à une expression 
+	  explicite de l'espérance.\\
+	  On peut cependant démontrer l'implication :
+	  \[
+	    \text{$\vert X \vert$ admet une espérance \ $\Rightarrow$ \ 
+	    $X$ admet une espérance}
+	  \]
+        \item Détaillons cette démonstration.\\
+          On suppose que $\vert X \vert$ admet une espérance.
+	  \begin{noliste}{$\stimes$}
+	    \item On commence par définir les \var suivantes :
+	    \[
+	      X^+ \ = \ \dfrac{\vert X \vert +X}{2} \quad \text{et} 
+	      \quad X^- \ = \ \dfrac{\vert X \vert -X}{2}
+	    \]
+	    La \var $X^+=\max(X,0)$ est la partie positive de $X$.\\
+	    La \var $X^-=-\min(X,0)$ est la partie négative de $X$.
+	    
+	    \item Par définition de $X^+$ et $X^-$, on a :
+	    \[
+	      0 \leq X^+ \leq \vert X \vert \quad \text{et} \quad 
+	      0 \leq X^- \leq \vert X \vert
+	    \]
+	    Or $\vert X \vert$ admet une espérance.\\
+	    Donc, d'après la propriété $(\star \star)$ de l'énoncé, les 
+	    \var 
+	    $X^+$ et 
+	    $X^-$ admettent des espérances.
+	    
+	    \item Enfin, on remarque :
+	    \[
+	      X = X^+ - X^-
+	    \]
+	    Donc $X$ admet une espérance en tant que différence de \var 
+	    en admettant une.
+	  \end{noliste}
+	\end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+    
+    
+    \newpage
+    
+    
+    \item En déduire que $ES_\beta(X)-\E(XZ) \geq 0$.\\
+    Comment choisir $Z$ pour que $ES_\beta(X)=\E(XZ)$ ?
+    
+    \begin{proof}~\\
+      D'après la question précédente :
+      \[
+        ES_\beta(X) - \E(XZ) \ = \ \dfrac{1}{1-\beta} \, 
+	\E\Big( (X- r_\beta(X)) (\unq_{\Ev{X > r_\beta(X)}} - 
+	(1-\beta) Z )\Big)
+      \]
+      Montrons donc :
+      \[
+        (X- r_\beta(X)) (\unq_{\Ev{X > r_\beta(X)}} - 
+	(1-\beta) Z ) \geq 0
+      \]
+      Soit $\omega \in \Omega$. D'après l'énoncé : $0 \leq Z(\omega) 
+      \leq \dfrac{1}{1-\beta}$. Or :
+      \[
+        0 \leq Z(\omega) \leq \dfrac{1}{1-\beta} \ \Leftrightarrow \
+        0 \leq (1-\beta)Z(\omega) \leq 1 \ \Leftrightarrow \ 
+        -1 \leq -(1-\beta)Z(\omega) \leq 0
+      \]
+      Deux cas se présentent alors.
+      \begin{noliste}{$\sbullet$}
+	\item \dashuline{Si $X(\omega) > r_\beta(X)$}, alors :
+	\begin{noliste}{$\stimes$}
+	  \item $X(\omega) - r_\beta(X) > 0$ ;
+	  \item $\unq_{\Ev{X >r_\beta(X)}}(\omega) =1$. Donc :
+	  $0 \ \leq \ \unq_{\Ev{X > r_\beta(X)}}(\omega) - (1-\beta)Z 
+	  (\omega) \ \leq \ 1$.
+	\end{noliste}
+	D'où : $(X(\omega) - r_\beta(X))(\unq_{\Ev{ X > r_\beta(X)}}
+	(\omega) - (1-\beta) Z(\omega)) \ \geq \ 0$.
+	
+	\item \dashuline{Si $X(\omega) \leq r_\beta(X)$}, alors :
+	\begin{noliste}{$\stimes$}
+	  \item $X(\omega) - r_\beta(X) \leq 0$ ;
+	  \item $\unq_{\Ev{X >r_\beta(X)}}(\omega) =0$. Donc :
+	  $-1 \ \leq \ \unq_{\Ev{X > r_\beta(X)}}(\omega) - (1-\beta)Z 
+	  (\omega) \ \leq \ 0$.
+	\end{noliste}
+	D'où : $(X(\omega) - r_\beta(X))(\unq_{\Ev{ X > r_\beta(X)}}
+	(\omega) - (1-\beta) Z(\omega)) \ \geq \ 0$.
+      \end{noliste}
+      Finalement : $\forall \omega \in \Omega, \ 
+      (X(\omega) - r_\beta(X))(\unq_{\Ev{ X > r_\beta(X)}}
+      (\omega) - (1-\beta) Z(\omega)) \ \geq \ 0$.
+      \conc{$(X - r_\beta(X))(\unq_{\Ev{ X > r_\beta(X)}}
+      - (1-\beta) Z) \ \geq \ 0$}
+      
+      Par positivité de l'espérance :
+      \[
+        \E\Big( (X - r_\beta(X))(\unq_{\Ev{ X > r_\beta(X)}}
+	- (1-\beta) Z) \Big) \ \geq \ 0
+      \]
+      De plus : $\beta \in \ ]0,1[$. Donc $\dfrac{1}{1-\beta} >0$.
+      \conc{Ainsi : $ES_\beta(X) - \E(XZ) \geq 0$.}
+      
+      Tout d'abord :
+      \[
+        \begin{array}{rcl@{\quad}>{\it}R{6cm}}
+          & & ES_\beta(X) - \E(XZ) = 0 
+          \\[.2cm]
+          & \Leftrightarrow & 
+          \dfrac{1}{1-\beta} \, \E\Big( (X - r_\beta(X))(\unq_{\Ev{ X > 
+	  r_\beta(X)}} - (1-\beta) Z) \Big)= 0
+	  \\[.4cm]
+	  & \Leftrightarrow & \E\Big( (X - r_\beta(X))(\unq_{\Ev{ X > 
+	  r_\beta(X)}} - (1-\beta) Z) \Big) =0
+	  & (car $\dfrac{1}{1-\beta} \neq 0$)
+	  \nl
+	  \nl[-.2cm]
+	  & \Leftrightarrow & (X - r_\beta(X))(\unq_{\Ev{ X > 
+	  r_\beta(X)}} - (1-\beta) Z) = 0
+	  & (par positivité de l'espérance, car $(X - 
+	  r_\beta(X))(\unq_{\Ev{ X > 
+	  r_\beta(X)}} - (1-\beta) Z)$ est une \var positive)
+	  \nl
+	  \nl[-.2cm]
+	  & \Leftrightarrow & \unq_{\Ev{X > r_\beta(X)}} - 
+	  (1-\beta)Z = 0
+	  & (car $X$ est une \var à densité, donc n'est pas la \var 
+	  constante égale à $r_\beta(X)$)
+	  \nl
+	  \nl[-.2cm]
+	  & \Leftrightarrow & Z = \dfrac{1}{1-\beta} 
+	  \unq_{\Ev{X > r_\beta(X)}}
+        \end{array}
+      \]
+      Vérifions que $Z_0= \dfrac{1}{1-\beta}$ vérifie les deux 
+      propriétés énoncées en début de question.
+      \begin{noliste}{$\sbullet$}
+	\item Par définition d'une \var indicatrice : $0 \ \leq \
+	\unq_{\Ev{X > r_\beta(X)}} \ \leq \ 1$.\\
+	Donc $0 \ \leq \ \dfrac{1}{1-\beta} \unq_{\Ev{ X> r_\beta(X)}}
+	\ \leq \ \dfrac{1}{1-\beta}$.
+	\conc{D'où : $0 \ \leq \ Z_0 \ \leq \ \dfrac{1}{1-\beta}$.}
+	
+	\item Montrons que $\E(Z_0)=1$.\\
+	Pour cela, on note : $Y= \unq_{\Ev{X > r_\beta(X)}}$.
+	\begin{noliste}{$\stimes$}
+	  \item Par définition d'une \var indicatrice : $Y(\Omega)
+	  =\{0,1\}$.
+	  
+	  \item Donc la \var $Y$ suit une loi de Bernoulli de paramètre 
+	  :
+	  \[
+	   p= \Prob(\Ev{Y=1}) \ = \ \Prob\Big(\Ev{\unq_{\Ev{ X > 
+	    r_\beta(X)}}=1}\Big)
+	    \ = \ \Prob(\Ev{X> r_\beta(X)}) \ = \ 1-F_X(r_\beta(X))
+	    \ = \ 1-\beta
+	  \]
+	\end{noliste}
+	\conc{Ainsi : $Y \suit \Bern{1-\beta}$}
+	On en déduit :
+	\[
+	  \E(Z_0) \ = \ \E\left(\dfrac{1}{1-\beta} \, Y\right)
+	  \ = \ \dfrac{1}{1-\beta} \, \E(Y) \ = \
+	  \dfrac{1}{\bcancel{1-\beta}} \bcancel{(1-\beta)} \ = \
+	  1
+	\]
+	\conc{Ainsi : $\E(Z_0)=1$}
+      \end{noliste}
+      \conc{Finalement, en choisissant $Z_0= \dfrac{1}{1-\beta} 
+      \unq_{\Ev{X > r_\beta(X)}}$, on obtient :
+      $ES_\beta(X) \ = \ \E(XZ_0)$.}~\\[-1cm]
+    \end{proof}
+  \end{noliste}
+  
+  
+  
+  \newpage
+  
+  
+
+  \item On note ${\cal K}$ l'ensemble des variables aléatoires $Z$ 
+  sur $(\Omega,\A,\Prob)$ telles que $\E(Z)=1$ et \\
+  $0\leq Z \leq \dfrac{1}{1-\beta}$.\\[.1cm]
+  Justifier l'égalité : $ES_\beta(X)= \dmax{Z \in {\cal K}} 
+  \E(XZ).$
+  
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+      \item D'après la question \itbf{20.c)} :
+      \[
+        \forall \, T \in {\cal K}, \ ES_\beta(X) \geq \E(XT)
+      \]
+      Cette inégalité est vérifiée pour tout $T \in {\cal K}$.\\[.1cm]
+      Donc : $ES_\beta(X) \geq \dmax{Z \in {\cal K}}(\E(XZ))$.
+      
+      \item De plus : $ES_\beta(X) = \E(X Z_0)$ et $Z_0 \in {\cal K}$.
+      Donc : $\dmax{Z \in {\cal K}}(\E(XZ)) = \E(XZ_0)$.
+      \conc{D'où : $ES_\beta(X) \ = \ \dmax{Z \in {\cal K}} 
+      (\E(XZ))$}~\\[-1.6cm]
+    \end{noliste}
+  \end{proof}
+  
+  
+  \item Démontrer que, pour tout $\beta \in \ ]0,1[$, la fonction 
+  $ES_\beta$ est une mesure de risque cohérente sur ${\cal D}$.
+  
+  \begin{proof}~\\
+    Soit $\beta \in \ ]0,1[$.
+    \begin{noliste}{$\sbullet$}
+      \item On sait déjà, d'après les questions \itbf{15.a)} et 
+      \itbf{15.b)} que $ES_\beta$ vérifie $(R_1)$ et $(R_2)$.
+      
+      \item Soit $(X,Y) \in {\cal D}^2$ tel que $X \leq Y$.\\
+      Soit $T \in {\cal K}$. Alors, comme $T\geq 0$ : $XT \leq YT$.\\
+      Donc, par croissance de l'espérance :
+      \[
+        \E(XT) \ \leq \ \E(YT) \ \leq \ \dmax{Z\in {\cal K}}
+        (\E(YZ))
+      \]
+      Cette inégalité est réalisée pour tout $T\in {\cal K}$.\\
+      D'où : $\dmax{Z\in {\cal K}}(\E(XZ)) \leq \dmax{Z\in {\cal K}}
+      (\E(YZ))$.\\
+      D'après la question précédente, on en déduit :
+      \[
+        ES_\beta(X) \leq ES_\beta(Y)
+      \]
+      \conc{Ainsi, $ES_\beta$ vérifie $(R_3)$.}
+      
+      \item Soit $(X,Y) \in {\cal D}^2$ tel que $X +Y\in {\cal D}$.\\
+      Soit $T \in {\cal D}$. Alors, par linéarité de l'espérance :
+      \[
+        \E((X+Y)T) \ = \ \E(XT) + \E(YT) \ \leq \ \dmax{Z\in {\cal K}}
+        (\E(XZ)) + \dmax{Z\in {\cal K}} (\E(YZ))
+      \]
+      Cette inégalité est réalisée pour tout $T\in {\cal K}$.
+      D'où : 
+      \[
+	\dmax{Z\in {\cal K}}(\E((X+Y)Z)) \ 
+	\leq \ \dmax{Z\in {\cal K}}(\E(XZ)) +
+        \dmax{Z\in {\cal K}}(\E(YZ))
+      \]
+      D'après la question précédente, on en déduit :
+      \[
+        ES_\beta(X+Y) \ \leq \ ES_\beta(X) + ES_\beta(Y)
+      \]
+      \conc{Ainsi, $ES_\beta$ vérifie $(R_4)$.}
+    \end{noliste}
+    \conc{On en déduit que $ES_\beta$ est une mesure de risque 
+    cohérente sur ${\cal D}$.}~\\[-1cm]
+  \end{proof}
+\end{noliste}
+

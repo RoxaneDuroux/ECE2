@@ -1,0 +1,292 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1990 - voie Générale} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION GENERALE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 1990}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent Soit $f$ une fonction continue de $[a;b]$ dans $\R$, avec
+$a{\large <}b$. L'objet de ce problème est l'étude d'approximations de
+l'intégrale $J = \dint\limits_{a}{b}f(x)dx$ par la méthode des
+rectangles, c'est à
+dire par la suite $(u_{n})_{n\geq 1}$définie par :
+\[
+u_{n} = \dfrac{b-a}{n}\Sum{k = 0}{n-1}f(x_{k})\text{ avec} :x_{k} = a +
+k\dfrac{b-a}{n}\text{ pour }0\leq k\leq n
+\]
+puis, de façon plus performante, par les suites $(v_{n})_{n\geq 1}$et
+$(w_{n})_{n\geq 1}$définies par :
+
+\[
+\forall n\in \N^{\times },\quad v_{n} = 2u_{2n}-u_{n}\quad w_{n} =
+\dfrac{4v_{2n}-v_{n}}{3}
+\]
+
+\section*{Partie I : Étude d'un premier exemple}
+
+Dans cette partie on suppose que $[a,b] = [0,1]$ et que : $f(x) =
+\dfrac{4}{1 + x^{2}}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Écrire un algorithme de calcul de $u_{n}$ lorsque l'entier
+naturel non
+nul $n$ est donné. À l'aide de cet algorithme, remplir le tableau
+suivant : 
+\[
+\begin{tabular}{|l|l|l|}
+\hline
+$u_{1}$ & $v_{1}$ & $w_{1}$ \\
+\hline
+$u_{2}$ & $v_{2}$ & $w_{2}$ \\
+\hline
+$u_{4}$ & $v_{4}$ & $w_{4}$ \\
+\hline
+$u_{8}$ & $v_{8}$ & \\
+\hline
+$u_{16}$ & & \\
+\hline
+\end{tabular}
+\]
+(on donnera les résultats numériques de ce tableau avec six décimales)
+
+\item Calculer l'intégrale $J$. Évaluer la précision des résultats
+numériques obtenus ci-dessus.
+\end{noliste}
+
+\section*{Partie II : Étude d'un second exemple}
+
+Dans cette partie, on considère un réel $\lambda $ strictement positif
+et
+différent de 1. On suppose que $[a,b] = [0,\pi ]$ et que :
+\[
+f(x) = \ln (\lambda ^{2}-2\lambda \cos x + 1).
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $n$ un entier naturel non nul.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer sous forme trigonométrique les racines dans $\C$ de
+l'équation :
+\[
+y^{2n}-1 = 0.
+\]
+
+\item En déduire, en comparant leur coefficients dominants et leurs
+racines,
+l'égalité suivante entre polynômes :
+\[
+y^{2n}-1 = (y^{2}-1)\prod\limits_{k = 1}{n-1}\left( y^{2}-2ycos\left(
+\dfrac{k\pi }{n}\right) + 1\right)
+\]
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déduire de la question précédente une expression simplifiée de
+$u_{n}$
+et de $v_{n}$.
+
+\item En distinguant les cas $\lambda {\large <}1$ et $\lambda {\large
+>}$1,
+calculer l'intégrale $J$ en déterminant la limite de la suite
+$(u_{n})_{n\geq 1}$, puis donner des équivalents de $u_{n}-J$ et de
+$v_{n}-J$.
+\end{noliste}
+\end{noliste}
+
+\section*{Partie III : Étude du cas général}
+
+On suppose désormais que la fonction $f$ est de classe $C^{4}$sur
+$[a,b]$.
+Pour tout nombre entier naturel $k$ tel que $1\leq k\leq 4$, on
+pose :
+
+\begin{center}
+\[
+M_{k} = \sup\limits_{a\leq x\leq b}f^{(k)}(x)
+\]
+\end{center}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $[ \ \alpha,\beta ]$ un segment inclus dans $[a,b]$. On
+considère
+la fonction auxiliaire $p$ définie sur $[ \ \alpha,\beta ]$ par la
+relation : 
+\[
+p(x) = \dint\limits_{\alpha }{x}f(t)dt-(x-\alpha )f(\alpha ).
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer les deux premières dérivées de $p$.
+
+\item Montrer que, pour tout élément $x$ de $[ \ \alpha,\beta ]$ on a :
+$\left| p(x)\right| \leq M_{1}$.\\
+En déduire par intégration un encadrement de $p(x)$ pour $\alpha \leq
+x\leq \beta $, puis établir l'inégalité suivante :
+\[
+\left| \dint\limits_{\alpha }{\beta }f(t)dt-(\beta -\alpha )f(\alpha
+)\right| \leq \dfrac{(\beta -\alpha )^{2}}{2}M_{1}
+\]
+
+\item En appliquant cette inégalité aux segments $[x_{k},x_{k + 1}]$
+pour $0\leq k\leq n-1$, Prouver enfin que :
+\[
+\left| J-u_{n}\right| \leq \dfrac{(b-a)^{2}}{2n}M_{1}
+\]
+\end{noliste}
+
+\item Soit $[ \ \alpha,\beta ]$ un segment inclus dans $[a,b]$. On
+considère
+la fonction auxiliaire q définie sur $[ \ \alpha,\beta ]$ par la
+relation :
+\[
+q(x) = p(x)-\dfrac{(x-\alpha )(f(x)-f(\alpha ))}{2}.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer les deux premières dérivées de $q$.
+
+\item Établir l'inégalité suivante :
+\[
+\dint\limits_{\alpha }{\beta }f(t)dt-(\beta -\alpha )f(\alpha
+)-\dfrac{(\beta -\alpha )(f(\beta )-f(\alpha ))}{2}\leq \dfrac{(\beta
+-\alpha
+)^{3}}{12}M_{2}.
+\]
+(On pourra encadrer $q\textquotedblright (x)$ sur $[ \ \alpha,\beta ]$,
+puis
+par intégration, en déduire un encadrement de $q(x)$.)
+
+\item Prouver enfin que :
+\[
+\left| J-u_{n}-\dfrac{(b-a)(f(b)-f(a))}{2n}\right| \leq
+\dfrac{(b-a)^{3}}{12n^{2}}M_{2}.
+\]
+\end{noliste}
+
+\item On considère cette fois la fonction auxiliaire $r$ définie sur $[
+\ \alpha,\beta ]$ par la relation :
+\[
+r(x) = q(x) + \dfrac{(x-\alpha )^{2}(f(x)-f(\alpha ))}{12}.
+\]
+En procédant encore de la même manière, établir que :
+\[
+\left| J-u_{n}-\dfrac{(b-a)(f(b)-f(a))}{2n} +
+\dfrac{(b-a)^{2}(f(b)-f(a))}{12n^{2}}\right| \leq
+\dfrac{(b-a)^{5}}{720n^{4}}M_{4}.
+\]
+
+\item Déterminer à l'aide des résultats précédents le développement
+limité à
+l'ordre $3$ de $u_{n}$, c'est à dire des nombres réels $A,B,C$ et $D$
+tels
+que : 
+\[
+u_{n} = A + \dfrac{B}{n} + \dfrac{C}{n^{2}} + \dfrac{D}{n^{3}} +
+\dfrac{\varepsilon
+_{n}}{n^{3}}\text{ avec }\underset{n\rightarrow + \infty }{\lim
+}\varepsilon
+_{n} = 0.
+\]
+En déduire les développements limités à l'ordre $3$ de $v_{n}$et de
+$w_{n}$.
+Conclure.
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

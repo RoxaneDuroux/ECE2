@@ -1,0 +1,309 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1991} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{ESCP 1991}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1991}}
+
+
+
+{\large \textbf{Concepteur : ESCP}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{EXERCICE 1}
+
+On considère les matrices carrées d'ordre 3 suivantes :
+\[
+A = \left( 
+\begin{array}{rrr}
+-1 & -1 & 2 \\
+-2 & 0 & 2 \\
+-2 & -1 & 3
+\end{array}
+\right) ;\quad B = \left( 
+\begin{array}{rrr}
+3 & 1 & -3 \\
+0 & 1 & 0 \\
+2 & 1 & -2
+\end{array}
+\right) ;\quad C = \left( 
+\begin{array}{rrr}
+7 & 3 & -8 \\
+9 & 4 & -11 \\
+9 & 4 & -11
+\end{array}
+\right) ;\quad P = \left( 
+\begin{array}{rrr}
+1 & -1 & 1 \\
+0 & 2 & 1 \\
+1 & 0 & 1
+\end{array}
+\right) 
+\]
+On se propose de résoudre le système d'équations : 
+\[
+\left( S\right) \qquad \left\{ 
+\begin{array}{c}
+XP = PX \\
+AX-XB = C
+\end{array}
+\right. 
+\]
+où $X$ est un élément inconnu de $\mathfrak{M}_{3}(\R)$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Appliquer la méthode du pivot, en explicitant les calculs, pour
+montrer que la matrice $P$ est inversible et pour calculer son inverse.
+
+\item La matrice $P^{-1}$ est-elle solution du système $(S)$ ?
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les valeurs propres des matrices $A$ et $B$.
+
+\item Montrer qu'il existe une base de vecteurs propres communs à $A$
+et à $B
+$ telle que la matrice de passage associée soit $P$.
+\end{noliste}
+
+\item Dans ce qui suit, on pose : $Y = X-P^{-1}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la matrice X est solution du système $(S)$ si et
+seulement
+si la matrice $Y$ vérifie le système :
+\[
+\left\{ 
+\begin{array}{c}
+PY = YP \\
+\left( 
+\begin{array}{rrr}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 0
+\end{array}
+\right) Y-Y\left( 
+\begin{array}{rrr}
+0 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{array}
+\right) = O
+\end{array}
+\right. 
+\]
+
+\item En déduire l'ensemble des solutions du système $(S)$.
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+Pour tout nombre entier naturel $n$, on considère les fonctions $g_{n}$
+et $G_{n}$ définies sur $\R_{+}$ par les relations :
+\[
+g_{n}(x) = x^{n}e^{-x/2};\quad G_{n}(x) = \dfrac{1}{2^{n +
+1}n!}\dint{0}{x}g_{n}(t)dt.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Étudier les variations des fonctions $g_{0}$, $g_{1}$ et $g_{2}$.
+Tracer les graphes de ces fonctions dans un même repère cartésien.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item À l'aide d'une intégration par parties, calculer $G_{n +
+1}(x)-G_{n}(x)$
+
+\item Calculer $G_{0}(x)$, $G_{1}(x)$ et $G_{2}(x)$.
+
+\item Déterminer la limite de $G_{0}(x)$ lorsque $x$ tend vers $ +
+\infty $.
+En déduire la limite de $G_{n}(x)$ lorsque $x$ tend vers $ + \infty $
+(l'entier $n$ étant fixé).
+\end{noliste}
+
+\item Soit $F_{n}$ la fonction définie sur $\R$ par : 
+\[
+\begin{tabular}{ll}
+si $x\geq 0,$ & $F_{n}(x) = G_{n}(x).$ \\
+si $x<0,$ & $F_{n}(x) = 0.$\end{tabular}
+\]
+
+\begin{noliste}{$\sbullet$}
+\item Montrer que $F_{n}$ a les propriété d'une fonction de
+répartition.\\
+On considère une variable aléatoire $X_{n}$ de fonction de répartition
+$F_{n}
+$.
+
+\item Déterminer une densité $f_{n}$ de $X_{n}$.
+
+\item Calculer l'espérance $\E(X_{n})$ et la variance $\V(X_{n})$.
+Vérifier
+que le rapport $\dfrac{\E(X_{n})}{\V(X_{n})}$ est indépendant de $n$.
+\end{noliste}
+
+\item Montrer que, pour tout nombre entier naturel non nul $n$, la
+fonction $f_{n}$ prend une valeur maximale $M_{n}$. Trouver la limite,
+lorsque $n$
+tend vers $ + \infty $, du rapport $\dfrac{M_{n + 1}}{M_{n}}.$
+
+\item On suppose que le nombre réel strictement positif $x$ est fixé.
+Soit $T
+$ une variable aléatoire à valeurs dans $\N$ telle que, pour tout
+nombre entier naturel non nul $n$, la probabilité pour que $T\geq n$
+soit égale à $F_{n-1}(x)$. Déterminer la loi de probabilité de $T$.
+Calculer
+l'espérance et la variance de $T$.
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

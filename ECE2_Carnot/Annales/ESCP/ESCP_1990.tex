@@ -1,0 +1,338 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1990} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{ESCP 1990}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1990}}
+
+
+
+{\large \textbf{Concepteur : ESCP}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{Exercice 1}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Utiliser la méthode du pivot pour inverser la matrice : 
+\[
+A = 
+\begin{smatrix}
+5 & 3 & -1 \\
+-1 & 5 & 3 \\
+3 & -1 & 5
+\end{smatrix}
+\]
+
+\item On considère le système $(S)$ de trois équations à trois
+inconnues
+suivant : 
+\[
+(S) :\left\{
+\begin{array}{cl}
+x^{2}-yz = 5 \\
+y^{2}-zx = -1 \\
+z^{2}-xy = 3
+\end{array}
+\right.
+\]
+Pour tout triplet $(x,y,z)$ de nombres réels, on pose : 
+\[
+M_{(x,y,z)} = 
+\begin{smatrix}
+x & y & z \\
+z & x & y \\
+y & z & x
+\end{smatrix}
+\]
+Prouver que si $(x,y,z)$ est une solution de $(S)$, alors : 
+\[
+AM_{(x,y,z)} = (5x-y + 3z)I_{3}.
+\]
+En déduire que, dans ces conditions, il existe un nombre réel $k$ tel
+que : 
+\[
+x = 2k,\quad y = -k,\quad z = k.
+\]
+
+\item Montrer que le système $(S)$ admet deux solutions que l'on
+calculera.
+\end{noliste}
+
+\section*{Exercice 2}
+
+Soit $f$ la fonction numérique définie sur $[0, + \infty \lbrack $ par
+la
+relation : 
+\[
+f(t) = \ln (1 + t) + \frac{t^{2}}{1 + t^{2}}.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier les variations de $f$.
+
+\item Déterminer la limite du rapport $\dfrac{f(t)}{t}$ lorsque $t$
+tend
+vers $ + \infty $. Tracer la courbe représentative de $f$.
+\end{noliste}
+
+\item Soit $n$ un entier naturel non nul. On considère l'équation : 
+\[
+(E_{n}) :f(t) = \frac{1}{n}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que l'équation $(E_{n})$ admet une solution $\alpha_{n}$
+et
+une seule. Donner des valeurs approchées de $\alpha_{1}$ et de
+$\alpha_{2}$
+à $10^{-2}$ près.
+
+\item Montrer que la fonction $f$ admet une fonction réciproque.
+Dresser le
+tableau de variation de $f^{-1}$ et tracer la courbe représentative de
+cette
+fonction.
+
+En déduire le sens de variation et la limite de la suite $(\alpha
+_{n})_{n\in \N^{\times }}$.
+
+\item Déterminer la limite du rapport $\dfrac{f(t)}{t}$ lorsque $t$
+tend
+vers $0$ par valeurs strictement positives.
+
+En déduire la limite de la suite $(n\alpha_{n})_{n\in \N^{\times }}$.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 3}
+
+Pour tout nombre réel $p$ tel que $0<p<1$, on dit qu'une variable
+aléatoire $X$ définie sur un espace probabilisé
+$\left(\Omega,\mathcal{A},P\right)$ suit une loi de type $G$ de
+paramètre $p$ si, pour tout
+nombre entier naturel $n$, 
+\[
+P\left(\Ev{X = n}\right) = \left(\Ev{1-p}\right)^{n}p.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \label{def T} Soit $T$ une variable aléatoire définie sur $\left(
+\Omega,\mathcal{A},P\right) $ représentant le nombre de jours pendant
+lesquels une machine fonctionne avant de tomber en panne. On suppose,
+que
+pour tout nombre entier naturel $n$, $P\left(\Ev{T\geq n}\right)>0$ ;
+on note $\theta
+(n)$ la probabilité conditionnelle $P\left(\Ev{T = n/T\geq n}\right)$,
+qu'on appelle 
+\emph{taux de panne} de la machine au $n^{i\grave{e}me}$ jour.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que :
+\[
+\theta (n) = 1-\frac{P\left(\Ev{T\geq n + 1}\right)}{P\left(\Ev{T\geq
+n}\right)}.
+\]
+
+\item Exprimer $P\left(\Ev{T\geq n}\right)$ et $P\left(\Ev{T =
+n}\right)$ à l'aide des nombres $\theta
+(j) $, où $j\in \N$.
+
+\item Montrer que la variable aléatoire $T$ suit une loi de type $G$ si
+et
+seulement si la suite $\left( \theta (n)\right)_{n\in \N}$ est
+constante.
+\end{noliste}
+
+\item \label{def Ti} On suppose maintenant qu'on a affaire à un système
+de
+deux machines montées en série : chaque pièce passe successivement dans
+les
+deux machines, notées $M_{1}$ et $M_{2}$. \\
+à chaque machine $M_{i}$, où $i\in \{1,2\}$, on associe une variable
+aléatoire $T_{i}$ définie comme la variable $T$ de la question \ref{def
+T}. 
+\\
+On note $T_{\ast }$ le nombre de jours pendant lesquels le système
+fonctionne, c'est-à-dire pendant lesquels aucune des deux machines ne
+tombe
+en panne. \\
+On suppose que $T_{1}$ et $T_{2}$ sont définies sur l'espace
+probabilisé $\left( \Omega,\mathcal{A},P\right) $, indépendantes et de
+loi $G$ de paramètres respectifs $p_{1}$ et $p_{2}$ ;\\
+on pose $q_{1} = 1-p_{1}$ et $q_{2} = 1-p_{2}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer $T_{\ast }$ à l'aide de $T_{1}$ et $T_{2}$. Calculer
+$P\left(\Ev{T_{\times }\geq n}\right)$.
+
+\item Exprimer le taux de panne $\theta_{\ast }(n)$ du système en
+fonction
+de $q_{1}$ et $q_{2}$.
+\end{noliste}
+
+\item Soit cette fois un système de deux machines en parallèle : chaque
+pièce est fabriquée soit par $M_{1}$ soit par $M_{2}$. On note $T_{1}$
+et $T_{2} $ les variables aléatoires associées respectivement à $M_{1}$
+et à $M_{2}$ comme dans la question \ref{def Ti}. On suppose qu'elles
+satisfont
+aux mêmes hypothèses et on note $T^{\ast }$ le nombre de jours pendant
+lesquels le système fonctionne, c'est-à-dire que l'une au moins des
+deux
+machines ne tombe pas en panne.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer $T^{\ast }$ à l'aide de $T_{1}$ et $T_{2}$. Calculer
+$P\left(\Ev{T^{\ast }\geq n}\right)$.
+
+\item Exprimer le taux de panne $\theta ^{\ast }(n)$ du système.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

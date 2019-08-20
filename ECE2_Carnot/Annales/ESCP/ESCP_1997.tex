@@ -1,0 +1,407 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1997} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{ESCP 2005}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2005}}
+
+
+
+{\large \textbf{Concepteur : ESCP}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{EXERCICE I}
+
+On note $\mathfrak{M}_{3}\left( \R\right) $ l'ensemble des matrices
+carrées d'ordre 3 à coefficients réels, $u$ l'application identique de
+l'espace vectoriel $\R^{3}$dans lui même et $I$ la matrice identité
+de $\mathfrak{M}_{3}\left( \R\right) $ représentant $u$ dans la base
+canonique de $\R^{3}$.\\
+On considère la matrice 
+\[
+A = \left( 
+\begin{array}{ccc}
+2 & 0 & -1 \\
+0 & 1 & 0 \\
+-1 & 0 & 2
+\end{array}
+\right) 
+\]
+et on note $f$ l'endomorphisme de $\R^{3}$ représenté par $A$ dans
+la base canonique de $\R^{3}$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer les valeurs propres de $f$. L'endomorphisme $f$ est-il
+diagonalisable ?
+
+\item Etant donné un couple $\left( a,b\right) $ de réels, déterminer
+les
+valeurs propres de l'endomorphisme $af + bu$ de $\R^{3}.$ Pour quelles
+valeurs de $\left( a,b\right) $ cet endomorphisme est-il diagonalisable
+?
+
+\item Quelles relations le couple $\left( a,b\right) $ doit-il vérifier
+pour
+que l'endomorphisme $af + bu$ soit inversible ? Montrer que l'inverse
+de $af + bu$, quand il existe, est de la forme $\lambda f + \mu u$ où
+$\lambda $ et $\mu $
+sont des réels dont on donnera l'expression en fonction de $a$ et $b$.
+
+On considère maintenant l'ensemble $\mathcal{E}$ des matrices $T$ de
+$\mathfrak{M}_{3}\left( \R\right) $ qui commutent avec $A$ c'est à
+dire qui vérifient $AT = TA$.
+
+\item Montrer que $\mathcal{E}$ est un sous-espace vectoriel de
+$\mathfrak{M}_{3}\left( \R\right) $
+
+\item Pour une matrice $T$ de la forme $T = $ $\left( 
+\begin{array}{ccc}
+a & b & c \\
+d & e & f \\
+g & h & i
+\end{array}
+\right),$ calculer $AT-TA$. En déduire une base de $\mathcal{E}$ et sa
+dimension.
+
+\item Soit $\Phi $ l'application de $\mathfrak{M}_{3}\left( \R\right) $
+dans lui même qui fait correspondre à la matrice $T$ la matrice
+$AT-TA$. Montrer que $\Phi $ est un endomorphisme de
+$\mathfrak{M}_{3}\left( 
+\R\right) $. Donner une base du noyau et une base de l'image de $\Phi $
+\end{noliste}
+
+\section*{EXERCICE II}
+
+Dans tout l'exercice $\lambda $ désignera un réel strictement positif
+et $\
+f_{\lambda }$ sera la fonction définie sur $\R$ par : $f_{\lambda
+} = e^{-\lambda x^{2}}$, pour tout réel $x$.\\
+Le but de l'exercice est l'étude de la suite $\left( u_{n}\right)_{n\in
+
+\N}$ définie par $u_{0} = 0$ et $u_{n + 1} = $ $f_{\lambda }\left(
+u_{n}\right) $ pour tout $n\in \N$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que l'équation $f_{\lambda }\left( x\right) $ $ = x$,
+d'inconnue 
+$x$, admet une seule racine dans $\R$ et que cette racine appartient 
+à $]0,1[$. On note $\ell_{\lambda }$ cette racine.
+
+\item Montrer que, si $\lambda >\dfrac{e}{2}$, alors $\ell_{\lambda
+}>\dfrac{1}{\sqrt{2\lambda }}$
+\end{noliste}
+
+\item On suppose dans cette question que $\lambda $ $\leq
+\dfrac{1}{2}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\max\limits_{x\in \left[ 0,1\right] }\left|
+f_{\lambda }{\prime }\left( x\right) \right| <1$
+
+\item Montrer que la suite $\left( u_{n}\right)_{n\in \N}$ admet
+pour limite $\ell_{\lambda }$.
+\end{noliste}
+
+On revient au cas général, c'est à dire $\lambda \in \R_{+}{\times
+} $.
+
+\item On pose $g_{\lambda } = f_{\lambda }\circ f_{\lambda }$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $g_{\lambda }$ est strictement croissante sur $\left[
+0, + \infty \right[ $.
+
+\item Montrer que les deux suites $\left( u_{2n}\right)_{n\in \N}$
+et $\left( u_{2n + 1}\right)_{n\in \N}$ sont monotones et
+convergentes.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que les racines éventuelles de l'équation $g_{\lambda
+}\left(
+x\right) = x$ appartiennent à $]0,1[$. Vérifier que $\ell_{\lambda }$
+est
+une racine de cette dernière équation.
+
+\item Soit $x\in \left] 0,1\right[ $. Montrer que $g_{\lambda }\left(
+x\right) = x$ si et seulement si $\ln \left( -\ln \left( x\right)
+\right)
+ + 2\lambda x^{2}-\ln \left( \lambda \right) = 0$
+
+\item Pour tout $x\in \left] 0,1\right[ $, on pose $h_{\lambda }\left(
+x\right) = \ln \left( -\ln \left( x\right) \right) + 2\lambda x^{2}-\ln
+\left(
+\lambda \right) $
+
+Montrer que la fonction $h_{\lambda }$ est dérivable sur $]0,1[$ et que
+$h_{\lambda }{\prime }\left( x\right) $ a le signe opposé de celui de
+$1 + 4\lambda x^{2}\ln \left( x\right) $
+
+\item Pour tout $x\in \left] 0,1\right[ $, on pose $k_{\lambda }\left(
+x\right) = 1 + 4\lambda x^{2}\ln \left( x\right) $. Dresser le tableau
+de
+variation de la fonction $k_{\lambda }$.
+
+\item On se place désormais dans le cas où $\lambda >\dfrac{e}{2}$
+
+\begin{noliste}{$\sbullet$}
+\item Montrer que, dans ce cas, $k_{\lambda }\left( \ell_{\lambda
+}\right)
+<0$
+
+\item Dresser le tableau de variation de la fonction $h_{\lambda }$ et
+en déduire que l'équation $h_{\lambda }\left( x\right) = x$ admet trois
+racines $\mu_{\lambda },\;\ell_{\lambda },\,\nu_{\lambda }$ vérifiant
+$0<\mu
+_{\lambda }<\ell_{\lambda }<\nu_{\lambda }<1$
+
+\item Montrer que les suites $\left( u_{2n}\right)_{n\in \N}$ et
+$\left( u_{2n + 1}\right)_{n\in \N}$ convergent vers $\mu_{\lambda }$
+et $\,\nu_{\lambda }$ respectivement.
+\end{noliste}
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE III}
+
+On note $\N$ l'ensemble des entiers naturels. Soit $a$ et $b$ deux
+réels tels que $0<a<1$ et $0<b<1$.\\
+On effectue une suite d'expériences aléatoires consistant à jeter
+simultanément deux pièces de monnaie notées $A$ et $B$. On suppose que
+ces expériences sont indépendantes et qu'à chaque expérience les
+résultats des deux
+pièces sont indépendants. On suppose que, lors d'une expérience, la
+probabilité que la pièce $A$ donne pile est $a$, et que la probabilité
+que
+la pièce $B$ donne pile est $b$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout entier naturel $n$, calculer la probabilité $\mu_{n}$,
+que
+la pièce $A$ donne $n$ fois pile et, à la $(n + 1)^{i\grave{e}me}$
+expérience,
+face pour la première fois. Calculer de même la probabilité $\nu_{n}$
+que
+la pièce $B$ donne $n$ piles et, à la $\left( n + i\right)
+^{i\grave{e}me}$ expérience, face pour la première fois.
+
+\item Montrer que les suites $\left( \mu_{n}\right)_{n\in \N}$ et
+$\left( \nu_{n}\right)_{n\in \N}$ définissent des lois de probabilité
+sur $\N$. Ces lois seront notées dorénavant respectivement $\mu $
+et $\nu $.
+\end{noliste}
+
+\item On considère deux variables aléatoires $X$ et $Y$, définies sur
+un même espace probabilisé \\
+$\left( \Omega,\mathcal{A},\mathbf{P}\right) $, à valeurs dans $\N$,
+indépendantes et dont les lois de probabilité sont respective\-ment
+$\mu $
+et $\nu $. (La variable aléatoire $X$ représente le nombre
+d'expériences
+qu'il faut réaliser avant que la pièce $A$ donne face pour la première
+fois
+et la variable aléatoire $Y$ représente le nombre d'expériences qu'il
+faut réaliser avant que la pièce $B$ donne face pour la première fois).
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer l'espérance $\E(X)$ et la variance $\V(X)$.
+
+\item Trouver, pour tout entier naturel $k$, la valeur de
+$P\left(\Ev{X>k}\right)$.
+
+\item On s'intéresse au nombre d'expériences qu'il faut réaliser avant
+que
+l'une au moins des pièces donne face pour la première fois. Pour cela
+on
+note $M$ la variable aléatoire définie par $M = \min \left(
+X,Y\right).$
+
+Calculer, pour tout entier naturel $k$, la probabilité
+$\mathbf{P}\left(
+M\geq k\right) $. En déduire la loi de probabilité de $M$.
+
+\item Déterminer la probabilité que la pièce $B$ ne donne pas face
+avant la
+pièce $A$, c'est-à-dire $\mathbf{P}(Y\geq X)$.
+\end{noliste}
+
+\item On note $U = X + Y.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la loi de probabilité de $U$. (On distinguera les cas
+$a = b$
+et $a\ne b$).
+
+\item Calculer, pour tout couple $(j,k)$ d'entiers naturels, \\
+les probabilités conditionnelles $\mathbf{P}\left( Y = k/U = j\right) $
+\end{noliste}
+
+\item On suppose désormais que $a = b$. On note $V = Y-X$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer, pour tout entier naturel $k$ et tout entier relatif
+$r$, la
+probabilité de l'évènement $\left( M = k\text{ et }V = r\right) $. (On
+distinguera le cas $r\geq 0$ et le cas $r<0$ ).
+
+\item Trouver la loi de probabilité de $V$. Les variables aléatoires
+$M$ et $V$ sont-elles indépendantes ?
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

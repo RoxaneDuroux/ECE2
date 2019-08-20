@@ -1,0 +1,410 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 2013} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dint}{\int}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2012$\backslash$2013}
+\chead{}
+\rhead{Ecricome 2013}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\Huge ECRICOME Eco 2013}
+\end{center}
+
+\section*{EXERCICE 1}
+\noindent On désigne par $\mathfrak{M}_{3} (\R)$ l'ensemble des
+matrices carrées de taille 3 à coefficients réels et par $0_{3}$ la
+matrice nulle de $\mathfrak{M}_{3}(\R)$. \\
+On pose $A = \begin{smatrix}
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+3 & -9 & 6 \\
+\end{smatrix}
+\in \mathfrak{M}_{3}(\R)$ ainsi que le polynôme $R$ défini par : 
+\[
+ \forall x \in \R, \ \ \ R(x) = x^{3} - 6 x^{2} + 9 x - 3. 
+\]
+Pour tout réel $\lambda$, on pose $X_\lambda = \begin{smatrix}
+1 \\
+\lambda \\
+\lambda^{2} \\
+\end{smatrix}
+$. Pour finir, on introduit l'application $f$ définie par : 
+\[
+ \forall M \in \mathfrak{M}_{3}(\R), \ \ \ f(M) = AM + MA.
+\]
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Montrer que $R'$ (la dérivée de $R$) admet deux racines réelles
+distinctes $r_{1},\ r_{2}$ avec $r_{1}<r_{2}$ que l'on précisera. \\
+
+\item Dresser le tableau de variations de $R$ en y ajoutant les valeurs
+de $R$ en $r_{1}$ et $r_{2}$. \\
+
+\item Justifier que $R$ admet trois raicnes $a,\ b,\ c$ avec $0 < a < b
+< c$. \textit{On ne cherchera pas à calculer ces racines}. \\
+
+\item Soit $\lambda$ un réel, calculer $A X_{\lambda}$ puis démontrer
+que $X_{\lambda}$ est un vecteur propre de $A$ associé à la valeur
+propre $\lambda$ si et seulement si $R(\lambda) = 0$. \\
+
+\item Établir l'existence d'une matrice inversible $P$ et d'une matrice
+diagonale $D$ telle que $A = P D P^{-1}$. Expliciter les matrices $P$
+et $D$ en fonction des réels $a,\ b,\ c$. \\
+
+\item Prouver que $f$ est une application linéaire et que : 
+\[
+ \forall M \in \mathfrak{M}_{3}(\R), \ \ \ f(M) = 0_{3} \Leftrightarrow
+D M' + M' D = 0_{3}.
+\]
+où l'on a posé $M' = P^{-1} M P$. \\
+\item Soit $N = \begin{smatrix}
+p & q & r \\
+s & t & u \\
+v & w & x \\
+\end{smatrix}
+$. Déterminer les neuf coefficients de la matrice $DN + N D$. Que dire
+de $N$ si $DN + ND = 0_{3}$ ? \\
+
+\item Démontrer que $f$ est un isomorphisme.
+
+\end{noliste}
+
+\section*{EXERCICE 2}
+\noindent On considère l'application $\varphi$ définie sur
+$\R_+^{\ast}$ par : 
+\[
+ \forall x \in \R_+^{\ast}, \ \ \ \varphi(x) = \frac{ x \ln (x) - 1
+}{x}.
+\]
+ainsi que la fonction numérique $f$ des variables réelles $x$ et $y$
+définie par : 
+\[
+ \forall (x,y) \in \ ]0 ; + \infty[ \ \times ]0 ; + \infty[, \ \ \
+f(x,y) = \frac{1}{x^{2}} - \frac{y}{x} + \frac{y^{2}}{2} + \exp \left(
+- \frac{1}{x} \right) 
+\]
+où $ \exp$ désigne la fonction exponentielle.
+
+\section*{I. Étude des zéros de $\varphi$.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Déterminer la limite de $\varphi (x)$ lorsque $x$ tend vers 0 par
+valeurs positives. \\
+Interpréter graphiquement cette limite. \\
+
+\item Déterminer la limite de $\varphi(x)$ lorsque $x$ tend vers $ +
+\infty$, ainsi que la limite de $\frac{\varphi(x)}{x}$ lorsque $x$ tend
+vers $ + \infty$. Interpréter graphiquement cette limite. \\
+
+\item Justifier la dérivabilité de $\varphi$ sur $\R_+^{\ast}$ et
+déterminer sa dérivée. \\
+
+\item Dresser le tableau de variation de $\varphi$ en faisant
+apparaître les limites de $\varphi$ en $0^+ $ et $ + \infty$. \\
+
+\item Prouver l'existence d'un unique réel $\alpha \in \R_+^{\ast}$ tel
+que : 
+\[
+ \varphi(\alpha) = 0.
+\]
+Justifier que $\alpha \in [1 ; e ]$. 
+
+\end{noliste}
+
+\section*{II. Étude d'une suite réelle.}
+\noindent On considère la suite $u$ définie par la relation de
+récurrence suivante : 
+\[
+ \left\{
+\begin{array}{cl}
+ u_{0} = e ; \\
+\forall n \in \N, \ \ \ u_{n + 1} = \varphi(u_{n}) + u_{n}. \\
+\end{array}
+\right.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Démontrer que pour tout entier $n$, $u_{n}$ existe et $u_{n} >
+\alpha$. \\
+
+\item Si cette suite est convergente de limite $L$, que peut valoir $L$
+? \\
+
+\item Prouver que la suite $u$ est strictement croissante. \\
+
+\item La suite $u$ est-elle convergente ? \\
+
+\item Soit $A$ un réel. Recopier et compléter le programme suivant afin
+qu'il affiche le plus petit entier $n$ tel que $u_{n} \geq A$ : 
+
+\begin{center} \fbox{ \parbox{0.4 \linewidth}{
+\noindent program ecricome2013 ; \\
+var n : integer ; \\
+\rule{0.5cm}{0cm} u : real ; \\
+\rule{0.5cm}{0cm} A : real ; \\
+\rule{0.2cm}{0cm} function g(x : real) : real ; \\
+\rule{0.2cm}{0cm} begin \\
+\rule{0.2cm}{0cm} g : =.................; \\
+\rule{0.2cm}{0cm} end ; \\
+begin \\
+\rule{0.5cm}{0cm} writeln('entrer un réel $A>0$') ; \\
+\rule{0.5cm}{0cm} readln(A) ; \\
+\rule{0.5cm}{0cm} u : = exp(1) ; n : = 0 ; \\
+\rule{0.5cm}{0cm} while.............. do \\
+\rule{0.7cm}{0cm} begin' \\
+\rule{0.9cm}{0cm}................ ; \\
+\rule{0.9cm}{0cm}................ ; \\
+\rule{0.7cm}{0cm} end ; \\
+writeln(.............. ) ; \\
+end.
+}
+ } \end{center}
+
+\end{noliste}
+
+\section*{III. Extrema de $f$ sur $]0; + \infty[ \ \times ]0 ; + \infty
+[$. }
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Justifier que $f$ est de classe $C^{2}$ sur l'ouvert $]0 ; +
+\infty[ \ \times ]0 ; + \infty[ $. \\
+
+\item Calculer les dérivées partielles premières et prouver que $f$
+possède un unique point critique $A$ d'abscisse $\alpha$ et d'ordonnée
+$y_{\alpha}$ à déterminer en fonction de $\alpha$. \\
+
+\item Calculer les dérivées partielles secondes sur $]0; + \infty[ \
+\times ] 0 ; + \infty[$ et établir que
+\[
+ \partialssc{f}{x} (\alpha, y_{\alpha} ) = \frac{ 2 \alpha +
+1}{\alpha^{5}} 
+\]
+
+\item La fonction $f$ présente-t-elle un extremum local en $A$ sur
+l'ouvert $]0; + \infty[ \ \times ]0 ; + \infty[$ ? Si oui, en donner sa
+nature (maximum ou minimum).
+
+\end{noliste}
+
+
+\section*{EXERCICE 3}
+\noindent Soient $n$ et $b$ deux entiers avec $n \geq 1$ et $b \geq 2$.
+On considère une urne contenant $n$ boules noires et $b$ boules
+blanches, toutes indiscernables. \vspace{0.5cm} \\
+Un joueur $A$ effectue des tirages successifs d'une boule
+\textbf{\underline{sans remise}} dans l'urne jusqu'à obtenir une boule
+blanche. \\
+Il laisse alors la place au joueur $B$ qui effectue des tirages
+successifs d'une boule \textbf{\underline{avec remise}} dans l'urne
+jusqu'à obtenir une boule blanche. \vspace{0.5cm} \\
+On note $X$ la variable aléatoire réelle égale au nombre de boules
+noires tirées par $A$ avant de tirer une boule blanche et on appelle
+$Y$ la variable aléatoire réelle égale au nombre de boules noires
+tirées par $B$ avant de tirer une boule blanche (s'il ne reste plus de
+boule noire, on a donc $Y = 0$). \vspace{0.5cm} \\
+Par exemple, si $n = 3$ et $b = 7$ et que les tirages successifs ont
+donné une boule : \\
+\og\ noire, blanche, noire, noire, noire, noire, blanche \fg\ alors :
+\begin{noliste}{$\sbullet$}
+
+\item $A$ a effectué deux tirages, il a retiré une boule noire puis une
+boule blanche de l'urne ; 
+
+\item l'urne contient maintenant 8 boules dont deux noires et six
+blanches ; 
+
+\item $B$ a effectué ensuite cinq tirages dans cette urne, il a pioché
+4 boules noires qu'il a reposé dans l'urne après chaque tirage puis il
+a pioché une boule blanche ;
+
+\item $X$ vaut 1 et $Y$ vaut 4.
+
+\end{noliste}
+
+\section*{I. Étude d'un cas particulier $b = n = 2$.}
+\noindent Pour ce cas particulier on pourra s'aider d'un arbre pondéré.
+\\
+On suppose donc ici que l'urne contient initialement 2 boules blanches
+et 2 boules noires. \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Donner les probabilités des évènements : $[ X = 0],\ [X = 1],\ [X
+= 2]$. \\
+
+\item En déduire l'espérance et la variance de $X$. \\
+
+\item Montrer que la probabilité de l'évènement $[Y = 0]$ est donnée
+par : 
+\[
+ P\left(\Ev{Y = 0]}\right) = \frac{1}{2} 
+\]
+
+\item Pour tout entier $i$ naturel non nul, déterminer les probabilités
+suivantes : 
+\[
+ P( [X = 0] \cap [Y = i] ), \ \ \ P([X = 1] \cap [Y = i]), \ \ \ P([X =
+2] \cap [Y = i]).
+\]
+
+\item En déduire la loi de $Y$. Uniquement à l'aide de l'expression de
+$P\left(\Ev{Y = i]}\right)$ en fonction de $i$, vérifier que :
+\[
+\Sum{i = 0}{+ \infty} P\left(\Ev{Y = i]}\right) = 1. 
+\]
+
+\item Montrer que $Y$ admet une espérance et la calculer.
+
+\end{noliste}
+
+\section*{II. Retour au cas général.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Pour tout $k \in \{0, 1..., n\}$, calculer la probabilité
+$P\left(\Ev{X = k]}\right)$ puis vérifier que :
+\Large 
+\[
+  P\left(\Ev{X = k]}\right) = \frac{ \binom{n-k + b-1}{b-1} }{ \binom{n
++ b}{b} }.
+\]
+ \normalsize
+
+\item Utiliser la question qui précède pour justifier que : 
+\[
+ \Sum{k = 0}{n} \binom{k + b-1}{b-1} = \binom{n + b}{b}.
+\]
+
+\textit{Par conséquent, on vient de démontrer la formule suivante : }
+\[
+ (\mathcal{S}) : \forall N \in \N, \ \ \ \forall a \in \N, \ \ \ \Sum{k
+= 0}{N} \binom{k + a}{a} = \binom{N + a + 1}{a + 1}.
+\]
+
+\item Soient $k \geq 1$, $N \geq 1$ et $a \in \N$. Comparer $  k
+\binom{k + a}{a}$ et $  (a + 1) \binom{k + a}{a + 1}$ puis justifier
+que : 
+\[
+ \Sum{k = 0}{N} k \binom{k + a}{a} = (a + 1) \Sum{k = 0}{N-1} \binom{k
++ a + 1}{a + 1}.
+\]
+
+\item À l'aide des questions précédentes, montrer que l'espérance de la
+variable $n - X$ est donnée par : 
+\[
+ E (n - X) = \frac{bn}{b + 1}.
+\]
+En déduire l'espérance $\E(X)$ de $X$. \\
+
+\item Pour tout $k$ de $X(\Omega)$, et pour tout entier $i$ non nul,
+déterminer la probabilité suivante : 
+\[
+P( [X = k] \cap [Y = i] ).
+\]
+
+\item Pour tout $k$ de $X(\Omega)$, et pour tout entier $i$, non nul,
+justifier que la série $ \Sum{i \geq 1} i \left( \frac{n-k}{n + b-k-1}
+\right)^{i-1}$ est convergente et déterminer sa somme. \\
+
+\item Montrer que $Y$ admet une espérance et vérifier que : 
+\[
+ E(Y) = \frac{b n}{b^{2}-1}.
+\]
+
+\end{noliste}
+
+\end{document}
+

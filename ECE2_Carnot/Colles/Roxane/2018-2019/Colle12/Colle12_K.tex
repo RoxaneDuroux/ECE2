@@ -1,0 +1,189 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+K \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 12}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Planche 1} % ESCP 2007
+\noindent
+Soit $E$ un $\K$-espace vectoriel où $\K=\R$ ou $\C$. On
+considère deux projecteurs $p$ et $q$ de $E$ différents de
+l'identité $\id_E$ et de l'application nulle ; on suppose en outre
+que $p$ et $q$ commutent et que leur somme $f$ n'est pas égale
+à l'identité.
+
+\begin{noliste}{1.}
+\item
+Montrer que $p\circ q$ est un projecteur de $E$ et calculer
+$f^3-3f^2+2f$.\\
+On note $\spc(f)$ l'ensemble des valeurs propres de $f$.
+
+\item
+\begin{noliste}{a)}
+\item
+ Montrer que $0\in\spc(f)$ si et seulement si $\kr(p)\cap\kr(q) \neq 
+ \{0_E\}$.
+
+\item
+Montrer que $2\in\spc(f)$ si et seulement si $\im(p)\cap \im(q)\neq 
+\{0_E\}$.
+
+\item
+Montrer que $\kr(f)\oplus \kr(f- \id_E)\oplus\kr(f-2 \, \id_E)=E$.
+
+\end{noliste}
+
+\item
+En déduire que $[2\notin\spc(f)$ ou $0\notin\spc (f)]$
+entraîne
+que $1\in\spc(f)$ et $\spc(f)\neq\{1\}$.
+\end{noliste}
+
+
+\newpage
+
+
+\section*{Planche 2} % ESCP 2017
+\noindent
+Soit $E$ un $\K$-espace vectoriel de dimension finie (avec $\K=\R$ 
+ou $\K=\C$). On note $\LL{E}$ l'espace vectoriel des endomorphismes de 
+$E$.\\
+Soit $p$ un projecteur de $E$ tel que $p\neq 0$ et $p\neq \id_E$. Pour 
+tout $f\in \LL{E}$, on pose :
+\[
+ \varphi(f)=\dfrac{1}{2} \, (f\circ p +p\circ f)
+\]
+\begin{noliste}{1.}
+ \item Montrer que $\varphi$ est un endomorphisme de $\LL{E}$.
+ 
+ \item Calculer $(\varphi \circ \varphi)(f)$ et $(\varphi \circ \varphi 
+ \circ \varphi)(f)$ ; en déduire les valeurs propres possibles de 
+ $\varphi$.
+ 
+ \item Pour tout sous-espace vectoriel $F$ de $E$, montrer que les 
+ ensembles suivants sont des sous-espaces vectoriels de $\LL{E}$ :
+ \[
+  \mathcal{K}(F) = \{f\in \LL{E} \ / \ F\subset \kr(f)\} \quad 
+  \mbox{ et } \quad \mathcal{I}(F) = \{f\in\LL{E} \ / \ \im(f) 
+  \subset F\}
+ \]
+ 
+ \item Soient $f,g \in \LL{E}$.
+ \begin{noliste}{a)}
+  \item Calculer $f\circ g$ lorsque $f\in \mathcal{K}(\im(g))$ ou
+  lorsque $g\in \mathcal{I}(\kr(f))$.
+  
+  \item Calculer $p\circ f$ lorsque $f\in \mathcal{I}(\im(p))$.
+  
+  \item Montrer que $f\circ p=f$ lorsque $f\in \mathcal{K}(\kr(p))$.
+ \end{noliste}
+ 
+ \item 
+ \begin{noliste}{a)}
+  \item Pour chacun des sous-espaces vectoriels suivants, montrer que 
+  leurs éléments non nuls sont des vecteurs propres de $\varphi$ et 
+  préciser les valeurs propres correspondantes :
+  \[
+   \mathcal{A} = \mathcal{K}(\im(p)) \cap \mathcal{I}(\kr(p)), \quad 
+   \B = \mathcal{K}(\im(p)) \cap \mathcal{I}(\im(p)) \quad \mbox{ et }
+   \quad \mathcal{C} = \mathcal{K}(\kr(p)) \cap \mathcal{I}(\im(p))
+  \]
+  
+  \item Montrer que les sous-espaces $\mathcal{A}$, $\B$ et 
+  $\mathcal{C}$ sont en somme directe.
+  
+  \item Quelles sont les valeurs propres de $\varphi$ ?
+ \end{noliste}
+\end{noliste}
+
+
+\newpage
+
+
+\section*{Planche 3}
+\noindent
+On note $m$ un paramètre réel et on considère les matrices $H_m$ 
+définies
+par : $H_m=
+\begin{smatrix}
+-1-m & m & 2\\
+-m & 1 & m\\
+-2 & m & 3-m
+\end{smatrix}.$\\
+On note $h_{m}$ l'endomorphisme de $\R^3$ ayant pour matrice 
+$H_m$ dans la base canonique de $\R^3$.
+
+\begin{noliste}{1.}
+\item 
+On suppose dans cette question que $m=2$.
+
+\begin{noliste}{a)}
+\item
+Écrire la matrice $H_2$.
+\item 
+Déterminer les valeurs propres de l'endomorphisme $h_{2}$ et les 
+sous-espaces propres associés.
+
+\item 
+L'endomorphisme $h_2$ est-il diagonalisable? Si oui, donner une base de 
+vecteurs propres de $h_2$.
+\end{noliste}
+
+\item 
+Étudier de même les valeurs propres et les sous-espaces propres de 
+$h_{0}$. Cet endomorphisme est-il diagonalisable?
+
+\item 
+\begin{noliste}{a)}
+\item 
+Montrer qu'il existe un réel $a$, qu'on déterminera, qui est valeur
+propre de l'endomorphisme $h_m$ pour toutes les valeurs du paramètre 
+$m$.
+
+\item 
+Déterminer, pour chaque valeur de $m$, le sous-espace propre de $h_m$ 
+associé à
+la valeur propre $a$. Montrer qu'on peut trouver un vecteur non nul 
+$v_{1}$
+appartenant à tous ces sous-espaces.
+\end{noliste}
+
+\item 
+Soit $F$ le sous-espace de $\R^3$ engendré par les vecteurs 
+$v_2=(1,0,1)$ et $v_3=(1,1,0)$ :\\ 
+$F=\Vect{v_2,v_3}$.\\
+Déterminer les vecteurs $h_m(v_2)$ et $h_m(v_3)$ et montrer que 
+ces vecteurs appartiennent à $F$ pour tout $m$ réel.\\
+En déduire que le $F$ est stable par $h_m$, c'est-à-dire que 
+$h_m(F)\subset F$.
+
+\item 
+Montrer que $(v_1,v_2,v_3)$ est une base de $\R^3$.\\
+\'Ecrire la matrice de $h_m$ dans la base $(v_1,v_2,v_3)$. En déduire 
+les valeurs de $m$ pour lesquelles l'endomorphisme $h_m$ est 
+diagonalisable.
+\end{noliste}
+
+
+
+
+
+
+\end{document}

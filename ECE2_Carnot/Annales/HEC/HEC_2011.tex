@@ -1,0 +1,569 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 2011} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 2011}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\LARGE BANQUE COMMUNE D'EPREUVES}
+
+{\large CONCOURS D'ADMISSION DE 2010}
+
+{\large Conceptions : H.E.C.- E.S.C.P. / EUROPE}
+
+\rule{2.39cm}{0.05cm}
+
+{\large OPTION : ÉCONOMIQUE}
+
+{\Huge MATHÉMATIQUES }
+
+Année 2011
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+La présentation, la lisibilité, l'orthographe, la qualité de la
+rédaction, la clarté et la précision des raisonnements entreront
+pour une part importante dans l'appréciation des copies.
+
+Les candidats sont invités à \textbf{encadrer} dans la mesure du
+possible les résultats de leurs calculs.
+
+Ils ne doivent faire usage d'aucun document : \textbf{l'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite}. Seule
+l'utilisation d'une règle graduée est autorisée.
+
+Si au cours de l'épreuve, un candidat repère ce qui lui semble être une
+erreur d'énoncé, il la signalera sur sa copie et poursuivra
+sa composition en expliquant les raisons des initiatives qu'il sera
+amené
+à prendre
+
+\begin{center}
+\rule{16.5cm}{0.05cm}
+\end{center}
+ \centerline{\bf EXERCICE}
+ 
+
+ Soit $A$ la matrice de ${\cal M}_{3}(\R)$ définie par : $A = 
+\begin{smatrix}
+0 & 1/2 & 1/2 \\
+1/2 & 0 & 1/2 \\
+1/2 & 1/2 & 0
+\end{smatrix}
+$.
+ 
+ 1. a) Justifier que la matrice $A$ est diagonalisable.
+ 
+ b) Vérifier que $1$ est une valeur propre de $A$ et déterminer un
+vecteur-colonne propre associé.
+ 
+ c) Calculer les valeurs propres de $A$ et déterminer une base de
+$\R^{3}$ formée de vecteurs propres de $A$.
+
+ 
+
+ {\sl Dans la suite de l'exercice, $n$ est un entier supérieur ou égal
+à $2$}. On considère l'ensemble ${\cal S}_{n}$ des matrices $A =
+(a_{i,j})_{1\leq i,j\leq n}$ de ${\cal M}_{n}(\R)$ qui vérifient les
+propriétés suivantes :
+ 
+
+ \par
+ $\bullet\ $ pour tout $(i,j)$ de $ 
+\[
+1,n 
+\]
+^{2}$, $a_{i,j}\geq 0$ ;
+
+ $\bullet\ $ $A$ admet la valeur propre $1$ et $X_{0} = 
+\begin{smatrix}
+1 \\
+\vdots \\
+1
+\end{smatrix}
+$ est un vecteur-colonne propre associé à cette valeur propre.
+
+ 
+ 2. L'ensemble ${\cal S}_{n}$, muni des lois usuelles sur les matrices,
+est-il un espace vectoriel ?
+ 
+ 3. Montrer que le produit de deux matrices de ${\cal S}_{n}$ est une
+matrice de ${\cal S}_{n}$.
+
+ 
+
+ 4. Soit $A$ un élément de ${\cal S}_{n}$ et $\lambda$ une valeur
+propre de $A$.
+
+ a) Montrer qu'il existe un vecteur-colonne propre $V = \begin{smatrix}
+v_{1} \\
+\vdots \\
+v_{n}
+\end{smatrix}
+$ associé à la valeur propre
+ $\lambda$, pour lequel il existe un entier $k$ de $
+\[
+1,n
+\]
+$, vérifiant $v_{k} = 1$ et
+ pour tout $i$ de $
+\[
+1,n 
+\]
+$, $|v_{i}|\leq 1$.
+ 
+ b) En déduire que l'on a : $|\lambda| \leq 1$ et $|\lambda - a_{k,k}|
+\leq 1-a_{k,k}$.
+ 
+ 5. Montrer que si les éléments diagonaux d'une matrice $A$ de ${\cal
+S}_{n}$ sont tous strictement supérieurs à $1/2$, la matrice $A$ est
+inversible.
+
+ \vfill\eject
+
+ \centerline{\bf PROBL\`{E}ME}
+ 
+
+ {\bf Dans tout le problème :}
+
+ $\bullet\ $ le réel $x$ est fixé, $\alpha$ est un réel strictement
+positif et $f$ est une fonction définie et continue sur $[x-\alpha, x +
+\alpha]$ à valeurs réelles ;
+
+\par
+
+ $\bullet\ $ pour tout réel $h$ vérifiant $0<h\leq \alpha$, on pose :
+$S_{x}(h) = \dis {1\over 2h} \dint{-h}{h} f(x + t)dt$ et $G_{x}(h) =
+\dis {3\over 2h^{3}}\dint{-h}{h} t f(x + t \ dt$ ;
+
+ \par
+ $\bullet\ $ sous réserve d'existence, on pose : $\dis s(x) =
+\dlim{h\to 0^+} S_{x}(h)$ et $\dis g(x) = \dlim{h\to 0^+} G_{x}(h)$.
+
+ 
+ {\sl L'objet du problème est l'étude d'une généralisation de la notion
+de dérivée d'une fonction à partir de fonctions définies par des
+intégrales}.
+ 
+ {\sl La partie III est indépendante de la partie II, et la partie II
+est largement indépendante de la partie I}.
+ 
+
+ {\bf Partie I. Quelques exemples. Premières propriétés}
+ 
+
+ 1. a) Calculer $\dis \dint{-h}^ \ dt, \dint{-h}{h} (x + t \ dt,
+\dint{-h}{h} t(x + t \ dt$ et $\dis \dint{-h}{h} (x + t)^{2}dt$.
+
+ 
+ b) Montrer que $\dis \dint{-h}{h} t(x + t)^ \ dt = {4h^{3}x\over 3}$.
+ 
+ c) Établir les deux formules : $\dis S_{x}(h) = {1\over 2}
+\dint{-1}{1} f(x + ht \ dt$ et $\dis G_{x}(h) = {3\over 2h}
+\dint{-1}{1}t f(x + ht \ dt$.
+ 
+ 2. {\sl Dans cette question uniquement}, soit $n$ un entier naturel
+donné et $f$ la fonction définie par $f(t) = t^{n}$.
+
+ a) Soit $k$ un entier naturel. Calculer suivant la parité de $k$, la
+valeur de $h^{k}(1-(-1)^{k})$.
+ 
+ b) Calculer $S_{x}(h)$ et $G_{x}(h)$ lorsque $x = 0$.
+ 
+ c) \`{A} l'aide de la formule du bin\^{o}me, montrer que :
+ $S_{x}(h) = x^{n} + h^{2}A_{x}(h)$ et $G_{x}(h) = nx^{n-1} +
+h^{2}B_{x}(h)$,
+ où $A_{x}$ et $B_{x}$ sont deux fonctions polynomiales en $h$ (dont
+les coefficients dépendent de $x$).
+
+ En déduire l'existence et l'expression de $s(x)$ et $g(x)$.
+
+
+ 
+ 3. {\sl Dans cette question uniquement}, la fonction $f$ est définie
+par $f(t) = |t|$ et on choisit $x = 0$.
+
+ a) La fonction $f$ est-elle dérivable en $0$ ?
+ 
+ b) Calculer $S_{x}(h)$ et $G_{x}(h)$ pour $x = 0$. En déduire
+l'existence et la valeur de $s(0)$ et $g(0)$.
+
+ 
+
+ {\sl Dans les questions 4 à 6, on revient au cas général}.
+ 
+
+ 4. a) Exprimer $S_{x}(h)$ à l'aide d'une primitive $F$ de $f$.
+ 
+ b) Établir l'existence de $s(x)$ et montrer que $s(x) = f(x)$.
+ 
+
+
+ 5. {\sl On suppose dans cette question que $f$ est dérivable en $x$ de
+dérivée $f'(x)$}.
+
+ a) Montrer l'existence d'une fonction $v_{x}$ définie et continue sur
+$\R$, vérifiant $v_{x}(0) = 0$ et telle que
+
+ pour tout réel $t$ on ait : $f(x + t) = f(x) + tf'(x) + tv_{x}(t)$.
+
+ 
+ b) En déduire l'égalité : $G_{x}(h) = \dis f'(x) + {3\over 2h^{3}}
+\dint{-h}{h} t^{2}v_{x}(t \ dt$.
+ 
+
+ c) Soit $\varepsilon$ un réel strictement positif. Montrer qu'il
+existe $\delta>0$ tel que si $h\in]0,\delta]$, on a :
+ $\dis \left| {3\over 2h^{3}} \dint{-h}{h} t^{2}v_{x}(t \
+dt\right|\leq\varepsilon$.
+
+ 
+ d) En déduire l'expression de $g(x)$ en fonction de $f'(x)$.
+ 
+ 6. Soit $\varphi$ la fonction définie sur $\R^{2}$ par : pour tout
+couple $(a,b)$ de $\R^{2}$,
+ $\dis \varphi(a,b) = \dint{-h}{h} \left( f(x + t)-(b + at)\right)^ \
+dt$.
+
+ a) Établir la relation :
+ $\dis \varphi(a,b) = \dint{-h}{h} (f(x + t))^ \ dt -2a\dint{-h}{h}
+tf(x + t \ dt -2b\dint{-h}{h}f(x + t \ dt + {2h^{3}\over 3} a^{2} +
+2hb^{2}$.
+
+ 
+ b) Montrer que $\varphi$ est de classe $C^{2}$ sur $\R^{2}$ et qu'elle
+admet un unique point critique $(a^\star, b^\star)$ que l'on exprimera
+en fonction de $S_{x}(h)$ et $G_{x}(h)$.
+
+ \newpage
+
+ {\bf Partie II. Probabilités}
+ 
+
+ {\sl Les notations sont celles de la partie I}.
+
+ Les variables aléatoires qui interviennent dans cette partie sont
+définies sur un espace probabilisé $(\Omega, {\cal A}, P)$.
+
+ \par
+ On note $E,V$ et $\hbox{Cov}$ respectivement, l'espérance, la variance
+et la covariance.
+
+ \par
+ On suppose la fonction $f$ dérivable en $x$, de dérivée $f'(x)$.
+
+ 
+ Si $X$ est une variable aléatoire définie sur $(\Omega, {\cal A}, P)$,
+on s'intéresse au coefficient de corrélation linéaire $r_{x}(h)$ entre
+les variables aléatoires $hX$ et $f(hX + x)$ dans quelques cas
+particuliers.
+ 
+
+ 7. {\sl Dans cette question uniquement, la variable aléatoire $X$ suit
+la loi de Bernoulli de paramètre $1/2$}.
+ 
+ a) Rappeler la valeur de $\E(X)$ et de $\V(X)$. En déduire la valeur
+de $\E(hX)$ et $\V(hX)$.
+ 
+ b) Montrer que $\E(f(hX + x)) = \dis {1\over 2}\left( f(x + h) +
+f(x)\right)$. Calculer $\V(f(hX + x))$ et $\hbox{Cov}(hX,f(hX + x))$.
+ 
+ c) On suppose que $f(x + h)\neq f(x)$. Calculer $r_{x}(h)$. En déduire
+l'existence d'une relation affine entre $f(hX + x)$ et $hX$. Expliciter
+cette relation en fonction de $f(x)$ et $f(x + h)$.
+ 
+ d) Vérifier la validité de la relation précédente lorsque $f(x + h) =
+f(x)$.
+
+ 
+ {\sl Dans les questions 8 à 11, la variable aléatoire $X$ suit la loi
+uniforme sur l'intervalle $[-1,1]$}.
+
+ 
+
+ {\bf On admet} que la définition et les propriétés de la covariance et
+du coefficient de corrélation linéaire de deux variables aléatoires
+discrètes s'appliquent au cas de deux variables aléatoires à densité.
+ 
+ 8. a) Rappeler les expressions d'une densité, de la fonction de
+répartition, de l'espérance et de la variance de $X$.
+ 
+ b) Établir les égalités suivantes : $\E(f(hX + x)) = S_{x}(h)$,
+ 
+\[
+ V(f(hX + x)) = {1\over 2h}\dint{-h}{h} (f(x + t))^ \ dt-(S_{x}(h))^{2}
+\hbox{ et } \hbox{Cov}(hX,f(hX + x)) = {h^{2}\over 3}G_{x}(h)
+\]
+
+ 
+
+ 9. {\sl On suppose dans cette question que $x = 0$}.
+
+ a) Si $f$ est une fonction paire, calculer $f'(0)$ et $r_{0}(h)$.
+
+ 
+ b) Soit $n$ un entier naturel impair et $f$ la fonction définie par
+$f(t) = t^{n}$. Calculer $f'(0)$, $r_{0}(h)$ et $\dis \dlim{h\to 0^+}
+r_{0}(h)$.
+
+ 
+ 10. {\sl On suppose dans cette question que $f'(x)\neq 0$ et $f(x) =
+0$}.
+
+ a) Montrer que $\hbox{Cov}(hX,f(hX + x))$ est équivalent à $\dis
+{h^{2}\over 3}f'(x)$, lorsque $h$ tend vers $0^+ $.
+
+ 
+ b) On pose : $w_{x}(t) = v_{x}{2}(t) + 2f'(x)v_{x}(t)$, où la fonction
+$v_{x}$ a été définie dans la question 5.a).
+
+ Établir les deux relations suivantes :
+ 
+\[
+\E(f(hX + x)) = {1\over 2h} \dint{-h}{h} tv_{x}(t \ dt\ \hbox{ et }\
+E((f(hX + x))^{2}) = {h^{2}\over 3}(f'(x))^{2} + {1\over
+2h}\dint{-h}{h} t^{2}w_{x}(t \ dt
+\]
+ 
+ c) Montrer que $\dis \dlim{h\to 0^+} {1\over h^{2}}\dint{-h}{h}
+tv_{x}(t \ dt = 0$\hskip 2mm et $\dis \dlim{h\to 0^+} {1\over
+h^{3}}\dint{-h}{h} t^{2}w_{x}(t \ dt = 0$.
+
+ 
+ d) En déduire un équivalent de $\V(f(hX + x))$ lorsque $h$ tend vers
+$0^+ $.
+
+ 
+ e) Calculer $\dis \dlim{h\to 0^+} r_{x}(h)$.
+
+ 
+ 11. {\sl On suppose dans cette question que $f'(x)\neq 0$ et $f(x)\neq
+0$}. Que peut-on dire de $\dis \dlim{h\to 0^+} r_{x}(h)$ ?
+
+
+ \newpage
+
+ {\bf Partie III. Généralisation aux dérivées d'ordre supérieur}
+ 
+
+ On suppose dans cette partie que la fonction $f$ est de classe
+$C^\infty$ sur $\R$, et on note pour tout entier naturel $k$, $f^{(k)}$
+la dérivée $k$-ième de $f$, avec la convention $f^{(0)} = f$.
+
+ On confond tout polyn\^{o}me $P$ de $\R[X]$ avec la fonction
+polynomiale associée.
+ 
+ Pour tout entier naturel $n$, on définit le polyn\^{o}me $P_{n}$ par :
+pour tout $t$ réel, $P_{n}(t) = \dis {1\over 2^{n}n !}(t^{2}-1)^{n}$.
+ 
+ 12. a) Calculer $P_{0}(t),P_{1}(t), P_{2}(t)$, ainsi que leurs
+dérivées première et seconde.
+
+ 
+ b) Déterminer le degré de $P_{n}$ et, pour tout entier naturel $k$,
+celui de sa dérivée $k$-ième $P_{n}{(k)}$.
+ 
+ c) Déterminer le terme de plus haut degré de $P_{n}{(n)}(t)$ ainsi que
+la valeur de $P_{n}{(2n)}(t)$.
+ 
+ d) Soit $n$ un entier supérieur ou égal à $1$. Montrer que pour tout
+$k$ de $
+\[
+0,n-1
+\]
+$, on peut écrire :
+
+ $P_{n}{(k)}(t) = (t^{2}-1)^{n-k}T_{k}(t)$, où $T_{k}$ est un
+polyn\^{o}me de degré $k$.
+
+ En déduire les valeurs de $P_{n}{(k)}(1)$ et de $P_{n}{(k)}(-1)$, pour
+tout $k$ de $
+\[
+0,n-1
+\]
+$.
+ 
+ e) Établir pour tout entier naturel $n$, la formule : $\dis
+\dint{-1}{1} (1-t^{2})^ \ dt = {2^{2n + 1} (n!)^{2}\over (2n + 1)!}$.
+
+ (on remarquera que $1-t^{2} = (1-t)(1 + t)$)
+
+ 
+ 13. Soit $R$ un polyn\^{o}me de $\R[X]$ et $n$ un entier de $\N^*$.
+
+ a) Montrer que $\dis \dint{-1}{1} R(t) P_{n}{(n)}(t \ dt =
+-\dint{-1}{1} R'(t) P_{n}{(n-1)}(t \ dt$.
+ 
+ b) En déduire l'égalité : $\dis \dint{-1}{1} R(t) P_{n}{(n)}(t \ dt =
+(-1)^{n} \dint{-1}{1} R^{(n)}(t) P_{n}(t \ dt$.
+
+ 
+ c) On suppose que $R$ est de degré strictement inférieur à $n$.
+Calculer $\dis \dint{-1}{1} R(t) P_{n}{(n)}(t \ dt$.
+ 
+ d) En choisissant un polyn\^{o}me $R$ particulier, calculer $\dis
+\dint{-1}{1} (P_{n}{(n)}(t))^ \ dt$.
+
+
+ 
+ 14. On pose, pour tout entier naturel $n$ et sous réserve d'existence
+:
+
+ 
+\[
+\dis L_{n}(x) = \dlim{h\to 0^+} {(2n + 1)!\over 2^{n + 1} h^{n} n!}
+\dint{-1}{1} f(x + ht) P_{n}{(n)}(t \ dt
+\]
+
+
+
+ a) \`{A} l'aide des questions 4 et 5, vérifier que $L_{0}(x) = f(x)$
+et $L_{1}(x) = f'(x)$.
+ 
+ b) Montrer que pour tout entier naturel $n$, on a : $\dis \dint{-1}{1}
+f(x + ht) P_{n}{(n)}(t \ dt = {h^{n}\over 2^{n} n!} \dint{-1}{1}
+f^{(n)}(x + ht) (1-t^{2})^ \ dt$.
+ 
+
+ c) En appliquant le résultat de la question 5.a) à la fonction
+$f^{(n)}$, montrer que pour tout entier naturel $n$, on a :
+ 
+\[
+\dlim{h\to 0^+} \dint{-1}{1} \left(f^{(n)}(x + ht)-f^{(n)}(x)\right)
+(1-t^{2})^ \ dt = 0
+\]
+
+ En déduire l'existence et l'expression de $L_{n}(x)$.
+
+ 
+ 15. On rappelle que $\alpha$ est le réel défini dans le préambule du
+problème. Soit $n$ un entier supérieur ou égal à $1$ et $Q_{n}$ un
+polyn\^{o}me de degré inférieur ou égal à $n$. On pose :
+$\Phi_{n}(Q_{n}) = \dis\dint{-1}{1} \left( f(x + \alpha t)-Q_{n}(t)
+\right)^ \ dt$.
+
+ 
+ a) Montrer que la famille $(P_{0}, P'_{1}, P''_{2}, \ldots,
+P_{n}{(n)})$ est une base de $\R_{n}[X]$, espace vectoriel des
+polyn\^{o}mes de degré inférieur ou égal à $n$.
+
+ La fonction polynomiale $Q_{n}(t)$ s'écrit alors dans cette base :
+$Q_{n}(t) = \dis \Sum{k = 0}{n} a_{k} P_{k}{(k)}(t)$.
+ 
+ b) En utilisant la question 13, établir l'égalité : $\dis \dint{-1}{1}
+(Q_{n}(t))^ \ dt = \dis \Sum{k = 0}{n} {2\over 2k + 1} a_{k}{2}$.
+
+ 
+
+ c) On pose, pour tout $k$ de $
+\[
+0,n
+\]
+$ : $y_{k} = \dis \dint{-1}{1} f(x + \alpha t) P_{k}{(k)}(t \ dt$.
+
+ Montrer que
+ $\dis \Phi_{n}(Q_{n}) = \dint{-1}{1} (f(x + \alpha t))^ \ dt + \Sum{k
+= 0}{n} {2\over 2k + 1} \left(a_{k} -{2k + 1\over 2}
+y_{k}\right)^{2}-\Sum{k = 0}{n} {2k + 1\over 2} y_{k}{2}$.
+
+ 
+
+ d) Pour quel polyn\^{o}me $Q_{n}^\star$, la quantité $
+\Phi_{n}(Q_{n})$ est-elle minimale ? On exprimera pour tout $k$ de $
+\[
+0,n
+\]
+$, le coefficient $a_{k}^\star$ de $Q_{n}^\star$ en fonction de $k$ et
+de $y_{k}$.
+
+
+ \end{document}

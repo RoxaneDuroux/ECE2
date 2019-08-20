@@ -1,0 +1,491 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 2008} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 2008}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2008}}
+
+
+
+{\large \textbf{Concepteur : Edhec}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{Exercice 1}
+
+Pour tout entier naturel $n$ non nul, on définit la fonction $f$,, par
+: $\forall x\in \R,\ f_{n}\left( x\right) = \dfrac{1}{1 + e^{x}} +
+n~x$.
+
+On appelle $\left( C_{n}\right) $ sa courbe représentative dans un
+repère orthonormé $\left( O,\vec{i},\vec{j}\right) $ d'unité 5 cm.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer, pour tout réel $x$, $f_{n}{\prime }\left(
+x\right) $ et $f^{\prime \prime }\left( x\right) $.
+
+\item En déduire que la fonction $f_{n}$ est strictement croissante sur
+$\R$
+\end{noliste}
+
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $\dlim{x\rightarrow -\infty }f_{n}\left( x\right) $
+ainsi que
+$\dlim{x\rightarrow + \infty }f_{n}\left( x\right) $.
+
+\item Montrer que les droites $\left( D_{n}\right) $ et $\left(
+D_{n}{\prime }\right) $ d'équations $y = nx$ et $y = nx + 1$ sont
+asymptotes
+de $\left( C_{n}\right) $
+
+\item Déterminer les coordonnées du seul point d'inflexion, noté
+$A_{n}$ de $\left( C_{n}\right) $.
+
+\item Donner l'équation de la tangente $\left( T_{1}\right) $ à la
+courbe $\left( C_{1}\right) $ en $A_{1}$, puis tracer sur un même
+dessin
+les droites $\left( D_{1}\right) $, $\left( D_{1}{\prime }\right) $ et
+$\left( T_{1}\right) $ ainsi que l'allure de la courbe $\left(
+C_{1}\right) $.
+\end{noliste}
+
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que l'équation $f_{n}\left( x\right) = 0$ possède une
+seule solution sur $\R$, notée $u_{n}$.
+
+\item Montrer que l'on a : $\forall n\in \N^{\ast },\quad
+\dfrac{-1}{n}<u_{n}<0$.
+
+\item En déduire la limite de la suite $\left( u_{n}\right) $
+
+\item En revenant à la définition de $u_{n}$, montrer que
+$u_{n}\underset{n\rightarrow + \infty }{\thicksim }\dfrac{-1}{2n}.$
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 2}
+
+On considère un endomorphisme $f$ de $\R^{3}$ dont la matrice
+dans la base canonique $\mathcal{B}$ de $\R^{3}$ est la matrice $A = 
+\begin{smatrix}
+6 & 10 & 11 \\
+2 & 6 & 5 \\
+-4 & -8 & -8
+\end{smatrix}
+$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la matrice $A\left( A-2I\right) ^{2}$ et en déduire
+les seules valeurs propres possibles de $f$ :
+
+\item On considère les vecteurs $u = \left( 2,1,-2\right) $ et $v =
+\left(
+3,1,-2\right) $.\\
+Déterminer $f\left( u\right) $ et $f\left( v\right) $ puis en déduire
+les valeurs propres de $f$ :
+
+\item L'endomorphisme $f$ est-il un automorphisme de $\R^{3}$ ?
+\end{noliste}
+
+\item On considère le vecteur $w = \left( -2,0,1\right) $
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\left( u,v,w\right) $ est une base de $\R^{3}$.
+
+\item Exprimer $f\left( w\right) $ comme combinaison linéaire de $v$ et
+$w$ puis vérifier que la matrice de $f$ dans la base $\left(
+u,v,w\right)
+$ est $T = 
+\begin{smatrix}
+0 & 0 & 0 \\
+0 & 2 & 1 \\
+0 & 0 & 2
+\end{smatrix}
+$
+
+\item Montrer que $f$ n'est pas diagonalisable.
+\end{noliste}
+
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On pose $T = D + N$, où $D = 
+\begin{smatrix}
+0 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 2
+\end{smatrix}
+$ et $N = 
+\begin{smatrix}
+0 & 0 & 0 \\
+0 & 0 & 1 \\
+0 & 0 & 0
+\end{smatrix}
+$
+
+Déterminer $N^{2}$ puis utiliser la formule du bin\^{o}me pour montrer
+que, pour tout entier naturel $n$ non nul, on a $T^{n} = D^{n} +
+nD^{n-1}N.$
+
+\item Donner explicitement, pour tout entier naturel $n$ non nul, la
+matrice
+$T^{n}$ en fonction de $n$
+
+\item Proposer une matrice $P$ telle que $A = PTP^{-1}$ puis déterminer
+$P^{-1}$.
+
+\item Montrer que, pour tout entier naturel $n$ non nul, on a : $A^{n}
+= PT^{n}P^{-1}$
+
+\item Déterminer explicitement $A^{n}$ pour tout entier $n$ supérieur
+ou égal à 1.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 3}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que l'intégrale $\dint{0}{+ \infty }\dfrac{1}{\left(
+1 + x\right) ^{2}}dx$ est convergente et donner sa valeur
+
+\item On considère la fonction $f$ définie par : $\forall x\in
+\R,\ f\left( x\right) = \dfrac{1}{2\left( 1 + \left| x\right|
+\right) ^{2}}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f$ est paire.
+
+\item Montrer que $f$ peut être considérée comme une fonction
+densité de probabilité.
+\end{noliste}
+
+\hspace{-1cm}Dans la suite, on considère une variable aléatoire $X$,
+définie sur un espace probabilisé $\left(
+\Omega,\mathcal{A},\Prob\right) $ admettant $f$ comme densité.\\
+\hspace{-1cm}On note $F$ la fonction de répartition de $X$.
+
+\item On pose $Y = \ln \left( 1 + \left| X\right| \right) $ et on
+admet que $Y$ est une variable aléatoire à densité, elle aussi définie
+sur l'espace probabilisé $\left( \Omega,\mathcal{A},\Prob\right) $
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer $Y\left( \Omega \right) $
+
+\item Exprimer la fonction de répartition $G$ de $Y$ à l'aide de $F.$
+
+\item En déduire que $Y$ admet pour densité la fonction $g$ définie par
+:
+\[
+g\left( x\right) = \left\{
+\begin{array}{cc}
+2e^{x}f\left( e^{x}-1\right) & \text{si }x\geq 0 \\
+0 & \text{si }x<0
+\end{array}
+\right.
+\]
+
+\item Montrer enfin que $Y$ suit une loi exponentielle dont on
+déterminera le paramètre.
+\end{noliste}
+\end{noliste}
+
+\section*{Problème}
+
+\subsection*{Partie 1 : préliminaires}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $f$ une fonction de classe $C^{1}$ sur $\left[ 0,1\right] $.
+On
+se propose, dans cette question, de démontrer un résultat classique
+sur les sommes de Riemann associées à cette fonction.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer qu'il existe un réel $M$ strictement positif tel que,
+pour
+tout couple $\left( x,y\right) $ d'éléments de $\left[ 0,1\right] $
+on a : $\left| f\left( x\right) -f\left( y\right) \right| \leq
+M\left| x-y\right| $
+
+\item En déduire que : $ \forall n\in \N^{\ast },\
+\forall k\in \left[ \ \left[ 0,n-1\right] \right],\ \forall t\in \left[
+\ \frac{k}{n},\frac{k + 1}{n}\right],\ \left| f\left( t\right) -f\left(
+\frac{k}{n}\right) \right| \leq M\left( t-\frac{k}{n}\right) $
+
+\item Montrer alors que : $ \forall n\in \N^{\ast },\
+\forall k\in \left[ \ \left[ 0,n-1\right] \right],\ $
+\[
+\left| \dint{k/n}{\left( k + 1\right) /n}f\left( t\right\
+dt-\frac{1}{n}f\left( \frac{k}{n}\right) \right| \leq \frac{M}{2n^{2}}
+\]
+
+\item En sommant la relation précédente, établir que : $ \forall n\in
+\N^{\ast }$, $\left|
+\dint{0}{1}f\left( t\right\ dt-\frac{1}{n}\Sum{k = 0}{n-1}f\left(
+\frac{k}{n}\right) \right| \leq \frac{M}{2n}$
+
+\item Conclure finalement que $ \frac{1}{n}\Sum{k = 0}{n-1}f\left(
+\frac{k}{n}\right) \rightarrow \dint{0}{1}f\left( t\right\ dt.$
+\end{noliste}
+
+\item Pour tout couple $\left( p,q\right) $ d'entiers naturels, on pose
+$I\left( p,q\right) = \dint{0}{1}x^{p}\left( 1-x\right) ^{q}dx$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : $ \forall \left( p,q\right) \in \N\times \N,\
+I\left( p,q\right) = \frac{q}{p + 1}I\left( p + 1,q-1\right). $
+
+\item En déduire que : $ \forall \left( p,q\right) \in
+\N\times \N,\ I\left( p,q\right) = \frac{p!q!}{\left(
+p + q\right) !}I\left( p + q,0\right).$
+
+\item Déterminer$I\left( p + q,0\right) $ et montrer finalement que : $
+\forall \left( p,q\right) \in \N\times \N^{\ast },\ I\left( p,q\right)
+= \frac{p!q!}{\left( p + q + 1\right) !}.$
+\end{noliste}
+
+\item Informatique.
+
+Compléter la déclaration récursive suivante afin qu'elle
+permette le calcul de $I\left( p,q\right) :$
+
+\texttt{Function i(p, q : integer ) : real ;\\
+Begin\\
+If q = 0 then i : =...... else...... ; \\
+End ;\\
+}
+\end{noliste}
+
+\subsection*{Partie 2 : étude d'une suite de variables aléatoires}
+
+Dans cette partie, $m$ est un entier naturel fixé, supérieur ou égal à
+2.
+
+On considère une suite de variables aléatoires $\left( U_{n}\right)
+_{n\geq 1}$, toutes définies sur le même espace probabilisé $\left(
+\Omega,\mathcal{A},\Prob\right) $, telles que, pour tout entier
+naturel $n$ supérieur ou égal à $1$, $U_{n}$ suit la loi
+uniforme sur $ \left\{
+0,\frac{1}{n},\frac{2}{n},\cdots,\frac{n-1}{n}\right\} $
+
+On considère également une suite de variables aléatoires $\left(
+X_{n}\right)_{n\geq 1}$ définies elles aussi sur $\left(
+\Omega,\mathcal{A},\Prob\right) $, et telles que, pour tout entier
+naturel $n$
+supérieur ou égal à $1$, et pour tout $k$ de $\left[ \ \left[
+0,n-1\right] \right],$ la loi de $X_{n}$ conditionnellement à
+l'événement $ \left( U_{n} = \frac{k}{n}\right) $ est la loi binomiale
+$ \mathcal{B}\left( m,\frac{k}{n}\right) $.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On considère une variable aléatoire $Y$ suivant la loi
+binomiale $\mathcal{B}\left( m,p\right) $. Rappeler la valeur de
+l'espérance de $Y$ puis montrer que $\E\left( Y\left( Y-1\right)
+\right) = m\left(
+m-1\right) p^{2}$
+
+\item Donner la loi de $X_{1}$
+
+\hspace{-1cm}Dans toute la suite, on suppose $n$ supérieur ou égal
+à 2.
+
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer $X_{n}\left( \Omega \right) $, puis montrer que, pour
+tout $i$ de $X_{n}\left( \Omega \right) $, on a :
+\[
+\Prob\left(\Ev{ X_{n} = i}\right) = \frac{1}{n}\binom{m}{i}\Sum{k =
+0}{n-1}\left( \frac{k}{n}\right) ^{i}\left( 1-\frac{k}{n}\right) ^{m-i}
+\]
+
+\item Utiliser la première question de cette partie pour donner sans
+calcul la valeur de la somme $ \Sum{i = 1}{m}i\binom{m}{i}\left(
+\frac{k}{n}\right) ^{i}\left( 1-\frac{k}{n}\right) ^{m-i}.\\
+$Montrer alors que l'espérance de $X_{n}$ est égale à $ \dfrac{m\left(
+n-1\right) }{2n}$
+
+\item En utilisant toujours la première question de cette partie,
+donner
+sans calcul la valeur de la somme $ \Sum{i = 1}{m}i\left(
+i-1\right) \binom{m}{i}\left( \frac{k}{n}\right) ^{i}\left(
+1-\frac{k}{n}\right) ^{m-i}$\\
+Montrer alors que l'espérance de $X_{n}\left( X_{n}-1\right) $ est
+égale à $\dfrac{m\left( m-1\right) \left( n-1\right) \left( 2n-1\right)
+}{6n^{2}}.$
+
+\item En déduire finalement que la variance de $X_{n}$ est égale
+à $ \dfrac{m\left( m + 2\right) \left( n^{2}-1\right) }{12n^{2}}$
+\end{noliste}
+
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En utilisant les résultats obtenus aux deux premières
+questions de la première partie, calculer, pour tout i de $X_{n}\left(
+\Omega \right) $,\hspace{5mm} $\lim \limits_{n\rightarrow + \infty
+}\Prob\left(\Ev{ X_{n} = i}\right) $.
+
+\item En déduire que la suite $\left( X_{n}\right) $ converge en loi
+vers une variable aléatoire $X$ dont on précisera la loi.
+
+\item Vérifier que\hspace{5mm} $\lim \limits_{n\rightarrow + \infty
+}\E\left( X_{n}\right) = E\left( X\right) $ et $\lim
+\limits_{n\rightarrow
+ + \infty }\V(X_{n}) = V(X).$
+\end{noliste}
+\end{noliste}
+
+\end{document}
+

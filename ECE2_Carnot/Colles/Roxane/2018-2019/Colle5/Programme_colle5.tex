@@ -1,0 +1,198 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+
+\vspace{0.1cm}
+
+\begin{center}
+\textbf{\Large{Programme de colle - Semaine 5}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Notation}
+
+On adoptera les principes suivants pour noter les étudiants :
+\begin{noliste}{$\stimes$}
+\item si l'étudiant sait répondre à la question de cours, il 
+aura une note $>8$.
+\item si l'étudiant ne sait pas répondre à la question de 
+cours ou s'il y a trop d'hésitations, il aura une note $\leq 8$.
+\end{noliste}
+
+\section*{Questions de cours}
+
+\begin{noliste}{$\sbullet$}
+  \item {\bf Stabilité d'un sev engendré}\\
+  Soit $E$ un $\R$-ev. Soit $(u_1,\hdots,u_m)\in E^m$. On a :
+  \[
+   u_{m+1} \in\Vect{u_1,\hdots, u_m} \ \Rightarrow \ \Vect{u_1,
+   \hdots, u_m,u_{m+1}} = \Vect{u_1,\hdots, u_m}
+  \]
+  
+  \begin{proof}[Preuve]~\\
+  Supposons $u_{m+1}\in\Vect{u_1,\hdots, u_m}$.\\
+  Démontrons que $\Vect{u_1,\hdots, u_m,u_{m+1}}=\Vect{u_1,
+  \hdots,u_m}$.
+  \begin{noliste}{$\stimes$}
+  \item $(\supset)$ Évident.
+  
+  \item $(\subset)$ Comme $u\in \Vect{u_1,\hdots,u_m,u_{m+1}}$, alors 
+  le 
+  vecteur $u$ s'écrit $u=\Sum{i=1}{m+1} \lambda_i \cdot u_i$.\\
+  Or $u_{m+1}\in\Vect{u_1,\hdots,u_m}$, donc $u_{m+1}=\Sum{i=1}{m} 
+  \mu_i \cdot u_i$. Ainsi :
+  \[
+    \begin{array}{rclcc}
+    u &=& \left(\Sum{i=1}{m} \lambda_i \cdot u_i\right) & + & 
+    \lambda_{m+1} \cdot u_{m+1}
+    \\[.6cm]
+    &=& \left(\Sum{i=1}{m} \lambda_i \cdot u_i\right) & + & 
+    \lambda_{m+1} \cdot \left( \Sum{i=1}{m} \mu_i \cdot u_i\right)
+    \\[.6cm]
+    &=& \Sum{i=1}{m} (\lambda_i+\lambda_{m+1} \times \mu_i) \cdot u_i
+    \end{array}
+  \]
+  et donc $u\in\Vect{u_1,\hdots,u_m}$.
+  \end{noliste}~\\[-1cm]
+  \end{proof}
+  
+  \item {\bf Techniques de base}\\
+  On choisira de demander au choix à l'étudiant de :
+  \begin{noliste}{$\stimes$}
+    \item montrer qu'un espace $F$ est un sous-espace 
+    vectoriel d'un espace vectoriel $E$, sur un exemple dans $\R^n$, 
+    $\M{n,p}$, $\R[X]$, $\R_n[X]$, $\R^\N$, $\R^\R$, etc.
+    \item montrer qu'une famille de vecteurs est génératrice d'un 
+    espace vectoriel donné, sur un exemple.
+    \item montrer qu'une famille de vecteurs est libre dans un 
+    espace vectoriel donné, sur un exemple.
+  \end{noliste}
+  
+  
+  \newpage
+  
+  
+  \item {\bf Propriétés d'une probabilité} 
+  \underline{On choisira $3$ propriétés à démontrer parmi les 
+  suivantes} :\\
+  Soit $(\Omega,\A,\Prob)$ un espace probabilisé. Alors
+  \begin{noliste}{1.}
+    \item Pour tous événements $A$ et $B$ tel que $A \subset B$, 
+    alors $\Prob(A) \leq \Prob(B)$.
+    \item Pour tout événement $A \in \A$, $\Prob(\overline{A}) = 1 - 
+    \Prob(A)$. En particulier, $\Prob(\varnothing) = 0$.
+    \item $\Prob (B \setminus A) = \Prob (B) - \Prob (A \cap B)$
+    \item $\Prob (A \cup B) = \Prob (A) + \Prob (B) - \Prob (A \cap 
+    B)$
+    \item $
+      \begin{array}{rccl}
+        \Prob (A \cup B \cup C) & = & & \Prob(A) \ + \ \Prob(B) \ + 
+        \ \Prob(C) \\
+        & & - & \Prob(A \cap B) \ - \ \Prob(A \cap C) \ - \ \Prob(B 
+        \cap C) \\ 
+        & & + & \Prob(A \cap B \cap C) \\ 
+      \end{array}
+      $\\[.1cm]
+    {\em (formule du crible)}
+\end{noliste}
+
+\begin{proof}[Preuve]~
+\begin{noliste}{1.}
+\item Pour tous événements $A$ et $B$, les événements $A\cap B$ et 
+$\overline{A} \cap B$ sont incompatibles. Si $A \subset B$ alors $A 
+\cap B = A$. Ainsi
+\[
+\Prob(B) = \Prob\big((A \cap B) \cup (\overline{A} \cap B)\big) = 
+\Prob(A \cap B) + \Prob(\overline{A} \cap B) = \Prob(A) + 
+\underbrace{\Prob(\overline{A} \cap B)}_{\geq 0}.
+\]  
+Donc $\Prob(B) \geq \Prob(A)$.
+
+\item $A$ et $\overline{A}$ forment un système complet d'événements 
+donc 
+$\Prob(\Omega) = \Prob(A \cup \overline{A}) = \Prob(A) + 
+\Prob(\overline{A})$. Donc $\Prob(A) = 1 - \Prob(A)$.
+
+\item On a : $(A \setminus B) \ \cup \ (A \cap B) = A$ (réunion
+    disjointe).\\
+    Ainsi, par $\sigma$-additivité :
+    \[
+    \Prob((A \setminus B) \ \cup \ (A \cap B)) = \Prob(A \setminus B)
+    + \Prob(A \cap B) = \Prob(A)
+    \]
+\item On a : $A \cup B = A \cup (B \setminus A)$ (la deuxième
+    réunion est disjointe).\\
+    On en déduit, à l'aide du point \itbf{2)} que :
+    \[
+    \begin{array}{rcl}
+      \Prob(A \cup B) & = & \Prob(A \cup (B \setminus A)) \\[.2cm]
+      & = & \Prob(A) + \Prob(B \setminus A) \\[.2cm]
+      & = & \Prob(A) + \Prob(B) - \Prob(A \cap B)
+    \end{array}
+    \]    
+
+  \item Généralisation de la formule précédente :
+    \[
+    \begin{array}{rcl}
+      \multicolumn{3}{l}{\Prob(A \cup B \cup C)} \\[.2cm]
+      & = & \Prob(A \cup (B \cup C)) \\[.2cm]
+      & = & \Prob(A) + \Prob(B \cup C) - \Prob(A \cap (B \cup C)) 
+\\[.2cm]
+      & = & \Prob(A) + \Prob(B) + \Prob(C) - \Prob(B \cap C) - 
+      \Prob(A \cap (B \cup C)) \\[.2cm]
+      & = & \Prob(A) + \Prob(B) + \Prob(C) - \Prob(B \cap C) - 
+      \Prob((A \cap B) \cup (A \cap C)) \\[.2cm]
+      & = & \Prob(A) + \Prob(B) + \Prob(C) - \Prob(B \cap C) \\[.1cm]
+      & & - \left( \ \Prob(A \cap B) + \Prob(A \cap C) - \Prob((A \cap 
+B) \cap 
+        (A \cap C)) \ \right)\\[.2cm]
+      & = & \Prob(A) + \Prob(B) + \Prob(C) \\[.1cm]
+      & & - \Prob(B \cap C) - \Prob(A \cap B) - \Prob(A \cap C) \\[.1cm]
+      & & + \Prob(A \cap B \cap C)
+    \end{array}
+    \]
+\end{noliste}
+\end{proof}
+\end{noliste}
+
+
+\section*{Connaissances exigibles}
+
+\begin{noliste}{$\sbullet$}
+\item espaces vectoriels, sous-espaces vectoriels
+\item famille génératrice, famille libre, base
+\item bases canoniques de $\R^n$, $\M{n,p}$ et $\R_n[X]$.
+\item coordonnées dans une base
+\item dimension d'un espace vectoriel
+\item rang d'une famille de vecteurs, rang d'une matrice
+\item \warn les élèves ne connaissent pas les endomorphismes (et donc 
+pas le théorème du rang)
+\item définition de tribu, probabilité
+\item événements incompatibles, système complet d'événements, 
+indépendance
+\item probabilités conditionnelles, formule de Bayes
+\item formule du crible, formule des probabilités totales, formule 
+des probabilités composées
+\item la notion de variable aléatoire n'a pas encore été revue.
+\end{noliste}
+
+
+
+
+
+\end{document}

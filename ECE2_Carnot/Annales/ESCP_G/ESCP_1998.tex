@@ -1,0 +1,510 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1998 - voie Générale} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION SCIENTIFIQUE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 1998}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent L'objet de ce problème est l'étude d'un algorithme
+d'approximation
+d'une racine carrée de certains éléments de $\R$, $\C$ ou $\M_{n}(\R)$,
+c'est à dire la construction d'une suite
+convergeant vers un élément dont le carré est donné.
+
+\section*{Partie I : Algorithme de Newton dans $\R$}
+
+Soit $a$ un réel strictement positif.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner le tableau de variation de la fonction définie, pour $x$
+élément de $\R_{+}{\times }$ par : 
+\[
+f(x) = \dfrac{1}{2}\left( x + \dfrac{a}{x}\right)
+\]
+
+\item Justifier rapidement l'existence de la suite réelle
+$(x_{n})_{n\in 
+\N}$ définie par la donnée de $x_{0} = a$ et de la relation de
+récurrence : $x_{n + 1} = f(x_{n})$ pour tout entier naturel $n$.
+
+\item Pour tout entier naturel $n$, établir les égalités : 
+\[
+x_{n + 1}-\sqrt{a} = \dfrac{1}{2x_{n}}(x_{n}-\sqrt{a})^{2}\qquad
+\text{et}\qquad
+x_{n + 2}-x_{n + 1} = \dfrac{1}{2x_{n + 1}}(a-x_{n + 1}{2})
+\]
+
+\item En déduire que la suite $(x_{n})_{n\in \N}$ converge vers
+$\sqrt{a}$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout entier naturel non nul, prouver les inégalités : 
+\[
+0\leq x_{n + 1}-\sqrt{a}\leq \dfrac{1}{2\sqrt{a}}(x_{n}-\sqrt{a})^{2}
+\]
+
+\item Soit $b$ un réel strictement positif et $(u_{n})_{n\in \N^{\times
+}}$ une suite de réels positifs vérifiant l'inégalité : $u_{n + 1}\leq
+bu_{n}{2}$ pour tout entier naturel non nul $n$.\\
+Pour tout entier naturel non nul $n$, donner une majoration de $u_{n}$
+en
+fonction de $n$, $b$, $u_{1}$.
+
+\item En déduire, pour tout entier naturel $n$ non nul, une majoration
+de $x_{n}-\sqrt{a}$ en fonction de $n$, $x_{1}$ et $a$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En décrivant pas à pas les étapes de l'algorithme, que dire du
+résultat rendu par le programme suivant quand on l'exécute ?{}
+
+\texttt{program\ racine\ carree\ ;}
+
+\texttt{function\ rc(a,x,eps\ :real)\ :real;}
+
+\texttt{begin}
+
+\texttt{if\ abs(x*x-a) \TEXTsymbol{<}eps then\ rc\ : = x\ else}
+
+\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad
+\texttt{begin}
+
+\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad 
+\texttt{x : = 1/2*(x + a/x);}
+
+\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad 
+\texttt{rc : = rc(a,x,eps) ;\ }
+
+\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad
+\texttt{end;}
+
+\texttt{end;}
+
+\texttt{begin\ writeln(rc(2,2,1e-16))\ ;}
+
+\texttt{end.}
+
+\item On rappelle les inégalités : $1,4<\sqrt{2}<1,5$.\\
+Montrer que, lors de l'exécution du programme précédent, le nombre de
+comparaisons effectuées est inférieur ou égal à six.\textit{\ On
+supposera
+le type real\ suffisamment étendu pour pouvoir manipuler des nombres à
+une précision d'au moins vingt décimales. }
+\end{noliste}
+\end{noliste}
+
+\section*{Partie II\hspace{0.2cm} : Algorithme de Newton dans $\C$}
+
+On se propose dans cette partie d'adapter la méthode de Newton à la
+recherche d'une racine carrée d'un nombre complexe $a$, c'est à dire
+d'approcher un nombre complexe dont le carré vaut $a$. Dans toute cette
+partie, $a$ désigne un nombre complexe qui n'est pas un réel négatif ou
+nul.\\
+On note $Re(z)$ la partie réelle d'un nombre complexe $z$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer qu'il existe un unique nombre complexe $b$ de partie
+réelle
+strictement positive tel que $b^{2} = a$. \\
+On note $\mathcal{P}_{+} = \left\{ z\in \C,\quad \mathcal{R}e\left( 
+\dfrac{z}{b}\right) >0\right\} $.
+
+\item Dans cette sous question (et uniquement ici) on suppose que $a =
+2i$. Déterminer le nombre $b$ dans ce cas particulier et représenter
+l'ensemble des
+points $M$ du plan dont l'affixe $z$ est élément de $\mathcal{P}_{+}$.
+\end{noliste}
+
+\item On revient au cas général (où le nombre complexe $a$ n'est pas un
+réel
+négatif ou nul) et on considère l'application $f$ définie pour tout
+nombre
+complexe $z$ non nul par $f(z) = \dfrac{1}{2}\left( z +
+\dfrac{a}{z}\right) $.\\
+Établir l'inclusion : $f\left( \mathcal{P}_{+}\right) \subset P_{+}$.
+
+\item On considère la suite $(z_{n})_{n\in \N}$ définie par la donnée
+de $z_{0} = a$ et par la relation de récurrence : $z_{n + 1} =
+f(z_{n})$ pour
+tout entier naturel $n$.\\
+On pose également : $w_{n} = \dfrac{z_{n}-b}{z_{n} + b}$ pour tout
+entier
+naturel $n$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier l'existence des suites $(z_{n})_{n\in \N}$ et
+$(w_{n})_{n\in \N}$.
+
+\item Exprimer, pour tout entier naturel $n$ non nul, $w_{n}$ en
+fonction de 
+$w_{n-1}$, puis, pour tout entier naturel $n$, $w_{n}$ en fonction de
+$w_{0}$
+et $n$.
+\end{noliste}
+
+\item Prouver la majoration $\left| w_{0}\right| <1$. En déduire la
+limite de la suite $(z_{n})_{n\in \N}$.
+\end{noliste}
+
+\section*{Partie III : Racine carrée d'une matrice}
+
+Dans cette partie $n$ désigne un entier naturel au moins égal à 2.
+
+\begin{noliste}{$\sbullet$}
+\item On note $\mathfrak{M}_{n}(\R)$ l'espace vectoriel des matrices
+carrées à coefficients réels ayant $n$ lignes et $n$ colonnes.
+
+\item On note $\mathfrak{M}_{n,1}(\R)$ l'espace vectoriel des
+matrices colonnes à coefficients réels ayant $n$ lignes et une colonne.
+
+\item On munit $\R^{n}$ de sa structure euclidienne usuelle dont on
+note $||.||$ la norme.
+
+\item On identifie les vecteurs de $\R^{n}$ aux éléments de
+$\mathfrak{M}_{n,1}(\R)$ de telle sorte que si $x =
+(x_{1},x_{2},\ldots,x_{n})$ on écrira $Mx$ pour $M
+\begin{smatrix}
+x_{1} \\
+x_{2} \\
+\vdots \\
+x_{n}\end{smatrix}
+$
+
+\item Soit $A$ une matrice carrée à coefficients réels. On appelle
+racine
+carrée de $A$ toute matrice $B$ vérifiant $B^{2} = A$.
+\end{noliste}
+
+\subsection*{A. Quelques exemples \ }
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que la matrice $\begin{smatrix}
+0 & 1 \\
+0 & 0
+\end{smatrix}
+$ n'admet pas de racine carrée.
+
+\item On se propose, dans cette question, de généraliser le résultat de
+la
+question précédente.\\
+On considère l'élément de $\mathfrak{M}_{n}(\R)$ suivant : 
+\[
+A = 
+\begin{smatrix}
+0 & 1 & 0 & \ldots & 0 \\
+0 & 0 & 1 & \ldots & 0 \\
+\vdots & & \ddots & \ddots & \vdots \\
+\vdots & & & \ddots & 1 \\
+0 & \ldots & \ldots & 0 & 0
+\end{smatrix}
+\]
+$A$ est donc la matrice dont le coefficient en ligne $i$ et colonne $j$
+est
+nul sauf si $1\leq i\leq n-1$ et $j = i + 1$ auquel cas il vaut 1.\\
+On suppose qu'il existe une matrice $B$ racine carrée de $A$ et on note
+$g$
+l'endomorphisme de $\R^{n}$ ayant, dans la base canonique, $B$ pour
+matrice.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item L'endomorphisme $g$ est-il bijectif ?
+
+\item Prouver que $\func{Im}(g)$ est stable par $g$ (c'est à dire que
+$g(\func{Im}(g))\subset \func{Im}(g)$), puis que la restriction de $g$
+à $\func{Im}(g)$ est un automorphisme de $\func{Im}(g)$.
+
+\item Que vaut $g^{2n}$ ? En déduire que la matrice $A$ n'a pas de
+racine
+carrée.
+\end{noliste}
+
+\item Donner un exemple d'élément de $\mathfrak{M}_{2}(R)$ possédant
+une
+infinité de racines carées.
+\end{noliste}
+
+\subsection*{B. Racine carrée d'une matrice symétrique strictement
+positive}
+
+On note $\mathcal{S}_{n}$ l'ensemble des matrices symétriques de
+$\mathfrak{M}_{n}(\R)$. On appelle matrice symétrique strictement
+positive, tout 
+élément de $\mathcal{S}_{n}$ dont les valeurs propres sont strictement
+positives. On note $\mathcal{S}_{n}{+}$ l'ensemble des matrices
+symétriques
+réelles strictement positives. On suppose désormais que $A$ est un
+élément
+de $\mathcal{S}_{n}{+}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $A$ admet une racine carrée symétrique réelle
+strictement
+positive. On pourra commencer par le cas où $A$ est diagonale.
+
+\item Soit $B$ et $C$ deux racines carrées symétriques réelles
+strictement
+positives de $A$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier l'existence de deux matrices $P$ et $Q$ inversibles et
+de
+deux matrices diagonales $D$ et $\Delta $ telles que : $A = PD^{2\;t}P
+= Q\Delta
+^{2\;t}Q$.
+
+\item En déduire l'existence d'une matrice inversible $R$ telle que
+$RD^{2} = \Delta ^{2}R$.\\
+Établir l'égalité $RD = \Delta R$. \ \textit{On comparera les
+coefficients de
+ligne }$i$\textit{\ et de colonne }$j$\textit{\ (}$1\leq i,j\leq
+n$\textit{) de ces deux matrices} \emph{.}
+
+\item Conclure qu'il existe une unique racine carrée de $A$ symétrique
+réelle strictement positive, que l'on notera $A^{1/2}$.\vspace{0.5cm}
+\end{noliste}
+
+Jusqu'à la fin de cette partie B, on note
+$\lambda_{1},\lambda_{2},\ldots,\lambda_{p}$ les valeurs propres
+distinctes de $A$ et, pour tout entier $j$, $1\leq j\leq p$, $E_{j}$ le
+sous espace propre de $A$ associé à
+la valeur propre $\lambda_{j}$.
+
+\item Pour tout entier $j$ tel que $1\leq j\leq p$ et pour tout réel
+$x$, on pose : 
+\[
+L_{j}(x) = \prod_{\substack{ i = 1 \\
+i\neq j}}{p}\dfrac{x-\lambda_{i}}{\lambda_{j}-\lambda_{i}}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la famille $(L_{1},L_{2},\ldots,L_{p})$ est une base
+de
+l'espace vectoriel des polynômes à coefficients réels de degré
+strictement
+inférieur à $p$.
+
+\item Montrer qu'il existe un unique polynôme $P$ à coefficients réels
+de
+degré strictement inférieur à $p$ tel que, pour tout entier $i$ de
+$\{1,2,\ldots,p\}$, $P\left(\Ev{\lambda_{i}}\right) =
+\sqrt{\lambda_{i}}$.
+
+\item 
+
+\begin{nonoliste}{(i)}
+\item Pour tout entier $j$, $1\leq j\leq p$ et pour tout vecteur
+$x_{j}$ de $E_{j}$, calculer
+$P\left(\Ev{A}\right)\left(\Ev{x_{j}}\right)$ et en déduire l'égalité :
+$P\left(\Ev{A}\right)^{2} = A$.
+
+\item Montrer que les valeurs propres de $P\left(\Ev{A}\right)$ sont
+toutes strictement
+positives.
+
+\item Conclure à l'égalité : 
+\[
+A^{1/2} = \Sum{i = 1}{p}\sqrt{\lambda_{i}}L_{i}(A)
+\]
+\end{nonoliste}
+\end{noliste}
+
+\item \textbf{Un exemple}\\
+On considère les éléments de $\M_{n}(\R)$ suivants : 
+\[
+U = 
+\begin{smatrix}
+1 & 1 & \ldots & \ldots & 1 \\
+1 & 1 & 1 & \ldots & 1 \\
+\vdots & \ddots & \ddots & \ddots & \vdots \\
+\vdots & & \ddots & \ddots & 1 \\
+1 & \ldots & \ldots & 1 & 1
+\end{smatrix}
+\qquad \text{et}\qquad A = 
+\begin{smatrix}
+n & -1 & \ldots & \ldots & -1 \\
+-1 & n & -1 & \ldots & -1 \\
+\vdots & \ddots & \ddots & \ddots & \vdots \\
+\vdots & & \ddots & \ddots & -1 \\
+-1 & \ldots & \ldots & -1 & n
+\end{smatrix}
+\]
+$U$ est donc la matrices dont tous les coefficients sont égaux à 1 et
+$A$
+celle dont le coefficient en ligne $i$ et colonne $j$ vaut $n$ si $i =
+j$ et $-1$ sinon.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les valeurs propres et les sous espaces propres de $U$
+et
+de $A$.
+
+\item Exprimer $A^{1/2}$ en fonction de $A$ et $I_{n}$ (matrice
+identité de $\M_{n}(\R)$).
+\end{noliste}
+\end{noliste}
+
+\section*{Partie IV : Algorithme de Newton dans $\mathcal{S}_{n}{+}$}
+
+Dans toute cette partie on considère un élément $A$ de
+$\mathcal{S}_{n}{+}$
+et une base orthonormée $(e_{1},e_{2},\ldots,e_{n})$ de $\R^{n}$
+formée de vecteurs propres de $A$, le vecteur propre $e_{i}$ étant,
+pour
+tout entier $i$, $1\leq i\leq n$, associé à la valeur propre
+$\lambda_{i}$. (les réels $\lambda_{1},\lambda_{2},\ldots,\lambda_{n}$
+n'étant pas nécessairement distincts).
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $M$ un élément de $\mathcal{S}_{n}{+}$ dont
+$(e_{1},e_{2},\ldots,e_{n})$ est aussi une base de vecteurs propres. On
+note $\mu_{1},\mu
+_{2},\ldots,\mu_{n}$ les valeurs propres correspondantes (i.e. $Me_{i}
+= \mu
+_{i}e_{i}$, pour tout entier $i$, $1\leq i\leq n$). \\
+Montrer que $(e_{1},e_{2},\ldots,e_{n})$ est encore une base de
+vecteurs
+propres de la matrice $M^{\prime } = \dfrac{1}{2}(M + M^{-1}A)$. Pour
+tout
+entier $i$, $1\leq i\leq n$, quelle relation existe-t-il entre la
+valeur propre $\mu_{i}{\prime }$ de $M^{\prime }$ associée à $e_{i}$ et
+$\mu_{i}$ ?
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déduire de la question précédente qu'il est possible de définir
+une
+suite $(A_{k})_{k\in \N}$ d'éléments de $\mathcal{S}_{n}{+}$ telle
+que : $A_{0} = A$ et, pour tout entier naturel $k$, $A_{k + 1} =
+\dfrac{1}{2}(A_{k} + A_{k}{-1}A)$.
+
+\item Pour tout entier $i$, $1\leq i\leq n$, on note $\lambda
+_{i,k}$ la valeur propre de $A_{k}$ associée à $e_{i}$. Étudier, pour
+tout
+entier $i$, $1\leq i\leq n$, la convergence de la suite $(\lambda
+_{i,k})_{k\in \N}$.
+\end{noliste}
+
+\item On dit qu'une suite $(M_{k})_{k\in \N}$ d'éléments de
+$\M_{n}(\R)$ converge vers la matrice $M$ de $\M_{n}(\R)$ s'il existe
+une base $(\varepsilon_{1},\varepsilon_{2},\ldots,\varepsilon_{n})$ de
+$\R^{n}$ telle que, pour tout entier $i$, $1\leq i\leq n$,
+$\dlim{k\rightarrow + \infty
+}||M_{k}\varepsilon_{i}-M\varepsilon_{i}|| = 0$.\\
+Montrer que la suite $(A_{k})_{k\in \N}$ converge vers $A^{1/2}$.
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

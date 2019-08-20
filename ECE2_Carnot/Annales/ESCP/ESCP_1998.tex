@@ -1,0 +1,369 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1998} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{ESCP 1998}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1998}}
+
+
+
+{\large \textbf{Concepteur : ESCP}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{\textbf{EXERCICE I}}
+
+Dans tout l'exercice $n$ désignera un entier naturel supérieur ou égal
+à $2$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier, suivant la parité de $n$, le tableau de variations de la
+fonction $f_{n}$ définie sur $\R$ par $x\mapsto x^{n + 1} + x^{n}$.
+
+\item Montrer que dans tous les cas $f_{n}\left( -\dfrac{n}{n +
+1}\right) <2$.
+
+\item En déduire, suivant la parité de $n$, le nombre de solutions de
+l'équation d'inconnue $x$ : 
+\[
+x^{n + 1} + x^{n} = 2.
+\]
+\end{noliste}
+
+\item On note $A$ la matrice $\begin{smatrix}
+1 & 1 \\
+1 & 1
+\end{smatrix}
+$. Montrer qu'il existe une matrice inversible $P\in
+\mathfrak{M}_{2}(\R)$ telle que 
+\[
+A = P
+\begin{smatrix}
+0 & 0 \\
+0 & 2
+\end{smatrix}
+P^{-1}.
+\]
+
+\item On considère l'équation matricielle d'inconnue $X\in
+\mathfrak{M}_{2}(\R)$ : 
+\[
+(E_{n})\qquad X^{n + 1} + X^{n} = A.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la résolution de cette équation peut se ramener à la
+résolution de l'équation d'inconnue $Y\in \M{2}$ : 
+\[
+(E_{n}{\prime })\qquad Y^{n + 1} + Y^{n} = 
+\begin{smatrix}
+0 & 0 \\
+0 & 2
+\end{smatrix}.
+\]
+
+\item Soit $Y$ une solution de $(E_{n}{\prime })$. On pose $Y = 
+\begin{smatrix}
+a & b \\
+c & d
+\end{smatrix}
+$ et $D = 
+\begin{smatrix}
+0 & 0 \\
+0 & 2
+\end{smatrix}
+$.
+
+\begin{nonoliste}{(i)}
+\item Montrer que $DY = YD$.
+
+\item En déduire que $b = c = 0$.
+
+\item Quelles sont les valeurs possibles de $a$ ?
+
+\item Discuter, suivant les valeurs de $n$, le nombre de solutions de
+l'équation $(E_{n})$.
+\end{nonoliste}
+
+\item On note $\mu $ la solution négative de l'équation numérique
+$x^{4} + x^{3} = 2$. Déterminer les solutions de l'équation $(E_{3})$ à
+l'aide de 
+$\mu $.
+\end{noliste}
+\end{noliste}
+
+\section*{{\textbf{EXERCICE II}}}
+
+On désigne par $\lambda $ un paramètre réel strictement supérieur à
+$1$.
+Soit $H$ l'ensemble des points $(x,y)$ de $\R^{2}$ tels que $x>0$ et
+soit $D$ l'ensemble des points de $H$ tels que $\,y\neq 0$. L'objet de
+l'exercice est l'étude des extremums de la fonction $f$ définie sur $H$
+par 
+\[
+f(x,y) = x^{\lambda }\,y-y^{2}-y\,\ln (x + 1) + 1.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $\phi$ la fonction définie sur $]0, + \infty[$ par $\phi(x)
+= 
+x^\lambda - \ln(x + 1)$ et $\phi^{\prime}$ sa dérivée.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que l'équation $\phi^{\prime}(x) = 0$ admet une racine et
+une seule dans $]0, + \infty[$.
+
+On note $b$ cette racine et on pose $\phi(b) = 2c$. Montrer que $c <
+0$.
+
+\item Montrer que l'équation $\phi(x) = 0$ admet une racine et une
+seule,
+notée $a$, dans $]0, + \infty[$ et que $a > b$.
+\end{noliste}
+
+\item Calculer les dérivées partielles $\,f_{x}{\prime }$ et
+$\,f_{y}{\prime }$ de la fonction $f$.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer l'ensemble des points $(x,y)\in H$ vérifiant
+$f_{x}{\prime
+}(x,y) = 0$.
+
+\item Déterminer les points $(x,y)\in H$ vérifiant $f_{x}{\prime }(x,y)
+= 0$
+et $f_{y}{\prime }(x,y) = 0$. On exprimera les solutions $(x,y)$
+trouvées à
+l'aide des nombres $\,a$, $\,b$ et $\,c$ définis à la question
+\textbf{1}.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer les dérivées partielles secondes de $f$.
+
+\item Montrer que $f$ admet dans $D$ un extremum en un unique point
+$(x_{\lambda },y_{\lambda })$ que l'on précisera.
+\end{noliste}
+\end{noliste}
+
+\section*{\textbf{EXERCICE III}}
+
+Toutes les variables aléatoires considérées dans cet exercice sont
+supposées
+définies sur un même espace probabilisé, muni de la probabilité $P$.\\
+Pour tout entier $n\geq 1$, soit $X_{n}$ une variable aléatoire réelle
+vérifiant $P\left(\Ev{X_{n} = k}\right) = \dfrac{1}{n}$ pour tout
+entier $k$ tel que $0\leq
+k\leq n-1$. On pose $Y_{n} = \dfrac{X_{n}}{n}.$\\
+D'autre part, soit $Z$ une variable aléatoire de loi uniforme sur
+l'intervalle $[0,1]$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer l'espérance $\E(Z)$ et la variance $\V(Z)$ de la
+variable aléatoire $Z$.
+
+\item Calculer, pour tout $n\geq 1$, l'espérance et la variance de
+$Y_{n}$.
+
+\noindent Déterminer les limites des suites $(\E(Y_{n}))_{n\geq 1}$ et
+$(\V(Y_{n}))_{n\geq 1}$.
+
+\item Montrer que, pour toute fonction $f$ de classe $\mathcal{C}{1}$
+sur $[0,1]$, à valeurs réelles, strictement monotone, on a
+$\,\dlim{n\rightarrow + \infty }\E(f(Y_{n})) = E(f(Z)).$
+\end{noliste}
+
+\item Pour tout réel $x$ on note $\mathrm{Ent}(x)$ la partie entière de
+$x$,
+c'est-à-dire le plus grand nombre entier relatif inférieur ou égal à
+$x$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout réel $x$, $\dlim{n\rightarrow + \infty
+}\dfrac{\mathrm{Ent}(nx)}{n}\, = \,x.$
+
+\item Soit $a$ et $b$ deux réels vérifiant $0\leq a\leq b\leq
+1$ et soit $I_{n}(a,b)$ le nombre d'entiers $k$ vérifiant
+$a<\dfrac{k}{n}\leq b$. Montrer que $\,I_{n}(a,b) =
+\mathrm{Ent}(nb)-\mathrm{Ent}(na).$
+
+\item Montrer que, si $0\leq a\leq b\leq 1$, $\dlim{n\rightarrow +
+\infty }P\left(\Ev{a<Y_{n}\leq b}\right) = P\left(\Ev{a<Z\leq
+b}\right).$
+\end{noliste}
+
+\item Pour tout entier $n\geq 1$ on note $Z_{n}$ la variable aléatoire
+$\dfrac{1}{n}\mathrm{Ent}(n\,Z)$ et on pose $D_{n} = Z-Z_{n}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer $Z_{n}$ et $Y_{n}$ ont même loi de probabilité.
+
+\item Trouver la fonction de répartition et une densité de $D_{n}$.
+
+\item Pour un entier $k$ tel que $0\leq k\leq n-1$ et un réel $y$
+tel que $0\leq y\leq \dfrac{1}{n}$, exprimer à l'aide de la
+variable aléatoire $Z$ l'évènement $\{Z_{n} =
+\dfrac{k}{n}\;$et$\;D_{n}\leq y\}$. En déduire la valeur de
+$P\left(\Ev{Z_{n} = \dfrac{k}{n}\;$et$\;D_{n}\leq y}\right)$.
+
+\item Montrer que les variables aléatoires $Z_{n}$ et $D_{n}$ sont
+indépendantes.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

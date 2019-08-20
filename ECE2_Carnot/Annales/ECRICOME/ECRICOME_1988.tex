@@ -1,0 +1,486 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 1988} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dint}{\int}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 1988}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\Huge ECRICOME Eco 1988}
+\end{center}
+
+\begin{center}
+\textbf{EXERCICE DE MATHEMATIQUES}
+\end{center}
+
+Soit $E$ un espace vectoriel rapporté à une base $B =
+(e_{1},e_{2},e_{3});$ on
+considère l'endomorphisme $f$ de $E$ dont la matrice relativement à la
+base $B$ est :
+\[
+A = 
+\begin{smatrix}
+2 & 0 & 0 \\
+1 & 3 & -1 \\
+1 & 1 & 1
+\end{smatrix}.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Vérifier que $A$ n'admet comme valeur propre que le réel $\lambda
+= 2.$
+
+\item Déterminer l'ensemble des vecteurs propres associées à $\lambda =
+2.$
+
+\item On pose $\left\{ 
+\begin{array}{cccccc}
+e_{1}{\prime } = & & & e_{2} & + & e_{3} \\
+e_{2}{\prime } = & e_{1} & & & + & e_{3} \\
+e_{1}{\prime } = & e_{1} & + & e_{2} & & 
+\end{array}
+\right..$\\
+Montrer que la matrice $A^{\prime }$ de $f$ relativement à la nouvelle
+base $B^{\prime } = (e_{1}{\prime },e_{2}{\prime },e_{3}{\prime })$ est
+:
+\[
+A^{\prime } = 
+\begin{smatrix}
+2 & 0 & 2 \\
+0 & 2 & 0 \\
+0 & 0 & 2
+\end{smatrix}.
+\]
+
+\item On écrit $A^{\prime } = 2I + J$ avec $I = 
+\begin{smatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{smatrix}
+$ et $J = 
+\begin{smatrix}
+0 & 0 & 2 \\
+0 & 0 & 0 \\
+0 & 0 & 0
+\end{smatrix}.$\\
+Pour $n\in \N,$ calculer $A^{\prime n}$ puis $A^{n}.$
+
+\item \underline{Applications} : déterminer en fonction de $n$ les
+valeurs
+de $x_{n},y_{n},z_{n}$ définis par 
+\[
+x_{0} = y_{0} = z_{0} = 1\quad \left\{ 
+\begin{array}{l}
+x_{n + 1} = 2x_{n} \\
+y_{n + 1} = x_{n} + 3y_{n}-z_{n} \\
+z_{n + 1} = x_{n} + y_{n} + z_{n}
+\end{array}
+\right. 
+\]
+\end{noliste}
+
+\begin{center}
+\textbf{EXERCICE DE STATISTIQUES-PROBABILITES}
+\end{center}
+
+Dans un hôpital de la région parisienne, le nombre d'admis dans le
+service
+des urgences, au cours du samedi est une variable aléatoire $X$ de
+distribution
+\[
+\begin{tabular}{c|c|c|c|c|c|c}
+$x_{i}$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ \\
+\hline
+$P\left(\Ev{X = x_{i}}\right)$ & $0,22$ & $0,33$ & $0,25$ & $0,13$ &
+$0,05$ & $0,02$\end{tabular}
+\]
+La probabilité que la personne admise soit un homme est $0,3.$ Soit $Y$
+la
+variable aléatoire "nombre d'hommes admis dans le service des urgences
+au
+cours de la nuit du samedi".
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Quelle est la loi conditionnelle de $Y$ pour $X = x_{i}$ ?
+
+\item En déduire $P\left(\Ev{Y = 4}\right)$ à $10^{-4}$ près.
+
+\item Si, un samedi donné, il n'y a que trois lits disponibles pour les
+hommes et deux pour les femmes, quelle est la probabilité de refuser un
+ou
+plusieurs patients hommes ou femmes ?
+
+\item Déterminer la loi de $Y$ en supposant que $X$ suit une loi de
+Poisson
+de paramètre $\lambda = 1,5.$
+\end{noliste}
+
+\begin{center}
+\textbf{Problème}
+\end{center}
+
+Les parties $A$ et $B$ sont largement indépendantes.
+
+Ce problème étudie, à partir de différentes hypothèses, la probabilité
+pour
+qu'une personne donnée soit retenue à la suite d'une offre d'emploi.
+
+La notation $\ln $ désigne le logarithme népérien.
+
+\section*{Première Partie -A}
+
+Une entreprise souhaite recruter un responsable pour son service
+commercial.
+Un certain nombre de personnes se présentent à la suite de cette offre.
+L'ordre des convocations pour l'entretien se fait au hasard. Pour
+diverses
+raisons, il a décidé que le premier candidat qui, au cours des ces
+entretiens, présenterait les qualités requises, serait immédiatement
+embauché.
+
+Le nombre de personnes candidates à ce poste, convoquées et ayant les
+qualités exigées est une variable aléatoire $X.$
+
+On considère que les ordres de passage de ces candidats "embauchables"
+devant la commission de recrutement sont équiprobables.
+
+Enfin, dans tout le problème, on nomme $A$ une personne ayant toutes
+les
+qualités pour être embauchée, et faisant partie des personnes
+convoquées.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On suppose dans cette question que $X$ peut prendre comme valeur
+tout
+entier $k$ vérifiant $1\leq k\leq N,$ $N$ étant un entier fixé,
+toutes ces valeurs étant équiprobables.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la probabilité $\alpha_{N}$ pour que $A$ soit
+embauchée
+est donnée par 
+\[
+\alpha_{N} = \left( 1 + \dfrac{1}{2} + \dfrac{1}{3} + \cdots +
+\dfrac{1}{N}\right)
+\times \dfrac{1}{N}.
+\]
+
+\item Utiliser, après l'avoir justifiée, l'inégalité
+\[
+\forall k\in \N^{\times },\quad \dfrac{1}{k + 1}\leq
+\dint{k}{k + 1}\dfrac{dt}{t}\leq \dfrac{1}{k}
+\]
+pour obtenir un encadrement de $\alpha_{N}.$\\
+En déduire la limite de $\alpha_{N}$ lorsque $N\rightarrow + \infty.$
+\end{noliste}
+
+\item On suppose dans cette question que $X$ peut encore prendre comme
+valeur tout entier $k$ vérifiant $1\leq k\leq N,$ sa loi étant définie
+par 
+\[
+\forall k\in \lbrack \hspace{-0.15em}[1,N]\hspace{-0.13em}],\quad
+P\left(\Ev{X = k}\right) = \dfrac{C}{k^{r}}
+\]
+où $r$ est un réel supérieur ou égale à $1,$ et $C$ une constante
+réelle.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item A quelle condition doit satisfaire la constante $C$ ?
+
+\item Montrer que la probabilité $\beta_{N}$ pour que $A$ soit
+embauchée
+est donnée par :
+\[
+\beta_{N} = \dfrac{1 + \dfrac{1}{2^{r + 1}} + \cdots + \dfrac{1}{N^{r +
+1}}}{1 + \dfrac{1}{2^{r}} + \cdots + \dfrac{1}{N^{r}}}.
+\]
+
+\item On considère la suite $(u_{N}),$ $N\in \N^{\times }$ définie
+par $u_{N} = \Sum{k = 1}{N}\dfrac{1}{k^{r}}.$\\
+En utilisant, comme en 1.b), l'inégalité pour $k\geq 1,$
+\[
+\dfrac{1}{(k + 1)^{r}}\leq \dint{k}{k + 1}\dfrac{dx}{x^{r}}\leq
+\dfrac{1}{k^{r}}
+\]
+discuter, selon la valeur de $r,$ l'existence d'une limite pour $u_{N}$
+quant $N$ tend vers $ + \infty.$\\
+En déduire le comportement de $\beta_{N}$ quand $N$ tend vers $ +
+\infty.$
+\end{noliste}
+
+\item On suppose dans cette question que le nombre $X-1$ de personnes
+autres
+que $A$ suit une loi de Poisson de paramètre $\lambda.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer la probabilité pour que $A$ soit embauchée.
+
+\item On considère la fonction définie sur $\R^{\times }$ par 
+\[
+\varphi (\lambda ) = \dfrac{1-e^{-\lambda }}{\lambda }.
+\]
+
+\begin{nonoliste}{(i)}
+\item Montrer que $\varphi $ se prolonge en une fonction continue
+$\widetilde{\varphi }$ sur $\R.$
+
+\item Montrer que $\varphi $ est dérivable sur $\R^{\times }$ et
+calculer $\varphi ^{\prime }.$ \\
+Étudier la dérivabilité de $\widetilde{\varphi }{\prime }$ en $0.$
+
+\item Soit $h$ la fonction définie sur $\R$ par $h(t) = e^{t}-1-t.$\\
+Montrer que $ :\forall t\in \R,\quad h(t)\geq 0.$ Résoudre l'équation
+$h(t) = 0.$
+
+\item Étudier le signe de $\varphi ^{\prime },$ puis dresser le tableau
+de
+variations de $\widetilde{\varphi }.$\\
+Construire la courbe représentative de $\widetilde{\varphi }.$
+\end{nonoliste}
+\end{noliste}
+\end{noliste}
+
+\section*{Deuxième partie -B}
+
+Cette seconde partie précise les résultats obtenus en $A$ en étudiant
+notamment le comportement asymptotique de $\alpha_{N}$ quand $N$ tend
+vers $ + \infty,$ et celui de $\beta_{N}$ dans le cas $r = 2.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $(x_{N})$ et $(y_{N})$ les suites définies par 
+\begin{eqnarray*}
+x_{N} & = & 1 + \dfrac{1}{2} + \cdots + \dfrac{1}{N}-\ln N\text{ où
+}N\in \N^{\times } \\
+y_{N} & = & 1 + \dfrac{1}{2} + \cdots + \dfrac{1}{N}-\ln (N + 1)\text{
+où }N\in 
+\N^{\times }
+\end{eqnarray*}Montrer que $(x_{N})$ et $(y_{N})$ sont monotones. \\
+En déduire leur convergence vers une même limite $L.$
+
+\item Montrer que $ :\forall N\in \N^{\times },\quad
+0<L-y_{N}<\dfrac{1}{N}.$\\
+En déduire une valeur approchée à $10^{-1}$ près.
+
+\item Montrer alors que la probabilité $\alpha_{N}$ peut s'écrire sous
+la
+forme 
+\[
+\alpha_{N} = \dfrac{\ln N}{N} + \dfrac{L}{N} + \dfrac{\varepsilon
+(N)}{N}
+\]
+où $\varepsilon (N)$ vérifie $\dlim{N\rightarrow + \infty }\varepsilon
+(N) = 0.$
+\end{noliste}
+
+\item Cette question étudie le comportement de $\beta_{N},$ dans le cas
+$r = 2,$ lorsque $N$ tend vers $ + \infty.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étude de $l_{2} = \dlim{N\rightarrow + \infty }\left( 1 +
+\dfrac{1}{2^{2}} + \cdots + \dfrac{1}{N^{2}}\right).$
+
+\begin{nonoliste}{(i)}
+\item On note $s_{N} = \Sum{k = 1}{N}\dfrac{1}{k^{2}}$ et $r_{N + 1} =
+l_{2}-s_{N} = \Sum{k = n + 1}{+ \infty }\dfrac{1}{k^{2}}.$\\
+Établir que $0\leq r_{N + 1}\leq \dint{N}{+ \infty
+}\dfrac{dt}{t^{2}}.$\\
+Déterminer une valeur $N_{1}$ de l'entier $N$ à partir de laquelle
+$s_{N}$
+est une valeur approchée de $l_{2}$ à $10^{-3}$ près.
+
+\item Établir que $ :\dint{N + 1}{+ \infty }\dfrac{dt}{t^{2}}\leq
+r_{N + 1}\leq \dint{N}{+ \infty }\dfrac{dt}{t^{2}}.$\\
+En déduire que le réel $s_{N}{\prime }$ défini par 
+\[
+s_{N}{\prime } = s_{N} + \dfrac{1}{2}\left( \dint{N + 1}{+ \infty
+}\dfrac{dt}{t^{2}} + \dint{N}{+ \infty }\dfrac{dt}{t^{2}}\right) 
+\]
+est une valeur approchée de $l_{2}$ telle que 
+\[
+\left| s_{n}{\prime }-l_{2}\right| \leq \dfrac{1}{2}\dint{N}{N +
+1}\dfrac{dt}{t^{2}}.
+\]
+Déterminer une valeur $N_{2}$ de l'entier $N$ à partir de laquelle
+$s_{N}{\prime }$ est une valeur approchée de $l_{2}$ à $10^{-3}$ près.
+
+\item Calculer $s_{N_{2}}{\prime }.$\\
+On précisera un algorithme simple permettant d'obtenir $s_{N}{\prime }$
+pour une valeur de $N$ que cet algorithme laisserait au choix de
+l'utilisateur.
+\end{nonoliste}
+
+\item \underline{Accélération de convergence} :
+
+\begin{nonoliste}{(i)}
+\item On pose $u_{k} = \dfrac{1}{k(k + 1)}.$ \\
+En décomposant $u_{k}$ sous la forme $\dfrac{a}{k} + \dfrac{b}{k + 1},$
+calculer 
+$U_{N} = \Sum{k = 1}{N}u_{k},$ puis $U = \dlim{N\rightarrow
+ + \infty }U_{N}.$
+
+\item On pose, pour tout $k\in \N^{\times },$ $\dfrac{1}{k^{2}} = u_{k}
++ u_{k}{\prime }$ puis $s_{N} = U_{N} + U_{N}{\prime }$ où
+$U_{N}{\prime
+} = \Sum{k = 1}{N}u_{k}{\prime }.$\\
+Quelle est la limite $U^{\prime }$ de $U_{N}{\prime },$ quand $N$ tend
+vers 
+$ + \infty $ ? \\
+Exprimer $u_{k}{\prime }$ en fonction de $k.$\\
+Après avoir étudié la monotonie sur $\R^{\times }$ de la fonction
+$t\mapsto \dfrac{1}{t^{2}(t + 1)},$ justifier :
+\[
+\dint{k}{k + 1}\dfrac{dt}{t^{2}(t + 1)}\leq u_{k}{\prime
+}\leq \dint{k-1}{k}\dfrac{dt}{t^{2}(t + 1)}
+\]
+puis
+\[
+\dint{N + 1}{N + p + 1}\dfrac{dt}{t^{2}(t + 1)}\leq
+\Sum{k = N + 1}{N + p}u_{k}{\prime }\leq \dint{N}{N +
+p}\dfrac{dt}{t^{2}(t + 1)}
+\]
+pour tout entier $p>0.$ En déduire comme en 2(a)ii. que 
+\[
+\widetilde{U}_{N} = U_{N}{\prime } + \dfrac{1}{2}\left(
+\dint{N + 1}{+ \infty }\dfrac{dt}{t^{2}(t + 1)} + \dint{N}{+ \infty
+}\dfrac{dt}{t^{2}(t + 1)}\right) 
+\]
+est une valeur approchée de $U^{\prime }$ telle que $\left| U^{\prime
+}-\widetilde{U}_{N}\right| \leq \dfrac{1}{2}\dint{N}{N +
+1}\dfrac{dt}{t^{2}(t + 1)}.$
+
+\item Montrer que $\left| U^{\prime }-\widetilde{U}_{N}\right|
+\leq \dfrac{1}{2}\dfrac{1}{N^{2}(N + 1)}.$\\
+Déterminer une valeur de $N_{3}$ de l'entier $N$ à partir de laquelle
+$\widetilde{U}_{N}$ est une valeur approchée de $U^{\prime }$ à
+$10^{-3}$ près.
+\end{nonoliste}
+
+\item 
+
+\begin{nonoliste}{(i)}
+\item Déterminer $a,b,c$ trois constantes réelles telles que 
+\[
+\forall t\in \R^{\times },\quad \dfrac{1}{t^{2}(t + 1)} =
+\dfrac{a}{t^{2}} + \dfrac{b}{t} + \dfrac{c}{t + 1}.
+\]
+En déduire l'expression de $\widetilde{U}_{N}$ en fonction de $N.$
+
+\item Calculer $\widetilde{U}_{N_{3}},$ puis la valeur approchée de
+$l_{2}$
+qui s'en déduit.
+
+\item En admettant qu'une valeur approchée à $10^{-3}$ près de 
+\[
+l_{3} = \dlim{N\rightarrow + \infty }\left( 1 + \dfrac{1}{2^{3}} +
+\cdots + \dfrac{1}{N^{3}}\right) 
+\]
+soit $l_{3}\simeq 1,202,$ préciser la limite $\beta_{N}$ dans le cas $r
+= 2.$
+\end{nonoliste}
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

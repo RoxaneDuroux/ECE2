@@ -1,0 +1,259 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 10}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\begin{exercice}~\\
+ On donne les matrices carrées d'ordre $3$ suivantes : 
+\[
+A=\begin{smatrix}
+5 & 5 & -14\\
+6 & 6 & -16\\
+5 & 5 & -14    
+\end{smatrix}
+;\quad  B = 
+\begin{smatrix}
+8 & 4 & -16\\
+0 & 4 & -8\\
+4 & 4 & -12   
+\end{smatrix}
+; \quad P = 
+\begin{smatrix}
+1 & 1 & 1\\
+2 & -1 & 1\\
+1 & 0 & 1
+\end{smatrix}
+\]
+Ainsi que les matrices colonnes :\quad $
+V_1 = 
+\begin{smatrix} 
+1\\ 2\\ 1  
+\end{smatrix}
+; \quad 
+V_2 = 
+\begin{smatrix} 
+1\\ -1\\ 0
+\end{smatrix} 
+; \quad
+V_{3} = 
+\begin{smatrix}
+1\\ 1\\ 1
+\end{smatrix}.$
+\begin{noliste}{1.}
+\item
+Vérifier que $V_1, V_2,$ et $V_3$ sont des vecteurs propres de $A$. 
+Quelles sont les valeurs propres associées ?
+\item
+\begin{noliste}{a)}
+\item
+Montrer que $P$ est inversible et calculer $P^{-1}$.
+\item
+Justifier la relation :\quad $P^{-1}AP = 
+\begin{smatrix} 
+1 & 0 & 0\\
+0 & 0 & 0\\
+0 & 0 & -4
+\end{smatrix}$. On note $D$ cette matrice 
+diagonale.
+
+\item
+Calculer la matrice $\Delta = P^{-1}BP$ et vérifier qu'elle est 
+diagonale.
+\end{noliste}
+\item
+On se propose de calculer les matrices colonne $X_n$ définies par les 
+relations :
+\[
+X_0= 
+\begin{smatrix}
+1\\ 0\\ 1
+\end{smatrix} 
+, \quad  X_1 = 
+\begin{smatrix}
+0\\ -1\\ 1
+\end{smatrix} 
+,\quad \mathrm{et} \quad \forall n \in 
+\N\quad ,\ \ X_{n + 2} = A \, X_{n + 1} + B \, X_n
+\]
+A cet effet, on définit, pour tout $n\in\N$ : \quad $Y_{n} = P^{ - 
+1}X_{n} \ \text{ et on pose également }\ Y_{n} = \begin{pmatrix}
+ {u_{n}}    \\
+ {v_{n}}  \\
+ {w_{n}}  \end{pmatrix} .$
+\begin{noliste}{a)}
+\item
+Montrer que $Y_{0} = \begin{pmatrix}
+ { - 1}   \\
+ {0} \\
+ {2}   
+\end{pmatrix}$ et $Y_{1} = \begin{pmatrix} { - 3}  
+\\-1\\4\end{pmatrix}$.
+
+\item
+Montrer que pour tout entier naturel $n$,  $Y_{n + 2} = DY_{n + 1} 
++ \Delta Y_{n}.$
+
+\item
+Montrer alors que pour tout entier naturel $n$ :
+\[
+\left\lbrace
+\begin{array}{rcl}
+ {u_{n + 2}}  & =&  {u_{n + 1}}  \\
+ {v_{n + 2}}   & { =} & {4v_{n}}  \\
+ {w_{n + 2}}& { =}   & { - 4w_{n + 1} - 4w_{n}} \end{array} \right.
+\]
+En déduire les expressions explicites de $u_{n}$, $v_{n}$ et $w_{n}$ 
+en fonction de $n$.
+\item
+Donner finalement la matrice $X_{n}$, en fonction de $n$.
+\end{noliste}
+\end{noliste}
+\end{exercice}
+
+
+\begin{exercice}~\\
+On note $\B=(e_1,e_2,e_3)$ la base canonique de $\R^3$ et on considère 
+l'endomorphisme de $\R^3$ défini par :
+\[
+f(e_1)=\frac{1}{3}(e_2+e_3), \ \mbox{ et } \ 
+f(e_2)=f(e_3)=\frac{2}{3}e_1
+\]
+\begin{noliste}{1.}
+\item \'Ecrire la matrice de $f$ dans la base $\B$.
+\item Déterminer la dimension de $\im (f)$ puis celle de $\kr(f)$.
+\item En déduire une valeur propre de $f$ ainsi que le sous-espace 
+propre associé.
+\item Déterminer les autres valeurs propres de $f$ ainsi que les 
+sous-espaces propres associés.
+\item En déduire que $f$ est diagonalisable.
+\end{noliste}
+\end{exercice}
+
+\newpage
+
+
+\begin{exercice}~\\
+L'application $f$ désigne un endomorphisme de $\R^n$. On munit $\R^n$ 
+d'une base $(e_1,\cdots, e_n)$.
+\begin{noliste}{1.}
+\item On suppose que 
+\[
+\forall x\in\R^n, \ \exists \lambda_x \in\R \mbox{ tel que } 
+f(x)=\lambda_x x
+\]
+\begin{noliste}{a)}
+\item \'Ecrire de deux manières différentes le vecteur 
+$f(e_1+\cdots+e_n)$.
+\item En déduire qu'il existe un réel $\lambda$ tel que $f=\lambda 
+\cdot \id$.
+\end{noliste}
+\item Soit $x$ un vecteur non nul de $\R^n$.\\
+Justifier qu'il existe une base de $\R^n$ de la forme 
+$(x,\eps_2,\hdots,\eps_n)$.\\
+On note alors $p_x$ l'application de $\R^n$ dans $\R^n$ définie par :
+\[
+\forall (a,b_2,\hdots, b_n)\in\R^n, \ p_x\left( a\cdot x + \sum_{k=2}^n 
+b_k\cdot\eps_k\right)=a\cdot x
+\]
+\begin{noliste}{a)}
+\item Montrer que $p_x$ est un endomorphisme de $\R^n$.
+\item Montrer que pour tout $z\in\R^n$, on a
+\[
+p_x(z)=z \ \Leftrightarrow \ z\in\Vect{x}
+\]
+\end{noliste}
+\item Montrer l'équivalence suivante :
+\[
+\forall g\in\LL{\R^n}, \ f\circ g=g\circ f \ \Leftrightarrow \ 
+\exists \lambda\in\R, \ f=\lambda \cdot \id
+\]
+\end{noliste}
+\end{exercice}
+
+
+\begin{exercice}~\\
+On note $m$ un paramètre réel et on considère les matrices $H_m$ 
+définies
+par : $H_m=
+\begin{smatrix}
+-1-m & m & 2\\
+-m & 1 & m\\
+-2 & m & 3-m
+\end{smatrix}.$\\
+On note $h_{m}$ l'endomorphisme de $\R^3$ ayant pour matrice 
+$H_m$ dans la base canonique de $\R^3$.
+
+\begin{noliste}{1.}
+\item 
+On suppose dans cette question que $m=2$.
+
+\begin{noliste}{a)}
+\item
+Écrire la matrice $H_2$.
+\item 
+Déterminer les valeurs propres de l'endomorphisme $h_{2}$ et les 
+sous-espaces propres associés.
+
+\item 
+L'endomorphisme $h_2$ est-il diagonalisable? Si oui, donner une base de 
+vecteurs propres de $h_2$.
+\end{noliste}
+
+\item 
+Étudier de même les valeurs propres et les sous-espaces propres de 
+$h_{0}$. Cet endomorphisme est-il diagonalisable?
+
+\item 
+\begin{noliste}{a)}
+\item 
+Montrer qu'il existe un réel $a$, qu'on déterminera, qui est valeur
+propre de l'endomorphisme $h_m$ pour toutes les valeurs du paramètre 
+$m$.
+
+\item 
+Déterminer, pour chaque valeur de $m$, le sous-espace propre de $h_m$ 
+associé à
+la valeur propre $a$. Montrer qu'on peut trouver un vecteur non nul 
+$v_{1}$
+appartenant à tous ces sous-espaces.
+\end{noliste}
+
+\item 
+Soit $F$ le sous-espace de $\R^3$ engendré par les vecteurs 
+$v_2=(1,0,1)$ et $v_3=(1,1,0)$ :\\ 
+$F=\Vect{v_2,v_3}$.\\
+Déterminer les vecteurs $h_m(v_2)$ et $h_m(v_3)$ et montrer que 
+ces vecteurs appartiennent à $F$ pour tout $m$ réel.\\
+En déduire que le $F$ est stable par $h_m$, c'est-à-dire que 
+$h_m(F)\subset F$.
+
+\item 
+Montrer que $(v_1,v_2,v_3)$ est une base de $\R^3$.\\
+\'Ecrire la matrice de $h_m$ dans la base $(v_1,v_2,v_3)$. En déduire 
+les valeurs de $m$ pour lesquelles l'endomorphisme $h_m$ est 
+diagonalisable.
+\end{noliste}
+\end{exercice}
+
+
+
+
+\end{document}

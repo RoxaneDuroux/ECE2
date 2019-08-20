@@ -1,0 +1,159 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+K \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 10}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Planche 1}
+
+\subsection*{Question de cours}
+
+\noindent
+Intégrale de Riemann au voisinage de $+\infty$
+
+
+\subsection*{Exercice}
+
+\noindent
+Pour tout $n\in\N^{*}$, on pose $
+u_{n} = \dint{0}{+\infty}\dfrac{\ee^{-x}}{x+\frac{1}{n}}\dx$.
+
+\begin{noliste}{1.}
+\item Montrer que la suite $(u_{n})_{n\in\N^{*}}$ est bien définie.
+\item Pour tout $n\in\N^{*}$, on pose alors $
+v_{n}=\dint{0}{1}\dfrac{\ee^{-x}}{x+\frac{1}{n}}\dx$
+et $w_{n}=\dint{1}{+\infty}\dfrac{\ee^{-x}}{x+\frac{1}{n}}\dx$.
+
+\begin{noliste}{a)}
+\item Montrer que: $\forall n\in\N^{*}, \ 0\leq w_{n} \leq \dfrac{1}{\ee}$.
+\item Montrer que: $\forall n\in\N^{*},\ v_{n}\geq \dfrac{1}{\ee}\ln(n+1)$.
+\item Donner la limite de la suite $(u_{n})$.
+\end{noliste}
+\item On se propose de déterminer un équivalent de $u_{n}$ lorsque $n$
+est au voisinage de $+\infty$.
+
+\begin{noliste}{a)}
+\item Montrer que l'intégrale $I=\dint{0}{1}\dfrac{1-\ee^{-x}}{x} \dx$
+est une intégrale convergente.
+\item Établir que : $\forall n \in \N^{*}, \ 0 \leq \dint{0}{1} 
+\dfrac{1-\ee^{-x}}{x+\frac{1}{n}} \dx \leq I$.
+\item En déduire un encadrement de $v_{n}$ valable pour tout 
+$n\in\N^{*}$.
+\item Donner enfin, en utilisant cet encadrement, un équivalent simple 
+de $u_{n}$.
+\end{noliste}
+\end{noliste}
+
+
+\newpage
+
+
+\section*{Planche 2}
+
+\subsection*{Question de cours}
+
+\noindent
+Intégrale de Riemann au voisinage de $0$
+
+
+\subsection*{Exercice}
+
+\noindent
+Pour tout $n\in\N^*$, on pose 
+$I_n=\dint{-\infty}{+\infty}\frac{1}{(1+x^2)^n} \dx$ et 
+$u_n=\sqrt{n}\,I_n$.
+
+On admet que 
+$\dint{-\infty}{+\infty}\ee^{-\frac{x^2}{2}}\dx=\sqrt{2\pi}$.
+\begin{noliste}{1.}
+\item Pour tout $n\in\N^*$, montrer que $I_n$ est convergente. 
+\'Etablir une relation de récurrence entre $I_n$ et $I_{n+1}$.
+
+\item Montrer que la suite $(u_n)_{n\in\N^*}$ est monotone et étudier 
+sa convergence.
+
+\item Calculer $I_n$, pour tout $n\geq 1$.
+
+\item \begin{noliste}{a)}
+	\item Montrer que, pour tout réel $x$, $\ln(1+x^2)\leq x^2$.\\ En 
+déduire que pour tout $n\geq 1$, $I_n\geq 
+\dint{-\infty}{+\infty}\ee^{-nx^2}\dx$.		
+	
+	\item Montrer que, pour tout $n\in\N^*$ : 
+$\dint{-\infty}{+\infty}\ee^{-n x^2}dx=\frac{\sqrt\pi}{\sqrt{n}}$.
+	
+	\item En déduire une minoration de la suite $(u_n)_{n\in\N^*}$ 
+et conclure que la suite $(u_n)_{n\in\N^*}$ ne tend pas vers $0$ 
+lorsque $n$ tend vers $+\infty$.
+	
+	\end{noliste}
+\item Montrer qu'il existe un réel $\alpha$ tel que $\dbinom{2n}{n} 
+\eqn\dfrac{\alpha\,4^n}{\sqrt{n}}\cdot$
+\end{noliste}
+
+
+
+\newpage
+
+
+\section*{Planche 3}
+
+\subsection*{Question de cours}
+
+\noindent
+Théorème d'intégration par parties sur un segment
+
+
+\subsection*{Exercice}
+
+\noindent
+On pose, pour tout $n\in\N$, 
+$I_n=\dint{0}{1}\dfrac{x^n}{\sqrt{1-x}}\dx$.\\
+\begin{noliste}{1.}
+\item Montrer que $I_n$ existe, pour tout $n\in\N$.
+\item Montrer que la suite $(I_n)_{n\in\N}$ est convergente.
+\item \begin{noliste}{a)}
+	\item Montrer que, pour tout $n\in\N^*$, 
+$I_n=\dfrac{2n}{2n+1}\,I_{n-1}$.
+	\item En déduire l'existence et la nature de la série de terme 
+général $v_n=\ln(I_n)-\ln(I_{n-1})$, puis la limite de $(I_n)_{n\in\N}$.
+	\end{noliste}
+\item Pour tout $n\in\N$, on pose $J_n=\sqrt{n}\,I_n$ et 
+$K_n=\sqrt{n+1}\,I_n$.
+	\begin{noliste}{a)}
+	\item Montrer que les suites $(J_n)_{n\in\N}$ et 
+$(K_n)_{n\in\N}$ sont adjacentes.
+	\item En déduire qu'il existe un réel $\alpha>0$ tel que 
+$I_n\eqn \dfrac{\alpha}{\sqrt{n}}\cdot$
+	\end{noliste}
+\item \begin{noliste}{a)}
+	\item Calculer $I_n$ en fonction de $n$.
+	\item On admet la formule de Stirling : $n!
+\eqn n^n\,\ee^{-n}\sqrt{2\pi n}$. Montrer que 
+$I_n\eqn \ee \,\left(\dfrac{2n}{2n+1}
+\right)^{2n+1}\frac{\sqrt{\pi}}{\sqrt{n}}\cdot$
+	\item Déterminer la valeur de $\alpha$.
+\end{noliste}
+\end{noliste}
+
+
+
+
+\end{document}

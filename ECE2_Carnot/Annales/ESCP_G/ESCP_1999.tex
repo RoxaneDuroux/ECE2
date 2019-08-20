@@ -1,0 +1,371 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1999 - voie Générale} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION SCIENTIFIQUE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 1999}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent Dans tout le problème l'espérance d'une variable aléatoire
+$Y$
+sera notée $\E(Y)$. Tous les polynômes de ce problème sont à
+coefficients réels.\\
+Pour tout entier naturel $k$, on note $E_{k}$ l'espace vectoriel des
+polynômes de degré au plus $k$. A tout entier naturel $n$ non nul et à
+toute suite
+$(s_{0},s_{1},\dots,s_{2n})$ de $2n + 1$ réels, on associe les
+applications $\Phi_{n}$ et $S_{n}$ définies de la manière suivante :\\
+pour tout élément $(A,B)$ de $E_{n}\times E_{n}$ avec $A = \Sum{i =
+0}{n}a_{i}X^{i}$ et $B = \Sum{j = 0}{n}b_{j}X^{j}$, on pose
+\[
+\Phi
+_{n}(A,B) = \Sum{i = 0}{n}\Sum{j = 0}{n}a_{i}b_{j}s_{i + j} =
+\Sum{0\leq
+i,j\leq n}a_{i}b_{j}s_{i + j}
+\]
+et, pour tout polynôme $C$ élément de $E_{2n}$, avec $C = \Sum{i =
+0}{2n}c_{i}X^{i}$, on pose $S_{n}(C) = \Sum{i = 0}{2n}c_{i}s_{i}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que, pour tout entier naturel $n$, $\Phi_{n}$ est une
+forme
+bilinéaire symétrique sur $E_{n}\times E_{n}$.
+
+\item Vérifier que, pour tout entier naturel $n$, $S_{n}$ est une forme
+linéaire sur $E_{2n}$ et, pour tout élément $(A,B)$ de $E_{n}\times
+E_{n}$, prouver l'égalité : $\Phi_{n}(A,B) = S_{n}(AB)$ (on
+commencera par considérer le cas où $A = X^{i}$ et $B = X^{j}$ avec
+$0\leq i,j\leq n$.)
+\end{noliste}
+
+\item Deux cas particuliers
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Dans cette sous-question on suppose que $n = 1$ et $s_{0} = 1$,
+$s_{1}$ et
+$s_{2}$ étant quelconques. Pour tout élément $(a,b)$ de $\R^{2}$
+vérifier l'égalité
+\[
+\Phi_{1}(aX + b,\;aX + b) = (b + as_{1})^{2} + a^{2}(s_{2}-s_{1}{2})
+\]
+En déduire une condition nécessaire et suffisante, portant sur les
+réels $s_{1}$ et $s_{2}$, pour que l'application $\Phi_{1}$ soit un
+produit
+scalaire sur $E_{1}\times E_{1}$.
+
+\item Dans cette sous-question on suppose que $n = 2$, $s_{0} = 1$ et
+$s_{1} = s_{3} = 0$, $s_{2}$ et $s_{4}$ étant quelconques. Prouver que
+l'application $\Phi_{2}$, associée à un tel choix de
+$(s_{0},s_{1},s_{2},s_{3},s_{4})$, est un produit scalaire sur
+$E_{2}\times
+E_{2}$ si et seulement si les réels $s_{2}$ et $s_{4}$ vérifient les
+conditions suivantes : $s_{2}>0$ et $s_{4}-s_{2}{2}>0$.
+\end{noliste}
+
+\item Deux exemples\\
+Dans cette question on considère un entier naturel $n$ non nul.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Dans cette sous-question, on se donne un entier naturel $d$ non
+nul et
+une variable aléatoire discrète $Y$, prenant $d$ valeurs distinctes
+$\alpha
+_{1},\alpha_{2},\dots,\alpha_{d}$, avec les probabilités, strictement
+positives, respectives $p_{1},p_{2},\dots,p_{d}$, et on pose, pour tout
+entier naturel $k$
+\[
+s_{k} = E(Y^{k}) = \Sum{i = 1}{d}\alpha_{i}{k}p_{i}
+\]
+On considère les applications $\Phi_{n}$ et $S_{n}$ associées à ce
+choix de
+$(s_{0},s_{1},\dots,s_{2n})$
+
+\begin{nonoliste}{(i)}
+\item Pour tout polynôme $Q$ de $E_{2n}$, vérifier l'égalité :
+$S_{n}(Q) = \Sum{i = 1}{d}Q(\alpha_{i})p_{i}$.
+
+\item En déduire une condition nécessaire et suffisante, portant sur
+$n$ et $d$, pour que l'application $\Phi_{n}$ soit un produit scalaire
+sur $E_{n}\times E_{n}$.
+\end{nonoliste}
+
+\item 
+
+\begin{nonoliste}{(i)}
+\item Dans cette sous-question, on considère une variable aléatoire $Y$
+dont
+une densité $f$ est continue sur le segment $[0,1]$ et nulle en dehors
+de $[0,1]$.\\
+On pose, pour tout entier naturel $k$,
+\[
+s_{k} = E(Y^{k}) = \dint{0}{1}t^{k}f(t)dt
+\]
+Vérifier que l'application $\Phi_{n}$, associée à ce choix de
+$(s_{0},s_{1},\dots,s_{2n})$ est un produit scalaire sur $E_{n}\times
+E_{n}$.
+
+\item Montrer que, dans le cas où $(s_{0},s_{1},\dots,s_{2n}) =
+(1,\dfrac{1}{2},\dots,\dfrac{1}{2n + 1})$, l'application $\Phi_{n}$,
+associée à ce choix,
+est un produit scalaire sur $E_{n}\times E_{n}$.
+\end{nonoliste}
+\end{noliste}
+
+\item Dans cette question on revient au cas général où on considère un
+entier naturel $n$ non nul, une suite $(s_{0},s_{1},\dots,s_{2n})$ de
+$2n + 1$
+réels et les applications $\Phi_{n}$ et $S_{n}$ associées à cette
+suite.\\
+On admet le résultat suivant : tout polynôme $P$ peut s'écrire sous la
+forme
+\[
+P = \lambda \prod_{i = 1}{r}(X-\zeta_{i})^{m_{i}}\prod_{j = 1}{\ell
+}(X^{2} + b_{j}X + c_{j})
+\]
+où $r$ et $\ell $ sont des entiers naturels (avec la convention que si
+$r$
+ou $\ell $ est nul, le produit correspondant vaut $1$), où $\lambda $
+est un
+réel, où, si $r$ est non nul, $\zeta_{1},\zeta_{2},\dots,\zeta_{r}$
+sont
+les racines réelles distinctes de $P$, de multiplicités respectives
+$m_{1},m_{2},\dots,m_{r}$, et où, si $\ell $ est non nul,
+$b_{1},b_{2},\dots,b_{\ell },c_{1},c_{2},\dots,c_{\ell }$ sont des
+réels vérifiant $b_{j}{2}-4c_{j}<0$ pour tout entier $j$ tel que $1\leq
+j\leq \ell $.\\
+ Un polynôme \textbf{non nul} $P$, à
+coefficients réels, est dit positif si, pour tout réel $x$,
+$P\left(\Ev{x}\right)\geq 0$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la multiplicité d'une racine réelle d'un polynôme
+positif
+est paire.
+
+\item Montrer que tout polynôme $P$ positif de degré $2$ est somme de
+deux
+carrés de polynômes, c'est-à-dire qu'il existe un couple $(A,B)$ de
+polynômes, tel que $P = A^{2} + B^{2}$.
+
+\item En remarquant que, si $A$, $B$, $C$, $D$ sont quatre polynômes,
+on a :
+\[
+(A^{2} + B^{2})(C^{2} + D^{2}) = (AC + BD)^{2} + (AD-BC)^{2}
+\]
+montrer que tout polynôme positif est somme de deux carrés de
+polynômes.
+
+\item Montrer que $\Phi_{n}$ est un produit scalaire sur $E_{n}\times
+E_{n}$
+si et seulement si, pour tout polynôme $P$ positif, élément de
+$E_{2n}$, on
+a : $S_{n}(P)>0$.
+\end{noliste}
+
+\item Dans cette question on suppose que $n = 2$ et
+$(s_{0},s_{1},s_{2},s_{3},s_{4}) = \left(
+1,\dfrac{1}{2},\dfrac{1}{3},\dfrac{1}{4},\dfrac{1}{5}\right) $.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item À l'aide du procédé d'orthonormalisation de Schmidt, construire,
+à
+partir de la base $(1,X,X^{2})$ une base orthonormale de $E_{2}$ pour
+le
+produit scalaire $\Phi_{2}$.
+
+\item Pour tous $(a_{0},a_{1},a_{2})$ et $(b_{0},b_{1},b_{2})$,
+éléments de $\R^{3}$, vérifier l'égalité :
+\[
+\Phi_{2}(a_{2}X^{2} + a_{1}X + a_{0},b_{2}X^{2} + b_{1}X + b_{0}) =
+\text{ }{t}AMB
+\]
+où $A = 
+\begin{smatrix}
+a_{0} \\
+a_{1} \\
+a_{2}\end{smatrix}
+$, $B = 
+\begin{smatrix}
+b_{0} \\
+b_{1} \\
+b_{2}\end{smatrix}
+$, et $M = 
+\begin{smatrix}
+1 & \dfrac{1}{2} & \dfrac{1}{3}\\
+\dfrac{1}{2} & \dfrac{1}{3} & \dfrac{1}{4}\\
+\dfrac{1}{3} & \dfrac{1}{4} & \dfrac{1}{5}\end{smatrix}
+$.
+
+\item Déterminer une matrice $T$ triangulaire telle que : $^{t}TMT =
+I_{3}$ ($I_{3}$ désignant la matrice identité d'ordre $3$).
+\end{noliste}
+
+\item Jusqu'à la fin du problème, on considère un entier naturel $n$
+non
+nul, une suite $(s_{0},\dots,s_{2n})$ de premier terme $s_{0} = 1$,
+telle que
+$\Phi_{n}$ soit un produit scalaire sur $E_{n}\times E_{n}$, et on note
+$(P_{0},P_{1},\dots,P_{n})$ la base orthonormale de $E_{n}$ pour le
+produit
+scalaire $\Phi_{n}$ obtenue, par le procédé de Schmidt, à partir de la
+base
+$(1,X,\dots,X^{n})$, le polynôme $P_{i}$ étant de degré $i$ pour tout
+entier $i$ compris entre $0$ et $n$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En considérant le nombre $\Phi_{n}(P_{n},1)$, prouver que le
+polynôme
+$P_{n}$ ne peut pas garder un signe fixe sur $\R$. En déduire que
+$P_{n}$ possède au moins une racine réelle de multiplicité impaire.
+
+\item On note $\alpha_{1},\alpha_{2},\dots,\alpha_{k}$ les racines
+réelles de $P_{n}$ de multiplicité impaire. Montrer que $P_{n}$ s'écrit
+sous
+la forme $P_{n} = \varepsilon Q\prod\limits_{i = 1}{k}(X-\alpha_{i})$,
+où $\varepsilon $ est élément de $\{-1,1\}$ et $Q$ est un polynôme
+positif de $E_{n}$.\\
+En considérant le nombre $\Phi_{n}(P_{n},\varepsilon
+\prod\limits_{i = 1}{k}(X-\alpha_{i}))$, montrer que $k = n$.
+\end{noliste}
+
+\item On note $\alpha_{1},\alpha_{2},\dots,\alpha_{n}$ les $n$ racines
+du polynôme $P_{n}$, réelles et distinctes deux à deux selon la
+question précédente.\\
+Pour tout élément $k$ de $\{1,2,\dots,n\}$, on note $L_{k}$ le polynôme
+$L_{k} = \prod\limits_{\QATOP{1\leq i\leq n}{i\not =
+k}}\dfrac{X-\alpha_{i}}{\alpha_{k}-\alpha_{i}}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $(L_{1},L_{2},\dots,L_{n})$ est une base de
+$E_{n-1}$,
+et, pour tout polynôme $R$ de $E_{n-1}$, justifier l'égalité : $R =
+\Sum{i = 1}{n}R(\alpha_{i})L_{i}$. En déduire $\Sum{i = 1}{n}L_{i}$.
+
+\item Soit $A$ un polynôme, élément de $E_{2n-1}$.
+
+\begin{nonoliste}{(i)}
+\item Justifier l'existence d'un couple $(Q,R)$ élément de
+$E_{n-1}\times
+E_{n-1}$ tel que $A = P_{n}Q + R$.
+
+\item Vérifier que $S_{n}(A) = S_{n}(R)$, puis que $S_{n}(A) = \Sum{i =
+1}{n}A(\alpha_{i})S_{n}(L_{i})$.
+\end{nonoliste}
+
+\item Pour tout élément $k$ de $\{1,2,\dots,n\}$, on pose $p_{k} =
+S_{n}(L_{k})$.\\
+Vérifier que $\Sum{k = 1}{n}p_{k} = 1$ et, en considérant
+$S_{n}(L_{k}{2})$, montrer que $p_{k}>0$.
+
+\item Déduire de ce qui précède qu'il existe une variable aléatoire
+discrète
+$Y$ vérifiant, pour tout élément $k$ de $\{0,1,\dots,2n-1\},\;s_{k} =
+E(Y^{k}) $.
+
+\item Déterminer la loi d'une telle variable aléatoire, dans le cas où
+:
+\[
+n = 2\text{ et }(s_{0},s_{1},s_{2},s_{3},s_{4}) = \left(
+1,\dfrac{1}{2},\dfrac{1}{3},\dfrac{1}{4},\dfrac{1}{5}\right)
+\]
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

@@ -1,0 +1,698 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../macros_Livre.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+% \widowpenalty=10000
+% \clubpenalty=10000
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} ESSEC II 2018} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+%%DEBUT
+
+\noindent
+On s'intéresse à l'évolution d'une population de petits organismes 
+(typiquement des insectes) pendant une \og saison \fg{} reproductrice 
+de durée maximale $T$ où $T \in \N^*$. Les insectes sont supposés vivre 
+une unité de temps, au bout de laquelle ils meurent en pondant un 
+certain nombre d'{\oe}ufs. Au moment du dépôt d'un {\oe}uf, un 
+processus chimique, la diapause, est susceptible de se mettre en marche 
+qui entraîne l'arrêt de maturation de l'{\oe}uf jusqu'à la saison 
+suivante. Ainsi, à chaque $t$ de la saison, une génération d'insectes 
+s'éteint, en déposant des {\oe}ufs. Immédiatement, une proportion 
+$p(t)$ de ces {\oe}ufs se mettent en diapause. Les {\oe}ufs qui ne sont 
+pas entrés en diapause éclosent avant la date $t+1$, donnant naissance 
+à une nouvelle génération d'insectes, qui s'éteindra à la date $t+1$ en 
+déposant des {\oe}ufs, etc. Comme, à la fin de la saison, tous les 
+organismes vivants de la population meurent, hormis les {\oe}ufs qui 
+sont en diapause, ce sont ces derniers qui seront à l'origine d'une 
+nouvelle population qui éclora à la saison suivante. Il est donc 
+fondamental pour la survie de la lignée que les organismes adoptent une 
+stratégie maximisant le nombre d'{\oe}ufs en diapause accumulés jusqu'à 
+la date où la saison s'achève.\\[.1cm]
+Au cours du problème, on s'intéressera plus particulièrement au cas où 
+la durée de la saison est une variable aléatoire $\tau$ pouvant prendre 
+des valeurs entières entre $1$ et $T$. Pour $t\in \{1,2, \ldots, T\}$, 
+l'événement $\Ev{\tau=t}$ signifiera donc que la saison s'arrête à la 
+date $t$.\\[.1cm]
+Toutes les variables aléatoires intervenant dans le problème sont 
+définies sur un espace probabilisé $(\Omega, \A, \Prob)$. Pour toute 
+variable aléatoire $Y$, on notera $\E(Y)$ son espérance lorsqu'elle 
+existe.
+
+
+
+\section*{Partie I - Modèle de population saisonnière}
+
+\noindent
+\begin{minipage}{20cm}
+  Dans cette question, on définit l'évolution formelle du nombre 
+  d'{\oe}ufs en diapause entre les dates $0$ et $T$.
+\end{minipage}
+
+\noindent
+On note $D(t)=$ nombre d'{\oe}ufs en diapause à la date $t$. Les 
+{\oe}ufs pondus à la date $t$ qui entrent en diapause sont 
+comptabilisés à la date $t+1$.
+\[
+  \begin{array}{rcR{12cm}}
+    N(t) &=& nombre moyen d'{\oe}ufs produits à la date $t$
+    \nl
+    p(t) &=& proportion des {\oe}ufs produits à la date $t$ qui entrent 
+    en diapause
+  \end{array}
+\]
+Par convention, la date $0$ d'une saison est celle où les insectes nés 
+des {\oe}ufs en diapause de la saison précédente pondent $N(0)$ 
+{\oe}ufs. On suppose pour simplifier :
+\begin{noliste}{$-$}
+  \item que $N(0)$ est un entier naturel non nul.
+  \item que tous les {\oe}ufs issus de la saison précédente ont éclos 
+  et donc que $D(0)=0$.
+  \item que pour tout $t\in \{0,1, \ldots, T-1\}$, $0<p(t)\leq 1$
+\end{noliste}
+Enfin, on suppose qu'à chaque date $t$ de la saison, un individu 
+produit en moyenne $\alpha$ {\oe}ufs ($\alpha$ étant un réel 
+strictement positif). {\bf Par simplicité, on supposera que $\alpha$ 
+reste constant pendant toute la saison.}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $D(t+1)=D(t) + p(t) \, N(t)$ pour tout entier $t$ 
+    tel que $0 \leq t \leq T-1$.
+    
+    
+    
+    
+    %\newpage
+
+    
+    \item Montrer que $N(t+1)=\alpha (1-p(t)) \, N(t)$ pour tout entier 
+    $t$ tel que $0 \leq t \leq T-1$.
+    
+    
+  \end{noliste}
+  
+  \item On suppose dans cette question que $\alpha \leq 1$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que pour tout entier $t$ tel que $0 \leq t \leq T-1$,
+    $N(t+1) \leq N(t)$.
+    
+    
+
+    
+    \item Montrer que pour tout entier $t$ tel que $0 \leq t \leq T-1$ :
+    \[
+      D(t+1) + N(t+1) \ \leq \ D(t)+N(t)
+    \]
+    
+    
+    
+    
+    %\newpage
+   
+    
+    \item Montrer que pour tout entier $t$ tel que $0 \leq t \leq T$ :
+    \[
+      D(t) + N(t) \leq N(0)
+    \]
+    
+    
+
+    
+    \item Montrer que pour tout entier $t$ tel que $0 \leq t \leq T$, 
+    $D(t) \leq N(0)$.
+    
+    
+
+    
+    \item On suppose que $p(0)=1$.
+    \begin{nonoliste}{(i)}
+      \item Montrer que pour tout entier $t$ tel que $1 \leq t \leq T$, 
+      $N(t)=0$.
+      
+      
+
+      
+      \item Montrer que pour tout entier $t$ tel que $1 \leq t \leq T$,
+      $D(t)=N(0)$.
+      
+      
+      
+      
+      %\newpage
+
+      
+      \item En déduire que si $\alpha \leq 1$, la meilleure stratégie 
+      adaptée à la saison est que les $N(0)$ {\oe}ufs produits à la date
+      $0$ entrent en diapause immédiatement.
+      
+      
+
+    \end{nonoliste}
+  \end{noliste}
+  
+  \item {\bf On suppose désormais $\alpha >1$ jusqu'à la fin du 
+  problème.}\\
+  On introduit maintenant $\tau$ une variable aléatoire à valeurs dans 
+  $\{1,2, \ldots, T\}$ qui représente la date où s'achève la saison. On 
+  suppose que pour tout $t \in \{1,2, \ldots, T\}$, $\Prob(
+  \Ev{\tau=t}) >0$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que pour tout $t\in \{1,2, \ldots, T\}$, $\Prob(
+    \Ev{\tau \geq t}) >0$. On définit alors $H(t)= \Prob_{\Ev{\tau \geq 
+    t}}(\Ev{\tau =t})$.
+    
+    
+
+    
+    \item Montrer que : $H(t)= \dfrac{\Prob(\Ev{\tau=t})}{\Prob(\Ev{\tau
+    \geq t})}$.
+    
+    
+
+    
+    \item Montrer que : $H(T)=1$.
+    
+    
+    
+    
+    %\newpage
+
+    
+    \item Calculer $H(t)$ pour $t\in \{1,2, \ldots, T\}$ si $\tau$ 
+    suit une loi uniforme sur $\{1,2, \ldots, T\}$.
+    
+    
+
+    
+    \item 
+    \begin{nonoliste}{(i)}
+      \item Soient $T$ réels $\lambda_1$, $\lambda_2$, $\ldots$, 
+      $\lambda_T$ tels que $0 < \lambda_1 < \lambda_2 < \cdots < 
+      \lambda_T=1$. Par convention, on pose $\lambda_0=0$. Soient 
+      $q_1=\lambda_1$, $q_2=\lambda_2-\lambda_1$, $\ldots$, 
+      $q_T=\lambda_T - \lambda_{T-1}$.\\
+      Montrer que $(q_i)_{1\leq i \leq T}$ définit une loi de 
+      probabilité sur $\{1,2, \ldots, T\}$.
+      
+      
+
+      
+      \item Calculer $H(t)$ si $\tau$ suit la loi précédente.
+      
+      
+      
+      
+     %\newpage
+
+      
+      \item On suppose que $T\geq 2$ et de plus que pour tout entier 
+      $n$ tel que $1 \leq n \leq T-1$, on a $\lambda_{n+1} - 
+      \lambda_n \geq \lambda_n - \lambda_{n-1}$. Montrer que 
+      $t \mapsto H(t)$ est croissante sur $\{1,2, \ldots, T\}$.
+      
+      
+    \end{nonoliste}
+  \end{noliste}
+  
+  \noindent
+  {\bf On suppose désormais que $t \mapsto H(t)$ est croissante.} Le 
+  but est maintenant de trouver une stratégie adéquate pour maximiser 
+  la quantité $\E\big(\ln(D(\tau))\big)$. On va commencer par regarder 
+  un exemple simple.
+  
+  \item On suppose ici que $T=2$, que $H$ est donnée par $H(1) =
+  \dfrac{1}{2}$ et $H(2)=1$ et que $\alpha=4$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item 
+    \begin{nonoliste}{(i)}
+      \item Déterminer $\Prob(\Ev{\tau=1})$.
+      
+      
+      
+      
+      %\newpage
+
+      
+      \item Quelle est la loi de $\tau$ ?
+      
+      
+    \end{nonoliste}
+    
+    \item Montrer que pour $D(1)$ et $N(1)$ donnés, $D(2)$ est maximum
+    pour $p(1)=1$.
+    
+    
+
+    
+    \item On suppose $p(1)=1$. Montrer que :
+    \[
+      \E\big(\ln(D(\tau)\big) \ = \ \dfrac{1}{2} \, \ln\big((4-3 \, 
+      p(0)) \, N(0)\big) + \dfrac{1}{2} \, \ln\big(p(0) \, N(0)\big)
+    \]
+    
+    
+    
+    
+    %\newpage
+
+    
+    \item Construire le tableau de variations sur $]0,1]$ de la 
+    fonction $\varphi$ définie par :
+    \[
+      \varphi(x) \ = \ \dfrac{1}{2} \, \ln\big((4-3x) \, N(0)\big) 
+      + \dfrac{1}{2} \, \ln\big(N(0) \, x\big)
+    \]
+    
+    
+    
+    
+    %\newpage
+
+    
+    \item Déterminer $p^*(0)$ qui maximise $\E\big(\ln(D(\tau))\big)$.
+    
+    
+  \end{noliste}
+\end{noliste}
+
+
+
+
+\section*{Partie II - Transformation du problème}
+
+\noindent
+{\bf Par convention, on conviendra que si $h$ est une fonction 
+numérique définie sur $\{0,1,2, \ldots, T\}$}, on a
+\[
+  \Sum{t=1}{0} h(t)=0
+\]
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{4}
+  \item Montrer que pour tout $t \in \{0,1,2, \ldots, T\}$, $D(t) 
+  +N(t) >0$.
+  
+  
+  
+  
+  %\newpage
+
+  
+  On pose
+  \[
+    X(t) \ = \ \dfrac{D(t)}{D(t) + N(t)}
+  \]  
+  
+  \item Montrer que pour tout $t\in \{0,1,2, \ldots, T-1\}$ :
+  \[
+    X(t+1) \ = \ \dfrac{p(t) + (1-p(t)) \, X(t)}{p(t) + \alpha \, 
+    (1-p(t)) + (1-\alpha)(1-p(t)) \, X(t)}
+  \]
+  
+  
+
+  
+  \item Soit $\xi \in [0,1]$ fixé. Pour $x \in [0,1]$, on pose :
+  \[
+    \psi_\xi(x) \ = \ \dfrac{x+ (1-x) \xi}{x + \alpha \, (1-x) + 
+    (1- \alpha)(1-x)\xi}
+  \]
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $\psi_\xi$ est croissante sur $[0,1]$.
+    
+    
+
+    
+    \item Calculer $\psi_\xi(1)$.
+    
+    
+
+    
+    \item 
+    \begin{nonoliste}{(i)}
+      \item Calculer $\psi_\xi(0)$. On pose désormais
+      $
+        A(\xi) \ = \ \psi_\xi(0)
+      $
+      
+      
+      
+      
+      %\newpage
+
+      
+      \item Montrer que pour tout $t\in \{0,1,2, \ldots, T-1\}$, 
+      $A(X(t)) \leq X(t+1) \leq 1$.
+      
+      
+
+      
+      \item Montrer que $\xi \mapsto A(\xi)$ est croissante sur $[0,1]$.
+      
+      
+    \end{nonoliste}
+  \end{noliste}
+    
+  \item Justifier l'égalité de variables aléatoires :
+  \[
+    D(\tau) \ = \ \dfrac{D(\tau)}{D(\tau-1)} \cdot \dfrac{D(\tau-1)}
+    {D(\tau-2)} \cdot \cdots \cdot \dfrac{D(2)}{D(1)} \cdot 
+    \dfrac{D(1)}{N(0)} \cdot N(0)
+  \]
+  
+  
+  
+  
+  
+  \noindent
+  On pose $\hat{R}(0) = \ln \left( \dfrac{D(1)}{N(0)}\right)$ et 
+  $\hat{R}(t) = \ln \left( \dfrac{D(t+1)}{D(t)}\right)$ pour $1 \leq t 
+  \leq T-1$.
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que :
+    \[
+      \E\big(\ln(D(\tau))\big) \ = \ \ln(N(0)) + \E\left( \hat{R}(0)
+      + \Sum{t=1}{\tau -1} \hat{R}(t)\right)
+    \]
+    
+    
+    
+    \item Montrer que : $\dfrac{D(1)}{N(0)} = \dfrac{\alpha \, X(1)}
+    {1+(\alpha-1) \, X(1)}$.
+    
+    
+        
+    \item Montrer que : $\dfrac{D(t+1)}{D(t)} = \dfrac{\alpha \, X(t+1)}
+    {X(t) \big(1+ (\alpha -1) \, X(t+1)\big)}$ pour $1 \leq t \leq 
+    T-1$.
+    
+    
+
+    
+    %\newpage
+    
+    
+    Pour $x$ et $y$ deux réels strictement positifs, on pose $u(x,y)=
+    \ln(\alpha) - \ln(x) + \ln(y) - \ln(1+(\alpha-1)y)$.
+    
+    \item Montrer que : $\hat{R}(0) = u(1,X(1))$.
+    
+    
+
+    
+    \item Montrer que : $\hat{R}(t) = u(X(t),X(t+1))$ pour 
+    $1 \leq t \leq T-1$.
+    
+    
+        
+    \item Conclure que :
+    \[
+      \E\big(\ln(D(\tau))\big) \ = \ \ln(N(0)) + \E\left( u(1,X(1)) + 
+      \Sum{t=1}{\tau -1} u(X(t),X(t+1))\right)
+    \]
+    
+    
+  \end{noliste}
+\end{noliste}
+
+\noindent
+On voit donc que maximiser $\E\big(\ln(D(\tau))\big)$ revient à choisir,
+à chaque date $t$ telle que $1 \leq t \leq \tau -1$, la valeur $X(t+1)$ 
+vérifiant la contrainte $A(X(t)) \leq X(t+1) \leq 1$ de façon à rendre 
+maximale l'expression
+\[
+  \E\left(u(1,X(1)) + \Sum{t=1}{\tau-1} u(X(t), X(t+1))\right)
+\]
+
+
+
+
+%\newpage
+
+
+
+
+\section*{Partie III - Programmation dynamique}
+
+\noindent
+On expose dans cette partie les deux premières étapes de la méthode de 
+la programmation dynamique pour résoudre le problème.
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{9}
+  \item Soit $B$ un événement. On note $\unq{}_B$ la variable aléatoire
+  telle que 
+  \[
+    \unq{}_B(\omega) \ = \ \left\{
+    \begin{array}{cR{3cm}}
+      1 & si $\omega \in B$
+      \nl
+      0 & sinon
+    \end{array}
+    \right.
+  \]
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer la loi de $\unq{}_B$.
+    
+    
+
+    
+    \item Soient $B$ et $C$ deux événements. Montrer l'égalité de 
+    variables aléatoires : $\unq{}_{B \cap C} = \unq{}_B \times 
+    \unq{}_C$.
+    
+    
+    
+    \item On suppose que $0 < \Prob(B) < 1$. Si $Y$ est une variable
+    aléatoire prenant un nombre fini de valeurs, on définit la {\bf 
+    variable aléatoire} notée $\E_B(Y)$ par :
+    \[
+      \E_B(Y) \ = \ \dfrac{1}{\Prob(B)} \, \E(Y \, \unq{}_B) \, 
+      \unq{}_B + \dfrac{1}{\Prob(\bar{B})} \, \E(Y \, \unq{}_{\bar{B}})
+      \, \unq{}_{\bar{B}}
+    \]
+    où $\bar{B}$ désigne l'événement contraire de $B$.
+    
+    
+    
+    % Attention : la définition de $\E_B(Y)$ donnée ici est en 
+    % fait l'espérance conditionnelle de $Y$ sachant la \var 
+    % $\unq{}_B$, et non l'espérance conditionnelle sachant 
+    % l'événement $B$
+    
+    
+    %\newpage
+
+    
+    \begin{nonoliste}{(i)}
+      \item Soient $Y$ et $Z$ deux variables aléatoires prenant un 
+      nombre fini de valeurs. Montrer que :
+      \[
+        \E_B(Y+Z) \ = \ \E_B(Y) + \E_B(Z)
+      \]
+      
+      
+
+      
+      \item Montrer que : $\E(\E_B(Y)) = \E(Y)$.
+      
+      
+
+      
+      \item Montrer que : $\E_B(Y \, \unq{}_B) = \E_B(Y) \, \unq{}_B$.
+      
+      
+    \end{nonoliste}
+  \end{noliste}
+    
+  \item On suppose dans cette question que, quand l'événement $\Ev{\tau 
+  =T}$ est réalisé, $X(1)$, $\ldots$, $X(T-1)$ sont connus. Comme on 
+  l'a vu précédemment, si on pose $x=X(T-1)$, le meilleur choix à faire
+  est alors de prendre pour $X(T)$ la valeur $y^*(x,T-1) \in [A(x),1]$
+  qui maximise $u(x,y)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que : $y^*(x,T-1)=1$.
+    
+    
+    
+    \item Montrer que : $u(x,1)=-\ln(x)$.
+    
+    
+  \end{noliste}
+  
+  \item On suppose maintenant que, quand l'événement $\Ev{\tau \geq 
+  T-1}$ est réalisé, les réels $X(1)$, $\ldots$, $X(T-2)$ sont connus. 
+  \\[.1cm]
+  La 
+  stratégie reste donc de choisir $X(T-1)$ et $X(T)$ de façon à 
+  maximiser $\E\left(\Sum{t=T-2}{\tau-1} u(X(t), 
+  X(t+1))\right)$.\\[.1cm]
+  La variable aléatoire $\tau$ prend les deux valeurs $T-1$ et $T$ 
+  avec les probabilités respectives 
+  \[
+    \Prob_{\Ev{\tau \geq T-1}}(\Ev{\tau = T-1}) \quad \text{et} 
+    \quad \Prob_{\Ev{\tau \geq T-1}}(\Ev{\tau = T})
+  \]
+  \end{noliste}
+  
+  
+  %\newpage
+  
+  
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que :
+    \[
+      \unq{}_{\Ev{\tau \geq T-1}} \ \Sum{t=T-2}{\tau-1} 
+      u(X(t),X(t+1))
+      \ = \ \unq{}_{\Ev{\tau \geq T-1}} \, u(X(T-2),X(T-1)) + 
+      \unq{}_{\Ev{\tau = T}} \, u(X(T-1),X(T))
+    \]
+    
+    
+    
+    \item Montrer que :
+    \[
+     \begin{array}{cl}
+      & \unq{}_{\Ev{\tau \geq T-1}} \ \E_{\Ev{\tau \geq T-1}} 
+      \left( \Sum{t=T-2}{\tau -1} u(X(t),X(t+1)\right) 
+      \\[.8cm]
+      = &
+      \E_{\Ev{\tau \geq T-1}} \Big( u(X(T-2),X(T-1)) \cdot
+      \unq{}_{\Ev{\tau \geq T-1}} + u(X(T-1),X(T)) \cdot 
+      \unq{}_{\Ev{\tau = T}}\Big)
+     \end{array}
+    \]
+    
+    
+    
+    
+    %\newpage
+    
+    
+    \item Montrer que :
+    \[
+     \begin{array}{cl}
+      & \E_{\Ev{\tau \geq T-1}}\left( \unq{}_{\Ev{\tau \geq T-1}} \, 
+      u(X(T-2),X(T-1)) + \unq{}_{\Ev{\tau = T}} \, u(X(T-1), 
+      X(T))\right)
+      \\[.4cm]
+      = &
+      u(X(T-2), X(T-1)) \, \unq{}_{\Ev{\tau \geq T-1}} + 
+      \dfrac{\Prob(\Ev{\tau =T})}{\Prob(\Ev{\tau \geq T-1})} \, 
+      u(X(T-1), X(T)) \, \unq{}_{\Ev{\tau \geq T-1}}
+     \end{array}
+    \]
+    
+    
+    
+    \item On suppose que $X(T-1)$ est donné.
+    \begin{nonoliste}{(i)}
+      \item Montrer que le meilleur choix pour $X(T)$ est $1$.
+      
+      
+
+      
+      \item Montrer que pour un tel choix $u(X(T-1), X(T)) = 
+      - \ln (X(T-1))$.
+      
+      
+    \end{nonoliste}
+    
+    
+    %\newpage
+    
+    
+    \item Montrer que : $\Prob_{\Ev{\tau \geq T-1}}(\Ev{\tau = T})
+    =1- H(T-1)$.
+    
+    
+    
+    On veut maintenant choisir la stratégie optimale à la date $T-2$.
+    
+    \item Montrer qu'on doit choisir pour $X(T-1)$ la valeur $y^*(
+    X(T-2),T-2) \in [A(X(T-2)),1]$ de telle sorte que 
+    \[
+      \phi(y) \ = \ u(X(T-2),y) - (1-H(T-1)) \, \ln(y)
+    \]
+    soit maximal.
+  \end{noliste}
+    
+    
+
+  \begin{noliste}{a)}
+    \setcounter{enumi}{6}
+    \setlength{\itemsep}{2mm}
+    \item Calculer $\phi'(y)$.
+    
+    
+    
+    \item Construire le tableau de variation de $\phi$ dans le cas 
+    $\dfrac{H(T-1)}{(\alpha-1)(1-H(T-1))} \leq 1$.
+    
+    
+    
+    \item Construire le tableau de variation de $\phi$ dans le cas 
+    $\dfrac{H(T-1)}{(\alpha-1)(1-H(T-1))} \geq 1$.
+    
+    
+
+    
+    \item Donner la valeur de $y^*(X(T-2),T-2)$.
+    
+    
+  \end{noliste}
+
+
+
+
+
+\end{document}

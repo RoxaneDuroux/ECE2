@@ -1,0 +1,535 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 2010} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 2010}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2010}}
+
+
+
+{\large \textbf{Concepteur : Edhec}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{Exercice 1}
+
+On considère la fonction $f$ définie, pour tout couple $(x,y)$ de
+l'ouvert $]0, + \infty[ \ \times]0, + \infty[$, par : 
+\[
+f(x,y) = (x + y)\left(\dfrac 1x + \dfrac 1y\right). 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que, pour tout couple $(x,y)$ de $]0, + \infty \lbrack
+\times
+]0, + \infty \lbrack $, on a : 
+\[
+f(x,y) = 2 + \dfrac{y}{x} + \dfrac{x}{y}\quad \text{ et }\quad f(x,y) =
+\dfrac{(x + y)^{2}}{xy}.
+\]
+
+\item Montrer que $f$ est de classe $C^{2}$ sur $]0, + \infty \lbrack
+\times
+]0, + \infty \lbrack $.
+
+\item Montrer que $f$ possède une infinité de points critiques et les
+déterminer.
+
+\item Déterminer les dérivées partielles secondes de $f$ et vérifier
+que ces
+dernières ne permettent pas de conclure à l'existence d'un extremum
+local de 
+$f$ sur $]0, + \infty \lbrack \times ]0, + \infty \lbrack $.
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Comparer les réels $(x + y)^{2}$ et $4xy$.
+
+\item En déduire que $f$ admet sur $]0, + \infty \lbrack \times ]0, +
+\infty
+\lbrack $ un minimum global en tous ses points critiques et donner sa
+valeur.
+\end{noliste}
+
+\item Soit $g$ la fonction définie pour tout $(x,y)$ de $]0, + \infty
+\lbrack
+\times ]0, + \infty \lbrack $, par : 
+\[
+g(x,y) = 2\ln (x + y)-\ln x-\ln y.
+\]
+Montrer que : $\forall (x,y)\in \ ]0, + \infty \lbrack \times ]0, +
+\infty \lbrack,\,g(x,y)\geq 2\ln 2$.
+\end{noliste}
+
+\section*{Exercice 2}
+
+Pour tout entier naturel $n$, on pose $u_{n} = \prod_{k = 0}{n}\left(1
++ \dfrac 1{2^{k}}\right) = (1 + 1)\left(1 + \dfrac
+1{2}\right)\left(1 + \dfrac 1{4}\right)\cdots \left(1 + \dfrac
+1{2^{n}}\right)$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Donner, sous forme d'entiers ou de fractions simplifiées, les
+valeurs
+de $u_{0},u_{1}$ et $u_{2}$.
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout entier naturel $n$, on a : $u_{n}\geq 2$.
+
+\item Exprimer $u_{n + 1}$ en fonction de $u_{n}$ puis en déduire les
+variations de la suite $(u_{n})$.
+
+\item 
+Établir que, pour tout réel $x$ strictement supérieur à $-1$, on a :
+$\ln
+(1 + x)\leq x$.
+
+\item En déduire, pour tout entier naturel $n$, un majorant de $\ln
+(u_{n})$.
+\end{noliste}
+
+\item En utilisant les questions précédentes, montrer que la suite
+$(u_{n})$
+converge vers un réel $\ell$, élément de
+$\left[2,\mathrm{e}{2}\right]$.
+
+\item On se propose dans cette question de déterminer la nature de la
+série
+de terme général $(\ell -u_{n})$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier que la suite $(\ln (u_{n}))_{n\in {\mathbf{N}}}$
+converge et
+que l'on a : $\ln (\ell ) = \Sum{k = 0}{+ \infty }\ln \left( 1 +
+\dfrac{1}{2^{k}}\right) $.
+
+\item Montrer que, pour tout $n$ de ${\mathbf{N}}$, on a $\ln \left(
+\dfrac{\ell }{u_{n}}\right) = \Sum{k = n + 1}{+ \infty }\ln \left( 1 +
+\dfrac{1}{2^{k}}\right) $.
+
+\item Vérifier, en utilisant le résultat de la question 3a), que
+$\forall
+n\in {\mathbf{N}},\,0\leq \ln \left( \dfrac{\ell }{u_{n}}\right) \leq
+\dfrac{1}{2^{n}}$.
+
+\item Déduire de la question précédente que $\forall n\in
+{\mathbf{N}}$, $0\leq \ell -u_{n}\leq \ell \left(
+1-\mathrm{e}{-\frac{1}{2^{n}}}\right) $.
+
+\item Justifier que, pour tout réel $x$, on a $1-\mathrm{e}{-x}\leq x$.
+En déduire que $\forall n\in {\mathbf{N}}$, $0\leq \ell -u_{n}\leq
+\dfrac{\ell }{2^{n}}$.
+
+Conclure quant à la nature de la série de terme général $(\ell
+-u_{n})$.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice}
+
+On considère la fonction $f$ définie sur ${\mathbf{R}}$ par : $f(x) =
+\left\{
+\begin{array}{cl}
+\dfrac{1}{2x^{2}} & \text{si }x\leq -1\text{ ou }x\geq 1 \\
+0 & \text{sinon}
+\end{array}
+\right.$.[1)]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $f$ est une fonction paire.
+
+\item Montrer que $f$ peut être considérée comme une fonction densité
+de
+probabilité.
+\end{noliste}
+
+Dans la suite, on considère une variable aléatoire $X$ définie sur un
+espace
+probabilisé $(\Omega,\mathcal{A},P)$, admettant $f$ comme densité. On
+note $F_{X}$ la fonction de répartition de $X$.
+
+\item La variable aléatoire $X$ admet-elle une espérance ?
+
+\item On pose $Y = \ln (|X|)$ et on admet que $Y$ est une variable
+aléatoire,
+elle aussi définie sur l'espace probabilisé $(\Omega,\mathcal{A},P)$.
+On
+note $F_{Y}$ sa fonction de répartition.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout réel $x$, on a : $F_{Y}(x) =
+F_{X}(\mathrm{e}{x})-F_{X}(-\mathrm{e}{x})$.
+
+\item Montrer, sans expliciter la fonction $F_{Y}$, que $Y$ est une
+variable
+aléatoire à densité, puis donner une densité de $Y$ et vérifier que $Y$
+suit
+une loi exponentielle dont on donnera le paramètre.
+
+\item 
+Montrer que, si $x$ est positif, alors $1-\mathrm{e}{-x}$ appartient à
+$[0,1[$ et montrer que, si $x$ est strictement négatif, alors
+$1-\mathrm{e}{-x}$ est strictement négatif.
+
+\item On considère une variable aléatoire $U$ suivant la loi uniforme
+sur $[0,1[$. Déterminer la fonction de répartition de la variable
+aléatoire $Z = -\ln (1-U)$ et reconnaître la loi de $Z$.
+
+\item Simulation informatique de la loi de $Y$. On rappelle qu'en 
+\Scilab{}, la fonction \texttt{random} permet de simuler la loi
+uniforme sur $[0,1[$. Compléter la déclaration de fonction suivante
+pour qu'elle simule la
+loi de $Y$.
+
+\texttt{Function\ expo :real;}
+
+\texttt{Begin}
+
+\texttt{\hspace*{1cm}expo : = \ ---------\ ;}
+
+\texttt{End;}
+\end{noliste}
+\end{noliste}
+
+\section*{Problème}
+
+On note $\mathcal{B} = (e_{1},e_{2},e_{3})$ la base canonique de
+${\mathbf{R}}{3}$ et on considère l'endomorphisme de ${\mathbf{R}}{3}$
+défini par les égalités suivantes : 
+\[
+f(e_{1}) = \dfrac{1}{3}(e_{2} + e_{3})\quad \text{ et }\quad f(e_{2}) =
+f(e_{3}) = \dfrac{2}{3}e_{1}.
+\]
+\textbf{Partie 1 : Étude de \mathversion{bold}$f$.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Écrire la matrice de $f$ dans la base $\mathcal{B}$.
+
+\item Déterminer la dimension de Im$~f$ puis celle de Ker$~f$.
+
+\item Donner alors une base de Ker$~f$, puis en déduire une valeur
+propre de 
+$f$ ainsi que le sous-espace propre associé.
+
+\item Déterminer les autres valeurs propres de $f$ ainsi que les
+sous-espaces propres associés.
+
+\item En déduire que $f$ est diagonalisable.
+\end{noliste}
+
+\item On pose $P = 
+\begin{smatrix}
+2 & -2 & 0 \\
+1 & 1 & 1 \\
+1 & 1 & -1
+\end{smatrix}
+$, $Q = 
+\begin{smatrix}
+1 & 1 & 1 \\
+-1 & 1 & 1 \\
+0 & 2 & -2
+\end{smatrix}
+$ et $I = 
+\begin{smatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{smatrix}
+$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier sans calcul que $P$ est inversible, puis déterminer la
+matrice $D$ diagonale telle que : $M = PDP^{-1}$.
+
+\item Calculer $PQ$ puis en déduire $P^{-1}$.
+
+\item Montrer par récurrence que, pour tout entier naturel $j$, on a
+$M^{j} = PD^{j}P^{-1}$.
+
+\item Écrire, pour tout entier naturel $j$ non nul, la première colonne
+de
+la matrice $M^{j}$. Vérifier que ce résultat reste valable si $j = 0$.
+\end{noliste}
+\end{noliste}
+
+\ 
+
+\textbf{Partie 2 : Étude d'une suite de variables aléatoires.}
+
+Une urne contient trois boules numérotées de $1$ à $3$. Un tirage
+consiste à
+extraire au hasard une boule de l'urne puis à la remettre dans l'urne
+pour
+le tirage suivant.
+
+On définit une suite de variables aléatoires
+$(X_{k})_{k\in{\mathbf{N}}^*}$
+de la manière suivante :
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{$\sbullet$}
+\item Pour tout entier naturel $k$ non nul, $X_{k}$ est définie
+\emph{après}
+le $k^{\grave{e}me}$ tirage.
+
+\item On procède au 1\textsuperscript{er} tirage et $X_{1}$ prend la
+valeur
+du numéro de la boule obtenue à ce tirage.
+
+\item Après le $k^{\grave{e}me}$ tirage ($k\in {\mathbf{N}}{\ast }$)
+:\\
+Soit $X_{k}$ a pris la valeur $1$, dans ce cas on procède au $(k +
+1)^{\grave{e}me}$ tirage et $X_{k + 1}$ prend la valeur du numéro
+obtenu à ce $(k + 1)^{\grave{e}me}$ tirage.\\
+Soit $X_{k}$ a pris la valeur $j$, différente de $1$, dans ce cas on
+procède 
+également au $(k + 1)^{\grave{e}me}$ tirage et $X_{k + 1}$ prend la
+valeur $j$
+si la boule tirée porte le numéro $j$ et la valeur $1$ sinon.
+\end{noliste}
+
+\item Reconnaître la loi de $X_{1}$.
+
+\item Simulation informatique de l'expérience aléatoire décrite dans
+cette
+partie.
+
+On rappelle que \texttt{random(n)} renvoie un entier compris entre $0$
+et 
+\texttt{n}$-1$.
+
+Compléter le programme suivant pour qu'il simule l'expérience aléatoire
+décrite dans cette partie et pour qu'il affiche la valeur de la
+variable $X_{k}
+$, l'entier $k$ étant entré au clavier par l'utilisateur.
+
+\texttt{Program\ simul;}
+
+\texttt{var\ i,k,X,tirage\ :\ integer;}
+
+\texttt{Begin}
+
+\texttt{\hspace*{1cm}Readln(k);\ X : = random(3) + 1;}
+
+\texttt{\hspace*{1cm}For\ i : = 2\ to\ k\ do\ begin}
+
+\texttt{\hspace*{2cm}tirage : = random(3) + 1;}
+
+\texttt{\hspace*{2cm}If\ X = 1\ then\ X : = \ -------}
+
+\texttt{\hspace*{2cm}else\ If\ tirage\ \ < > \ X\
+then\ X : = \ -------;}
+
+\texttt{\hspace*{1cm}end;}
+
+\texttt{\hspace*{1cm}Writeln(X);}
+
+\texttt{End.}
+
+\item On note $U_{k}$ la matrice à $3$ lignes et une colonne dont
+l'élément
+de la $i^{\grave{e}me}$ ligne est $P\left(\Ev{X_{k} = i}\right)$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les probabilités $P_{(X_{k} = j)}(X_{k + 1} = i)$,
+pour tout
+couple $(i,j)$ de $\{1,2,3\}\times \{1,2,3\}$.
+
+\item On admet que $\left\{ (X_{k} = 1),(X_{k} = 2),(X_{k} = 3)\right\}
+$ est un
+système complet d'évènements.
+
+Déterminer, grâce à la formule des probabilités totales, la matrice $A$
+de $\M{3}$, telle que, pour tout entier naturel $k$ non
+nul, on a $U_{k + 1} = AU_{k}$.
+
+\item Montrer qu'en posant $U_{0} = 
+\begin{smatrix}
+1 \\
+0 \\
+0
+\end{smatrix}
+$, alors, pour tout $k$ de ${\mathbf{N}}$, on a : $U_{k} = AU_{0}$.
+
+\item 
+Vérifier que $A = M + \dfrac{1}{3}I$, puis établir que, pour tout $k$
+de ${\mathbf{N}}$, on a : $A^{k} = \Sum{j = 0}{k}\binom{k}{j}\left( 
+\dfrac{1}{3}\right) ^{k-j}M^{j}$.
+
+\item En déduire les $3$ éléments de la première colonne de la matrice
+$A^{k}
+$, puis vérifier que la loi de $X_{k}$ est donnée par : 
+\[
+\forall k\in {\mathbf{N}}{\ast },\quad P\left(\Ev{X_{k} = 1}\right) =
+\frac{1}{2}\left(
+1 + \left( -\dfrac{1}{3}\right) ^{k}\right) \quad \text{et}\quad
+P\left(\Ev{X_{k} = 2}\right) = P\left(\Ev{X_{k} = 3}\right) =
+\frac{1}{4}\left( 1-\left( -\dfrac{1}{3}\right)
+^{k}\right).
+\]
+
+\item Montrer que la suite $(X_{k})$ converge en loi vers une variable
+aléatoire $X$ dont on donnera la loi.
+
+\item 
+Calculer l'espérance $\E(X_{k})$ de $X_{k}$.
+
+\item Écrire une fonction \Scilab{}, notée \texttt{esp}, qui renvoie
+$\E(X_{k})$ 
+à l'appel de \texttt{esp(k)}.
+\end{noliste}
+\end{noliste}
+
+\end{document}
+

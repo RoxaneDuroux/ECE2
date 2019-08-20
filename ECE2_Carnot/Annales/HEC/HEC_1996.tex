@@ -1,0 +1,336 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 1996} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 1996}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\huge HEC Eco 1996}
+\end{center}
+\section{Exercice}
+
+ Cet exercice a pour objet l'étude d'un espace vectoriel de
+matrices.\par
+ On note $\M{3}$ l'ensemble des matrices carrées d'ordre 3 à
+coefficients réels et on considère les matrices :\par
+ \begin{displaymath}
+ \mathbf{I} = 
+ \left(
+\begin{array}{ccc}
+	1 & 0 & 0\\
+	0 & 1 & 0\\
+	0 & 0 & 1\\
+\end{array}
+\right)
+\hspace{1.5cm}
+ \mathbf{J} = 
+ \left(
+\begin{array}{ccc}
+	0 & 1 & 0\\
+	1 & 0 & 1\\
+	0 & 1 & 0\\
+\end{array}
+\right)
+\hspace{1.5cm}
+ \mathbf{K} = 
+ \left(
+\begin{array}{ccc}
+	0 & 0 & 1\\
+	0 & 1 & 0\\
+	1 & 0 & 0\\
+\end{array}
+\right)
+\end{displaymath}
+On note $Id$, $j$, $k$ les endomorphismes de $\R^{3}$ représentés
+respectivement par ces matrices dans la base canonique de $\R^{3}$.
+%%%%%%%%%%%%%%%%%%%%%%%%\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item
+Déterminer les valeurs propres des matrices $J$ et $K$.
+\item
+Montrer qu'on peut trouver une base de $\R^{3}$ dans laquelle les
+endomorphismes $j$ et $k$ sont tous deux diagonalisés.
+\\
+N.B. L'utilisation de cette base pourra permettre de simplifier la
+résolution de certaines des questions de la suite.
+\end{noliste}
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item
+Montrer que $(I,J,K)$ est une famille libre de l'espace $\M{3}$.\\
+Dans toute la suite, on note $E$ le sous-espace de $\M{3}$ engendré par
+les éléments $I$, $J$ et $K$.
+\item
+Montrer que si $A$ et $B$ sont deux éléments de $E$, leur produit est
+aussi dans $E$.
+\item
+Etant donnés trois réels $x$, $y$ et $z$, déterminer les valeurs
+propres de la matrice 
+\[
+T = xI + yJ + zK.
+\]
+ \end{noliste}
+ \item
+ Montrer qu'il existe trois suites $(a_{n})_{n\geq1}$,
+$(b_{n})_{n\geq1}$ et $(c_{n})_{n\geq1}$ de réels telles que
+ 
+\[
+ J^{n} = a_{n}I + b_{n}J + c_{n}K
+ 
+\]
+ pour tout $n\geq1$. Donner l'expression du terme général de chacune de
+ces suites en fonction de $n$.
+ \item
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item
+ On note $(e_{1}, e_{2}, e_{3})$ la base canonique de l'espace
+$\R^{3}$. on définit une application $\Phi$ de $\R^{3}$ dans $E$ en
+posant, pour $V = xe_{1} + ye_{2} + ze_{3}$,
+ 
+\[
+ \Phi(V) = xI + yJ + zK.
+ 
+\]
+ Montrer que $\Phi$ est un isomorphisme de $\R^{3}$ sur $E$.
+ \item
+ Déterminer l'ensemble $H$ des vecteurs $V$ de $\R^{3}$ tels que
+$\Phi(V)$ soit une matrice non inversible. L'ensemble $H$ est-il un
+sous-espace vectoriel de $\R^{3}$ ?
+ \end{noliste}
+\end{noliste}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%\section{Exercice}
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item
+On désigne par $a$ un paramètre réel.\\
+On note $\mathcal{D}_{a}$ l'ensemble des nombres réels $x$ vérifiant
+les conditions $x>0$ et $a\sqrt{x}\neq3$ et on pose, pour tout
+$x\in\mathcal{D}_{a}$,
+\[
+f_{a}(x) = \frac{3-a}{3-a\sqrt{x}}.
+\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item
+Montrer que la fonction $x\mapsto f_{a}(x)$ est dérivable sur
+$\mathcal{D}_{a}$ et calculer sa dérivée.
+\item
+Étudier, en discutant suivant les valeurs du paramètre $a$, les
+variations de la fonction $f_{a}$. On donnera, dans chacun des cas
+$a<0$, $0<a<3$ et $a>3$ le tableau de variations et l'allure de la
+courbe représentative de $f_{a}$.
+\item
+A l'aide des résultats précédents, montrer que, quand $a<0$ et quand
+$a>3$, l'équation $f_{a}(x) = x$ admet une racine unique dans
+$\mathcal{D}_{a}$.
+\end{noliste}
+\item
+On fixe, dans cette partie, $a = 1$.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item
+Montrer que l'équation $f_{1}(x) = x$ admet deux racines : la racine 1
+et une racine $\lambda_{1} >1$.
+\item
+Préciser la position relative, dans le plan rapporté à un repère d'axes
+$(Ox, Oy)$, de la courbe représentative de la fonction $f_{1}$ et de la
+droite d'équation $y = x$.
+\item
+Montrer que, pour tout réel $\alpha$ vérifiant $0 < \alpha\leq
+\lambda_{1}$, la suite $(u_{n})_{n\geq 0}$ définie par 
+\[
+u_{0} = \alpha \hspace{0.5cm} \textrm{et, pour tout
+entier}\hspace{0.2cm} n,\hspace{0.5cm} u_{n + 1} = f_{1}(u_{n})
+\]
+est bien définie.
+\item
+Pour chaque valeur de $\alpha$ ($0 < \alpha\leq \lambda_{1}$) montrer
+que la suite obtenue est monotone et déterminer sa limite.
+\end{noliste}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\item
+On revient maintenant au cas plus général où $0<a<3$.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item
+Résoudre l'équation d'inconnue $z$ :
+\[
+(*) \hspace{0.5cm} az^{3}-3z^{2} + 3-a = 0
+\]
+\item
+Montrer que si $x$ est racine de l'équation $f_{a}(x) = x$, alors
+$\sqrt{x}$ est racine de l'équation (*).
+\item
+En déduire les racines de l'équation $f_{a}(x) = x$. Discuter, suivant
+les valeurs de $a$, la position de ces racines l'une par rapport à
+l'autre.
+\end{noliste}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\end{noliste}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%\section{Exercice}
+On désigne par $m$ un entier fixé supérieur ou égal à 2.\\
+Une urne contient $m$ boules numérotées de 1 à $m$. On note $E$
+l'ensemble de ces boules et $\mathcal{P}(E)$ l'ensemble des parties de
+$E$.\\
+Un dispositif permet d'effectuer le tirage au hasard d'une partie de
+ces boules, de telle manière que chacune des parties de $E$
+(c'est-à-dire chacun des éléments de $\mathcal{P}(E)$, y compris la
+partie vide ou l'ensemble de toutes les boules) ait la même probabilité
+d'être tirée.
+%%%%%%%%%%%%%%\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item
+On effectue un tirage.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item
+Quelle est la probabilité que la boule portant le numéro 1 appartienne
+à l'ensemble de boules tirées ?
+\item
+Pour tout entier $i$ vérifiant $1\leq i \leq m$ on note $A_{i}$
+l'évènement : `` la boule portant le numéro $i$ appartient à l'ensemble
+de boules tirées ''. Les évènements $A_{i}$ sont-ils indépendants ?
+\item
+Quelle est l'espérance de la variable aléatoire égale au nombre de
+boules qui ont été tirées ? Quelle est sa variance ?
+\item
+La probabilité de tirer un nombre pair de boules est-elle supérieure à
+la probabilité d'en tirer un nombre impair ?
+\end{noliste}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\item
+On effectue maintenant une suite de tirages de la forme précédente, en
+remettant dans l'urne l'ensemble des boules tirées, après chaque
+tirage.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item
+Déterminer, pour tout entier $k\geq 1$, la probabilité que la boule
+numéro $i$ soit tirée pour la première fois au $k^\textrm{ième}$
+tirage.
+\item
+On note $T_{i}$ la variable aléatoire qui prend la valeur $k$ ($k$
+entier $\geq 1$) si la boule numéro $i$ est tirée pour la première fois
+au $k^\textrm{ième}$ tirage. Déterminer l'espérance de $T_{i}$.
+\item
+On admet, sans que la justification en soit demandée, que les variables
+aléatoires $T_{1}$, $T_{2}$,..., $T_{m}$ sont indépendantes. On note
+$T$ le nombre minimum de tirages qu'il faut effectuer pour que chacune
+des $m$ boules ait été tirée au moins une fois. Déterminer, pour tout
+entier $k\geq 1$, la probabilité que $T$ soit inférieure ou égale à
+$k$. En déduire la loi de probabilité de la variable aléatoire $T$.
+\end{noliste}
+%%%%%%%%%%%%%%%%%%%%%%%%\item
+On effectue maintenant une suite de tirages, sans remettre dans l'urne,
+après chaque tirage, les boules tirées. Chaque tirage consiste encore à
+prendre au hasard une partie des boules qui restent dans l'urne,
+chacune des parties de l'ensemble des boules restantes ayant la même
+probabilité d'être tirée.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item
+Calculer la probabilité pour que les $m$ boules soient toutes tirées en
+au plus deux tirages. Calculer la probabilité pour que les $m$ boules
+soient toutes tirées en exactement deux tirages.
+\item
+Pour tout $k\geq 1$ déterminer plus généralement la probabilité pour
+que les $m$ boules soient toutes tirées en au plus $k$ tirages (On
+pourra raisonner par récurrence).
+\end{noliste}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\end{noliste}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\end{document}

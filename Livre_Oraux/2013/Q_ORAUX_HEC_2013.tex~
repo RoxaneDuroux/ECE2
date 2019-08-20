@@ -1,0 +1,3914 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} ORAUX HEC 2013} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+\section{Annales 2013}
+
+% \setcounter{exercice}{0}
+\begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Soit $n$ un entier supérieur ou égal à 1. On dit qu'une
+ expérience aléatoire suit le schéma binomial si elle consiste en
+ $n$ répétitions indépendantes de la même épreuve, pouvant mener à
+ 2 résultat : succès ou échecs.\\
+ On sait alors que la variable aléatoire comptant le nombre de
+ succès pendant l'expérience suit une loi binomiale de paramètres
+ $n$ et $p$, où $p$ est la probabilité du succès lors d'une
+ épreuve. On sait de même que le nombre d'échecs suit la loi
+ binomiale de paramètres $n$ et $q = 1-p$.
+ 
+ \item Soit $(X_{n})_{ n \in \N^* }$ une suite de variables aléatoires
+ définies sur un espace probabilisé $(\Omega, \mathcal{A}, P )$,
+ indépendantes et de même loi de Bernouilli de paramètre
+ $\frac{1}{2}$.
+ 
+ On pose, pour tout $n \in \N^*$, $W_{n} = \Sum{k = 1}{n} k X_{k}$ et
+ $s_{n} = \frac{ n ( n + 1 ) }{ 2 }$.
+ 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item Par linéarité de l'espérance, $W_{n}$ admet une espérance et :
+ 
+\[
+ E ( W_{n} ) = \Sum{k = 1}{n} k E ( X_{k} ) = \Sum{k = 1}{n} \frac{ 1
+}{
+ 2 } k = \frac{ 1 }{ 2} \Sum{k = 1}{n} k = \frac{ 1 }{ 2} \times
+ \frac{ n (n + 1 ) }{ 2 } = \frac{ 1 }{ 2 } s_{n}.
+\]
+ 
+ Par indépendance des variables $X_{i}$ puis par quadracité de la
+ variance, $W_{n}$ admet une variance et :
+ 
+\[
+ V ( X_{n} ) = \Sum{k = 1}{n} V ( k X_{k} ) = \Sum{k = 1}{n} k^{2} V (
+X_{k}
+ ) = \Sum{k = 1}{n} \frac{ 1 }{ 4 } k^{2} = \frac{ 1 }{ 4 }
+ \Sum{k = 1}{n} k^{2} = \frac{ 1 }{ 4 } \times \frac{ n (n + 1 ) (2n +
+1
+ ) }{ 6 } = \frac{ 2n + 1 }{ 12 } s_{n}.
+\]
+
+ \item Comme une somme de termes positifs n'est nulle que si tous
+ les termes sont nuls,
+ 
+\[
+ \Ev{W_{n} = 0} = \bigcap\limits_{i = 1}{n} \Ev{X_{i} = 0}
+\]
+ et par indépendances des $X_{i}$,
+ 
+\[
+ P \Ev{ W_{n} = 0 } = \prod\limits_{i = 1}{n} P \Ev{X_{i} = 0 } = 
+ \prod\limits_{i = 1}{n} \frac{1}{2} = \left( \frac{ 1 }{ 2 }
+ \right)^{n}.
+\]
+ D'autre par on remarque $W_{n}$ atteint la valeur $s_{n}$ lorsque
+ tous les $X_{i}$ valent 1. De plus si un ou plus des $X_{i}$ ne vaut
+ pas 1, la somme sera alors inférieure ou égale à $s_{n} - 1$, donc
+ ne pourra pas valoir $s_{n}$. On en déduit l'écriture d'évènements
+ suivante, puis par indépendance :
+ 
+\[
+ \Ev{W_{n} = s_{n} } = \bigcap\limits_{i = 1}{n} \Ev{X_{i} = 1} \ \ \
+ \text{ et } \ \ \ P \Ev{ X_{n} = 0 } = \prod\limits_{i = 1}{n} P
+ \Ev{X_{i} = 1} = \prod\limits_{i = 1}{n} \frac{1}{2} = \left( \frac{
+ 1 }{ 2 } \right)^{n}.
+\]
+ 
+ \item $W_{n} = 3$ peut être atteinte sous les formes suivantes :
+ 
+\[
+ 3 = 0 + 0 + 3 + 0 + \dots + 0 \ \ \text{ ou } \ \ 3 = 1 + 2 + 0
+ + \dots + 0
+\]
+ qui existent ou non selon que $n$ dépasse 2, puis 3. On a donc : 
+ \begin{noliste}{$\sbullet$}
+ \item Pour $n = 1$,
+ 
+\[
+ \Ev{W_{1} = 3} = \emptyset \ \ \ \text{ et } \ \ \ P \Ev{W_{1} = 3 } =
+0. 
+\]
+ 
+ \item Pour $n = 2$,
+ 
+\[
+ \Ev{W_{2} = 3 } = \Ev{X_{1} = 1 } \cap \Ev{X_{2} = 1 } \ \ \ \text{
+ et } \ \ \ P \Ev{ W_{2} = 3 } = \frac{ 1 }{ 4 }.
+\]
+
+ \item Pour $n \geq 3$,
+ 
+\[
+ \Ev{W_{n} = 3 } = \left[ \ \Ev{X_{1} = 1 } \cap \Ev{X_{2} = 1 } \cap
+ \left( \bigcap\limits_{i = 3}{n} \Ev{X_{i} = 0} \right) \right]
+ \cup \left[ \ \Ev{X_{1} = 0 } \cap \Ev{X_{2} = 0} \cap \Ev{X_{3} = 1}
+ \cap \left( \bigcap\limits_{i = 4}{n} \Ev{X_{i} = 0 } \right)
+ \right]
+\]
+ puis par incompatibilité de la réunion et indépendance des
+ $X_{i}$,
+ 
+\[
+ P \Ev{ W_{n} = 3 } = \left( \frac{ 1 }{ 2 } \right)^{n} + \left(
+ \frac{ 1 }{ 2 } \right)^{n} = \frac{ 2 }{ 2^{n} } = \left(
+ \frac{ 1 }{ 2 } \right)^{ n-1 }.
+\]
+ \end{noliste}
+ \end{noliste}
+ 
+ \item Question difficile. Il faut comprendre que pour chaque
+ situation menant à $W_{n} = k$, la situation "inverse" (tous les
+ échecs transformés en succès et tous les succès en échecs) donnera
+ $W_{n} = s_{n} - k$. Pour formaliser l'égalité d'évènements, on écrit
+:
+ 
+\[
+ (W_{n} = s_{n} - k ) = ( s_{n} - W_{n} = k ) = \left( \Sum{i = 1}{n} i
+-
+ \Sum{i = 1}{n} i X_{i} = k \right) = \left( \Sum{i = 1}{n} i (1-X_{i})
+ = k \right) = \Ev{ Z_{n} = k }
+\]
+ où $Z_{n} = \Sum{i = 1}{n} i (1 - X_{i} )$ avec les variables $Y_{i} =
+1
+ - X_{i}$ qui sont indépendantes et qui suivent la loi de Bernouilli
+ de paramètre $\frac{1}{2}$, donc $Z_{n}$ suit la même loi que
+ $W_{n}$. On en déduit bien que :
+ 
+\[
+ P \Ev{ W_{n} = k } = P \Ev{ Z_{n} = k } = P \left(\Ev{ W_{n} = s_{n} -
+k }\right).
+\]
+ 
+ \item
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item Sachant $\Ev{W_{n} = j}$, on a alors :
+ 
+\[
+ W_{n + 1} = \Sum{k = 1}{n + 1} k X_{k} = \Sum{k = 1}{n} k X_{k} + (n +
+1)
+ X_{n + 1} = W_{n} + (n + 1) W_{n + 1} = j + (n + 1) X_{n + 1}
+\]
+ avec $X_{n + 1}$ qui vaut 0 ou 1, donc :
+ 
+\[
+ W_{n + 1} \backslash \Ev{W_{n} = j } ( \Omega ) = \{ j ; j + n + 1
+ \} \ \, \ \ P_{ \Ev{W_{n} = j } } ( W_{n + 1} = j ) = P_{ \Ev{W_{n}
+ = j } } ( X_{n + 1} = 0 ) = \frac{ 1 }{ 2 }
+\]
+ et
+ 
+\[
+ P_{ \Ev{W_{n} = j } } ( W_{n + 1} = j + n + 1 ) = P_{ \Ev{W_{n} = j }
+ } ( X_{n + 1} = 1 ) = \frac{ 1 }{ 2 }.
+\]
+ 
+ \item De plus $\Ev{W_{n} = j}_{ j \in \llb 0 ; s_{n} \rrb }$ est un
+ système complet d'évènements donc par formule des probabilités
+ totales, pour tout $k \in \llb 0 ; s_{n + 1} \rrb$ :
+ 
+\[
+ ( W_{n + 1} = k ) = \dcup{j = 0}{ s_{n} } [ \ \Ev{W_{n} = j }
+ \cap (W_{n + 1} = k ) ]
+\]
+ donc par incompatibilité de la réunion et probabilités
+ composées :
+ 
+\[
+ P \left(\Ev{ W_{n + 1} = k }\right) = \Sum{j = 0}{ s_{n} } P \Ev{
+W_{n} = j } P_{
+ \Ev{W_{n} = j} } ( W_{n + 1} = k )
+\]
+ et cette probabilité conditionnelle est non nulle nulle si et
+ seulement $k \in \{ j ; j + n + 1 \}$ donc pour tout $j$
+ vérifiant :
+ 
+\[
+ j = k \ \ \text{ ou } \ \ j + n + 1 = k \Longleftrightarrow j = k -
+ n - 1.
+\]
+ 
+ On sépare alors selon que ces valeur existent ou non :
+ \begin{noliste}{$\sbullet$}
+ \item Si $ k \leq n $, $k-n-1 \leq -1$, $k$ est bien dans le
+ support de $W_{n}$ mais $k-n-1$ n'y est pas donc :
+ 
+\[
+ P \left(\Ev{ W_{n + 1} = k }\right) = \Sum{j = 0}{k-1} 0 + \frac{ 1 }{
+2}
+ \Prob\left(\Ev{\Ev{ W_{n} = k }}\right) + \Sum{j = k + 1}{s_{n}} 0.
+\]
+ 
+ \item Si $n + 1 \leq j \leq s_{n}$, $k$ est bien dans le support de
+ $W_{n}$ et $0 \leq k-n-1 \leq s_{n} - n - 1 \leq s_{n}$ donc $k-n-1$
+ y est aussi et :
+ 
+\[
+ P \left(\Ev{ W_{n + 1} = k }\right) = \Sum{j = 0}{k-n-2} 0 +
+\frac{1}{2} P \left(\Ev{ W_{n}
+ = k-n-1 }\right) + \Sum{j = k-n}{k-1} 0 + \frac{ 1 }{ 2 }
+\Prob\left(\Ev{\Ev{
+ W_{n} = k }}\right) + \Sum{j = k + 1}{s_{n}} 0
+\]
+ 
+ \item Si $s_{n} + 1 \leq k \leq s_{n + 1}$, alors $k$ n'est pas dans
+ le support de $W_{n}$ (trop grand) mais $k-n-1$ y est bien (en
+ effet $s_{n + 1} = s_{n} + n + 1$ donc $k-n-1$ est inférieur à
+ $s_{n}$, et supérieur à $s_{n} - n = s_{n-1} $ qui est
+ positif). On obtient alors :
+ 
+\[
+ P \left(\Ev{ W_{n + 1} = k }\right) = \Sum{j = 0}{k-n-2} 0 +
+\frac{1}{2} P \left(\Ev{ W_{n} = 
+ k-n-1 }\right) + \Sum{j = n-k}{s_{n}} 0
+\]
+ \end{noliste}
+ et en rassemblant :
+ 
+\[
+ P \left(\Ev{ W_{n + 1} = k }\right) = \left\{ 
+\begin{array}{ll}
+ \frac{ 1 }{ 2 } P \Ev{ W_{n} = k } & \text{ si
+ } k \leq n \\
+\\\
+frac{ 1 }{ 2 } P \Ev{W_{n} = k} + \frac{ 1
+ }{ 2 } P \left(\Ev{ W_{n} = k-n-1}\right) & \text{ si } n + 1 \leq k
+\leq s_{n} \\
+ \\
+\frac{ 1 }{ 2 } P \left(\Ev{ W_{n} = k-n-1}\right) & \text{ si } s_{n}
++ 1
+ \leq k \leq s_{n + 1}
+ \\
+\end{array}
+ \right.
+\]
+ \end{noliste}
+ \end{noliste}
+\end{exercice}
+
+\begin{exercice}{\it (Exercice sans préparation)}~\\
+ On pose pour tout $n \in \N^*$ : $S_{n} = \Sum{k = 1}{n} k^{2} \ln
+\left(
+ \frac{ k }{ n } \right)$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item On fait apparaître une somme de Riemann :
+ 
+\[
+ \frac{ S_{n} }{ n^{3} } = \frac{ 1 }{ n } \Sum{k = 1}{n} \frac{ k^{2}
+}{
+ n^{2} } \ln \left( \frac{ k }{ n } \right) = \frac{ 1 }{ n }
+ \Sum{k = 1}{n} f \left( \frac{ k }{ n } \right)
+\]
+ et posant la fonction $f(x) = x^{2} \ln (x)$ qui est continue sur
+ $]0;1]$, et qui se prolonge par continuité en 0 en posant $f(0) = 
+ 0$ (par croissances comparées). Les sommes de Riemann donnent
+ alors :
+ 
+\[
+ \dlim{ n \rightarrow + \infty } \frac{ S_{n} }{ n^{3} } = \dint{0}{1}
+f(x) \ dx 
+\]
+ 
+ qu'on calcule en revenant à l'intégrale partielle (car $\ln$ n'est
+ pas définie en 0) : avec une IPP évidente,
+ \begin{eqnarray*}
+ \dint{y}{1} f(x) \ dx & = & \dint{y}{1} x^{2} \ln x \ dx = \left[ \
+\frac{
+ x^{3} }{ 3 } \ln x \right]_{y}{1} - \dint{y}{1} \frac{ x^{3} }{ 3 }
+ \times \frac{ 1 }{ x } \ dx \\
+ & = & \frac{ 1 }{ 3 } \ln 1 - \frac{ y^{3} \ln y }{ 3 } - \frac{ 1
+ }{ 3 } \dint{y}{1} x^{2} \ dx = - \frac{ y^{3} \ln y }{ 3 } - \frac{ 1
+ }{ 3 } \left( \frac{ 1 }{ 3 } - \frac{ y^{3} }{ 3 } \right) \\
+ & \xrightarrow[ y \rightarrow 0 ]{} & 0 - \frac{ 1 }{ 3 } \left(
+ \frac{ 1 }{ 3 } - 0 \right) = - \frac{ 1 }{ 9 } 
+ \end{eqnarray*} 
+ donc :
+ 
+\[
+ \dlim{ n \rightarrow + \infty } \frac{ S_{n} }{ n^{3} } = \dint{0}{1}
+ f(x) \ dx = - \frac{ 1 }{ 9 }.
+\]
+ 
+ \item On fait apparaître la somme précédente :
+ \begin{eqnarray*}
+ \frac{1}{n^{3}} \Sum{k = 1}{n} k^{2} \ln \left( \frac{ k + 1 }{ n }
+ \right) & = & \frac{1}{n^{3}} \Sum{k = 1}{n} k^{2} \ln \left( \frac{ k
+ \left( 1 + \frac{ 1 }{ k } \right) }{ n } \right) = 
+ \frac{1}{n^{3}} \Sum{k = 1}{n} k^{2} \left[ \ln \left( \frac{ k }{ n
+ } \right) + \ln \left( 1 + \frac{ 1 }{ k } \right) \right] \\
+ & = & \frac{1}{n^{3}} \Sum{k = 1}{n} k^{2} \ln \left( \frac{ k }{ n }
+ \right) + \frac{1}{n^{3}} \Sum{k = 1}{n} k^{2} \ln \left( 1 + \frac{
+ 1 }{ k } \right) 
+ \end{eqnarray*} 
+ La première somme a pour limite $- \frac{1}{9}$, la deuxième n'est
+ plus une somme de Riemann, on ne peut plus la calculer. On va
+ chercher sa limite par encadrement. \\
+ Comme $ 1 + \frac{ 1 }{ k } \geq 1$, cette somme est à termes
+ positifs donc elle est positive. Pour la minorer on minore le
+ $\ln$, avec l'inégalité classique :
+ 
+\[
+ \ln ( 1 + x ) \leq x \ \text{ sur } ]-1 ; + \infty[ 
+\]
+ (par étude de la fonction $g(x) = \ln (1 + x) - x$, ou par
+ concavité de $\ln$ et en remarquant que $y = x$ est la tangente au
+ point $a = 1$ de $ h(x) = \ln (1 + x)$). On obtient alors :
+ 
+\[
+ 0 \leq \frac{1}{n^{3}} \Sum{k = 1}{n} k^{2} \ln \left( 1 + \frac{ 1 }{
+k
+ } \right) \leq \frac{1}{n^{3}} \Sum{k = 1}{n} k^{2} \times \frac{ 1 }{
+ k } = \frac{ 1 }{ n^{3} } \Sum{k = 1}{n} k = \frac{ n (n + 1) }{ 2
+n^{3}
+ } = \frac{ 1 + \frac{ 1 }{ n } }{ n } \xrightarrow[ n \rightarrow
+ + \infty ]{} 0.
+\]
+ Par théorème d'encadrement, cette deuxième somme tend vers 0 puis
+ la somme de départ tend vers $- \frac{ 1 }{ 9 }$.\\
+ Deuxième méthode pour faire apparaître $S_{n}$ : changement
+ d'indice : on pose $k' = k + 1$ et on obtient :
+ \begin{eqnarray*}
+ \frac{1}{n^{3}} \Sum{k = 1}{n} k^{2} \ln \left( \frac{ k + 1 }{ n }
+ \right) & = & \frac{1}{n^{3}} \Sum{k = 2}{n + 1} (k-1)^{2} \ln \left(
+ \frac{ k }{ n } \right) = \frac{1}{n^{3}} \Sum{k = 2}{n + 1} (k^{2} -
+ 2 k + 1 ) \ln \left( \frac{ k }{ n } \right) \\
+ & = & \frac{1}{n^{3}} \Sum{k = 2}{n + 1} k^{2} \ln \left( \frac{ k }{
+n
+ } \right) - 2 \frac{1}{n^{3}} \Sum{k = 2}{n + 1} k \ln \left( \frac{
+ k }{ n } \right) + \frac{1}{n^{3}} \Sum{k = 2}{n + 1} \ln \left(
+ \frac{ k }{ n } \right) \\
+ & = & \frac{1}{n} \Sum{k = 2}{n + 1} \frac{ k^{2} }{ n^{2} } \ln
+\left(
+ \frac{ k }{ n } \right) - \frac{ 2 }{ n } \times \frac{ 1 }{
+ n } \Sum{k = 2}{n + 1} \frac{ k }{ n } \ln \left( \frac{ k }{ n }
+ \right) + \frac{1}{n^{2}} \times \frac{ 1 }{ n } \Sum{k = 2}{n + 1}
+ \ln \left( \frac{ k }{ n } \right) 
+ \end{eqnarray*}
+ La première somme de Riemann tend à nouveau vers $- \frac{ 1 }{
+ 9}$ avec les sommes de Riemann. La deuxième tend vers $\dint{0}{1}
+ g(x) \ dx $ en posant $g(x) = x \ln x$ qui se prolonge à nouveau
+ par continuité en 0, donc cette intégrale est une constante finie
+ et le deuxième terme tend vers 0 (on multiplie par une quantité
+ qui tend vers 0).\\
+ Enfin le troisième terme ne peut pas s'écrire comme une somme de
+ Riemann (car $h(x) = \ln x$ ne se prolonge pas par continuité en
+ 0). Par contre on peut encadrer ce terme entre $ \frac{ 1 }{ n^{3} }
+ \ln \left( 1 + \frac{ 1 }{ n } \right)$ (majorant, avec tous les
+ autres termes négatifs) qui tend vers 0 (DL) et avec $k \leq n$ :
+ 
+\[
+ \frac{ 1 }{ n^{2}} \Sum{k = 2}{n} \frac{ k }{ n } \ln \left( \frac{ k
+ }{ n } \right) + \frac{ 1 }{ n^{3} } \ln \left( 1 + \frac{ 1 }{ n
+ } \right)
+\]
+ (minorant, qui tend aussi vers 0 pour les mêmes raisons que le
+ second terme) et conclure par encadrement.
+ \end{noliste}
+\end{exercice}
+
+
+\newpage
+
+
+\begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item 
+ \begin{noliste}{}
+ \item Soit $(\Omega, \A, \Prob)$ un espace probabilisé.
+ \item Soient $X$ et $Y$ deux \var discrètes.
+ \end{noliste}
+ \begin{noliste}{$\sbullet$}
+ \item Les {\bf \var $X$ et $Y$ sont indépendantes} (pour la
+ probabilité $\Prob$) si :
+ 
+\[
+ \forall x \in X(\Omega), \forall y \in Y(\Omega), \ \Prob(\Ev{X
+ = x} \, \cap \, \Ev{Y = y}) = \Prob\left(\Ev{\Ev{X = x}}\right) \times
+ \Prob\left(\Ev{\Ev{Y = y}}\right)
+\]
+ \item Autrement dit, les \var $X$ et $Y$ sont indépendantes si pour
+ tout $x \in X(\Omega)$ et tout $y \in Y(\Omega)$, les événements
+ $\Ev{X = x}$ et $\Ev{Y = y}$ sont indépendants.
+ \end{noliste}
+ 
+ \item 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $X$ représente les nombres de succès (obtention de 1) lors
+ de la succession de $n$ épreuves de Bernoulli (lancers du dé)
+ indépendantes et de même paramètre $p$. Ainsi : $X \suit
+ \Bin{n}{p}$.\\
+ En considérant l'obtention de $2$ comme succès, on obtient : $Y
+ \suit \Bin{n}{q}$.
+ 
+ \item D'après la question précédente, $X(\Omega) = Y (\Omega) = 
+ \llb 0, n \rrb$.\\
+ Soit $(k, j) \in \llb 0, n \rrb^{2}$. On procède alors par
+ disjonciton de cas.
+ \begin{noliste}{$\sbullet$}
+ \item \dashuline{Si $k + j > n$} alors $\Ev{X = k} \cap \Ev{Y = j} = 
+ \varnothing$.\\
+ En effet, on ne peut obtenir plus de résultats que de
+ lancers. Ainsi :
+ 
+\[
+ \Prob(\Ev{X = k} \cap \Ev{Y = j}) = 0
+\]
+ 
+ \item \dashuline{Si $0 \leq k + j \leq n$} alors un tirage qui
+ réalise $\Ev{X = k} \cap \Ev{Y = j}$ contient exactement $k$ fois
+ le nombre 1, $j$ fois le nombre 2 et donc $n-k-j$ fois le
+ nombre 3.\\[.2cm]
+ Ainsi, chaque tirage réalisant $\Ev{X = k} \cap \Ev{Y = j}$ est
+ entièrement déterminé par :
+ \begin{noliste}{$\stimes$}
+ \item la position des $k$ nombres 1 : $\dbinom{n}{k}$ possibilités.
+ \item la position des $j$ nombres 2 dans les places restantes :
+ $\dbinom{n-k}{j}$ possibilités.
+ \item la position des $n-k-j$ nombres 3 dans les places
+ restantes : $\dbinom{n-k-j}{n-k-j} = 1$ possibilité.
+ \end{noliste}
+ Il y a donc : 
+ 
+\[
+ \dbinom{n}{k} \ \dbinom{n-k}{j} = \dbinom{n}{k} \binom{n-k}{j}
+ \times 1 = \dfrac{n!}{k! \ \bcancel{(n-k)!}} \
+ \dfrac{\bcancel{(n-k)!}}{j!(n-k-j)!} = \dfrac{n!}{k! \ j! \
+ (n-k-j)!}
+\]
+ tels tirages.\\[.2cm]
+ De plus, la probabilité d'un tirage ne dépend que du nombre de
+ 1, 2 et 3 qu'il contient. Ainsi, les tirages qui réalisent
+ $\Ev{X = k} \cap \Ev{Y = j}$ ont tous la même probabilité
+ d'apparaître, qui est la probabilité d'apparition du tirage :
+ 
+\[
+\begin{array}{cccccccccccc}
+ 1 & \ldots & \ldots & \ldots & 1 & 2 & \quad \ldots \quad & 2 & 3 & 
+ \quad \ldots \quad & \quad \ldots \quad & 3 \\[-.4cm] 
+ \multicolumn{5}{c}{\bbacc{3cm}} & 
+ \multicolumn{3}{c}{\bbacc{2cm}} & 
+ \multicolumn{4}{c}{\bbacc{3.2cm}} \\[.4cm]
+ \multicolumn{5}{c}{\text{$k$ occurrences}} & 
+ \multicolumn{3}{c}{\text{$j$ occurrences}} & 
+ \multicolumn{4}{c}{\text{$n-k-j$ occurrences}}
+\end{array}
+\]
+ Ainsi, la probabilité d'apparition d'un tel tirage est : $p^{k}
+ \ q^{j} \ (1-p-q)^{n-k-j}$.\\
+ On en déduit que :
+ 
+\[
+ \Prob(\Ev{X = k} \cap \Ev{Y = j}) = \dfrac{n!}{k! \ j! \ (n-k-j)!}
+ \ p^{k} \ q^{j} \ (1-p-q)^{n-k-j}
+\]
+ \end{noliste}
+ 
+ \item On remarque tout d'abord que $\Ev{X = n} \cap \Ev{Y = n} = 
+ \varnothing$ car on ne peut obtenir à la fois $n$ fois le nombre
+ 1 et $n$ fois le nombre 2 en seulement $n$ lancers. Ainsi :
+ 
+\[
+ \Prob(\Ev{X = n} \cap \Ev{Y = n}) = 0 \neq \Prob\left(\Ev{\Ev{X =
+n}}\right) \times
+ \Prob\left(\Ev{\Ev{Y = n}}\right)
+\]
+ et $X$ et $Y$ ne sont donc pas indépendantes. 
+
+
+ \newpage
+
+ 
+ \item La \var $T_{n}$ admet une espérance (resp. une variance) car
+ la \var $X$ en admet une.\\
+ De plus, par linéarité de l'espérance et propriété de la
+ variance :
+ 
+\[
+ \E_{p}(T_{n}) = \dfrac{1}{n + 1} \ \E(X) = \dfrac{n p}{n + 1} \qquad
+ \text{ et } \qquad \V_{p}(T_{n}) = \dfrac{1}{(n + 1)^{2}} \ \V(X) = 
+ \dfrac{n p (1-p)}{(n + 1)^{2}}
+\]
+ Comme $T_{n}$ admet une espérance, $T_{n}$ admet un biais :
+ 
+\[
+\begin{array}{rcl}
+ b_{p}(T_{n}) & = & \E_{p}(T_{n} - p) \ = \ \E_{p}(T_{n}) - p \\[.2cm]
+ & = & \dfrac{n p}{n + 1} - p \ = \ \left( \dfrac{n}{n + 1} - 1
+ \right) \ p \ = \ \dfrac{n - (n + 1)}{n + 1} \ p \ = \ -
+ \dfrac{p}{n + 1}
+\end{array}
+\]
+ Comme $T_{n}$ admet une variance, $T_{n}$ admet un risque
+ quadratique. Par la formule de décomposition biais variance, on
+ obtient :
+ 
+\[
+\begin{array}{rcl}
+ r_{p}(T_{n}) & = & \V_{p}(T_{n}) + (b_{p}(T_{n}))^{2} \\[.2cm]
+ & = & \dfrac{n p (1-p)}{(n + 1)^{2}} + \left(
+ -\dfrac{p}{n + 1}\right)^{2} \\[.4cm]
+ & = & \dfrac{n p (1-p)}{(n + 1)^{2}} + \dfrac{p^{2}}{(n + 1)^{2}} \ =
+\
+ \dfrac{p \ (n(1-p) + p)}{(n + 1)^{2}} 
+\end{array}
+\]
+ \end{noliste}
+
+ \item 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item Pour tout $n \in \N$, si $N = n$ alors la \var $X$ prend
+ ses valeurs dans $\llb 0, n \rrb$. On en déduit que :
+ 
+\[
+ X(\Omega) = \dcup{n = 0}{+ \infty} \llb 0, n \rrb = \N
+\]
+ La famille $(\Ev{N = n})_{n \in \N}$ forme un système complet
+ d'événements.\\
+ On en déduit, par la formule des probabilités totales que, pour
+ tout $k \in \N$ :
+ 
+\[
+ \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+ \Prob\left(\Ev{\Ev{X = k}}\right) & = & \Sum{n = 0}{+ \infty}
+\Prob(\Ev{N = n} \cap
+ \Ev{X = k}) \\[.4cm]
+ & = & \Sum{n = k}{+ \infty} \Prob(\Ev{N = n} \cap
+ \Ev{X = k}) & (car si $k > n$ alors \\
+$\Ev{N = n} \cap \Ev{X = k}
+ = \varnothing$) \nl
+ \\[-.2cm]
+ & = & \Sum{n = k}{+ \infty} \Prob\left(\Ev{\Ev{N = n}}\right) \
+ \Prob_{\Ev{N = n}}(\Ev{X = k}) & (car $\Prob\left(\Ev{\Ev{N =
+n}}\right) \neq 0$)
+ \nl
+ \\[-.2cm]
+ & = & \Sum{n = k}{+ \infty} \dfrac{\lambda^{n} \ \ee^{-
+ \lambda}}{\bcancel{n!}} \times \dfrac{\bcancel{n!}}{k!
+ (n-k)!} \ p^{k} (1-p)^{n-k} 
+ \\[.6cm]
+ & = & \dfrac{p^{k} \ \ee^{-\lambda}}{k!} \ \Sum{n = k}{+ \infty}
+ \dfrac{\lambda^{n}}{(n-k)!} (1-p)^{n-k} 
+ \\[.6cm]
+ & = & \dfrac{p^{k} \ \ee^{-\lambda}}{k!} \ \Sum{n = 0}{+ \infty}
+ \dfrac{\lambda^{n + k}}{n!} (1-p)^{n} \ = \ \dfrac{\lambda^{k} \ p^{k}
+\
+ \ee^{-\lambda}}{k!} \ \Sum{n = 0}{+ \infty}
+ \dfrac{\lambda^{n}}{n!} (1-p)^{n} & (par décalage d'indice) 
+ \nl
+ \\[-.2cm] 
+ & = & \dfrac{\lambda^{k} \ p^{k} \ \ee^{ - \lambda }}{k!} \ \ee^{
+ \lambda (1-p) } \ = \ \dfrac{(\lambda p)^{k} \ \ee^{- \lambda + 
+ \lambda - \lambda p}}{k!} \ = \ \dfrac{(\lambda p)^{k} \ 
+ \ee^{- \lambda p}}{k!}
+\end{array}
+\]
+ On en déduit que : $X \suit \Pois{\lambda p}$.\\
+ En raisonnant de même pour $Y$, on obtient : $Y \suit
+ \Pois{\lambda p}$.
+
+
+ \newpage
+
+ 
+ \item Soit $(k, j) \in \N^{2}$. La famille $(\Ev{N = n})_{n \in \N}$
+ forme un système complet d'événements.\\
+ On en déduit, par la formule des probabilités totales que :
+ 
+\[
+ \begin{array}{cl@{\quad}>{\it}R{5cm}}
+ & \Prob(\Ev{X = k} \cap \Ev{Y = j}) \\[.2cm]
+ = & \Sum{n = 0}{+ \infty} \Prob(\Ev{N = n} \cap \Ev{X = k} \cap \Ev{Y
+= j}) 
+ \\[.4cm]
+ = & \Sum{n = j + k}{+ \infty} \Prob(\Ev{N = n} \cap \Ev{X = k} \cap
+ \Ev{Y = j}) & (car si $j + k > n$ alors \\
+$\Ev{N = n} \cap \Ev{X = k} \cap
+ \Ev{Y = j}$) 
+ \nl
+ \\[-.2cm]
+ = & \Sum{n = j + k}{+ \infty} \Prob\left(\Ev{\Ev{N = n}}\right) \
+ \Prob_{\Ev{N = n}}(\Ev{X = k} \cap \Ev{Y = j}) & (car
+ $\Prob\left(\Ev{\Ev{N = n}}\right) \neq 0$) 
+ \nl
+ \\[-.2cm]
+ = & \Sum{n = j + k}{+ \infty} \dfrac{\lambda^{n} \ \ee^{-
+ \lambda}}{\bcancel{n!}} \times \dfrac{\bcancel{n!}}{j! \
+ k! \ (n-k-j)!} \ p^{k} q^{j} (1-p-q)^{n-j-k} & (d'après la
+ question \itbf{2.b)})
+ \nl
+ \\[-.2cm]
+ = & \dfrac{p^{k} \ q^{j} \ \ee^{ - \lambda}}{j! \ k!} \
+ \Sum{n = j + k}{+ \infty} \lambda^{n} \
+\dfrac{(1-p-q)^{n-j-k}}{(n-k-j)!} 
+ \\[.6cm]
+ = & \dfrac{p^{k} \ q^{j} \ \ee^{ - \lambda}}{j! \ k!} \
+ \Sum{n = 0}{+ \infty} \lambda^{n + j + k} \ \dfrac{(1-p-q)^{n}}{n!}
+ & (par décalage d'indice) \nl
+ \\[-.2cm]
+ = & \dfrac{\lambda^{j + k} \ p^{k} \ q^{j} \ \ee^{-\lambda}}{j! \ k!}
+\
+ \Sum{n = 0}{+ \infty} \lambda^{n} \ \dfrac{(1-p-q)^{n}}{n!}
+ \\[.6cm]
+ = & \dfrac{\lambda^{j + k} \ p^{k} \ q^{j} \ \ee^{- \lambda}}{j! \
+ k!} \ \ee^{\lambda (1-p-q)} \ = \ \dfrac{\lambda^{j + k} \
+ p^{k} \ q^{j} \ \bcancel{\ee^{- \lambda}}}{j! \ k!} \
+ \bcancel{\ee^{\lambda}} \ \ee^{-\lambda p} \ \ee^{- \lambda q}
+ \\[.6cm]
+ = & \dfrac{(\lambda p)^{k} \ \ee^{- \lambda p}}{k!} \times
+ \dfrac{(\lambda q)^{j} \ \ee^{- \lambda q}}{j!} 
+ \\[.6cm]
+ = & \Prob\left(\Ev{\Ev{X = k}}\right) \ \Prob\left(\Ev{\Ev{Y =
+j}}\right)
+\end{array}
+\]
+ On en conclut que $X$ et $Y$ sont indépendantes.
+
+ \item Sous réserve de convergence, le théorème de transfert
+ permet d'affirmer :
+ 
+\[
+ \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+ \E\left( \dfrac{X}{N + 1} \right) & = & \Sum{(n, k) \in
+ N(\Omega) \times X(\Omega)}{} \dfrac{k}{n + 1} \ \Prob(\Ev{N
+ = n} \cap \Ev{X = k})
+ \\[.6cm]
+ & = & \Sum{n = 0}{+ \infty} \Sum{k = 0}{n} \dfrac{k}{n + 1}
+ \dfrac{\lambda^{n} \ \ee^{ - \lambda}}{n!} \times \dbinom{n}{k}
+ p^{k} \ (1-p)^{n-k} 
+ \\[.6cm] 
+ & = & \Sum{n = 0}{+ \infty} \dfrac{\lambda^{n} \ \ee^{- \lambda}}{
+ (n + 1)!} \ \Sum{k = 0}{n} k \dbinom{n}{k} p^{k} q^{n-k} 
+ \\[.6cm] 
+ & = & \Sum{n = 0}{+ \infty} \dfrac{\lambda^{n} \ \ee^{- \lambda}}{
+ (n + 1)!} \ \E(W) & (si $W$ est une \var \\
+telle que $T \suit
+ \Bin{n}{p}$) 
+ \nl
+ \\[-.2cm] 
+ & = & \Sum{n = 0}{+ \infty} \dfrac{\lambda^{n} \ \ee^{- \lambda}}{
+ (n + 1)!} \ n p 
+ \\[.6cm]
+ & = & p \ \ee^{-\lambda} \ \Sum{n = 0}{+ \infty}
+ \dfrac{\lambda^{n}}{(n + 1)!} \ n 
+\end{array}
+\]
+ Enfin :
+ 
+\[
+ \dfrac{n}{(n + 1)!} \ = \ \dfrac{(n + 1 - 1)}{(n + 1)!} \ = \
+ \dfrac{n + 1}{(n + 1)!} - \dfrac{1}{(n + 1)!} = \dfrac{1}{n!} -
+ \dfrac{1}{(n + 1)!}
+\]
+
+
+ \newpage
+
+
+ \noindent
+ Et ainsi :
+ 
+\[
+\begin{array}{rcl}
+ \E\left( \dfrac{X}{N + 1} \right) & = & p \ \ee^{ - \lambda}
+ \ \left( \Sum{n = 0}{+ \infty} \dfrac{\lambda^{n}}{n!} -
+ \Sum{n = 0}{+ \infty} \dfrac{\lambda^{n}}{(n + 1)!} \right) 
+ \\[.6cm]
+ & = & p \ \ee^{- \lambda} \left( \ee^{\lambda} -
+ \Sum{n = 1}{+ \infty} \dfrac{\lambda^{n-1}}{n!} \right) \ = \ 
+ p \ \ee^{- \lambda} \left( \ee^{\lambda} - \dfrac{1}{\lambda}
+ \left( \Sum{n = 0}{+ \infty} \dfrac{\lambda^{n}}{n!} - 1
+ \right) \right) 
+ \\[.6cm]
+ & = & p \ \ee^{- \lambda} \left(\ee^{\lambda} -
+ \dfrac{\ee^{\lambda} - 1}{\lambda} \right) = p \ \left( 1 - 
+ \dfrac{1 - \ee^{ - \lambda}}{\lambda} \right) 
+\end{array}
+\]
+ La réserve est ainsi levée et $\E\left( \dfrac{X}{n + 1}
+ \right) = p \ \left( 1 - \dfrac{1 - \ee^{ - \lambda}}{\lambda}
+ \right)$.\\[.2cm]
+ Comme la \var $T$ admet une espérance, elle admet aussi un
+ biais :
+ 
+\[
+\begin{array}{rcl}
+ b_{p}(T) & = & \E_{p}(T - p) \ = \ \E_{p}(T_{n}) - p \\[.2cm]
+ & = & p \ \left(1 - \dfrac{1 - \ee^{- \lambda}}{\lambda}
+ \right) - p \ = \ p \dfrac{\ee^{- \lambda} - 1}{\lambda} 
+ \ \neq \ 0
+\end{array}
+\]
+ donc $T$ n'est pas un estimateur sans biais de $p$.
+ \end{noliste}
+ \begin{remark}~
+ \begin{noliste}{$\sbullet$}
+ \item La question précédente était 
+ 
+ \item 
+ Question extrêmement difficile. On peut répondre très
+ rapidement dans le cas $p = q = \frac{1}{3}$ par une astuce : en
+ posant $Z$ le nombre de 3 obtenus, on a :
+ 
+\[
+ X + Y + Z = N
+\]
+ 
+ donc par linéarité :
+ 
+\[
+ E \left( \frac{ X + Y + Z }{ N + 1 } \right) = E \left(
+ \frac{ X }{ N + 1 } \right) + E \left( \frac{ Y }{ N + 1 }
+ \right) + E \left( \frac{ Z }{ N + 1 } \right) = E \left(
+ \frac{ N }{ N + 1 } \right) = 1 - E \left( \frac{ 1 }{ N + 
+ 1 } \right).
+\]
+ 
+ Or dans ce cas, $X$, $Y$ et $Z$ suivent la même loi de
+ Poisson de paramètre $\frac{ \lambda }{ 3 }$ donc on en
+ déduit que :
+ 
+\[
+ E \left( \frac{ X }{ N + 1 } \right) = \frac{ 1 }{ 3 } - E
+ \left( \frac{ 1 }{ 3 ( N + 1 ) } \right)
+\]
+ 
+ et avec $N + 1 > 0$, on obtient $\E\left( \frac{ 1 }{ 3 (N + 1)
+ } \right) > 0 $ donc $\E\left( \frac{ X }{ N + 1 } \right)
+ \neq \frac{ 1 }{ 3 }$ : on en déduit que $\E\left( \frac{ X
+ }{ N + 1 } \right) $ ne peut être égale à $p$ pour tout $p$,
+ donc que $\frac{ X }{ N + 1 }$ n'est pas un estimateur sans
+ biais de $p$.
+ \end{noliste}
+ \end{remark}
+ \end{noliste}
+ \end{exercice}
+ 
+\addtocounter{exercice}{-1}
+\begin{exercice}{\it (Exercice sans préparation)}~\\
+ Soit $A$ une matrice carrée de $\mathcal{M}_{3} ( \R ) $.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item On suppose que $A$ est diagonalisable, alors il existe $P$
+ inversible et $D$ diagonale telles que :
+ 
+\[
+ A = P D P^{-1} 
+\]
+ 
+ On obtient alors sans difficulté :
+ 
+\[
+ A^{3} = P D P^{-1} P D P^{-1} P D P^{-1} = P D I D I D P^{-1} = P
+D^{3} P^{-1 } 
+\]
+ 
+ avec $P$ inversible et $D^{3}$ diagonale, comme puissance d'une
+ matrice diagonale, donc $A^{3}$ est bien diagonalisable.
+
+ \item On suppose dans cette question que $A = \begin{smatrix}
+0 & 0
+ & 1 \\
+1 & 0 & 0 \\
+0 & 1 & 0
+ \\
+\end{smatrix}
+$. 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item On obtient sans difficulté :
+ 
+\[
+ A^{3} = I
+\]
+ 
+ \item On en déduit que le polynôme $X^{3} - 1$ est annulateur de
+ $A$, et on a :
+ 
+\[
+ X^{3} - 1 = 0 \Longleftrightarrow X^{3} = 1 \Longleftrightarrow X = 
+ 1
+\]
+ 
+ donc 1 est la seule valeur propre possible de $A$. \\
+
+ Si $A$ était diagonalisable, 1 serait forcément valeur propre,
+ et il existerait $P$ inversible et $D$ diagonale telle que $ A = 
+ P D P^{-1}$.
+
+ Enfin $D$ ne peut comporter que des valeurs propres de $A$ sur
+ sa diagonale, donc $D = I$ et enfin :
+ 
+\[
+ A = P I P^{-1} = I 
+\]
+ 
+ qui est absurde, donc $A$ n'est pas diagonalisable.
+ 
+ \end{noliste}
+ \end{noliste}
+\end{exercice}
+
+
+ \newpage
+
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item On peut écrire, avec $\varphi$ la densité de la loi normale
+centrée réduite : 
+ 
+\[
+ P \left(\Ev{ X \in [a;b] }\right) = P \left(\Ev{ a \leq X \leq b
+}\right) = \dint{a}{b} \varphi (t) \ dt = \frac{ 1 }{ \sqrt{ 2 \pi } }
+\dint{a}{b} e^{ - \frac{ t^{2} }{ 2 } } \ dt. 
+\]
+
+ Cette probabilité apparaît comme limite dans le théorème central
+limite : si $X_{n}$ est une suite de variables aléatoires indépendantes
+et identiquement distribuées, admettant une espérance $m$ et une
+variance $\sigma^{2}$ commune, alors la somme centrée réduite des
+$X_{i}$ converge en loi vers la loi normale centrée réduite, donc : 
+ 
+\[
+ P \left(\Ev{ \frac{ \Sum{i = 1}{n} X_{i} - n m }{ \sigma \sqrt{n} }
+\in [a ; b ]}\right) \xrightarrow[ n \rightarrow + \infty ]{} \frac{ 1
+}{ \sqrt{ 2 \pi } } \dint{a}{b} e^{ - \frac{ t^{2} }{ 2 } } \ dt. 
+\]
+
+ Soit $X$ une variable aléatoire définie sur un espace probabilisé
+$(\Omega, \mathcal{A}, P)$ suivant la loi normale centrée réduite. On
+note $\Phi$ la fonction de répartition de de $X$. On pose $Y = | X |$
+(valeur absolue de $X$).
+
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item Par théorème de transfert, on s'intéresse à l'intégrale : 
+ 
+\[
+ \dint{-\infty}{+ \infty} | t | \varphi (t) \ dt = 2 \dint{0}{+ \infty}
+| t | \varphi (t) \ dt = \frac{ 2 }{ \sqrt{ 2 \pi } } \dint{0}{+
+\infty} t e^{ - \frac{ t^{2} }{ 2 } } \ dt 
+\]
+
+ par parité de $\varphi$ et de la valeur absolue. On passe alors par
+l'intégrale partielle : 
+ 
+\[
+ \dint{0}{A} t e^{ - \frac{ t^{2} }{ 2 } } \ dt = \left[ - e^{ - \frac{
+t^{2} }{ 2 } } \right]_{0}{A} = 1 - e^{ - \frac{ A^{2} }{ 2 } }
+\xrightarrow[ A \rightarrow + \infty ]{} 1. 
+\]
+
+ Cette intégrale est donc convergente, et comme la fonction intégrée
+est positive, elle converge absolument. On en déduit que $Y$ admet une
+espérance et que : 
+ 
+\[
+ E ( Y ) = \frac{ 2 }{ \sqrt{ 2 \pi } } \times 1 = \sqrt{ \frac{ 2 }{
+\pi } }. 
+\]
+
+ Pour la variance, on s'intéresse au moment d'ordre 2 de $Y$, donc à : 
+ 
+\[
+ E ( Y^{2} ) = E [ \ \vert X |^{2} ] = E ( X^{2} ) = V (X) + [ \ \E(X)
+]^{2} = 1 + 0^{2}. 
+\]
+
+ On en déduit que $Y$ admet un moment d'ordre deux et donc une variance
+(car $x$ admet un moment d'ordre 2) et que : 
+ 
+\[
+ V ( Y ) = 1 - \left( \sqrt{ \frac{ 2 }{ \pi } } \right)^{2} = 1 -
+\frac{ 2 }{ \pi } = \frac{ \pi - 2 }{ \pi }. 
+\]
+
+ \item De nouveau avec le théorème de transfert, avec $X Y = X | X |$,
+on s'intéresse à l'intégrale :
+ 
+\[
+ \dint{-\infty}{+ \infty} t \times | t | \varphi (t) \ dt 
+\]
+
+ La fonction intégrée est clairement impaire : si l'intégrale est
+convergente, alors elle vaudra 0. De plus elle converge si et seulement
+si l'intégrale suivante converge :
+ 
+\[
+ \dint{0}{ + \infty } t | t | \varphi (t) \ dt = \dint{0}{+ \infty}
+t^{2} \varphi (t) \ dt 
+\]
+
+ qui converge puisque la loi normale centrée réduite admet un moment
+d'ordre deux. On en déduit que $X Y$ admet une espérance et que : 
+ 
+\[
+ E ( X Y ) = 0. 
+\]
+
+ \end{noliste}
+
+ \item On pose $Z = X + Y$. \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item On remarque que 
+ 
+\[
+ Z = X + | X | = \left\{\begin{array}{cl}
+ X - X & \text{ si } X \leq 0 \\
+X + X & \text{ si } X \geq 0 \\
+\end{array}
+\right. = \left\{\begin{array}{cl}
+ 0 & \text{ si } X \leq 0 \\
+X + X & \text{ si } X \geq 0 \\
+\end{array}
+\right. 
+\]
+
+ donc on obtient : 
+ 
+\[
+ Z = 0 \Longleftrightarrow X \leq 0 \ \ \text{ ou } \ \ X \geq 0 \text{
+et } 2 X = 0 \Longleftrightarrow X = 0 
+\]
+
+ et finalement : 
+ 
+\[
+ \Ev{Z = 0 } = \Ev{X \leq 0 } \ \ \text{ donc } \ \ P \Ev{ Z = 0 } =
+\Phi ( 0 ) = \frac{ 1 }{ 2 }. 
+\]
+
+ \item D'après ce qu'on a vu précédemment, $Z$ est nulle quand $X$ est
+négative, et vaut $2X$ quand $X$ est positive, donc prend toutes les
+valeurs de $\R_+ $ dans ce cas. On en déduit que $Z ( \Omega ) = \R_+
+$, donc :
+ \begin{noliste}{$\sbullet$}
+
+ \item $ \forall x < 0 $ (avant le support), 
+ 
+\[
+ F_{Z} ( x ) = P \Ev{ Z \leq x } = 0 
+\]
+
+ \item Pour $x = 0$,
+ 
+\[
+ F_{Z} (0) = P \Ev{ Z \leq 0 } = P \Ev{ Z < 0 } + P \Ev{ Z = 0 } = 0 +
+\frac{ 1 }{ 2 } = \frac{ 1 }{ 2 }. 
+\]
+
+ \item Pour $x > 0$, en utilisant le sce $\Ev{X \leq 0}, \Ev{X > 0}$ : 
+ \begin{eqnarray*}
+ \Ev{ Z \leq x } & = & [ \ \Ev{X \leq 0} \cap \Ev{Z \leq x } ] \cup [ \
+\Ev{X > 0} \cap \Ev{Z \leq x } ] = [ \ \Ev{X \leq 0 } \cap \Ev{ 0 \leq
+x } ] \cup [ \ \Ev{X > 0 } \cap \Ev{ 2 X \leq x } ] \\
+\\
+ & = & [ X \leq 0 ] \cup \left[ 0 < X \leq \frac{ x }{ 2 } \right] =
+\left( X \leq \frac{ x }{ 2 } \right)
+ \end{eqnarray*}
+
+ ce qui donne : 
+ 
+\[
+ F_{Z} ( x ) = \Prob\left(\Ev{\Ev{ Z \leq x }}\right) = P \left(\Ev{ X
+\leq \frac{ x }{ 2 }}\right) = \Phi \left( \frac{ x }{ 2 } \right) 
+\]
+
+ \end{noliste}
+
+ et en rassemblant : 
+ 
+\[
+ F_{Z} ( x ) = \left\{\begin{array}{cl}
+ 0 & \text{ si } x < 0 \\
+\frac{1}{2} & \text{ si } x = 0 \\
+\Phi \left( \frac{ x }{ 2 } \right) & \text{ si } x > 0 \\
+\end{array}
+\right. 
+\]
+
+
+ \item $Z$ n'est pas à densité puisqu'il existe une valeur (0) pour
+laquelle la probabilité de tomber "pile" est non nulle. Elle n'est pas
+discrète car son support ($\R_+ $) est un intervalle. \\
+
+ \end{noliste}
+
+ \item Soit $y \in \R$. \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item Lorsque $y< 0$, l'évènement $\Ev{ Y \leq y} $ est impossible
+donc :
+ 
+\[
+ P [ \ \Ev{X \leq 1 } \cap \Ev{Y \leq y } ] = 0. 
+\]
+
+ Lorsque $y \geq 0$, on a : 
+ 
+\[
+ [ \ \Ev{X \leq 1 } \cap \Ev{Y \leq y} ] = [ \ \Ev{ X \leq 1 } \cap ( |
+x | \leq y ) ] = [ \ \Ev{ X \leq 1 } \cap ( -y \leq X \leq y ) ] = [ -y
+\leq X \leq \min (1, y) ]. 
+\]
+
+ On en déduit que pour $0 \leq y \leq 1$ :
+ 
+\[
+ P [ \ \Ev{X \leq 1 } \cap \Ev{Y \leq y} ] = P [ -y \leq X \leq y ] =
+\Phi ( y) - \Phi ( -y) = \Phi (y) - [ 1 - \Phi (y) ] = 2 \Phi ( y) - 1.
+\]
+ Enfin pour $y > 1$ on a :
+ 
+\[
+ P [ \ \Ev{X \leq 1 } \cap \Ev{Y \leq y} ] = P [ -y \leq X \leq 1 ] =
+\Phi ( 1) - \Phi ( -y) = \Phi (1) - [ 1 - \Phi (y) ] = \Phi (1) + \Phi
+( y) - 1. 
+\]
+ \item On calcule dans les 3 cas : \begin{noliste}{$\sbullet$}
+
+ \item Si $y< 0$,
+ 
+\[
+ P \Ev{ X \leq 1 } P \Ev{ Y \leq y } = \Phi (1) \times 0 = 0 = P [ \
+\Ev{X \leq 1 } \cap \Ev{Y \leq y } ] 
+\]
+
+ donc les évènements $\Ev{X \leq 1}$ et $\Ev{Y \leq y}$ dont
+indépendants. \\
+
+ \item Si $0 \leq y \leq 1$,
+ 
+\[
+ P \Ev{ X \leq 1 } P \Ev{ Y \leq y } = \Phi ( 1 ) P \left(\Ev{ - y \leq
+X \leq y }\right) = \Phi (1) \times \left[ 2 \Phi (y) - 1 \right] \neq
+P [ \ \Ev{X \leq 1 } \cap \Ev{Y \leq y } ] 
+\]
+
+ (sauf si $ 2 \Phi ( y) - 1 = 0$) car $\Phi (1) < 1$ ($\varphi$ n'est
+pas nulle après 1, donc la probabilité d'être supérieure à 1 est non
+nulle), et les évènements $\Ev{X \leq 1}$ et $\Ev{Y \leq y}$ ne sont
+pas indépendants, sauf pour 
+ 
+\[
+ 2 \Phi (y) - 1 = 0 \Longleftrightarrow \Phi (y) = \frac{ 1 }{ 2 }
+\Longleftrightarrow y = 0. 
+\]
+
+ \item Si $y > 1$,
+ 
+\[
+ P \Ev{ X \leq 1 } P \Ev{ Y \leq y } = \Phi ( 1 ) P \left(\Ev{ - y \leq
+X \leq y }\right) = \Phi (1) \times \left[ 2 \Phi (y) - 1 \right] 
+\]
+
+ donc
+ \begin{eqnarray*}
+ P \Ev{ X \leq 1 } P \Ev{ Y \leq y } = P [ \ \Ev{X \leq 1 } \cap \Ev{Y
+\leq y } ] & \Longleftrightarrow & \Phi (1) \times \left[ 2 \Phi (y) -
+1 \right] = \Phi (1) + \Phi ( y) - 1 \\
+\\
+ & \Longleftrightarrow & \Phi (y) \left( 2 \Phi (1) - 1 \right) = 2
+\Phi (1) - 1 \Longleftrightarrow \Phi (y) = 1 
+ \end{eqnarray*}
+
+ qui est absurde car $\Phi$ est strictement croissante donc n'atteint
+jamais 1, qui est sa limite en $ + \infty$.
+
+ \end{noliste}
+
+ Finalement les évènements $\Ev{X \leq 1}$ et $\Ev{Y \leq y}$ sont
+indépendants si et seulement si $y \leq 0$.
+
+ \end{noliste}
+
+ \end{noliste}
+
+%%% LALALAL
+
+ \indent
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $A$ une matrice de $\mathcal{M}_{2} (\R)$ telle que $A^{3} = 0$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+ \item Question très difficile. On suppose que $A^{2} \neq 0$, alors en
+posant $u$ l'application linéaire de $\R^{2}$ dont la matrice dans la
+base canonique est $A$, on a $u^{2} \neq 0$ et $u^{3} = 0$. \\
+
+ On en déduit alors qu'il existe un vecteur $x$ dans $\R^{2}$ tel que
+$u^{2} (x) \neq 0$, et on étudie la liberté de la famille $(x, u (x),
+u^{2} (x) )$ : on considère $a$, $b$ et $c$ tels que 
+ 
+\[
+ a x + b u(x) + c u^{2} (x) = 0 
+\]
+
+ alors en composant par $u$ et par $u^{2}$, on obtient (avec $u(0) =
+u^{2} (0) = 0$ car ce sont des applications linéaires) : 
+ 
+\[
+ a u(x) + b u^{2} (x) = 0 \ \ \text{ et } \ \ a u^{2} (x) = 0. 
+\]
+
+ De plus $u^{2} (x) \neq 0$, donc on obtient $a = 0$. On en déduit
+alors que : 
+ 
+\[
+ b u(x) + c u^{2} (x) = 0 \ \ \text{ et } \ \ b u^{2} (x) = 0 
+\]
+
+ On obtient de même $b = 0$, puis $c u^{2} (x) = 0$, et enfin $c = 0$,
+donc la famille $(x, u(x), u^{2} (x) )$ est libre; or elle comporte
+trois vecteurs dans un espace de dimension 2, elle ne peut être libre :
+c'est absurde et on obtient donc : 
+ 
+\[
+ A^{2} = 0. 
+\]
+
+ \item On peut conclure à la première partie par caractérisation des
+sous-espaces vectoriels. Mais comme la dimension est demandée, il
+faudra de toute manière expliciter l'espace. On sépare deux cas :
+\begin{noliste}{$\sbullet$}
+
+ \item si $A = 0$, alors $A M = 0 = M A$ est vrai pour toute matrice
+$M$, donc l'ensemble considéré est $\mathcal{M}_{2} ( \R )$, qui est
+bien un espace vectoriel, de dimension 4. \\
+
+ \item si $A \neq 0$, un raisonnement analogue à la question 1 montre
+qu'il existe $x$ dans $\R^{2}$ tel que la famille $(x, u(x) )$ est une
+base de $\R^{2}$, et dans cette base la matrice de $u$ est : 
+ 
+\[
+ N = \begin{smatrix}
+0 & 0 \\
+1 & 0 \\
+\end{smatrix}. 
+\]
+
+ On en déduit par formule de changement de base qu'il existe une
+matrice $P$ inversible (constituée des coordonnées de $x$ et $u(x)$, en
+colonnes, dans la base canonique) telle que :
+ 
+\[
+ A = P N P^{-1}. 
+\]
+
+ On montre alors que l'équation recherchée se ramène à : 
+ \begin{eqnarray*}
+ A M = M A & \Longleftrightarrow & P N P^{-1} M = M P N P^{-1}
+\Longleftrightarrow P^{-1} [ P N P^{-1} M ] P = P^{-1} [ M P N P^{-1} ]
+P \\
+\\
+ & \Longleftrightarrow & N ( P ^{-1} M P ) = ( P^{-1} M P ) N. 
+ \end{eqnarray*}
+
+ On pose alors $P^{-1} M P = \begin{smatrix}
+a & b \\
+c & d \\
+\end{smatrix}
+$ et on obtient : 
+ \begin{eqnarray*}
+ A M = M A & \Longleftrightarrow & \begin{smatrix}
+0 & 0 \\
+1 & 0 \\
+\end{smatrix}
+\begin{smatrix}
+a & b \\
+c & d \\
+\end{smatrix}
+ = \begin{smatrix}
+a & b \\
+c & d \\
+\end{smatrix}
+\begin{smatrix}
+0 & 0 \\
+1 & 0 \\
+\end{smatrix}
+\Longleftrightarrow \begin{smatrix}
+0 & 0 \\
+a & b \\
+\end{smatrix}
+ = \begin{smatrix}
+b & 0 \\
+d & 0 \\
+\end{smatrix}
+\\
+\\
+ & \Longleftrightarrow & \left\{\begin{array}{c}
+ b = 0 \\
+a = d \\
+\end{array}
+\right. \Longleftrightarrow P^{-1} M P = \begin{smatrix}
+a & 0 \\
+c & a \\
+\end{smatrix}
+ = a I + c N \\
+\\
+ & \Longleftrightarrow & M = P \left(\Ev{ a I + c N }\right) P^{-1} = a
+P I P^{-1} + c P N P^{-1} = a I + c A.
+ \end{eqnarray*}
+
+ On en déduit que l'ensemble cherché est $\Vect{ I, A }$ qui est un
+espace vectoriel, et la famille $(I,A)$ en est génératrice. Elle est de
+plus libre si et seulement si $A$ n'est pas colinéaire à $I$. Si
+c'était le cas, on aurait : 
+ 
+\[
+ A = \lambda I \ \ \text{ donc } \ \ A^{3} = \lambda^{3} I = 0 \ \
+\text{ donc } \ \ \lambda^{3} = 0 \ \ \text{ donc } \ \ \lambda = 0 
+\]
+
+ et enfin $A = 0 I = 0$ ce qui est absurde. Cette famille est donc
+libre, c'est une base de l'espace vectoriel donc celui-ci est de
+dimension 2. \\
+
+ Remarque : on pouvait éviter ce raisonnement par l'absurde en écrivant
+: 
+ 
+\[
+ a I + b A = 0 \Longleftrightarrow P^{-1} ( a P I P^{-1} + b P N P^{-1}
+) P = 0 \Longleftrightarrow a I + b N = 0 
+\]
+
+ qui donne immédiatement $a = c = 0$.
+
+ \end{noliste}
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Une suite de variables aléatoires $(X_{n})_{ n \in \N }$
+converge en loi vers une variable $X$ si pour tout $x$ réel tel que
+$F_{X}$ est continue en $x$, on a : 
+ 
+\[
+ \dlim{ n \rightarrow + \infty } F_{ X_{n} } (x) = F_{X} ( x). 
+\]
+
+ Cas particulier des variables discrètes (la définition précédente est
+toujours valable, mais il y a une caractérisation beaucoup plus
+simple). S'il existe un ensemble \textbf{discret} I tel que les
+supports de tous les $X_{n}$ et de $X$ sont inclus dans I (en général
+on trouve I comme "limite" des supports des $X_{n}$), $(X_{n})$
+converge en loi vers $X$ si et seulement si : 
+ 
+\[
+ \forall i \in I, \ \dlim{ n \rightarrow + \infty } P \Ev{ X_{n} = i }
+= P \Ev{ X = i }. 
+\]
+
+ Soit $(X_{n})_{ n \in \N }$ une suite de variables aléatoires
+indépendantes définies sur un espace probabilité $(\Omega, \mathcal{A},
+P)$, suivant toutes la loi de Bernouilli de paramètre $\frac{1}{2}$. \\
+
+ On définit la suite de variables aléatoires $(Z_{n})_{ n \in \N }$ par
+les relations : 
+ 
+\[
+ Z_{0} = \frac{ X_{0} }{ 2 } \ \text{ et } \ \forall n \in \N^* \, \
+Z_{n} = \frac{ Z_{n-1} + X_{n} }{ 2 }. 
+\]
+
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item On itère la relation de récurrence (on ne peut procéder par
+récurrence puisque le résultat n'est pas donné) : 
+ 
+\[
+ Z_{n} = \frac{ Z_{n-1} }{ 2 } + \frac{ X_{n} }{ 2 } = \frac{ \frac{
+Z_{n-2} }{ 2 } + \frac{ X_{n-1} }{ 2 } }{ 2 } + \frac{ X_{n} }{ 2 } =
+\frac{ Z_{n-2} }{ 4 } + \frac{ X_{n-1} }{ 4 } + \frac{ X_{n} }{ 2 }. 
+\]
+
+ A l'ordre suivant on obtient alors : 
+ 
+\[
+ Z_{n} = \frac{ Z_{n-3} }{ 8 } + \frac{ X_{n-2} }{ 8 } + \frac{ X_{n-1}
+}{ 4 } + \frac{ X_{n} }{ 2 } = \frac{ Z_{n-3} }{ 2^{3} } + \frac{
+X_{n-2} }{ 2^{3} } + \frac{ X_{n-1} }{ 2^{2} } + \frac{ X_{n} }{ 2 }. 
+\]
+
+ En itérant $k$ fois on obtiendra alors :
+ 
+\[
+ Z_{n} = \frac{ Z_{n-k} }{ 2^{k} } + \frac{ X_{n- (k-1)} }{ 2^{k} } +
+\frac{ X_{n- (k-2) } }{ 2^{k-1} } + \dots + \frac{ X_{n} }{ 2 }. 
+\]
+
+ Enfin lorsqu'on arrive à $k = n$ on obtiendra : 
+ 
+\[
+ Z_{n} = \frac{ Z_{0} }{ 2^{n} } + \frac{ X_{1} }{ 2^{n} } + \frac{
+X_{2} }{ 2^{n-1 } } + \dots + \frac{ X_{n} }{ 2 } = \frac{ X_{0} }{
+2^{n + 1} } + \frac{ X_{1} }{ 2^{n} } + \dots + \frac{ X_{n-1} }{ 2^{2}
+} + \frac{ X_{n} }{ 2 }. 
+\]
+
+ Enfin cette somme se réécrit avec le symbole $\sum$ : en posant $i$
+l'indice sur les variables $X$ on remarque que : 
+ 
+\[
+ Z_{n} = \Sum{ i = 0 }{n} \frac{ X_{i} }{ 2^{ n + 1 - i } } = \Sum{ i =
+0 }{n} \left( \frac{ 1 }{ 2 } \right)^{ n + 1 - i } X_{i}. 
+\]
+
+ \item On en déduit que
+ 
+\[
+ Z_{n-1} = \Sum{i = 0}{n-1} \left( \frac{ 1 }{ 2 } \right)^{ n - i }
+X_{i} 
+\]
+
+ ne dépend que des variables $X_{0}, \dots, X_{n-1}$. De plus les
+$(X_{i})$ sont indépendantes, donc par lemme des coalitions, $Z_{n-1}$
+et $X_{n}$ sont indépendantes. \\
+
+ \item Par linéarité de l'espérance d'une part, indépendance des
+$X_{i}$ et quadracité de la variance d'autre part, $Z_{n}$ admet une
+espérance et une variance et : 
+ \begin{eqnarray*}
+ E ( Z_{n} ) & = & \Sum{i = 0}{n} \left( \frac{ 1 }{ 2 } \right)^{ n +
+1 - i } E ( X_{i} ) = \Sum{i = 0}{n} \left( \frac{ 1 }{ 2 } \right)^{ n
++ 1 - i } \times \frac{1}{2} = \Sum{i = 0}{n} \left( \frac{ 1 }{ 2 }
+\right)^{ n + 2 - i } \\
+\\
+ & = & \left( \frac{ 1 }{ 2 } \right)^{n + 2} \Sum{i = 0}{n} 2^{i} =
+\left( \frac{ 1 }{ 2 } \right)^{ n + 2 } \times \frac{ 1 - 2^{n + 1} }{
+1 - 2 } = \left( \frac{ 1 }{ 2 } \right)^{ n + 2 } (2^{n + 1} - 1 ) \\
+\\
+ & = & \frac{ 1 }{ 2 } - \left( \frac{ 1 }{ 2 } \right)^{ n + 2 } =
+\frac{ 1 }{ 2 } \left( 1 - \left( \frac{ 1 }{ 2 } \right)^{n + 1}
+\right). 
+ \end{eqnarray*}
+
+ et
+ \begin{eqnarray*}
+ V ( Z_{n} ) & = & \Sum{i = 0}{n} V \left[ \ \left( \frac{ 1 }{ 2 }
+\right)^{ n + 1 - i } X_{i} \right] = \Sum{i = 0}{n} \left( \frac{ 1 }{
+2 } \right)^{ 2n + 2 -2 i } V ( X_{i} ) = \Sum{i = 0}{n} \left( \frac{
+1 }{ 2 } \right)^{ 2n + 2 -2 i } \times \frac{1}{4} = \Sum{i = 0}{n}
+\left( \frac{ 1 }{ 2 } \right)^{ 2n + 4 -2 i } \\
+\\
+ & = & \left( \frac{ 1 }{ 2 } \right)^{2n + 4} \Sum{i = 0}{n} 4^{i} =
+\left( \frac{ 1 }{ 2 } \right)^{ 2n + 4 } \times \frac{ 1 - 4^{n + 1}
+}{ 1 - 4 } = \left( \frac{ 1 }{ 2 } \right)^{ 2n + 4 } \times \frac{
+2^{2n + 2} - 1 }{ 3 } \\
+\\
+ & = & \frac{ \frac{ 1 }{ 4 } - \left( \frac{ 1 }{ 2 } \right)^{ 2n + 4
+} }{ 3 } = \frac{ 1 }{ 12 } \left( 1 - \left( \frac{ 1 }{ 2 }
+\right)^{2n + 2} \right)
+ \end{eqnarray*}
+
+ \end{noliste}
+
+ \item On va montrer ce résultat par récurrence sur $n$, puisque c'est
+ainsi qu'est définie la suite $(Z_{n})$ : \begin{noliste}{$\sbullet$}
+
+ \item \textbf{Initialisation} : $2^{0 + 1} Z_{0} = 2 E_{0} = X_{0}$
+suit la loi de Bernouilli de paramètre $\frac{ 1 }{ 2 }$, qui est bien
+la loi uniforme sur $\llb 0 ; 1 \rrb$, avec $2^{0 + 1} - 1 = 2^{1} - 1
+= 2 - 1 = 1 $. \\
+
+ \item \textbf{Hérédité} : on suppose qu'il existe $n \in \N$ fixé tel
+que $ 2^{n + 1} Z_{n}$ suit la loi uniforme discrète sur $\llb 0 ; 2^{n
++ 1} - 1 \rrb$, alors : 
+ 
+\[
+ 2^{n + 2} Z_{n + 1} = 2^{n + 2} \times \frac{ Z_{n} + X_{n + 1} }{ 2 }
+= 2^{ n + 1 } ( Z_{n} + X_{n + 1} ) = 2^{n + 1} Z_{n} + 2^{n + 1} X_{n
++ 1}. 
+\]
+
+ La valeur minimale possible est obtenue avec la valeur minimale de
+$2^{n + 1} Z_{n}$, qui vaut 0, et de $X_{n + 1}$, qui vaut 0 : c'est
+donc 0. \\
+
+ La valeur maximale possible est obtenue avec la valeur maximale de
+$2^{n + 1} Z_{n}$, qui vaut $2^{n + 1}-1$, et de $X_{n + 1}$, qui vaut
+1 : c'est donc :
+ 
+\[
+ 2^{n + 1} - 1 + 2^{n + 1} = 2 \times 2^{n + 1} - 1 = 2^{n + 2} - 1. 
+\]
+
+ Vérifions que toutes les valeurs entières sont obtenues (il est
+immédiat que toutes les valeurs sont bien entières comme somme de deux
+entiers) : \begin{noliste}{$\sbullet$}
+
+ \item Avec $X_{n + 1} = 0$, $Z_{n + 1}$ peut prendre toutes les
+valeurs de $( 2^{n + 1} Z_{n} ) ( \Omega)$, donc tous les entiers de 0
+à $2^{n + 1} - 1$. \\
+
+ \item Avec $X_{n + 1} = 1$, $Z_{n + 1}$ donne un entier entre 0 et
+$2^{n + 1} - 1$, auquel on ajoute $2^{n + 1}$ : cela donne tous les
+entiers de 
+ 
+\[
+ 0 + 2^{n + 1} = 2^{n + 1} \ \ \text { à } \ \ 2^{n + 1} -1 + 2^{n + 1}
+= 2^{n + 2} - 1. 
+\]
+
+ \end{noliste}
+
+ On obtient bien que $( 2^{n + 2} Z_{n + 1} ) (\Omega) = \llb 0 ; 2^{n
++ 2 - 1 } \rrb$. Montrons à présent que toutes les probabilités de la
+loi sont égales : on sait que toutes celles de la loi de $2^{n + 1}
+Z_{n}$ le sont donc il existe $a \in \ ]0 ;1[$ tel que : 
+ 
+\[
+ \forall k \in \llb 0 ; 2^{n + 1} - 1 \rrb, \ P \left(\Ev{ 2^{n + 1}
+Z_{n} = k }\right) = a. 
+\]
+
+ On a vu dans la recherche du support que : 
+ 
+\[
+ \forall k \in \llb 0 ; 2^{n + 1} - 1 \rrb, \ ( 2^{n + 2} Z_{n + 1} = k
+) = ( 2^{n + 1} Z_{n} = k ) \cap (X_{n + 1} = 0 ) 
+\]
+
+ et par indépendance (question 2b), 
+ 
+\[
+ P \left(\Ev{ 2^{n + 2} Z_{n + 1} = k }\right) = \frac{ 1 }{ 2 } a. 
+\]
+
+ De même on a vu que (et par indépendance pour la probabilité) :
+ 
+\[
+ \forall k \in \llb 2^{n + 1} ; 2^{n + 2} - 1 \rrb, \ ( 2^{n + 2} Z_{n
++ 1} = k ) = ( 2^{n + 1} Z_{n} = k - 2^{n + 1} ) \cap (X_{n + 1} = 1 )
+\ \ \ \text{ donc } \ \ \ P \left(\Ev{ 2^{n + 2} Z_{n + 1} = k }\right)
+= \frac{ 1 }{ 2 } a. 
+\]
+
+ On en déduit bien que toutes les probabilités de la loi sont égales,
+c'est une loi uniforme et $2^{n + 2} Z_{n + 1}$ suit bien la loi
+uniforme discrète sur $\llb 0 ; 2^{n + 2} - 1 \rrb$, la propriété est
+encore vraie au rang $n + 1$. \\
+
+ \item \textbf{Conclusion} : pour tout $n \in \N$, $ 2^{n + 1} Z_{n}$
+suit la loi uniforme discrète sur $\llb 0 ; 2^{n + 1} - 1 \rrb$. \\
+
+ \end{noliste}
+
+ \item Comme la variable aléatoire d'arrivée est à densité, sa fonction
+de répartition est continue sur $\R$, et il faut donc prouver la
+convergence de $F_{ Z_{n} } (x)$ vers $F_{Z} (x)$ pour tout $x \in \R$.
+On commence donc par chercher la fonction de répartition de $Z_{n}$. \\
+
+ D'après la question précédente, on remarque que $Z_{n}$ suit la loi
+uniforme discrète sur l'ensemble : 
+ 
+\[
+ Z_{n} ( \Omega ) = \left\{ \frac{ k }{ 2^{n + 1} } \text{ tq } k \in
+\llb 0 ; 2^{n + 1} - 1 \rrb \right\} = \left\{ 0 ; \frac{ 1 }{ 2^{n +
+1} } ; \dots ; \frac{ 2^{n + 1} - 1 }{ 2^{ n + 1 } } \right\} = \left\{
+0 ; \frac{ 1 }{ 2^{n + 1} } ; \dots ; 1 - \frac{ 1 }{ 2^{ n + 1 } }
+\right\} 
+\]
+
+ On en déduit que pour tout $x < 0$ (avant le support) on a : 
+ 
+\[
+ F_{ Z_{n} } (x) = 0 \xrightarrow[ n \rightarrow + \infty ]{} 0. 
+\]
+
+ De même pour tout $x \geq 1$ (après le support pour tout $n$, puisque
+$ 1 - \frac{ 1 }{ 2^{n + 1} }$ tend en croissant vers 1 : 
+ 
+\[
+ F_{ Z_{n} } (x) = 1 \xrightarrow[ n \rightarrow + \infty ]{} 1. 
+\]
+
+ Considérons à présent un $x \in [ 0 ; 1 [$, on a : 
+ 
+\[
+ F_{ Z_{n} } (x) = \Sum{ k = 0 }{ j (x) } \Prob\Ev{ Z_{n} = k } 
+\]
+
+ avec $j(x)$ le plus grand entier vérifiant : 
+ 
+\[
+ \frac{ j }{ 2^{n + 1} } \leq x. 
+\]
+
+ On en déduit d'une part que : 
+ 
+\[
+ F_{ Z_{n} } (x) = \Sum{ k = 0 }{ j (x) } \frac{ 1 }{ \Card ( \llb 0 ;
+2^{n + 1} - 1 \rrb ) } = \Sum{ k = 0 }{ j (x) } \frac{ 1 }{ 2^{n + 1} }
+= \frac{ j(x) + 1 }{ 2^{ n + 1 } } 
+\]
+
+ et d'autre part pour exprimer $j(x)$, que 
+ 
+\[
+ \frac{ j(x) }{ 2^{ n + 1 } } \leq x < \frac{ j(x) + 1 }{ 2^{n + 1} }
+\Longleftrightarrow j(x) \leq 2^{n + 1} x < j(x) + 1
+\Longleftrightarrow j(x) = \lfloor 2^{ n + 1 } x \rfloor. 
+\]
+
+ Finalement on en déduit que : 
+ 
+\[
+ F_{ Z_{n} } (x) = \frac{ \lfloor 2^{ n + 1 } x \rfloor + 1 }{ 2^{ n +
+1 } }. 
+\]
+
+ Pour déterminer la limite de cette quantité, il faut encadrer la
+partie entière et utiliser le théorème d'encadrement. On sait que : 
+ 
+\[
+ \lfloor 2^{ n + 1 } x \rfloor \leq 2^{n + 1} x < \lfloor 2^{ n + 1 } x
+\rfloor + 1 \ \ \text{ donc } \ \ 2^{ n + 1 } x - 1 < \lfloor 2^{ n + 1
+} x \rfloor \leq 2^{n + 1} x. 
+\]
+
+ On en déduit (on rajoute un et on divise par un nombre strictement
+positif, opérations strictement croissantes) que : 
+ 
+\[
+ \frac{ 2^{n + 1} x }{ 2^{n + 1} } < F_{ Z_{n} } (x) \leq \frac{ 2^{n +
+1} x + 1 }{ 2^{ n + 1 } } \Longleftrightarrow x < F_{ Z_{n} } (x) \leq
+x + \frac{ 1 }{ 2^{ n + 1 } } 
+\]
+
+ et comme les termes de gauche et droite ont pour limite immédiate $x$
+lorsque $n$ tend vers $ + \infty$, on obtient finalement : 
+ 
+\[
+ \dlim{ n \rightarrow + \infty } F_{ Z_{n} } (x) = x. 
+\]
+
+ Enfin en rassemblant tous les cas, on a pour $x \in \R$ : 
+ 
+\[
+ F_{ Z_{n} } (x) \xrightarrow[ n \rightarrow + \infty ]{} \left\{\begin{array}{cl}
+ 0 & \text{ si } x < 0 \\
+x & \text{ si } 0 \leq x < 1 \\
+1 & \text{ si } x \geq 1 \\
+\end{array}
+\right. 
+\]
+
+ On reconnaît exactement la fonction de répartition de la loi uniforme
+sur $[0 ; 1]$ (à densité), donc si $Z$ est une variable aléatoire qui
+suit cette loi, $(Z_{n})$ converge en loi vers $Z$.
+
+ \end{noliste}
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+ \item Cette intégrale est généralisée en 0 (car $\ln$ n'y est pas
+défini) et en 1 (le dénominateur vaut alors 0). \\
+\begin{noliste}{$\sbullet$}
+
+ \item Au voisinage de 0, par croissances comparées, on a 
+ 
+\[
+ \dlim{ x \rightarrow 0 } \frac{ x^{n} \ln x }{ x^{n} - 1 } = \frac{ 0
+}{ -1 } = 0 
+\]
+
+ donc l'intégrale est faussement généralisée (la fonction intégrée est
+prolongeable par continuité en 0), elle converge donc. \\
+
+ \item Au voisinage de 1, la limite donne une forme indéterminée. On
+cherche un équivalent de chaque facteur au point 1.
+\begin{noliste}{$\sbullet$}
+
+ \item Par produit immédiat, $x^{n}$ converge vers 1 donc 
+ 
+\[
+ x^{n} \underset{ x \rightarrow 1 }{ \sim } 1. 
+\]
+
+ \item Pour le $\ln$, on pose $ x = 1 + y \Longleftrightarrow y = x -
+1$, avec $y$ qui tend vers 0, on a par DL : 
+ 
+\[
+ \ln (1 + y ) = y + o (y) \underset{ y \rightarrow 0 }{ \sim } y 
+\]
+
+ donc
+ 
+\[
+ \ln x \underset{ x \rightarrow 1 }{ \sim } x - 1. 
+\]
+
+ \item Enfin avec le même changement de variable et par DL : 
+ 
+\[
+ (1 + y)^{n} - 1 = 1 + n y + o(y) - 1 = n y + o(y) \underset{ y
+\rightarrow 0 }{ \sim } n y 
+\]
+
+ donc
+ 
+\[
+ x^{n} - 1 \underset{ x \rightarrow 1 }{ \sim } n (x-1 ). 
+\]
+
+ \end{noliste}
+
+ On obtient finalement : 
+ 
+\[
+ \frac{ x^{n} \ln x }{ x^{n} - 1 } \underset{ x \rightarrow 1 }{ \sim }
+\frac{ 1 \times (x-1 ) }{ n (x-1 ) } = \frac{ 1 }{ n } \xrightarrow[ x
+\rightarrow 1 ]{} \frac{1}{n}. 
+\]
+
+%%% LALALAL
+
+ De nouveau la fonction est prolongeable par continuité, et l'intégrale
+est faussement généralisée donc converge au voisinage de 1. \\
+
+ \end{noliste}
+
+ Finalement l'intégrale $\dint{0}{1} \frac{ x^{n} \ln x }{ x^{n} - 1 }
+$ converge, elle existe bien. \\
+
+\item La question appelle clairement le théorème de convergence
+  monotone, puisque la limite n'est pas demandée. On étudie la
+  monotonie de $(u_{n})$, en cherchant le signe de :
+  \begin{eqnarray*}
+    u_{n + 1} - u_{n} & = & \dint{0}{1} \ln x \left( \frac{ x^{n + 1} }{
+        x^{n + 1} - 1 } - \frac{ x^{n} }{ x^{n} - 1 } \right) \ dx =
+    \dint{0}{1} \ln x \times \frac{ x^{n + 1} (x^{n} - 1 ) - x^{n} (x^{n +
+        1} - 1 ) }{ (x^{n + 1} - 1 ) ( x^{n} - 1 ) } \ dx \\
+    \\
+    & = & \dint{0}{1} \frac{ \ln x }{ (x^{n + 1} - 1 ) ( x^{n} - 1 ) }
+    \times x^{n} \times \left( x ( x^{n} - 1 ) - x^{n +
+        1} + 1 \right) \ dx \\
+    \\
+    & = & \dint{0}{1} \frac{x^{n} \ln x }{ (x^{n + 1} - 1 ) ( x^{n} - 1 )
+    } \left( x^{ n + 1 } - x - x^{n + 1} + 1 \right) \ dx
+    = \dint{0}{1} \frac{ x^{n} (1-x) \ln x }{ (x^{n + 1} - 1 ) ( x^{n} - 1
+      ) \dx}
+ \end{eqnarray*}
+
+%%% LALALAL
+
+ Or pour tout $x \in \ ] 0 ; 1[$, on a : 
+ 
+\[
+ x^{n} \geq 0 \ \, \ \ 1-x \geq 0 \ \, \ \ \ln x \leq 0 \ \, \ \ x^{n}
+\leq 1 \text{ donc } x^{n} - 1 \leq 0 \ \, \ \ x^{n + 1} \leq 1 \text{
+donc } x^{n + 1} - 1 \leq 0 
+\]
+
+ et par produit et quotient de deux facteurs positifs et trois
+négatifs, la fonction intégrée est négative sur $]0;1[$. Comme les
+bornes sont dans l'ordre croissant, on en déduit que pour tout $n \in
+\N$ : 
+ 
+\[
+ u_{n + 1} - u_{n} \leq 0 
+\]
+
+ et la suite $(u_{n})$ est décroissante. \\
+
+ Enfin la suite est positive car la fonction intégrée est positive sur
+$]0 ; 1[$ avec un facteur positif et deux négatifs et les bornes sont
+dans l'ordre croissant, donc elle décroît et elle est minorée par 0 :
+c'est une suite convergente.
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Soit $f$ une fonction de classe $C^{p + 1}$ sur $[0;1]$, alors
+pour tous $a$ et $b$ de $[0;1]$, on a :
+ \begin{eqnarray*}
+ f(b) & = & f(a) + f'(a) (b-a) + \dots + f^{(p)} (a) \frac{ (b-a)^{p}
+}{ p! } + \dint{a}{b} \frac{ (b-t)^{p} }{ p ! } f^{ (p + 1) } (t) \ dt
+\\
+\\
+ & = & \Sum{k = 0}{p} f^{ (k) } (a) \frac{ (b-a)^{k} }{ k! } +
+\dint{a}{b} \frac{ (b-t)^{p} }{ p ! } f^{ (p + 1) } (t) \ dt 
+ \end{eqnarray*}
+
+ \item Soit $x$ un réel de l'intervalle $[0;1[$. \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item Comme $t \in [0;x]$ et $x \in [0;1[$ on a $0 \leq t \leq x < 1$,
+et donc : 
+ 
+\[
+ x - t \geq 0 \ \ \text{ et } \ \ 1-t > 0 \ \ \text{ donc par quotient
+} \ \ \frac{ x-t }{ 1-t } \geq 0. 
+\]
+
+ Pour l'autre côté, on considère la différence : 
+ 
+\[
+ \frac{ x-t }{ 1-t } - x = \frac{ x - t - x (1-t ) }{ 1 - t } = \frac{
+x - t - x + x t }{ 1 - t } = \frac{ t (x-1 ) }{ 1 - t } 
+\]
+
+ et comme $t \geq 0$, $x-1 \leq 0$ et $1-t > 0$, cette quantité est
+négative donc on a bien : 
+ 
+\[
+ \forall t \in [0 ; x ], \ 0 \leq \frac{ x - t }{ 1 - t } \leq x. 
+\]
+
+ \item On reconnaît à droite une intégration de la série géométrique.
+On part de la somme géométrique finie : pour tout $p \geq 1$, on a : 
+ 
+\[
+ \Sum{n = 1}{p} x^{n-1} = \Sum{n = 0}{p-1} x^{n} = \frac{ 1 - x^{p} }{
+1 - x }. 
+\]
+
+ On intègre cette inégalité entre 0 et $x$ (en la réécrivant pour tout
+$t$ au lieu de $x$) : 
+ 
+\[
+ \Sum{n = 1}{p} \dint{0}{x} t^{n-1} \ dt = \dint{0}{x} \frac{ 1 - t^{p}
+}{ 1 - t } \ dt = \dint{0}{x} \frac{ 1 }{ 1-t } \ dt - \dint{0}{x}
+\frac{ t^{p} }{ 1-t } \ dt. 
+\]
+
+ On calcule les intégrales "faciles" : 
+ 
+\[
+ \Sum{n = 1}{p} \dint{0}{x} t^{n-1} \ dt = \Sum{n = 1}{p} \frac{ x^{n}
+}{ n } 
+\]
+
+
+%%% LALALAL
+ et
+ 
+\[
+ \dint{0}{x} \frac{ 1 }{ 1-t } \ dt = \left[ - \ln (1 - t)
+\right]_{0}{x} = - \ln (1-x ) 
+\]
+
+ donc :
+ 
+\[
+ \ln (1-x ) = \dint{0}{x} \frac{ t^{p} }{ 1-t } \ dt - \Sum{n = 1}{p}
+\frac{ x^{n} }{ n }. 
+\]
+
+ Enfin l'intégrale restante ne peut pas se calculer, mais on va montrer
+que sa limite lorsque $p$ tend vers $ + \infty$ est nulle : pour cela
+on encadre l'intégrale en écrivant : 
+ 
+\[
+ 0 \leq t \leq x \ \ \text{ donc } \ \ - x \leq -t \leq 0 \ \ \text{
+donc } \ \ 1-x \leq 1-t \leq 1 
+\]
+
+ et comme tous les termes sont strictement positifs (avec $x < 1$), par
+stricte décroissance de l'inverse sur $\R_+^*$ : 
+ 
+\[
+ 1 \leq \frac{ 1 }{ 1-t } \leq \frac{ 1 }{ 1-x } \ \ \text{ et enfin }
+\ \ t^{p} \leq \frac{ t^{p} }{ 1-t } \leq \frac{ t^{p} }{ 1 - x } 
+\]
+
+ avec $t^{p} \geq 0$. On intègre avec les bornes dans l'ordre croissant
+: 
+ 
+\[
+ \dint{0}{x} t^{p} \ dt \leq \dint{0}{x} \frac{ t^{p} }{ 1-t } \ dt
+\leq \frac{1}{1-x} \dint{0}{x} t^{p} \ dt 
+\]
+
+ et en calculant les termes de gauche et droite : 
+ 
+\[
+ \frac{ x^{p + 1} }{ p + 1 } \leq \dint{0}{x} \frac{ t^{p} }{ 1-t } \
+dt \leq \frac{ x^{p + 1} }{ (1-x) (p + 1) }. 
+\]
+
+ Enfin comme $ | x | < 1$, par quotient de limites, les deux termes
+extrémaux tendent vers 0 lorsque $p$ tend vers $ + \infty$, et par
+encadrement le terme central aussi. \\
+
+ Enfin on peut passer à la limite l'égalité obtenue précédemment sur
+$\ln (1-x)$, avec tous les termes qui convergent : 
+ 
+\[
+ \ln (1-x ) = - \Sum{n = 1}{+ \infty} \frac{ x^{n} }{ n }. 
+\]
+
+ \end{noliste}
+
+ \item Soit $X$ une variable aléatoire discrète définie sur un espace
+probabilisé $(\Omega, \mathcal{A}, P)$ telle que pour tout $n \in
+\N^*$, on a : $\Prob\left(\Ev{\Ev{X = n}}\right) = \frac{ 1 }{ n ( n +
+1) }$.
+
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item Difficile. Comme ce n'est pas une série usuelle, il faut penser
+à faire apparaître un télescopage en remarquant que : 
+ 
+\[
+ \frac{ 1 }{ n (n + 1) } = \frac{ (n + 1) - n }{ n (n + 1) } = \frac{ 1
+}{ n } - \frac{ 1 }{ n + 1 }. 
+\]
+
+ On peut alors écrire : 
+ 
+\[
+ P \left(\Ev{ X \in \N^* }\right) = \Sum{n = 1}{+ \infty} P \Ev{ X = n
+} = \dlim{ p \rightarrow + \infty} \left( \Sum{n = 1}{p} \frac{ 1 }{ n
+} - \frac{ 1 }{ n + 1 } \right) = \dlim{ p \rightarrow + \infty} \left(
+1 - \frac{ 1 }{ p + 1} \right) = 1. 
+\]
+
+ \item Soit $r \geq 1$, on étudie l'existence du moment d'ordre $r$ de
+$X$, en considérant la série de terme général : 
+ 
+\[
+ n^{r} \Prob\Ev{ X = n } = \frac{ n^{r} }{ n (n + 1) } = \frac{ n^{ r-1
+} }{ n \left( 1 + \frac{1}{n} \right) } \underset{ + \infty }{ \sim }
+n^{ r- 2 } = \frac{ 1 }{ n^{ 2 - r } }. 
+\]
+
+ Les deux termes généraux sont positifs donc par théorème de
+comparaison $X$ admet un moment d'ordre $r$ si et seulement si la série
+de terme général $\frac{ 1 }{ n^{ 2-r } }$ est convergente. Cette série
+de Riemann converge si et seulement si : 
+ 
+\[
+ 2 - r > 1 \Longleftrightarrow r < 1 \Longleftrightarrow r \leq 0 
+\]
+
+ puisque $r$ est un entier : la variable $X$ n'admet donc aucun moment
+(à part celui d'ordre 0, qui correspond à la somme des probabilités et
+qui doit obligatoirement exister et valoir 1 pour $x$ soit une variable
+aléatoire). \\
+
+ \item Par théorème de transfert, on s'intéresse à la série (sous
+réserve de convergence absolue) : 
+ \begin{eqnarray*}
+ E ( s^{X} ) & = & \Sum{n = 1}{+ \infty} s^{n} P \Ev{ X = n } = \Sum{ n
+= 1 }{ + \infty } \frac{ s^{n} }{ n (n + 1) }. 
+ \end{eqnarray*}
+
+ La convergence absolue de cette série s'obtient immédiatement, avec
+$s^{n} \leq 1$ donc $\frac{ s^{n} }{ n (n + 1) } \leq \frac{ 1 }{ n (n
++ 1) }$ qui est le terme général d'une série convergente (3a), et avec
+les deux termes généraux positifs le théorème de comparaison donne la
+convergence puis la convergence absolue (puisque le terme général est
+positif) de la série considérée. \\
+
+ Pour la calculer (seulement valable pour $s \in \ ]0 ; 1[$), on pense
+à utiliser la question 2, et pour ne plus avoir que $n$ au dénominateur
+on pense à la transformation de la question 3a : 
+ \begin{eqnarray*}
+ E ( s^{X} ) & = & \Sum{ n = 1 }{ + \infty } \frac{ s^{n} }{ n } -
+\Sum{ n = 1 }{ + \infty } \frac{ s^{n} }{ n + 1 } = - \ln (1-s) - \Sum{
+n = 2 }{ + \infty } \frac{ s^{n-1} }{ n } \\
+\\
+ & = & - \ln (1-s) - \frac{1}{s} \left( \Sum{ n = 1 }{ + \infty }
+\frac{ s^{n} }{ n } - \frac{ s }{ 1 } \right) = - \ln (1-s) -
+\frac{1}{s} \left( - \ln (1-s) - s \right) \\
+\\
+ & = & - \ln (1-s) + \frac{ \ln (1-s) }{ s} + 1 = \frac{ - s \ln (1-s)
++ \ln (1-s) + s }{ s } = \frac{ s + (1-s) \ln (1-s) }{ s }. 
+ \end{eqnarray*}
+
+ \item On calcule les valeurs en $s = 0$ et $s = 1$ : 
+ 
+\[
+ E ( 0^{X} ) = E (0 ) = 0 \ \ \text{ et } \ \ E ( 1^{X} ) = E (1) = 1 
+\]
+
+
+%%% LALALAL
+
+ donc : 
+ 
+\[
+ \phi (s) = \left\{\begin{array}{cl}
+ 0 & \text{ si } s = 0 \\
+\frac{ s + (1-s) \ln (1-s) }{ s } & \text{ si } 0 < s < 1 \\
+1 & \text{ si } s = 1 \\
+\end{array}
+\right. 
+\]
+
+ Cette fonction est continue (et dérivable) sur $]0;1[$ comme somme,
+produit, quotient, composée de fonctions dérivables, avec $s \neq 0$ et
+$1-s > 0$. \\
+
+ Etudions la continuité en 0 et 1 : \\
+\begin{noliste}{$\sbullet$}
+
+ \item Au voisinage de 0, par DL de $\ln (1-s)$, on a : 
+ 
+\[
+ \phi (s) = 1 + \frac{ (1-s) \left( -s - \frac{ s^{2} }{ 2 } + o (
+s^{2} ) \right) }{ s } = 1 + (1-s ) \left(- 1 - \frac{ s }{ 2 } + o(s)
+\right) \xrightarrow[ s \rightarrow 0]{} 1 + 1 \times (-1) = 0 = \phi
+(0) 
+\]
+
+ et $\phi$ est continue en 0. \\
+
+ \item Au voisinage de 1, par croissances comparées (avec $y = 1-s$ qui
+tend vers 0), on obtient : 
+ 
+\[
+ \dlim{ s \rightarrow 1 } \phi (s) = \frac{ 1 + 0 }{ 1 } = 1 = \phi (1)
+\]
+
+
+ et $\phi$ est continue en 1.
+
+ \end{noliste}
+
+ On en déduit que $\phi$ est continue sur $[0;1]$, on étudie à présent
+sa dérivabilité en 0 et 1 : \begin{noliste}{$\sbullet$}
+
+ \item Au voisinage de 0, on a : 
+ \begin{eqnarray*}
+ \frac{ \phi (s) - \phi (0) }{ s - 0 } & = & \frac{ \phi (s) }{ s } =
+\frac{ s + (1-s) \ln (1-s) }{ s^{2} } = \frac{ s + (1-s) \left( - s -
+\frac{ s^{2} }{ 2 } + o(s^{2} ) \right) }{ s^{2} } \\
+\\
+ & = & \frac{ 1 + (1-s) \left( - 1 - \frac{ s }{ 2 } + o(s ) \right) }{
+s } = \frac{ 1 - 1 - \frac{ s }{ 2 } + s + o(s) }{ s } = \frac{ 1 }{ 2
+} + o(1 ) \\
+\\
+ & \xrightarrow[ s \rightarrow 0]{} \frac{ 1 }{ 2 } 
+ \end{eqnarray*}
+
+ donc $\phi$ est dérivable en 0. \\
+
+ \item Au voisinage de 1, on a :
+ \begin{eqnarray*}
+ \frac{ \phi (s) - \phi (1) }{ s - 1 } & = & \frac{ \phi (s) - 1 }{ s -
+1 } = \frac{ \frac{ s + (1-s) \ln (1-s) }{ s } - \frac{ s }{ s } }{ s -
+1 } = \frac{ s + (1-s) \ln (1-s) - s }{ s (s-1) } \\
+\\
+ & = & \frac{ (1-s) \ln (1-s) }{ s (s-1) } = - \frac{ \ln (1-s) }{ s }
+\xrightarrow[ s \rightarrow 1 ]{} - \frac{ - \infty }{ 1 } = + \infty 
+ \end{eqnarray*}
+
+ donc $\phi$ n'est pas dérivable en 1.
+
+ \end{noliste}
+
+ On en déduit que $\phi$ est continue sur $[0;1]$, dérivable sur
+$[0;1[$, mais pas dérivable en 1. \\
+
+ \item Par théorème de transfert, on s'intéresse à la série :
+ 
+\[
+ \Sum{n = 1}{+ \infty} n s^{n} P \Ev{ X = n } = \Sum{n = 1}{+ \infty}
+\frac{ s^{n} }{ n + 1 }. \]
+
+
+ Cette série est à termes positifs; pour $0 \leq s < 1$, le terme
+général est négligeable devant $s^{n}$ qui est le terme général d'une
+série convergente, donc l'espérance existe bien. \\
+
+ Pour $s = 1$, on reconnaît la série harmonique, la série diverge et
+l'espérance n'existe pas. \\
+
+ Pour $s > 1$, le terme général diverge par croissances comparées, la
+série diverge donc grossièrement et l'espérance n'existe pas. Enfin,
+pour $0 \leq s < 1$ : 
+ 
+\[
+ E ( X s^{X} ) = \Sum{n = 1}{+ \infty} \frac{ s^{n} }{ n + 1 } = \Sum{n
+= 2}{+ \infty} \frac{ s^{n-1} }{ n } = \frac{1}{s} \Sum{n = 2}{+
+\infty} \frac{ s^{n} }{ n } = \frac{ - \ln (1-s) - s }{ s }. 
+\]
+
+ Pour le moment d'ordre deux, toujours par transfert, on s'intéresse à
+: 
+ 
+\[
+ \Sum{n = 1}{+ \infty} n^{2} s^{2n} P \Ev{ X = n } = \Sum{n = 1}{+
+\infty} \frac{ n s^{2n} }{ n + 1 }. 
+\]
+
+ Cette série est à termes positifs, et le terme général est équivalent
+en $ + \infty$ à $s^{2n} = (s^{2})^{n}$, donc la série converge
+absolument si et seulement si : 
+ 
+\[
+ s^{2} < 1 \Longleftrightarrow 0\leq s < 1 
+\]
+
+
+%%% LALALAL
+
+ Enfin pour ces valeurs de $s$, on a : 
+ \begin{eqnarray*}
+ E ( X^{2} s^{ 2X } ) & = & \Sum{n = 1}{+ \infty} \frac{ (n + 1 - 1 )
+(s^{2})^{n} }{ n + 1 } = \Sum{n = 1}{+ \infty} (s^{2})^{n} - \Sum{n =
+1}{+ \infty} \frac{ (s^{2})^{n} }{ n + 1 } \\
+\\
+ & = & \frac{ 1 }{ 1 - s^{2} } - 1 - E ( X s^{X} ) = \frac{ s^{2} }{ 1
+- s^{2} } + \frac{ \ln (1-s) + s }{ s }. 
+ \end{eqnarray*}
+
+ Enfin $X s^{X}$ admet une variance si et seulement si $0 \leq s < 1$,
+et : 
+ 
+\[
+ V ( X s^{X} ) = \frac{ s^{2} }{ 1 - s^{2} } + \frac{ \ln (1-s) + s }{
+s } - \left( \frac{ \ln (1-s) + s }{ s } \right)^{2}. 
+\]
+
+ \end{noliste}
+
+ \end{noliste}
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+ \item On étudie les variations de $f$ : $f$ est dérivable et pour tout
+$x \in \R$,
+ 
+\[
+ f'(x) = 3 x^{2} + 2 x + 1 
+\]
+
+ et ce polynôme du second degré a pour discriminant $\Delta = 4 - 12 =
+-8 < 0$, donc avec $3 > 0$, $f'(x)$ est strictement positive sur $\R$.
+\\
+
+ On en déduit que $f$ est strictement croissante sur $\R$, avec pour
+limites $ + \infty$ et $-\infty$ en $ + \infty$ et $- \infty$ (terme
+prépondérant $x^{3}$ à chaque fois), donc par théorème de bijection,
+$f$ est bijective de $\R$ dans $\R$. \\
+
+ \item Pour qu'un polynôme soit surjectif, il faut qu'il prenne toutes
+les valeurs de $-\infty$ à $ + \infty$. Pour cela, comme il est
+continue, il faut et il suffit qu'il ait une limite égale à $-\infty$
+et une égale à $ + \infty$, et comme les seules limites sont en $ +
+\infty$ et $-\infty$, l'une doit être égale à $ + \infty$, l'autre à
+$-\infty$. \\
+
+ Or un polynôme est équivalent en $\pm \infty$, à son terme de plus
+haut degré, qui sera de la forme $a_{n} x^{n}$, avec $a_{n} \neq 0$ (où
+le polynôme est de degré $n$). La limite en $ + \infty$ sera décidée
+par le signe de $a_{n}$, et celle en $-\infty$ par le signe de $a_{n}$
+\text{ et la parité de n}. \\
+
+ Si $n$ est pair, les deux limites sont les mêmes (car $x^{n}$ a la
+même limite en $ + \infty$et $-\infty$), si $n$ est impaire elle seront
+opposées, et dans tous les cas elles seront infinies. \\
+
+ On en déduit qu'un polynôme est surjectif de $\R$ dans $\R$ si et
+seulement si il est de degré impair. \\
+
+ \item Pour être injective, une fonction continue à valeurs réelles
+doit être strictement monotone, donc sa dérivée (tout polynôme est
+dérivable) ne doit jamais s'annuler. \\
+
+ on en déduit que la dérivée $f'$ de $f$ n'est pas surjective, donc par
+2. $f'$ est de degré pair, et $f$ est de degré impair. \\
+
+ Je ne vois comment aller plus loin sans la décomposition en facteurs
+premiers des polynômes réels, qui n'est pas au programme, et qui
+permettrait de prouver que $f'$ doit s'écrire : 
+ 
+\[
+ f'(x) = \prod\limits_{k = 1}{p} P_{k}(x) 
+\]
+
+ avec, pour tout $k$, $P_{k}$ un polynôme du second degré dont le
+discriminant est strictement négatif.
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Soit $(A_{i})_{ i \in I }$ un système complet d'évènements, avec
+$I$ un ensemble discret (fini ou indexé par $\N$) et $B$ un évènement,
+alors : 
+ 
+\[
+ B = \dcup{ i \in I } ( A_{i} \cap B ) 
+\]
+
+ avec l'union incompatible car les $(A_{i})$ le sont, et les $A_{i}$ de
+probabilité non nulles donc par probabilités composées on obtient : 
+ 
+\[
+ P \left(\Ev{ B }\right) = \Sum{i \in I} P ( A_{i} \cap B ) = \Sum{ i
+\in I } P \left(\Ev{A_{i} }\right) P_{ A_{i} } ( B ). 
+\]
+
+ Soit $p$ et $q$ deux réels vérifiant $0<p<1$ et $p + 2q = 1$. On note
+$\Delta$ la matrice de $\mathcal{M}_{3} ( \R )$ définie par :
+ 
+\[
+ \Delta = \begin{smatrix}
+p & q & q \\
+q & p & q \\
+q & q & p \\
+\end{smatrix}
+\]
+
+ \item $\Delta$ est symétrique donc diagonalisable. \\
+
+ \item Il faut donc déterminer les valeurs propres de $\Delta$. On
+remarque que
+ 
+\[
+ \Delta = p I + q A 
+\]
+
+ avec $A = \begin{smatrix}
+0 & 1 & 1 \\
+1 & 0 & 1 \\
+1 & 1 & 0 \\
+\end{smatrix}
+$ qui est symétrique donc diagonalisable, donc en diagonalisant $A$ on
+obtiendra : 
+ 
+\[
+ \Delta = p I + q P D' P^{-1} = p P I P^{-1} + q P D' P^{-1} = P
+\left(\Ev{ p I + q D' }\right) P^{-1} 
+\]
+
+ et les valeurs propres de $\Delta$ sont donc données par : 
+ 
+\[
+ \spc ( \Delta ) = \{ p + q \lambda \text{ tq } \lambda \in \spc ( A )
+\}. 
+\]
+
+
+%%% LALALAL
+
+ On cherche donc les valeurs propres de $A$, c'est-à-dire les $\lambda$
+réels tels que $A - \lambda I$ n'est pas inversible : 
+ \begin{eqnarray*}
+ A - \lambda I = \begin{smatrix}
+- \lambda & 1 & 1 \\
+1 & -\lambda & 1 \\
+1 & 1 & - \lambda \\
+\end{smatrix}
+ & \Longleftrightarrow L_{1} \leftrightarrow L_{3} & \begin{smatrix}
+1 & 1 & - \lambda \\
+1 & -\lambda & 1 \\
+- \lambda & 1 & 1 \\
+\end{smatrix}
+\\
+\\
+ & \Longleftrightarrow\begin{array}{c}
+ \\
+L_{2} \leftarrow L_{2} - L_{1} \\
+L_{3} \leftarrow L_{3} + \lambda L_{1} \\
+\end{array}
+ & \begin{smatrix}
+1 & 1 & - \lambda \\
+0 & -\lambda - 1 & 1 + \lambda \\
+0 & 1 + \lambda & 1 - \lambda^{2} \\
+\end{smatrix}
+\\
+\\
+ & \Longleftrightarrow\begin{array}{c}
+ \\
+\\L_{3} \leftarrow L_{3} + L_{2} \\
+\end{array}
+ & \begin{smatrix}
+1 & 1 & - \lambda \\
+0 & -\lambda - 1 & 1 + \lambda \\
+0 & 0 & 2 + \lambda - \lambda^{2} \\
+\end{smatrix}
+ \end{eqnarray*}
+
+ et les valeurs propres de $A$ sont les solution de $- \lambda - 1 = 0
+\Longleftrightarrow \lambda = -1$ et de $- \lambda^{2} + \lambda + 2 =
+0$, qui a pour discriminant et racines : 
+ 
+\[
+ \Delta = 1 + 8 = 9 \ \, \ \ \lambda_{1} = \frac{ - 1 - 3 }{ -2 } = 2 \
+\, \ \ \lambda_{2} = \frac{ -1 + 3 }{ -2 } = - 1 
+\]
+
+ On en déduit que
+ 
+\[
+ D' = \begin{smatrix}
+-1 & 0 & 0 \\
+0 & -1 & 0 \\
+0 & 0 & 2 \\
+\end{smatrix}
+\ \ \text{ puis } \ \ D = \begin{smatrix}
+p - q & 0 & 0 \\
+0 & p - q & 0 \\
+0 & 0 & p + 2 q \\
+\end{smatrix}
+ = \begin{smatrix}
+p - q & 0 & 0 \\
+0 & p-q & 0 \\
+0 & 0 & 1 \\
+\end{smatrix}. 
+\]
+
+ On ne déduit que 
+ 
+\[
+ D^{n} = \begin{smatrix}
+(p - q)^{n} & 0 & 0 \\
+0 & (p-q)^{n} & 0 \\
+0 & 0 & 1 \\
+\end{smatrix}
+\]
+
+ et on remarque par inégalité triangulaire que
+ 
+\[
+ | p - q | = | p + (-q) | \leq | p | + | - q | = p + q = p + 2q - q = 1
+- q < 1 
+\]
+
+ donc on peut conclure que : 
+ 
+\[
+ D^{n} \xrightarrow[ n \rightarrow + \infty ]{} \begin{smatrix}
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 1 \\
+\end{smatrix}. 
+\]
+
+
+%%% LALALAL
+
+ Un village possède trois restaurants $R_{1}$, $R_{2}$ et $R_{3}$. Un
+couple se rend dans un de ces trois restaurants chaque dimanche. A
+l'instant $n = 1$ (c'est-à-dire le premier dimanche) il choisit le
+restaurant $R_{1}$, puis tous les dimanches suivants (instants $n = 2$,
+$n = 3$, etc.) il choisit le même restaurant que le dimanche précédent
+avec la probabilité $p$ ou change de restaurant avec la probabilité
+$2q$, chacun des deux autres restaurants étant choisis avec la même
+probabilité. \\
+
+ On suppose que l'expérience est modélisée par un espace probabilisé
+$(\Omega, \mathcal{A}, P)$.
+
+ \item On note $A_{n}$, $B_{n}$ et $C_{n}$ les trois évènements. La
+formule des probabilités totales avec le sce $(A_{n}, B_{n}, C_{n})$
+donne : 
+ 
+\[
+ A_{n + 1} = (A_{n} \cap A_{n + 1} ) \cup ( B_{n} \cap A_{n + 1} ) \cup
+( C_{n} \cap (A_{n + 1} ) 
+\]
+
+ et de même pour $B_{n + 1}$ et $C_{n + 1}$; par incompatibilité de la
+réunion et probabilité composées, on obtient : 
+ 
+\[
+ \left\{\begin{array}{c}
+ P \left(\Ev{ A_{n + 1} }\right) = p P \left(\Ev{A_{n} }\right) + q P
+\left(\Ev{ B_{n} }\right) + q P \left(\Ev{C_{n} }\right) \\
+P\left(\Ev{ B_{n + 1} }\right) = q P \left(\Ev{ A_{n} }\right) + p P
+\left(\Ev{ B_{n} }\right) + q P \left(\Ev{C_{n}}\right) \\
+P \left(\Ev{ C_{n + 1} }\right) = q P\left(\Ev{A_{n}}\right) + q P
+\left(\Ev{ B_{n} }\right) + p P \left(\Ev{C_{n} }\right)
+\end{array}
+\right. \ \ \ \text{ donc } \ \ \ \begin{smatrix}
+P \left(\Ev{ A_{n + 1} }\right) \\
+P \left(\Ev{ B_{n + 1} }\right) \\
+P \left(\Ev{ C_{n + 1} }\right) \\
+\end{smatrix}
+ = \Delta \begin{smatrix}
+P\left(\Ev{ A_{n} }\right) \\
+P \left(\Ev{B_{n} }\right) \\
+P \left(\Ev{ C_{n} }\right) \\
+\end{smatrix}
+\]
+
+ Une récurrence immédiate donne alors : 
+ 
+\[
+ \begin{smatrix}
+P\left(\Ev{ A_{n} }\right) \\
+P \left(\Ev{B_{n} }\right) \\
+P \left(\Ev{ C_{n} }\right) \\
+\end{smatrix}
+ = \Delta^{n-1} \begin{smatrix}
+P\left(\Ev{ A_{1} }\right) \\
+P \left(\Ev{B_{1} }\right) \\
+P \left(\Ev{ C_{1} }\right) \\
+\end{smatrix}
+ = P D^{n-1} P^{-1} \begin{smatrix}
+1 \\
+0 \\
+0 \\
+\end{smatrix}
+\]
+
+ Pour aller plus loin il faut la matrice $P$ et $P^{-1}$ : en calculant
+les sous-espaces propres de $A$ puis en inversant la matrice $P$ on
+obtient : 
+ 
+\[
+ P = \begin{smatrix}
+-1 & -1 & 1 \\
+1 & 0 & 1 \\
+0 & 1 & 1 \\
+\end{smatrix}
+\ \ \ \text{ puis } \ \ \ P^{-1} = \frac{1}{3} \begin{smatrix}
+-1 & 2 & -1 \\
+-1 & -1 & 2 \\
+1 & 1 & 1 \\
+\end{smatrix}
+\]
+
+ qui donne finalement : 
+ 
+\[
+ \begin{smatrix}
+P\left(\Ev{ A_{n} }\right) \\
+P \left(\Ev{B_{n} }\right) \\
+P \left(\Ev{ C_{n} }\right) \\
+\end{smatrix}
+ = \frac{1}{3} P D^{n-1} \begin{smatrix}
+-1 \\
+-1 \\
+1 \\
+\end{smatrix}
+ = \frac{1}{3} P \begin{smatrix}
+- (p-q)^{n-1} \\
+- (p-q)^{n-1} \\
+1 \\
+\end{smatrix}
+ = \frac{1}{3} \begin{smatrix}
+1 + 2 (p-q)^{n-1} \\
+1 - (p-q)^{n-1} \\
+1 - (p-q)^{n-1} \\
+\end{smatrix}
+\]
+
+ \item Soit $T$ la variable aléatoire égale au rang du premier dimanche
+où le couple retourne au restaurant $R_{1}$, s'il y retourne, et 0
+sinon. \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item Le premier retour au restaurant se fait au minimum lors du 2e
+jour, et la valeur 0 est rajoutée artificiellement donc : 
+ 
+\[
+ T ( \Omega ) = \llb 2 ; + \infty \llb \cup \{ 0 \}. 
+\]
+
+ Pour $k = 2$, on a :
+ 
+\[
+ \Ev{T = 2 } = A_{1} \cap A_{2} \ \ \text{ donc } \ \ P \Ev{ T = 2 } =
+1 \times p = p. 
+\]
+
+ Pour tout $k \geq 3$, en a de plus : 
+ 
+\[
+ \Ev{T = k } = A_{1} \cap \overline{A_{2} } \cap \dots \cap \overline{
+A_{k-1} } \cap A_{k}. 
+\]
+
+ Or lorsqu'on est à un restaurant autre que le premier, la probabilité
+d'aller au premier à l'instant suivant est $q$, donc de ne pas y aller
+est $1-q = p + q$, ce qui donne : 
+ 
+\[
+ P \Ev{ T = k } = 1 \times (2q ) \times (p + q ) \times \dots \times (p
++ q) \times q = 2q (p + q)^{k-3} q = 2 q^{2} (p + q)^{k-3}. 
+\]
+
+ Enfin on calcule la dernière probabilité à partir des autres : 
+ \begin{eqnarray*}
+ P \Ev{ T = 0 } & = & 1 - \Sum{k = 2}{+ \infty} P \Ev{ T = k } = 1 - p
+- 2 q^{2} \Sum{k = 3}{+ \infty} (p + q)^{k-3} = 1 - p - 2q^{2} \Sum{k =
+0}{+ \infty } (p + q)^{k} \\
+\\
+ & = & 1 - p - 2 q^{2} \times \frac{ 1 }{ 1 - (p + q) } = 1 - p - 2
+q^{2} \times \frac{ 1 }{ q } = 1 - p - 2q = 1 - ( p + 2q ) = 1 - 1 = 0.
+ \end{eqnarray*}
+
+ \item On a vu que la valeur 0 n'arrive qu'avec une probabilité 0, on
+peut donc la retirer. On considère les séries : 
+ 
+\[
+ \Sum{k = 2}{+ \infty} k P \Ev{ T = k } = 2 p + 2 q^{2} \Sum{k = 3}{+
+\infty} k (p + q)^{k-3} 
+\]
+
+ et
+ 
+\[
+ \Sum{k = 2}{+ \infty} k^{2} P \Ev{ T = k } = 4 p + 2 q^{2} \Sum{k =
+3}{+ \infty} k^{2} (p + q)^{k-3} 
+\]
+
+ Comme $0 < p + q = 1 - q < 1$, ces séries géométriques dérivées et
+dérivées secondes convergent absolument donc $T$ admet une espérance,
+un moment d'ordre deux, et enfin une variance et : 
+ \begin{eqnarray*}
+ E ( T ) & = & 2 p + \frac{ 2 q^{2} }{ (p + q)^{2} } \left( \Sum{k =
+1}{+ \infty} k (p + q)^{k-1} - 1 - 2 (p + q) \right) = 2 p + \frac{ 2
+q^{2} }{ (1-q)^{2} } \left( \frac{ 1 }{ [ 1 - (p + q) ]^{2} } - 1 - 2
+(1-q) \right) \\
+\\
+ & = & 2 p + \frac{ 2 q^{2} }{ (1-q)^{2} } \left( \frac{ 1 }{ q^{2} } -
+1 - 2 (1-q) \right) = 2 p + \frac{ 2 q^{2} }{ (1-q)^{2} } \times \frac{
+1 - q^{2} - 2 q^{2} (1-q) }{ q^{2} } \\
+\\
+ & = & 2 p + 2 \times \frac{ (1-q) (1 + q) - 2 q^{2} (1-q) }{ (1-q)^{2}
+} = 2 \left( p + \frac{ 1 + q - 2 q^{2} }{ 1- q } \right).
+ \end{eqnarray*}
+
+ puis
+ \begin{eqnarray*}
+ E ( T^{2} ) & = & 4 p + 2 q^{2} \Sum{k = 3}{+ \infty} [ k (k-1) + k ]
+(p + q)^{k-3} = 2 p + 2 q^{2} \Sum{k = 3}{+ \infty} k (k-1) (p +
+q)^{k-3} + 2 q^{2} \Sum{k = 3}{+ \infty} k (p + q)^{k-3} \\
+\\
+ & = & 4 p + 2 \times \frac{ 1 + q - 2 q^{2} }{ 1 - q } + \frac{ 2
+q^{2} }{ p + q } \left( \Sum{k = 2}{+ \infty} k (k-1) (p + q)^{k-2} - 2
+\right) \\
+\\
+ & = & 4 p + 2 \times \frac{ 1 + q - 2 q^{2} }{ 1 - q } + \frac{ 2
+q^{2} }{ 1-q } \left( \frac{ 2 }{ [ 1 -(p + q) ]^{3} } - 2 \right) \\
+\\
+ & = & 4 p + 2 \times \frac{ 1 + q - 2 q^{2} }{ 1 - q } + \frac{ 2
+q^{2} }{ 1-q } \left( \frac{ 2 }{ q^{3} } - 2 \right) = 4 p + 2 \times
+\frac{ 1 + q - 2 q^{2} }{ 1 - q } + 4 \frac{ 1 - q^{3} ) }{ (1-q) q }
+ \end{eqnarray*}
+
+ et enfin :
+ 
+\[
+ \V( T ) = 4 p + 2 \times \frac{ 1 + q - 2 q^{2} }{ 1 - q } + 4 \frac{
+1 - q^{3} ) }{ (1-q) q } - 4 \left( p + \frac{ 1 + q - 2 q^{2} }{ 1- q
+} \right)^{2} 
+\]
+ 
+
+ \end{noliste}
+
+ \item On réalise l'expérience sur 52 dimanches, en rajoutant un
+compteur qui devra être incrémenté ) chaque visite de $R_{1}$ et qui
+sera divisé par 52 à la fin de la boucle pour avoir la fréquence de
+visite (on rassemble les restaurants 1 et 2 en un seul restaurant, noté
+2) : 
+
+\begin{verbatim}
+x = 1
+c = 1
+for k = 2 :52 do
+ if x = 1 then 
+ if rand()<p then c = c + 1
+ else x = 2
+ end
+ else if rand()<q then
+ x = 1, c = c + 1
+ end
+ end
+end
+f = c/52
+\end{verbatim}
+
+ \end{noliste}
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $n \in \N^*$. On définit la fonction réelle $f_{n}$ par :
+$\forall x \in \R$, $f_{n} (x) = x + 1 - \frac{ e^{x} }{ n }$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+ \item On étudie la fonction $f_{n}$ sur $\R_-$ : elle y est dérivable,
+avec
+ 
+\[
+ f_{n} '(x) = 1 - \frac{ e^{x} }{ n } = \frac{ n - e^{x} }{ n } > 0 
+\]
+
+ puisque $x \leq 0$, donc $e^{x} \leq 1$, et enfin $ n - e^{x} \geq n -
+1 \geq 0$ avec $n \geq 1$. On en déduit que $f_{n}$ est continue et
+strictement croissante sur $\R_-$, avec par opérations élémentaires
+ 
+\[
+ \dlim{ x \rightarrow - \infty } f_{n} (x) = - \infty \ \ \text{ et } \
+\ f_{n} (0 ) = 1 - \frac{ 1 }{ n } = \frac{ n - 1 }{ n } \geq 0 
+\]
+
+ On en déduit que $f_{n}$ réalise une bijection de $\R_-$ dans $ \left]
+- \infty ; \frac{n-1}{n} \right]$, avec $0 \in \left] - \infty ;
+\frac{n-1}{n} \right]$, donc il existe un unique $x_{n} \in \R_-$ tel
+que $f_{n} (x_{n} ) = 0$. \\
+
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item Pour comparer $x_{n}$ et $x_{n + 1}$, on va comparer leurs
+images par $f_{n}$ : on sait que $f_{n} (x_{n} ) = 0$ et on a : 
+ 
+\[
+ f_{n} (x_{n + 1} ) = x_{n + 1} - 1 - \frac{ e^{ x_{n + 1} } }{ n } 
+\]
+
+ Or on sait que $f_{n + 1} (x_{n + 1} ) = x_{n + 1} + 1 - \frac{ e^{
+x_{n + 1} } }{ n + 1 } = 0$ donc on obtient : 
+ 
+\[
+ f_{n} ( x_{n + 1} ) = \frac{ e^{ x_{n + 1} } }{ n + 1 } - \frac{ e^{
+x_{n + 1} } }{ n } = e^{ x_{ n + 1 } } \left( \frac{ 1 }{ n + 1 } -
+\frac{ 1 }{ n} \right) = - \frac{ e^{ x_{ n + 1 } } }{ n (n + 1) } < 0 
+\]
+
+ et on en déduit par croissance de $f_{n}$ sur $\R_-$ que :
+ 
+\[
+ f_{n} (x_{n + 1} ) < 0 = f_{n} (x_{n} ) \ \ \text{ donc } \ \ x_{n +
+1} < x_{n} 
+\]
+
+ et ce pour tout $n \in \N$, donc la suite $(x_{n})$ est décroissante.
+\\
+
+ On cherche alors l'existence d'un minorant à la suite. 0 n'a aucune
+chance d'être un minorant puisque la suite est négative, essayons $-1$.
+Pour comparer $-1$ et $x_{n}$, on compare les images par $f_{n}$ : 
+ 
+\[
+ f_{n} (-1) = -1 + 1 - \frac{ e^{-1} }{ n } = - \frac{ 1 }{ n e } < 0 =
+f_{n} ( x_{n} ) 
+\]
+
+ donc par croissance de $f_{n}$, pour tout $n \in \N$, $x_{n} \geq -1$
+et la suite $(x_{n})$ est décroissante et minorée par $-1$ : elle
+converge. \\
+
+ \item On sait que pour tout $n \in \N$ : 
+ 
+\[
+ f_{n} (x_{n} ) = x_{n} + 1 - \frac{ e^{ x_{n} } }{ n } = 0 
+\]
+
+ donc en passant à la limite cette égalité, on obtient immédiatement : 
+ 
+\[
+ \ell + 1 - \frac{ e^{ \ell } }{ + \infty } = 0 \ \ \text{ donc } \ \
+\ell + 1 = 0 \ \ \text{ et enfin } \ \ \ell = -1. 
+\]
+
+ \end{noliste}
+
+ \item On pa donc $y_{n} = x_{n} + 1$, et d'après la définition de
+$x_{n}$ on a : 
+ 
+\[
+ f_{n} (x_{n} ) = y_{n} - \frac{ e^{ x_{n} } }{ n } = 0 \ \ \text{ donc
+} \ \ y_{n} = \frac{ e^{ x_{n} } }{ n }. 
+\]
+
+ Or le numérateur converge par composition vers $\frac{ 1 }{ e }$, qui
+n'est pas nul donc c'est un équivalent de ce numérateur. Par quotient
+on en déduit que : 
+ 
+\[
+ y_{n} \underset{ + \infty }{ \sim } \frac{ 1 }{ n e }. 
+\]
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Une matrice est diagonalisable lorsque l'une des conditions
+suivantes est vérifiées : \begin{noliste}{$\sbullet$}
+
+ \item Elle est symétrique (condition suffisante).
+
+ \item Elle est d'ordre $n$ et admet $n$ valeurs propres distinctes
+(condition suffisante).
+
+ \item Elle est d'ordre $n$ et la somme des dimensions de ses
+sous-espaces propres vaut $n$ (condition nécessaire et suffisante).
+
+ \item Il existe une base de $\mathcal{M}_{n,1} ( \R )$ constituée de
+vecteurs propres de cette matrice (nécessaire et suffisante).
+
+ \end{noliste}
+
+
+ Soit $A$ la matrice de $\mathcal{M}_{3} (\R)$ définie par : $A =
+\begin{smatrix}
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+-2 & 1 & 2 \\
+\end{smatrix}
+$.
+
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item $A X = \lambda X$ possède des solutions non nulles si et
+seulement si $A - \lambda I$ n'est pas inversible, et on en cherche une
+réduite triangulaire : 
+ \begin{eqnarray*}
+ \begin{smatrix}
+-\lambda & 1 & 0 \\
+0 & - \lambda & 1 \\
+-2 & 1 & 2 - \lambda \\
+\end{smatrix}
+ & \Longleftrightarrow L_{1} \leftrightarrow L_{3} & \begin{smatrix}
+-2 & 1 & 2 - \lambda \\
+0 & - \lambda & 1 \\
+-\lambda & 1 & 0 \\
+\end{smatrix}
+\\
+\\
+ & \Longleftrightarrow L_{3} \leftrightarrow 2 L_{3} - \lambda L_{1} &
+\begin{smatrix}
+-2 & 1 & 2 - \lambda \\
+0 & - \lambda & 1 \\
+0 & 2 - \lambda & \lambda ( \lambda - 2 ) \\
+\end{smatrix}
+\\
+\\
+ & \Longleftrightarrow L_{2} \leftrightarrow L_{2} - L_{3} &
+\begin{smatrix}
+-2 & 1 & 2 - \lambda \\
+0 & -2 & 1 - \lambda ( \lambda - 2 ) \\
+0 & 2 - \lambda & \lambda ( \lambda - 2 ) \\
+\end{smatrix}
+\\
+\\
+ & \Longleftrightarrow L_{3} \leftrightarrow 2 L_{3} + (2- \lambda)
+L_{2} & \begin{smatrix}
+-2 & 1 & 2 - \lambda \\
+0 & -2 & 1 - \lambda ( \lambda - 2 ) \\
+0 & 0 & P \left(\Ev{\lambda}\right) \\
+\end{smatrix}
+ \end{eqnarray*}
+
+ avec 
+ 
+\[
+ P \left(\Ev{ \lambda }\right) = 2 \lambda ( \lambda - 2 ) + (2 -
+\lambda ) [ 1 - \lambda ( \lambda - 2 ) ] 
+\]
+
+ On simplifie alors $P \left(\Ev{ \lambda}\right)$, en espérant faire
+apparaître le polynôme annoncé : 
+ \begin{eqnarray*}
+ P \left(\Ev{ \lambda }\right) & = & ( \lambda - 2 ) \left[ \
+\rule{0cm}{0.4cm} 2 \lambda - 1 + \lambda ( \lambda - 2 ) \right] = (
+\lambda - 2 ) \left[ \ \rule{0cm}{0.4cm} 2 \lambda - 1 + \lambda^{2} -
+2 \lambda \right] \\
+\\
+ & = & ( \lambda - 2 ) ( \lambda^{2} - 1 ).
+ \end{eqnarray*}
+
+ On en déduit sans difficulté que la valeurs de $\lambda$
+correspondantes sont $-1, 1$ et 2, qui sont donc les valeurs propres de
+$A$. On cherche alors les sous-espaces propres associés en se servant
+de la réduite triangulaire précédente : \\
+\begin{noliste}{$\sbullet$}
+
+ \item Pour $\lambda = -1$, avec $X = \begin{smatrix}
+x \\
+y \\
+z \\
+\end{smatrix}
+$, on obtient : 
+ \begin{eqnarray*}
+ A X = - X & \Longleftrightarrow & ( A + I ) X = 0 \Longleftrightarrow
+\left\{\begin{array}{r}
+ -2x + y + 3 z = 0 \\
+-2 y -2 z = 0 \\
+0 = 0 \\
+\end{array}
+\right. \Longleftrightarrow \left\{\begin{array}{r}
+ x = z \\
+y = - z \\
+\end{array}
+\right. \\
+\\
+ & \Longleftrightarrow & X = z \begin{smatrix}
+1 \\
+-1 \\
+1 \\
+\end{smatrix}
+ \end{eqnarray*}
+
+ donc $E_{ -1 } ( A ) = \Vect { \begin{smatrix}
+1 \\
+-1 \\
+1 \\
+\end{smatrix}
+}$. 
+
+ \item Pour $\lambda = 1$, avec $X = \begin{smatrix}
+x \\
+y \\
+z \\
+\end{smatrix}
+$, on obtient : 
+ \begin{eqnarray*}
+ A X = X & \Longleftrightarrow & ( A - I ) X = 0 \Longleftrightarrow
+\left\{\begin{array}{r}
+ -2x + y + z = 0 \\
+-2 y + 2 z = 0 \\
+0 = 0 \\
+\end{array}
+\right. \Longleftrightarrow \left\{\begin{array}{r}
+ x = z \\
+y = z \\
+\end{array}
+\right. \\
+\\
+ & \Longleftrightarrow & X = z \begin{smatrix}
+1 \\
+1 \\
+1 \\
+\end{smatrix}
+ \end{eqnarray*}
+
+ donc $E_{1} ( A ) = \Vect { \begin{smatrix}
+1 \\
+1 \\
+1 \\
+\end{smatrix}
+}$.
+
+ \item Pour $\lambda = 2$, avec $X = \begin{smatrix}
+x \\
+y \\
+z \\
+\end{smatrix}
+$, on obtient : 
+ \begin{eqnarray*}
+ A X = 2 X & \Longleftrightarrow & ( A - 2I ) X = 0 \Longleftrightarrow
+\left\{\begin{array}{r}
+ -2x + y \ \ \ \ = 0 \\
+-2 y + z = 0 \\
+0 = 0 \\
+\end{array}
+\right. \Longleftrightarrow \left\{\begin{array}{r}
+ x = 1/4 z \\
+y = 1/2 z \\
+\end{array}
+\right. \\
+\\
+ & \Longleftrightarrow & X = z \begin{smatrix}
+1/4 \\
+1/2 \\
+1 \\
+\end{smatrix}
+ \end{eqnarray*}
+
+ donc $E_{2} ( A ) = \Vect { \begin{smatrix}
+1/4 \\
+1/2 \\
+1 \\
+\end{smatrix}
+} = \Vect { \begin{smatrix}
+1 \\
+2 \\
+4 \\
+\end{smatrix}
+} $.
+
+ \end{noliste}
+
+ \item $A$ est diagonalisable car elle est d'ordre 3 et admet 3 valeurs
+propres distinctes. On en déduit que la concaténation des bases des
+sous-espaces propres forme une base de vecteurs propres de $A$, donc en
+posant : 
+ 
+\[
+ P = \begin{smatrix}
+1 & 1 & 1 \\
+-1 & 1 & 2 \\
+1 & 1 & 4 \\
+\end{smatrix}
+\ \ \ \text{ et } \ \ \ D = \begin{smatrix}
+-1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 2 \\
+\end{smatrix}
+\]
+
+ $P$ est inversible et la formule de changement de base donne $A = P D
+P^{-1}$. \\
+
+ \end{noliste}
+
+ \item Soit $(x_{n})_{ n \in \N}$ une suite réelle définie par : pour
+tout $n \in \N$, $x_{n + 3} = 2 x_{n + 2} + x_{n + 1} - 2 x_{n}$. \\
+
+ On pose pour tout $n \in \N$ : $X_{n} = \begin{smatrix}
+x_{n} \\
+x_{n + 1} \\
+x_{n + 2} \\
+\end{smatrix}
+$ et $Y_{n} = P^{-1} X_{n}$. \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item On obtient sans difficulté que :
+ 
+\[
+ X_{ n + 1 } = A X_{n}. 
+\]
+
+ \item On en déduit que 
+ 
+\[
+ Y_{ n + 1 } = P^{-1 } A X_{n} = P^{-1} P D P^{-1} X_{n} = D P^{-1}
+X_{n} = D Y_{n} 
+\]
+
+ donc par une récurrence immédiate ou par itération de la relation,
+ 
+\[
+ Y_{n} = D^{n} Y_{0}. 
+\]
+
+ \item On va calculer $x_{n}$ pour tout $n$ : on commence par calculer
+$Y_{n}$ : il faut pour cela calculer $Y_{0} = P^{-1} X_{0}$, et donc
+$P^{-1}$. Par méthode de Gauss-Jordan on obtient sans difficulté : 
+ 
+\[
+ P^{-1} = \frac{1}{6} \begin{smatrix}
+2 & - 3 & 1 \\
+6 & 3 & -3 \\
+-2 & 0 & 2 \\
+\end{smatrix}
+\ \ \text{ donc } \ \ Y_{0} = \frac{1}{6} \begin{smatrix}
+2 x_{0} - 3 x_{1} + x_{2} \\
+6 x_{0} + 3 x_{1} - 3 x_{2} \\
+-2 x_{0} + 2 x_{2} \\
+\end{smatrix}
+\]
+
+ puis
+ 
+\[
+ Y_{n} = \begin{smatrix}
+(-1)^{n} & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 2^{n} \\
+\end{smatrix}
+Y_{0} = \frac{1}{6} \begin{smatrix}
+(-1)^{n} [ 2x_{0} - 3 x_{1} + x_{2} ] \\
+3 ( 2 x_{0} + x_{1} - x_{2} ) \\
+2^{n + 1} ( x_{2} - x_{0} ) \\
+\end{smatrix}
+\]
+
+ et enfin $x_{n}$ est la première ligne de $X_{n} = P Y_{n}$, donc : 
+ 
+\[
+ x_{n} = \frac{1}{6} \left[ (-1)^{n} [ 2x_{0} - 3 x_{1} + x_{2} ] + 3 (
+2 x_{0} + x_{1} - x_{2} ) + 2^{n + 1} ( x_{2} - x_{0} )
+\rule{0cm}{0.4cm} \right] 
+\]
+
+ Pour que cette suite converge, il faut que les coefficients devant les
+suites géométriques divergentes soient nuls. En effet si $x_{2} - x_{0}
+\neq 0$, on montre que : 
+ 
+\[
+ x_{n} = \frac{1}{6} (x_{2} - x_{0} ) 2^{ n + 1} \left( 1 + o (1)
+\right) \underset{ + \infty }{ \sim } (x_{2} - x_{0} ) 2^{n + 1} 
+\]
+
+ diverge, donc il faut que $x_{2} - x_{0} = 0$. Ensuite puisque l'autre
+partie est constante, il faut que $[ (-1)^{n} ( 2 x_{0} - 3 x_{1} +
+x_{2} ) ]$ converge, ce qui n'est possible que si la constante est
+nulle puisque $[ (-1)^{n}]$ diverge. On en déduit que $(x_{n})_{ n \in
+\N}$ converge si et seulement si : 
+ 
+\[
+ \left\{\begin{array}{c}
+ 2 x_{0} + - 3 x_{1} + x_{2} = 0 \\
+x_{0} = x_{2} \\
+\end{array}
+\right. \Longleftrightarrow x_{0} = x_{1} = x_{2}. 
+\]
+
+ Enfin pour que la série de terme général $(x_{n})$ converge, il faut
+que la suite $x_{n}$ converge (vers 0) donc que les conditions
+précédentes soient vérifiées. On obtient alors : 
+ 
+\[
+ \forall n \in \N, \ x_{n} = \frac{ 3 }{ 6 } ( 2x_{0} + x_{1} - x_{2} )
+= x_{0} 
+\]
+
+ est une suite constante, et la série de terme général $(x_{n})$ ne
+peut converger que si $x_{n} = x_{0} = 0$, donc si et seulement si : 
+ 
+\[
+ x_{0} = x_{1} = x_{2} = 0. 
+\]
+
+ \end{noliste}
+
+ \item On pose $B = \begin{smatrix}
+5 & 0 & -2 \\
+4 & 3 & -4 \\
+8 & 0 & -5 \\
+\end{smatrix}
+$ et pour tout $(a,b) \in \R^{2}$, $M( a, b ) = \begin{smatrix}
+5b & a & -2b \\
+4 b & 3b & a - 4 b \\
+-2 a + 8 b & a & 2a - 5 b \\
+\end{smatrix}
+$.\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item On a montré que les vecteurs propres de $A$ sont les vecteurs de
+la forme : 
+ 
+\[
+ \lambda \begin{smatrix}
+1 \\
+-1 \\
+1 \\
+\end{smatrix}
+\ \, \ \ \lambda \begin{smatrix}
+1 \\
+1 \\
+1 \\
+\end{smatrix}
+\ \, \ \ \lambda \begin{smatrix}
+1 \\
+2 \\
+4 \\
+\end{smatrix}
+\]
+
+ et on les teste tous : 
+ 
+\[
+ B \lambda \begin{smatrix}
+1 \\
+-1 \\
+1 \\
+\end{smatrix}
+ = \lambda \begin{smatrix}
+3 \\
+-3 \\
+3 \\
+\end{smatrix}
+ = 3 \lambda \begin{smatrix}
+1 \\
+-1 \\
+1 \\
+\end{smatrix}
+\]
+
+ donc les vecteurs propres de $A$ associé à la valeur propre $-1$ sont
+vecteurs propres de $B$ associés à la valeur propre 3. De même,
+ 
+\[
+ B \lambda \begin{smatrix}
+1 \\
+1 \\
+1 \\
+\end{smatrix}
+ = \lambda \begin{smatrix}
+3 \\
+3 \\
+3 \\
+\end{smatrix}
+ = 3 \lambda \begin{smatrix}
+1 \\
+1 \\
+1 \\
+\end{smatrix}
+\]
+
+ donc les vecteurs propres de $A$ associé à la valeur propre $1$ sont
+vecteurs propres de $B$ associés à la valeur propre 3. Enfin
+ 
+\[
+ B \lambda \begin{smatrix}
+1 \\
+2 \\
+4 \\
+\end{smatrix}
+ = \lambda \begin{smatrix}
+-3 \\
+-6 \\
+-12 \\
+\end{smatrix}
+ = -3 \lambda \begin{smatrix}
+1 \\
+2 \\
+4 \\
+\end{smatrix}
+\]
+
+ donc les vecteurs propres de $A$ associé à la valeur propre $2$ sont
+vecteurs propres de $B$ associés à la valeur propre $-3$. \\
+
+ La réciproque n'est pas vraie, car on a ici testé tous les vecteurs
+propres de $A$. Or, comme on a trouvé deux fois la même valeur propre
+pour $B$, on peut construire par combinaison d'autres vecteurs propres
+de $B$. Par exemple,
+ 
+\[
+ \begin{smatrix}
+1 \\
+-1 \\
+1 \\
+\end{smatrix}
+ + \begin{smatrix}
+1 \\
+1 \\
+1 \\
+\end{smatrix}
+ = \begin{smatrix}
+2 \\
+0 \\
+2 \\
+\end{smatrix}
+\]
+
+ est vecteur propre de $B$ (associé à la valeur propre 3) mais pas
+vecteur propre de $A$ : 
+ 
+\[
+ B \begin{smatrix}
+2 \\
+0 \\
+2 \\
+\end{smatrix}
+ = \begin{smatrix}
+6 \\
+0 \\
+6 \\
+\end{smatrix}
+ = 3 \begin{smatrix}
+2 \\
+0 \\
+2 \\
+\end{smatrix}
+\ \ \ \text{ mais } \ \ \ A \begin{smatrix}
+2 \\
+0 \\
+2 \\
+\end{smatrix}
+ = \begin{smatrix}
+0 \\
+2 \\
+0 \\
+\end{smatrix}
+\]
+
+ qui n'est pas colinéaire à $\begin{smatrix}
+2 \\
+0 \\
+2 \\
+\end{smatrix}
+$. \\
+
+ \item On en déduit que la base de vecteurs propres de $A$ précédente
+est aussi base de vecteurs propres de $B$ : avec la même matrice $P$
+que précédemment et avec $D' = \begin{smatrix}
+3 & 0 & 0 \\
+0 & 3 & 0 \\
+0 & 0 & -3 \\
+\end{smatrix}
+$, la formule de changement de base donne $B = P D' P^{-1}$ puis : 
+ 
+\[
+ M (a,b) = a A + b B = a P D P^{-1} + b P D' P^{-1} = P \left(\Ev{ a D
++ b D' }\right) P^{-1} = P \begin{smatrix}
+3b - a & 0 & 0 \\
+0 & a + 3 b & 0 \\
+0 & 0 & 2 a - 3 b \\
+\end{smatrix}
+P^{-1} 
+\]
+
+ On en déduit que $M(a,b)$ est diagonalisable et que ses valeurs
+propres sont $3b-a, a + 3b$ et $2a-3b$. \\
+
+ \item On en déduit que 
+ 
+\[
+ M( a,b)^{n} = P \begin{smatrix}
+(3b - a)^{n} & 0 & 0 \\
+0 & (a + 3 b)^{n} & 0 \\
+0 & 0 & (2 a - 3 b)^{n} \\
+\end{smatrix}
+P^{-1} 
+\]
+
+ qui aura pour limite $P D_{\infty} P^{-1}$, où $D_{ \infty}$ est la
+limite de $D^{n}$, si elle existe (et si elle n'existe pas,
+$M(a,b)^{n}$ n'a pas de limite. Comme $P$ et $P^{-1}$ sont inversibles,
+ce produit est nul si et seulement si $D_{ \infty } = 0$, et donc si et
+seulement si les trois suites géométriques convergent vers 0, donc si
+et seulement si : 
+ 
+\[
+ -1 < 3 b - a < 0 \ \ \text{ et } \ \ -1 < a + 3 b < 1 \ \ \text{ et }
+\ \ -1 < 2a - 3 b < 1. 
+\]
+
+ \end{noliste}
+
+ \end{noliste}
+
+ \indent
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $p \in \ ]0;1[$. Soit $(X_{n})_{ n \in \N^* }$ une suite de
+variables aléatoires définies sur un espace probabilisé $(\Omega,
+\mathcal{A}, P )$ indépendantes et de même loi donnée par : 
+ 
+\[
+ \forall n \in \N^*, \ P \Ev{X_{n} = -1} = p \ \ \text{ et } \ \ P
+\Ev{X_{n} = 1} = 1 - p. 
+\]
+
+ \noindent On pose pour tout $n \in \N^*$, $Z_{n} = \prod\limits_{i =
+1}{n} X_{i}$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+ \item Les $(X_{i})$ sont indépendantes donc : 
+ 
+\[
+ E ( Z_{n} ) = E \left( \prod\limits_{i = 1}{n} X_{i} \right) =
+\prod\limits_{i = 1}{n} E ( X_{i} ) = \prod\limits_{i = 1}{n} \left( 1
+\times (1-p) - 1 \times p \right) = ( 1 - 2 p)^{n}. 
+\]
+
+ Or on sait que
+ 
+\[
+ 0 < p < 1 \ \ \text{ donc } \ \ -2 < -2p < 0 \ \ \text{ et enfin } \ \
+-1 < 1 - 2p < 1 
+\]
+
+ et donc $\E( Z_{n})$ converge vers 0. \\
+
+ \item $Z_{n}$ est un produit de nombres qui valent 1 ou $-1$, elle
+vaut donc 1 et ou $-1$ : 
+ 
+\[
+ Z_{n} ( \Omega ) = \{ -1 ; 1 \} 
+\]
+
+ De plus $\Ev{Z_{n} = 1}$ signifie que le nombre de valeurs $X_{i}$ qui
+valent $-1$ est pair, donc en posant $S$ la variable égale au nombre de
+$X_{i}$ qui valent $-1$ (qui suit une loi binomiale de paramètres $n$
+et $p$), on a : 
+ 
+\[
+ \Ev{Z_{n} = 1 } = ( S \text{ est paire } ) = \dcup{ k = 0 }{ \lfloor
+\frac{n}{2} \rfloor } \Ev{ S = 2 k }. 
+\]
+
+ On en déduit par incompatibilité que : 
+ 
+\[
+ P \Ev{ Z_{n} = 1 } = \Sum{k = 0}{ \lfloor \frac{ n }{ 2 } \rfloor }
+\binom{n}{2k} p^{2k} (1-p)^{n-2k}. 
+\]
+
+ Cependant on ne sait pas calculer cette somme. On va alors trouver la
+valeur des probabilités de manière beaucoup plus astucieuse, en se
+servant de l'espérance précédemment calculée. Posons $q$ la probabilité
+de $\Ev{Z_{n} = 1}$, alors l'autre probabilité vaut $1-q$, et on a :
+ 
+\[
+ E ( Z_{n} ) = 1 \times q - 1 \times (1-2q) = 2 q -1 
+\]
+
+ ce qui donne : 
+ 
+\[
+ 2 q - 1 = ( 1 - 2 p)^{n} \ \ \text{ et } \ \ q = \frac{ (1-2p)^{n} + 1
+}{ 2 } 
+\]
+
+ donc on obtient finalement : 
+ 
+\[
+ P \Ev{ Z_{n} = 1 } = \frac{ (1-2p)^{n} + 1 }{ 2 } \ \ \text{ et } \ \
+P \Ev{ Z_{n} = -1 } = 1 - q = \frac{ 1 - (1-2p)^{n} }{ 2 }. 
+\]
+
+ \item On connaît les lois de $Z_{1}$ et $Z_{2}$, on cherche la loi du
+couple : 
+ 
+\[
+ \Ev{Z_{1} = 1 } \cap \Ev{Z_{2} = 1 } = \Ev{X_{1} = 1 } \cap \Ev{X_{2}
+= 1 } \ \ \text{ donc } \ \ P [ \ \Ev{Z_{1} = 1 } \cap \Ev{Z_{2} = 1 }
+= P \Ev{X_{1} = 1 } \cap \Ev{X_{2} = 1 } ] = (1-p)^{2}. 
+\]
+
+ 
+\[
+ \Ev{Z_{1} = 1 } \cap \Ev{Z_{2} = -1 } = \Ev{X_{1} = 1 } \cap \Ev{X_{2}
+= -1 } \ \ \text{ donc } \ \ P [ \ \Ev{Z_{1} = 1 } \cap \Ev{Z_{2} = -1
+} = P \Ev{X_{1} = 1 } \cap \Ev{X_{2} = -1 } ] = p (1-p). 
+\]
+
+ 
+\[
+ \Ev{Z_{1} = -1 } \cap \Ev{Z_{2} = 1 } = \Ev{X_{1} = -1 } \cap
+\Ev{X_{2} = -1 } \ \ \text{ donc } \ \ P [ \ \Ev{Z_{1} = -1 } \cap
+\Ev{Z_{2} = 1 } = P \Ev{X_{1} = -1 } \cap \Ev{X_{2} = -1 } ] = p^{2}. 
+\]
+
+ 
+\[
+ \Ev{Z_{1} = -1 } \cap \Ev{Z_{2} = -1 } = \Ev{X_{1} = -1 } \cap
+\Ev{X_{2} = 1 } \ \ \text{ donc } \ \ P [ \ \Ev{Z_{1} = -1 } \cap
+\Ev{Z_{2} = -1 } = P \Ev{X_{1} = -1 } \cap \Ev{X_{2} = 1 } ] = p (1-p).
+\]
+
+ Enfin $Z_{1}$ et $Z_{2}$ sont indépendantes si on a : 
+ 
+\[
+ \left\{\begin{array}{c}
+ (1-p)^{2} = (1-p) \times \frac{ (1-2p)^{2} + 1 }{ 2 } \\
+p (1-p) = (1-p) \times \frac{ 1 - (1-2p)^{2} }{ 2 } \\
+p^{2} = p \times \frac{ (1-2p)^{2} + 1 }{ 2 } \\
+p (1-p) = p \times \frac{ 1 - (1-2p)^{2} }{ 2 } \\
+\end{array}
+\right. \Longleftrightarrow \left\{\begin{array}{c}
+ 2 (1-p) = (1-2p)^{2} + 1 \\
+2 p = 1 - (1-2p)^{2} \\
+2p = (1-2p)^{2} + 1 \\
+2 (1-p) = 1 - (1-2p)^{2} \\
+\end{array}
+\right. 
+\]
+
+ Ceci impose que $p = 1-p$ donc que $p = 1/2$, on vérifie alors les
+valeurs : 
+ 
+\[
+ (1-2 \times 1/2 )^{2} + 1 = 0^{2} + 1 = 1 = 2 p = 2 (1-p) \ \ \ \text{
+et } \ \ \ 1 - (1 - 2 \times 1/2)^{2} = 1 - 0^{2} = 1 = 2p = 2 (1-p) 
+\]
+
+ et les quatre égalités sont bien vérifiées. On en déduit que $Z_{1}$
+et $Z_{2}$ sont indépendantes si et seulement si $p = \frac{1}{2}$.
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Un point critique de $f$ est un couple $(a,b)$ tel que
+$\partial_{1} (f) (a,b) = \partial_{2} (f) (a,b) = 0$. \\
+
+ De plus on sait que lorsque la matrice Hessienne au point $(a,b)$,
+$\nabla^{2} (f) (a,b) = \begin{smatrix}
+\partial_{1,1}{2} (f) (a,b) & \partial_{1,2}{2} (f) (a,b) \\
+\partial_{2,1}{2} (f) (a,b) & \partial_{2,2}{2} (f) (a,b) \\
+\end{smatrix}
+$ admet des valeurs propres de même signe (strict), $f$ admet un
+extremum local au point $(a,b)$. \\
+
+ Soit $X$ une variable aléatoire discrète finie définie sur un espace
+probabilisé $(\Omega, \mathcal{A}, P)$. \\
+ On pose pour tout $n \in \N^*$ : $X ( \Omega ) = \{ x_{1}, \dots,
+x_{n} \} \subset \R$ et on suppose que $\forall i \in \llb 1 ; n \rrb$,
+$P \Ev{X = x_{i}} \neq 0$. \\
+
+ On définit l'entropie de $X$ par : $ H(X) = - \frac{ 1 }{ \ln 2 }
+\Sum{i = 1}{n} P \Ev{X = x_{i}} \ln \big( \Prob\left(\Ev{\Ev{X =
+x_{i}}}\right) \big)$.
+
+ \item Soient $x_{1}, x_{2}, x_{3}, x_{4}$ quatre réels distincts. On
+considère un jeu de 32 cartes dont on tire une carte au hasard. Soit
+$X$ la variable aléatoire prenant les valeurs suivantes :
+\begin{noliste}{$\sbullet$}
+
+ \item $x_{1}$ si la carte tirée est rouge (coeur ou carreau),
+
+ \item $x_{2}$ si la carte tirée est un pique,
+
+ \item $x_{3}$ si la carte tirée est le valet, la dame, le roi ou l'as
+de trèfle,
+
+ \item $x_{4}$ dans les autres cas.
+
+ \end{noliste}
+
+ On tire une carte notée $C$ et un enfant décide de déterminer la
+valeur $X(C)$ en posant dans l'ordre les questions suivantes auxquelles
+il lui est répondu par "oui" ou par "non". LA carte $C$ est-elle rouge
+? La carte $C$ est-elle un pique ? La carte $C$ est-elle le valet, la
+dame, le roi ou l'as de trèfle ? \\
+ Soit $N$ la variable aléatoire égale au nombre de questions posées
+(l'enfant cesse de poser des questions dès qu'il a obtenu une réponse
+"oui"). \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item On obtient sans difficulté que $X ( \Omega ) = \{ x_{1} ; x_{2}
+; x_{3} ; x_{4} \}$ et : 
+ 
+\[
+P \Ev{ X = x_{1} } = \frac{1}{2} \ \, \ \ P \left(\Ev{ X = x_{2} =
+    \frac{1}{4}}\right) \ \, \ \ P \Ev{ X = x_{3} } = P \Ev{ X = x_{4} } =
+  \frac{ 1 }{ 8 }.
+\] 
+
+%%% LALALA
+
+On peut alors calculer :
+ \begin{eqnarray*}
+ H ( X ) & = & - \frac{ 1 }{ \ln 2 } [ 1/2 \ln (1/2) + 1/4 \ln (1/4) +
+2 \times 1/8 \ln (1/8) ] = - \frac{ 1 }{ 4 \ln 2 } [ - 2 \ln 2 - \ln 4
+- \ln 8 ] \\
+\\
+ & = & \frac{ 2 \ln 2 + \ln 2^{2} + \ln 2^{3} }{ 4 \ln 2 } = \frac{ (2
++ 2 + 3) \ln 2 }{ 4 \ln 2 } = \frac{ 7 }{ 4 }. 
+ \end{eqnarray*}
+
+ \item Il faut au minimum 1 question, et au maximum trois questions
+pour déterminer $X ( C )$. De plus on remarque que : 
+ 
+\[
+ \Ev{N = 1 } = \Ev{ X = x_{1} } \ \, \ \ \Ev{ N = 2 } = \Ev{ X = x_{2}}
+\ \, \ \ \Ev{ N = 3 } = \Ev{ X = x_{3} } \cup ( \Ev{X = X_{4} } 
+\]
+
+ donc : 
+
+
+%%% LALALA
+
+\[
+ P \Ev{ N = 1 } = \frac{ 1 }{ 2 } \ \ \text{ et } \ \ P \Ev{ N = 2} = P
+\Ev{ N = 3 } = \frac{ 1 }{ 4 }. 
+\]
+
+ Enfin on calcule : 
+ 
+\[
+ E ( N ) = \frac{ 1 }{ 2 } + \frac{ 2 }{ 4 } + \frac{ 3 }{ 4 } = \frac{
+7 }{ 4 } = H ( X ). 
+\]
+
+ \end{noliste}
+
+ \item Soit $f$ la fonction définie sur $\R^{2}$ à valeurs réelles
+telle que : $f(x,y) = x \ln x + y \ln y + (1-x-y) \ln (1-x-y)$.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item $f$ est bien définie si et seulement si les $\ln$ le sont, il
+faut donc : 
+ 
+\[
+ x > 0 \ \, \ \ y > 0 \ \ \text{ et } \ \ 1 - x - y > 0
+\Longleftrightarrow x + y < 1 \Longleftrightarrow y < 1 - x. 
+\]
+
+ On trace alors dans un repère orthonormé la droite d'équation
+ $y = 1-x$, et on hachure la partie du plan au-dessus de l'axe
+ des abscisses ($y > 0$), à droite de l'axe des ordonnées ($x >
+ 0$) et en-dessous de la droite tracée ($y < 1 - x $).
+
+ \item $f$ est de classe $C^{2}$ sur son en semble de définition et : 
+ 
+\[
+ \partial_{1} (f) (x,y) = \ln x + 1 - \ln (1-x-y) - 1 = \ln x - \ln
+(1-x-y) \ \ \text{ et } \ \ \partial_{2} (f) (x,y) = \ln y - \ln
+(1-x-y). 
+\]
+
+ On résout alors le système, avec $\ln$ bijective : 
+ \begin{eqnarray*}
+ \left\{\begin{array}{c}
+ \ln x - \ln (1-x-y) = 0 \\
+\ln y - \ln (1-x-y) = 0 \\
+\end{array}
+\right. & \Longleftrightarrow & \left\{\begin{array}{c}
+ \ln x = \ln (1-x-y) \\
+\ln y - \ln (1-x-y) = 0 \\
+\end{array}
+\right. \Longleftrightarrow \left\{\begin{array}{c}
+ x = 1-x-y \\
+\ln y - \ln (1-x-y) = 0 \\
+\end{array}
+\right. \\
+\\
+ & \Longleftrightarrow & \left\{\begin{array}{c}
+ y = 1- 2 x \\
+\ln (1-2x) - \ln (1-x-1 + 2x) = 0 \\
+\end{array}
+\right. \Longleftrightarrow \left\{\begin{array}{c}
+ y = 1- 2 x \\
+\ln (1-2x) = \ln (x) \\
+\end{array}
+\right. \\
+\\
+ & \Longleftrightarrow & \left\{\begin{array}{c}
+ y = 1- 2 x \\
+1-2x = x \\
+\end{array}
+\right. \Longleftrightarrow \left\{\begin{array}{c}
+ y = 1- 2 x \\
+3x = 1 \\
+\end{array}
+\right. \Longleftrightarrow \left\{\begin{array}{c}
+ y = 1/3 \\
+x = 1/3 \\
+\end{array}
+\right.
+ \end{eqnarray*}
+
+ donc le seul point critique de $f$ est $(1/3 ; 1/3)$. On calcule alors
+les dérivées partielles secondes puis la matrice Hessienne au point
+$(1/3 ; 1/3)$ : 
+ 
+\[
+ \partial_{1,1}{2} (f ) ( x,y) = \frac{1}{x} + \frac{ 1 }{ 1 - x - y }
+\ \, \ \ \partial_{1,2}{2} (f) (x,y) = \partial_{2,1}{2} (f) (x,y) =
+\frac{ 1 }{ 1 - x - y } \ \, \ \ \partial_{2,2}{2} (f ) ( x,y) =
+\frac{1}{y} + \frac{ 1 }{ 1 - x - y } 
+\]
+
+ puis au point $(1/3 ; 1/3)$ : 
+ 
+\[
+ \partial_{1,1}{2} (f ) ( 1/3,1/3) = 3 + 3 = 6 \ \, \ \
+\partial_{1,2}{2} (f) (1/3,1/3) = \partial_{2,1}{2} (f) (1/3,1/3) = 3 \
+\, \ \ \partial_{2,2}{2} (f ) ( 1/3,1/3) = 6 
+\]
+
+ et on cherche les valeurs propres de la Hessienne : 
+ \begin{eqnarray*}
+ \begin{smatrix}
+6 - \lambda & 3 \\
+3 & 6 - \lambda \\
+\end{smatrix}
+ & \Longleftrightarrow L_{1} \leftrightarrow L_{2} & \begin{smatrix}
+3 & 6 - \lambda \\
+6 - \lambda & 3 \\
+\end{smatrix}
+\Longleftrightarrow L_{2} \leftarrow 3 L_{2} - ( 6 - \lambda) L_{1}
+\begin{smatrix}
+3 & 6 - \lambda \\
+0 & 9 - (6 - \lambda)^{2} \\
+\end{smatrix}
+ \end{eqnarray*}
+
+ donc les valeurs propres sont les solutions de l'équation : 
+ 
+\[
+ 9 - ( 6 - \lambda)^{2} = 0 \Longleftrightarrow ( 3 + 6 - \lambda) ( 3
+- 6 + \lambda ) = 0 \Longleftrightarrow ( 9 - \lambda ) ( \lambda - 3 )
+= 0 
+\]
+
+ donc 3 et 9, qui sont strictement positives donc $f$ admet un minimum
+local au point $(1/3,1/3)$. \\
+
+ \item On calcule sans difficulté : 
+ 
+\[
+ H ( X ) = - \frac{ 1 }{ \ln 2 } [ p_{1} \ln (p_{1} ) + p_{2} \ln
+(p_{2} ) + p_{3} \ln (p_{3} ) ] = - \frac{ 1 }{ \ln 2 } f( p_{1}, p_{2}
+) 
+\]
+
+ car on sait que $p_{1} + p_{2} + p_{3} = 1$, donc $p_{3} = 1 - p_{1} -
+p_{2}$. On en déduit avec $ - \frac{ 1 }{ \ln 2 } $ que $f$ et $H(X)$
+atteignent leurs extrema locaux aux mêmes points, mais que les natures
+sont inversées. \\
+
+ Finalement $H(X)$ admet un maximum local au point $p_{1} = p_{2} =
+\frac{1}{3}$, donc $p_ 3 = 1 - p_{1} - p_{2} = \frac{1}{3}$. 
+
+ \end{noliste}
+ 
+ \end{noliste}
+
+ \indent
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ On rappelle l'identité remarquable $a^{3} + b^{3} = (a + b) (a^{2} - a
+b + b^{2})$. \\
+ \\
+ On vérifie à l'aide de la commutativité de $A$ et $B$ que l'identité
+remarquable est toujours valable sur les matrices : 
+ 
+\[
+ (A + B) ( A^{2} - A B + B^{2} ) = A^{3} - A^{2} B + A B^{2} + B A^{2}
+- B A B + B^{3} = A^{3} - A^{2} B + A B^{2} + A^{2} B - A B^{2} + B^{3}
+= A^{3} + B^{3} 
+\]
+
+ \noindent et puisque $A^{3} = 0$, on en déduit que
+ 
+\[
+ B^{3} = A^{3} + B^{3} = (A + B ) ( A^{2} - A B + B^{2} ). 
+\]
+
+ \noindent De plus puisque $B$ est inversible on peut multiplier par
+$B^{-1}$ (on le fait trois fois, à droite obligatoirement pour obtenir
+$(A + B) \times...$) : 
+ 
+\[
+ B^{3} (B^{-1} )^{3} = (A + B ) (A^{2} - A B + B^{2} ) (B^{-1} )^{3} \
+\ \text{ et enfin } \ \ ( A + B ) [ (A^{2} - A B + B^{2} ) (B^{-1})^{3}
+] = I 
+\]
+
+ \noindent donc $A + B$ est inversible, et son inverse est la matrice
+qui la multiplie pour donner $I$.
+
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Dans le cas général, cette intégrale est dite convergente si
+l'intégrale $\dint{a}{x} f(t) \ dt $ converge lorsque $x$ tend vers $ +
+\infty$. \\
+
+ Si la fonction intégrée est positive, on a alors 4 critères possibles
+pour obtenir la convergence : \\
+\begin{noliste}{$\sbullet$}
+
+ \item Si l'intégrale partielle est bornée (condition nécessaire et
+suffisante). 
+
+ \item Si la fonction intégrée est majorée par une fonction dont
+l'intégrale converge (condition suffisante).
+
+ \item Si la fonction intégrée est négligeable en l'infini devant une
+fonction dont l'intégrale converge (condition suffisante).
+
+ \item Si la fonction intégrée est équivalente en l'infini à une
+fonction dont l'intégrale converge (condition nécessaire et
+suffisante).
+
+ \end{noliste}
+
+ \item Soit $x \in \R_+^*$. \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item Cette intégrale n'est généralisée qu'en $ + \infty$, et comme $
+\frac{ 1 }{ t }$ tend vers 0 on a : 
+ 
+\[
+ e^{ -t }{ x + t } = \frac{ e^{-t} }{ t \left( 1 + \frac{ x }{ t }
+\right) } \underset{ + \infty }{ \sim } \frac{ e^{ - t } }{ t } = o_{ +
+\infty } ( e^{ - t } ) 
+\]
+
+ Or les deux fonctions sont à termes positifs, et l'intégrale de 0 à $
++ \infty$ de $e^{-t}$ converge (densité de la loi exponentielle), donc
+par théorème de comparaison l'intégrale de la question converge. On
+pose alors 
+ 
+\[
+ f(x) = \dint{0}{ + \infty } \frac{ e^{ - t } }{ x + t } \ dt. 
+\]
+
+ \item Question difficile par manque d'habitude. Cette fonction n'a
+rien à voir avec les fonctions intégrales habituellement étudiées, car
+la dépendance en $x$ ne se trouve pas sur la borne : on ne peut pas
+poser une primitive de la fonction à l'intérieur fixée (elle devrait
+dépendre de $x$). \\
+
+ Il faut alors s'inspirer les suites intégrales, qui, sur le même
+modère que $f$, dépendent en général de $n$ avec le $n$ à l'intérieur
+de l'intégrale et pas sur la borne, et on revient à la définition de la
+monotonie : \\
+
+ Soient $x$ et $y$ deux réels strictement positifs, tels que $x < y$.
+On obtient alors pour tout $t \in \R_+ $ : 
+ 
+\[
+ 0 < x + t < y + t \ \ \text{ donc (inverse strictement décroissante
+sur } \R +^*) \ \ \frac{ 1 }{ y + t } < \frac{ 1 }{ x + t } 
+\]
+
+ On multiplie par $e^{-t} > 0$ et on intègre avec des bornes dans
+l'ordre croissant, on obtient : 
+ 
+\[
+ x < y \Longrightarrow f(y) \leq f(x) 
+\]
+
+ et la fonction $f$ est décroissante.
+
+ \end{noliste}
+
+ \item Soit $g$ et $h$ les fonctions définies sur $\R_+^*$ à valeurs
+réelles telles que : 
+ 
+\[
+ g(x) = \dint{0}{1} \frac{ e^{ -t } - 1 }{ x + t } \ dt \ \ \ \text{ et
+} \ \ \ h(x) = \dint{1}{+ \infty} \frac{ e^{ -t } }{ x + t } \ dt. 
+\]
+
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item $\varphi$ est continue sur $] 0 ; 1]$ par opérations
+élémentaires, et en 0 on a $-t$ qui tend vers 0 donc par DL : 
+ 
+\[
+ \varphi (t) = \frac{ e^{ -t } - 1 }{ t } = \frac{ 1 - t + o(t) - 1 }{
+t } = -1 + o(1) \xrightarrow[ t \rightarrow 0]{} -1 = \varphi (0) 
+\]
+
+ donc $\varphi$ est continue en 0, et donc sur $[0 ; 1]$. \\
+
+ \item Pour tout $x > 0$ et $t \in \ ] 0 ; 1]$, on a : 
+ 
+\[
+ x + t > t > 0 \ \ \text{ donc } \ \ 0 < \frac{1}{ x + t } < \frac{ 1
+}{ t } 
+\]
+
+ puis en multipliant par $e^{ - t } - 1 < 0 $ (avec $-t < 0$ donc $e^{
+- t } < 1 $) : 
+ 
+\[
+ \varphi (t) \leq \frac{ e^{ - t } - 1 }{ x + t } \leq 0 
+\]
+
+ et cette inégalité reste vraie en $t = 0$, car $\frac{ e^{0} - 1 }{ x
++ 0 } = 0$, donc en intégrant avec des bornes dans l'ordre croissant
+(avec des intégrales qui convergent car aucune n'est généralisée) on
+obtient : 
+ 
+\[
+ \dint{0}{1} \varphi (t) \ dt \leq g(x) \leq 0 
+\]
+
+ et la fonction $g$ est bien bornée (l'intégrale à gauche est une
+constante, elle ne dépend pas de $x$). \\
+
+ \item Avec une preuve strictement identique à la fonction $f$ (sauf
+que cette fois-ci la fonction $h$ est définie en $x = 0$, et qu'on
+intègre entre 1 et $ + \infty$), la fonction $h$ est décroissante et
+vérifie : 
+ 
+\[
+ h(x) \leq h(0) = \dint{1}{+ \infty} \frac{ e^{ - t } }{ t } \ dt 
+\]
+
+ avec l'intégrale de droite qui est constante (ne dépend pas de $x$)
+donc $h$ est majorée. \\
+
+ De plus $h$ est minorée par 0 car c'est l'itnégrale d'une fonction
+positive avec des bornes dans l'ordre croissant, elle est donc
+positive. On en déduit finalement que $h$ est bornée. \\
+
+ \item On sépare l'intégrale avec la relation de Chasles pour faire
+apparaître $h(x)$ : 
+ 
+\[
+ f(x) = \dint{0}{1} \frac{ e^{ - t } }{ x + t } \ dt + \dint{1}{+
+\infty} \frac{ e^{ -t } }{ x + t } \ dt = \dint{0}{1} \frac{ e^{ - t }
+}{ x + t } \ dt + h(x). 
+\]
+
+ Ensuite on fait apparaître $g(x)$ : 
+ 
+\[
+ f(x) = \dint{0}{1} \frac{ e^{-t} - 1 }{ x + t } \ dt + \dint{0}{1}
+\frac{ 1 }{ x + t } \ dt + h(x) = g(x) + h(x) + \dint{0}{1} \frac{ 1 }{
+x + t } \ dt. 
+\]
+
+ Enfin on calcule l'intégrale restante : 
+ 
+\[
+ f(x) = g(x) + h(x) + \left[ \ \rule{0cm}{0.4cm} \ln (x + t)
+\right]_{0}{1} = g(x) + h(x) + \ln (1 + x ) - \ln (x). 
+\]
+
+ Au voisinage de 0, les fonctions $g$ et $h$ sont bornées et $\ln (1 +
+x)$ tend vers 0 donc le terme prépondérant est $- \ln x$ qui tend vers
+$-\infty$ : 
+ 
+\[
+ f(x) = - \ln x + o ( \ln x ) \underset{ x \rightarrow 0^+ }{ \sim } -
+\ln x. 
+\]
+
+ \end{noliste}
+
+ \item Cet encadrement s'obtient immédiatement en mettant les deux
+fractions au même dénominateur. On va alors s'en servir pour faire
+apparaître un équivalent de $f(x)$, donc en obtenant un encadrement
+concernant $f(x)$. \\
+
+ On multiplie donc par $e^{-t} > 0$ et on intègre avec des bornes dans
+l'ordre croissant (toutes les intégrales sont convergentes) : 
+ 
+\[
+ 0 \leq \frac{1}{x} \dint{0}{ + \infty} e^{ - t } \ dt - f(x) \leq
+\frac{1}{x^{2}} \dint{0}{+ \infty} t e^{-t} \ dt. 
+\]
+
+ On reconnaît la densité et l'espérance d'une loi exponentielle, on
+obtient donc : 
+ 
+\[
+ 0 \leq \frac{ 1 }{ x } - f(x) \leq \frac{ 1 }{ x^{2} } 
+\]
+
+ puis on encadre $f$ : 
+ 
+\[
+ - \frac{1}{x} \leq - f(x) \leq - \frac{1}{x} + \frac{1}{x^{2}} \ \
+\text{ donc } \ \ \frac{ 1 }{ x } - \frac{ 1 }{ x^{2} } \leq f(x) \leq
+\frac{1}{ x } 
+\]
+
+ Enfin en multipliant par $x > 0$ : 
+ 
+\[
+ 1 - \frac{ 1 }{ x } \leq \frac{ f(x) }{ \frac{ 1 }{ x } } \leq 1 
+\]
+
+ et par encadrement (les termes de gauche et droite convergent
+facilement vers 1), on obtient : 
+ 
+\[
+ \frac{ f(x) }{ \frac{ 1 }{ x } } \xrightarrow[ x \rightarrow + \infty
+]{} 1 \ \ \text{ et enfin } \ \ f(x) \underset{ x \rightarrow + \infty
+}{ \sim } \frac{ 1 }{ x }. 
+\]
+
+ \end{noliste}
+
+ \indent
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Les variables aléatoires sont définies sur un espace probabilisé
+$(\Omega, \mathcal{A}, P)$. \\
+ Soit $X$ une variable aléatoire qui suit la loi de Poisson de
+paramètre $\lambda > 0$ et soit $Y$ une variable aléatoire indépendante
+de $X$ telle que : $ Y ( \Omega ) = \{ 1 ; 2 \}, P \Ev{ Y = 1 } = P
+\Ev{ Y = 2 } = \frac{ 1 }{ 2 }$. On pose $Z = X Y$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+ \item Lorsque $Y = 1$, $Z = X Y$ prend toutes les valeurs de $\N$;
+lorsque $Y = 2$, $Z = X Y$ prend toutes les valeurs paires de $\N$.
+Finalement on obtient : 
+ 
+\[
+ Z ( \Omega ) = \N. 
+\]
+
+ Si $k = 2 j + 1$ est impair, il ne peut être atteint qu'avec $Y = 1$
+donc (avec $X$ et $Y$ indépendantes) : 
+ 
+\[
+ \forall j \in \N, \ ( Z = 2 j + 1 ) = (X = 2 j + 1 ) \cap \Ev{Y = 1 }
+\ \ \text{ et } \ \ P \left(\Ev{ Z = 2 j + 1 }\right) = \frac{ 1 }{ 2 }
+P \left(\Ev{ X = 2 j + 1 }\right) = \frac{ e^{ - \lambda } \lambda^{ 2j
++ 1 } }{ 2 (2j + 1)! } 
+\]
+
+ Si $k = 2j$ est pair, il peut être atteint avec $Y = 1$ ou 2, donc : 
+ 
+\[
+ \forall j \in \N, \ \Ev{ Z = 2 j } = [ \ \Ev{ X = 2j } \cap \Ev{ Y = 1
+} ] \cup [ \ \Ev{ X = j } \cap \Ev{ Y = 2 } ] 
+\]
+
+ et
+ 
+\[
+ P \Ev{ Z = 2j } = \frac{ P \Ev{ X = 2j } + P \Ev{ X = j } }{ 2 } =
+\frac{ e^{ - \lambda } }{ 2 } \left( \frac{ \lambda^{ 2j } }{ (2j)! } +
+\frac{ \lambda^{j} }{ j! } \right). 
+\]
+
+ \item On décompose : 
+ 
+\[
+ (Z \text{ est paire } ) = \dcup{j = 0}{+ \infty} \Ev{Z = 2j } 
+\]
+
+ avec une union incompatible donc : 
+ \begin{eqnarray*}
+ P \left(\Ev{ Z \text{ est paire } }\right) & = & \Sum{j = 0}{+ \infty}
+\left[ \ \frac{ e^{ - \lambda } }{ 2 } \left( \frac{ \lambda^{ 2j } }{
+(2j)! } + \frac{ \lambda^{j} }{ j! } \right) \right] \\
+\\
+ & = & \frac{ e^{ - \lambda } }{ 2 } \left[ \ \Sum{j = 0}{+ \infty}
+\frac{ \lambda^{ 2j } }{ (2j)! } + \Sum{j = 0}{+ \infty} \frac{
+\lambda^{j} }{ j! } \right] \\
+\\
+ & = & \frac{ e^{ - \lambda } }{ 2 } \left[ \ \frac{ e^{ \lambda } +
+e^{ - \lambda } }{ 2 } + e^{ \lambda } \right] = \frac{ 1 + e^{ - 2
+\lambda } + 2 }{ 4 } = \frac{ 3 + e^{ - 2 \lambda } }{ 4 }. 
+ \end{eqnarray*}
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+ 
+ 
+
+\end{document}

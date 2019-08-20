@@ -1,0 +1,482 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 1997} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 1997}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1997}}
+
+
+
+{\large \textbf{Concepteur : Edhec}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+{\Large Exercice 1}
+
+Pour tout entier naturel $n$ non nul, on note $f_{n}$ la fonction
+définie par : $\forall x\in \R_{+}{*},\;f_{n}(x) = x-n.\ln (x)$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier cette fonction et dresser son tableau de variations.
+
+\item En déduire, lorsque $n$ est supérieur ou égal à $3$,
+l'existence de deux réels $u_{n}$et $v_{n}$solutions de l'équation
+$f_{n}(x) = 0$ et vérifiants $0<u_{n}<n<v_{n}$.
+\end{noliste}
+
+\item Étude de la suite $(u_{n})_{n\geq 3}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\forall n\geq 3,1<u_{n}<e$.
+
+\item Montrer que $f_{n}(u_{n + 1}) = \ln (u_{n + 1})$, puis en
+conclure que $(u_{n})$ est décroissante.
+
+\item En déduire que $(u_{n})_{n\geq 3}$ converge et montrer, en
+encadrant $\ln (u_{n}),$ que $\dlim{n\rightarrow + \infty }u_{n} = 1$.
+
+\item Montrer que $\dlim{n\rightarrow + \infty }{\frac{\ln
+(u_{n})}{u_{n}-1}} = 1$ ; en déduire que $\thicksim $ ${\frac{1}{n}}$.
+\end{noliste}
+
+\item Étude de la suite $\mathbf{(}v_{n}\mathbf{)}_{n\geq 3}$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $\dlim{n\rightarrow + \infty }}v_{n}$.
+
+\item Calculer $f_{n}(n\cdot \ln (n))$ puis montrer que $\forall n\geq
+3$, $n.\ln (n)<v_{n}.$
+
+\item Soit $g$ la fonction définie par : $\forall x\in \R^{*},g(x) =
+x-2\ln (x)$.
+
+Étudier $g$ et donner son signe. En déduire que $\forall n\in
+\N^{*},n>2\ln (n)$.
+
+\item En déduire le signe de $f_{n}(2n.\ln (n))$, puis établir que : 
+$n\ln \left( n\right) <v_{n}<2n.\ln (n)$
+
+\item Montrer enfin que : $\ln (v_{n})\underset{n\rightarrow + \infty
+}{\thicksim }n\cdot \ln (n)$
+\end{noliste}
+\end{noliste}
+
+{\Large Exercice 2}
+
+Pour tout entier naturel $n$ non nul, on pose $u_{n} = 1/\binom{n +
+p}{n},$où
+$p$ désigne un entier naturel fixé.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item {Montrer que si $p = 0$ ou si $p = 1$ la série de terme général
+$u_{n}$diverge. }
+
+\hspace{-1cm}{On suppose dans toute la suite que $p$ est supérieur ou 
+égal à $2$ et on pose $S_{n} = \Sum{k = 1}{n}u_{k}$ }
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item {Montrer que $\forall n\in \N,\left( n + p + 2\right)
+u_{n + 2} = \left( n + 2\right) u_{n + 1}$. }
+
+\item {En déduire par récurrence sur $n$ que }$ =
+{\frac{1}{p-1}}$}$\left( {1-\left( n + p + 1\right) u_{n + 1}}\right)
+${\ 
+}
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item {On pose $v_{n} = (n + p)u_{n}$. Montrer que la suite $(v_{n})$
+est décroissante. }
+
+\item {En déduire que la suite $(v_{n})$ converge et que sa limite
+$\ell 
+$ est positive ou nulle. }
+
+\item {Utiliser le résultat pprécédent pour montrer que la série de
+terme général $u_{n}$converge et donner sa somme en fonction
+de $p$ et de $\ell $. }
+\end{noliste}
+
+\item On suppose dans cette question seulement que $\ell \neq 0$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item {Montrer qu'au voisinage de }$ + \infty,\;${$u_{n}\thicksim 
+\frac{\ell }{n}$}
+
+\item {En déduire une contradiction avec la troisième question. }
+\end{noliste}
+
+\item {Donner la valeur de $\ell $ et en déduire en fonction de $p,$la
+somme de la série de terme général $u_{n}$ }
+\end{noliste}
+
+{\Large Exercice 3}
+
+$I$ désigne la matrice unité de $\M{3} $ et $M$ une matrice de $\M{3} $
+pour laquelle il existe un entier $p$ supérieur ou égal à 2 tel
+que $M^{p} = 0$ et $M^{p-1}\ne 0$
+
+On définit alors les matrices suivantes :
+
+\begin{noliste}{$\sbullet$}
+\item $\exp \left( M\right) = \Sum{k = 0}{p-1}\frac{1}{k!}M^{k},$ avec
+la convention 
+$M^{0} = I$
+
+\item $\ln \left( I + M\right) = \Sum{k = 1}{p-1}\frac{\left( -1\right)
+^{k + 1}}{k}M^{k} $
+\end{noliste}
+
+On considère l'enemble $E$ des matrices triangulaires supérieures de 
+$\M{3} $ dont tous les éléments
+diagonaux sont nuls.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $E$ est un espace vatoriel de sur $\R$ et donner
+sa dimension.
+
+\item Montrer que les matrices de $E$ ne sont pas inversibles.
+
+\item Montrer que toute matrice non nulle de $E$ n'est pas
+diagonalisable.
+\end{noliste}
+
+Dans la suite, $A$ désigne une matrice quelconque de $E.$
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item calculer $A^{k}$\hspace{-1cm} pour tout $k$ de $\N$.
+
+\item Exprimer$\exp \left( A\right) $ et $\ln \left( I + A\right) $ en
+fonction de $I$ et de $A.$
+\end{noliste}
+
+\item Montrer que $\ln \left[ \ \exp \left( A\right) \right] = A$
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $\ln \left( I + A\right) $ appartient à $E.$
+
+\item Montrer que $\exp \left[ \ \ln \left( I + A\right) \right] = I +
+A$
+\end{noliste}
+
+\item Montrer que $\forall m\in \N,\,\exp \left( m\,A\right) = \left[
+\exp \left( A\right) \right] ^{m}$
+
+\item Montrer que $\exp \left( A\right) $ est inversible et que sont
+inverse
+est : $\left[ \ \exp \left( A\right) \right] ^{-1} = \exp \left(
+-A\right) $
+
+\item Quelle condition doivent vérifier deux matrices $A$ et $B$ de $E$
+pour que $\exp \left( A + B\right) = \exp \left( A\right) \,\exp \left(
+B\right) $\ ?
+\end{noliste}
+
+{\Large Problème}
+
+Dans ce problème $n$ désigne un entier supérieur ou égal 
+à $2$.
+
+\textbf{Partie I}
+
+On effectue $2n$ tirages au hasard dans une urne contenant $n$ boules
+numérotées de $1$ à $n$.
+
+Un tirage consiste à extraire une boule de l'urne, la boule tirée 
+étant remise dans l'urne.
+
+On note $N$ la variable aléatoire égale au numéro du tirage au
+cours duquel, pour la première fois, on a obtenu une boule déjà
+obtenue auparavant.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item {Montrer que $N(\Omega ) = [[2,n + 1]]$. }
+
+\item {Montrer que $\forall k\in [[1,n]],\;p\left( N>k\right) =
+\frac{A_{n}{k}}{n^{k}}$ }
+
+\hspace{-1cm}Rappel : $A_{n}{k}$ désigne le nombre d'arrangements de
+$k$
+éléments d'un ensemble à $n$ éléments.
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item {\ Montrer que : }$\forall k${$\in [[2,n]],\;p(N = k) =
+p(N>k-1)-p(N>k)$. }
+
+\item {Calculer $p(N = n + 1)$ puis en déduire la loi de }$N{.}$
+\end{noliste}
+
+\item Montrer que l'espérance $\E(N)$ de la variable {aléatoire} $N$
+est : $\left( N\right) = \Sum{k = 0}{n}\frac{A_{n}{k}}{n^{k}}$
+\end{noliste}
+
+\textbf{Partie II}
+
+Soit $X$ une variable aléatoire, à valeurs dans $\R^{+},$ de
+densité $f$ (nulle sur $\R_{-}{*})$ et de fonction de répartition $F.$
+On suppose, de plus, $f$ continue sur $\R^{+}.$
+
+On pose, pour tout réel $x$ positif, $\varphi \left( x\right)
+ = \dint{0}{x}t\,f\left( t\right) \,dt$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer, gràce à une intégration par parties, que : 
+\[
+\forall x\in \R^{+},\;\varphi \left( x\right) = \dint{0}{x}\left[
+1-F\left( t\right) \right] \,dt-x\cdot P\left(\Ev{ X>x}\right)
+\]
+
+\item On suppose, dans cette question, que l'intégrale $\dint{0}{+
+\infty }\left[ 1-F\left( t\right) \right] \,dt$ converge.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $\varphi ^{\prime }\left( x\right) $ et en déduire que
+la
+fonction $\varphi $ est croissante sur $\R^{+}.$
+
+\item Montrer que $\varphi $ est majorée et en déduire que $X$ a une
+espérance.
+
+\item Montrer que : $\forall x\in \R^{+},\;0\leq x\cdot P\left(\Ev{
+X>x}\right) \leq \dint{x}{+ \infty }t\,f\left( t\right) \,dt$
+
+\item En utilisant le fait que $X$ a une espérance, montrer que
+$\dlim{x\rightarrow + \infty }\dint{x}{+ \infty }t\,f\left( t\right)
+\,dt = 0$
+
+En déduire $\dlim{x\rightarrow \infty }x\,P\left(\Ev{
+X>x}\right),$ puis montrer que : $\E\left( X\right) = \dint{0}{+ \infty
+}\left[
+1-F\left( t\right) \right] \,dt$
+\end{noliste}
+\end{noliste}
+
+\textbf{Partie III}
+
+On considère la fonction$F_{n}$ définie par :$\left\{ 
+\begin{array}{l}
+F_{n}\left( x\right) = 0\text{ si }x<0 \\
+ F_{n}\left( x\right) = 1-\left( 1 + \frac{x}{n}\right)
+^{n}e^{-x}\text{ si }x\geq 0
+\end{array}
+\right. $
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $F_{n}$ est la fontion de répartition d'une variable
+aléatoire à densité $T_{n}.$
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout entier naturel $k,$ l'intégrale $ =
+\dint{0}{+ \infty }x^{k}e^{-x}dx$ converge.
+
+\item Montrer que $I_{k + 1} = \left( k + 1\right) I_{k}$ puis donner
+la valeur de 
+$I_{k}.$
+\end{noliste}
+
+\item En déduire, en utilisant la partie II, que $T_{n}$ a une
+espérance etque $\E\left( T_{n}\right) = E\left( N\right).$
+\end{noliste}
+
+\textbf{Partie VI}
+
+On cosidère la déclaration de fonction suivante, rédigée en
+\Scilab{} :
+
+\texttt{function f(p,q :integer) :real;}
+
+\texttt{var j :integer; z :real;}
+
+\texttt{begin}
+
+\texttt{\hspace{1cm}if (p< = 0) or (q<0) then write('valeurs
+incorrectes')}
+
+\texttt{\hspace{1cm}else }
+
+\texttt{\hspace{1cm}begin}
+
+\texttt{\hspace{2cm}z : = 1;}
+
+\texttt{\hspace{2cm}for j : = 1 to (q-1) do z : = z*(1-j/p)}
+
+\texttt{\hspace{2cm}f : = z;}
+
+\texttt{\hspace{1cm}end;}
+
+\texttt{end;}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que si $p$ est un entier naturel non nnul et si $q$ est
+un
+entier naturel alors $ f\left( p,q\right) = \frac{A_{p}{q}}{p^{q}}$
+
+\item Utiliser cette déclaration pour écrire un algorithme en
+\Scilab{} donnant la valeur commune de $\E\left( N\right) $ et
+$\E\left(
+T_{n}\right) $ lorsque l'utilisateur entre la valeur de $n$ au clavier.
+\end{noliste}
+
+\end{document}
+

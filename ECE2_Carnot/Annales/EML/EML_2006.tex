@@ -1,0 +1,400 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EML 2006} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{EML 2006}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2006}}
+
+
+
+{\large \textbf{Concepteur : EML}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+{\LARGE Exercice 1}
+
+
+On considère les trois matrices de $\M{2} $ suivantes :
+
+\[
+A = \left( 
+\begin{array}{cc}
+0 & 1 \\
+0 & 1
+\end{array}
+\right),\;D = \left( 
+\begin{array}{cc}
+0 & 0 \\
+0 & 1
+\end{array}
+\right),\;U = \left( 
+\begin{array}{cc}
+1 & 0 \\
+0 & 0
+\end{array}
+\right)
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Quelles sont les valeurs propres de $A$ ?
+
+\item Déterminer une matrice inversible $P$ telle que $A =
+P\,D\,P^{-1}$
+\end{noliste}
+
+\hspace{-1cm}On note $E$ l'ensemble des matrices carrées $M$ d'ordre
+$2$
+telles que : $A\,M = M\,D$
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $E$ est un sous espace vectoriel de $\M{2} $
+
+\item Soit $M = \left( 
+\begin{array}{cc}
+x & y \\
+z & t
+\end{array}
+\right) $ une matrice de $\M{2} $
+
+Montrer que $M$ appartient à $E$ si et seulement si : $z = 0$ et $y =
+t$
+
+\item Établir que $\left( U,A\right) $ est une base de $E.$
+
+\item Calculer le produit $U\,A.$ Est-ce que $U\,A$ est élément de $E $
+?
+\end{noliste}
+
+\item On note $f :\M{2} \rightarrow 
+\M{2} $ l'application définie, pour
+tout $M\in \M{2},$ par :\\
+$f\left( M\right) = A\,M-M\,D.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $f$ est linéaire.
+
+\item Déterminer le noyau de $f$ et donner sa dimension.
+
+\item Quelle est la dimension de l'image de $f$ ?
+
+\item déterminer les matrice $M$ de $\M{2} $ telles que $f\left(
+M\right) = M.$
+
+En déduire que $1$ est valeur propre de $f.$
+
+Montrer que $-1$ est aussi valeur propre de $f.$
+
+\item Est-ce que $f$ est diagonalisable ?
+
+\item Montrer que $f\circ f\circ f = f$
+\end{noliste}
+\end{noliste}
+
+\begin{center}
+{\LARGE Exercice 2}
+\end{center}
+
+On note $F :\R^{2}\rightarrow \R$ l'application définie
+pour tout $\left( x,y\right) \in \R^{2}$ par : 
+\[
+F\left( x,y\right) = \left( x-1\right) \left( y-2\right) \left( x +
+y-6\right)
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\left( 4,2\right) $ et $\left( 2,3\right) $ sont des
+points critiques de $F.$
+
+\item Est-ce que $F$ présente un extremum local au point $\left(
+4,2\right) $ ?
+
+\item Est-ce que $F$ présente un extremum local au point $\left(
+2,3\right) $ ?
+\end{noliste}
+
+\item On note $\varphi :\R\rightarrow \R$ l'application définie, pour
+tout $x\in \R$ par : 
+\[
+\varphi \left( x\right) = x\left( x-2\right) \left( 2x-5\right) 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer : $\forall x\in \left[ 4; + \infty \right[,\quad \left(
+x-2\right) \left( 2x-5\right) \geq 4$
+
+\item En déduire : $\forall x\in \left[ 4; + \infty \right[,\quad
+\varphi
+\left( x\right) \geq 4x$ et $\varphi \left( x\right) \in \left[ 4, +
+\infty.\right[ $
+\end{noliste}
+
+\item On considère la suite réelle $\left( u_{n}\right)_{n\in 
+\N}$ définie par $u_{0} = 4$ et : 
+\[
+\forall n\in \N,\,u_{n + 1} = F\left( 1 + u_{n},u_{n}\right)
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer $u_{n + 1}$ en fonction de $u_{n}$ à l'aide de la
+fonction $\varphi.$
+
+\item Montrer : $\forall n\in \N :\mathbb{\quad }u_{n}\geq 4^{n + 1}$
+
+Quelle est la nature de la série de terme général $\dfrac{1}{u_{n}}$ ?
+
+\item Écrire un programme en -\Scilab{} qui calcule et affiche le plus
+petit entier naturel $n$ tel que $u_{n}\geq 10^{10}$
+\end{noliste}
+
+\item On note $g :\left[ 4, + \infty \right[ \ \rightarrow \R$
+l'application définie, pour tout $x\in \left[ 4; + \infty \right[,$ par
+: 
+\[
+g\left( x\right) = \frac{10}{\varphi \left( x\right) }
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que l'intégrale $\dint{4}{+ \infty }g\left( x\right\dx$
+converge.
+
+\item Trouver trois réels $a,\;b,\;c$ tels que 
+\[
+\forall x\in \left[ 4; + \infty \right[,\quad g\left( x\right) =
+\frac{a}{x} + \frac{b}{x-2} + \frac{c}{2x-5}
+\]
+
+\item Calculer $\dint{4}{+ \infty }g\left( x\right) \,dx$
+\end{noliste}
+\end{noliste}
+
+\begin{center}
+{\LARGE Exercice 3}
+\end{center}
+
+{\Large Partie A}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $U$ une variable aléatoire à densité suivant une loi
+normale d'espérance nulle et de variance $\frac{1}{2}$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Rappeler une densité de $U$
+
+\item En utilisant la définition de la variance de $U,$ montrer que
+l'intégrale $\dint{0}{+ \infty }x^{2}e^{-x^{2}}dx$ est
+convergente et que $\dint{0}{+ \infty }x^{2}e^{-x^{2}}dx =
+\frac{\sqrt{\pi }}{4}$
+\end{noliste}
+
+\hspace{-1cm}Soit $F$ la fonction définie sur $\R$
+par : $\left\{ 
+\begin{array}{c}
+\forall x\leq 0,\quad F\left( x\right) = 0 \\
+\forall x>0,\quad F\left( x\right) = 1-e^{-x^{2}}
+\end{array}
+\right. $
+
+\item Montrer que la fonction $F$ définit une fonction de répartition
+de variable aléatoire dont on déterminera une densité $f.$
+
+\item Soit $X$ une variable aléatoire admettant $f$ pour densité.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $X$ admet une espérance $\E\left( X\right) $ et que
+$\E\left( X\right) = \dfrac{\sqrt{\pi }}{2}.$
+
+\item Déterminer, pour tout réel $y,$ la probabilité $\Prob\left(\Ev{
+X^{2}\leq y}\right).$ \emph{On distinguera les cas }$y\leq 0$ \emph{et
+}$y>0.$
+
+\item Montrer que la variable aléatoire $X^{2}$ suit une loi
+exponentielle dont on précisera le paramètre.
+
+En déduire que $X$ admet une variance $\V\left( X\right) $ et calculer
+$\V\left( X\right) $
+\end{noliste}
+\end{noliste}
+
+{\Large Partie B}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $Z$ une variable aléatoire suivant une loi géométrique de
+paramètre $p.$
+
+Ainsi, pour tout $k\in \N^{*},\quad \mathrm{P}\left( Z = k\right)
+ = p\left( 1-p\right) ^{k-1}$
+
+Rappeler la valeur de l'espérance $\E\left( Z\right) $ et celle de la
+variance $\V\left( Z\right) $ de la variable aléatoire $Z.$
+
+\item Soient un entier $n$ supérieur ou égal à $2,$ et $n$
+variables aléatoires indépendantes $Z_{1}$, $Z_{2}$, $\dots $, $Z_{n}
+$, suivant toutes le loi géométrique de paramètre $p.$
+
+on considère la variable aléatoire $M_{n} = \dfrac{1}{n}\left(
+Z_{1} + Z_{2} + \dots + Z_{n}\right).$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer l'espérance $m$ et l'écart-type $\sigma_{n}$
+de $M_{n}$
+
+\item Montrer que $\dlim{n\rightarrow + \infty }\Prob\left(\Ev{ 0\leq
+M_{n}-m\leq \sigma
+_{n}}\right) $ existe et exprimer sa valeur à l'aide de
+$\dint{0}{1}e^{-\tfrac{x^{2}}{2}}dx$
+\end{noliste}
+\end{noliste}
+
+\end{document}
+

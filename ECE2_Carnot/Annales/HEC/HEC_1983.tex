@@ -1,0 +1,306 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 1983} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 1983}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\huge HEC Eco 1983}
+\end{center}
+
+\section*{PREMIER\ EXERCICE}
+
+On considère deux verres A et B de volume unité, pleins à ras bord, le
+premier d'eau, le second d'alcool pur. On dispose en outre d'un flacon
+F
+pour faire les mélanges.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On verse dans F, d'une part le volume $\dfrac{1}{n}$ du contenu
+de A (où $n$ est un entier naturel non nul), d'autre part tout le
+contenu du verre
+B. Après mélange, on remplit B avec le contenu de F. L'excédent de
+liquide
+resté dans F, de volume $\dfrac{1}{n},$ est jeté.\\
+Quel est le volume $q_{n}(1)$ d'alcool se trouvant dans le verre B à
+l'issue
+de cette opération (a) ?
+
+\item On répète $k$ fois l'opération (a) ($k\leq n$), en tirant à A à
+chaque fois un volume $\dfrac{1}{n}.$\\
+Quel est le volume $q_{n}(k)$ d'alcool se trouvant dans le verre B à
+l'issue
+de la $k^{\text{ème}}$ opération (a) ?
+
+\item On pose $q_{n} = q_{n}(n).$ Montrer que la suite $(q_{n})$ admet
+une
+limite $q.$
+
+\item Calculer la précision de $10^{-3}$ de combien $q$ est inférieur à
+$q_{1}(1).$\\
+\emph{Par commodité de langage, on parlera dans la suite de "versement
+goutte à goutte d'un verre sur un autre" (goutte }$\dfrac{1}{n}$\emph{\
+aussi petite qu'on le veut) pour désigner à la limite le processus
+décrit en
+1. Ainsi le versement goutte à goutte du verre d'eau A sur le verre
+d'alcool
+B produit dans B le mélange des volumes }$1-q$\emph{\ d'eau et
+}$q$\emph{\
+d'alcool, comme il a été calculé ci-dessus. (On se tiendra à l'écart de
+toute discussion relative à la physique des liquides)}
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Le verre A est plein d'eau, le verre B plein du mélange des
+volumes $P_{0}$ d'eau et $q_{0}$ d'alcool ($p_{0} + q_{0} = 1)$\\
+Quel est l'effet du versement goutte à goutte de A sur B ?
+
+\item Le verre A est plein d'alcool, le verre B plein du mélange des
+volumes 
+$P_{0}$ d'eau et $q_{0}$ d'alcool.\\
+Quel est l'effet du versement goutte à goutte de A sur B ?
+
+\item Sur le verre B dans l'état initial $(p_{0},q_{0})$ on verse
+goutte à
+goutte un verre d'eau, puis un verre d'alcool.\\
+Exprimer le volume $p_{1}$ d'eau obtenu dans B, en fonction de
+$p_{0}.$\\
+On note $f$ la fonction ainsi définie $f :p_{0}\mapsto p_{1}.$ Tracer
+dans un
+repère orthonormé les représentations graphiques des fonctions $f$ et
+$I :p_{0}\mapsto p_{0}.$
+
+\item Que devient le mélange du verre B si on itère la double opération
+du
+versement goutte à goutte sur B d'un verre d'eau et d'un verre d'alcool
+?
+\end{noliste}
+\end{noliste}
+
+\section*{DEUXIEM\E\ EXERCICE}
+
+Soit $k$ un nombre réel.\\
+On considère la suite réelle $(u_{n})$ définie par la donnée de ses
+premiers
+termes :
+\[
+u_{0} = 2k,\quad u_{1} = 1 + k
+\]
+et par la relation de récurrence :
+\[
+(\forall n\in \N)\qquad u_{n + 2} = u_{n + 1} +
+(k^{2}-\dfrac{1}{4})u_{n}.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer $u_{n}$ en fonction de $n,$ suivant les valeurs de $k.$
+
+\item Déterminer la limite, lorsqu'elle existe de $u_{n}$ quand $n$
+tend
+vers $ + \infty.$ Ici encore on discutera suivant les valeurs de $k.$
+\end{noliste}
+
+\section*{TROISIEM\E\ EXERCICE}
+
+Soient $n$ un entier naturel non nul et $f$ une fonction numérique $n$
+fois dérivable sur $\R,$ dont la dérivée $n^{\text{ème}}$ est continue.
+Soit $(a_{0},a_{1},...,a_{n})$ une suite strictement croissante de
+réels. On
+considère le polynôme
+\[
+P\left(\Ev{X}\right) = \left(\Ev{X-a_{0}}\right)(X-a_{1})\cdots
+(X-a_{n})
+\]
+Pour tout entier naturel $k$ tel que $k\leq n,$ on note $A_{k}$ le
+polynôme défini par 
+\[
+A_{k}(X) = \dfrac{P\left(\Ev{X}\right)}{X-a_{k}}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Exprimer $A_{k}(a_{k})$ à l'aide de la dérivée de $P.$
+
+\item Soit $g$ la fonction numérique définie sur $\R$ par la
+relation :
+\[
+g(x) = f(x)-\Sum{k = 0}{n}f(a_{k})\dfrac{A_{k}(x)}{A_{k}(a_{k})}.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer les nombres $g(a_{0}),$ $g(a_{1}),...,g(a_{n}).$
+
+\item Montrer qu'il existe un élément $\lambda $ de $]a_{0},a_{n}[$ tel
+que :
+\[
+f^{(n)}(\lambda ) = n!\Sum{k = 0}{n}\dfrac{f(a_{k})}{A_{k}(a_{k})}.
+\]
+
+\item Montrer qu'il existe un élément $x_{1}$ de $]a_{0},\lambda
+\lbrack $
+et un élément $x_{2}$ de $]\lambda,a_{n}[$ tels que :
+\[
+f^{(n-1)}(x_{2})-f^{(n-1)}(x_{1}) = (x_{2}-x_{1})f^{(n)}(\lambda )
+\]
+\end{noliste}
+
+\item On considère le cas particulier suivant :\begin{eqnarray*}
+f(x) & = & \sqrt{2}\cos (\dfrac{\pi }{4}x) \\
+n & = & 2,\quad a_{0} = -1,\quad a_{1} = 0,\quad a_{2} = 1
+\end{eqnarray*}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Expliciter $g.$
+
+\item Calculer $\dfrac{\pi ^{2}}{16}\cos (\dfrac{\pi }{4}\lambda ).$
+\end{noliste}
+\end{noliste}
+
+\section*{QUATRIEM\E\ EXERCICE}
+
+Soit $(X_{n},\;n\geq 1)$ une suite de variables aléatoires réelles,
+définies sur l'espace de probabilité $(\Omega,\mathcal{A},P).$ On
+suppose que
+ces variables suivant toutes la même loi de Bernouilli de paramètre $p$
+:
+\[
+P\left(\Ev{X_{n} = 1}\right) = p\qquad P\left(\Ev{X_{n} = 0}\right) =
+1-p,\qquad 0<p<1.
+\]
+On construit la suite $(Y_{n},\;n\geq 1)$ de variables aléatoires de la
+façon suivante :
+\[
+Y_{1} = X_{1},\quad Y_{2} = Y_{1}X_{2},...,\quad Y_{n} =
+Y_{n-1}X_{n},...
+\]
+$Y_{n}$ est la variable aléatoire produit des variables $Y_{n-1}$ et
+$X_{n}.$\\
+On suppose que pour tout entier $n\geq 2$ les variables aléatoires
+$Y_{n-1}$ et $X_{n}$ sont indépendantes.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer, pour tout $n\geq 1,$ la loi de probabilité de la
+variable aléatoire $Y_{n}.$\\
+Calculer l'espérance mathématique et la variance de $Y_{n}.$
+
+\item Trouver, pour tout $n\geq 1,$ la loi de probabilité conjointe de
+la variable aléatoire à deux dimensions $(X_{n},Y_{n}).$ Calculer la
+covariance de $X_{n}$ et $Y_{n}.$
+
+\item Déterminer, pour tout $n\geq 1,$ les lois de probabilité
+conditionnelles de $X_{n}$ sachant $Y_{n}$ prend la valeur $0,$ et de
+$X_{n}$
+sachant que $Y_{n}$ prend la valeur $1.$
+
+\item La suite des variables aléatoires $(Y_{n},\;n\geq 1)$
+converge-t-elle en probabilité quand $n$ tend vers l'infini ? Si oui,
+vers
+quelle limite ?
+\end{noliste}
+
+\begin{center}
+- FIN -
+\end{center}
+
+\label{fin}
+
+\end{document}
+

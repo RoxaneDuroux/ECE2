@@ -1,0 +1,507 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 1997} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dint}{\int}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 1997}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\Huge ECRICOME Eco 1997}
+\end{center}
+
+
+\begin{center}
+{\LARGE Exercice 1}
+\end{center}
+
+$\alpha $ est un réel strictement positif. Pour tout $n\in \N$
+on pose : 
+\[
+u_{n}\left( \alpha \right) = \frac{n!}{\prod\limits_{k = 0}{n}\left(
+\alpha
+ + k\right) } 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Étude de la convergence de la suite $\left( u_{n}\left( \alpha
+\right)
+\right)_{n\in \N}$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la suite $\left( u_{n}\left( \alpha \right)
+\right)_{n\in 
+\N}$ est monotone et convergente. Que peut-on déduire pour la série de
+terme général $\left( u_{n}\left( \alpha \right)
+-u_{n + 1}\left( \alpha \right) \right) $ ?
+
+On note $\ell \left( \alpha \right) $ la limite de la suite $\left(
+u_{n}\left( \alpha \right) \right)_{n\in \N}$
+
+\item On suppose que $\ell \left( \alpha \right) $ est non nulle.
+Démontrer que : 
+\[
+u_{n}\left( \alpha \right) -u_{n + 1}\left( \alpha \right)
+\underset{n\rightarrow + \infty }{\thicksim }\frac{\alpha \ell \left(
+\alpha \right) }{n} 
+\]
+
+\item Déduire de ce qui précède que $\ell \left( \alpha \right)
+ = 0$
+\end{noliste}
+
+\item Dans cette question : $\alpha \in \ ]0,1]$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : 
+\[
+\forall n\in \mathbb{N\;\;}u_{n}\left( \alpha \right) \geq \frac{1}{n +
+\alpha }
+\]
+
+\item Quelle est la nature de la série de terme général $u_{n}\left(
+\alpha \right) $ ?
+\end{noliste}
+
+\item On pose pour tout entier naturel $n$ : 
+\[
+I_{n}\left( \alpha \right) = \dint{0}{+ \infty }e^{-\alpha t}\left(
+1-e^{-t}\right) ^{n}dt 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier la convergence de l'intégrale généralisée $I_{n}\left(
+\alpha \right) $ et calculer $I_{0}\left( \alpha \right) $
+
+\item Soit un réel $x$ strictement positif. Intégrer par parties : 
+\[
+\dint{0}{x}e^{-\alpha t}\left( 1-e^{-t}\right) ^{n}dt 
+\]
+et en déduire une relation simple entre $I_{n}\left( \alpha \right) $
+et 
+$I_{n-1}\left( \alpha + 1\right) $, pour tout $n$ entier naturel non
+nul.
+
+\item En déduire : $\forall n\in \mathbb{N\;\;}I_{n}\left( \alpha
+\right) = u_{n}$
+\end{noliste}
+
+\item On suppose désormais que $\alpha >1$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout $N$ entier naturel : 
+\[
+\Sum{n = 0}{N}I_{n}\left( \alpha \right) = \frac{1}{\alpha -1}-I_{N +
+1}\left(
+\alpha -1\right) 
+\]
+
+\item En déduire que la série de terme général $u_{n}\left(
+\alpha \right) $ est convergente, et donner en fonction de $\alpha $ la
+valeur de $\Sum{n = 0}{+ \infty }u_{n}\left( \alpha \right) $.
+\end{noliste}
+\end{noliste}
+
+\begin{center}
+{\LARGE EXERCICE 2}
+\end{center}
+
+$\M{3} $ désigne l'ensemble des
+matrices carrées d'ordre 3 à coefficients réels.
+
+$\M{3,1} $ est l'ensemble des matrices
+colonnes à trois lignes dont les coefficients sont réels.
+
+On pose : 
+\[
+A = \left( 
+\begin{array}{lll}
+1 & 0 & 2 \\
+\frac{3}{2} & -2 & 6 \\
+\frac{1}{2} & -1 & \frac{5}{2}
+\end{array}
+\right) \;\text{et }B = \left( 
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right) 
+\]
+où $x,\;y$ et $z$ sont des nombres réels.
+
+On définit alors une suite de matrices colonnes $\left( X_{n}\right)
+_{n\in \N}$ de la manière suivante :
+
+\[
+\left\{ 
+\begin{array}{l}
+X_{0}\in \M{3,1} \\
+\forall n\in \mathbb{N\;}X_{n + 1} = AX_{n} + B
+\end{array}
+\right. 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que 0, $\frac{1}{2}$ et $1$ sont les valeurs propres de
+A, et préciser des
+vecteurs propres $u,\;v$ et $w$ qui leur sont respectivement associés.
+
+\item Justifier les affirmations suivantes :
+
+\begin{noliste}{$\sbullet$}
+\item il existe un unique triplet $\left( \alpha,\beta,\gamma \right) $
+de 
+$\R^{3}$ tel que : 
+\[
+B = \alpha u + \beta v + \gamma w 
+\]
+
+\item Pour tout entier naturel $n,$ il existe un unique triplet $\left(
+\alpha_{n},\beta_{n},\gamma_{n}\right) $ de $\R^{3}$ tel que : 
+\[
+X_{n} = \alpha_{n}u + \beta_{n}v + \gamma_{n}w 
+\]
+\end{noliste}
+
+\item Établir par récurrence que 
+\[
+n\in \N^{*}\;\;\left\{ 
+\begin{array}{l}
+\alpha_{n} = \alpha \\
+\beta_{n} = \left( \frac{1}{2}\right) ^{n}\left( \beta_{0}-2\beta
+\right)
+ + 2\beta \\
+\gamma_{n} = \gamma_{0} + n\gamma
+\end{array}
+\right. 
+\]
+
+\item Soit $\left( a_{n}\right)_{n\in \N},\;\left( b_{n}\right)
+_{n\in \N}$ et $\left( c_{n}\right)_{n\in \N}$ les suites réelles
+telles que : 
+\[
+\forall n\in \mathbb{N\;}X_{n} = \left( 
+\begin{array}{c}
+a_{n} \\
+b_{n} \\
+c_{n}
+\end{array}
+\right) 
+\]
+On dit que la suite de matrices colonnes $\left( X_{n}\right)_{n\in \N}
+$ converge si les suites réelles $\left( a_{n}\right)_{n\in
+\N},\;\left( b_{n}\right)_{n\in \N}$ et $\left( c_{n}\right)_{n\in 
+\N}$ convergent. Dans ce cas on écrit : 
+\[
+\lim X_{n} = \left( 
+\begin{array}{c}
+\lim a_{n} \\
+\lim b_{n} \\
+\lim c_{n}
+\end{array}
+\right) 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Prouver que $\left( X_{n}\right)_{n\in \N}$ converge si et
+seulement si le réel $\gamma $ (introduit en 2.) est nul.
+
+\item En déduire que $\left( X_{n}\right)_{n\in \N}$ converge
+si et seulement si : 
+\[
+3x-4y + 12z = 0 
+\]
+\end{noliste}
+
+\item On dit que le couple $(A,B)$ admet une position d'équilibre
+stable
+si la suite $\left( X_{n}\right)_{n\in \N}$ converge vers la même
+limite quelle que soit la valeur de $X_{0}$.
+\end{noliste}
+
+Expliquer pourquoi, quelle que soit la valeur de $B$, le couple $\left(
+A,B\right) $ n'admet pas de position d'équilibre stable.
+
+\begin{center}
+{\Large Exercice 3}
+\end{center}
+
+Dans tout le problème (qui comporte deux parties indépendantes), on
+suppose que la durée, exprimée en minutes, d'une communication
+téléphonique est une variable aléatoire réelle $D$ qui suit la loi
+exponentielle de paramètre $\alpha $
+
+\textbf{I Comparaison de deux tarifications}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour ses communications, on propose à l'utilisateur d'une ligne
+téléphonique deux tarifications $T_{1}$ et $T_{2}$, exprimées en
+francs, définies de la façon suivante :
+\end{noliste}
+
+\begin{noliste}{$\sbullet$}
+\item $T_{1} = aD$, où $a$ est un nombre réel strictement supérieur à 1
+qui représente le prix d'une minute de communication
+
+\item $T_{2}$ est à valeurs dans $\N^{*}$ et, pour tout $n$
+entier naturel non nul : $\{T_{2} = n\} = \{n-1<D\leq n\}$
+\end{noliste}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer $\E(T_{1})$ en fonction de $a$ et de $\alpha $.
+
+\item Déterminer la loi de $T_{2}$. De quelle loi s'agit-il ? Exprimer
+$\E(T_{2})$ en fonction de $\alpha $
+
+\item On pose : 
+\[
+\left\{ 
+\begin{array}{c}
+\forall t\in \R_{+}{*} : \varphi \left( t\right) = \frac{t}{1-e^{-t}}
+\\
+\varphi \left( 0\right) = 1
+\end{array}
+\right. 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\varphi $ est une fonction de classe $C^{1}$ sur
+$[0, + \infty [$
+
+\item On définit de plus la fonction $\psi $ sur $[0, + \infty [$ par :
+
+\[
+\forall t\in \R :\psi \left( t\right) = 1-\left( 1 + t\right) e^{-t} 
+\]
+Utiliser cette fonction pour en déduire que $\varphi $ réalise une
+bijection de$[0, + \infty [$ vers $[1, + \infty [$
+\end{noliste}
+
+\item Comparaison des tarifications
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer qu'il existe un unique réel $\alpha_{0}$ strictement
+positif tel que $\varphi \left( \alpha_{0}\right) = a$
+
+\item Préciser quelle est, en moyenne, la tarification la plus
+avantageuse suivant la valeur de la durée moyenne d'une communication.
+\end{noliste}
+
+\item Pour $a = 1,25$ donner, en utilisant votre calculatrice. une
+valeur
+approchée de $\frac{1}{\alpha_{0}}$
+
+(on ne donnera que les deux premières décimales fournies par la
+calculatrice).
+\end{noliste}
+
+\textbf{II Étude d'un standard téléphonique }
+
+Dans toute cette partie, $\theta $ est un nombre réel strictement
+positif représentant un temps exprimé en minutes. Un standard
+téléphonique de capacité illimitée reçoit des communications
+téléphoniques entre l'instant 0 et l'instant $\theta $ inclus.
+
+\textbf{II A Cas d'une seule communication}
+
+On désigne par n un entier naturel non nul. L'instant où débute
+la communication est une variable aléatoire réelle $I_{n}$ telle que : 
+\[
+\left\{ 
+\begin{array}{c}
+ I_{n}\left( \Omega \right) = \left\{ \frac{\theta }{n},\frac{2\theta
+}{n},\dots,\frac{\left( n-1\right) \theta }{n},\frac{n\theta
+}{n}\right\} \\
+ \forall k\in \left[ \ \left[ 1,n\right] \right] :p\left( I_{n} =
+\frac{k\theta }{n}\right) = \frac{1}{n}
+\end{array}
+\right. 
+\]
+où $p$ désigne la probabilité. De plus $I_{n}$ et $D$ (la durée
+aléatoire de la communication) sont indépendantes.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour tout réel positif $t,$ rappeler quelle est l'expression de
+$p\left( D>t\right) $ en fonction de $t$ et de $\alpha $.
+
+\item En déduire, pour $k$ élément de $\left[ \ \left[ 1,n\right]
+\right] $ la probabilité conditionnelle de $\left\{ D + I_{n}>\theta
+\right\} $ sachant $\left\{ I_{n} = \frac{k\theta }{n}\right\}.$
+
+\item Démontrer l'égalité suivante : 
+\[
+p\left( D + I_{n}>\theta \right) = \frac{1}{n}\left( \frac{\alpha
+\theta }}{\frac{\alpha \theta }{n}}}\right) 
+\]
+
+\item Déterminer : 
+\[
+\dlim{n\rightarrow + \infty }p\left( D + I_{n}>\theta \right) 
+\]
+\end{noliste}
+
+\textbf{II B Étude de l'encombrement du standard à l'instant }$\theta $
+
+Dans cette partie on définit les nombres réels $p$ et $q$ par : 
+\[
+p = \frac{1-e^{-\alpha \theta }}{\alpha \theta }\text{ \ et \ \ }q =
+1-p 
+\]
+On suppose désormais que la probabilité qu'une communication reçue dans
+l'intervalle de temps $\left[ 0,\theta \right] $ se poursuive au-delà
+de l'instant $\theta $ est égale à $p$.
+
+On note $N_{\theta }$ la variable aléatoire réelle égale au
+nombre de communications reçues dans l'intervalle de temps $\left[
+0,\theta \right] $ et l'on suppose que $N_{\theta }$ suit une loi de
+Poisson
+de paramètre $\theta $.
+
+On note$C_{\theta }$ la variable aléatoire réelle égale au
+nombre de communications reçues dans l'intervalle de temps $\left[
+0,\theta \right] $ qui se poursuivent au-delà de l'instant $\theta $
+
+Les instants aléatoires où les communications se terminent sont
+mutuellement indépendant.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Loi de probabilité de $C_{\theta }$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $r$ un entier naturel. Quelle est la loi conditionnelle de
+$C_{\theta }$ sachant que $\left\{ N_{\theta } = r\right\} $ ?
+
+\item Démontrer que l'on a : 
+\[
+\forall r\in \mathbb{N\;\;\forall }k\in \left[ \ \left[ 0,r\right]
+\right]
+\;\;p\left( \left\{ C_{\theta } = k\right\} \cap \left\{ N_{\theta } =
+r\right\}
+\right) = \frac{e^{-\theta }\left( p\theta \right) ^{k}\left( q\theta
+\right) ^{r-k}}{k!\left( r-k\right) !}\;\;\; 
+\]
+
+\item En déduire, pour tout entier naturel $k$, une expression simple
+de 
+$p\left( C_{\theta } = k\right) $ en fonction de $k$, $p,$ et $\theta
+$.
+Quelle est la loi de probabilité de $C_{\theta } ?$
+\end{noliste}
+
+\item Étude de l'espérance de $C_{\theta }$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer l'expression de $\E\left( C_{\theta }\right) $ en
+fonction de $\theta $ et de $\alpha $.
+
+\item Quelle est la limite de $\E\left( C_{\theta }\right) $ lorsque
+$\theta $
+tend vers$ + \infty $ ? Vérifier qu'elle majore $\E\left( C_{\theta
+}\right) $.
+\end{noliste}
+\end{noliste}
+
+\end{document}
+

@@ -1,0 +1,445 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EML 2013} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{EML 2013}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{0.3cm}
+
+\Tbox{ \begin{center} \Huge \textbf{EM Lyon 2013} \end{center} }
+
+\vspace*{0.5cm}
+
+\section*{EXERCICE 1}
+
+\section*{Partie I - Calcul d'une intégrale dépendant d'un paramètre.}
+\noindent On considère l'application $g : [ 0 ; 1] \longrightarrow \R$
+définie, pour tout $t \in [ 0 ; 1]$, par : 
+\[
+g(t) = \left\{ 
+\begin{array}{ccl}
+ - t \ln t & \text{ si } & 0 < t \leq 1 \\
+0 & \text{ si } & t = 0. \\
+\end{array}
+\right. 
+\]
+ 
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Montrer que $g$ est continue sur $[ 0 ; 1]$. \\
+
+\item \`{A} l'aide d'une intégration par parties, calculer, pour tout
+$x \in \ ] 0 ; 1[ $, l'intégrale $\dint{x}{1} g(t)\ dt$. \\
+
+\item En déduire que l'intégrale $\dint{0}{1} g(t)\ dt$ converge et que
+: 
+\[
+ \dint{0}{1} g(t)\ dt = \frac{1}{4}.
+\]
+
+\end{noliste}
+
+\section*{Partie II - Exemple de densité.}
+\noindent On considère l'application $f : \R \longrightarrow \R$
+définie, pour tout $t \in \R$ par :
+\[
+ f(t) = \left\{ 
+\begin{array}{cl}
+ - t \ln (t) + t^{ 1/3} & \text{ si } 0 < t < 1 \\
+0 & \text{ sinon.} \\
+\end{array}
+\right. 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Montrer que $f$ est continue sur $]-\infty ; 1 [$ et sur $] 1 ; +
+\infty [$. \\
+Est-ce que $f$ est continue en 1 ? \\
+
+\item Établir que l'intégrale $\dint{-\infty}{+ \infty} f(t)\ dt$
+converge et que : $\dint{-\infty}{+ \infty} f(t)\ dt = 1$. \\
+
+\item Montrer que $f$ est une densité. \\
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Montrer que $f$ est de classe $C^{2}$ sur $ ] 0 ; 1[ $ et
+calculer $f'(t)$ et $f''(t)$ pour tout $t \in \ ]0; 1[$. \\
+
+\item En déduire que l'équation $f'(t) = 0$, d'inconnue $t \in \ ] 0 ;
+1[$, admet une solution et une seule, notée $\alpha$, et montrer :
+$\frac{1}{e} < \alpha < 1$. \\
+
+\item Écrire un programme en -\Scilab{} qui calcule et affiche une
+valeur approchée de $\alpha$ à $10^{-3}$ près, mettant en oeuvre
+l'algorithme de dichotomie. 
+
+\end{noliste}
+\end{noliste}
+
+\section*{Partie III - Calcul d'une fonction de répartition.}
+\noindent On admet qu'il existe une variable aléatoire réelle $X$ ayant
+$f$ pour densité (l'application $f$ a été définie au début de la partie
+II) et on note $F$ la fonction de répartition de $X$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Calculer, pour tout $x \in \ ] 0 ; 1[$, l'intégrale $\dint{x}{1}
+f(t)\ dt$. \\
+(On pourra utiliser le résultat obtenu à la question I.2.) \\
+
+\item Calculer $F(x)$ pour tout $x \in \R$. \\
+
+\item Tracer l'allure de la courbe représentative de $F$.
+
+\end{noliste}
+
+\section*{Partie IV - Étude d'extremum local pour une fonction de deux
+variables réelles.}
+\noindent On note $D$ l'ensemble des couples $(x,y)$ appartenant à $] 0
+; + \infty[$ tels que : $x + y < 1$ et $2 x < 1$. \\
+On considère l'application $G : D \longrightarrow \R$, de classe
+$C^{2}$ sur l'ouvert $D$, définie, pour tout $(x,y) \in D$, par : 
+\[
+G(x,y) = f(x + y) - \frac{1}{2} f(2x), 
+\]
+l'application $f$ ayant été définie au début de la partie II.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Représenter l'ensemble $D$. \\
+
+\item Calculer, pour tout $(x,y) \in D$, les dérivées partielles
+premières de $G$ en $(x,y)$, en fonction de $x, \ y, \ f'$. \\
+
+\item Soit $(x,y) \in D$. Montrer que $(x,y)$ est un point critique de
+$G$ si et seulement si : 
+\[
+f'(2x) = 0 \ \ \text{ et } \ \ f'(x + y) = 0.
+\]
+
+\item En déduire que $G$ admet un point critique et un seul, et qu'il
+s'agit de $\left( \frac{\alpha}{2}, \frac{\alpha}{2} \right)$, le réel
+$\alpha$ ayant été défini en II 4.b. \\
+
+\item Est-ce que $G$ admet un extremum local ?
+
+\end{noliste}
+
+\section*{EXERCICE 2}
+\noindent On note $A = \begin{smatrix}
+0 & 0 & 0 & 2 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+2 & 0 & 0 & 0 \\
+\end{smatrix}
+\in M_{4} (\R)$. \\
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Est-ce que $A$ est diagonalisable dans $M_{4} (\R)$ ? \\
+
+\item Déterminer les valeurs propres de $A$ et, pour chaque valeur
+propre de $A$, déterminer une base du sous-espace propre associé. \\
+
+\item En déduire une matrice diagonale $D \in M_{4} (\R)$, à
+coefficients diagonaux rangés dans l'ordre croissant, et une matrice
+inversible $P \in M_{4} (\R)$, à coefficients diagonaux tous égaux à 1,
+telles que $A = P D P^{-1}$, et calculer $P^{-1}$. \\
+\\
+
+On appelle commutant de $A$, et on note $C_{A}$, l'ensemble des
+matrices $M$ de $M_{4}(\R)$ telles que : 
+\[
+AM = MA.
+\]
+On appelle commutant de $D$, et on note $C_{D}$, l'ensemble des
+matrices $N$ de $M_{4}(\R)$ telles que : 
+\[
+DN = ND.
+\]
+
+\item Montrer que $C_{A}$ est un sous-espace vectoriel de $M_{4} (\R)$.
+\\
+
+\item Soit $M \in M_{4} (\R)$. On note $N = P^{-1} M P$. Montrer : 
+\[
+ M \in C_{A} \Longleftrightarrow N \in C_{D}. 
+\]
+
+\item Déterminer $C_{D}$, en utilisant les coefficients des matrices.
+\\
+
+\item En déduire : 
+\[
+ C_{A} = \left\{ \begin{smatrix}
+a & 0 & 0 & b \\
+0 & c & d & 0 \\
+0 & d & c & 0 \\
+b & 0 & 0 & a \\
+\end{smatrix}
+\ ; \ (a,b,c,d) \in \R^{4} \right\}. 
+\]
+
+\item Déterminer une base de $C_{A}$ et la dimension de $C_{A}$.
+
+\end{noliste}
+
+\section*{EXERCICE 3}
+\noindent Soit $n$ un entier supérieur ou égal à 2. \\
+On considère une urne $\mathcal{U}$ contenant $n$ boules numérotées de
+1 à $n$ et indiscernables au toucher. \\
+On effectue une suite de tirages d'une boule avec remise dans l'urne
+$\mathcal{U}$.
+
+\section*{Partie I.}
+\noindent Soit $k$ un entier supérieur ou égal à 1. Pour tout $i \in
+\lb 1 ; n \rb$, on note $X_{i}$ la variable aléatoire égale au nombre
+d'obtentions de la boule numéro $i$ au cours des $k$ premiers tirages. 
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Soit $i \in \lb 1 ; n \rb$. DOnner la loi de la variable $X_{i}$.
+Rappeler l'espérance et la variance de $X_{i}$. \\
+
+\item Les variables aléatoires $X_{1},X_{2}, \dots, X_{n}$ sont-elles
+indépendantes ? \\
+
+\item Soit $(i,j) \in \lb 1 ; n \rb^{2}$ tel que $i \neq j$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Déterminer la loi de la variable aléatoire $X_{i} + X_{j}$.
+Rappeler la variance de $X_{i} + X_{j}$. \\
+
+\item En déduire la covariance du couple $(X_{i},X_{j})$. \\
+
+\end{noliste}
+
+\end{noliste}
+
+\noindent Pour tout entier $k$ supérieur ou égal à 1, on note $Z_{k}$
+la variable aléatoire égale au nombre de numéros distincts obtenus au
+cours des $k$ premiers tirages et on note $\E(Z_{k})$ l'espérance de
+$Z_{k}$.
+
+\section*{Partie II.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Déterminer la loi de la variable aléatoire $Z_{1}$ et la loi de
+la variable aléatoire $Z_{2}$. \\
+En déduire $\E(Z_{1})$ et $\E(Z_{2})$. \\
+
+\item Soit $k$ un entier supérieur ou égal à 1. 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Déterminer $\Prob\left(\Ev{Z_{k} = 1}\right)$ et déterminer
+$\Prob\left(\Ev{Z_{k} = k}\right)$. \\
+
+\item Montrer, pour tout $l \in \lb 1 ; n \rb$ : $\Prob\left(\Ev{Z_{k +
+1} = l }\right) = \frac{l}{n} \Prob\left(\Ev{Z_{k} = l}\right) +
+\frac{n-l + 1}{n} \Prob\left(\Ev{Z_{k} = l-1}\right)$. \\
+
+\item En déduire : $\E(Z_{k + 1} = \frac{n-1}{n} E(Z_{k}) + 1$. \\
+
+\end{noliste}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Montrer que la suite $(v_{k})_{k \geq 1}$, de terme général
+$v_{k} = E(Z_{k}) - n$, est une suite géométrique. \\
+
+\item En déduire, pour tout entier $k$ supérieur ou égal à 1 :
+$\E(Z_{k}) = n \left( 1 - \left( \frac{n-1}{n} \right)^{k} \right)$.
+
+\end{noliste}
+
+\end{noliste}
+
+\section*{Partie III.}
+
+\noindent On suppose maintenant que $n = 4$; ainsi l'urne $\mathcal{U}$
+contient quatre boules numérotées de 1 à 4. \\
+Soit $k$ un entier supérieur ou égal à 4. On se propose de déterminer
+la loi de $Z_{k}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Rappeler la valeur de $\Prob\left(\Ev{Z_{k} = 1}\right)$.
+Déterminer $\Prob\left(\Ev{Z_{k} \geq 5}\right)$. \\
+
+\item Montrer : $ \ \ \ \ \Prob\left(\Ev{Z_{k} = 2}\right) = 6
+\frac{2^{k} - 2}{4^{k}}$. \\
+
+\item On note, pour tout $i$ de $\lb 1 ; 4 \rb$, $A_{i}$ l'évènement : 
+\[
+ \text{ \og la boule numéro } i \text{ n'a pas été obtenue au cours des
+} k \text{ premiers tirages \fg}. 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Montrer : $ \ \ \Prob\left(\Ev{Z_{k} \leq 3}\right) = 4
+P\left(\Ev{A_{1}}\right) - 6 P( A_{1} \cap A_{2}) + 4 P( A_{1} \cap
+A_{2} \cap A_{3})$. \\
+
+\item Calculer $ \ \ \Prob\left(\Ev{A_{1}}\right), \ \ \Prob(A_{1} \cap
+A_{2})$ et $P(A_{1} \cap A_{2} \cap A_{3})$. \\
+
+\item En déduire : $ \ \ \ \Prob\left(\Ev{Z_{k} \leq 3}\right)$, puis
+$\Prob\left(\Ev{Z_{k} = 3}\right)$ et $\Prob\left(\Ev{Z_{k} =
+4}\right)$.
+
+\end{noliste}
+
+\end{noliste}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

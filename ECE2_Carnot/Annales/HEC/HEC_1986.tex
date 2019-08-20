@@ -1,0 +1,282 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 1986} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 1986}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\huge HEC Eco 1986}
+\end{center}
+
+\section*{EXERCIC\E\ 1}
+
+On considère la matrice 
+\[
+M = 
+\begin{smatrix}
+10 & 1 \\
+1 & 0
+\end{smatrix}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer les valeurs propres $\lambda $ et $\mu $ de $M;$ on
+notera $\lambda $ celle de ces valeurs propres qui a la plus grande
+valeur absolue.
+Montrer que $\lambda \mu = -1.$\\
+Pour tout nombre entier naturel non nul $n,$ calculer la matrice
+$M^{n}.$
+
+\item Soit $(u_{n})$ une suite de nombres réels. Pour tout nombre
+entier
+naturel $n,$ on pose :
+\[
+X_{n} = 
+\begin{smatrix}
+u_{n + 1} \\
+u_{n}\end{smatrix}.
+\]
+Montrer que les deux conditions suivantes sont équivalentes.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout nombre entier naturel $n$
+\[
+(1)\qquad u_{n + 2} = 10u_{n + 1} + u_{n}
+\]
+
+\item Pour tout entier naturel $n,$ 
+\[
+(2)\qquad X_{n + 1} = MX_{n}
+\]
+\end{noliste}
+
+\item Soit $\alpha $ un nombre réel. On note $(u_{n}(\alpha ))$
+l'unique
+suite satisfaisant aux conditions équivalentes précédentes et telle que
+$u_{0}(\alpha ) = 1$ et $u_{1}(\alpha ) = \alpha.$\\
+Exprimer $u_{n}(\alpha )$ en fonction de $\alpha,$ $\lambda,$ $\mu $ et
+$n.
+$
+
+\item Montrer que la suite $(u_{n}(\alpha ))$ est convergente si et
+seulement si $\alpha = \mu ;$ déterminer alors la limite de cette
+suite.
+
+\item Soit $\mu ^{\prime }$ une valeur décimale approchée de $\mu $ à
+la précision $10^{-p},$ où $p\in \N^{\times }.$ Autrement dit, $\mu
+^{\prime } = \mu + \delta,$ où $\left| \delta \right| \leq
+10^{-p}.$ On se propose d'examiner si $u_{n}(\mu ^{\prime }),$ que l'on
+calcule par récurrence (à l'aide d'une calculatrice) grâce à la
+relation
+(1), fournit une bonne approximation de $u_{n}(\mu ).$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Dans cette question, on prend $\mu ^{\prime } = -$ 0,099\ 02
+(valeur
+approchée de $\mu $ à la précision $10^{-4}).$ À l'aide de la
+calculatrice,
+calculer $u_{n}(\mu ^{\prime })$ pour $2\leq n\leq 10.$ Exprimer
+d'autre part $u_{n}(\mu )$ en fonction de $\lambda $ et de $n;$ A
+partir de
+cette relation, calculer les valeurs décimales approchées de $u_{n}(\mu
+)$
+pour $2\leq n\leq 10.$
+
+\item Exprimer $u_{n}(\mu ^{\prime })-u_{n}(\mu )$ en fonction de
+$\delta,$ 
+$\lambda,$ $\mu $ et $n.$ En déduire l'ordre de grandeur de $u_{10}(\mu
+^{\prime })-u_{10}(\mu )$ lorsqu'on prend $\mu ^{\prime }$ la valeur
+approchée définie au a).\\
+Expliquer ainsi le phénomène observé à la question a).
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCIC\E\ 2}
+
+Pour tout entier naturel non nul $n,$ on note $f_{n}$ la fonction
+numérique définie sur $\R_{+}$ par la relation :
+\[
+f_{n}(x) = \dfrac{x-n}{x + n}-e^{-x}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Étudier la variation de la fonction $f_{n}.$
+
+\item Montrer que l'équation $f_{n}(x) = 0$ admet une solution $u_{n}$
+et une
+seule.
+
+\item On se propose d'étudier le comportement asymptotique de la suite
+$(u_{n}).$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En étudiant le signe de $f_{n}(n),$ montrer que $u_{n}>n.$ En
+déduire
+la limite de la suite $(u_{n}).$
+
+\item Montrer que $f_{n}(n + 1)$ est positif à partir d'un certain
+rang. En déduire la limite de $\dfrac{u_{n}}{n}.$
+
+\item Montrer que :
+\[
+\dlim{n\rightarrow + \infty }(u_{n}-n) = 0
+\]
+(On pourra étudier le signe de $f_{n}(n + \varepsilon )$ où
+$\varepsilon $ est
+un nombre réel strictement positif.)
+\end{noliste}
+
+\item On se propose d'étude la suite de terme général $a_{n} =
+u_{n}-n.$
+Expliciter la relation $f_{n}(n + a_{n}) = 0.$ En déduire la limite de
+$\dfrac{e^{n}}{n}a_{n}.$
+\end{noliste}
+
+\section*{EXERCIC\E\ 3}
+
+Soit $n$ un nombre entier naturel supérieur ou égal à $2.$ On note $I$
+l'ensemble $\{1,2,...,n\}.$\\
+Soit $X$ une variable aléatoire à valeurs dans $I.$ Pour tout entier
+$i$ de $I,$ on note $p_{i}$ la probabilité que $X$ prenne la valeur
+$i;$ on suppose
+que $p_{i}>0.$\\
+On pose enfin :
+\[
+H(X) = \Sum{i = 1}{n}p_{i}\ln \dfrac{1}{p_{i}}.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que la quantité $H(X)$ est strictement positive. Quelle
+est sa
+valeur lorsque $X$ suit une loi uniforme sur $I$ ?
+
+\item Soit $(q_{1},q_{2},...,q_{n})$ une suite de $n$ nombres réels
+strictement positifs telle que $\Sum{i = 1}{n}q_{i} = 1.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que, pour tout nombre réel strictement positif $x$ :
+\[
+\ln x\leq x-1
+\]
+
+\item En déduire que :
+\[
+\Sum{i = 1}{n}p_{i}\ln \dfrac{q_{i}}{p_{i}}\leq 0
+\]
+Dans quel cas le premier membre est-il nul ?
+
+\item Montrer que $H(X)\leq \ln n.$ Caractériser le cas où il y a
+égalité.
+\end{noliste}
+
+\item Soit $(X,Y)$ un couple de variables aléatoires à valeurs dans
+$I\times
+I.$ Pour tout élément $(i,j)$ de $I\times I.$ On note $r_{ij}$ la
+probabilité
+que $X$ prenne $i$ et $Y$ la valeur $j;$ on suppose que $r_{ij}>0.$ On
+note
+respectivement $(p_{i})_{i\in I}$ et $(q_{j})_{j\in I}$ les lois
+marginales
+de $X$ et de $Y.$ On pose :
+\[
+H(X,Y) = \Sum{i = 1}{n}\Sum{j = 1}{n}r_{ij}\ln \dfrac{1}{r_{ij}}.
+\]
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

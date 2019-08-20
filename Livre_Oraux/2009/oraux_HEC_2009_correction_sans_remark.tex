@@ -1,0 +1,328 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2009} %
+\author{} %
+\date{} %
+\begin{document}
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+%%DEBUT
+
+\begin{exerciceAP}~\\
+  On étudie la vente d'un certain type de produit sur internet sur
+  trois sites A, B, C et on fait les constatations suivantes :
+  \begin{itemize}
+  \item si un client choisit le site A pour un achat, il choisit
+    indifféremment A, B ou C pour l'achat suivant,
+  \item si un client fait un achat auprès du site B, il fait l'achat
+    suivant sur le même site B,
+  \item si un client fait un achat sur le site C, il choisira pour
+    l'achat suivant le site A avec une probabilité 1/12, le site B
+    avec une probabilité 7/12 et le site C avec une probabilité 1/3.
+  \end{itemize}
+  Au départ le client choisit au hasard l'un des trois sites. \\
+  On suppose que l'expérience est modélisée par un espace probabilisé
+  $(\Omega , \A , P)$. \\
+  Pour $n \in \N^*$, on désigne par $p_n$, $q_n$ et $r_n$ les
+  probabilités pour que, au $n$-ième achat, le client se fournisse
+  respectivement auprès de A, B et C.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Enoncer la formule des probabilités
+    totales.
+  \item Quelles sont les valeurs de $p_1$, $q_1$ et $r_1$?
+  \item Pour tout $n \in \N^*$, donner une relation entre $p_n$, $q_n$ et $r_n$.
+  \item Exprimer respectivement $p_{n+1}$, $q_{n+1}$ et $r_{n+1}$ en
+    fonction des trois réels $p_n$, $q_n$ et $r_n$.
+  \item Pour $n \geq 2$, exprimer $p_n$ en fonction de $r_n$ et
+    $r_{n-1}$.
+  \item Prouver que la suite $(r_n)_{n \in \N^*}$ est une suite
+    récurrente linéaire. Donner l'expression de $r_n$, puis $p_n$ et
+    $q_n$ en fonction de $n$.
+  \item Étudier la convergence des trois suites $(r_n)$, $(p_n)$ et $(q_n)$. \\
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Donner un exemple de matrice $M$ non nulle telle que $(I , M , {}^t
+  M)$ soit une famille liée. \\
+  Dans quel cas de telles matrices sont diagonalisables?
+\end{exerciceSP}
+
+%\newpage
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Loi géométrique, espérance et variance.
+  \item Soit $x$ un réel de $]0 ; 1[$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} 
+    \item Établir, pour tout $n \in \N^*$, l'égalité :
+      \[
+      \dint{0}{x} \frac{1-t^n}{1-t} = \Sum{k=1}{n} \frac{x^k}{k}
+      \]
+    \item Montrer que $\dlim{n \rightarrow +\infty} \dint{0}{x}
+      \frac{t^n}{1-t}\ dt = 0$.
+    \item En déduire la convergence de la série de terme général
+      $\frac{x^k}{k}$ ainsi que l'égalité :
+      \[
+      \Sum{k=1}{+\infty} \frac{x^k}{k} = - \ln (1-x).
+      \]
+    \end{noliste}
+  \item Soit $X$ une variable aléatoire réelle définie sur un espace
+    probabilisé $(\Omega , \A , P)$ qui suit une loi
+    géométrique de paramètre $p$ ($0<p<1$). \\
+    On pose $Y = \frac{1}{X}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer $Y(\Omega)$ et la loi de probabilité de $Y$.
+    \item Établir, pour tout entier $m$ de $\N^*$, l'existence du
+      moment d'ordre $m$, $\E(Y^m)$, de $Y$.
+    \item Calculer $\E(Y)$ en fonction de $p$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soit la matrice $A = 
+  \begin{smatrix} 
+    1 & 2 \\ 
+    3 & 4 \\ 
+    -1 & 4
+  \end{smatrix}$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Existe-t-il $B \in \mathcal{M}_{2,3} (\R)$ telle que $AB =
+    I_3$ ?
+  \item Existe-t-il $C \in \mathcal{M}_{2,3} (\R)$ telle que $CA =
+    I_2$ ?
+  \end{noliste}
+\end{exerciceSP}
+
+
+%\newpage
+
+
+\begin{exerciceAP}~\\
+  On considère la suite réelle $(u_n)_{n \in \N}$ définie par : 
+  \[
+  u_0 = 3,\ u_1 = \frac{29}{9} \text{ et } \forall n \in \N,\ u_{n+2}
+  = 9 - \frac{26}{u_{n+1}} + \frac{24}{u_n u_{n+1}}.
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Enoncer les résultats concernant les
+    suites récurrentes linéaires d'ordre 2.
+
+  \item Écrire une fonction en Pascal permettant de calculer la valeur
+    du terme $u_n$ pour tout $n \in \N$ entré par l'utilisateur.
+
+  \item Montrer qu'il existe une unique suite réelle $(a_n)_{n \in
+      \N}$ à valeurs dans $\N^*$ telles que :
+    \[
+    \left\{ \begin{array}{c}
+        a_0 = 3 \\
+        \forall n \in \N,\ u_n = \frac{a_{n+1}}{a_n} \\
+        \forall n \in \N,\ a_{n+3} = 9 a_{n+2} - 26 a_{n+1} + 24 a_n
+      \end{array} 
+    \right.
+    \]
+  \item Prouver que pour tout $n \in \N$, $a_n = 2^n + 3^n + 4^n$.
+  \item Expliciter $u_n$ en fonction de $n$, puis $\dlim{n \rightarrow
+      +\infty} u_n$.
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soient $X_1$ et $X_2$ deux variables aléatoires définies sur un
+  espace probabilisé $(\Omega , \A , P)$, indépendantes et de lois
+  géométriques de paramètres $p_1$ et $p_2$ respectivement ($p_i \in
+  ]0 ; 1[$ pour $i = 1,2$). \\
+  On pose $U = X_1 + X_2$ et $T = X_1 - X_2$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item On suppose $p_1 \neq p_2$. Les variables aléatoires $U$ et $T$
+    sont-elles indépendantes?
+  \item On suppose $p_1 = p_2 = p$. Les variables aléatoires $U$ et
+    $T$ sont-elles indépendantes?
+  \end{noliste}
+\end{exerciceSP}
+
+
+%\newpage
+
+
+\begin{exerciceAP}~\\
+  Soient $(a,b,c) \in \R^3$ et $A = 
+  \begin{smatrix} 
+    1 & a & b \\ 
+    0 & 1 & c \\ 
+    0 & 0 & 1 
+  \end{smatrix}$.\\
+  On pose $N = A- I$ et $M = N^2 - N$ (où $I$ désigne la matrice
+  identité de $\mathcal{M}_3(\R)$.
+  \\[.2cm]
+  Soient $u$ et $v$ les endomorphismes de $\R^3$ canoniquement
+  associés aux matrices $N$ et $M$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Matrices semblables, définition et propriétés.
+  \item Étudier la diagonalisabilité de $A$.
+  \item Montrer que $A$ est inversible et exprimer $A^{-1}$ en
+    fonction de $I$ et de $M$.
+  \item On suppose dans cette question que le rang de $u$ est égal à 2. 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer l'existence d'un vecteur $x$ de $\R^3$ tel que
+      $\mathcal{B} = (u^2(x),u(x),x)$ soit une base de $\R^3$.
+      \\[.2cm]
+      En déduire que $N$ est semblable à $
+      \begin{smatrix}
+        0 & 1 & 0 \\ 
+        0 & 0 & 1 \\ 
+        0 & 0 & 0 
+      \end{smatrix}$.
+    \item Exprimer la matrice de $v$ dans la base $\mathcal{B}$ et en
+      déduire que $M$ et $N$ sont semblables.
+    \item Conclure que $A$ et $A^{-1}$ sont aussi semblables.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soit $X$ une variable aléatoire que suit la loi de Poisson de
+  paramètre $\lambda > 0$. \\
+  On désigne l'espérance par $E$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Établir l'existence de $E \left( \frac{1}{1+X} \right)$.
+  \item Montrer que $E \left( \frac{1}{1+X} \right) \leq \min \left( 1
+      , \frac{1}{\lambda} \right)$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+%\newpage
+
+
+\begin{exerciceAP}~\\
+  Une urne contient des boules blanches, noires et rouges. Les
+  proportions respectives de ces boules sont $b$ pour les blanches,
+  $n$ pour les noires et $r$ pour les rouges ($b + n + r = 1$).\\
+  On effectue dans cette urne des tirages successifs indépendants avec
+  remise. Les proportions de boules restent ainsi les mêmes au cours
+  de l'expérience. \\
+  On modélise l'expérience par un espace probabilisé $(\Omega , \A ,
+  P)$.
+
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Loi d'un couple de variables aléatoires
+    discrètes. Lois marginales.
+  \item Pour $k \in \N^*$, on note $Z_k$ la variable aléatoire qui
+    prend la valeur $+1$ si une boule blanche est tirée au $k$-ième
+    tirag, $-1$ si une boule noire est tirée au $k$-ième tirage et 0
+    si une boule rouge est tirée au $k$-ième tirage. On note $S_k =
+    Z_1 + \dots + Z_k$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} 
+    \item Trouver la loi de probabilité de $S_1$. Calculer son
+      espérance et sa variance. En déduire l'espérance et la variance
+      de $S_k$.
+    \item Pour tout réel $t$ strictement positif et pour tout $k$ de
+      $\N^*$, on pose $g_k(t) = E \left(t^{S_k} \right)$. \\
+      Expliciter $g_k(t)$ en fonction de $t$ et de $k$.
+    \item Montrer que $g_k'(1) = \E(S_k)$ et retrouver le résultat de
+      la question $(a)$.
+    \end{noliste}
+
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item On note $X_1$ la variable aléatoire représentant le numéro
+      du tirage auquel une boule blanche sort pour la première
+      fois. Trouver la loi de probabilité de $X_1$. Calculer son
+      espérance et sa variance.
+    \item Sachant que $X_1 = k$, quelle est la probabilité de tirer
+      une boule rouge à chacun des $k-1$ premiers tirages?
+    \item On note $W$ la variable aléatoire représentant le nombre de
+      boules rouges tirées avant l'obtention de la première boule
+      blanche. Quelle est la loi conditionnelle de $W$ sachant $X_1 =
+      k$?
+    \item En déduire la loi de $W$ (sous forme d'une somme qu'on ne
+      cherchera pas à calculer).
+    \end{noliste}
+
+  \item On note $Y_1$ la variable représentant le numéro du tirage
+    auquel une boule noire sort pour la première fois.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Trouver, pour tout couple d'entiers strictement positifs
+      $(k,l)$, la probabilité de l'évènement $[ X_1 = k\ ,\ Y_1 = l]$
+      (on pourra distinguer selon que $k > l,\ k=l$ ou $k < l$). \\
+      Les variables aléatoires $X_1$ et $Y_1$ sont-elles
+      indépendantes?
+    \item On se place, pour cette question, dans le cas particulier où
+      $r=0$ (c'est-à-dire qu'il n'y a pas de boule rouge). Calculer
+      alors la covariance de $X_1$ et $Y_1$.
+    \end{noliste} 
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soient $n \geq 2$ et $(x_1 , x_2,\ \dots\ , x_n) \in \R^n - \{(0,\
+  \dots\ ,0) \}$. \\
+  On pose $X = 
+  \begin{smatrix} 
+    x_1 \\
+    x_2 \\ 
+    \vdots \\
+    x_n
+  \end{smatrix}$, puis $B = {}^tX X$ et $A = X {}^t X$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Écrire la matrice $B$.
+  \item Déterminer les vecteurs propres et les sous-espaces propres de
+    la matrice $A$.
+  \end{noliste}
+\end{exerciceSP}
+
+%%FIN
+
+\end{document}

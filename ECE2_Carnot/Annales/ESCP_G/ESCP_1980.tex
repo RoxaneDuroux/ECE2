@@ -1,0 +1,298 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1980} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION GENERALE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 1980}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent Dans tout le problème, on désigne par :
+
+\begin{noliste}{$\sbullet$}
+\item $n$ un entier naturel non nul,
+
+\item $p$ un nombre de l'intervalle $]0,1[$
+
+\item $p_{1},$ $p_{2},$ $p_{3}$ des nombres réels strictement positifs
+
+\item $\N_{n}$ le sous-ensemble de $\N$ formé par les
+entiers naturels au plus égaux à $n$
+\end{noliste}
+
+\noindent Si $X$ est une variable aléatoire réelle discrète dont la
+distribution de probabilité est définie par :
+\[
+P\left(\Ev{X = x_{i}}\right) = a_{i},\quad (i\in \N_{n}),
+\]
+et si $k$ est un entier naturel non nul, on appelle :
+
+\begin{noliste}{$\sbullet$}
+\item moment d'ordre $k$ de $X$ le nombre $\Sum{i\in
+\N_{n}}a_{i}x_{i}{k}$
+
+\item moment centré d'ordre $k$ le nombre $\Sum{i\in
+\N_{n}}a_{i}(x_{i}-\E(X))^{k}$ où $\E(X)$ désigne l'espérance
+mathématique de $X.
+$
+\end{noliste}
+
+\section*{PARTI\E\ PRELIMINAIRE}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que si $x$ et $y$ sont des entiers naturels tels que $x +
+y\leq n$ on a les égalités :
+\[
+C_{n}{x}.C_{n-x}{y} = C_{n}{y}.C_{n-y}{x} = \dfrac{n!}{x!y!(n-x-x)!}
+\]
+
+\item Soit $Z$ une variable aléatoire dont la distribution de
+probabilité
+est binomiale de paramètres $n,p.$ Pour tout entier naturel $k$ non
+nul, on désigne respectivement par $\mu_{k}$ et $m_{k}$ les moment et
+moment centré
+d'ordre $k$ de la variable aléatoire $Z.$\\
+Démontrer que :
+\[
+\mu_{k + 1} = np\mu_{k} + p(1-p)\dfrac{d\mu_{k}}{dp}
+\]
+et pour $k\geq 2$ :
+\[
+m_{k + 1} = p(1-p)\left[ nkm_{k-1} + \dfrac{dm_{k}}{dp}\right] 
+\]
+où $\dfrac{d\mu_{k}}{dp}$ et $\dfrac{dm_{k}}{dp}$ sont les dérivées de
+$\mu
+_{k}$ et $m_{k}$ par rapport à $p.$
+\end{noliste}
+
+\section*{PARTI\E\ I}
+
+Soit $T_{n}$ le sous-ensemble de $\N^{2}$ défini par :
+\[
+T_{n} = \{(x,y)\quad /\quad x\in \N,\quad y\in \N,\quad
+x + y\leq n\}.
+\]
+On considère la fonction $f$ définie sur $T_{n}$ par :
+\[
+f(x,y) = \dfrac{n!}{x!y!(n-x-y)!}p_{1}{x}.p_{2}{y}.p_{3}{n-x-y}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item A quelle condition doivent satisfaire $p_{1},$ $p_{2},$ $p_{3}$
+pour
+que l'on ait 
+\[
+\Sum{(x,y)\in T_{n}}f(x,y) = 1\text{ ?}
+\]
+\underline{On supposera cette condition réalisée dans toute la suite du
+problème}
+
+\item On considère la variable aléatoire discrète à deux dimensions,
+notées $(X,Y)$, dont la distribution de probabilité conjointe est
+définie pour tout $(x,y)$ élément de $T_{n}$ par :
+\[
+P\left(\Ev{X = x,Y = y}\right) = f(x,y)
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les distributions de probabilité marginales des
+variables aléatoires $X$ et $Y.$
+
+\item En déduire les espérances mathématiques $\E(X)$, $\E(Y)$ ainsi
+que les
+variances $\V(X)$ et $\V(Y)$ des variables aléatoires $X$ et $Y.$
+
+\item Les variables aléatoires $X$ et $Y$ sont-elles indépendantes ?
+Justifier votre réponse.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la distribution de probabilité de la variable
+aléatoire $S = X + Y.$
+
+\item Déduire du (I,3,a) la valeur de la covariance des variables
+aléatoires 
+$X$ et $Y,$ puis celle de leur coefficient de corrélation linéaire.
+\end{noliste}
+\end{noliste}
+
+\section*{PARTI\E\ II}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Etant donné $y$ éléments de $\N_{n},$ déterminer la
+distribution de probabilité conditionnelle de $X$ sachant $(Y = y).$\\
+\textit{Dans la suite du problème on notera }$X_{y}$\textit{\ la
+variable aléatoire ayant cette distribution de probabilité}.
+
+\item La distribution de probabilité de $X_{y}$ est " classique ", la
+reconnaître et en donner les paramètres.
+\end{noliste}
+
+\item Déterminer en fonction de $n,$ $y,$ $p_{1},$ $p_{2}$ l'espérance
+mathématique $\E(X_{y})$ et la variance $\V(X_{y})$ de la variable
+aléatoire $X_{y}.
+$
+
+\item Pour tout entier naturel non nul $k,$ on désigne respectivement
+par $\mu_{y,k}$ les moment et moment centré d'ordre $k$ de la variable
+aléatoire 
+$X_{y}.$ Établir les relations (1) et (2) suivantes :
+\[
+(1)\qquad \mu_{y,k + 1} = (n-y)\dfrac{p_{1}}{1-p_{2}}\mu_{y,k} +
+\dfrac{p_{1}p_{3}}{(1-p_{2})^{2}}\dfrac{d\mu_{y,k}}{d\left(
+\dfrac{p_{1}}{1-p_{2}}\right) }
+\]
+et pour $k\geq 2$ :
+\[
+(2)\qquad m_{y,k + 1} = \dfrac{p_{1}p_{3}}{(1-p_{2})^{2}}\left[
+(n-y)km_{y,k-1} + \dfrac{dm_{y,k}}{d\left(
+\dfrac{p_{1}}{1-p_{2}}\right) }\right],
+\]
+où $\dfrac{d\mu_{y,k}}{d\left( \dfrac{p_{1}}{1-p_{2}}\right) }$ et
+$\dfrac{dm_{y,k}}{d\left( \dfrac{p_{1}}{1-p_{2}}\right) }$ représentent
+les dérivées
+par rapport à $\dfrac{p_{1}}{1-p_{2}}$ de $\mu_{y,k}$ et $m_{y,k}.$
+
+\item Que deviennent les résultats des questions II. 1), 2), 3),
+lorsque
+l'on considère la distribution de probabilité conditionnelle de $Y$
+sachant $(X = x)$ ?\\
+\textit{On notera dans la suite du problème }$Y_{X}$\textit{\ la
+variable aléatoire ayant cette distribution de probabilité}
+\end{noliste}
+
+\section*{PARTI\E\ III}
+
+Soient $\varphi $ et $\psi $ les applications de $\N_{n}$ dans $\R$
+définies par :
+\[
+\varphi (x) = E(Y_{x})\qquad \text{et}\qquad \psi (y) = E(X_{y})
+\]
+Le plan affine étant rapporté au repère
+$(O,\overrightarrow{x},\overrightarrow{y})$ on considère les
+représentations graphiques $C$ et $\Gamma $ des fonctions :
+\[
+y = \varphi (x)\qquad \text{et}\qquad x = \psi (y).
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Construire $C$ et $\Gamma $ dans le cas particulier :
+\[
+n = 12,\quad p_{1} = \dfrac{1}{2},\quad p_{2} = \dfrac{1}{3},\quad
+p_{3} = \dfrac{1}{6}
+\]
+
+\item On appelle support $\varphi ^{s}$ et $\psi ^{s}$ des fonctions
+$\varphi $ et $\psi $, les fonctions affines réelles dont les
+restrictions à $\N_{n}$ sont respectivement $\varphi $ et $\psi.$ On
+note $C^{s}$
+et $\Gamma ^{s}$ leur représentation graphique.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les coordonnées du point d'intersection de $C^{s}$ et
+$\Gamma ^{s}.$
+
+\item A quelle(s) condition(s) $C$ et $\Gamma $ ont-elles un point
+commun ?
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

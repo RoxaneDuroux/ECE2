@@ -1,0 +1,360 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+
+\vspace{0.1cm}
+
+\begin{center}
+\textbf{\Large{Programme de colle - Semaine 10}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Notation}
+
+\noindent
+On adoptera les principes suivants pour noter les étudiants :
+\begin{noliste}{$\stimes$}
+\item si l'étudiant sait répondre à la question de cours, il 
+aura une note $>8$.
+\item si l'étudiant ne sait pas répondre à la question de 
+cours ou s'il y a trop d'hésitations, il aura une note $\leq 8$.
+\end{noliste}
+
+\section*{Questions de cours}
+
+\begin{noliste}{$\sbullet$}
+  \item {\bf Stabilité des lois de Poisson}~\\
+  Si $X \suit \Pois{\lambda}$ et $Y \suit \Pois{\mu}$ avec $X$ et $Y$ 
+  {\bf indépendantes}, alors $X+Y \suit \Pois{\lambda + \mu}$.
+  
+  \begin{proof}~
+  \begin{noliste}{$\sbullet$}
+    \item Comme $X(\Omega) = \N$ et $Y(\Omega) = \N$, on a :
+    $(X+Y)(\Omega) \subset \N$.\\
+    \item Soit $k \in \N$. La famille $(\Ev{X = i})_{i \in \N}$ est un 
+    SCE.\\
+    Ainsi, d'après la formule des probabilités totales :
+    \[
+    \begin{array}{ccl>{\it}R{4cm}}
+      & & \Prob(\Ev{X+Y = k}) 
+      \\[.2cm]
+      = & & \Sum{i=0}{+\infty} \Prob(\Ev{X=i} \, \cap \, \Ev{X + Y = k}) 
+      \\[.4cm]
+      = & & \Sum{i=0}{+\infty} \Prob(\Ev{X=i} \, \cap \, \Ev{Y = k-i}) & 
+      \\[.4cm]
+      = & & \Sum{i=0}{+\infty} \Prob(\Ev{X=i}) \ \Prob(\Ev{Y=k-i}) & 
+      (par indépendance de $X$ et $Y$) 
+      \nl 
+      \nl[-.2cm]
+      = & & \Sum{%
+              \scalebox{.8}{$
+                \begin{array}{c}
+                  i = 0 \\
+                  k - i \in Y(\Omega)
+                \end{array}
+                $}
+            }{+\infty}  \Prob(\Ev{X=i}) \ \Prob(\Ev{Y=k-i})
+      \\[.8cm]
+      & + & \bcancel{\Sum{%
+              \scalebox{.8}{$
+                \begin{array}{c}
+                  i = 0 \\
+                  k - i \notin Y(\Omega)
+                \end{array}
+                $}
+            }{+\infty} 
+      \Prob(\Ev{X=i}) \ \Prob(\Ev{Y=k-i})}
+      & (car $\Ev{Y = k-i} = \emptyset$ \\ si $k - i \notin
+            Y(\Omega)$)
+      \nl
+      \nl[-.2cm]
+      =& & \Sum{i=0}{k} \Prob(\Ev{X=i}) \ \Prob(\Ev{Y=k-i})
+    \end{array}
+    \]
+    
+    \item La dernière ligne est obtenue en constatant : 
+    \[
+        \left\{
+          \begin{array}{l}
+            k-i \in Y(\Omega) = \N \\[.2cm]
+            i \in \llb 0, +\infty \llb
+          \end{array}
+        \right.
+        %\\[1cm]
+        \ \Leftrightarrow \
+        \left\{
+          \begin{array}{l}
+            0 \leq k-i \\[.2cm]
+            0 \leq i
+          \end{array}
+        \right.
+        \ \Leftrightarrow \
+        \left\{
+          \begin{array}{l}
+            i \leq k \\[.2cm]
+            0 \leq i 
+          \end{array}
+        \right.
+        \ \Leftrightarrow \
+        \left\{
+          \begin{array}{l}
+            0 \leq i \leq k
+          \end{array}
+        \right.
+    \]
+    
+    
+    \newpage
+    
+    
+    \item Ainsi, en reprenant les égalités précédentes :
+    \[
+      \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+        \Prob(\Ev{X+Y = k} &=& 
+        \Sum{i=0}{k} \Prob(\Ev{X=i}) \, \Prob(\Ev{Y=k-i})
+        \\[.4cm]
+        &=& \Sum{i=0}{k} \dfrac{\lambda^i}{i!} \ \ee^{-\lambda} \
+        \dfrac{\mu^{k-i}}{(k-i)!} \ \ee^{-\mu}
+        & (car $X \suit \Pois{\lambda}$ et $Y \suit \Pois{\mu}$)
+        \nl
+        \nl[-.2cm]
+        &=& \ee^{-\lambda} \, \ee^{-\mu} \ \Sum{i=0}{k} \dfrac{1}{i! \, 
+        (k-i)!} \ \lambda^i \, \mu^{k-i}
+        \\[.6cm]
+        &=& \ee^{-(\lambda + \mu)} \ \dfrac{1}{k!} \ \Sum{i=0}{k}
+        \dfrac{k!}{i! \, (k-i)!} \ \lambda^i \, \mu{k-i}
+        \\[.6cm]
+        &=& \ee^{-(\lambda + \mu)} \ \dfrac{1}{k!} \ \Sum{i=0}{k}
+        \dbinom{k}{i} \ \lambda^i \, \mu{k-i}
+        \\[.6cm]
+        &=& \ee^{-(\lambda + \mu)} \ \dfrac{1}{k!} \ (\lambda + \mu)^k
+        & (d'après la formule du binôme de Newton)
+      \end{array}
+    \]
+    \end{noliste}
+    Finalement : $X+Y \suit \Pois{\lambda + \mu}$.
+  \end{proof}
+  
+  
+  
+
+  
+  \item {\bf Inégalité de Cauchy-Schwarz}~\\
+ {\it Attention : cette propriété n'est pas au programme. Il est 
+ néanmoins nécessaire de connaître sa démonstration.}~\\
+ Soient $X$ et $Y$ deux v.a. discrètes admettant un moment d'ordre 
+ $2$.
+ \[
+ (\cov(X,Y))^2 \leq V(X)V(Y)
+ \]
+ 
+ \begin{proof}~
+  \begin{noliste}{$1.$}
+    \item On montre que :
+    \[
+     \forall \lambda \in\R, \ \V(X + \lambda Y)= \V(X) + 2 \lambda 
+     \cov(X,Y) + \lambda^2 \V(Y)
+    \]
+    Soit $\lambda\in\R$.
+    \[
+     \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+      \V(X+\lambda Y) &=& \cov(X+\lambda Y, X+\lambda Y)
+      \\[.2cm]
+      &=& \cov(X,X+\lambda Y) + \lambda \cov(Y,X+\lambda Y) 
+      & (par linéarité à gauche de la covariance)
+      \nl
+      \nl[-.2cm]
+      &=& \cov(X,X) + \lambda \cov(X,Y) + \lambda \cov(Y,X) +
+      \lambda^2 \cov(Y,Y) 
+      & (par linéarité à droite de la covariance)
+      \nl
+      \nl[-.2cm]
+      &=& \cov(X,X) +2\lambda \cov(X,Y) + \lambda^2 \cov(Y,Y)
+      & (par symétrie de la covariance)
+      \nl
+      \nl[-.4cm]
+      &=& \V(X) +2\lambda\cov(X,Y) + \lambda^2 \V(Y)
+     \end{array}
+    \]
+    
+    \item Le polynôme $P$ définit par :
+    \[
+     \forall \lambda\in\R, \ P(\lambda)=\lambda^2 \V(Y) + 
+     2\lambda \cov(X,Y) + \V(X)
+    \]
+    est un polynôme de degré $2$ en $\lambda$.\\
+    De plus, pour tout $\lambda\in\R$, $P(\lambda)=\V(X+\lambda Y) 
+    \geq 0$, car une variance est toujours positive.\\
+    Donc son discriminant est négatif, \ie
+    \[
+     (2\cov(X,Y))^2-4\V(Y)\V(X) \leq 0
+    \]
+    On obtient donc : $(\cov(X,Y))^2\leq \V(X)\V(Y)$.
+
+
+  \end{noliste}
+ \end{proof}
+ 
+ 
+ \newpage
+ 
+ 
+ \item {\bf Propriétés de la covariance}~\\
+ {\it (On demandera la 
+ démonstration des propriétés \itbf{1., 2., 4.} ou 
+ \itbf{1., 3., 4.})}~
+ \begin{noliste}{1.}
+\item Symétrie :
+\[
+\cov(X,Y)=\cov(Y,X)
+\]
+\item Linéarité à gauche :
+\[
+\forall (\lambda, \mu) \in \R^2, \ \cov(\lambda X_1 + \mu X_2, Y) = 
+\lambda \cov(X_1,Y) + \mu \cov(X_2,Y)
+\]
+\item Linéarité à droite :
+\[
+\forall (\lambda, \mu) \in \R^2, \ \cov(X,\lambda Y_1 + \mu Y_2) = 
+\lambda \cov(X,Y_1) + \mu \cov(X,Y_2)
+\]
+\item Soit $a \in \R$,
+\[
+\cov(a,X)=0
+\]
+\end{noliste}
+
+\begin{proof}[Preuve]~
+\begin{noliste}{1.}
+\item Par définition de la covariance,
+\[
+\begin{array}{rcl}
+\cov(X,Y) &=& \E((X-\E(X))(Y-\E(Y)))
+\\[.2cm]
+&=& \E((Y-\E(Y))(X-\E(X)))
+\\[.2cm]
+&=& \cov(Y,X)
+\end{array}
+\]
+
+\item Soit $(\lambda, \mu) \in\R^2$. Soient $X_1$, $X_2$ et $Y$ des 
+\var admettant un moment d'ordre $2$.
+\[
+\begin{array}{rcl@{\quad}>{\it}R{4cm}}
+\cov(\lambda X_1 + \mu X_2, Y) &=& \E((\lambda X_1 + \mu X_2) Y) - 
+\E(\lambda X_1 + \mu X_2)\E(Y) & (d'après la formule de Koenig-Huyghens)
+\nl[-.4cm]
+\nl
+&=& \E(\lambda X_1 Y + \mu X_2 Y) - \E(\lambda X_1 + \mu X_2)\E(Y)
+\\[.2cm]
+&=& \lambda \E(X_1 Y) + \mu \E(X_2 Y) - (\lambda \E(X_1) + \mu \E(X_2)) 
+\E(Y) & (par linéarité de l'espérance)
+\nl[-.4cm]
+\nl
+&=& \lambda \E(X_1 Y) + \mu \E(X_2 Y) - \lambda \E(X_1)\E(Y) - \mu 
+\E(X_2) \E(Y)
+\\[.2cm]
+&=& \lambda (\E(X_1 Y) - \E(X_1)\E(Y)) + \mu (\E(X_2 Y) - 
+\E(X_2) \E(Y))
+\\[.2cm]
+&=& \lambda \cov(X_1,Y) + \mu \cov(X_2,Y) & (d'après la formule de 
+Koenig-Huyghens)
+\end{array}
+\]
+
+\item Idem point précédent
+
+\item Soit $a\in\R$ et $X$ une \var admettant un moment d'ordre $2$. 
+D'après la formule de Koenig-Huyghens, on a : 
+\[
+\cov(a,X) = 
+\E(aX)-\E(a)\E(X) = a\E(X)-\E(a)\E(X)
+\]
+Or $a \in \R$, donc $\E(a)=a$. D'où $\cov(a,X)=0$.
+\end{noliste}
+\end{proof}
+\end{noliste}
+
+
+\newpage
+
+
+\section*{Connaissances exigibles}
+
+\subsection*{Réduction}
+
+\begin{noliste}{-}
+ \item Matrices de passages, représentations matricielles d'un 
+  endomorphisme dans des bases différentes, changement de bases
+  \item Matrices semblables, lien entre puissances $k$ième de $2$ 
+  matrices semblables
+  \item Valeurs propres, vecteurs propres, spectre, sous-espaces propres
+  \item Liens entre éléments propre de $f$ et éléments propre de 
+  $A=\Mat_{\B}(f)$, caractérisation des éléments propres, lien entre 
+  inversibilité et la valeur propre $0$, valeurs propres d'une matrice 
+  triangulaire
+  \item Polynômes annulateurs
+  \item Lien entre diagonalisabilité et dimensions des sous-espaces 
+  propres
+  \item Diagonalisabilité des matrices symétriques
+  \item {\bf Les élèves ne savent pas trigonaliser une matrice seuls.
+  On les guidera toujours pour un tel exercice}
+\end{noliste}
+
+\noindent
+{\bf Remarque :} les élèves doivent connaître les méthodes pour :
+\begin{noliste}{-}
+\item passer de la représentation par endomorphisme à la 
+représentation matricielle et vice versa.
+\item montrer qu'un vecteur est un vecteur propre
+\item déterminer les valeurs propres d'un endomorphisme ou 
+d'une matrice
+\item déterminer les sous-espaces propres d'un endomorphisme 
+ou d'une matrice
+\item savoir repérer si une matrice est diagonalisable dans les cas 
+simples (triangulaire, symétrique)
+\item savoir repérer si $0$ est valeur propre d'un endomorphisme grâce 
+à matrice représentative
+\item déterminer une matrice de passage et savoir interpréter 
+son inverse.
+\item diagonaliser une matrice (sans les guider dans les étapes de 
+diagonalisation)
+\end{noliste}
+
+
+\subsection*{Couples de \var}
+
+\begin{noliste}{-}
+  \item On ne considère que des couples de v.a. {\bf discrètes}.
+  \item Les colleurs sanctionneront très sévèrement les confusions entre 
+  objets mathématiques :\\ 
+  probabilité / événement, variable aléatoire / 
+  événement, expérience / variable aléatoire, etc.
+  \item Lois de couples, lois marginales, lois conditionnelles.
+  \item Indépendance (pour $2$ ou $n$ v.a.), lemme des coalitions.
+  \item Loi d'une fonction d'un couple de v.a. discrète $Z=g(X,Y)$. En 
+  particulier, loi de la somme, du produit, du maximum, du minimum. 
+  Stabilité par somme de la loi binomiale et de la loi de Poisson.
+  \item Espérance de la somme, du produit.
+  \item Covariance, lien avec la variance. $X$ et $Y$ indépendantes 
+  implique $\text{Cov}(X,Y)=0$.
+  \item Variance d'une somme.
+  \item Coefficient de corrélation linéaire.
+\end{noliste}
+
+\end{document}

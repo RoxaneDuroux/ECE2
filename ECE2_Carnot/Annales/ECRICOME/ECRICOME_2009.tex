@@ -1,0 +1,600 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 2009} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 2009}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\Huge ECRICOME Eco 2009}
+\end{center}
+
+\section{EXERCICE.}
+
+A tout triplet $\left( a,b,c\right) $ de réels, on associe la matrice
+$M\left( a,b,c\right) $ définie par :
+\[
+M\left( a,b,c\right) = 
+\begin{smatrix}
+a & a & a \\
+0 & b & b \\
+0 & 0 & c
+\end{smatrix}
+\]
+
+On désigne par $E$ l'ensemble des matrices $M\left( a,b,c\right) $ où
+$a$, $b$, $c$ sont des réels. Ainsi : 
+\[
+E = \left\{ M\left( a,b,c\right) \text{ avec }a,b,c\text{
+réels}\right\} 
+\]
+
+\subsection{Recherche d'une base de $E$.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $E$ est un sous-espace vectoriel de l'espace
+vectoriel.$\M{3} $ des matrices carrées réelles d'ordre 3.
+
+\item Donner une base de $E$ ainsi que sa dimension.
+\end{noliste}
+
+\subsection{Cas particulier de la matrice $M\left( 1,2,3\right) $.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Donner les valeurs propres de $M\left( 1,2,3\right) $.
+
+\item Déterminer une matrice $P$ inversible et une matrice $D$
+diagonale
+de $\M{3} $ telle que :
+\[
+D = P^{-1}M\left( 1,2,3\right) P
+\]
+
+\item Donner l'expression de $P^{-1}$ et en déduire la matrice $M\left(
+1,2,3\right) $ en fonction de l'entier naturel $n$.
+\end{noliste}
+
+\subsection{Cas particulier de la matrice $M\left( 1,1,1\right) $}
+
+On pose $J = M\left( 1,1,1\right) -I_{3}$, la matrice $I_{3}$
+représentant
+la matrice unité de $\M{3} $.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer les matrices $J^{2},$ $J^{3}.$. En déduire, sans
+démonstration, l'expression de $J^{n}$, pour tout entier naturel $n\geq
+3.$
+
+\item Montrer que pour tout entier naturel $n\geq 2 :$
+\[
+\left[ M\left( 1,1,1\right) \right] ^{n} = I_{3} + nJ + \frac{n\left(
+n-1\right) }{2}J^{2}
+\]
+L'écriture obtenue est-elle encore valable pour les entiers $n = 0$ et
+$n = 1
+$ ?
+
+\item En déduire l'écriture matricielle de $\left[ M\left(
+1,1,1\right) \right] ^{n}$.
+\end{noliste}
+
+\subsection{Cas particulier de la matrice $M\left( 1,1,2\right) $.}
+
+On note $f$ l'endomorphisme de $\R^{3}$ dont la matrice dans la base
+canonique de $\R^{3}$ est la matrice $M\left( 1,1,2\right) $. On
+définit la famille de vecteurs $\mathcal{C} = \left(
+\vec{u},\vec{v},\vec{w}\right) $ par :
+
+$\vec{u} = \left( 1,0,0\right),\ \vec{v} = \left( 0,1,0\right),\
+\vec{w} = \left( 2,1,1\right) $
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Démontrer que $\mathcal{C}$ est une base de $\R^{3}.$
+
+\item Prouver que les vecteurs $\vec{u}$ et $\vec{w}$ sont deux
+vecteurs
+propres de $f$ associés à deux valeurs propres que l'on précisera.
+
+\item Exprimer $f\left( \vec{v}\right) $ comme combinaison linéaire des
+vecteurs $\vec{u}$ et $\vec{v}$. En déduire la matrice $T$ de $f$ dans
+la base $\mathcal{C}$.
+
+\item Montrer que pour tout entier naturel $n :$
+\[
+T^{n} = 
+\begin{smatrix}
+1 & n & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 2^{n}\end{smatrix}
+\]
+
+\item Montrer que la matrice de passage $R$ de la base canonique à la
+base $\mathcal{C}$ a pour matrice inverse la matrice $Q = 
+\begin{smatrix}
+1 & 0 & -2 \\
+0 & 1 & -1 \\
+0 & 0 & 1
+\end{smatrix}
+$
+
+\item Donner une relation reliant les matrices $M\left( 1,1,2\right) $,
+$Q$, 
+$R$ et $T$.
+
+\item Sans l'expliciter, écrire $\left[ M\left( 1,1,2\right) \right]
+^{n}
+$ en fonction de $n,~Q,~R,~T.$
+\end{noliste}
+
+\section{EXERCICE.}
+
+On considère l'application $\varphi $ définie sur $\R^{+ \ast
+}$ par : 
+\[
+\varphi \left( x\right) = 2\ln \left( \dfrac{x}{2}\right) +
+\dfrac{1}{x}
+\]
+ainsi que la fonction numérique $f$ des variables réelles $x$ et $y$
+définie par :
+\[
+\forall \left( x,y\right) \in \left] 0, + \infty \right[ \ \times
+\left]
+0, + \infty \right[,\quad f\left( x,y\right) = e^{x + 4y}\ln \left(
+xy\right) 
+\]
+
+\subsection{Étude des zéros de $\protect \varphi $.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer la limite de $\varphi \left( x\right) $ lorsque $x$
+tend vers $0$ par valeurs positives. Interpréter graphiquement cette
+limite.
+
+\item Déterminer la limite de $\varphi \left( x\right) $ lorsque $x$
+tend vers $ + \infty $, ainsi que la limite de $\dfrac{\varphi \left(
+x\right) 
+}{x}$ lorsque $x$ tend vers $ + \infty $. Interpréter graphiquement
+cette
+limite.
+
+\item Justifier la dérivabilité de $\varphi $ sur $\R^{+ \ast
+}$, déterminer sa dérivée.
+
+\item Dresser le tableau de variation de $\varphi $, faire
+appara\^{\i}tre
+les limites de $\varphi $ en $0^{+}$ et $ + \infty $.
+
+\item On rappelle que $\ln \left( 2\right) \simeq 0,7$. Montrer
+l'existence
+de deux réels positifs $\alpha $ et $\beta $ tels que :
+\[
+\varphi \left( \alpha \right) = \left( \beta \right) = 0
+\]
+
+\item Proposer un programme en \Scilab{} permettant d'encadrer $\alpha
+$ dans
+un intervalle d'amplitude $10^{-2}$.
+\end{noliste}
+
+\subsection{Extrema de $f$ sur $\left] 0, + \infty \right[ \ \times
+\left]
+0, + \infty \right[ $}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Justifier que $f$ est de classe $C^{2}$ sur $\left] 0, + \infty
+\right[
+\times \left] 0, + \infty \right[.$
+
+\item Calculer les dérivées partielles premières et prouver que
+pour $x$, et $y$ strictement positifs
+\[
+\left\{ 
+\begin{array}{c}
+\dfrac{\partial f}{\partial x}\left( x,y\right) = f\left( x,y\right) +
+\dfrac{1}{x}e^{x + 4y} \\
+\dfrac{\partial f}{\partial x}\left( x,y\right) = 4f\left( x,y\right) +
+\dfrac{1}{y}e^{x + 4y}
+\end{array}
+\right. 
+\]
+
+\item Montrer que les points de coordonnées respectives $\left(
+\alpha,\dfrac{\alpha }{4}\right) $ et $\left( \beta,\dfrac{\beta
+}{4}\right) $sont
+des points critiques de $f$ sur $\left] 0, + \infty \right[ \ \times
+\left]
+0, + \infty \right[.$
+
+\item Calculer les dérivées partielles secondes sur $\left]
+0, + \infty \right[ \ \times \left] 0, + \infty \right[ $ et établir
+que :
+\[
+\left\{ 
+\begin{array}{c}
+\dfrac{\partial ^{2}f}{\partial x^{2}}\left( \alpha,\dfrac{\alpha
+}{4}\right) = \dfrac{\alpha -1}{\alpha ^{2}}e^{2\alpha } \\
+\dfrac{\partial ^{2}f}{\partial y^{2}}\left( \alpha,\dfrac{\alpha
+}{4}\right) = 16\dfrac{\alpha -1}{\alpha ^{2}}e^{2\alpha } \\
+\dfrac{\partial ^{2}f}{\partial y\partial x}\left( \alpha,\dfrac{\alpha
+}{4}\right) = \dfrac{4}{\alpha }e^{2\alpha }
+\end{array}
+\right. 
+\]
+
+\item La fonction $f$ présente-t-elle un extremum local sur $\left]
+0, + \infty \right[ \ \times \left] 0, + \infty \right[ $ au point de
+coordonnées $\left( \alpha,\dfrac{\alpha }{4}\right) $ ? Si oui, en
+donner sa nature
+(maximum on minimum)
+
+\item De même, $f$ présente-t-elle un extremum local sur $\left]
+0, + \infty \right[ \ \times \left] 0, + \infty \right[ $ au point de
+coordonnées $\left( \beta,\dfrac{\beta }{4}\right) $ ?
+\end{noliste}
+
+\section{EXERCICE.}
+
+\subsection{Liminaire.}
+
+Soient $x$ un réel dans l'intervalle $\left[ 0,1\right[ $, $n$ un
+entier
+naturel non nul et $S_{n}$ la fonction définie par :
+\[
+S_{n}\left( x\right) = \Sum{k = 0}{n}x^{k}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer la somme $S_{n}\left( x\right) $.
+
+\item Dériver l'égalité obtenue et montrer que :
+\[
+\Sum{k = 1}{n}kx^{k-1} = \frac{nx^{n + 1}-\left( n + 1\right) x^{n} +
+1}{\left(
+1-x\right) ^{2}}
+\]
+\end{noliste}
+
+Une municipalité a lancé une étude concernant les problèmes
+liés au transport.
+
+\subsection{Partie 1.}
+
+Sur une ligne de bus, une enquête a permis de révéler que le
+retard (ou l'avance) sur l'horaire officiel du bus à une station
+donnée, peut être représenté(e) par une variable aléatoire réelle,
+notée $X$, exprimée en minutes, qui suit une loi normale
+$\mathcal{N}\left( m,\sigma ^{2}\right) $.
+
+On admet de plus que la probabilité que le retard soit inférieur 
+à $7$ minutes est égale à $p = 0.8413$ et que l'espérance de $X
+$ est de $5$ minutes.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer la valeur de $\sigma $ en utilisant la table jointe en
+annexe.
+
+\item Quelle est la probabilité que le retard soit supérieur à $9
+$ minutes ?
+
+\item Sachant que le retard est supérieur à $3$ minutes, quelle est
+la probabilité que le retard soit inférieur à $7$ minutes ? (On
+exprimera cette probabilité à l'aide de la fonction de répartition de
+la loi normale centrée réduite, puis on utilisera la
+table jointe en annexe).
+
+\item Monsieur Thierex fréquente cette ligne de bus tous les jours
+pendant 10 jours. On suppose que les retards journaliers sont
+indépendants.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On désigne par $Y$ la variable aléatoire réelle égale
+au nombre de jours où Monsieur Thierex a attendu moins de 7 minutes.\\
+Déterminer la loi de $Y$, donner sans calcul, son espérance et sa
+variance.
+
+\item On définit par $Z$ la variable aléatoire discrète réelle
+indiquant le rang $k$ du jour où pour la première fois Monsieur
+Thierex attend plus de 7 minutes si cet événement se produit. Dans
+le cas contraire si le temps d'attente est inférieur à 7 minutes
+pendant les dix jours, $Z$ prend la valeur $0$.\\
+Déterminer en fonction de $p$ la probabilité des événements $\left[ Z =
+0\right] $, puis $\left[ Z = k\right] $ pour $1\leq k\leq 10$.\\
+Utiliser le liminaire pour calculer l'espérance de $Z$ en fonction de
+$p$.
+\end{noliste}
+
+\item Lassé des retards de son bus, Monsieur Thurman décide de
+prendre le bus ou le métro selon le protocole suivant :
+
+\begin{noliste}{$\sbullet$}
+\item Le premier jour, il prend le bus.
+
+\item Si le jour $n$ $\left( n\in \N^{\ast }\right) $ il attend plus
+de 7 minutes pour prendre le bus, le jour $n + 1$ il prend le métro,
+sinon
+il prend de nouveau le bus.
+
+\item Si le jour $n$ il prend le métro, le jour $n + 1$ il prend le
+métro ou le bus de façon équiprobable.
+\end{noliste}
+
+On note $p_{n}$ la probabilité de l'événement $A_{n} = $" Monsieur
+Thurman prend le bus le jour $n$"
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier que pour tout entier naturel $n$ non nul :
+\[
+p_{n + 1} = \left( p-\frac{1}{2}\right) p_{n} + \frac{1}{2}
+\]
+
+\item Soit $\alpha $ le réel vérifiant :
+\[
+\alpha = \left( p-\frac{1}{2}\right) \alpha + \frac{1}{2}
+\]
+Déterminer $\alpha $ en fonction de $p$, puis montrer que, pour tout
+entier naturel $n$ non nul :
+\[
+p_{n} = \left( p-\frac{1}{2}\right) ^{n-1}\left( 1-\alpha \right) +
+\alpha 
+\]
+
+\item La suite $\left( p_{n}\right) $ est-elle convergente ? Si oui
+quelle
+est sa limite ?
+\end{noliste}
+\end{noliste}
+
+\subsection{3.3. Partie 2.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Le nombre d'appels reçus par le standard d'une société de
+taxis pendant une période de durée $t$ suit une loi de Poisson $Y_{t}
+$ de paramètre $\lambda t$, $\lambda $ étant une constante
+strictement positive. Une origine de temps étant choisie, on note $T$
+la
+variable aléatoire réelle représentant le temps d'attente du
+premier appel vers ce standard. Par convention $\Prob\left(\Ev{ T\leq
+t}\right) = 0$ pour $t<0$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout entier naturel $k$, rappeler la valeur de la
+probabilité
+de l'événement $\left[ Yt = k\right] $, ainsi que l'espérance et
+la variance de $Y_{t}$.
+
+\item Que peut-on dire des événements $\left[ Y_{t} = 0\right] $] et
+$\left[ T>t\right] $ pour $t>0$. En déduire la probabilité des
+événements $\left[ T>t\right] $ et $\left[ T\leq t\right] $] pour
+$t>0$.
+
+\item Expliciter la fonction de répartition $F_{T}$ de $T$.
+Reconna\^{\i}tre la loi de $T$ et donner son espérance et sa variance.
+\end{noliste}
+
+\item La durée, exprimée en heures, du transport d'un client par la
+société est une variable aléatoire $U$ à densité dont
+une densité est donnée par :
+\[
+\left\{ 
+\begin{array}{cc}
+g\left( t\right) = t~e^{-t} & \text{ si }t\geq 0 \\
+g\left( t\right) = 0 & \text{si }t<0
+\end{array}
+\right. 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $g$ est bien une densité de probabilité.
+
+\item Montrer que $U$ admet une espérance que l'on déterminera. Que
+représente cette espérance ?
+\end{noliste}
+\end{noliste}
+
+\textbf{Table}
+
+\rule{17cm}{0.05cm}
+
+La table ci-dessous comporte les valeurs de la fonction de répartition
+de la loi normale centrée réduite, à savoir les valeurs de :
+\[
+\Phi \left( x\right) = \frac{1}{\sqrt{2\pi }}\dint{-\infty }{x}\exp
+\left( -\frac{t^{2}}{2}\right\ dt
+\]
+
+par exemple $\Phi \left( 0,67\right) = 0,7486$
+
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+$x$ & \textbf{0,00} & \textbf{0,01} & \textbf{0,02} & \textbf{0,03} & 
+\textbf{0,04} & \textbf{0,05} & \textbf{0,06} & \textbf{0,07} &
+\textbf{0,08}
+ & \textbf{0,09} \\
+\hline
+\textbf{0,0} & 0,5000 & 0,5040 & 0,5080 & 0,5120 & 0,5160 & 0,5199 &
+0,5239
+ & 0,5279 & 0,5319 & 0,5359 \\
+\hline
+\textbf{0,1} & 0,5398 & 0,5438 & 0,5478 & 0,5517 & 0,5557 & 0,5596 &
+0,5636
+ & 0,5675 & 0,5714 & 0,5753 \\
+\hline
+\textbf{0,2} & 0,5793 & 0,5832 & 0,5871 & 0,5910 & 0,5948 & 0,5987 &
+0,6026
+ & 0,6064 & 0,6103 & 0,6141 \\
+\hline
+\textbf{0,3} & 0,6179 & 0,6217 & 0,6255 & 0,6293 & 0,6331 & 0,6368 &
+0,6406
+ & 0,6443 & 0,6480 & 0,6517 \\
+\hline
+\textbf{0,4} & 0,6554 & 0,6591 & 0,6628 & 0,6664 & 0,6700 & 0,6736 &
+0,6772
+ & 0,6808 & 0,6844 & 0,6879 \\
+\hline
+\textbf{0,5} & 0,6915 & 0,6950 & 0,6985 & 0,7019 & 0,7054 & 0,7088 &
+0,7123
+ & 0,7157 & 0,7190 & 0,7224 \\
+\hline
+\textbf{0,6} & 0,7257 & 0,7291 & 0,7324 & 0,7357 & 0,7389 & 0,7422 &
+0,7454
+ & 0,7486 & 0,7517 & 0,7549 \\
+\hline
+\textbf{0,7} & 0,758 & 0,7611 & 0,7642 & 0,7673 & 0,7704 & 0,7734 &
+0,7764 & 
+0,7794 & 0,7823 & 0,7852 \\
+\hline
+\textbf{0,8} & 0,7881 & 0,7910 & 0,7939 & 0,7967 & 0,7995 & 0,8023 &
+0,8051
+ & 0,8078 & 0,8106 & 0,8133 \\
+\hline
+\textbf{0,9} & 0,8159 & 0,8186 & 0,8212 & 0,8238 & 0,8264 & 0,8289 &
+0,8315
+ & 0,8340 & 0,8365 & 0,8389 \\
+\hline
+\textbf{1,0} & 0,8413 & 0,8438 & 0,8461 & 0,8485 & 0,8508 & 0,8531 &
+0,8554
+ & 0,8577 & 0,8599 & 0,8621 \\
+\hline
+\textbf{1,1} & 0,8643 & 0,8665 & 0,8686 & 0,8708 & 0,8729 & 0,8749 &
+0,8770
+ & 0,8790 & 0,8810 & 0,8830 \\
+\hline
+\textbf{1,2} & 0,8849 & 0,8869 & 0,8888 & 0,8907 & 0,8925 & 0,8944 &
+0,8962
+ & 0,8980 & 0,8997 & 0,9015 \\
+\hline
+\textbf{1,3} & 0,9032 & 0,9049 & 0,9066 & 0,9082 & 0,9099 & 0,9115 &
+0,9131
+ & 0,9147 & 0,9162 & 0,9177 \\
+\hline
+\textbf{1,4} & 0,9192 & 0,9207 & 0,9222 & 0,9236 & 0,9251 & 0,9265 &
+0,9279
+ & 0,9292 & 0,9306 & 0,9319 \\
+\hline
+\textbf{1,5} & 0,9332 & 0,9345 & 0,9357 & 0,9370 & 0,9382 & 0,9394 &
+0,9406
+ & 0,9418 & 0,9429 & 0,9441 \\
+\hline
+\textbf{1,6} & 0,9452 & 0,9463 & 0,9474 & 0,9484 & 0,9495 & 0,9505 &
+0,9515
+ & 0,9525 & 0,9535 & 0,9545 \\
+\hline
+\textbf{1,7} & 0,9554 & 0,9564 & 0,9573 & 0,9582 & 0,9591 & 0,9599 &
+0,9608
+ & 0,9616 & 0,9625 & 0,9633 \\
+\hline
+\textbf{1,8} & 0,9641 & 0,9649 & 0,9656 & 0,9664 & 0,9671 & 0,9678 &
+0,9686
+ & 0,9693 & 0,9699 & 0,9706 \\
+\hline
+\textbf{1,9} & 0,9713 & 0,9719 & 0,9726 & 0,9732 & 0,9738 & 0,9744 &
+0,975 & 
+0,9756 & 0,9761 & 0,9767 \\
+\hline
+\textbf{2,0} & 0,9772 & 0,9778 & 0,9783 & 0,9788 & 0,9793 & 0,9798 &
+0,9803
+ & 0,9808 & 0,9812 & 0,9817 \\
+\hline
+\end{tabular}
+
+\end{document}
+

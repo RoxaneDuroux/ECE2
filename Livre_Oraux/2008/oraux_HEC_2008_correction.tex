@@ -1,0 +1,437 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2008} %
+\author{} %
+\date{} %
+\begin{document}
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+%%DEBUT
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Donner la formule de la variance d'une
+    somme finie de variables aléatoires prenant un nombre fini de
+    valeurs.
+    \\[.2cm]
+    Soit $(X_n)_{n \geq 1}$ une suite de variables aléatoires
+    indépendantes de même loi, à valeurs dans $\{-1 ; 1\}$, définies
+    sur une même espace probabilisé $(\Omega , \A , P)$. On pose, pour
+    tout $n \in \N^*$, $p = \Prob([X_n = 1])$, et on suppose que $p
+    \in ] 0 ; 1[$.
+  \item Pour tout $n \in \N^*$, on pose $Y_n = \prod\limits_{i=1}^n X_i$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer les lois de $Y_2$ et de $Y_3$.
+    \item On pose, pour $n \geq 1$, $\Prob([Y_n = 1]) =
+      p_n$. Déterminer une relation de récurrence entre $p_{n+1}$ et
+      $p_n$, puis la valeur de $p_n$ pour tout $n \geq 1$.
+    \item Existe-t-il des valeurs de $n$ pour lesquelles les variables
+      $Y_n$ et $Y_{n+1}$ sont indépendantes?
+    \end{noliste}
+  \item On pose : $S_n = \Sum{i=1}{n} X_i$. Déterminer la loi de
+    $S_n$, son espérance et sa variance. \\
+    (Indication : on pourra se ramener à des variables aléatoires
+    $X_i'$ ($1 \leq i \leq n$) indépendantes suivant une loi de
+    Bernoulli).
+  \item Écrire un programme en Pascal permettant de simuler la loi de $S_n$. \\
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Étudier la limite éventuelle de la suite $(u_n)$ définie par :
+  \[
+  u_0 \in ] 0 ; 1[ \text{ et } \forall n \in \N,\ \ u_{n+1} = 1 +
+  \frac{u_n}{n+1}
+ \]
+ Déterminer deux réels $a$ et $b$ tels que : $u_n = 1 + \frac{a}{n} +
+ \frac{b}{n^2} + \frac{1}{n^2} \epsilon \left( \frac{1}{n} \right)$
+ avec $\dlim{n \rightarrow +\infty} \epsilon \left( \frac{1}{n}
+ \right) = 0$.
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Définition et propriétés de la loi de Bernoulli et de la loi
+    binomiale.\\[.2cm]
+    Une urne contient $2n$ boules ($n \in \N^*$) de couleurs
+    toutes différentes. La moitié d'entre elles sont marquées du
+    chiffre zéro et les autres sont numérotées de $1$ à $n$.\\
+    On extrait simultanément $n$ boules de cette urne, obtenant ce
+    qu'on appelle une poignée. On suppose que toutes les poignées sont
+    équiprobables. Pour $i$ entier compris entre $1$ et $n$, on note
+    $X_i$ la variable aléatoire réelle qui prend la valeur $1$ si la
+    boule $i$ se trouve dans la poignée et $0$ sinon.
+  \item Déterminer la loi de probabilité de $X_i$.
+  \item Pour $(i,j) \in \llb 1 , n \rrb^2$ tel que $i \neq j$,
+    calculer la covariance du couple $(X_i , X_j)$.
+  \item On note $S$ la variable aléatoire réelle prenant pour valeur
+    la somme des numéros portés par les boules figurant dans la
+    poignée.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Exprimer $S$ en fonction de $X_1 , X_2 ,\ \dots\ , X_n$.
+    \item En déduire l'espérance et la variance de $S$.
+    \end{noliste}
+  \item On désigne par $Z$ la variable aléatoire réelle donnant le
+    nombre de boules portant le numéro zéro au sein de la
+    poignée. Donner la loi de probabilité de $Z$ puis son espérance.
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soit $f$ la fonction définie par :
+  \[
+ \forall (x ,y) \in \R^2,\ f(x,y) = x^3 + y^3 - 3 xy + 1.
+\] \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Calculer les dérivées partielles d'ordre 1 et d'ordre 2 de $f$.
+  \item Déterminer les points critiques de $f$.
+  \item La fonction $f$ a-t-elle des extrema locaux?
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Donner la définition d'un estimateur et
+    définir la notion de risque quadratique.\\[.2cm]
+    Une urne contient $N$ boules numérotées de $1$ à $N$. On sait que
+    $N$ est au moins égal à deux, mais on ne connaît pas sa valeur
+    exacte et on cherche à l'estimer. Pour cela, on effectue $n$ tirages
+    avec remise ($n \in \N^*$) et on note $Z_k$ le numéro de la
+    boule obtenue au $k$-ième tirage ($1 \leq k \leq n$). On modélise
+    l'expérience par un espace probabilisé ($\Omega , \A , P)$.
+  \item On pose, pour tout $n \in \N^*$, $M_n = \dfrac{1}{n}
+    \Sum{k=1}{n} Z_k$. \\
+    Donner l'expression d'un estimateur sans biais de $N$, fonction de
+    $M_n$ et dont la suite des variances converge vers 0 lorsque $n$
+    tend vers $+\infty$.
+  \item On note $S_n = \max ( Z_1 , Z_2 ,\ \dots\ , Z_n)$.
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Déterminer la fonction de répartition de $S_n$.
+    \item Montrer que pour toute variable aléatoire $Y$ à valeurs dans
+      $\{ 1 , 2,\ \dots\ , N \}$, on a la relation :
+      \[
+      \E(Y) = \Sum{k=1}{N} \Prob( [ Y \geq k ]). 
+      \]
+    \item En déduire que : $\E( S_n) \geq N - \dfrac{N}{n+1}$.
+    \item En déduire que $S_n$ est un estimateur de $N$, dont
+      l'espérance converge vers $N$ lorsque $n$ tend vers $+\infty$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soit $A$ la matrice de $\mathcal{M}_3 (\R)$ telle que :
+  \[
+  A = 
+  \begin{smatrix} 
+    0 & 1 & -1 \\ 
+    -1 & 2 & -1 \\ 
+    1 & -1 & 2 
+  \end{smatrix}. 
+  \] 
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Trouver une relation entre $A^2$, $A$ et $I$ (matrice
+      identité d'ordre 2).
+    \item En déduire que $A$ est inversible et calculer son inverse.
+    \end{noliste}
+  \item Calculer les valeurs propres possibles de $A$.
+  \item $A$ est-elle diagonalisable?
+  \end{noliste}
+\end{exerciceSP}
+
+\newpage
+
+
+\begin{exerciceAP}~\\
+  Dans cet exercice, on note $C^0$ l'espace vectoriel des fonctions
+  continues de $\R$ dans $\R$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Donner la définition d'une valeur propre
+    et d'un vecteur propre d'un endomorphisme.
+    \\[.2cm]
+    Soit $\Phi$ l'application définie sur $C^0$ qui, à toute fonction
+    $f$ de $C^0$, associe la fonction $g = \Phi(f)$ définie par :
+    \[
+    \forall x \in \R,\ \ g(x) = \dint{0}{x} f(t)\ dt.
+    \]
+  \item Rappeler pourquoi, pour toute fonction $f$ de $C^0$, $\Phi(f)$
+    est dérivable et expliciter sa fonction dérivée.
+  \item Vérifier que $\Phi$ est un endomorphisme de $C^0$.
+  \item Donner un exemple de fonction continue sur $\R$ et non
+    dérivable sur $\R$.\\
+    L'application $\Phi$ est-elle surjective? Injective? \\[.2cm]
+    Soit $\lambda$ un réel quelconque. On dit que $\lambda$ est une
+    valeur propre de $\Phi$ s'il existe une fonction $f$ non nulle de
+    $C^0$, telle que $\Phi(f) = \lambda f$. Une telle fonction est
+    appelée fonction propre associée à la valeur propre $\lambda$.
+  \item Recherche des valeurs propres non nulles de $\Phi$.  On
+    suppose, dans cette question, que $\Phi$ admet une valeur propre
+    $\lambda$ non nulle.
+    \\[.2cm]
+    Soit $f$ une fonction propre associée à $\lambda$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $f$ est dérivable sur $\R$.
+    \item En dérivant la fonction $x \rightarrow f(x) e^{ -
+        \frac{x}{\lambda} }$, montrer que $f$ ne peut être que la
+      fonction nulle.
+    \item Conclure alors que $\Phi$ n'admet aucune valeur propre.
+    \end{noliste}
+  \item Pour toute fonction $f$ de $C^0$, on pose : $F_0 = \Phi(f)$ et
+    $\forall n \in \N^*,\ F_n = \Phi ( F_{n-1} )$. 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $F_n$ est de classe $C^{n+1}$ sur $\R$ et
+      préciser la valeur de ses dérivées successives en 0.
+    \item En déduire que : $\forall x \in \R,\ F_n(x) = \dint{0}{x}
+      \frac{ (x-t)^n }{n!} f(t)\ dt$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  $X$ et $Y$ sont deux variables aléatoires réelles indépendantes
+  définies sur le même espace probabilisé $(\Omega , \A ,
+  \Prob)$ et ayant la même loi de densité $\varphi$, définie par :
+  \[
+  \forall x \in \R,\ \ \ \varphi(x) = k e^{ - \vert x \vert}.
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer la valeur du réel $k$.
+  \item Déterminer la fonction de répartition $F$ de $X$.
+  \item Justifier l'existence de $\E(X)$ et $\V(X)$ et les calculer.
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~\\
+  Pour tout nombre réel $a$, on note $A(a)$ la matrice
+  \[
+  A(a) = 
+  \begin{smatrix} 
+    2 & 1 & a \\ 
+    1 & 1+a & 1 \\ 
+    a & 1 & 2
+  \end{smatrix}
+ \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Question de cours : Rappeler la définition d'une matrice
+      diagonalisable.
+    \item Montrer que si une matrice est diagonalisable, sa transposée
+      est également diagonalisable.
+    \end{noliste} 
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Justifier le fait que pour tout $a$ réel, la matrice $A(a)$
+      est diagonalisable.
+    \item montrer que $a$ est valeur propre de $A(a)$ et déterminer le
+      sous-espace propre associé.
+    \item Calculer $A(a) 
+      \begin{smatrix} 
+        1 \\ 
+        1 \\ 
+        1 
+      \end{smatrix}$ et $A(a) 
+      \begin{smatrix} 
+        1 \\ 
+        0 \\ 
+        -1
+      \end{smatrix}$.
+    \item Diagonaliser $A(a)$.
+    \end{noliste}
+  \item Soit $(x_n)_{n \in \N}$, $(y_n)_{n \in \N}$, $(z_n)_{n \in
+      \N}$ trois suites réelles vérifiant, pour tout $n$ entier
+    naturel,
+    \[
+    \left\{ 
+      \begin{array}{l} 
+        x_{n+1} = 2 x_n + y_n \\ 
+        y_{n+1} = x_n + y_n + z_n \\ 
+        z_{n+1} = y_n + 2 z_n 
+      \end{array} 
+    \right.
+    \]
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Si l'on pose pour tout $n$ entier naturel, $X_n
+      = \begin{smatrix} 
+        x_n \\ 
+        y_n \\ 
+        z_n
+      \end{smatrix}$, quelle relation a-t-on entre $X_{n+1}$ et $X_n$?
+    \item Déterminer une condition nécessaire et suffisante portant
+      sur $x_0$, $y_0$ et $z_0$ pour que les suites $(x_n)$, $(y_n)$
+      et $(z_n)$ soient bornées. Que peut-on dire alors de ces trois
+      suites?
+    \end{noliste}
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que si $B$ et $B'$ sont deux matrices semblables de
+      $\mathcal{M}_3( \R)$ et qu'il existe $C \in \mathcal{M}_3 (\R)$
+      telle que $C^2 = B$, alors il existe $C' \in \mathcal{M}_{3}
+      (\R)$ telle que $C'^2 = B'$.
+    \item Montrer que si $B$ et $C$ sont deux matrices de
+      $\mathcal{M}_3 (\R)$ telles que $C^2 = B$, alors $BC = CB$.
+    \item Si $a \in \R$, déterminer les matrices de $\mathcal{M}_3
+      (\R)$ commutant avec la matrice $\begin{smatrix} 3 & 0 & 0 \\ 0
+        & 6 & 0 \\ 0 & 0 & -1 \\ \end{smatrix}$.
+    \item Existe-t-il une matrice $M$ de $\mathcal{M}_3(\R)$ telle que
+      $M^2 = A(3)$ ?
+    \end{noliste} 
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Vérifier que la fonction $F$ définie sur $\R$ par : $F(x) =
+    \frac{1}{1 + e^{-x} }$, vérifie les propriétés d'une fonction de
+    répartition.
+  \item Déterminer la loi du maximum de deux variables aléatoires
+    indépendantes définies sur une même espace probabilisé $(\Omega ,
+    \A , P)$, et de même loi de fonction de répartition $F$.\\
+    Généraliser à $n$ variables.
+  \end{noliste}
+\end{exerciceSP}
+
+\newpage
+
+\begin{exerciceAP}~ 
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Écrire la formule de Taylor à l'ordre $n$
+    ($n \in \N^*$) avec reste intégral pour une fonction d'une
+    variable réelle de classe $C^{n+1}$ et à valeurs dans $\R$.
+    \\[.2cm]
+    Soit $f$ la fonction définie sur $\R$ par $f(x) = e^{-x^2}$, et
+    $F$ la primitive de $f$ qui vérifie $F(0) = 0$.
+  \item Étudier les variations de $F$ et tracer sa courbe
+    représentative dans un repère orthonormé.
+  \item \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que, pour tout $x$ réel, l'intégrale $\dint{0}{1}
+      e^{- (xt)^2}\ dt$ existe. \\
+      On définit alors la fonction $G$ par :
+      \[
+      G(x) = \dint{0}{1} e^{-(xt)^2}\ dt. 
+      \]
+    \item Démontrer que $G$ est dérivable sur $\R^*$ et que sa dérivée
+      est donnée par :
+      \[
+      \forall x \in \R^*,\ G'(x) = \frac{x e^{-x^2} - F(x) }{x^2}.
+      \]
+      En déduire les variations de $G$.
+    \item Montrer que $G$ est continue en 0 et que $\dlim{x
+        \rightarrow +\infty} G(x) = 0$.
+    \item Vérifier que $G$ est dérivable en 0 et que $G'$ est continue
+      sur $\R$.
+    \end{noliste}
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} 
+    \item Montrer que $G$ vérifie : 
+      \[
+      \forall x \in \R,\ x G'(x) + G(x) = f(x).
+      \]
+    \item On veut prouver que $G$ est l'unique fonction $g$ dérivable
+      sur $\R$ telle que :
+      \[
+      \forall x \in \R,\ x g'(x) + g(x) = f(x) \ \ \ (E).
+      \]
+      Soit $G_1$ une fonction réelle dérivable sur $\R$ et vérifiant
+      l'équation $(E)$. On pose $H = G - G_1$. Déterminer $H(x)$ pour
+      $x > 0$ puis pour $x < 0$. conclure en utilisant la continuité
+      de $H$ en 0.
+    \end{noliste} 
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Les variables aléatoires considérées dans cet exercice sont définies
+  sur un espace probabilisé $(\Omega , \A , P)$. Soit $a$ un réel
+  strictement positif et $X$ une variable aléatoire de loi uniforme
+  sur $[0 ; 2a]$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Soit $n \in \N^*$. On considère $n$ variables aléatoires
+    indépendantes $X_1,\ \dots\ , X_n$ qui ont toutes la même loi que
+    $X$. On pose :
+    \[
+    M_n = \max ( X_1 ,\ \dots\ , X_n). 
+    \]
+    Déterminer la loi de $M_n$ et calculer son espérance et sa
+    variance.
+  \item En déduire que $U_n = \frac{n+1}{2n} M_n$ est un estimateur
+    sans biais de $\E(X)$. \\
+    Est-il préférable à l'estimateur $V_n = \frac{ X_1 + \dots + X_n
+    }{n}$ ?
+  \end{noliste}
+\end{exerciceSP}
+
+
+%%FIN
+
+\end{document}

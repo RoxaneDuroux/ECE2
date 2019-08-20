@@ -1,0 +1,416 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 1990} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dint}{\int}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 1990}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\Huge ECRICOME Eco 1990}
+\end{center}
+
+\begin{center}
+\textbf{EXERCICE 1}
+\end{center}
+
+On considère une base $B = (e_{1},e_{2},e_{3})$ de l'espace vectoriel
+$\R^{3}$ sur le corps des r"els et l'endomorphisme $f$ de $\R^{3}$
+d"fini par :
+\[
+f(e_{1}) = ae_{1}\quad ;\quad f(e_{2}) = ae_{2} + be_{1}\quad ;\quad
+f(e_{3}) = ae_{3} + be_{2} + ce_{3},
+\]
+où $a,b,c$ sont trois réels fixés.
+
+\begin{center}
+On pose $I = 
+\begin{smatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{smatrix}
+\qquad J = 
+\begin{smatrix}
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+0 & 0 & 0
+\end{smatrix}
+\qquad K = 
+\begin{smatrix}
+0 & 0 & 1 \\
+0 & 0 & 0 \\
+0 & 0 & 0
+\end{smatrix}
+$
+\end{center}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Écrire la matrice $M(a,b,c)$ de $f$ relativement à la base $B.$
+
+\item On appelle $F$ l'ensemble de toutes les matrices $M(a,b,c)$ où
+$a,b,c$
+sont des réels quelconques.\\
+Démontrer que $F$ est un espace vectoriel sur $\R$ et que tout élement
+de $F$ se décompose de manière unique comme combinaison linéaire de
+$I,J,K.$
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer les matrices $J^{2},K^{2},JK,KJ.$\\
+En déduire que $F$ est stable pour la multiplication des matrices.
+
+\item Déterminer les éléments de $F$ qui sont inversibles et donner
+l'inverse d'une telle matrice.
+\end{noliste}
+
+\item On note $M$ pour $M(a,b,c).$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Démontrer qu'il existe trois suites réelles
+$(x_{n}),(y_{n}),(z_{n})$
+telles que 
+\[
+M^{n} = x_{n}I + y_{n}J + z_{n}K\quad \text{et}\quad \left\{ 
+\begin{array}{c}
+x_{n + 1} = ax_{n} \\
+y_{n + 1} = bx_{n} + ay_{n} \\
+z_{n + 1} = cx_{n} + by_{n} + az_{n}
+\end{array}
+\right. 
+\]
+
+\item Déterminer $x_{n}$ en fonction de $n.$ On suppose désormais
+$a\neq 0.$
+
+\item On pose $u_{n} = \dfrac{y_{n}}{x_{n}}.$ Déterminer $u_{n},$ puis
+$y_{n}$
+en fonction de $n.$
+
+\item En déduire la valeur de $z_{n}.$
+\end{noliste}
+\end{noliste}
+
+\begin{center}
+\textbf{EXERCICE 2}
+\end{center}
+
+\textbf{A- }On considère la fonction $g$ définie pour tout réel $x$ par
+:
+\[
+g(x) = x^{2}e^{-\dfrac{(x-1)^{2}}{2}}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Étudier la fonction $g.$
+
+\item Construire la courbe représentative $(C)$ dans un repère
+$(O,\overrightarrow{i},\overrightarrow{j})$ orthogonal.\\
+(On prendra comme unité graphique $2$ cm en abscisses et $4$ cm en
+ordonnées.
+
+\item On pose $I = \dint{1}{+ \infty
+}x^{2}e^{-\dfrac{(x-1)^{2}}{2}}dx.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Démontrer que $I$ est une intégrale convergente.
+
+\item Démontrer que $I = \dint{0}{+ \infty }(t +
+1)^{2}e^{-\dfrac{t^{2}}{2}}dt.$
+
+\item Démontrer que $\dint{0}{+ \infty }t^{2}e^{-\dfrac{t^{2}}{2}}dt =
+\dfrac{\sqrt{2\pi }}{2}$.
+
+\item En déduire que $I = 2 + \sqrt{2\pi }.$
+\end{noliste}
+\end{noliste}
+
+\textbf{B-} On considère la fonction $f$ définie par :
+\[
+\left\{ 
+\begin{array}{ccc}
+f(x) = & A^{2}e^{-\dfrac{(x-1)^{2}}{2}} & \text{si }x>1 \\
+f(x) = & 0 & \text{si }x\leq 1
+\end{array}
+\right. 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer la valeur de $A$ pour que la fonction $f$ soit la
+densité
+de probabilité d'une variable aléatoire $X.$
+
+\item Déterminer alors la probabilité $P\left(\Ev{X\leq 2}\right).$ En
+donner une
+valeur approchée à $10^{-3}$ près.\\
+N.B. Des tables relatives à la loi normale $\mathcal{N}(0,1)$ sont
+fournies
+en annexe au sujet.
+\end{noliste}
+
+\begin{center}
+\textbf{PROBLEME}
+\end{center}
+
+\noindent La société MARSCHA réalise auprès de sa clientèle une étude
+statistique relative au lancement d'un nouveau produit référencé $A.$\\
+L'observation des ventes permet d'admettre que chaque client achètera
+le
+produit $A,$ avec la probabilité $0,5$ et que les achats des clients
+sont
+mutuellement indépendants.\\
+On considère un échantillon de $n$ clients susceptibles d'acheter le
+produit 
+$A,$ et on appelle $X_{n}$ le nombre de clients, parmi les $n$
+interrogés,
+qui achèterons effectivement le produit $A.$\\
+On pose $F_{n} = \dfrac{X_{n}}{n}.$
+
+\begin{center}
+\textbf{Première partie - A}
+\end{center}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Préciser la loi de $X_{n}.$ Quel est l'ensemble des valeurs
+prises par 
+$F_{n}$ ?
+
+\item Calculer $P\left(\Ev{F_{n} = 1-\dfrac{1}{n}}\right).$
+
+\item Calculer $\E(X_{n})$ et $\V(X_{n}).$
+\end{noliste}
+
+\item Trouver à l'aide de l'inégalité de Bienaymé-Tchebichev, le plus
+petit
+entier $n$ tel que :
+\[
+P\left[ \ \left| F_{n}-0,5\right| \geq 0,20\right] <0,05.
+\]
+$$
+\end{noliste}
+
+\begin{center}
+\textbf{Deuxième partie - B}
+\end{center}
+
+L'objet de cette partie du problème est la recherche d'une autre
+majoration
+de 
+\[
+P\left[ \ \left| F_{n}-0,5\right| \geq a\right],\text{ où }0,5>a>0.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On considère un entier naturel non nul $m,$ un réel $t$ tel que
+$0,5\leq t\leq 1$ et la fonction $f$ définie, pour $x$ positif ou
+nul, par :
+\[
+f(x) = \left( e^{-tx} + e^{(1-t)x}.\right) ^{m}.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Placer $\dfrac{t}{1-t}$ par rapport à $1.$
+
+\item Étudier les variations de $f$ sur $\R_{+}$ et construire son
+tableau de variation. On appelera $b$ le minimum de $f$ sur $\R_{+}.$
+
+\item Montrer que l'on a $f(x) = e^{-mtx}(1 + e^{x})^{m}.$
+
+\item En déduire que $b = \left( \dfrac{1}{t^{t}(1-t)^{1-t}}\right)
+^{m}.$
+\end{noliste}
+
+\item Soient $m\in \N^{\times },$ $t\in \lbrack 0,5;1[.$ On note $r$
+le plus petit entier strictement supérieur à $mt.$\\
+On pose $S = \Sum{k = r}{m}C_{m}{k}.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que si $k$ est un entier supérieur ou égal à $r$ et si
+$x$ est
+un réel positif ou nul, on a :
+\[
+e^{x(k-mt)}\geq 1.
+\]
+
+\item En déduire que, si $x$ est positif ou nul, on a $ :S<\Sum{k =
+0}{m}C_{m}{k}e^{x(k-mt)}.$
+
+\item Démontrer alors que, pour tout réel $x$ positif ou nul, on a
+$S<e^{-mtx}(1 + e^{x})^{m}.$
+
+\item On pose, pour tout $t$ tel que $0,5\leq t<1,\quad g(t) = t\ln
+t + (1-t)\ln (1-t).$\\
+Montrer que $S<e^{-mg(t)}.$\\
+On pourra utiliser le \textbf{B}-1.(d)
+\end{noliste}
+
+\item Soit $a$ un réel positif, inférieur à $0,5$ et $n$ un entier non
+nul.\\
+On note $u$ le plus petit entier supérieur à $(a + 0,5)n$ et $v$ le
+plus grand
+entier inférieur à $(0,5-a)n.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\Sum{i = u}{n}C_{n}{i} = \Sum{j = 0}{v}C_{n}{j}.$
+
+\item Montrer que $\left[ \ \left| F_{n}-0,5\right| >a\right] = \left[
+X_{n}>n(a + 0,5)\right] \cup \left[ X_{n}<(0,5-a)n\right].$
+
+\item En déduire que $P\left[ \ \left| F_{n}-0,5\right| >a\right]
+ = (0,5)^{n-1}\Sum{i = u}{n}C_{n}{i}.$
+
+\item Conclure que $P\left[ \ \left| F_{n}-0,5\right| >a\right] <e(n)$
+avec $e(n) = (0,5)^{n-1}e^{-ng(a + 0,5)},$ $g$ étant définie au
+\textbf{B}-2.(d)
+\end{noliste}
+
+\item On pose $\left\{ 
+\begin{array}{cc}
+w(t) = g(t) & \text{si }t\in \lbrack 0,5;1[ \ \\
+w(t) = 0 & \text{si }t = 1
+\end{array}
+\right. $\\
+Étudier la fonction $w$ sur $[0,5;1].$ Préciser la tangente au point
+$A(1,0)$
+à la courbe $C(w)$ représentative de $w.$ Tracer la courbe $C(w).$
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déduire du 3.(d) et du 4. que la limite de $P\left[ \ \left|
+F_{n}-0,5\right| >a\right] $ est nulle lorsque $n$ tend vers $ +
+\infty.$
+
+\item Exprimer en fonction de $a,$ la valeur du plus petit entier $n$
+pour
+que $e(n)\leq 0,05.$ On appellera $n_{1}$ cet entier naturel.\\
+Calculer $n_{1}$ si $a = 0,20.$
+\end{noliste}
+
+\item Il semble donc que les conditions d'approximation de la loi de
+$X_{n}$
+par une loi normale soient remplies.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Préciser les paramètres de la loi normale approchant celle suivie
+par $X_{n}.$
+
+\item En utilisant l'approximation précédente, déterminer le plus petit
+entier $n_{2}$ tel que $P\left[ \ \left| F_{n}-0,5\right| >0,2\right]
+\leq 0,05.$
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

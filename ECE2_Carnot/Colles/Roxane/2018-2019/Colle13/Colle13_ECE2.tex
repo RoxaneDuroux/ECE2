@@ -1,0 +1,134 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 12}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\begin{exercice}~
+  \begin{noliste}{1.}
+  \item Montrer que l'intégrale $ \dint{0}{+\infty }\dfrac{1}{\left(
+        1+x\right) ^{2}} \dx$ est convergente et donner sa valeur.
+  \item On considère la fonction $f$ définie par : $\forall x\in
+    \mathbb{R},\ f\left( x\right) =\dfrac{1}{2\left( 1+\left \vert
+          x\right \vert \right) ^{2}}$
+    \begin{noliste}{a)}
+    \item Montrer que $f$ est paire.
+    \item Montrer que $f$ peut être considérée comme une fonction
+      densité de probabilité.
+    \end{noliste}
+  \end{noliste}
+  Dans la suite, on considère une variable aléatoire $X$, définie sur
+  un espace probabilisé $\left( \Omega , \A, \Prob \right) $ 
+admettant
+  $f$ comme densité.\\
+  On note $F$ la fonction de répartition de $X$.
+  \begin{noliste}{1.}
+    \addtocounter{enumi}{+2}
+  \item On pose $Y=\ln \left( 1+\left \vert X\right \vert \right) $ et
+    on admet que $Y$ est une variable aléatoire, elle aussi définie
+    sur l'espace probabilisé $\left( \Omega , \A, \Prob \right)$.
+    \begin{noliste}{a)}
+    \item Déterminer $Y\left( \Omega \right) $.
+    \item Exprimer la fonction de répartition $G$ de $Y$ à l'aide de
+      $F.$
+    \item En déduire que $Y$ admet pour densité la fonction $g$
+      définie par : 
+      \[ 
+      g(x) = %
+      \left\{
+        \begin{array}{cl}
+          2 \, \ee^{x}f\left( \ee^{x}-1\right) & \mbox{ si $x \geq 0$} 
+	  \\
+          0 & \mbox{ si $x<0$} %
+        \end{array}
+      \right.
+      \]
+    \item Montrer enfin que $Y$ suit une loi exponentielle dont on
+      déterminera le paramètre.
+    \end{noliste}
+  \end{noliste}
+\end{exercice}
+
+
+\begin{exercice}~\\
+  Soit $X$ et $Y$ deux variables aléatoires indépendantes de loi
+  uniforme sur $[0 ,1]$.\\
+  On définit les variable aléatoires $U = \min (X, Y)$ et $V = \max
+  (X, Y)$.
+  \begin{noliste}{1.}
+  \item Démontrer que :
+    \[
+    \Ev{U > t} = \Ev{X > t} \cap \Ev{Y > t} \qquad \mbox{et} \qquad 
+    \Ev{V \leq t} = \Ev{X \leq t} \cap \Ev{Y \leq t}
+    \]
+  \item Déterminer la fonction de répartition $G$, puis une densité
+    $g$ de $U$.
+  \item Déterminer la fonction de répartition $H$, puis une densité
+    $h$ de $V$.
+  \item Calculer l'espérance de $U$.
+  \item Exprimer $U + V$ en fonction de $X$ et $Y$.
+    En déduire l'espérance de $V$.
+  \end{noliste}
+\end{exercice}
+
+
+\begin{exercice}~\\
+  Toutes les variables aléatoires qui interviennent dans ce problème
+  sont considérées comme définies sur des espaces probabilisés non
+  nécessairement identiques, mais qui, par souci de simplification,
+  seront tous notés $\left( \Omega , \A, \Prob\right)$.
+  \begin{noliste}{1.}
+  \item On considère la fonction $g$ définie sur $\R$ par : $g(x) =
+    \dfrac{1}{2} \times \ee^{-\left\vert x\right\vert }$.
+    \begin{noliste}{a)}
+    \item Montrer que les intégrales $ \dint{-\infty }{0}g\left(
+        x\right) \dx$ et $ \dint{0}{+\infty }g\left( x\right) \dx$ 
+	sont convergentes et de même valeur.
+    \item Établir que $g$ est une densité de probabilité sur $%
+      \R$.
+    \end{noliste}
+  \end{noliste}
+  Soit $Y$ une variable aléatoire à valeurs réelles admettant $g$ pour
+  densité.\\
+  On dit alors que $Y$ suit la loi $\mathcal{L} \left( 0\right)$.
+  \begin{noliste}{1.}
+    \addtocounter{enumi}{+1}
+  \item Étudier les variations de $g$ et tracer l'allure de sa
+    représentation graphique dans le plan rapporté à un repère
+    orthonormé.
+  \item
+    \begin{noliste}{a)}
+    \item Pour $r \in \N$, montrer l'existence de $m_{r}(Y)$ (moment
+      d'ordre $r$ de $Y$).
+    \item Calculer, pour tout $r$ de $\N$, $m_{r}(Y)$ en fonction de
+      $r$. Quelles sont les valeurs de l'espérance $\E(Y)$ et de la
+      variance $\V(Y)$ de la \var $Y$ ?
+    \end{noliste}
+  \end{noliste}
+\end{exercice}
+
+
+
+
+
+
+
+
+\end{document}

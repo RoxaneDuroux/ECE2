@@ -1,0 +1,485 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 2000} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 2000}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\LARGE Ecole des Hautes Études Commerciales }
+
+{\Large Option économique 2000}
+
+{\Large Mathématiques III}
+\end{center}
+
+{\LARGE Exercice 1}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que, pour tout nombre réel $x>0$ et tout entier naturel
+$k,$ l'intégrale 
+\[
+\dint{1}{\infty }\frac{t^{k}e^{-xt}}{1 + t^{5}}dt
+\]
+est convergente.
+
+ 
+Pour quelles valeurs de l'entier $k$ cette intégralle est-elle aussi
+convergente pour $x = 0$ ?
+
+
+\item On se propose d'étudier la fonction $F$ définie, pour $x\geq 0,
+$ par $\left( x\right) = \dint{1}{\infty }\frac{e^{-xt}}{1 + t^{5}}dt.$
+
+
+Montrer que $F$ est une fonction strictement positive, décroissante et
+que 
+\[
+\dlim{x\longrightarrow + \infty }F\left( x\right) = 0
+\]
+
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout réel $t\geq 0,$ tout réel $x\geq 0$ et
+tout réel $h\geq 0,$ on a : 
+\[
+\left| e^{-t(x + h)}-e^{-tx} + \left. t\right. \left. h\right.
+e^{-tx}\right|
+\leq \frac{t^{2}h^{2}}{2}e^{-tx}
+\]
+
+
+\item Montrer de même que, pour tout réel $t\geq 0,$ tout réel $x\geq
+0$ et tout réel $h\leq 0,$ on a : 
+\[
+\left| e^{-t(x + h)}-e^{-tx} + \left. t\right. \left. h\right.
+e^{-tx}\right|
+\leq \frac{t^{2}h^{2}}{2}e^{-t(x + h)}
+\]
+
+
+\item En déduire que pour tout réel $x\geq 0$ et tout réel $h$
+tel que $x + h\geq 0,$ on a : 
+\[
+\left| F(x + h)-F(x) + h\dint{1}{\infty }\frac{te^{-xt}}{1 +
+t^{5}}dt\right| \leq 
+\frac{h^{2}}{2}\dint{1}{\infty }\frac{t^{2}}{1 + t^{5}}dt
+\]
+
+
+\item Montrer enfin que la fonction $F$ est dérivable sur$\left[
+0, + \infty \right[ $ et donner une expression de sa fonction dérivée
+$F^{\prime }.$
+\end{noliste}
+
+
+\item Montrer de même que $F^{\prime }$ est dérivable sur $\left[
+0, + \infty \right[ $ et que $ = \dint{1}{\infty }\frac{t^{2}e^{-xt}}{1
++ t^{5}}dt$
+
+
+\item On se propose de montrer que la fonction $\ln (F)$ est convexe.
+
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que si $a$, $b$ et $c$ sont trois nombres réels tels que,
+pour tout réel $\lambda,$ on ait l'inégalité : $a\lambda
+^{2} + 2b\lambda + c\geq 0,$ alors, nécessairement, $ac-b^{2}\geq 0.$
+
+
+\item En déduire que la fonction $\ln (F)$ est une fonction convexe.
+
+
+
+\end{noliste}
+\end{noliste}
+
+
+{\LARGE Exercice II}
+
+
+On dispose de deux jetons $A$ et $B$ que l'on peut placer dans deux
+cases $C_{0}$ et $C_{1},$ et d'un dispositif permettant de tirer au
+hasard et de
+manière équiprobable, l'une des lettre $a$, $b$ ou $c$. Au début
+de l'expérience, les deux jetons sont placés dans $C_{0}.$ On
+procède alors à une série de tirages indépendants de l'une
+des trois lettres $a$, $b$ ou $c$.
+
+
+A la suite de chaque tirage, on effectue l'opération suivante :
+
+
+\begin{noliste}{$\sbullet$}
+\item si la lettre $a$ est tirée, on change le jeton $A$ de case,
+
+
+\item si la lettre $b$ est tirée, on change le jeton $B$ de case,
+
+
+\item si la lettre $c$ est tirée, on ne change pas le placement des
+jetons.
+\end{noliste}
+
+
+On suppose qu'il existe un espace probabilisé dont la probabilité est
+notée $p$, qui modélise cette expérience et que l'on définit
+deux suites de variables aléatoires sur cet espace, $\left(
+X_{n}\right)
+_{n\geq 0}$ et $\left( Y_{n}\right)_{n\geq 0}$, décrivant les positions
+respectives de $A$ et $B$, en posant :
+
+
+$X_{0} = Y_{0} = 0$, et pour tout entier naturel n non nul, $X_{n} = 0$
+si à
+l'issue de la $n^{i\grave{e}me}$ opération, le jeton $A$ se trouve dans
+$C_{0}$ et $X_{n} = 1$ s'il se trouve dans $C_{1}$; de même, $Y_{n} =
+0$ si
+à l'issue de la $n^{i\grave{e}me}$ opération, le jeton $B$ se trouve
+dans $C_{0}$ et $Y_{n} = 1$ s'il se trouve dans $C_{1}.$
+
+
+{\large I Simulation}
+
+
+Écrire un programme en -\Scilab{} permettant de simuler l'expérience,
+qui lira un entier $N$ entré au clavier, représentant le nombre de
+tirages à effectuer, et qui affichera à l'écran la liste des
+couples observés $\left( X_{n},Y_{n}\right) $ pour $1\leq n\leq N.$
+
+
+Ce programme utilisera la fonction \texttt{RANDOM }qui renvoie, pour un
+argument $m$ de type \texttt{INTEGER}, un nombre entier de l'intervalle
+$\left[ 0,m-1\right] $, tiré au hasard et de manière équiprobable.
+
+
+(Cette fonction doit être initialisé par la commande
+\texttt{RANDOMIZE})
+
+
+
+
+
+{\Large II Étude du mouvement du jeton A.}
+
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit n un entier strictement positif. Déterminer la
+probabilité que, à l'issue de la $n^{i\grave{e}me}$ opération,
+le jeton $A$ n'ait jamais quitté $C_{0}.$
+
+
+\item Quelle est la proabilité que le jeton $A$ reste indéfiniment
+dans $C_{0}$ ?
+\end{noliste}
+
+
+\item Pour tout entier naturel $k$ supérieur ou égal à 2, on
+s'interresse à l'événement $D_{k} :$ à l'issue de la $k^{i\grave{e}me}$
+opération, le jeton $A$ revient pour la première fois
+dans $C_{0}.$ Déterminer la probabilité $p\left( D_{k}\right) $.
+
+\item Soit M la matrice 
+\[
+M = \left( 
+\begin{array}{ll}
+2 & 1 \\
+1 & 2
+\end{array}
+\right) 
+\]
+
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les valeurs propres de $M$ et donner une base de
+vecteurs propres.
+
+
+\item En déduire l'expression de $M^{n,}$ pour tout entier $n$
+strictement positif.
+\end{noliste}
+
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer les probabilités $p\left( X_{1} = 0\right) $ et $p\left(
+X_{1} = 1\right).$
+
+
+\item Déterminer une matrice $Q$ telle que, pour tout entier naturel
+$n,
+$ on ait l'égalité matricielle : 
+\[
+\left( 
+\begin{array}{l}
+p(X_{n + 1} = 0) \\
+p(X_{n + 1} = 1)
+\end{array}
+\right) = Q\left( 
+\begin{array}{l}
+p(X_{n} = 0) \\
+p(X_{n} = 1)
+\end{array}
+\right) 
+\]
+
+
+\item Pour tout entier naturel $n$ non nul, calculer la matrice $Q^{n}$
+et
+en déduire la loi de la variable $X_{n}.$
+\end{noliste}
+\end{noliste}
+
+
+{\Large III Étude d'un mouvement du couple de jetons }$(A,B)$
+
+
+On suppose que l'on définit sur le même espace probabilisé une
+suite de variables aléatoires $\left( W_{n}\right)_{n\geq 0}$, à
+valeurs dans $\left\{ 0,1,2,3\right\} $, décrivant les positions des
+dexu jetons $A$ et $B,$ en posant :
+
+
+$W_{0} = 0,$ et pour tout entier naturel $n$ non nul,
+
+
+$W_{n} = 0,$ si à l'issue de la $n^{i\grave{e}me}$ opération, $A$ et $B
+$ se trouvent tous les deux dans $C_{0},$
+
+
+$W_{n} = 1,$ si à l'issue de la $n^{i\grave{e}me}$ opération, $A$ se
+trouve dans $C_{0},$et $B$ dans $C_{1},$
+
+
+$W_{n} = 2,$ si à l'issue de la $n^{i\grave{e}me}$ opération, $A$ se
+trouve dans $C_{1},$et $B$ dans $C_{0},$
+
+
+$W_{n} = 3,$ si à l'issue de la $n^{i\grave{e}me}$ opération, les deux
+jetons $A$ et $B$ se trouvent dans $C_{1}.$
+
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer la probabilité$p(W_{1} = i)$ pour $i$ égal à 0, 1,
+2 et 3.
+
+
+\item Déterminer la matrice $R$ telle que, pour tout entier naturel
+$n,$
+on ait l'égalité matricielle : 
+\[
+\left( 
+\begin{array}{l}
+p\left( W_{n + 1} = 0\right) \\
+p\left( W_{n + 1} = 1\right) \\
+p\left( W_{n + 1} = 2\right) \\
+p\left( W_{n + 1} = 3\right) 
+\end{array}
+\right) = R\left( 
+\begin{array}{l}
+p\left( W_{n} = 0\right) \\
+p\left( W_{n} = 1\right) \\
+p\left( W_{n} = 2\right) \\
+p\left( W_{n} = 3\right) 
+\end{array}
+\right) 
+\]
+
+
+\item On considère les matrices :
+
+
+\[
+I = \left( 
+\begin{array}{llll}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0
+\end{array}
+\right),U = \left( 
+\begin{array}{llll}
+1 & 1 & 1 & 1 \\
+1 & 1 & 1 & 1 \\
+1 & 1 & 1 & 1 \\
+1 & 1 & 1 & 1
+\end{array}
+\right),V = \left( 
+\begin{array}{llll}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0
+\end{array}
+\right) 
+\]
+
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout entier naturel $n$ non nul, calculer $U^{n}$ et
+$V^{n}.$
+
+
+\item Établir, pour tout entier naturel non nul $n,$ l'égalité 
+\[
+\left( U-\V\right) ^{n} = \Sum{k = 0}{n}\left( -1\right)
+^{k}C_{n}{k}U^{n-k}V^{k}
+\]
+
+
+où par convention on pose : $U^{0} = V^{0} = I.$
+
+
+\item En déduire, pour tout entier naturel non nul $n,$
+l'égalité 
+\[
+\left( U-\V\right) ^{n} = \frac{1}{4}\left[ 3^{n}-\left( -1\right)
+^{n}\right]
+U + (-1)^{n}V^{n}
+\]
+\end{noliste}
+
+
+\item Pour tout entier naturel $n$ non nul, calculer $R^{n}et$ donner
+la
+loi de la variable $W_{n}.$ (on distinguera les cas $n$ pair et $n$
+impair)
+
+
+\item Déterminer, pour tout entier naturel $n$ non nul, la covariance
+de $X_{n}$ et $Y_{n}$ et calculer la limite de cette covariance quand
+$n$
+tend vers + $\infty.$
+\end{noliste}
+
+
+{\Large VI Étude d'un long séjour.}
+
+
+On suppose que chaque tirage, avec l'opération qui le suit, dure une
+minute. Ainsi, à lissue de la $n^{i\grave{e}me}$ opération, $n$
+minutes se sont écoulées depuis le début de l'expérience.
+
+
+Soit $n$ un entier naturel non nul.
+
+
+On suppose que le nombre de minutes écoulées pendant lesquelles le
+jeton $A$ a séjourné dans $C_{1}$, entre le début de
+l'expérience et l'issue de la $n^{i\grave{e}me}$ opération, est une
+variable aléatoire que l'on note $T_{n}.$
+
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Exprimer $T_{n}$ à l'aide des variables $X_{k}$, pour $k$ compris
+entre 1 et $n.$
+
+
+\item En dédure l'espérance $\E\left( T_{n}\right) $.
+
+
+Calculer la limite de $\frac{1}{n}\E\left( T_{n}\right) $ quand $n$
+tend vers l'infini.\newpage 
+\end{noliste}
+
+\end{document}
+

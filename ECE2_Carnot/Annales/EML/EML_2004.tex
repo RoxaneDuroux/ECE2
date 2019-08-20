@@ -1,0 +1,452 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EML 2004} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{EML 2004}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2004}}
+
+
+
+{\large \textbf{Concepteur : EML}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+
+\begin{center}
+{\Huge \vspace{1cm} {\LARGE PREMIER EXERCICE} }
+\end{center}
+
+On considère l'application $f :\R\rightarrow \R$ définie, pour tout
+$t\in \R$ par : 
+\[
+f\left( t\right) = \frac{2e^{t}}{\sqrt{1 + t^{2}}} 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Dresser le tableau de variation de $f$ sur $\R$ comprenant les
+limites de $f$ en $-\infty $ et en $ + \infty $.
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir, pour tout $t\in \left[ 0, + \infty \right[ $ :\quad
+$2e^{t}-t-t^{2}>0$ $\quad $et$\quad 1 + t\geq \sqrt{1 + t^{2}}$
+
+\item En déduire : 
+\[
+\forall t\in \left[ 0, + \infty \right[,\quad f\left( t\right) >t 
+\]
+\end{noliste}
+
+\item On considère la suite réelle $\left( u_{n}\right)_{n\geq 0}$
+définie par $u_{0} = 1$ et, pour tout $n\in \N$ : 
+\[
+u_{n + 1} = f\left( u_{n}\right) 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir que $u_{n}$ tend vers $ + \infty $ lorsque $n$ tend vers
+$ + \infty $.
+
+\item Écrire un programme en \Scilab{} qui calcule et affiche le plus
+petit
+entier $n$ tel que $u_{n}>10^{6}$
+\end{noliste}
+
+\item On considère l'application $G :\R\rightarrow \R$ définie, pour
+tout $x\in \R$ par : 
+\[
+G\left( x\right) = \dint{-x}{+ x}f\left( t\right\ dt 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $G$ est impaire.
+
+\item Montrer que $G$ est de classe $C^{1}$ sur $\R$ et calculer
+$G^{\prime }\left( x\right) $ pour tout $x\in \R$.
+
+\item Quelle est la limite de $G\left( x\right) $ lorsque $x$ tend vers
+$ + \infty $ ?
+
+\item Étudier le sens de variation de $G$ et dresser le tableau de
+variation de $G$ sur $\R$ comprenant les limites de $G$ en $-\infty $
+et en $ + \infty $.
+\end{noliste}
+\end{noliste}
+
+\begin{center}
+{\LARGE DEUXI\`{E}ME EXERCICE}
+\end{center}
+
+On note $\M{3} $ l'espace vectoriel réel des matrices carrées d'ordre
+trois à éléments réels, $I$ la matrice identité de $\M{3},$ $0$
+la matrice nulle de $\M{3} $.
+
+On considère, pour toute matrice $A$ de $\M{3} $, les ensembles
+$E_{1}\left( A\right) $ et $E_{2}\left( A\right) $
+suivants : 
+\begin{eqnarray*}
+E_{1}\left( A\right) & = & \left\{ M\in \M{3}
+;A\,M = M\right\} \\
+E_{2}\left( A\right) & = & \left\{ M\in \M{3}
+;A^{2}M = AM\right\}
+\end{eqnarray*}
+
+\begin{center}
+\textbf{Partie I}
+\end{center}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $E_{1}\left( A\right) $ est un sous-espace vectoriel
+de $\M{3} $
+
+On admettra que $E_{2}\left( A\right) $ est aussi un sous-espace
+vectoriel
+de $\M{3} $
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir :\quad $E_{1}\left( A\right) \subset E_{2}\left( A\right)
+$
+
+\item Montrer que, si $A$ est inversible, alors $E_{1}\left( A\right)
+ = E_{2}\left( A\right) $
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir que, si $A-I$ est inversible, alors $E_{1}\left( A\right)
+ = \left\{ 0\right\} $
+
+\item Un exemple : Soit $B = \left( 
+\begin{array}{rrr}
+-1 & 1 & 0 \\
+0 & -1 & 1 \\
+0 & 0 & 2
+\end{array}
+\right).$ Déterminer $E_{1}\left( B\right) $ et $E_{2}\left( B\right) $
+\end{noliste}
+\end{noliste}
+
+\begin{center}
+\textbf{Partie II}
+\end{center}
+
+On considère la matrice $C = \left( 
+\begin{array}{rrr}
+3 & -2 & -1 \\
+1 & 0 & -1 \\
+2 & -2 & 0
+\end{array}
+\right) $
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer les valeurs propres et les sous-espaces propres de $C$.
+
+\item En déduire une matrice diagonale $D$, dont les termes diagonaux
+sont dans l'ordre croissant, et une matrice inversible $P$, dont les
+éléments de la première ligne sont égaux à 1, telles que $C =
+P\,D\,P^{-1}$.
+
+\item Soit $M\in \M{3} $. On note $N = P^{-1}M. $
+
+Montrer : $\qquad M\in E_{1}\left( C\right) \Longleftrightarrow N\in
+E_{1}\left( D\right) $.
+
+\item Montrer que $N\in E_{1}\left( D\right) $ si et seulement s'il
+existe
+trois réels $a,\,b,\,c$ tels que $N = \left( 
+\begin{array}{rrr}
+0 & 0 & 0 \\
+a & b & c \\
+0 & 0 & 0
+\end{array}
+\right) $.
+
+\item En déduire l'expression générale des matrices de $E_{1}\left(
+C\right) $ et déterminer une base et la dimension de $E_{1}\left(
+C\right) $.
+
+\item Donner l'expression générale des matrices de $E_{2}\left(
+C\right) $ et déterminer une base et la dimension de $E_{2}\left(
+C\right) $.
+
+Est-ce que $E_{1}\left( C\right) = E_{2}\left( C\right) $ ?
+\end{noliste}
+
+\begin{center}
+{\LARGE TROISI\`{E}ME EXERCICE}
+\end{center}
+
+Une urne contient des boules blanches, des boules rouges et des boules
+vertes.
+
+\begin{noliste}{$\sbullet$}
+\item La proportion de boules blanches est $b$.
+
+\item La proportion de boules rouges est $r$.
+
+\item La proportion de boules vertes est $v$.
+\end{noliste}
+
+Ainsi, on a. : $0<b<1,\quad 0<r<1,\quad 0<v<1\quad $avec$\quad b + r +
+v = 1$.
+
+On effectue des tirages successifs avec remise et on s'arrête au
+premier
+changement de couleur.
+
+Pour tout entier naturel $i$ supérieur ou égal à l, on note $B_{i}$
+(respectivement $R_{i}\;;\;V_{i}$ ) l'événement "\ la $i$-ème boule
+tirée est blanche (respectivement, rouge ; verte)"
+
+On note $X$ la variable aléatoire égale au nombre de tirages effectués.
+
+Par exemple, lorsque le résultat des tirages est $V_{1},V_{2},B_{3}$,
+la
+variable aléatoire $X$ prend la valeur 3.
+
+\begin{center}
+\textbf{Partie I}
+\end{center}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Préciser les valeurs possibles de $X$.
+
+\item Montrer : $\forall k\in \mathbb{N-}\left\{ 0,1\right\},\quad
+P\left(\Ev{
+X = k}\right) = \left( 1-b\right) b^{k-1} + \left( 1-r\right) r^{k-1} +
+\left(
+1-v\right) v^{k-1}$
+
+\item Montrer que la variable aléatoire $X$ admet une espérance et
+que : 
+\[
+\E\left( X\right) = \frac{1}{1-b} + \frac{1}{1-r} + \frac{1}{1-v}-2 
+\]
+\end{noliste}
+
+\begin{center}
+\textbf{Partie II}
+\end{center}
+
+On considère la fonction $f$ de classe $C^{2}$ sur $\left] 0,1\right[
+\times \left] 0,1\right[ $ définie par : 
+\[
+\forall \left( x,y\right) \in \left] 0,1\right[ \ \times \left]
+0,1\right[,\,f\left( x,y\right) = \frac{1}{1-x} + \frac{1}{1-y} +
+\frac{1}{x + y} 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer, pour tout $\left( x,y\right) \in \left] 0,1\right[ \
+\times \left] 0,1\right[,\,\frac{\partial f}{\partial x}\left(
+x,y\right) $ et $\frac{\partial f}{\partial y}\left( x,y\right).$
+
+\item Montrer qu'il existe un unique point $I$ de $\left] 0,1\right[ \
+\times \left] 0,1\right[ $ en lequel $f$ est susceptible de posséder un
+extremum local et déterminer $I.$
+
+\item Montrer que $f$ admet en $I$ un minimum local.
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer $\E\left( X\right) $ en fonction de $f\left( b,r\right)
+$.
+
+\item Que peut-on dire de $\E\left( X\right) $ lorsque $b = r = v =
+\frac{1}{3}$ ?
+\end{noliste}
+\end{noliste}
+
+\begin{center}
+\textbf{Partie III}
+\end{center}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que l'intégrale $\dint{2}{+ \infty }\frac{1}{3^{t}}\,dt$
+est convergente et déterminer sa
+valeur.
+
+On rappelle que $ = e^{t\ln \left( 3\right) }$.
+
+On note $\alpha = \dint{2}{+ \infty }\frac{1}{3^{t}}\,dt$ et on
+considère la fonction $g$ définie sur $\R$ par : 
+\[
+\left\{ 
+\begin{array}{cc}
+g\left( t\right) = 0 & \text{si }t\in \left] -\infty ;2\right[ \ \\
+g\left( t\right) =  \frac{1}{\alpha 3^{t}} & \text{si }t\in \left[ 2; +
+\infty \right[
+\end{array}
+\right. 
+\]
+
+\item Vérifier que $g$ est une densité de probabilité.
+
+On note $Y$ une variable aléatoire admettant $g$ comme densité.
+
+\item Montrer que $Y$ admet une espérance et calculer cette espérance.
+
+\item On note $Z$ la variable aléatoire égale à la partie entière de
+$Y$. On rappelle que la partie entière d'un nombre réel $x
+$ est le plus grand entier inférieur ou égal à $x$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la loi de probabilité de $Z$.
+
+\item Comparer la loi de probabilité de $X$ lorsque $b = r = v =
+\frac{1}{3}$ et la loi de probabilité de $Z$.
+\end{noliste}
+\end{noliste}
+
+\begin{center}
+-FIN -
+\end{center}
+
+\end{document}
+

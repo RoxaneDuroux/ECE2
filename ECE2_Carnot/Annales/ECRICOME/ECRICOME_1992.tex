@@ -1,0 +1,482 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 1992} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dint}{\int}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 1992}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\Huge ECRICOME Eco 1992}
+\end{center}
+
+\section*{Exercice1}
+
+On définit la suite $(u_{n})_{n}
+\[
+_{\geq }
+\]
+_{0}$ par $\forall n\in 
+\N,\quad u_{n} = \dint{0}{\dfrac{\pi }{4}}\tan ^{2n + 2}(t)dt$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Rappeler la valeur de la dérivée de la fonction tangente sur
+$\left] -\dfrac{\pi }{2},\dfrac{\pi }{2}\right[ $.
+
+\item Calculer alors $u_{0}$.
+\end{noliste}
+
+\item Montrer que la suite $(u_{n})_{n}
+\[
+_{\in }
+\]
+_{\N}$ est décroissante.
+
+\item Montrer que : $\forall n\in \N,\quad u_{n + 1} + u_{n} =
+\dfrac{1}{2n + 3}$
+
+\item En déduire que : $\forall n\in \N$,$\quad \dfrac{1}{2n + 3}\leq
+u_{n}\leq \dfrac{1}{2(2n + 1)}$ Puis donner un équivalent
+simple de $u_{n}$ lorsque $n$ tend vers + $\infty $.
+
+\item On pose $S_{n} = \Sum{k = 0}{n}\dfrac{(-1)^{k}}{2k + 1}$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : $\forall n\in \N$,$\quad S_{n} = \dfrac{\pi }{4} +
+(-1)^{n}u_{n}$
+
+\item En déduire la limite de $(S_{n})_{n}
+\[
+_{\in }
+\]
+_{\N}$ et un équivalent de $\left( S_{n}-\dfrac{\pi }{4}\right) $
+lorsque $n$ tend vers + $\infty $.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 2}
+
+Un distributeur de jouets distingue trois catégories de jouets :
+
+\begin{quote}
+\noindent T : les jouets traditionnels tels que poupées, peluches ;\\
+M : les jouets liés à la mode inspirés directement d'un livre, un film,
+une émission ;\\
+S : les jouets scientifiques vulgarisant une technique récente.
+\end{quote}
+
+\noindent Il estime que
+
+\begin{noliste}{$\sbullet$}
+\item[i)] Le client qui a acheté un jouet traditionnel une année pour
+Noël
+choisira, l'année suivante, un jouet de l'une des trois catégories avec
+une équiprobabilité ;
+
+\item[ii)] Le client qui a acheté un jouet inspiré par la mode optera
+l'année suivante \\
+pour un jouet T avec la probabilité $\dfrac{1}{4}$,\\
+pour un jouet M avec la probabilité $\dfrac{1}{4}$,\\
+pour un jouet S avec la probabilité $\dfrac{1}{2}$ ;
+
+\item[iii)] pour un jouet T avec la probabilité $\dfrac{1}{4}$,\\
+pour un jouet M avec la probabilité $\dfrac{1}{2}$,\\
+pour un jouet S avec la probabilité $\dfrac{1}{4}$.
+\end{noliste}
+
+\noindent Le volume des ventes de ce commerçant vient de se composer
+
+\begin{quote}
+\noindent d'une part $p_{0} = \dfrac{45}{100}$ de jouets de la
+catégorie T\\
+d'une part $q_{0} = \dfrac{25}{100}$ de jouets de la catégorie M\\
+et d'une part $r_{0} = \dfrac{30}{100}$ de jouets de la catégorie S.
+\end{quote}
+
+\noindent On désigne par $p_{n},q_{n},r_{n}$, les parts respectives des
+jouets T, M, S dans les ventes du distributeur le $n^{\grave{e}me}$
+Noël
+suivant.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que le triplet $(p_{n + 1},q_{n + 1},r_{n + 1})$
+s'exprime en
+fonction du triplet $(p_{n},q_{n},r_{n})$ au moyen d'une matrice $A$
+qu'on
+formera.
+
+\item Soit $P$ la matrice définie par : $P = \left( 
+\begin{array}{ccc}
+3 & 2 & 0 \\
+4 & -1 & 1 \\
+4 & -1 & -1
+\end{array}
+\right) $
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer à l'aide de la méthode de Gauss que $P$ est inversible et
+déterminer $P^{-1}$.
+
+\item Déterminer la matrice $D = P^{-1}AP$.
+
+\item Montrer par récurrence sur $n\in \N^{\times }$ que : $A^{n} =
+PD^{n}P^{-1}$.
+
+\item Calculer $A^{n}$ pour $n\in \N^{\times }$.
+\end{noliste}
+
+\item Exprimer $(p_{n},q_{n},r_{n})$ directement en fonction de $n$.
+
+\item Quelles parts à long terme les trois catégories de jouets
+représenteront-elles dans la vente si l'attitude des consommateurs
+reste
+constante ?
+\end{noliste}
+
+\section*{Problème}
+
+Dans tout le problème, si $a$ et $b$ sont des entiers naturels, on note
+$[\hspace{-0.15em}[a,b]\hspace{-0.13em}] = \{i\in \mathbb{N\quad
+}/\quad
+a\leq i\leq b\}.$
+
+\subsection*{Première partie}
+
+La société ACTUEL SA est une société de vente à domicile dont la
+politique
+de vente est la suivante : un collaborateur de cette société contacte
+par téléphone 100 clients potentiels auxquels il propose deux produits
+que l'on
+nommera A et B.\\
+Pour un entier i compris entre 1 et 100, on notera :
+
+\begin{quote}
+\noindent R$_{i}$ l'évènement : {"} la ième personne contactée reçoit
+le
+collaborateur {"}.\\
+A$_{i}$ l'évènement : {"} la i-ème personne contactée achète le produit
+A {"}.\\
+B$_{i}$ l'évènement : {"} la i-ème personne contactée achète le produit
+B {"}.
+\end{quote}
+
+\noindent On fait les hypothèses suivantes :
+
+\begin{quote}
+\noindent (i) les évènements $R_{1},R_{2},...,R_{100}$ sont
+mutuellement indépendants et $\forall i\in \lbrack
+\hspace{-0.15em}[1,100]\hspace{-0.13em}],\quad P\left(\Ev{R_{i}}\right)
+= 0,2$.\\
+(ii) les évènements $A_{1},B_{1},A_{2},B_{2},...,A_{100},B_{100}$ sont
+mutuellement indépendants.\\
+(iii) $\forall i\in \lbrack
+\hspace{-0.15em}[1,100]\hspace{-0.13em}],\quad
+P\left(\Ev{A_{i}/R_{i}}\right) = 0,5$ et
+$P\left(\Ev{B_{i}/R_{i}}\right) = 0,1$.
+\end{quote}
+
+\noindent Enfin, si $i\in \lbrack
+\hspace{-0.15em}[1,100]\hspace{-0.13em}]$,
+on notera $X_{i}$ et $Y_{i}$ les variables aléatoires définies par :
+
+\begin{quote}
+\noindent $(X_{i} = 1)$ si et seulement si ($A_{i}$ est réalisé)\\
+$(X_{i} = 0)$ si et seulement si ($A_{i}$ n'est pas réalisé),\\
+$(Y_{i} = 2$) si et seulement si ($A_{i}$ et $B_{i}$ sont réalisés),\\
+$(Y_{i} = 1)$ si et seulement si (un des deux évènements (et un
+seulement) $A_{i}$ ou $B_{i}$ est réalisé),\\
+$(Y_{i} = 0)$ si et seulement si ($A_{i}$ et $B_{i}$ ne sont pas
+réalisés).
+\end{quote}
+
+\noindent Par hypothèse $X_{1},X_{2},...,X_{100}$ sont mutuellement
+indépendantes ainsi que $Y_{1},Y_{2},...,Y_{100}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $i\in \lbrack \hspace{-0.15em}[1,100]\hspace{-0.13em}]$,
+calculer 
+$P\left(\Ev{A_{i}}\right)$. Quelle est la loi de $X_{i}$ ?\\
+On note S la variable aléatoire $S = X_{1} + X_{2} +... + X_{100}$.
+
+\item Quelle est la loi de $S$ ? Rappeler les valeurs de $\E(S)$ et de
+$\V(S)$.\\
+Compte tenu des hypothèses, on estime que l'on peut approcher $S$ par
+une
+loi de Poisson de paramètre $\lambda = 10$.\\
+\textbf{N.B. Une table relative à la loi de poisson est fournie en
+annexe du
+sujet.}\\
+Dans les questions 3 et 4, on utilisera une précision de $10^{-4}$.
+
+\item Calculer alors $P\left(\Ev{S\geq 7}\right)$.
+
+\item On suppose que la vente d'un produit A rapporte au collaborateur
+un
+gain de 1000 F.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Quelle est la probabilité qu'à la fin du mois le collaborateur
+gagne
+au moins 7000 F ?
+
+\item On suppose de plus, que s'il vend au moins 8 produits A dans le
+mois,
+le collaborateur perçoit une prime de 500 F.\\
+Sachant qu'il a gagné au moins 7000 F dans le mois, quelle est la
+probabilité
+que le collaborateur ait touché la prime ?
+\end{noliste}
+
+\item Soit $i\in \lbrack \hspace{-0.15em}[1,100]\hspace{-0.13em}]$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour $k\in \{0,1,2\}$, calculer $P\left(\Ev{Y_{i} = k}\right)$.
+
+\item Calculer l'espérance et la variance de $Y_{i}$.
+\end{noliste}
+
+\item On note $Z = Y_{1} + Y_{2}$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Quelles sont les valeurs que peut prendre Z ?
+
+\item Déterminer la loi de Z, puis son espérance et sa variance.
+\end{noliste}
+\end{noliste}
+
+\subsection*{Deuxième partie}
+
+Dans cette partie $n$ désigne un entier naturel supérieur ou égal à
+1.\\
+Si $p\in \ ]0,1[$, on note $F_{n,p}$ la fonction de répartition d'une
+loi
+binomiale de paramètres $n$ et $p$.\\
+On notera $q = 1-p$.\\
+Si $\lambda \in \ ]0, + \infty \lbrack,$ on note $\pi 
+\[
+_{\lambda }$ la
+fonction de répartition d'une loi de Poisson de paramètre $\lambda $.\\
+Ainsi : $\forall k\in \lbrack
+\hspace{-0.15em}[0,n]\hspace{-0.13em}],\quad
+F_{n,p}(k) = \Sum{i = 0}{k}C_{n}{i}p^{i}q^{n-i}$ et $\forall
+k\geq n,\quad F_{n,p}(k) = 1$\\
+et $\forall k\in N,\quad \pi_{\lambda }(k) = \left[ \ \Sum{i =
+0}{k}\dfrac{\lambda ^{i}}{i!}\right] e^{-\lambda }$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \textbf{Expression intégrale de }$\pi_{\mathbf{\lambda
+}}(k)$\textbf{\ :} dans cette question $k\in \N$. \\
+On note $I_{k} = \dfrac{1}{k!}\dint{\lambda }{+ \infty }e^{-x}x^{k}dx$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer l'existence de $I_{0}$ et donner sa valeur.
+
+\item Démontrer que pour tout $k\in \N$ l'existence de $I_{k}$ et la
+relation :
+\[
+I_{k + 1} = \dfrac{\lambda ^{k + 1}}{(k + 1)!}e^{-\lambda } + I_{k}
+\]
+
+\item En déduire que : $\forall k\in N,\quad \pi_{\lambda }(k) =
+I_{k}$.
+\end{noliste}
+
+\item \textbf{Expression intégrale de }$F_{n,p}(k)$ \textbf{ :}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $\forall k\in \lbrack
+\hspace{-0.15em}[1,n]\hspace{-0.13em}],\quad kC_{n}{k} = (n-k +
+1)C_{n}{k-1}$
+
+\item Montrer que pour $n\geq 2,$ $\forall k\in \lbrack
+\hspace{-0.15em}[1,n-1]\hspace{-0.13em}]$, on a :
+\[
+\dint{0}{q}t^{n-k-1}(1-t)^{k}dt = \dfrac{p^{k}q^{n-k}}{n-k} +
+\dfrac{k}{n-k}\dint{0}{q}t^{n-k}(1-t)^{k-1}dt
+\]
+
+\item En déduire 
+\[
+\forall n\in \N^{\times },\forall k\in \lbrack
+\hspace{-0.15em}[0,n-1]\hspace{-0.13em}],\quad
+F_{n,p}(k) = (n-k)C_{n}{k}\dint{0}{q}t^{n-k-1}(1-t)^{k-1}dt
+\]
+(On n'oubliera pas les cas où $k = 0$ et le cas particulier de $n = 1$)
+
+\item Vérifier alors que $\forall n\in \N^{\times },\forall k\in
+\lbrack \hspace{-0.15em}[0,n-1]\hspace{-0.13em}]$, on a : 
+\[
+F_{n,p}(k) = (n-k)C_{n}{k}\int\nolimits_{p}{1}(1-t)^{n-k-1}t^{k}dt
+\]
+\end{noliste}
+
+Dans toute la suite du problème $\lambda $ désigne un réel strictement
+positif.
+
+\item \textbf{Convergence en loi d'une suite de variables aléatoires
+:}\\
+Pour $n\in \N^{\times }$, on définit la variable aléatoire discrète
+$S_{n}$ par : 
+\[
+\left\{ 
+\begin{tabular}{ll}
+$\forall k\in \lbrack \lbrack 0,n]]$ & $P\left(\Ev{S_{n} = k}\right) =
+C_{n}{k}\left[ \ \dfrac{\lambda }{n}\right] ^{k}\left[ 1-\dfrac{\lambda
+}{n}\right] ^{n-k}$ \\
+$\forall k>n$ & $P\left(\Ev{S_{n} = k}\right) = 0$\end{tabular}\right.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $\forall k\in \lbrack
+\hspace{-0.15em}[1,n]\hspace{-0.13em}],\quad P\left(\Ev{S_{n} =
+k}\right) = \dfrac{\lambda ^{k}}{k!}\left[ \ \dprod\limits_{j =
+0}{k-1}(1-\dfrac{j}{n})\right] \dfrac{\left[ 1-\dfrac{\lambda
+}{n}\right] ^{n}}{\left[ 1-\dfrac{\lambda }{n}\right] ^{k}}$
+
+\item Montrer que $\underset{n\rightarrow + \infty }{\lim }\left[
+1-\dfrac{\lambda }{n}\right] ^{n} = e^{-\lambda }$
+
+\item Soit $k\in \N$, déduire de ce qui précède que
+$\underset{n\rightarrow + \infty }{\lim }P\left(\Ev{S_{n} = k}\right) =
+\dfrac{\lambda ^{k}}{k!}e^{-\lambda
+} $ \\
+Ainsi, si l'on considère une variable aléatoire $X$ qui suit une loi de
+Poisson de paramètre $\lambda $; on a : 
+\[
+\forall k\in \N,\quad \underset{n\rightarrow + \infty }{\lim
+}P\left(\Ev{S_{n} = k}\right) = P\left(\Ev{X = k}\right)
+\]
+\end{noliste}
+
+\item \textbf{Dans cette question, on suppose que} $n>\lambda $
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déduire de la question 3 que $\forall k\in \N,\quad
+\underset{n\rightarrow + \infty }{\lim }F_{n,\dfrac{\lambda }{n}}(k) =
+\pi_{\lambda }(x)$
+
+\item À l'aide de la question 2, vérifier que $\forall k\in \lbrack
+\hspace{-0.15em}[0,n-1]\hspace{-0.13em}],$ on a :
+\[
+F_{n,\dfrac{\lambda }{n}}(k) =
+\dfrac{1}{k!}\dfrac{(n-1)...(n-k)}{n^{k}}\dint{\lambda }{n}\left[
+1-\dfrac{x}{n}\right] ^{n-k-1}x^{k}dx
+\]
+
+\item Déduire alors de ce qui précède que pour tout k fixé tel que
+$0\leq k\leq n-1$, on a :
+\[
+\underset{n\rightarrow + \infty }{\lim }\dint{\lambda }{n}\left[
+1-\dfrac{x}{n}\right] ^{n-k-1}x^{k}dx = \int\nolimits_{\lambda }{+
+\infty
+}e^{-x}x^{k}dx
+\]
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

@@ -1,0 +1,556 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+% \input{../macros_Livre.tex}
+\input{../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2019} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{-.2cm}
+
+%%DEBUT
+
+\section*{Exercice}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+\item Dans cette question, on considère les matrices $C =
+  \begin{smatrix}
+    0 \\
+    1 \\
+    2
+  \end{smatrix}
+  \in \M{3, 1}$, $L =
+  \begin{smatrix}
+    1 & 2 & -1
+  \end{smatrix}
+  \in \M{3, 1}$ et le produit matriciel $M = CL$.
+
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+  \item
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm} %
+    \item Calculer $M$ et $M^2$.
+
+    \item Déterminer le rang de $M$.
+
+    \item La matrice $M$ est-elle diagonalisable ?
+    \end{nonoliste}
+
+  \item Soit $P =
+    \begin{smatrix}
+      0 & 1 & 0 \\
+      1 & 0 & 0 \\
+      0 & -2 & 1
+    \end{smatrix}
+    $. Justifier que la matrice $P$ est inversible et calculer le produit $P
+    \begin{smatrix}
+      0 \\
+      1 \\
+      2
+    \end{smatrix}
+    $.
+
+  \item Trouver une matrice inversible $Q$ dont la transposée ${}^tQ$
+    vérifie : ${}^tQ
+    \begin{smatrix}
+      1 \\
+      2 \\
+      -1
+    \end{smatrix}
+    =
+    \begin{smatrix}
+      1 \\
+      0 \\
+      0
+    \end{smatrix}
+    $.
+
+  \item Pour une telle matrice $Q$, calculer le produit $P \, M \, Q$.
+  \end{noliste}
+
+\item La fonction \Scilab{} suivante permet de multiplier la $\eme{i}$
+  ligne $L_i$ d'une matrice $A$ par une réel sans modifier ses autres
+  lignes, c'est-à-dire de lui appliquer l'opération élémentaire $L_i
+  \leftarrow a \, L_i$ (où $a \neq 0$).
+  \begin{scilab}
+    & \tcFun{function} \tcVar{B} = \underline{multilig}(\tcVar{a},
+    \tcVar{i}, \tcVar{A}) \nl %
+    & \qquad [n, p] = size(\tcVar{A}) \nl %
+    & \qquad \tcVar{B} = \tcVar{A} \nl %
+    & \qquad \tcFor{for} j = 1:p \nl %
+    & \qquad \qquad \tcVar{B}(i, j) = \tcVar{a} \Sfois{}
+    \tcVar{B}(i,j) \nl %
+    & \qquad \tcFor{end} \nl %
+    & \tcFun{endfunction}
+  \end{scilab}
+
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+  \item Donner le code \Scilab{} de deux fonctions {\tt adlig}
+    (d'arguments {\tt b}, {\tt i}, {\tt j}, {\tt A}) et {\tt echlig}
+    (d'arguments {\tt i}, {\tt j}, {\tt A}) permettant d'effectuer
+    respectivement les autres opérations sur les lignes d'une matrice
+    :
+    \[
+    Li \leftarrow L_i + b \, L_j \ (i \neq j) \quad \text{ et } \quad
+    L_i \leftrightarrow L_j \ (i \neq j)
+    \]
+
+  \item Expliquer pourquoi la fonction {\tt multligmat} suivante
+    retourne le même résultat {\tt B} que la fonction {\tt multlig}.
+    \begin{scilab}
+      & \tcFun{function} \tcVar{B} = \underline{multiligmat}(\tcVar{a},
+      \tcVar{i}, \tcVar{A}) \nl %
+      & \qquad [n, p] = size(\tcVar{A}) \nl %
+      & \qquad D = eye(n, n) \nl %
+      & \qquad D(i, i) = a \nl %
+      & \qquad \tcVar{B} = D \Sfois{} A \nl %
+      & \tcFun{endfunction}
+    \end{scilab}    
+  \end{noliste}
+
+\item Dans cette question, on note $n$ un entier supérieur ou égal à
+  $2$ et $M$ une matrice de $\M{n}$ de rang $1$. Pour tout couple $(i,
+  j) \in \llb 1, n \rrb^2$, on note $E_{i, j}$ la matrice de $\M{n}$
+  dont tous les coefficients sont nuls sauf celui situé à
+  l'intersection de sa $\eme{i}$ ligne et de sa $\eme{j}$ colonne, et
+  qui vaut $1$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+  \item
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm} %
+    \item Justifier l'existence d'une matrice colonne non nulle $C =
+      \begin{smatrix}
+        c_1 \\
+        \vdots \\
+        c_n
+      \end{smatrix}
+      \in \M{n, 1}$ et d'une matrice ligne non nulle $
+      L_1 = 
+      \begin{smatrix}
+        l_1 & \ldots & l_n
+      \end{smatrix}
+      \in \M{1, n}
+      $ telles que $M = CL$.
+
+    \item Calculer la matrice $M \, C$ et en déduire une valeur propre
+      de $M$.
+
+    \item Montrer que si le réel $\Sum{i=1}{n} c_i \, l_i$ est
+      différent de $0$, alors la matrice $M$ est diagonalisable.
+    \end{nonoliste}
+
+  \item
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm} %
+    \item À l'aide de l'égalité $M = C \, L$, établir l'existence de
+      deux matrices inversibles $P$ et $Q$ telles que $P \, M \, Q =
+      E_{1, 1}$.
+
+    \item En déduire que pour tout couple $(i, j) \in \llb 1,
+      n\rrb^2$, il existe deux matrices inversibles $P_i$ et $Qj$
+      telles que $P_i \, M \, Q_j = E_{i, j}$.
+    \end{nonoliste}
+    
+  \end{noliste}
+\end{noliste}
+
+
+% \newpage
+
+
+\section*{Problème}
+
+\noindent %
+{\it Dans ce problème, on définit et on étudie les fonctions
+  génératrices des cumulants de variables aléatoires discrètes ou à
+  densité.\\
+  Les cumulants d'ordre $3$ et $4$ permettent de définir des
+  paramètres d'asymétrie et d'aplatissement qui viennent compléter la
+  description usuelle d'une loi de probabilité par son espérance
+  (paramètre de position) et sa variance (paramètre de dispersion) ;
+  ces cumulants sont notamment utilisés pour l'évaluation des risques
+  financiers.}\\[.2cm]
+{\bf Dans tout le problème} :
+\begin{noliste}{$\sbullet$}
+\item on note $(\Omega, \A, \Prob)$ un espace probabilisé et toutes
+  les variables aléatoires introduites dans l'énoncé sont des
+  variables aléatoires réelles définies sur $(\Omega, \A)$ ;
+  
+\item sous réserve d'existence, l'espérance et la variance d'une
+  variable aléatoire $X$ sont respectivement notées $\E(X)$ et $\V(X)$
+  ;
+  
+\item pour tout variable aléatoire $X$ et pour tout réel $t$ pour
+  lesquels la variable aléatoire $\ee^{t \, X}$ admet une espérance,
+  on pose :
+  \[
+    M_X(t) = \E\left(\ee^{t \, X}\right) \quad \text{et} \quad K_X(t)
+    = \ln\big(M_X(t)\big) ;
+  \]
+  (les fonctions $M_X$ et $K_X$ sont respectivement appelées la {\it
+    fonction génératrice des moments} et la {\it fonction génératrice
+    des cumulants} de $X$)
+  
+\item lorsque, pour un entier $p \in \N^*$, la fonction $K_X$ est de
+  classe $\Cont{p}$ sur un intervalle ouvert contenant l'origine, on
+  appelle {\it cumulant d'ordre $p$ de $X$}, noté $Q_p(X)$, la valeur
+  de la dérivée $\eme{p}$ de $K_X$ en $0$ :
+  \[
+    Q_p(X) \ = \ K_X^{(p)}(0).
+  \]
+\end{noliste}
+
+
+\subsection*{Partie I. Fonction génératrice des moments de variables
+  aléatoires discrètes}
+
+\noindent
+{\it Dans toute cette partie} :
+\begin{noliste}{$\sbullet$}
+\item on note $n$ un entier supérieur ou égal à $2$ ;
+  
+\item toutes les variables aléatoires considérées sont discrètes à
+  valeurs entières ;
+  
+\item on note $S$ une variable aléatoire à valeurs dans $\{-1,1\}$
+  dont la loi est donnée par :
+  \[
+    \Prob(\Ev{S = -1}) \ = \ \Prob(\Ev{S = +1}) \ = \ \dfrac{1}{2}.
+  \]
+\end{noliste}
+
+
+\newpage
+
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item Soit $X$ une variable aléatoire à valeurs dans $\llb -n, n\rrb$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Pour tout $t\in \R$, écrire $M_X(t)$ sous la forme d'une somme
+    et en déduire que la fonction $M_X$ est de classe $\Cont{\infty}$
+    sur $\R$.
+    
+  \item Justifier pour tout $p \in \N^*$, l'égalité : $M_X^{(p)}(0) =
+    \E(X^p)$.
+    
+  \item Soit $Y$ une variable aléatoire à valeurs dans $\llb -n,n
+    \rrb$ dont la fonction génératrice des moments $M_Y$ est la même
+    que celle de $X$.\\
+    On note $G_X$ et $G_Y$ les deux polynômes définis par :
+    \[
+      \forall x \in \R, \ \left\{
+        \begin{array}{l}
+          G_X(x) \ = \ \Sum{k=0}{2n} \Prob(\Ev{X = k-n}) \, x^k
+          \\[.4cm]
+          G_Y(x) \ = \ \Sum{k=0}{2n} \Prob(\Ev{Y = k-n}) \, x^k
+        \end{array}
+      \right.
+    \]
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Vérifier pour tout $t\in \R$, l'égalité : $G_X(\ee^t) =
+      \ee^{nt} \, M_X(t)$.
+      
+    \item Justifier la relation : $\forall t \in \R$, $G_X(\ee^t) =
+      G_Y(\ee^t)$.
+      
+    \item En déduire que la variable aléatoire $Y$ suit la même loi
+      que $X$.
+    \end{nonoliste}
+  \end{noliste}
+  
+\item Dans cette question, on note $X_2$ une variable aléatoire qui
+  suit la loi binomiale $\Bin{2}{\dfrac{1}{2}}$.\\
+  On suppose que les variables aléatoires $X_2$ et $S$ sont
+  indépendantes et on pose $Y_2 = S \, X_2$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Préciser l'ensemble des valeurs possibles de la variable
+      aléatoire $Y_2$.
+      
+    \item Calculer les probabilités $\Prob(\Ev{Y_2 = y})$ attachées
+      aux diverses valeurs possibles $y$ de $Y_2$.
+    \end{nonoliste}
+    
+  \item Vérifier que la variable aléatoire $X_2 - (S+1)$ suit la même
+    loi que $Y_2$.
+  \end{noliste}
+  
+\item Le script \Scilab{} suivant permet d'effectuer des simulations
+  de la variable aléatoire $Y_2$ définie dans la question précédente.
+  \begin{scilab}
+    & n = 10 \nl %
+    & X = grand(n,2,\ttq{}bin\ttq{},2,0.5) \nl %
+    & B = grand(n,2,\ttq{}bin\ttq{},1,0.5) \nl %
+    & S = 2 \Sfois{} B - ones(n,2) \nl %
+    & Z1 = [S(1:n,1) .\Sfois{} X(1:n,1) , X(1:n,1) - S(1:n,1) -
+    ones(n,1)] \nl %
+    & Z2 = [S(1:n,1) .\Sfois{} X(1:n,1) , X(1:n,2) - S(1:n,2) -
+    ones(n,1)]
+  \end{scilab}
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Que contiennent les variables {\tt X} et {\tt S} après
+    l'exécution des quatre premières instructions ?
+    
+  \item Expliquer pourquoi, après l'exécution des six instructions,
+    chacun des coefficients des matrices {\tt Z1} et {\tt Z2} contient
+    une simulation de la variable aléatoire $Y_2$.
+    
+  \item On modifie la première ligne du script précédent en affectant
+    à {\tt n} une valeur beaucoup plus grande que $10$ (par exemple,
+    $100000$) et en lui adjoignant les deux instructions \ligne{7} et
+    \ligne{8} suivantes :
+    \begin{scilabC}{6}
+      & p1 = length(find(Z1(1:n,1) == Z1(1:n,2))) / n \nl %
+      & p2 = length(find(Z2(1:n,1) == Z2(1:n,2))) / n
+    \end{scilabC}
+    Quelles valeurs numériques approchées la loi faible des grands
+    nombres permet-elle de fournir pour {\tt p1} et {\tt p2} après
+    l'exécution des huit lignes du nouveau script ?
+
+
+    \newpage
+
+
+    \noindent
+    Dans le langage \Scilab{}, la fonction {\tt length} fournit la \og
+    longueur \fg{} d'un vecteur ou d'une matrice et la fonction {\tt
+      find} calcule les positions des coefficients d'une matrice pour
+    lesquels une propriété est vraie, comme l'illustre le script
+    suivant :
+    \[
+      \begin{console}
+        \lInv{A = [1 ; 2 ; 0 ; 4]} \nl %
+        \lInv{B = [2 ; 2 ; 4 ; 3]} \nl %
+        \lInv{length(A)} \nl %
+        \lDisp{\qquad ans = 4.} \nl %
+        \lInv{length([A , B])} \nl %
+        \lDisp{\qquad ans = 8.} \nl %
+        \lInv{find(A < B)} \nl %
+        \lDisp{\qquad ans = 1. 3. // \textit{car $1<2$ et $0<4$, alors
+            que $2 \geq 2$ et $4 \geq 3$}}
+      \end{console}
+    \]
+  \end{noliste}
+  
+\item Dans cette question, on note $X_n$ une variable aléatoire qui
+  suit la loi binomiale $\Bin{n}{\dfrac{1}{2}}$.\\
+  On suppose que les variables aléatoires $X_n$ et $S$ sont
+  indépendantes et on pose $Y_n = S \, X_n$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier que la fonction $M_{X_n}$ est définie sur $\R$ et
+    calculer $M_{X_n}(t)$ pour tout $t\in \R$.
+    
+  \item Montrer que la fonction $M_{Y_n}$ est donnée par : $\forall t
+    \in \R$, $M_{Y_n}(t) = \dfrac{1}{2^{n+1}} \ \big((1+\ee^t)^n + (1+
+    \ee^{-t})^n\big)$.
+    
+  \item En utilisant l'égalité $(1+\ee^{-t})^n = \ee^{-nt} \,
+    (1+\ee^t)^n$, montrer que $Y_n$ suit la même loi que la différence
+    $X_n - H_n$, où $H_n$ est une variable aléatoire indépendante de
+    $X_n$ dont on précisera la loi.
+  \end{noliste}
+\end{noliste}
+
+
+\subsection*{Partie II. Propriétés générales des fonctions
+  génératrices des cumulants et quelques exemples}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{4}
+\item Soit $X$ une variable aléatoire et ${\cal D}_X$ le domaine de
+  définition de la fonction $K_X$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Donner la valeur de $K_X(0)$.
+    
+  \item Soit $(a,b) \in \R^2$ et $Y= a \, X +b$. Justifier pour tout
+    réel $t$ pour lequel $a \, t$ appartient à ${\cal D}_X$, l'égalité
+    :
+    \[
+      K_Y(t) \ = \ b \, t + K_X(a \, t)
+    \]
+    
+  \item On suppose ici que les variables aléatoires $X$ et $-X$
+    suivent la même loi.\\
+    Que peut-on dire dans ce cas des cumulants d'ordre impair de la
+    variables aléatoire $X$ ?
+  \end{noliste}
+  
+\item Soit $X$ et $Y$ deux variables aléatoires indépendantes et
+  ${\cal D}_X$ et ${\cal D}_Y$ les domaines de définition respectifs
+  des fonctions $K_X$ et $K_Y$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Monter que pour tout réel $t$ appartenant à la fois à ${\cal
+      D}_X$ et ${\cal D}_Y$, on a : $K_{X+Y}(t) = K_X(t) + K_Y(t)$.
+    
+  \item En déduire une relation entre les cumulants des variables
+    aléatoires $X$, $Y$ et $X+Y$.
+  \end{noliste}
+  
+\item Soit $U$ une variable aléatoire suivant la loi uniforme sur
+  l'intervalle $[0,1]$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que la fonction $M_U$ est définie sur $\R$ et donnée
+    par : $\forall t \in \R$, $M_U(t) = \left\{
+      \begin{array}{cR{1.5cm}}
+        \dfrac{\ee^t - 1}{t} & si $t \neq 0$
+        \nl
+        \nl[-.2cm]
+        1 & si $t=0$
+      \end{array}
+    \right.$.
+    
+  \item Calculer la dérivée de la fonction $M_U$ en tout point $t \neq
+    0$.
+    
+  \item Trouver la limite du quotient $\dfrac{M_U(t) -1}{t}$ lorsque
+    $t$ tend vers $0$.
+    
+  \item Montrer que la fonction $M_U$ est de classe $\Cont{1}$ sur $\R$.
+  \end{noliste}
+
+
+  \newpage
+  
+  
+\item Soit $\alpha$ et $\beta$ deux réels tels que $\alpha < \beta$.\\
+  Dans cette question, on note $X$ une variable aléatoire qui suit la
+  loi uniforme sur l'intervalle $[\alpha, \beta]$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Exprimer $K_X$ en fonction de $M_U$, où la variable aléatoire
+    $U$ a été définie dans la question \itbf{7.}
+    
+  \item Justifier que la fonction $K_X$ est de classe $\Cont{1}$ sur
+    $\R$ et établir l'égalité : $Q_1(X) = \E(X)$.
+  \end{noliste}
+  
+\item Soit un réel $\lambda >0$ et soit $T$ une variable aléatoire qui
+  suit la loi de Poisson de paramètre $\lambda$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer les fonctions $M_T$ et $K_T$.
+    
+  \item En déduire les cumulants de $T$.
+  \end{noliste}
+  
+\item Soit $Z$ une variable aléatoire qui suit la loi normale centrée
+  réduite.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier pour tout $t \in \R$, la convergence de l'intégrale
+    $\dint{-\infty}{+\infty} \exp\left(t \, x - \dfrac{x^2}{2}\right)
+    \dx$.
+    
+  \item Montrer que la fonction $M_Z$ est définie sur $\R$ et donnée
+    par : $\forall t \in \R$, $M_Z(t) =
+    \exp\left(\dfrac{t^2}{2}\right)$.
+    
+  \item En déduire la valeur de tous les cumulants d'une variable
+    aléatoire qui suit une loi normale d'espérance $\mu \in \R$ et
+    d'écart-type $\sigma \in \R_+^*$.
+  \end{noliste}
+  
+\item Soit $(T_n)_{n \in \N^*}$ une suite de variables aléatoires
+  telles que, pour tout $n \in \N^*$, la variable aléatoire $T_n$ suit
+  la loi de Poisson de paramètre $n$. Pour tout $n \in \N^*$, on pose
+  : $W_n = \dfrac{T_n - n}{\sqrt{n}}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier la convergence en loi de la suite de variables
+    aléatoires $(W_n)_{n \in \N^*}$ vers une variable aléatoire $W$.
+    
+  \item Déterminer la fonction $K_{W_n}$.
+    
+  \item Montrer que pour tout $t \in \R$, on a : $\dlim{n\to +\infty}
+    K_{W_n}(t) = K_W(t)$.
+  \end{noliste}
+\end{noliste}
+
+
+\subsection*{Partie III. Cumulant d'ordre 4}
+
+\noindent
+Dans cette partie, on considère une variable aléatoire $X$ telle que
+$M_X$ est de classe $\Cont{4}$ sur un intervalle ouvert $I$ contenant
+l'origine.\\
+{\it On admet} alors que $X$ possède des moments jusqu'à l'ordre $4$
+qui coïncident avec les dérivées successives de la fonction $M_X$ en
+$0$. Autrement dit, pour tout $k \in \llb 1,4 \rrb$, on a :
+$M_X^{(k)}(0) = \E(X^k)$.\\[.1cm]
+De plus, on pose : $\mu_4(X) = \E\left( \big(X - \E(X)\big)^4\right)$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{11}
+\item Justifier les égalités : $Q_1(X) = \E(X)$ et $Q_2(X) = \V(X)$.
+  
+\item Soit $X_1$ et $X_2$ deux variables aléatoires indépendantes et
+  de même loi que $X$. On pose : $S = X_1 - X_2$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que la variable aléatoire $S$ possède un moment
+    d'ordre $4$ et établir l'égalité :
+    \[
+      \E(S^4) \ = \ 2 \, \mu_4(X) + 6 \, \big(\V(X)\big)^2
+    \]
+    
+  \item Montrer que les fonctions $M_S$ et $K_S$ sont de classe
+    $\Cont{4}$ sur $I$ et que pour tout $t \in I$, on a :
+    \[
+      M_S^{(4)}(t) \ = \ K_S^{(4)}(t) \, M_S(t) + 3 \, K_S^{(3)}(t) \,
+      M_S'(t) + 3 \, K_S''(t) \, M_S''(t) + K_S'(t) \, M_S^{(3)}(t)
+    \]
+    
+  \item En déduire l'égalité : $\E(S^4) \ = \ Q_4(S) + 3 \, \big(\V(S)\big)^2$.
+  \end{noliste}
+  
+\item Justifier que le cumulant d'ordre $4$ de $X$ est donné par la
+  relation : $Q_4(X) \ = \ \mu_4(X) - 3 \, \big(\V(X)\big)^2$.
+\end{noliste}
+
+
+\end{document}

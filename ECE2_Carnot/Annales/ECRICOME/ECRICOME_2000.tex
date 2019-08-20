@@ -1,0 +1,332 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 2000} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dint}{\int}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 2000}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\Huge ECRICOME Eco 2000}
+\end{center}
+
+\begin{center}
+{\LARGE Exercice 1}
+\end{center}
+
+\noindent Soit $X$ une variable aléatoire à densité définie sur un
+espace probabilisé. On note $f$ une densité de $X$, $F$ sa fonction de
+répartition. On fait les trois hypothèses
+suivantes :
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item 
+\begin{nonoliste}{(i)}
+\item Si $t$ appartient à $]-\infty,0[$, $f(t) = 0$.
+
+\item Si $t$ appartient à $[0, + \infty [$, $f(t)$ est strictement
+positif.
+
+\item $f$ est continue sur $]0, + \infty [$.
+\end{nonoliste}
+\end{noliste}
+
+\item Montrer que l'équation $F(x) =  {\frac{1}{2}}$ admet
+une solution unique sur $]0, + \infty [$.\\
+Cet unique réel, que l'on notera $m$, sera appelé \textbf{médiane} de
+$X$.
+
+\item Dans cette question, on suppose que $X$ suit une loi
+exponentielle de
+paramètre 1.\\
+Montrer que $X$ satisfait aux hypothèses du début de l'exercice et
+déterminer la médiane de $X$.
+
+\item On suppose dans cette question que la densité de $X$ est donnée
+sur $[0, + \infty [$ par $f(t) = t\ e^{-t}$ et sur $]-\infty,0[$ par
+$f(t) = 0$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $f$ satisfait aux hypothèses du début de
+l'exercice.
+
+\item Déterminer la fonction de répartition $F$ de $X$.
+
+\item Montrer, sans chercher à la calculer, que la médiane $m$ de $X 
+$ vérifie $1\leq m\leq 2$.\\
+(On donne $6<e^{2}<9)$.\\
+On se propose, dans la suite de cette question, de calculer une valeur
+approchée de $m$. On introduit pour cela la fonction $g$ définie sur 
+$[1,2]$ par $g(x) = \ln (2x + 2)$, fonction qui va permettre de
+construire une
+suite convergeant vers $m$.
+
+\item Montrer que $g(m) = m$.
+
+\item Montrer que si $x$ appartient à $[1,2]$ alors $g(x)$ appartient 
+à $[1,2]$ et 
+\[
+|g(x)-m|\leq {\frac{1}{2}}|x-m| 
+\]
+
+\item On considère la suite $(u_{n})$ définie par $u_{0} = 1$ et pour
+$n>0$ par $u_{n} = g(u_{n-1})$.\\
+Montrer que\ $|u_{n}-m|\leq \left(  {\frac{1}{2}}\right) ^{n}$
+
+\item Déterminer un entier $n$ tel que $u_{n}$ soit une valeur
+approchée de $m$ à $10^{-2}$ près.
+\end{noliste}
+
+\item On revient maintenant au cas général et on suppose que la
+variable $X$ admet une espérance $\E(X)$ et une variance $\V(X)$. On
+note
+toujours $m$ la médiane de $X$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer qu'on a les inégalités : 
+\[
+\V(X)\geq \dint{0}{m}(t-\E(X))^{2}\ f(t)\ dt\qquad \text{et }\qquad
+V(X)\geq
+\dint{m}{+ \infty }(t-\E(X))^{2}\ f(t)\ dt
+\]
+
+\item En distinguant les cas $m\leq E(X)$ et $m>\E(X)$, montrer que : 
+\[
+|m-\E(X)|\leq \sqrt{2\V(X)}
+\]
+\end{noliste}
+\end{noliste}
+
+\begin{center}
+{\LARGE Exercice 2}
+\end{center}
+
+\noindent $E$ est l'espace vectoriel des polyn\^{o}mes à
+coefficients réels et de degré inférieur ou égal à 3. On
+désigne par $f$ l'application qui à un polyn\^{o}me $P$ de $E$
+associe le polyn\^{o}me $f(P)$ défini par : 
+\[
+\forall x\in \R :f(P)(x) = P\left(\Ev{x + 1}\right) +
+P\left(\Ev{x}\right) 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{1)}] Montrer que $f$ est un endomorphisme de $E$.
+
+\item[ \ \textbf{2)}] On nore $\mathcal{B}$ la base usuelle de $E$
+constituée, dans cet ordre des quatre polyn\^{o}mes $1$, $X$, $X^{2}$,
+$X^{3}$.\\
+Montrer que la matrice de $f$ dans la base $\mathcal{B}$ est $\left( 
+\begin{array}{cccc}
+2 & 1 & 1 & 1 \\
+0 & 2 & 2 & 3 \\
+0 & 0 & 2 & 3 \\
+0 & 0 & 0 & 2
+\end{array}
+\right) $
+
+\item[ \ \textbf{3)}] Montrer que $f$ est bijectif.
+
+\item[ \ \textbf{4)}] Calculer la matrice de $f^{-1}$ dans la base
+$\mathcal{B} 
+$.
+
+\item[ \ \textbf{5)}] Soit $P$ un élément de $E$ défini par :
+$P\left(\Ev{X}\right) = a_{0} + a_{1}X + a_{2}X^{2} + a_{3}X^{3}$.
+
+\begin{noliste}{$\sbullet$}
+\item[ \ \textbf{a :}] Expliciter en fonction des réels $a_{0}$,
+$a_{1}$, $a_{2}$, $a_{3}$ le polyn\^{o}me $Q = f^{-1}(P)$.
+
+\item[ \ \textbf{b :}] On considère pour tout entier strictement
+positif $n$
+la somme 
+\[
+S(n) = \Sum{k = 1}{k = n}(-1)^{k}P\left(\Ev{k}\right) 
+\]
+Exprimer simplement $S(n)$ en fonction de $(-1)^{n}$, $Q(n + 1)$ et
+$Q(1)$.
+
+\item[ \ \textbf{c :}] Expliciter alors la valeur de $S(n)$ en fonction
+de $n$, $a_{0}$, $a_{1}$, $a_{2}$, $a_{3}$
+\end{noliste}
+\end{noliste}
+
+\begin{center}
+{\LARGE Exercice 3}
+\end{center}
+
+\noindent $T$ est l'ensemble des couples $(x,y)$ de réels
+solutions du système d'inéquations 
+\[
+x\geq \frac{1}{4}}\quad y\geq \frac{1}{4}}\quad
+x + y\leq \frac{3}{4}} 
+\]
+On note $T^{\prime }$ l'\ ``intérieur'' de $T$ à savoir l'ensemble
+des couples $(x,y)$ solutions du système d'inéquations 
+\[
+x>\frac{1}{4}}\quad y>\frac{1}{4}}\quad x + y<\frac{3}{4}} 
+\]
+Soit $f$ la fonction définie sur $T$ par : \quad $f(x,y) = \frac{1}{x}}
++ {\frac{1}{y}}-{\frac{2}{x + y}}$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{1)}] Représenter sur un même graphique $T$ et
+$T^{\prime }$.
+
+\item[ \ \textbf{2)}] On admet que $T^{\prime }$ est un ouvert de
+$\R^{2}$.
+
+\begin{noliste}{$\sbullet$}
+\item[ \ \textbf{a :}] Déterminer les dérivées partielles d'ordre 1
+sur $T^{\prime }$ de la fonction $f$.
+
+\item[ \ \textbf{b :}] Montrer que $f$ n'admet pas d'extremum local (et
+donc a
+fortiori absolu) sur $T^{\prime }$.
+\end{noliste}
+
+\item[ \ \textbf{3)}] Démontrer par de simples considérations sur des
+inégalités que l'on a pour tout couple $(x,y)$ de $T$ : 
+\[
+2\leq f(x,y)\leq {\frac{16}{3}} 
+\]
+On considère une urne contenant des boules blanches (en proportion
+$p$),
+des boules rouges (en proportion $r$) et des boules vertes (en
+proportion $u$).\\
+On suppose que \quad $p\geq  {\frac{1}{4}}$ \quad $r\geq 
+{\frac{1}{4}}$ \quad $u\geq  {\frac{1}{4}}$ \quad
+et que \quad $p + r + u = 1$.\\
+\\
+On effectue indéfiniment des tirages successifs d'une boule dans cette
+urne avec remise entre deux tirages.\\
+Pour tout entier naturel $n$ supérieur ou égal à 1, on note $B_{n}$
+(respectivement $R_{n}$, $V_{n}$) l'événement : ``Tirer une
+boule blanche (respectivement rouge, verte) au $n^{i\grave{e}me}$
+tirage''. 
+\\
+On appelle $X$ (resp $Y$) la variable aléatoire égale au rang
+d'apparition de la première blanche (resp rouge).\\
+On définit alors la variable $D = |X-Y|$ égale au nombre de tirages
+séparant la sortie de la première blanche et de la première rouge.
+
+\item[ \ \textbf{4)}] Déterminer la loi de $X$. Faire de même pour $Y$.
+
+\item[ \ \textbf{5)}] Soit $i$ et $j$ des entiers naturels non nuls. En
+distinguant les cas $i = j$, $i<j$ et $i>j$, exprimer l'événement $(X =
+i)\cap (Y = j)$ à l'aide des événements décrits dans l'énoncé.\\
+En déduire la loi du couple $(X,Y)$.
+
+\item[ \ \textbf{6)}] Les variables $X$ et $Y$ sont-elles indépendantes
+?
+
+\item[ \ \textbf{7)}] Soit $k$ un entier naturel non nul, montrer
+l'égalité : 
+\[
+P\left(\Ev{D = k}\right) = {\frac{pr}{p + r}}\left[ (1-p)^{k-1} +
+(1-r)^{k-1}\right] 
+\]
+
+\item[ \ \textbf{8)}] Montrer que $D$ admet une espérance et que $\E(D)
+= f(p,r)$. Encadrer alors $\E(D)$.
+\end{noliste}
+
+\vspace{1cm}
+
+\end{document}
+

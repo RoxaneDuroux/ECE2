@@ -1,0 +1,422 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 1991} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dint}{\int}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 1991}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\Huge ECRICOME Eco 1991}
+\end{center}
+
+\section*{\textbf{Exercice 1}}
+
+L'espace vectoriel $E = \R^{3}$ est rapporté à sa base canoniqur
+$\mathcal{B} = (i,j,k)$ $i = (1,0,0)$, $j = (0,1,0)$ et $k = (0,0,1)$.
+\\
+On appelle $f$ l'endomorphisme de $E$ dont la matrice relativement à
+$\mathcal{B}$ est la matrice $A$ suivante : 
+\[
+A = \left( 
+\begin{array}{rrr}
+-2 & -1 & 2 \\
+-15 & -6 & 11 \\
+-14 & -6 & 11
+\end{array}
+\right) 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer l'image du vecteur $u = i + j + 2k$ par l'application
+$f$.\\
+Que peut-on dire du vecteur $u$ pour l'application $f$ ?
+
+\item On pose $v = 3j + 2k$ et $\mathcal{B}{\prime } = (u,v,k)$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Démontrer que $\mathcal{B^{\prime }}$ est une base de $E$
+
+\item Soit $P$ la matrice de passage de la base $\mathcal{B}$ à la base
+$\mathcal{B}{\prime }$.\\
+Calculer la matrice inverse de $P$.
+
+\item Déterminer la matrice $T$ de $f$ relativement à la base
+$\mathcal{B}{\prime }$.
+\end{noliste}
+
+\item On considère la matrice $N$ suivante :
+\[
+N = \left( 
+\begin{array}{rrr}
+0 & 1 & 2 \\
+0 & 0 & 3 \\
+0 & 0 & 0
+\end{array}
+\right)
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $N^{2}$. En déduire $N^{k}$ si $k$ est un entier
+supérieur ou 
+égal à $2$.
+
+\item Calculer $I + N$. Déterminer $T^{n}$ en fonction de $n$ et de
+$N$, puis
+de $n$ uniquement.
+
+\item Montrer que $P.N.P^{-1} = A-I$ et que $P.N^{2}.P^{-1} = A^{2}-2A
++ I$
+
+\item Donner l'expression de $A^{n}$ en fonction de $n$, $I$, $A$ et
+$A^{2}$.
+\end{noliste}
+\end{noliste}
+
+\section*{\textbf{Exercice 2}}
+
+On considère la suite $(u_{n})$ dont le terme général est défini par la
+relation : 
+\[
+\forall n\in \N^{\ast }\qquad u_{n} = \dint{0}{1}\sqrt[3]{1-x^{n}}dx =
+\dint{0}{1}(1-x^{n})^{1/3}dx
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer $u_{1}$.
+
+\item Démontrer que la suite $(u_{n})$ est croissante et convergente.
+
+\item Démontrer que, pour tout réel $x$ tel que $0\leq x\leq 1$,
+on a : 
+\[
+1-x\leq \sqrt[3]{1-x}\leq 1-\dfrac{x}{3}
+\]
+Interpréter graphiquement la double inégalité précédente.
+
+\item En déduire un encadrement de $u_{n}$ et la limite de $u_{n}$
+quand $n$
+tend vers $ + \infty $.
+
+\item On considère la fonction $f$ définie par : 
+\[
+\left\{ 
+\begin{array}{ll}
+f(x) = \dfrac{4}{3}\sqrt[3]{1-x} & \text{si }0\leq x\leq 1 \\
+f(x) = 0 & \text{si }x<0\text{ ou }x>1
+\end{array}
+\right.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f$ est la densité d'une variable aléatoire $Y$.
+
+\item Déterminer la fonction de répartition $F$ de la variable $Y$.\\
+Construire sa représentation graphique dans un plan rapporté à un
+repère
+orthonrmé, d'unité 3cm sur chaque axe.
+
+\item Calculer l'espérance de la variable $Y$
+
+\item Calculer la probabilité de l'évènement : $(0,488<Y\leq 1,2)$
+\end{noliste}
+
+On rapelle que : $2^{9} = 512$.
+\end{noliste}
+
+\section*{\textbf{Problème}}
+
+Le problème est constitué de deux parties largement indépendantes.\\
+La première partie propose une estimation du paramètre de la loi de
+Poisson
+suivie par une variable aléatoire; la seconde partie étudie
+l'intervalle de
+temps qui sépare deux réalisations sucessives d'un phénomène aléatoire.
+
+\subsection*{\textbf{Partie I}}
+
+La société SA POIN est spécialisée dans la location de camions. La
+direction
+pense que le nombre de véhicules loués un jour $j$ donné est une
+variable aléatoire $X_{j}$, que les variables $X_{j}$ sont mutuellement
+épendantes et
+suivent toutes la même loi de Poisson de paramètre $a$ inconnu.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On considère, pour tout entier $k\in \N^{\ast }$ la fonction
+$f_{k}$ définie pour tout $x$ réel positif ou nul par : \qquad
+$f_{k}(x) = x^{k}\ e^{-x}$\\
+On appelle $(C_{k})$ la courbe représentative de $f_{k}$ dans un plan
+rapporté à un repère orthogonal (O;i,j), l'unité étant 2cm sur l'axe
+des abscisses,
+10cm sur l'axe des ordonnées.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Construire le tableau des variations de $f_{k}$.
+
+\item Préciser l'équation de la demi-tangente à la courbe $(C_{k})$ au
+point 
+$O(0,0)$.
+
+\item Tracer les courbes $(C_{1})$ et $(C_{2})$ sur le même graphique.
+\end{noliste}
+
+\item On considère, pour tous les entiers $k$ et $q$ non nuls, la
+fonction $g $ définie pour tout $x$ réel positif ou nul par : \quad
+$g(x) = \left(
+f_{k}(x)\right) ^{q}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Démontrer que $g$ et $f_{k}$ ont même sens de variation.
+
+\item Donner le tableau de variation de $g$ lorsque $k = 8$ et $q = 4$.
+\end{noliste}
+
+\item La société SA POIN relève le nombre de véhicules loués au cours
+de 4
+journées choisies au hasard, soit : 9, 11, 4, 8 pour les jours $j = 1$,
+$j = 2$, $j = 3$, $j = 4$ respectivement.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la probabilité P$_{a}$ de l'évènement : 
+\[
+(X_{1} = 9)\cap (X_{2} = 11)\cap (X_{3} = 4)\cap (X_{4} = 8)
+\]
+Exprimer P$_{a}$ en fonction de $g_{a}$ la fonction définie en 2) b :.
+
+\item La direction de la société SA POIN décide de retenir la valeur
+$a$ qui
+donne à la probabilité P$_{a}$ une valeur maximum.
+
+\begin{noliste}{$\sbullet$}
+\item Trouver le réel $a$
+
+\item Calculer alors la probabilité qu'un jour donné, la société SA
+POIN
+loue 10 camions.
+\end{noliste}
+\end{noliste}
+
+\item On se propose de généraliser le procédé. On a noté le nombre de
+locations au cours de $n$ journées cchoisies au hasard, soit :\\
+$x_{1}$, $x_{2}$, $\ldots $, $x_{n}$ pour les jours $j = 1$, $j = 2$,
+$\ldots $, 
+$j = n$ respectivement.\\
+On note $m$ la moyenne arithmétique de ces observations.\\
+L'entreprise décide toujours de choisir $a$ de telle sorte que la
+probabilité
+P$_{a}$ de l'évènement : 
+\[
+E = (X_{1} = x_{1})\cap (X_{2} = x_{2})\cap \ldots \cap (X_{n} = x_{n})
+\]
+soit maximum.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $P_{a}$ en fonction de $a$.
+
+\item Démontrer que la valeur de $a$ qui maximise $P_{a}$ est $m$.
+\end{noliste}
+\end{noliste}
+
+\subsection*{\textbf{Partie II}}
+
+La socité SA POIN étudie, pour un jour donné, le temps $T$ exprimé en
+heures, entre deux locations successives : $T$ est une variable
+aléatoire qui
+suit une loi exponentielle de paramètre 1/3.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Rappeler l'espérance et l'écart type de la variable aléatoire
+$T$.
+
+\item Redémontrer que la fonction de répartition $F$ de la variable
+aléatoire $T$ est définie par : 
+\[
+F(x) = P\left(\Ev{T\leq x}\right) = \left\{ 
+\begin{array}{ll}
+0 & \text{si }x\leq 0 \\
+1-e^{-x/3} & \text{si }x>0
+\end{array}
+\right.
+\]
+
+\item En déduire la probabilité (exprimée en fonction du nombre $e$)
+que le
+temps séparant deux locations successives soit, pour ce jour observé,
+compris entre 1 heure et 2 heures.
+\end{noliste}
+
+\item Soit $t$ un réel positif fixé pour toute la suite du problème.
+Soit la
+variable aléatoire $Y_{t}$ ayant pour fonction de répartition la
+fonction $G_{t}$ définie par : 
+\[
+G_{t}(y) = P\left(\Ev{Y_{t}\leq y}\right) = \left\{ 
+\begin{array}{ll}
+1 & \text{si }y\geq t \\
+\dfrac{F(y)}{F(t)} & \text{si }y<t
+\end{array}
+\right.
+\]
+En déduire une densité de probabilité $g_{t}$ de la variable $Y_{t}$.
+
+\item Soit $Z_{1},\ Z_{2}\,\ldots Z_{n}$ $n$ variables aléatoires
+indépendantes de même loi que $Y_{t}$.\\
+On pose $S_{n} = \sup (Z_{1},Z_{2},\ldots,Z_{n})$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Démontrer que la fonction de répartition $H_{t}$ de $S_{n}$ est
+définie par : 
+\[
+H_{t}(s) = \left( G_{t}(s)\right) ^{n}
+\]
+
+\item En déduire la densité de probabilité de la variable $S_{n}$ notée
+$h_{t}$.
+\end{noliste}
+
+\item Soit $b$ un réel positif.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On pose $p_{n}(b) = P\left(\Ev{|S_{n}-t|>b}\right)$. Montrer que
+$p_{n}(b) = P\left(\Ev{S_{n}<t-b}\right).$
+
+\item Calculer $p_{n}(b)$.
+
+\item Déterminer la limite de $p_{n}(b)$ lorsque $n$ tend vers $ +
+\infty $.
+\end{noliste}
+
+\item On définit la variable aléatoire $U_{n} = n(t-S_{n})$. Pour tout
+réel $u$, on pose 
+\[
+K_{n}(u) = P\left(\Ev{U_{n}\leq u}\right)
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer $K_{n}(u)$ en fonction de $u$.
+
+\item Écrire le développement limité à l'ordre $1$, par rapport à
+$\dfrac{u}{n}$ quand $n$ tend vers $ + \infty $ de $\exp \left(
+-\dfrac{1}{3}(t-\dfrac{u}{n})\right) $
+
+\item On pose $c = \dfrac{\exp (-t/3)}{1-\exp (-t/3)}$ et on considère
+un réel 
+$u$ fixé.\\
+En déduire la limite de $K_{n}(u)$ lorsque $n$ tend vers $ + \infty $
+en
+fonction de $u$ et $c$.
+
+\item On note $K(u)$ cette limite. Reconnaitre la loi de la variable
+aléatoire $U$ dont la fonction de répartition est la fonction $K$ ainsi
+définie.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

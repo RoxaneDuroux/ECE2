@@ -1,0 +1,398 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EML 2008} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{EML 2008}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\huge EML Eco 2008 }
+\end{center}
+
+\section*{EXERCICE 1}
+
+On admet l'encadrement suivant :\hspace{5mm} $2,7<e<2,8$..
+
+\subsection*{Partie I : Étude d'une fonction}
+
+On considère l'application $f :\left[ 0, + \infty \right[ \ \rightarrow
+
+\R$ \ définie, pour tout $t\in \left[ 0, + \infty \right[ $ par :
+\[
+f\left( t\right) = \left\{ 
+\begin{array}{cc}
+t\ln \left( t\right) -t & \text{si }t\neq 0 \\
+0 & \text{si }t = 0
+\end{array}
+\right. 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $f$ est continue sur $\left[ 0, + \infty \right[ $.
+
+\item Justifier que $f$ est de classe $C^{1}$ sur $\left] 0, + \infty
+\right[ $
+et calculer $f^{\prime }\left( t\right) $ pour tout $t\in \left] 0, +
+\infty \right[ $
+
+\item Déterminer la limite de $f$ en $ + \infty $.
+
+\item Dresser le tableau des variations de $f$.
+
+\item Montrer que $f$ est convexe sur $\left] 0, + \infty \right[ $.
+
+\item On note $\Gamma $ la courbe représentative de $f$ dans un repère
+orthonormal $\left( O\ ;\ \vec{i}\ ;\ \vec{j}\right) $
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\Gamma $ admet une demi-tangente en $O$.
+
+\item Déterminer les points d'intersection de $\Gamma $ avec l'axe des
+abscisses.
+
+\item Préciser la nature de la branche infinie de $\Gamma $.
+
+\item Tracer $\Gamma $
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie II : Étude d'une fonction définie par une
+intégrale}
+
+On considère l'application $G :\left] 1\ ; + \infty \right[ \
+\rightarrow 
+\R$ définie, pour tout $x\in \left] 1\ ; + \infty \right[ $, par : 
+\[
+G\left( x\right) = \frac{1}{2}\dint{x-1}{x + 1}f\left( t\right\ dt 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $G$ est de classe $C^{2}$ sur $\left] 1\ ; + \infty
+\right[ $
+et que, pour tout $x\in \left] 1\ ; + \infty \right[ $
+:\begin{eqnarray*}
+G^{\prime }\left( x\right) & = & \frac{1}{2}\left( f\left( x + 1\right)
+-f\left(
+x-1\right) \right) \\
+\text{et }G^{\prime \prime }\left( x\right) & = & \frac{1}{2}\left( \ln
+\left(
+x + 1\right) -\ln \left( x-1\right) \right)
+\end{eqnarray*}
+
+\`{A} cet effet, on pourra faire intervenir une primitive $F$ de $f$
+sans
+chercher à calculer $F$.
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $G^{\prime }$ est strictement croissante sur $\left]
+1\
+; + \infty \right[.$
+
+\item Vérifier : $G^{\prime }\left( 2\right) >0$.
+
+\item Établir que l'équation $G^{\prime }\left( x\right) = 0$,
+d'inconnue $x\in \left] 1\ ; + \infty \right[ $, admet une solution et
+une
+seule, notée $\alpha $, et que $\alpha <2$
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie III : Étude d'une fonction de deux variables
+réelles}
+
+On considère l'application $\Phi :\left] 1\ ; + \infty \right[
+^{2}\rightarrow \R$ définie, pour tout $\left( x,y\right) \in \left] 1\
+; + \infty \right[ ^{2}$, par : 
+\[
+\Phi \left( x,y\right) = \left( y-f\left( x + 1\right) \right) ^{2} +
+\left(
+y-f\left( x-1\right) \right) ^{2} 
+\]
+où l'application $f$ est définie dans la partie \textbf{I}.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Justifier que $\Phi $ est de classe $C^{2}$ sur $\left] 1\ ; +
+\infty \right[ ^{2}$ et calculer les dérivées partielles premières de
+$\Phi $ en tout $\left( x,y\right) $ de $\left] 1\ ; + \infty \right[
+^{2}$.
+
+\item Vérifier que $\left( \alpha,f\left( \alpha + 1\right) \right) $
+est un point critique de $\Phi $. où $\alpha $ est défini en \textbf{II
+2.c}.
+
+\item Est-ce que $\Phi $ admet un extremum local en $\left(
+\alpha,f\left(
+\alpha + 1\right) \right) $ ?
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+On considère les matrices carrées d'ordre trois suivantes :
+\[
+A = 
+\begin{smatrix}
+1 & 1 & 1 \\
+0 & 0 & -1 \\
+-2 & -2 & -1
+\end{smatrix},\quad B = 
+\begin{smatrix}
+2 & 1 & 1 \\
+-3 & -2 & -1 \\
+1 & 1 & 0
+\end{smatrix},\quad D = 
+\begin{smatrix}
+0 & 0 & 0 \\
+0 & -1 & 0 \\
+0 & 0 & 1
+\end{smatrix}
+\]
+
+\subsection*{Partie I : Réduction simultanée de $A$ et $B$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer les valeurs propres et les sous-espaces propres de
+$A$.
+
+\item En déduire une matrice carrée $P$ d'ordre trois, inversible,
+de deuxième ligne $\left( -1\hspace{5mm}1\hspace{5mm}1\right) $, telle
+que $A = P~D~P^{-1}$, et calculer $P^{-1}$.
+
+\item Calculer la matrice $C = P^{-1}B~P$ et vérifier que $C$ est
+diagonale.
+\end{noliste}
+
+\subsection*{Partie II : Étude d'un endomorphisme d'un espace de
+matrices}
+
+On note $E$ l'espace vectoriel des matrices carrées d'ordre trois, et
+on
+considère l'application $f :\E\rightarrow E$ qui, à toute matrice $M$
+carrée d'ordre trois, associe $f\left( M\right) = AM-MB.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Donner la dimension de $E$.
+
+\item Vérifier que $f$ est un endomorphisme de $E$.
+
+\item Soit $M\in E$. On note $N = P^{-1}M~P$, où $P$ est définie en 
+\textbf{I.2}.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer : $M\in \ker \left( f\right) \Longleftrightarrow DN =
+NC.$
+
+\item Déterminer les matrices $N$ carrées d'ordre trois telles que : 
+$DN = NC.$
+
+\item Montrer que l'ensemble des matrices $N$ carrées d'ordre trois
+telles que $DN = NC$ est un espace vectoriel, et en déterminer une base
+et
+la dimension.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En déduire la dimension de $\ker \left( f\right) $, puis la
+dimension de $\operatorname{Im}\left( f\right) $.
+
+\item Donner au moins un élément non nul de $\ker \left( f\right) $
+et donner au moins un élément non nul de
+$\operatorname{Im}(f).$\newpage
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE 3}
+
+Les parties \textbf{I} et \textbf{II} sont indépendantes.
+
+\subsection*{Partie I : Étude d'une variable aléatoire}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $h$ la fonction définie sur l'intervalle $\left[ 0;1\right]
+$
+par :
+\[
+\forall x\in \left[ 0;1\right],\quad h\left( x\right) = \frac{x}{2-x} 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $h$ est une bijection de $\left[ 0;1\right] $ sur
+$\left[
+0;1\right] $ et, pour tout $y\in \left[ 0;1\right] $, exprimer
+$h^{-1}\left(
+y\right).$
+
+\item Déterminer deux réels $\alpha $ et $\beta $ vérifiant : $\forall
+x\in \left[ 0;1\right],\quad h\left( x\right) = \alpha + \frac{\beta 
+}{2-x}$
+
+\item Calculer $\dint{0}{1}h\left( x\right\dx$.
+\end{noliste}
+
+\item Soit $X$ une variable aléatoire suivant la loi uniforme sur
+l'intervalle $\left[ 0;1\right] $
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner l'espérance et la variance de la variable aléatoire $X$.
+
+\item Pour tout réel $y$ de $\left[ 0;1\right] $ déterminer la
+probabilité de l'événement $\left( \frac{X}{2-X}\leq y\right) $
+
+\item Montrer que la variable aléatoire $Y = \frac{X}{2-X}$ admet une
+densité et déterminer une densité de $Y.$
+
+\item Montrer que $Y$ admet une espérance et déterminer $\E\left(
+Y\right) $.
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie II : Étude d'un temps d'attente}
+
+Soit $n$ un entier supérieur ou égal à 2. Une réunion est prévue entre
+$n$ invités que l'on note $I_{1},\ I_{2}\cdots,I_{n}$. 
+\\
+Chaque invité arrivera entre l'instant $0$ et l'instant $1$.
+
+Pour tout entier $k$ tel que $1\leq k\leq n$, on modélise l'instant
+d'arrivée de l'invité $I_{k}$ par une variable aléatoire $T_{k}$
+de loi uniforme sur l'intervalle $\left[ 0;1\right] $. On suppose de
+plus
+que, pour tout réel $t$, les $n$ événements $\left( T_{1}\leq
+t\right) $,\ $\left( T_{2}\leq t\right) $,\ $\cdots \left( T_{n}\leq
+t\right) $,\ sont indépendants.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit un réel $t$ appartenant à $\left[ 0;1\right] $. Pour tout
+entier $k$ tel que $1\leq k\leq n$, on note $B_{k}$ la variable
+aléatoire de Bernoulli prenant la valeur $1$ si l'événement $\left(
+T_{k}\leq t\right) $ est réalisé et la valeur $0$ sinon.
+
+On note $S_{t} = B_{1} + B_{2} + \cdots + B_{n}.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Que modélise la variable aléatoire $S_{t}$ ?
+
+\item Déterminer la loi de la variable aléatoire $S_{t}$.
+\end{noliste}
+
+\item Soit $R_{1}$ la variable aléatoire égale à l'instant de la
+première arrivée.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit un réel $t$ appartenant à $\left[ 0;1\right] $. Comparer
+l'événement $\left( R_{1}>t\right) $ et l'événement $\left(
+S_{t} = 0\right) $
+
+\item Montrer que la variable aléatoire $R_{1}$ admet une densité et
+en déterminer une.
+\end{noliste}
+
+\item Soit $R_{2}$ la variable aléatoire égale à l'instant de la
+deuxième arrivée.\\
+Montrer que la variable aléatoire $R_{2}$ admet une densité et en
+déterminer une.
+\end{noliste}
+
+\end{document}
+

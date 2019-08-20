@@ -1,0 +1,168 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 5}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+
+
+\begin{exercice}~\\
+On considère deux pièces de monnaies notées $A_1$ et $A_2$. 
+Lorsqu'on lance la pièce $A_1$, la probabilité d'obtenir \og face 
+\fg{} est $p_1$ (avec $0<p_1<1$), celle d'obtenir \og pile \fg{} est 
+$q_1=1-p_1$. De même, lorsqu'on lance la pièce $A_2$, la probabilité 
+d'obtenir \og face \fg{} est $p_2$ (avec $0<p_2<1$), celle d'obtenir 
+\og pile \fg{} est $q_2=1-p_2$.\\
+On effectue une suite de parties de la façon suivante : à la 
+première partie, on choisit une pièce au hasard (avec probabilité $ 
+\dfrac{1}{2}$) et on joue avec cette pièce ; si le résultat est \og 
+face \fg{}, on joue la deuxième partie avec $A_1$, si le résultat 
+est \og pile \fg{}, on joue la deuxième partie avec $A_2$ ; ensuite, 
+pour tout entier $n \geq 1$, on joue la $(n+1)^{\text{ième}}$ partie 
+avec $A_1$ si l'on a obtenu \og face \fg{} à la $n^{\text{ième}}$ 
+partie, on joue la $(n+1)^{\text{ième}}$ partie avec $A_2$ si on a 
+obtenu \og pile \fg{} à la $n^{\text{ième}}$ partie.\\
+Pour tout entier $n \geq 1$, on note $u_n$ la probabilité d'avoir 
+\og face \fg{} à la $n^{\text{ième}}$ partie.
+\begin{noliste}{1.}
+  \item Exprimer $u_1$, puis $u_2$ en fonction de $p_1$ et $p_2$.
+  
+  \item Montrer que, pour tout $n \geq 1$, $u_{n+1} = (p_1 - p_2)u_n 
+  + p_2$.
+  
+  \item Montrer que la suite $(u_n)_{n \geq 1}$ tend, quand $n$ tend 
+  vers l'infini, vers une limite $u$ que l'on calculera.\\
+  Dans quels cas a-t-on $ u=\dfrac{1}{2}$ ?
+\end{noliste}
+\end{exercice}
+
+
+
+\begin{exercice}~
+  \begin{noliste}{1.}
+    \item Considérons $n$ personnes, quelle est la probabilité notée 
+    $p(n)$ d'avoir au moins deux personnes nées le même jour de 
+    l'année ? Pour simplifier, toutes les années sont non-
+    bissextiles.
+    
+    \item En utilisant que, pour tout $x \in \R$, $\ee^{-x} \geq 
+    1-x$, montrer que 
+    \[
+      p(n) \geq 1 - \exp \left( - \dfrac{n(n-1)}{2\times 365} 
+      \right)
+    \]
+
+    \item En déduire le nombre de personnes nécessaires pour avoir 
+    une chance sur deux que deux personnes aient leurs anniversaires 
+    le même jour.
+  \end{noliste}
+\end{exercice}
+
+
+\begin{exercice}~\\
+On lance successivement une pièce truquée dont la probabilité de 
+faire face est de $p \in ]0,1[$. Pour $n \geq 1$, notons $F_n$ : \og 
+Obtenir Face au $n$-ième lancer \fg{}, et
+$P_n$ : \og Obtenir Pile au $n$-ième lancer \fg{}.\\
+On note $T_n$ : \og le premier Pile est obtenu au $n$-ième lancer 
+\fg{}.
+ \begin{noliste}{1.}
+    \item Pour $n \geq 1$, exprimer l'événement $T_n$ en fonction 
+    des $F_i$ et $P_i$.
+    
+    \item Donner $\Prob(T_n)$ en fonction de $p$ et $n$.
+    
+    \item On lance la pièce une infinité de fois. \'Ecrire les 
+    événements suivants :\\
+    $A_n$ : \og obtenir au moins un pile au cours des $n$ premiers 
+    lancers \fg{},
+    $A$ : \og obtenir au moins un pile \fg{}.
+    
+    \item Parmi les suites $(F_n)$, $(P_n)$, $(T_n)$ et $(A_n)$, 
+    lesquelles sont croissantes ? décroissantes ?
+    
+    \item Parmi les suites $(F_n)$, $(P_n)$, $(T_n)$ et $(A_n)$, 
+    lesquelles sont constituées d'événements mutuellement 
+    indépendants?
+    
+    \item Donner la probabilité $\Prob(A)$. Que peut-on dire de 
+    l'événement $A$?
+  \end{noliste}
+\end{exercice}
+
+
+\newpage
+
+
+\begin{exercice}~\\
+$N$ désigne un entier naturel supérieur ou égal à 2. Un joueur lance 
+une pièce équilibrée indéfiniment. On note $X_N$ la variable 
+aléatoire réelle discrète égale au nombre de fois où, au cours des 
+$N$ premiers lancers, deux résultats successifs ont été différents. 
+On peut appeler $X_N$ le \og nombre de changements \fg{} au cours de 
+$N$ premiers lancers.\\
+Par exemple, si les $N=9$ premiers lancers ont donné 
+successivement :\\
+Pile, Pile, Face, Pile, Face, Face, Face, Pile, Pile, alors la 
+variable $X_9$ aura pris la valeur $4$ (quatre changements aux 
+$\eme{3}$, $\eme{4}$, $\eme{5}$ et $\eme{8}$ lancers).
+\begin{noliste}{1.}
+  \item Justifier que $X_N(\Omega)=\llb 0,N-1 \rrb$.
+  
+  \item Déterminer la loi de $X_2$, ainsi que son espérance. 
+  Déterminer la loi de $X_3$.
+  
+  \item Montrer que $\Prob(\Ev{X_N=0}) = \left(\dfrac{1}{2}
+  \right)^{N-1}$ et $\Prob(\Ev{X_N=1}) = 2(N-1)\left(\dfrac{1}{2}
+  \right)^N$
+  
+  \item
+  \begin{noliste}{a)}
+    \item Justifier que pour tout entier $k\in\llb 0,N-1 \rrb$, 
+    $\Prob_{\Ev{X_N=k}}(\Ev{X_{N+1}=k})=\dfrac{1}{2}$.
+    
+    \item En déduire que pour tout entier $k\in\llb 0,N-1 \rrb$, $
+    \Prob\left(\Ev{X_{N+1}-X_N=0} \cap \Ev{X_N=k}\right) = 
+    \dfrac{1}{2} \, \Prob(\Ev{X_N=k})$.
+    
+    \item En sommant cette relation pour $k$ variant de $0$ à $N-1$, 
+    montrer que $\Prob\left(\Ev{X_{N+1}-X_N = 0}\right) = 
+    \dfrac{1}{2}$.
+    
+    \item Montrer que la variable $X_{N+1}-X_N$ suit une loi de 
+    Bernoulli de paramètre $\dfrac{1}{2}$.\\
+    En déduire la relation $\E(X_{N+1})=\dfrac{1}{2}+\E(X_N)$, puis 
+    donner $\E(X_N)$ en fonction de $N$.
+  \end{noliste}
+  
+  \item
+  \begin{noliste}{a)}
+    \item Montrer grâce aux résultats \itbf{4.b)} et \itbf{4.c)} que 
+    les variables $X_{N+1}-X_N$ et $X_N$ sont indépendantes.
+    
+    \item En déduire par récurrence sur $N$ que $X_N$ suit une loi 
+    binomiale $\Bin{N-1}{\dfrac{1}{2}}$ En déduire la variance $
+    \V(X_N)$.
+  \end{noliste}
+\end{noliste}
+\end{exercice}
+
+
+\end{document}

@@ -1,0 +1,250 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1984 - voie Générale} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION GENERALE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 1984}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent Dans ce problème, on dira qu'une fonction numérique $f$
+possède un
+développement asymptotique à l'ordre $n$ au voisinage de $ + \infty $
+si :
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item $f$ est définie sur un intervalle du type $]\alpha, + \infty
+\lbrack
+\subset \R_{+}$
+
+\item il existe $n + 1$ nombres réels :
+$a_{0},a_{1},...,a_{i},...,a_{n}$ et
+une fonction $\varepsilon_{n},$ avec $\dlim{x\rightarrow + \infty
+}\varepsilon_{n}(x) = 0$, tels que :
+\[
+(1)\qquad f(x) = a_{0} + \dfrac{a_{1}}{x} + \cdots +
+\dfrac{a_{i}}{x^{i}} + \cdots + \dfrac{a_{n}}{x^{n}} +
+(\dfrac{1}{x^{n}})\varepsilon_{n}(x)
+\]
+La formule (1) s'appelle développement asymptotique de $f,$ à l'ordre
+$n,$
+au voisinage de $ + \infty $\\
+On pose $S_{n}(x) = a_{0} + \dfrac{a_{1}}{x} + \cdots +
+\dfrac{a_{i}}{x^{i}} + \cdots
+ + \dfrac{a_{n}}{x^{n}}$; on l'appelle partie régulière à l'ordre $n$
+du développement asymptotique de $f.$
+\end{noliste}
+
+\noindent \emph{On définit de même un développement asymptotique à
+l'ordre }$n$\emph{\ au voisinage de }$-\infty $
+
+\section*{PARTI\E\ I}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Démontrer que si $f$ admet un développement asymptotique à
+l'ordre $n,$
+au voisinage de $ + \infty,$ celui-ci est unique.
+
+\item Démontrer que si $f$ admet un développement asymptotique à
+l'ordre $n,$
+au voisinage de $ + \infty,$ il en est de même pour la fonction $g$
+définie
+par :
+\[
+g(x) = f(x) + e^{-bx}\qquad \text{(}b>0\text{ donné)}
+\]
+
+\item Soit $\alpha $ un réel fixé, et soit $E_{\alpha,n}$ l'ensemble
+des
+fonctions $f$ définies sur $]\alpha, + \infty \lbrack $ à valeurs dans
+$\R$ et admettant un développement asymptotique à l'ordre $n$ au
+voisinage de $ + \infty.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que pour les opérations usuelles $E_{\alpha,n}$ possède
+d'une
+part une structure d'espace vectoriel sur $\R,$ d'autre part une
+structure d'anneau commutatif unitaire.
+
+\item Comment obtient-on la partie régulière du développement
+asymptotique
+du produit de deux fonctions de $E_{\alpha,n}$ ?
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que pour tout $x$ strictement positif, on a :
+\[
+\arctan x = \dfrac{\pi }{2}-\arctan \dfrac{1}{x}
+\]
+
+\item Déterminer le développement à l'ordre $2n + 1,$ au voisinage de $
++ \infty 
+$ de la fonction $x\mapsto \arctan x.$
+
+\item Quel est le développement asymptotique à l'ordre $2n + 1$ au
+voisinage
+de $-\infty $ de la fonction $x\mapsto \arctan x$
+\end{noliste}
+\end{noliste}
+
+\section*{PARTI\E\ II}
+
+Soient $\theta $ et $K$ les fonctions de la variable réelle $x$
+définies par :
+\[
+\theta (x) = \dfrac{2}{\sqrt{\pi }}\dint{0}{x}e^{-t^{2}}dt\qquad
+\text{et}\qquad K(x) = 1-\theta (x)
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout $x\in \R :$
+\[
+K(x) = \dfrac{2}{\sqrt{\pi }}\dint{x}{+ \infty }e^{-t^{2}}dt
+\]
+
+\item En déduire que pour $x>0$ :
+\[
+K(x) = \dfrac{1}{\sqrt{\pi }}\dint{x^{2}}{+ \infty }u^{-1/2}e^{-u}du
+\]
+\end{noliste}
+
+\item On considère l'intégrale :
+\[
+I_{n}(x) = \dint{x^{2}}{+ \infty }\dfrac{e^{-u}}{e^{(2n +
+1)/2}}du\qquad 
+\text{où }n\in \N\quad \text{et}\quad x\in \R^{\times }
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Prouver que quel soit $n,$ $I_{n}(x)$ est convergente.
+
+\item Établir la relation de récurrence :
+\[
+I_{n}(x) = \dfrac{e^{-x^{2}}}{x^{2n + 1}}-\dfrac{2n + 1}{2}.I_{n +
+1}(x)
+\]
+
+\item Démontrer que pour $n\geq 0$ :
+\[
+\dlim{x\rightarrow + \infty }e^{x^{2}}I_{n}(x) = 0
+\]
+\end{noliste}
+
+\item Déduire de ce qui précède le développement asymptotique à l'ordre
+$2n + 1 $ : $e^{x^{2}}K(x),$ au voisinage de $ + \infty.$
+
+\item Soit $X$ une variable aléatoire suivant la loi de Laplace-Gauss
+centrée réduite, et soit $f$ sa fonction de répartition.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir la relation :
+\[
+2F(x) = 1 + \theta (\dfrac{x}{\sqrt{2}})
+\]
+
+\item En déduire que $f(x) = 1-e^{-x^{2/2}}H(x)$ est une fonction dont
+on
+donnera le développement asymptotique à l'ordre $2n + 1$ au voisinage
+de $ + \infty $
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

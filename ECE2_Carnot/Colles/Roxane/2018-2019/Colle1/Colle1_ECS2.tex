@@ -1,0 +1,146 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECS2 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 1}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Série 1}
+\subsection*{Question de cours}
+Développement limité en $0$ à l'ordre $6$ de $f(x)=\cos(x)\sin(3x)$.
+
+\subsection*{Exercice 1}
+\noindent
+Montrer que $A(a)$, $B(b)$ et $C(c)$ sont alignés si et seulement si 
+$a\bar{b} + b\bar{c} + c\bar{a} \in \R$.
+
+\subsection*{Exercice 2}
+\noindent
+On considère la suite $(u_n)$ définie par 
+\[
+\left\{
+\begin{array}{l}
+u_0=1\\
+\forall n \in \N, \ u_{n+1} = \dfrac{1}{u_n+n+1}
+\end{array}
+\right.
+\]
+\begin{noliste}{1.}
+\item \begin{noliste}{a)}
+\item Montrer que : $\forall n \in \N, u_n >0$. En déduire que $(u_n)$ 
+est bien définie.
+\item Montrer que : $  \forall n \in \N^*, \ u_n \leq \dfrac{1}{n}$.
+\item Déterminer la limite de la suite $(u_n)$.
+\end{noliste}
+\item \begin{noliste}{a)}
+\item Déterminer la limite de la suite $(nu_n)$.
+\item En déduire un équivalent de $u_n$.
+\end{noliste}
+\item \begin{noliste}{1.}
+\item Démontrer que $ \dlim{n \to + \infty} n^3 \left( u_n 
+-\dfrac{1}{n} \right) = -1$.
+\item En déduire que $ u_n = \dfrac{1}{n} - \dfrac{1}{n^3} + \oon 
+\left( \dfrac{1}{n^3} \right)$.
+\end{noliste}
+\end{noliste}
+
+\newpage
+
+\section*{Série 2}
+\subsection*{Question de cours}
+Calculer $\dint{1}{+\infty} \dfrac{\ln(x)}{x(1+(\ln(x))^4} \dx$.
+
+\subsection*{Exercice 1}
+\noindent
+Pour tous polynômes $P$ et $Q$ de $\C[X]$, on pose 
+$[P,Q]=\bar{P}Q-P\bar{Q}$.
+\begin{noliste}{1.}
+ \item Discuter le degré de $[P,Q]$ si $\deg(P)=p$ et $\deg(Q)=q$.
+ \item Montrer que pour tous polynômes $P$, $Q$ et $R$ :
+ \[
+  [[P,Q],R]+[[Q,R],P]+[[R,P],Q]=0
+ \]
+\end{noliste}
+
+
+\subsection*{Exercice 2}
+\noindent
+On introduit la fonction $f$ définie par : $\forall x \in\R$, 
+$f(x)=\ee^x -2$.\\
+On note $(u_n)$ la suite telle que : $\left\{
+\begin{array}{ll}
+ u_0=-1\\
+ \forall n\in\N, \ u_{n+1}=f(u_n)
+\end{array}
+\right.$
+\begin{noliste}{1.}
+ \item Montrer que l'équation $f(x)=x$ admet une unique solution 
+ strictement négative.
+ \item Montrer que : $\forall n \in\N$, $\alpha \leq u_n \leq -1$.
+ \item Montrer que pour tout $n\in\N$, $0\leq u_{n+1} -\alpha \leq 
+ \dfrac{1}{\ee}(u_n-\alpha)$.
+ \item En déduire que 
+ \[
+  \forall n\in\N, \ 0\leq u_n - \alpha \leq 
+  \left(\dfrac{1}{\ee}\right)^n
+ \]
+ \item Écrire un programme \Scilab{} permettant de déterminer une 
+ valeur approchée de $\alpha$ à $10^{-4}$ près.
+\end{noliste}
+
+\newpage
+
+\section*{Série 3}
+\subsection*{Question de cours}
+Déterminer l'expression explicite de la suite définie par $\left\{
+\begin{array}{ll}
+ u_0=1 \\
+ \forall n\in\N, \ u_{n+1} = \dfrac{4}{5}u_n +1
+\end{array}
+\right.$
+
+\subsection*{Exercice 1}
+\noindent
+Étudier la suite définie par $u_0=2017$ et pour tout $n\geq 0$ :
+\[
+ u_{n+1} = 1805 + \sqrt{u_n}
+\]
+
+
+\subsection*{Exercice 2}
+\begin{noliste}{1.}
+ \item Montrer que pour tous $a$, $b$ de $\C^*$, on a $\left\vert 
+\dfrac{a}{\vert a \vert^2} - \dfrac{b}{\vert b\vert^2} \right\vert = 
+\dfrac{\vert a-b\vert}{\vert a \vert \cdot \vert b \vert}$.
+ \item Montrer que : $\forall (x,y,z)\in\C^3$, $\vert x\vert \cdot 
+\vert y-z\vert \leq \vert y \vert \cdot \vert z-x\vert + \vert z \vert 
+\cdot \vert x-y\vert$.
+ \item Montrer l'inégalité dite de Ptolémée :
+ \[
+  \forall (x,y,z,w)\in\C^4, \ \vert x-y\vert \cdot \vert z-w\vert \leq 
+\vert x-z\vert \cdot \vert y-w\vert + \vert x-w\vert \cdot \vert 
+y-z\vert
+ \]
+
+\end{noliste}
+
+
+
+
+\end{document}

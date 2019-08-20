@@ -1,0 +1,832 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../ECE2_Carnot/macros.tex}
+%\input{../../../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2018} %
+\author{} %
+\date{} %
+\begin{document}
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+%%DEBUT
+
+\subsection*{Sujet E 120}
+
+\begin{exerciceAP}~\\
+  Dans tout l'exercice, $E$ désigne un $\R$-espace vectoriel de
+  dimension finie $n \geq 2$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours :\\
+    Donner la définition d'une famille génératrice
+    de $E$. Que peut-on dire de son cardinal ?\\[.4cm]
+    Pour tout endomorphisme $f$ de $E$, on note $C(f)$ l'ensemble des
+    endomorphismes de $E$ qui commutent avec $f$ :
+    \[
+    C(f) \ = \ \{ g \in \LL{E} \ | \ f \circ g = g \circ f \}
+    \]
+    
+  \item    
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Démontrer que $C(f)$ est un sous-espace vectoriel de $\LL{E}$.
+      
+    \item Quelle est la plus grande dimension possible de $C(f)$ ?
+    \end{noliste}
+    
+  \item On suppose dans cette seule question que $E=\R^2$.\\
+    On note $j$ l'endomorphisme dont la matrice dans la base canonique
+    de $\R^2$ est $J = 
+    \begin{smatrix}
+      0 & 1\\
+      0 & 0
+    \end{smatrix}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Trouver les matrices $M=
+      \begin{smatrix}
+        a & b\\
+        c & d
+      \end{smatrix}$
+      telles que $MJ = JM$.
+      
+      \item En déduire la dimension de $C(j)$.
+    \end{noliste}
+    
+  \item On suppose dans cette question que $f$ est un endomorphisme
+    de $E$ pour lequel il existe $a \in E$ et $n_0 \in \N$ tel que
+    la famille $(a, f(a), \ldots, f^{n_0}(a))$  est génératrice de $E$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item On note $p$ le plus grand entier strictement positif pour
+      lequel la famille $(a, f(a), \ldots, f^{p-1}(a))$ est libre.\\
+      Montrer que la famille $(a, f(a), \ldots, f^{p-1}(a))$ est une
+      base de $E$. Que vaut $p$ ?
+      
+    \item Démontrer que, pour tout endomorphisme $g \in C(f)$, il
+      existe $(\alpha_0, \ldots, \alpha_{n-1}) \in \R^{n}$ tel que :
+      \[
+        g \ = \ \Sum{k=0}{n-1} \alpha_k \, f^k
+      \]
+      
+    \item En déduire la dimension de $C(f)$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+
+\begin{exerciceSP}~\\
+  Une urne contient au départ une boule verte et une boule rouge.
+  On effectue des tirages successifs selon la procédure suivante : 
+  on tire une boule, si elle est rouge, on arrête les tirage, si elle
+  est verte, on la remet dans l'urne en ajoutant une boule rouge.\\
+  On note $X$ le nombre de tirages effectués.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $X$ admet une espérance et la calculer.
+    
+  \item Montrer que $\dfrac{1}{X}$ admet une espérance et la calculer.
+  \end{noliste}
+  
+\end{exerciceSP}
+
+
+
+
+\newpage
+
+
+
+
+\subsection*{Sujet E 121}
+
+
+\begin{exerciceAP}~\\
+  Soit $a$ un nombre réel strictement positif.\\
+  On considère une suite réelle $(u_n)_{n \in \N^*}$ dont {\it tous}
+  les termes sont strictement positifs, et, pour tout $n \in \N^*$, on
+  pose :
+  \[
+    \left\{
+      \begin{array}{l}
+        w_n \ = \ \dfrac{u_{n+1}}{u_n} - 1 + \dfrac{a}{n}
+        \\[.3cm]
+        \ell_n \ = \ \ln\left(n^a \, u_n\right)
+      \end{array}
+    \right.
+  \]
+  On suppose que la {\it série} de terme général $w_n$ est absolument
+  convergente.
+  \begin{noliste}{1.}
+  \item Question de cours : formule de Taylor-Young.
+    
+  \item Soit $f: t \mapsto \ln(1+t) -t$.
+    \begin{noliste}{a)}
+    \item Préciser le domaine de définition de $f$ et donner un
+      équivalent simple de cette fonction au voisinage de $0$.
+      
+    \item En déduire que la série $\Sum{n \geq 1}{} f\left(
+        \dfrac{1}{n} \right)$ est convergente.
+    \end{noliste}
+    
+  \item Démontrer que les séries $\Sum{n \geq 1}{} \dfrac{w_n}{n}$
+    et $\Sum{n \geq 1}{} (w_n)^2$ sont convergentes.
+    
+  \item 
+    \begin{noliste}{a)}
+    \item Vérifier, pour tout $n \in \N^*$, l'égalité : $\ell_{n+1} -
+      \ell_n \ = \ f\left(w_n - \dfrac{a}{n}\right) + w_n + a \, f
+      \left( \dfrac{1}{n}\right)$.
+      
+    \item En déduire la convergence de la série $\Sum{n \geq 1}{}
+      (\ell_{n+1} - \ell_n)$.
+    \end{noliste}
+    
+  \item 
+    \begin{noliste}{a)}
+    \item Justifier la convergence de la suite $(\ell_n)_{n \in \N^*}$.
+      
+    \item En déduire l'existence d'un réel $A>0$ tel que : $u_n \eqn
+      \dfrac{A}{n^a}$.
+    \end{noliste}
+    
+  \item Déterminer la nature de la série $\Sum{n \geq 1}{} \dfrac{2
+      \cdot 4 \cdots (2n)}{1 \cdot 3 \cdots (2n+1)}$.
+  \end{noliste}
+\end{exerciceAP}
+
+
+% \newpage
+
+
+\begin{exerciceSP}~
+  \begin{noliste}{1.}
+  \item Indiquer l'allure de la \underline{fonction de répartition}
+    d'une loi normale centrée réduite.
+    
+  \item La fonction \Scilab{} {\tt cdfnor} permet de déterminer les
+    valeurs de la fonction de répartition d'une loi normale et de sa
+    bijection réciproque.\\
+    En voici deux exemples d'utilisation :
+    \[
+      \begin{console}
+        \lDisp{\qquad cdfnor(\ttq{}PQ\ttq{}, 1.96, 0, 1) \ =} \nl %
+        \lDisp{\qquad \qquad ans = 0.9750021} \nl %
+        \lDisp{\qquad cdfnor(\ttq{}X\ttq{}, 0, 1, 0.975, 0.025) \ =} 
+        \nl %
+        \lDisp{\qquad \qquad ans = 1.959964} \nle %
+      \end{console}
+    \]
+    \begin{noliste}{a)}
+    \item Indiquer les sorties \Scilab{} consécutives aux trois
+      entrées suivantes :
+      \[
+        \begin{console}
+          \lDisp{\qquad cdfnor(\ttq{}PQ\ttq{}, 0, 0, 1)} \nl %
+          \lDisp{\qquad cdfnor(\ttq{}X\ttq{}, 0, 1, 0.5, 0.5)} \nl %
+          \lDisp{\qquad cdfnor(\ttq{}X\ttq{}, 0, 1, 0.025, 0.975)} 
+          \nle %
+        \end{console}
+      \]
+      
+    \item Expliquer le script suivant et fournir une estimation de la
+      valeur affectée à {\tt p} à l'issue de l'exécution de ce script.
+      \[
+        \begin{console}
+          \lDisp{\qquad n = 1000;} \nl %
+          \lDisp{\qquad X = zeros(n, 1)} \nl %
+          \lDisp{\qquad for i=1:n
+            X(i,1)=grand(1,1,\ttq{}nor\ttq{},0,1) \Sfois{}
+            grand(1,1,\ttq{}bin\ttq{},1,0.5); end;} \nl %
+          \lDisp{\qquad p = length(find(X < 1.96)) / n} \nle %
+      \end{console}
+    \]
+    \end{noliste}
+    % \begin{scilab}
+    %   & N = 1000 \nl %
+    %   & X = zeros(N,1) \nl %
+    %   & \tcFor{for} i = 1:N \nl %
+    %   & \qquad X(i,1) = grand(1,1,\ttq{}norm\ttq{},0,1) \Sfois{}
+    %   grand(1,1,\ttq{}bin\ttq{},1,1/2) \nl %
+    %   & \tcFor{end} \nl %
+    %   & p = length(find(X < 1.96)) / N
+    % \end{scilab}
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\subsection*{Sujet E 122}
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Question de cours.\\
+      Rappeler la définition d'une bijection. Que peut-on dire de la
+      composée de deux bijections ? 
+      
+    \item Justifier que la fonction $f: x \mapsto \ln \left( \dfrac{1
+          + x}{2x} \right)$ définit une bijection de $]0,1]$ sur
+      $[0,+\infty[$ et trouver sa bijection réciproque.
+    \end{noliste}
+        
+  \item Soit $U$ une variable aléatoire réelle de la loi uniforme sur
+    $]0,1]$.\\
+    On pose : $X= \ln\left(\dfrac{1+U}{2 \, U}\right)$.
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Déterminer la fonction de répartition de la variable aléatoire $X$.
+      
+    \item En déduire que $X$ est une variable aléatoire à densité.
+      
+    \item Justifier la convergence de l'intégrale 
+      $\dint{0}{1} \ln(x) \dx$ et la calculer.
+      
+    \item Justifier que $X$ admet une espérance et la calculer.
+      
+    \item Compléter le code de la fonction \Scilab{} suivante pour qu'elle 
+      permette de créer des simulations, indépendantes, de la loi de $X$.
+    \begin{scilab}
+      & \tcFun{function} \tcVar{x} = simulX(\tcVar{n}) \nl %
+      & \quad \tcVar{x} = zeros(\tcVar{n},1) \nl %
+      & \quad \tcFor{for} i = 1:\tcVar{n} \nl %
+      & \quad \quad \tcVar{x}(i,1) = ........ \nl %
+      & \quad \tcFor{end} \nl %
+      & \tcFun{endfunction}
+    \end{scilab}
+    \end{noliste}
+    
+    \item Soient $B_1$, $B_2$, $X_1$, $X_2$ quatre variables
+      aléatoires indépendantes telles que $B_1$ et $B_2$ suivent la loi de 
+      Bernoulli de paramètre $\dfrac{1}{2}$, et que $X_1$ et $X_2$ 
+      suivent la même loi que la variable $X$ de la question
+      précédente.\\
+      On pose :
+      \[
+        \left\{
+        \begin{array}{l}
+          Y_1 \ = \ B_1 \, X_1 + (1-B_1) \, X_2
+          \\[.2cm]
+          Y_2 \ = \ B_1 \, X_1 + B_2 \, X_2
+        \end{array}
+        \right.
+      \]
+      \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+      \item Parmi les deux variables $Y_1$ et $Y_2$, une seule est une
+        variable à densité. Laquelle et pourquoi ?
+        
+      \item Les deux variables $Y_1$ et $Y_2$ ont-elles la même
+        espérance ?
+        
+      \item Proposer, pour chacune de ces deux variables, un script
+        \Scilab{} permettant d'en simuler une réalisation.
+      \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Pour tout nombre réel $a$, on note : $M(a) =
+  \begin{smatrix}
+   a & 1\\
+   a & 1
+  \end{smatrix}$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+   \item Pour quelles valeurs de $a$ la matrice $M(a)$ est-elle 
+     diagonalisable ?
+   
+   \item Démontrer que, pour tout $a\in \R$, la matrice $M(a)$ est
+     semblable à la matrice :
+     \[
+       N(a) =
+       \begin{smatrix}
+         1 & a\\
+         1 & a
+       \end{smatrix}
+     \]
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\subsection*{Sujet E 123}
+
+\begin{exerciceAP}~\\
+  On considère l'endomorphisme $f$ de $\R^4$ dont la matrice dans la
+  base canonique de $\R^4$ est la matrice :
+  \[
+    M \ = \
+    \begin{smatrix}
+      -1 & -1 & -1 & 1\\
+      -1 & -1 & 1 & -1\\
+      -1 & 1 & -1 & -1\\
+      1 & -1 & -1 & -1
+    \end{smatrix}
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours.\\
+    Donner une condition nécessaire et suffisante pour qu'un
+    endomorphisme soit diagonalisable.
+    
+  \item On note $I$ la matrice identité de $\M{4}$ et $N=M+2 \, I$.
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Quel est le rang de $N$ ?
+      
+    \item En déduire une valeur propre de $M$ et la dimension du
+      sous-espace propre associé.
+      
+    \item Calculer $N^2$.
+      
+    \item Que peut-on en déduire concernant les valeurs propres de $N$
+      et de $M$ ?
+    \end{noliste}
+    
+  \item
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item À l'aide d'une propriété de $M$, justifier que $f$ est
+      diagonalisable.
+      
+    \item Quelles sont les valeurs propres de $f$ ?
+      
+    \item Combien existe-t-il de matrices diagonales semblables à $M$
+      ?
+      
+    \item Déterminer l'image de $f$.
+    \end{noliste}
+    
+  \item Soit $r$ un nombre réel strictement positif.\\
+    On considère quatre suites $(u_n)_{n \in \N}$, $(v_n)_{n \in \N}$,
+    $(w_n)_{n \in \N}$ et $(t_n)_{n \in \N}$ telles que :
+    \[
+      \forall n \in \N, \quad \left\{
+        \begin{array}{rcl}
+          u_{n+1} & = & r \, (-u_n-v_n-w_n+t_n)
+          \\[.2cm]
+          v_{n+1} & = & r \, (-u_n-v_n +w_n-t_n)
+          \\[.2cm]
+          w_{n+1} & = & r \, (-u_n +v_n -w_n -t_n)
+          \\[.2cm]
+          t_{n+1} & = & r \, (u_n -v_n -w_n -t_n)
+        \end{array}
+      \right.
+    \]
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Vérifier que, pour tout entier $p \geq 0$, on a : $\left\{
+        \begin{array}{l}
+          M^{2p} \ = \ 4^p \, I
+          \\[.2cm]
+          M^{2p+1} \ = \ 4^p \, M
+        \end{array}
+      \right.$.
+      
+    \item En déduire que si $r$ est strictement inférieur à
+      $\dfrac{1}{2}$, alors les quatre suites $(u_n)_{n \in \N}$,
+      $(v_n)_{n \in \N}$, $(w_n)_{n \in \N}$ et $(t_n)_{n \in \N}$
+      sont convergentes de limite nulle.
+      
+    \item Dans quels autres cas, hormis celui où $u_0 = v_0 = w_0 =
+      t_0 = 0$, les quatre suites sont-elles toutes les quatre
+      convergentes ?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soit $X$ une variable aléatoire suivant une loi normale centrée
+  réduite.\\
+  Pour tout $x>0$, on pose :
+  \[
+    f(x) \ = \ \Prob(\Ev{x < X < 2x})
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Justifier la continuité de la fonction $f$ sur $]0,+\infty[$.
+      
+    \item Trouver les limites de $f$ en $0$ et en $+\infty$.
+    \end{noliste}
+    
+  \item
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Justifier l'existence d'une valeur maximale $p$ pour la
+      probabilité $\Prob(\Ev{x < X < 2x})$.
+      
+    \item Trouver $a$ tel que $f(a) = p$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\subsection*{Sujet E 125}
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours.\\
+    Quel est le lien entre la continuité d'une fonction et sa
+    dérivabilité ?
+    
+  \item Soit $g$ la fonction définie sur $\R$ par :
+    \[
+      g : x \mapsto \left\{
+        \begin{array}{cR{2cm}}
+          x \, \ln\big(|x|\big) & si $x \neq 0$
+          \nl
+          \nl[-.2cm]
+          0 & si $x=0$
+        \end{array}
+      \right.
+    \]
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Justifier la continuité de $g$ sur $\R$.
+      
+    \item En déduire que la fonction $h : x \mapsto x \, g(x)$ est de
+      classe $\Cont{1}$ sur $\R$.
+      
+    \item La fonction $h$ est-elle de classe $\Cont{2}$ sur $\R$ ?
+    \end{noliste}
+    
+  \item Soit $E$ l'espace vectoriel des fonctions continues de $\R$
+    dans $\R$.\\
+    On note $F$ le sous-espace vectoriel de $E$ engendré par les
+    fonctions $g$, $f_0 : x \mapsto 1$ et $f_1 : x \mapsto x$ :
+    \[
+    F \ = \ \Vect{f_0,f_1,g}
+    \]
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Pour toute fonction $f$ de $F$, on note $\Phi(f)$ la
+      fonction dérivée de la fonction $x \mapsto x \, f(x)$.\\
+      Montrer que $\Phi$ définit un endomorphisme de $F$.
+      
+    \item Prouver que la famille $(f_0,f_1,g)$ est une base de $F$ et
+      trouver la matrice $M$ de $\Phi$ dans cette base.
+    \end{noliste}
+    
+  \item
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Montrer que $M$ est une matrice inversible et déterminer son
+      inverse.
+      
+    \item En déduire une primitive de la fonction $g$.
+      
+    \item Trouver une primitive de la fonction $h$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\newpage
+
+
+\begin{exerciceSP}~\\
+  Soit le programme \Scilab{} suivant :
+  \begin{scilab}
+    & x = [1:30]; \nl %
+    & y = zeros(1,30); \nl %
+    & eps = 1; \nl %
+    & \tcFor{for} k = 1:30 \nl %
+    & \quad y(k) = eps / k; \nl %
+    & \quad eps = eps \Sfois{} (-1); \nl %
+    & \tcFor{end} \nl %
+    & z = cumsum(y); \nl %
+    & plot2d(x, z, style = -1, rect = [0, 0, 21, 1.2])
+  \end{scilab}
+  Le graphe obtenu par l'exécution de ce programme est le suivant :\\
+   \includegraphics[scale=.7]{Programme_S7.pdf}
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Préciser le contenu des variables {\tt y} et {\tt z} après
+    l'exécution de ce programme.
+    
+  \item
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Ce graphe suggère que deux suites sont
+      adjacentes. Lesquelles ?
+      
+    \item Démontrer cette conjecture.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\subsection*{Sujet E 129}
+
+\begin{exerciceAP}~\\
+  Deux joueurs A et B s'affrontent dans un jeu de la manière suivante
+  :\\
+  A joue le premier et jette deux dés : si la somme des points obtenus
+  est $5$, A gagne.\\
+  Le jeu cesse alors.\\
+  Sinon, B joue à son tour et jette deux dés : si la somme des points
+  obtenus est $7$, B gagne.\\
+  Le jeu cesse alors.\\
+  Sinon, le tour revient à A et on poursuit comme ci-dessus jusqu'à ce
+  que A ou B ait gagné.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : formule des probabilités composées.
+    
+  \item
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Déterminer la probabilité pour que la somme des points lors
+      du jet de deux dés soit égale à $5$.
+      
+    \item Déterminer la probabilité pour que la somme des points lors
+      du jet de deux dés soit égale à $7$.
+    \end{noliste}
+    
+  \item
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Déterminer la probabilité pour que A gagne au $\eme{(2n+1)}$
+      jet des deux dés ($n \geq 0$).
+      
+    \item Déterminer la probabilité pour que B gagne au $\eme{(2n+2)}$
+      jet des deux dés ($n \geq 0$).
+    \end{noliste}
+    
+  \item En déduire les probabilités $a$ et $b$ pour que A et B gagnent
+    le jeu.
+    
+  \item Soit $N$ la variable aléatoire égale au nombre de jets de deux
+    dés pour que le jeu s'arrête.\\
+    Montrer que $N$ admet une espérance et la déterminer.
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Donner le domaine de définition de la fonction $f : x
+      \mapsto \dfrac{\ln(t)}{\sqrt{ (t-1)^2 \, (2-t)}}$.
+      
+    \item Justifier la convergence de l'intégale impropre $\dint{1}{2}
+      \dfrac{\ln(t)}{\sqrt{ (t-1)^2 \, (2-t)}} \dt$.
+    \end{noliste}
+    
+  \item L'intégrale $\dint{1}{+\infty} \dfrac{\ln(t)}{\sqrt{ (t-1)^2
+        \, (2-t)}} \dt$ est-elle convergente ?
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\subsection*{Sujet E ...}
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Question de cours : énoncé de l'inégalité de Markov.\\
+    Citer une conséquence de cette inégalité.
+    
+    \item Soit $X_1$, $\ldots$, $X_n$ des \var mutuellement 
+    indépendantes, de même loi définie par :
+    \[
+      \begin{array}{l}
+        X_1(\Omega) = \{-1,1\} \\[.2cm]
+        \Prob(\Ev{X_1 = -1}) = \dfrac{1}{2} \quad \text{et} \quad
+        \Prob(\Ev{X_1=1}) = \dfrac{1}{2}
+      \end{array}
+    \]
+    On note : $S_n = \Sum{k=1}{n} X_k$.
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+      \item Calculer $\E(S_n)$.
+      
+      \item Calculer $\V(S_n)$.
+    \end{noliste}
+    
+    \item Déterminer $\E(S_n^4)$.
+    
+    \item Soit $\alpha >0$.
+    Montrer que $\Prob\left(\Ev{ \dfrac{\vert S_n \vert}{n} \geq 
+    \dfrac{1}{n^\alpha}}\right) \leq ...$.
+  \end{noliste}
+\end{exerciceAP}
+
+
+
+
+\begin{exerciceSP}~\\
+  Soit $f \in \LL{E}$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Quel est le lien entre le spectre de $f$
+    et un polynôme annulateur de $f$ ?
+    
+    \item Supposons que l'endomorphisme $f$ est diagonalisable et 
+    que : $\im(f) \subset \kr(f)$.\\
+    Que dire de l'endomorphisme $f$ ?
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\subsection*{Sujet E ...}
+
+\begin{exerciceAP}~
+ \begin{noliste}{1.}
+  \item Question de cours. Soit $f: \R \mapsto \R$. Soit $a \in \R$.\\
+  Que signifie graphiquement que $a$ est un point d'inflexion de la 
+  courbe représentative de $f$ ?\\
+  Quelles sont les méthodes pour le calculer ?
+  
+  \item On note $\phi$ la fonction définie par :
+  \[
+   \phi \ : \ 
+   \begin{array}[t]{ccc}
+    ]0,1[ & \to & \R
+    \\[.2cm]
+    x & \mapsto & - \dfrac{1}{x} - \ln
+    \left(\dfrac{x}{1-x}\right)
+   \end{array}
+  \]
+  \begin{noliste}{a)}
+    \item La fonction $\phi$ réalise-t-elle une bijection ? Sur quel 
+    intervalle ?
+    
+    \item La fonction $\phi$ admet-elle un point d'inflexion ?
+    
+    \item Écrire un programme \Scilab{} qui trace la fonction $\phi$.
+  \end{noliste}
+  
+  \item On dira qu'une fonction $f$ est \og ... \fg{} s'il existe $r 
+  \in \R$ tel que :
+  \[
+   \left\{
+   \begin{array}{l}
+    f(0) = x_0\\[.2cm]
+    \forall x \in \R, \ f(x) = r \times 
+    (\cdots)
+   \end{array}
+   \right.
+  \]
+  \begin{noliste}{a)}
+    \item Si $r=0$, existe-t-il une unique fonction qui remplit cette 
+    condition ?
+    
+    \item On se place de nouveau dans le cas général : $r\in \R$.
+    \begin{nonoliste}{(i)}
+     \item Simplifier l'intégrale $\dint{0}{t} \dfrac{f'(u)}{(f(u))^2 
+     \, (1-f(u))} \ du$.
+     
+     \item Montrer que la fonction $\phi$ est l'unique fonction ...
+    \end{nonoliste}
+  \end{noliste}
+ \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+ On considère deux variables aléatoires $X$ et $Y$ telles que : $\E(X) 
+ = \dfrac{7}{3}$ et $\E(Y) = \dfrac{14}{3}$.
+ \begin{noliste}{1.}
+   \item Les graphiques ci-dessous représentent les densités des deux
+   \var $X$ et $Y$.\\
+   \begin{minipage}{.45\linewidth}
+    \begin{center}
+    %% French babel fout la merde : ne pas oublier shorthandoff
+    \shorthandoff{;}
+    \begin{tikzpicture}[xscale=1.5, yscale = 1.5, scale = .75, 
+    transform shape, %
+      declare function = { %
+        f(\x) = 0; %
+        g(\x) = (1/12)*\x; %
+        h(\x) = (-1/20)*(\x -8); %
+      },] %
+      \pgfplotsset{every tick label/.append style={font=\tiny}}
+      \begin{axis}[%
+        xmin = -1, %
+        xmax = 9, %
+        ymin = -.01, %
+        ymax = 0.55, %
+        no markers, %
+        axis x line = center, %
+        axis y line = center, %
+        grid = both, %
+        % xticklabels={},
+        % ytick={-2,-1,0,1,2,3,4},%
+        % yticklabels={-2,-1,0,1,2,3,4}%
+        ] %
+        \addplot[samples=2, domain=-1:0, blue, thick] {f(x)}; %
+        \addplot[samples=2, domain=0:3, 
+        blue, thick]{g(x)}; %
+        \addplot[samples=2, domain=3:8, blue, thick] {h(x)}; %
+        \addplot[samples=2, domain=8:9, blue, thick] {f(x)}; %
+      \end{axis}
+    \end{tikzpicture}
+    \end{center}
+   \end{minipage}
+   \hspace*{.5cm}
+   \begin{minipage}{.48\linewidth}
+    \begin{center}
+    %% French babel fout la merde : ne pas oublier shorthandoff
+    \shorthandoff{;}
+    \begin{tikzpicture}[xscale=1.5, yscale = 1.5, scale = .75  , 
+    transform shape, %
+      declare function = { %
+        f(\x) = 0; %
+        g(\x) = (1/6)*\x; %
+        h(\x) = (-1/2)*\x + 2; %
+      },] %
+      \pgfplotsset{every tick label/.append style={font=\tiny}}
+      \begin{axis}[%
+        xmin = -1, %
+        xmax = 9, %
+        ymin = -.01, %
+        ymax = 0.55, %
+        no markers, %
+        axis x line = center, %
+        axis y line = center, %
+        grid = both, %
+        % xticklabels={},
+        % ytick={-2,-1,0,1,2,3,4},%
+        % yticklabels={-2,-1,0,1,2,3,4}%
+        ] %
+        \addplot[samples=2, domain=-1:0, blue, thick] {f(x)}; %
+        \addplot[samples=2, domain=0:3, 
+        blue, thick]{g(x)}; %
+        \addplot[samples=2, domain=3:4, blue, thick] {h(x)}; %
+        \addplot[samples=2, domain=4:8, blue, thick] {f(x)}; %
+      \end{axis}
+    \end{tikzpicture}
+    \end{center}
+   \end{minipage}
+   
+   Associer chaque densité à la \var correspondante.
+   
+   \item Comparer $\V(X)$ et $\V(Y)$.
+ \end{noliste}
+\end{exerciceSP}
+
+
+%%FIN
+
+
+\end{document}

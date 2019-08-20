@@ -1,0 +1,502 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../macros_Livre.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} ECRICOME 2016} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+\section*{EXERCICE 1}
+
+\subsection*{Partie A}
+
+\noindent Pour tout couple de réels $(x,y)$, on définit la matrice 
+$M(x,y)$ par~:
+\[ 
+M(x,y) = 
+\begin{smatrix} 
+3x & -2x+2y & 2x - y \\ 
+-x-y & 4x-3y & -2x+y \\
+-2y & 4x-4y & -x+y 
+\end{smatrix}
+\]
+On appelle $E$ l'ensemble des matrices $M(x,y)$ où $x$ et $y$ décrivent 
+$\R$~:
+\[ 
+E = \{ M(x,y), \ (x,y) \in \R^2 \} 
+\]
+On note $A = M(1,0)$ et $B=M(0,1)$.
+\begin{noliste}{1.}
+ \setlength{\itemsep}{2mm}
+ \item Montrer que $E$ est un sous-espace vectoriel de 
+ $\M{3}$.\\ 
+ En déterminer une base et donner sa 
+ dimension.
+
+ \item Montrer que $1$, $2$ et $3$ sont valeurs propres de $A$ et 
+ déterminer les espaces propres associés.\\ 
+ $A$ est-elle diagonalisable~?
+ 
+\item Déterminer une matrice inversible $P$ de $\M{3}$ dont la
+  première ligne est $
+  \begin{smatrix} 
+    1 & -2 & 1
+  \end{smatrix}$, et telle que~:
+  \[ 
+  A = P D_A P^{-1}, \quad \text{où} \quad D_A = 
+  \begin{smatrix} 
+    1 & 0 & 0 \\ 
+    0 & 2 & 0 \\ 
+    0 & 0 & 3 
+  \end{smatrix} 
+  \]
+ 
+ \item Déterminer $P^{-1}$ (faire figurer le détail des calculs sur la 
+ copie).
+
+ \item En notant $X_1$, $X_2$ et $X_3$ les trois vecteurs colonnes 
+ formant la matrice $P$, calculer $BX_1$, $BX_2$ et $BX_3$. 
+ En déduire l'existence d'une matrice diagonale $D_B$ que l'on 
+ explicitera  telle que~:
+ \[ 
+ B = PD_BP^{-1} 
+ \]
+ 
+ \item En déduire que pour tout $(x,y) \in \R^2$, il existe une 
+ matrice diagonale $D(x,y)$ de $\M{3}$ telle que~:
+ \[ 
+ M(x,y) = P D(x,y) P^{-1} 
+ \]
+ 
+ \item En déduire une condition nécessaire et suffisante sur $(x,y)$ 
+ pour que $M(x,y)$ soit inversible.
+ 
+ \item Montrer que $B^2$ est un élément de $E$. La matrice $A^2$ 
+ est-elle aussi un élément de $E$ ?
+ \end{noliste}
+
+ \newpage
+ 
+ \subsection*{Partie B}
+
+ \noindent 
+ On souhaite dans cette partie étudier les suites $(a_n)_{n 
+ \in \N}$, $(b_n)_{n \in \N}$ et $(c_n)_{n \in 
+ \N}$ définies par les conditions initiales $a_0=1$, $b_0=0$, 
+ $c_0=0$ et les relations de récurrence suivantes~:
+ \[ 
+  \left\{ 
+  \begin{array}{rcrrrrr} 
+  a_{n+1} & = & 3 a_n & + & 4 b_n & - & c_n \\ 
+  b_{n+1} & = & -4 a_n & - & 5 b_n & + & c_n \\ 
+  c_{n+1} & = & -6 a_n & - & 8 b_n & + & 2 c_n 
+  \end{array} 
+  \right. 
+ \]
+ Pour tout $n \in \N$, on pose $X_n = 
+ \begin{smatrix} 
+ a_n \\ 
+ b_n \\ 
+ c_n 
+ \end{smatrix}$.
+\begin{noliste}{1.}
+\setlength{\itemsep}{2mm}
+\setcounter{enumi}{8}
+\item Que vaut $X_0$ ?
+
+\item Déterminer une matrice $C$ telle que pour tout $n \in \N$, 
+on ait~:
+\[ 
+X_{n+1} = C X_n 
+\]
+Déterminer ensuite deux réels $x$ et $y$ tels que $C = M(x,y)$.
+
+\item Montrer que, pour tout $n \in \N$, $X_n = C^n X_0$.
+
+\item À l'aide des résultats de la partie A, exprimer $a_n$, $b_n$ et 
+$c_n$ en fonction de $n$.
+\end{noliste}
+
+
+
+\section*{EXERCICE 2}
+
+\begin{noliste}{1.}
+\setlength{\itemsep}{2mm}
+\item Pour tout $n \in \N$, on définit la fonction $g_n : 
+[0,+\infty[ \ \rightarrow \R$ par~:
+\[ 
+g_n(x) = \dfrac{( \ln(1+x))^n}{(1+x)^2} 
+\]
+
+\begin{noliste}{a)}
+\item Étudier les variations de la fonction $g_0$, définie sur 
+$[0,+\infty[$ par~: $g_0(x) = \dfrac{1}{(1+x)^2}$.\\ 
+Préciser la limite de $g_0$ en $+\infty$, donner l'équation de la 
+tangente en $0$, et donner l'allure de la courbe représentative de 
+$g_0$.
+
+\item Pour $n \geq 1$, justifier que $g_n$ est dérivable sur 
+$[0,+\infty[$ et montrer que~:
+\[ 
+\forall x \in [0,+\infty[, \qquad g_n'(x) \geq 0 \quad 
+\Longleftrightarrow \quad n \geq 2\ln(1+x) 
+\]
+En déduire les variations de la fonction $g_n$ lorsque $n \geq 1$.\\ 
+Calculer soigneusement $\dlim{x \to + \infty} g_n(x)$.
+
+\item Montrer que, pour $n \geq 1$, $g_n$ admet un maximum sur 
+$[0,+\infty[$ qui vaut~:
+\[ 
+M_n = \left( \dfrac{n}{2 \ee} \right)^n 
+\]
+et déterminer $\dlim{n \to + \infty} M_n$.
+
+\item Montrer enfin que pour tout $n \geq 1$~:
+\[ 
+g_n(x)  = \oox{+\infty} \left( 
+\frac{1}{x^{\frac{3}{2}}} \right) 
+\]
+\end{noliste}
+
+\newpage
+
+\item On pose pour tout $n \in \N$~:
+\[ 
+I_n = \dint{0}{+\infty} g_n(t) dt 
+\]
+\begin{noliste}{a)}
+\item Montrer que l'intégrale $I_0$ est convergente et la calculer.
+
+\item Montrer que pour tout entier $n \geq 1$, l'intégrale $I_n$ 
+est convergente.
+
+\item À l'aide d'une intégration par parties, montrer que~:
+\[ 
+\forall n \in \N, \ I_{n+1} = (n+1) I_n 
+\]
+
+\item En déduire que~:
+\[ 
+\forall n \in \N, \ I_n = n! 
+\]
+\end{noliste}
+
+\item Pour tout $n \in \N$, on définit la fonction $f_n$ par~:
+\[ 
+\forall x \in \R, \ f_n(x) = \left\{ 
+\begin{array}{cl} 
+0 & \text{ si } x < 0 \\[.2cm] 
+\dfrac{1}{n!} \ g_n(x) & \text{ si } 
+x \geq 0 \end{array} \right. 
+\]
+\begin{noliste}{a)}
+\item Montrer que pour tout $n \in \N$, $f_n$ est une densité de 
+probabilité. 
+\end{noliste}
+
+\noindent \hspace{-0.5cm} On considère à présent, pour tout $n \in 
+\N$, $X_n$ une variable aléatoire réelle admettant $f_n$ pour 
+densité.
+
+\noindent \hspace{-0.5cm} On notera $F_n$ la fonction de répartition de 
+$X_n$.
+
+\begin{noliste}{a)}
+\setcounter{enumii}{1}
+\item La variable aléatoire $X_n$ admet-elle une espérance~?
+
+\item Que vaut $F_n(x)$ pour $x < 0$ et $n \in \N$~?
+
+\item Calculer $F_0(x)$ pour $x \geq 0$.
+
+\item Soit $x \geq 0$ et $k \in \N^*$. Montrer que~:
+\[ 
+F_k(x) - F_{k-1}(x) = - \dfrac{1}{k!} \dfrac{(\ln(1+x))^k}{1+x} 
+\]
+
+\item En déduire une expression de $F_n(x)$ pour $x \geq 0$ et $n 
+\in \N^*$ faisant intervenir une somme (on ne cherchera pas à 
+calculer cette somme).
+
+\item Pour $x \in \R$ fixé, déterminer la limite de $F_n(x)$  
+lorsque $n$ tend vers $+\infty$.
+
+\item La suite de variables aléatoires $(X_n)_{n \in \N}$ 
+converge-t-elle en loi~?
+\end{noliste}
+
+\item Pour tout $n \in \N$, on note $Y_n = \ln(1+X_n)$.
+\begin{noliste}{a)}
+\item Justifier que $Y_n$ est bien définie. Quelles sont les valeurs 
+prises par $Y_n$~?
+
+\item Justifier que $Y_n$ admet une espérance et la calculer.
+
+\item Justifier que $Y_n$ admet une variance et la calculer.
+
+\item On note $H_n$ la fonction de répartition de $Y_n$. Montrer que~:
+\[ 
+\forall x \in \R, \ H_n(x) = F_n(\ee^x-1) 
+\]
+
+\item Montrer que $Y_n$ est une variable aléatoire à densité et donner 
+une densité de $Y_n$.
+
+\item Reconnaître la loi de $Y_0$.\\
+  À l'aide de ce qui précède, déterminer le moment d'ordre $k$ de
+  $Y_0$ pour tout $k \in \N^*$.
+\end{noliste}
+\end{noliste}
+
+\newpage
+
+\section*{EXERCICE 3}
+
+\noindent
+Dans tout l'exercice, $X$ et $Y$ sont deux variables aléatoires 
+définies sur le même espace probabilisé et à valeurs dans~$\N$. On dit 
+que les deux variables $X$ et $Y$ sont \textbf{échangeables} si~:
+\[ 
+\forall (i, j) \in \N^2, \quad \Prob(\Ev{X=i} \cap \Ev{Y=j}) = 
+\Prob(\Ev{X=j} \cap \Ev{Y=i}) 
+\]
+
+\subsection*{Résultats préliminaires}
+
+\begin{noliste}{1.}
+\setlength{\itemsep}{2mm}
+\item On suppose que $X$ et $Y$ sont deux variables indépendantes et de 
+même loi.\\
+Montrer que $X$ et $Y$ sont échangeables.
+
+\item On suppose que $X$ et $Y$ sont échangeables.\\ 
+Montrer, à l'aide de 
+la formule des probabilités totales, que~:
+\[ 
+\forall i \in \N, \quad \Prob(\Ev{X=i}) = \Prob(\Ev{Y=i}) 
+\]
+\end{noliste}
+
+\subsection*{\'Etude d'un exemple}
+
+\noindent
+Soient $n$, $b$ et $c$ trois entiers strictement positifs.\\
+Une urne contient initialement $n$ boules noires et $b$ boules 
+blanches. On effectue l'expérience suivante, en distinguant trois 
+variantes.
+
+\begin{noliste}{$\sbullet$}
+\item On pioche une boule dans l'urne. \\
+On définit $X$ la variable aléatoire qui vaut $1$ si cette boule est 
+noire et $2$ si elle est blanche.
+
+\item On replace la boule dans l'urne et~:
+\begin{noliste}{$\star$}
+\item Variante 1 : on ajoute dans l'urne $c$ boules de la même 
+couleur que la boule qui vient d'être piochée.
+
+\item Variante 2 : on ajoute dans l'urne $c$ boules de la 
+couleur opposée à celle de la boule qui vient d'être piochée.
+
+\item Variante 3 : on n'ajoute pas de boule supplémentaire 
+dans l'urne.
+\end{noliste}
+
+\item On pioche à nouveau une boule dans l'urne.\\
+On définit $Y$ la variable aléatoire qui vaut $1$ si cette seconde 
+boule piochée est noire et $2$ si elle est blanche.
+\end{noliste}
+
+\begin{noliste}{1.}
+\setlength{\itemsep}{2mm}
+\setcounter{enumi}{2}
+\item
+\begin{noliste}{a)}
+\item Compléter la fonction \Scilab{} suivante, qui simule le tirage 
+d'une boule dans une urne contenant $b$ boules blanches et $n$ boules 
+noires et qui retourne $1$ si la boule tirée est noire, et $2$ si la 
+boule tirée est blanche.
+
+\begin{scilab}
+  & \tcFun{function} \tcVar{res} = tirage(\tcVar{b}, \tcVar{n}) \nl %
+  & \quad r = rand() \nl %
+  & \quad \tcIf{if} ........... \tcIf{then} \nl %
+  & \quad \quad \tcVar{res} = 2 \nl %
+  & \quad \tcIf{else} \nl %
+  & \quad \quad \tcVar{res} = 1 \nl %
+  & \quad \tcIf{end} \nl %
+  & \tcFun{endfunction}
+\end{scilab}
+
+\newpage
+
+\item Compléter la fonction suivante, qui effectue l'expérience étudiée 
+avec une urne contenant initialement $b$ boules blanches, $n$ boules 
+noires et qui ajoute éventuellement $c$ boules après le premier tirage, 
+selon le choix de la variante dont le numéro est \texttt{variante}.\\ 
+Les paramètres de sortie sont~:
+\begin{noliste}{-}
+\item \texttt{x} : une simulation de la variable aléatoire $X$
+\item \texttt{y} : une simulation de la variable aléatoire $Y$
+\end{noliste}
+
+\begin{scilab}
+  & \tcFun{function} [\tcVar{x}, \tcVar{y}] = experience (\tcVar{b}, 
+  \tcVar{n}, \tcVar{c}, \tcVar{variante}) \nl %
+  & \quad \tcVar{x} = tirage (\tcVar{b}, \tcVar{n}) \nl %
+  & \quad \tcIf{if} \tcVar{variante} == 1 \tcIf{then} \nl %
+  & \quad \quad \tcIf{if} \tcVar{x} == 1 \tcIf{then} \nl %
+  & \quad \quad \quad ........... \nl %
+  & \quad \quad \tcIf{else} \nl %
+  & \quad \quad \quad ........... \nl %
+  & \quad \quad \tcIf{end} \nl %
+  & \quad \tcIf{else if} \tcVar{variante} == 2 \tcIf{then} \nl %
+  & \quad \quad ........... \nl %
+  & \quad \quad ........... \nl %
+  & \quad \quad ........... \nl %
+  & \quad \quad ........... \nl %
+  & \quad \quad ........... \nl %
+  & \quad \tcIf{end} \nl %
+  & \quad \tcVar{y} = tirage (\tcVar{b}, \tcVar{n}) \nl %
+  & \tcFun{endfunction}
+\end{scilab}
+
+\item Compléter la fonction suivante, qui simule l'expérience $N$ fois 
+(avec $N \in \N^*$), et qui estime la loi de $X$, la loi de $Y$ 
+et la loi du couple $(X,Y)$. \\ Les paramètres de sortie sont~:
+\begin{noliste}{-}
+\item \texttt{loiX} : un tableau unidimensionnel à deux éléments qui 
+estime [ $\Prob(\Ev{X=1})$, \ $\Prob(\Ev{X=2})$ ]
+\item \texttt{loiY} : un tableau unidimensionnel à deux éléments qui 
+estime [ $\Prob(\Ev{Y=1})$, \ $\Prob(\Ev{Y=2})$ ]
+\item \texttt{loiXY} : un tableau bidimensionnel à deux lignes et deux 
+colonnes qui estime~:
+\[ 
+\left[ 
+\begin{array}{cc}
+ \Prob(\Ev{X=1} \cap \Ev{Y=1}) &  \Prob(\Ev{X=1} \cap \Ev{Y=2})\\[.2cm]
+ \Prob(\Ev{X=2} \cap \Ev{Y=2}) &  \Prob(\Ev{X=1} \cap \Ev{Y=2})  
+\end{array} 
+\right] 
+\]
+\end{noliste}
+
+\begin{scilab}
+  & \tcFun{function} [\tcVar{loiX}, \tcVar{loiY}, \tcVar{loiXY}] = 
+  estimation(\tcVar{b}, \tcVar{n}, \tcVar{c}, \tcVar{variante}, 
+  \tcVar{N}) \nl %
+  & \quad \tcVar{loiX} = [0, 0] \nl %
+  & \quad \tcVar{loiY} = [0, 0] \nl %
+  & \quad \tcVar{loiXY} = [0, 0 ; 0, 0] \nl %
+  & \quad \tcFor{for} k = 1 : \tcVar{N} \nl %
+  & \quad \quad [x , y] = experience(\tcVar{b}, \tcVar{n}, \tcVar{c}, 
+  \tcVar{variante}) \nl %
+  & \quad \quad \tcVar{loiX}(x) = \tcVar{loiX}(x) + 1 \nl %
+  & \quad \quad ........... \nl %
+  & \quad \quad ........... \nl %
+  & \quad \tcIf{end} \nl %
+  & \quad \tcVar{loiX} = \tcVar{loiX} / \tcVar{N} \nl %
+  & \quad \tcVar{loiY} = \tcVar{loiY} / \tcVar{N} \nl %
+  & \quad \tcVar{loiXY} = \tcVar{loiXY} / \tcVar{N} \nl %
+  & \tcFun{endfunction}
+\end{scilab}
+
+\newpage
+
+\item On exécute notre fonction précédente avec $b=1$, $n=2$, $c=1$, 
+$N=10000$ et dans chacune des variantes. On obtient~:
+    \[
+    \begin{console}
+      \lInv{[loiX,loiY,loiXY] = estimation(1,2,1,1,10000)} \nl %
+      \lDisp{\qquad loiXY =} \nl %
+      \lDisp{\qquad \qquad 0.49837 \qquad 0.16785} \nl %
+      \lDisp{\qquad \qquad 0.16697 \qquad 0.16681} \nl %
+      \lDisp{\qquad loiY =} \nl %
+      \lDisp{\qquad \qquad 0.66534 \qquad 0.33466} \nl %
+      \lDisp{\qquad loiX =} \nl %
+      \lDisp{\qquad \qquad 0.66622 \qquad 0.33378} \nle %
+      %%%%%
+      \lInv{[loiX,loiY,loiXY] = estimation(1,2,1,2,10000)} \nl %
+      \lDisp{\qquad loiXY =} \nl %
+      \lDisp{\qquad \qquad 0.33258 \qquad 0.33286} \nl %
+      \lDisp{\qquad \qquad 0.25031 \qquad 0.08425} \nl %
+      \lDisp{\qquad loiY =} \nl %
+      \lDisp{\qquad \qquad 0.58289 \qquad 0.41711} \nl %
+      \lDisp{\qquad loiX =} \nl %
+      \lDisp{\qquad \qquad 0.66544 \qquad 0.33456} \nle %
+      %%%%%
+      \lInv{[loiX,loiY,loiXY] = estimation(1,2,1,3,10000)} \nl %
+      \lDisp{\qquad loiXY =} \nl %
+      \lDisp{\qquad \qquad 0.44466 \qquad 0.22098} \nl %
+      \lDisp{\qquad \qquad 0.22312 \qquad 0.11124} \nl %
+      \lDisp{\qquad loiY =} \nl %
+      \lDisp{\qquad \qquad 0.66778 \qquad 0.33222} \nl %
+      \lDisp{\qquad loiX =} \nl %
+      \lDisp{\qquad \qquad 0.66564 \qquad 0.33436} \nle %
+    \end{console}
+    \] 
+    En étudiant ces résultats, émettre des conjectures quant à
+    l'indépendance et l'échangeabilité de $X$ et $Y$ dans chacune des
+    variantes. \\
+    On donne les valeurs numériques approchées suivantes~:
+    \[ 
+    \begin{array}{l}
+      0.33 \times 0.33 \simeq 0.11 \\
+      0.33 \times 0.41 \simeq 0.14 \\
+      0.33 \times 0.58 \simeq 0.19 \\
+      0.33 \times 0.66 \simeq 0.22 \\
+      0.41 \times 0.66 \simeq 0.27 \\
+      0.58 \times 0.66 \simeq 0.38 \\
+      0.66 \times 0.66 \simeq 0.44 
+    \end{array} 
+    \]
+\end{noliste}
+\item On se place dans cette question dans le cadre de la variante $1$.
+\begin{noliste}{a)}
+\item Donner la loi de $X$.
+
+\item Déterminer la loi du couple $(X,Y)$.
+
+\item Déterminer la loi de $Y$.
+
+\item Montrer que $X$ et $Y$ sont échangeables mais ne sont pas 
+indépendantes.
+\end{noliste}
+\end{noliste}
+
+
+
+
+\end{document}

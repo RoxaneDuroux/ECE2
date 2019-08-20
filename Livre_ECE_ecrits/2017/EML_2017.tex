@@ -1,0 +1,613 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../macros_Livre.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} EML 2017} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+ 
+\vspace*{.4cm}
+
+%%DEBUT
+
+\section*{Exercice 1}
+\noindent
+On considère la fonction $f : \ ]0,+\infty[ \ \rightarrow \R$ définie,
+pour tout $x$ de $]0,+\infty[$, par :
+\[
+f(x)=\ee^x-\ee \ln(x).
+\]
+On admet les encadrements numériques suivants :
+\[
+2,7<\ee<2,8 \qquad 7,3<\ee^2<7,4 \qquad 0,6<\ln(2)<0,7.
+\]
+
+\subsection*{Partie I : Étude de la fonction $f$}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{2mm}
+\item 
+  \begin{noliste}{a)}
+  \item Montrer que $f$ est deux fois dérivable sur $]0,+\infty[$ et
+    calculer, pour tout $x$ de $]0,+\infty[$,\\
+    $f'(x)$ et $f''(x)$.
+    
+    	
+    
+  \item Dresser le tableau de variations de $f'$ avec la limite de
+    $f'$ en $0$ et la limite de $f'$ en $+\infty$ et \\ préciser
+    $f'(1)$.
+    
+    
+  \end{noliste}
+  
+  
+  %\newpage
+  
+
+\item Dresser le tableau de variations de $f$ avec la limite de $f$ en
+  $0$ et la limite de $f$ en $+\infty$ et\\
+  préciser $f(1)$.
+  
+  
+  
+\item Tracer l'allure de la courbe représentative de $f$.
+  
+  
+    
+    
+  \item 
+    \begin{noliste}{a)}
+    \item Étudier les variations de la fonction $u:
+    \begin{array}[t]{ccl}
+      ]0,+\infty[ & \rightarrow & \R\\
+      x & \mapsto & f'(x)-x
+    \end{array}$
+    
+    
+    
+
+    %\newpage
+
+	
+  \item En déduire que l'équation $f'(x)=x$, d'inconnue $x\in \
+    ]0,+\infty[$, admet une solution et une seule, notée $\alpha$, et
+    montrer : $1<\alpha<2$.
+  \end{noliste}      
+ 
+    
+\end{noliste}
+
+
+%\newpage
+
+
+\subsection*{Partie II : Étude d'une suite, étude d'une série}
+\noindent
+On considère la suite réelle $(u_n)_{n\in\N}$ définie par :
+\[
+\left\{
+  \begin{array}{l}
+    u_0=2\\
+    \forall n \in\N, \ u_{n+1}=f(u_n)
+  \end{array}
+\right.
+\]
+\begin{noliste}{1.}
+  \setlength{\itemsep}{2mm}
+  \setcounter{enumi}{4}
+\item Montrer que, pour tout $n$ de $\N$, $u_n$ existe et $u_n\geq 2$.
+  
+  
+  
+\item 
+  \begin{noliste}{a)}
+  \item Étudier les variations, puis le signe, de la fonction $g:
+    \begin{array}[t]{ccl}
+      [2,+\infty[ & \rightarrow & \R\\
+      x& \mapsto & f(x)-x
+    \end{array}$
+    
+    
+    
+  \item En déduire que la suite $(u_n)_{n\in\N}$ est croissante.
+	
+    
+  \end{noliste}
+  
+  
+\item Démontrer que la suite $(u_n)_{n\in\N}$ admet $+\infty$ pour 
+  limite.
+  
+  
+
+\item Écrire un programme en \Scilab{} qui, étant donné un réel $A$,
+  renvoie un entier naturel $N$ tel que $u_N\geq A$.
+
+
+
+
+\item 
+  \begin{noliste}{a)}
+  \item Démontrer : $\forall x\in[2,+\infty[$, $2\ln(x)\leq x \leq
+    \dfrac{\ee^x}{3}$.
+    
+    
+    
+  \item En déduire : $\forall n\in\N$, $u_{n+1} \geq
+    \dfrac{6-\ee}{2}u_n$.
+	
+    
+    
+
+    %\newpage
+	
+
+  \item Déterminer la nature de la série de terme général
+    $\dfrac{1}{u_n}$.
+	
+    
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie III : Étude d'intégrales généralisées}
+\begin{noliste}{1.}
+\setlength{\itemsep}{2mm}
+\setcounter{enumi}{9}
+\item Montrer que l'intégrale $\dint{0}{1} f(x)\dx$ converge et 
+calculer 
+cette intégrale.
+
+
+ 
+\item L'intégrale $\dint{1}{+\infty} f(x)\dx$ converge-t-elle ?
+
+  
+
+%\newpage
+
+\item Montrer que l'intégrale $\dint{2}{+\infty} \dfrac{1}{f(x)}\dx$
+  converge.  On pourra utiliser le résultat de la question
+  \itbf{9.a)}.
+
+
+\end{noliste}
+
+%\newpage
+
+\subsection*{Partie IV : Étude d'une fonction de deux variables
+  réelles}
+
+\noindent
+On considère la fonction $F: \ ]1,+\infty[^2 \rightarrow \R$, de classe 
+$\Cont 2$ sur l'ouvert $]1,+\infty[^2$, définie, pour tout $(x,y)$ de 
+$]1,+\infty[^2$, par :
+\[
+F(x,y)=f(x)+f(y)-xy.
+\]
+\begin{noliste}{1.}
+\setlength{\itemsep}{2mm}
+\setcounter{enumi}{12}
+\item Montrer que $F$ admet un point critique et un seul et qu'il 
+s'agit 
+de $(\alpha,\alpha)$, le réel $\alpha$ ayant été défini à la question 
+{\bf 4.} de la partie {\bf I}.
+
+
+
+%\newpage
+
+\item \begin{noliste}{a)}
+	\item Déterminer la matrice hessienne de $F$ en 
+	$(\alpha,\alpha)$.
+	
+	
+	
+	\item La fonction $F$ admet-elle un extremum local en 
+	$(\alpha,\alpha)$ ? Si oui, s'agit-il d'un maximum local ou 
+	s'agit-il d'un minimum local ?
+	
+	
+	\end{noliste}
+\end{noliste}
+
+
+%\newpage
+
+
+\section*{Exercice 2}
+
+\noindent
+On note $E = \R_2[X]$ l'espace vectoriel des polynômes de degré
+inférieur ou égal à $2$ et $\B = (1,X,X^2)$ la base canonique de $E$.
+Pour tout polynôme $P$ de $E$, on note indifféremment $P$ ou $P(X)$.\\
+Pour tout $(\alpha,\beta,\gamma)\in\R^3$, la dérivée $P'$ du polynôme
+$P=\alpha+\beta X+\gamma X^2$ est le polynôme $P' = \beta+2\gamma X$,
+et la dérivée seconde $P''$ de $P$ est le polynôme $P'' = 2\gamma$.\\
+On note, pour tout polynôme $P$ de $E$ :
+\[
+a(P) = P-XP', \quad b(P) = P-P', \quad c(P) = 2XP-(X^2-1) \ P'
+\]
+Par exemple : $a(X^2) = X^2-X(2X) = -X^2$.\\
+Enfin, on note $f = b\circ a - a \circ b$.
+
+
+
+
+\subsection*{Partie I : Étude de $a$}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{2mm}
+\item Montrer que $a$ est un endomorphisme de $E$.
+  
+  
+
+
+%\newpage
+
+
+\item
+  \begin{noliste}{a)}
+  \item Montrer que la matrice $A$ de $a$ dans la base $\B$ de $E$ est
+    $A = 
+    \begin{smatrix} 
+      1 & 0 & 0 \\ 
+      0 & 0 & 0 \\ 
+      0 & 0 & -1
+    \end{smatrix}$.
+    
+    
+    
+  \item Déterminer le rang de la matrice $A$.
+    
+    
+  \end{noliste}
+  
+\item L'endomorphisme $a$ est-il bijectif ? Déterminer $\kr(a)$ et
+  $\im(a)$.
+
+  
+  On admet, pour la suite de l'exercice, que $b$ et $c$ sont des
+  endomorphismes de $E$.\\
+  On note $B$ et $C$ les matrices, dans la base $\B$ de $E$, de $b$ et
+  $c$ respectivement.
+\end{noliste}
+
+
+%\newpage
+
+
+\subsection*{Partie II : Étude de $b$}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{2mm} %
+  \setcounter{enumi}{3}
+\item Montrer que $b$ est bijectif et que, pour tout $Q$ de $E$, on a
+  : $b^{-1}(Q) = Q + Q' + Q''$.
+
+  
+
+
+  %\newpage
+
+
+\item 
+  \begin{noliste}{a)}
+  \item Montrer que $b$ admet une valeur propre et une seule et
+    déterminer celle-ci.
+	
+    
+    
+  \item L'endomorphisme $b$ est-il diagonalisable ?
+    
+    
+  \end{noliste}
+\end{noliste}
+
+\subsection*{Partie III : Étude de $c$}
+
+\begin{noliste}{1.}
+\setlength{\itemsep}{2mm}
+\setcounter{enumi}{5}
+\item Montrer : $C=\begin{smatrix}
+0 & 1 & 0\\ 
+2 & 0 & 2\\ 
+0 & 1 & 0
+\end{smatrix}$.
+
+
+
+\item L'endomorphisme $c$ est-il bijectif ?
+
+  
+
+
+%\newpage
+
+
+\item 
+  \begin{noliste}{a)}
+  \item Déterminer une matrice $R$, carrée d'ordre trois, inversible,
+    dont les coefficients de la première ligne sont tous égaux à $1$,
+    et une matrice $D$, carrée d'ordre trois, diagonale, à
+    coefficients diagonaux dans l'ordre croissant, telles que $C =
+    RDR^{-1}$.
+    
+    
+    
+
+    %\newpage
+
+	
+  \item En déduire que l'endomorphisme $c$ est diagonalisable et
+    déterminer une base de $E$ constituée de vecteurs propres de
+    $c$.
+    
+    
+  \end{noliste}
+\end{noliste}
+
+
+\subsection*{Partie IV : Étude de $f$}
+\begin{noliste}{1.}
+\setlength{\itemsep}{2mm}
+\setcounter{enumi}{8}
+\item Montrer : $\forall P\in E$, $f(P)=P'$.
+
+  
+
+
+%\newpage 
+
+
+\item En déduire : $(BA-AB)^3=0$.
+
+  
+\end{noliste}
+
+
+
+%\newpage
+
+\section*{Exercice 3}
+
+\noindent
+On considère une urne contenant initialement une boule bleue et deux
+boules rouges.\\
+On effectue, dans cette urne, des tirages successifs de la façon
+suivante : on pioche une boule au hasard et on note sa couleur, puis
+on la replace dans l'urne en ajoutant une boule de la même couleur que
+celle qui vient d'être obtenue.\\[.1cm]
+Pour tout $k$ de $\N^*$, on note :
+\begin{tabular}[t]{R{12cm}}
+  $B_k$ l'événement : \og on obtient une boule bleue au $\eme{k}$ tirage \fg{}, 
+  \nl
+  \nl[-.3cm]
+  $R_k$ l'événement : \og on obtient une boule rouge au $\eme{k}$
+  tirage \fg{}.
+\end{tabular}
+
+\subsection*{Partie I : Simulation informatique}
+
+\begin{noliste}{1.}
+\item Recopier et compléter la fonction suivante afin qu'elle simule
+  l'expérience étudiée et renvoie le nombre de boules rouges obtenues
+  lors des $n$ premiers tirages, l'entier $n$ étant entré en argument.
+  \begin{scilab}
+    & \tcFun{function} \tcVar{s} = EML(\tcVar{n}) \nl %
+    & \qquad b = 1 \commentaire{b désigne le nombre de boules bleues
+      présentes dans l'urne} \nl %
+    & \qquad r = 2 \commentaire{r désigne le nombre de boules rouges
+      présentes dans l'urne} \nl %
+    & \qquad \tcVar{s} = 0 \commentaire{s désigne le nombre de boules 
+    rouges obtenues lors des n tirages} \nl %
+    & \qquad \tcFor{for} k = 1:\tcVar{n} \nl %
+    & \qquad \qquad x = rand() \nl %
+    & \qquad \qquad \tcIf{if} ... \tcIf{then} \nl %
+    & \qquad \qquad \qquad  ... \nl %
+    & \qquad \qquad \tcIf{else} \nl %
+    & \qquad \qquad \qquad  ... \nl %
+    & \qquad \qquad \tcIf{end} \nl %
+    & \qquad \tcFor{end} \nl %
+    & \tcFun{endfunction}
+  \end{scilab}
+
+  
+
+\item On exécute le programme suivant :
+  \begin{scilab}
+    & n = 10 \nl %
+    & m = 0 \nl %
+    & \tcFor{for} i = 1:1000 \nl % 
+    & \qquad m = m + EML(n) \nl %
+    & \tcFor{end} \nl %
+    & disp(m/1000)
+  \end{scilab}
+  On obtient $6.657$. Comment interpréter ce résultat ?
+  
+  
+\end{noliste}
+
+\subsection*{Partie II : Rang d'apparition de la première boule bleue 
+et rang d'apparition de la première boule rouge}
+
+\noindent 
+On définit la variable aléatoire $Y$ égale au rang d'apparition de la
+première boule bleue et la variable aléatoire $Z$ égale au rang
+d'apparition de la première boule rouge.
+
+\begin{noliste}{1.}
+  \setcounter{enumi}{2}
+\item
+  \begin{noliste}{a)}
+  \item Montrer que : \ $\forall n \in \N^*, \ \Prob(\Ev{Y = n}) =
+    \dfrac{2}{(n+1)(n+2)}$.
+
+    
+
+
+    %\newpage
+
+
+  \item La variable aléatoire $Y$ admet-elle une espérance ? une
+    variance ?
+    
+    
+  \end{noliste}
+
+\item Déterminer la loi de $Z$. La \var admet-elle une espérance ? une
+  variance ?
+ 
+  
+\end{noliste}
+
+\subsection*{Partie III : Nombre de boules rouges obtenues au cours de 
+$n$ tirages}
+
+\noindent 
+On définit, pour tout $k$ de $\N^*$, la variable aléatoire $X_k$ égale
+à $1$ si l'on obtient une boule rouge au $\eme{k}$ tirage et égale à
+$0$ sinon.\\
+On définit, pour tout $n$ de $\N^*$, la variable aléatoire $S_n$ égale
+au nombre de boules rouges obtenues au cours des $n$ premiers tirages.
+\begin{noliste}{1.}
+  \setcounter{enumi}{4}
+\item Donner, pour tout $n$ de $\N^*$, une relation entre $S_n$ et
+  certaines variables aléatoires $X_k$ pour $k \in \N^*$.
+  
+  
+
+\item Déterminer la loi de $X_1$, son espérance et sa variance.
+
+  
+
+\item
+  \begin{noliste}{a)}
+  \item Déterminer la loi du couple $(X_1, X_2)$.
+
+    
+
+  \item En déduire la loi de $X_2$.
+
+    
+
+  \item Les variables $X_1$ et $X_2$ sont-elles indépendantes ?
+
+    
+  \end{noliste}
+
+\item Soit $n \in \N^*$ et $k \in \llb 0, n \rrb$.
+  \begin{noliste}{a)}
+  \item Calculer $\Prob(R_1 \cap \ldots \cap R_k \cap B_{k+1} \cap
+    \ldots \cap B_n)$.
+
+    
+
+
+    %\newpage
+
+
+  \item Justifier : $\Prob(\Ev{S_n = k}) = \dbinom{n}{k} \ \Prob(R_1
+    \cap \ldots \cap R_k \cap B_{k+1} \cap \ldots \cap B_n)$,\\
+    puis en déduire : $\Prob(\Ev{S_n = k}) =
+    \dfrac{2(k+1)}{(n+1)(n+2)}$.
+
+    
+  \end{noliste}
+
+
+  %\newpage
+
+
+\item Montrer que, pour tout $n$ de $\N^*$, $S_n$ admet une espérance
+  et : $\E(S_n) = \dfrac{2n}{3}$.
+
+  
+
+\item Soit $n \in \N^*$.
+  \begin{noliste}{a)}
+  \item Montrer : \ $\forall k \in \llb 0, n \rrb$, \ $\Prob_{\Ev{S_n
+        = k}}(\Ev{X_{n+1} = 1}) = \dfrac{k+2}{n+3}$.
+    
+    
+        
+
+    %\newpage
+
+
+  \item En déduire : \ $\Prob(\Ev{X_{n+1} = 1}) = \dfrac{\E(S_n) +
+      2}{n+3}$.
+      
+      
+
+  \item Déterminer alors la loi de la variable aléatoire
+    $X_{n+1}$. Que remarque-t-on ?
+    
+            
+  \end{noliste}
+\end{noliste}
+
+
+\subsection*{Partie IV : Étude d'une convergence en loi}
+\noindent
+On s'intéresse dans cette partie à la proportion de boules rouges 
+obtenues lors des $n$ premiers tirages.\\[.1cm]
+On pose, pour tout $n$ de $\N^*$, $T_n=\dfrac{S_n}{n}$.
+\begin{noliste}{1.}
+\setcounter{enumi}{10}
+\item Justifier, pour tout $n$ de $\N^*$ : $\forall x<0$, 
+$\Prob(\Ev{T_n\leq 
+x})=0$, et : $\forall x>1$, $\Prob(\Ev{T_n\leq x})=1$.
+
+
+
+\item Soit $x\in[0,1]$. Montrer, pour tout $n$ de $\N^*$ :
+\[
+\Prob(\Ev{T_n\leq x})=\frac{(\lfloor nx\rfloor +1)(\lfloor nx\rfloor 
++2)}{(n+1)(n+2)},
+\]
+où $\lfloor . \rfloor$ désigne la fonction partie entière.
+
+
+
+\item En déduire que la suite de variables aléatoires 
+$(T_n)_{n\in\N^*}$ 
+converge en loi vers une variable aléatoire à densité, dont on 
+précisera 
+la fonction de répartition et une densité.
+
+
+\end{noliste}
+
+
+
+\end{document}

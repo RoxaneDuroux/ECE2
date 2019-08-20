@@ -1,0 +1,562 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2011} %
+\author{} %
+\date{} %
+\begin{document}
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+%%DEBUT
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 1; %
+% annee : 2011; % 
+% theme : ; %
+
+\begin{exerciceAP}~\\
+  Soit $f$ la fonction définie sur $\R$ par :
+  \[
+  \forall x \in \R,\ \ f(x) = \frac{e^{- \vert x \vert} }{2}.
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Rappeler la définition d'une densité de probabilité.
+  \item Vérifier que $f$ est une densité de probabilité. \\ \\
+    Soit $X$ une variable aléatoire définie sur un espace probabilisé
+    $(\Omega , \A , P)$ dont $f$ est une densité de probabilité.
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} 
+    \item Déterminer l'espérance $\E(X)$ de $X$.
+    \item A-t-on, pour tout réel $s$, pour tout réel $t$ tel que $t \geq s$, 
+      \[
+      P_{[X > s]} ( [X > t]) = \Prob( [X > t - s])?
+      \]
+    \end{noliste}
+  \item Pour tout entier $n \geq 1$ et tout réel $x$, on pose : 
+    \[
+    H_n(x) = \int_{-\infty}^x f(t) (1 + t e^{- n \vert t \vert} )\ dt.
+    \]
+    Montrer que $H_n$ est une fonction de répartition.
+  \item Soit $X_n$ une variable aléatoire définie sur $(\Omega , \A ,
+    P)$ de fonction de répartition $H_n$. Montrer que la suite
+    $(X_n)_{n \in \N^*}$ converge en loi vers $X$.
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 1; %
+% annee : 2011; % 
+% theme : ; %
+
+\begin{exerciceSP}~\\
+  Soit $n$ un entier supérieur ou égal à 2 et $(a_1 , a_2,\ \dots\ ,
+  a_n) \in \R^n - \{ 0 ,\ \dots\ ,0) \}$.\\
+  On considère la matrice colonne $X = 
+  \begin{smatrix} 
+    a_1 \\ 
+    a_2 \\
+    \vdots \\ 
+    a_n 
+  \end{smatrix} \in \mathcal{M}_{n,1} (\R)$.\\
+  On pose $B = X\ {}^tX $ et $A=\ {}^tX\ X$. \\
+  On désigne par $u$ l'endomorphisme de $\R^n$ canoniquement associé à
+  $B$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Expliciter la matrice $B$ et la matrice $A$. 
+  \item Quel est le rang de $u$? Déterminer son noyau.
+  \item $B$ est-elle diagonalisable?
+  \item Calculer $B^k$ pour tout $k \in \N^*$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 2; %
+% annee : 2011; % 
+% theme : ; %
+
+\begin{exerciceAP}~\\
+  On admet la propriété $(\Prob)$ suivante : \\
+  Si la suite réelle $(u_n)_{n \in \N}$ converge vers le nombre réel
+  $L$, alors la suite $(V_n)_{n \in \N}$ définie par :
+  \[
+  \forall n \in \N, V_n = \frac{1}{n} (u_0 + u_1 + \dots u_{n-1} )
+  \]
+  converge aussi vers $L$. \\
+  On se donne deux nombres réels $\alpha$ et $\beta$ tels que $0 <
+  \alpha < \beta$. \\
+  Soit $(u_n)_{n \in \N}$ la suite réelle définie par :
+  \[
+  u_0 > 0 \text{ et } \forall n \in \N,\ u_{n+1} = u_n \frac{1 +
+    \alpha u_n}{1 + \beta u_n}
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Convergence et divergence des suites
+    réelles monotones.
+  \item Dans cette question seulement, on suppose $\alpha = 1$ et
+    $\beta = 2$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} 
+    \item Étudier les variations de la fonction $f$ définie sur
+      $\R_{+}$ par :
+      \[
+      f(x) = x \frac{1+x}{1+2x} 
+      \]
+    \item Étudier la convergence de la suite $(u_n)$.
+    \item Écrire un programme en Pascal permettant le calcul de $u_{10}$.
+    \end{noliste}
+  \item Dans le cas général, prouver que la suite $(u_n)_{n \in \N}$
+    converge et donner sa limite.
+  \item On pose, pour tout $n \in \N$, $v_n = \frac{1}{u_n}$. Prouver
+    que la suite $(v_{n+1} - v_n)_{n \in \N}$ converge vers $\beta -
+    \alpha$.
+  \item En utilisant la propriété $\Prob$, déduire du résultat
+    précédent un équivalent de $u_n$ de la forme $\frac{1}{q n}$
+    lorsque $n$ tend vers $+\infty$, où $q$ est un réel strictement
+    positif.
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 2; %
+% annee : 2011; % 
+% theme : ; %
+
+\begin{exerciceSP}~\\
+  $n$ souris (minimum 3) sont lâchées en direction de 3 cages, chaque
+  cage pouvant contenir les $n$ souris et chaque souris allant dans
+  une cage au hasard. 
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Calculer la probabilité pour qu'une cage au moins reste vide.
+  \item Soit $X$ la variable aléatoire égale au nombre de cages
+    restées vides. Calculer l'espérance de $X$. 
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 3; %
+% annee : 2011; % 
+% theme : ; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Variable aléatoire à densité. Propriétés
+    de sa fonction de répartition.\\[.2cm]
+    On considère une densité de probabilité $f$, nulle sur $\R_{-}$,
+    continue sur $\R_+^*$, associée à une variable aléatoire
+    $X$. On suppose que $X$ est définie sur un espace probabilisé
+    $(\Omega , \A , P)$ et on note $F$ la fonction de
+    répartition de $X$.\\
+  \item Montrer que $F$ possède une unique primitive s'annulant en
+    0. On note $H_f$ cette fonction. \\
+    Montrer que $H_f$ est de classe $C^1$.
+  \item Donner $H_f$ dans les cas suivants :
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} 
+    \item $f(x) = 0$ si $x \leq 0$ et $f(x) = e^{-x}$ si $x > 0$.
+    \item $f(x)= 0$ si $x \leq 0$ et $f(x) = \frac{1}{(1+x)^2}$ si $x
+      > 0$.
+    \item $f(x) = 0$ si $x \leq 0$ et $f(x) = \frac{1}{2(1+x)^{3
+          \slash 2} }$ si $x > 0$.
+    \end{noliste}
+    Dans chacune des cas, étudier l'existence d'une direction
+    asymptotique et d'une asymptote oblique pour la courbe
+    représentative de $H_f$ lorsque $x$ tend vers $+\infty$.
+  \item On suppose que $X$ admet une espérance $l$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item En intégrant par parties $\dint{0}{x} t f(t)\ dt$, montrer
+      que $H_f(x) \sim x$ au voisinage de $+\infty$.\\
+      En déduire que la courbe représentative de $H_f$ admet une
+      direction asymptotique en $+\infty$.
+    \item A-t-on toujours une asymptote ? 
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 3; %
+% annee : 2011; % 
+% theme : ; %
+
+\begin{exerciceSP}~\\
+  Soit $E$ l'ensemble des matrices $M_{a,b} = 
+  \begin{smatrix} 
+    a & b & b \\ 
+    b & a & b \\ 
+    b & b & a
+  \end{smatrix}$ où $(a,b)$ prend toute valeur de $\R^2$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $E$ est un espace vectoriel réel de dimension 2. \\
+    Calculer le produit $M_{a,b} M_{a',b'}$ pou $(a,b,a',b') \in \R^4$. \\
+    Vérifier que ce produit appartient à $E$.
+  \item Calculer $M_{a,b}^n$ pour $n \in \N^*$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 4; %
+% annee : 2011; %
+% theme : vaPartieEntiere, vaGeometrique, probaLimMonotone, vaIndep; %
+
+\begin{exerciceAP}~\\
+  Toutes les variables aléatoires de cet exercice sont définies sur un
+  espace probabilisé $(\Omega , \A , \Prob)$. Soit $p \in \ ]0, 1[$ et
+  $q = 1-p$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Indépendance de $n$ variables aléatoires
+    discrètes $(n \in \N^*)$.
+  \item On effectue des lancers successifs et indépendants d'une pièce
+    de monnaie. On suppose qu'à chaque lancer la probabilité d'obtenir
+    Pile est égale à $p$. On notera $P$ et $F$ les évènements \og
+    Obtenir Pile \fg{} et \og Obtenir Face \fg{}.\\
+    On définit les variables aléatoires $X_1$ et $X_2$ de la façon
+    suivante :
+    \begin{noliste}{$\stimes$}
+    \item $X_1$ vaut $k$ si le premier Pile de rang impair s'obtient
+      au rang $2k-1$ (entier qui représente le $\eme{k}$ nombre impair
+      de $\N^*$),
+    \item $X_2$ vaut $k$ si le premier Pile de rang pair s'obtient au
+      rang $2k$ (entier qui représente le $k$-ième nombre pair de
+      $\N^*$.
+    \end{noliste}
+    Par exemple si l'on obtient $(F , P , F , F , F , P , P)$ alors
+    $X_1$ prend la valeur 4 et $X_2$ prend la valeur 1.\\
+    On posera $X_1 = 0$ (respectivement $X_2=0$) si Pile n'apparaît à
+    aucun rang impair (respectivement à aucun rang pair).
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Prouver que $\Prob(\Ev{X_1 = 0}) = \Prob(\Ev{X_2 = 0}) = 0$.
+    \item Calculer $\Prob(\Ev{X_1 = 1})$ et $\Prob(\Ev{X_2 =
+        1})$. Déterminer les lois de $X_1$ et de $X_2$. Les variables
+      aléatoires $X_1$ et $X_2$ sont-elles indépendantes ?
+    \item Déterminer la loi de la variable aléatoire $Y$ égale au
+      minimum de $X_1$ et de $X_2$.
+    \end{noliste}
+  \item Soit $X$ une variable aléatoire suivant une loi géométrique de
+    paramètre $p$.
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Montrer que la variable aléatoire $Y = \left\lfloor
+        \dfrac{X+1}{2} \right\rfloor$ suit une loi géométrique
+      ($\lfloor x \rfloor$ désigne la partie entière du nombre $x$).
+    \item Montrer que les variables aléatoires $Y$ et $2Y - X$ sont
+      indépendantes.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+  
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 4; %
+% annee : 2011; % 
+% theme : ; %
+
+\begin{exerciceSP}~\\
+  On note $E_4$ l'espace vectoriel des fonctions polynomiales de degré
+  inférieur ou égal à 4 et on considère l'application $\Delta$ qui à
+  un polynôme $P$ de $E_4$ associe le polynôme $Q = \Delta (P)$ défini
+  par :
+  \[
+  Q(x) = P(x+2) - P(x)
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Vérifier que l'application $\Delta$ est un endomorphisme de $E_4$. \\
+    Expliciter la matrice de $\Delta$ dans la base canonique de $E_4$.
+  \item Déterminer le noyau de $\Delta$. On pourra prouver que si $P
+    \in \ker(\Delta)$, alors $P(x) - P(0)$ a une infinité de racines.
+  \item L'endomorphisme $\Delta$ est-il diagonalisable?
+  \item Existe-t-il un polynôme $Q$ appartenant à $E_4$ ayant un
+    unique antécédent par $\Delta$?
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 5; %
+% annee : 2011; % 
+% theme : ; %
+
+\begin{exerciceAP}~\\
+  Dans tout l'exercice, $n$ désigne un entier naturel non nul et
+  $\R_n[X]$ l'espace vectoriel des polynômes à coefficients réels, de
+  degré inférieur ou égal à $n$. On note $M (m_{i,j})_{1 \leq i,j \leq
+    n+1}$ la matrice de $\mathcal{M}_{n+1} (\R)$ de terme général :
+  \[
+  m_{i,j} = \left\{ 
+    \begin{array}{cc} 
+      i & \text{ si } j = i+1 
+      \\[.2cm] 
+      n + 1 - j & \text{ si } i = j + 1 
+      \\[.2cm]
+      0 & \text{ dans tous les autres cas } 
+    \end{array} 
+  \right. 
+  \]
+  et $u$ l'endomorphisme de $\R_n[X]$ dont la matrice dans la base
+  canonique $(1 , X ,\ \dots\ , X^n)$ est égale à $M$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Rappeler la définition d'un vecteur propre
+    d'un endomorphisme. \\
+    Enoncer la propriété relative à une famille de vecteurs propres
+    d'un endomorphisme, associés à des valeurs propres distinctes.
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} \item Calculer $u(X^k)$ pour $k \in \llb 0 , n
+      \rrb$.
+    \item En déduire l'expression de $u(P)$ pour $P \in E$ en fonction
+      notamment de $P$ et de $P'$.
+    \end{noliste}
+  \item Pour $k \in \llb 0 , n \rrb$, on pose $P_k (X) = (X-1)^k
+    (X+1)^{n-k}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} \item Calculer $u(P_k)$.
+    \item En déduire que $P_0 ,\ \dots\ , P_n)$ est une base de
+      $\R^n[X]$.
+    \item L'endomorphisme $u$ est-il diagonalisable? Préciser ses
+      valeurs propres et les espaces propres associés.
+    \end{noliste}
+  \item Dans cette question, on suppose que $n = 3$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} 
+    \item Expliciter $M$ et déterminer une matrice diagonale $D$ et
+      une matrice inversible $P$ telles que $P^{-1} M P = D$.
+    \item Déterminer les matrices commutant avec $D$.
+    \item Existe-t-il un endomorphisme $v$ de $\R_3[X]$ tel que $v
+      \circ v = u$ ?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 5; %
+% annee : 2011; %
+% theme : vaGeometrique, vaSomme, FPT, proba2va; %
+
+\begin{exerciceSP}~\\
+  Soient $X$ et $Y$ deux variables aléatoires définies sur un espace
+  probabilisé $(\Omega , \A , P)$ à valeurs dans $\N^*$,
+  indépendantes et telles que :
+  \[
+  \forall i \in \N^*, \ \Prob(\Ev{X=i}) = \Prob(\Ev{Y=i}) =
+  \dfrac{1}{2^i}
+  \] 
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Reconnaître la loi de $X$ et de $Y$.
+  \item Déterminer la loi de la variable aléatoire $Z = X+Y$ et la loi
+    de $X$ conditionnellement à $\Ev{X + Y = k}$, $k$ étant un entier
+    supérieur ou égal à 2 fixé.
+  \item Calculer $\Prob(\Ev{X = Y})$ et $\Prob(\Ev{X > Y})$.
+  \item Calculer $\Prob(\Ev{X \geq 2 Y})$ et $\Prob_{\Ev{X \geq Y}}
+    (\Ev{X \geq 2 Y})$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 6; %
+% annee : 2011; % 
+% theme : ; %
+
+\begin{exerciceAP}~\\
+  Soit $(X_n)_{n \in \N}$ une suite de variables aléatoires
+  indépendantes définie sur un espace probabilisé $(\Omega ,
+  \A , P)$ telles que, pour tout $n \in \N^*$, $X_n$
+  suit la loi exponentielle de paramètre $\frac{1}{n}$ (d'espérance
+  $n$).\\
+  Pour tout $x$ réel on note $\lfloor x \rfloor$ sa partie entière. \\
+  Pour $n \in \N^*$ soient :
+  \[
+  Y_n = \lfloor X_n \rfloor \ \ \ \text{ et } \ \ \ Z_n = X_n -
+  \lfloor X_n \rfloor
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition de la convergence en loi d'une
+    suite de variables aléatoires.
+  \item Déterminer la loi de $Y_n$ et son espérance.
+  \item Déterminer $Z_n (\Omega)$ et montrer que,
+    \[
+    \forall t \in [ 0 , 1]\ :\ \ \ \Prob(Z_n \leq t) = \frac{ 1 -
+      e^{\frac{-t}{n} } }{1 - e^{\frac{-1}{n}}}.
+    \]
+  \item Montrer que la suite de variables aléatoires $(Z_n)_{ n \in
+      \N}$ converge en loi vers une variable aléatoire $Z$ dont on
+    précisera la loi.
+  \item Soit $n \in \N^*$ et $N_n$ la variable aléatoire définie
+    par :
+    \[
+    N_n = \Card \left\{ k \in \llb 1 , n \rrb \text{ tel que } X_k
+      \leq \frac{k}{n} \right\}
+    \]
+    où $\Card (A)$ désigne le nombre d'éléments de l'ensemble fini $A$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} \item Reconnaître la loi de $N_n$ et donner
+      son espérance et sa variance.
+    \item Montrer que la suite de variables aléatoires $(N_n)_{n \in
+        \N}$ converge en loi vers une variable aléatoire $N$ dont on
+      précisera la loi.
+    \end{noliste} 
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 6; %
+% annee : 2011; % 
+% theme : ; %
+
+\begin{exerciceSP}~\\
+  Soit $E$ l'ensemble des matrices $M_{a,b} = 
+  \begin{smatrix} 
+    a & b & b \\ 
+    b & a & b \\ 
+    b & b & a 
+  \end{smatrix}$ où $(a,b)$ prend toute valeur de $\R^2$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $E$ est un espace vectoriel de dimension 2.
+  \item Dans le cas où soit $a = b$, soit $a = -2b$, prouver que
+    $M_{a,b}$ n'est pas inversible. \\
+    Dans le cas contraire, calculer son inverse et montrer qu'il
+    appartient à $E$.
+  \item Calculer $M_{a,b}^n$ pour $n \in \N^*$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 7; %
+% annee : 2011; % 
+% theme : ; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Estimateur, biais, risque quadratique. \\[.2cm]
+    Soient $a,\ b$ et $c$ trois réels strictement positifs et soit $f$
+    la fonction définie sur $\R$ par :
+    \[
+    f(x) = 0 \text{ si } x < 0,\ \ \ f(x) = c \text{ si } x \in [ 0 ,
+    a[,\ \ \ f(x) = \frac{b}{x^4} \text{ si } x \in [ a , +\infty[.
+    \]
+  \item Déterminer $b$ et $c$ en fonction de $a$ pour que $f$ soit une
+    densité de probabilité continue sur $\R_+$.\\
+    On suppose que $b$ et $c$ sont ainsi définis dans la suite de
+    l'exercice et $X$ est une variable aléatoire définie sur un espace
+    probabilisé $(\Omega , \A , P)$ de densité $f$. \\ 
+    Donner une allure de la représentation graphique de $f$.
+  \item Pour quelles valeurs $k \in \N^*$, $X$ admet-elle un moment d'ordre $k$?
+  \item Déterminer l'espérance et la variance de $X$ si elles existent.
+  \item Soit $(X_n)$ une suite de variables aléatoires indépendantes
+    de même loi que $X$. On pose :
+    \[ 
+    T_n = \dfrac{1}{n} \ \Sum{i=1}{n} X_i
+    \]
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} 
+    \item Montrer que $(T_n)$ est un estimateur de $a$.
+    \item Construire à partir de $(T_n)$ un estimateur $(S_n)$ sans
+      biais de $a$.
+    \item Quel est le risque quadratique de $S_n$?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 7; %
+% annee : 2011; % 
+% theme : ; %
+
+\begin{exerciceSP}~\\
+  Soit $A = 
+  \begin{smatrix} 
+    1 & 2 & -2 \\ 
+    2 & 1 & -2 \\ 
+    2 & 2 & -3
+  \end{smatrix}$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Calculer $A^2 - I$.
+  \item $A$ est-elle diagonalisable? Si oui, la diagonaliser.
+
+  \end{noliste}
+\end{exerciceSP}
+
+%%FIN
+
+\end{document}

@@ -1,0 +1,205 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+K \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 2}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Planche 1}
+\subsection*{Question de cours}
+
+\noindent
+Espérance d'une \var suivant une loi géométrique
+
+
+\subsection*{Exercice} % ENS 2015
+
+\noindent
+Soit $n \geq 2$ un entier et $p \in \ 
+]0,1[$. On considère une pièce ${\cal P}_1$ qui, après avoir été 
+lancée, atterrit sur pile avec probabilité $p$ et sur face avec 
+probabilité $1-p$. Soit $1 \leq k \leq n-1$ un entier.
+\begin{noliste}{1.}
+ \item Quelle est la probabilité que la pièce atterrisse $k$ fois sur 
+ pile (et donc $n-k$ fois sur face) après avoir fait $n$ lancers 
+ (indépendants) ?
+ 
+ \item On lance maintenant la pièce jusqu'à ce qu'elle ait atterri $k
+ $ fois sur pile. Quelle est la probabilité qu'on ait dû le faire 
+ exactement $n$ fois ?
+ 
+ \item Soient $B_1$, $\ldots$, $B_m$ des événements de probabilité 
+ non nulle, deux à deux disjoints, et telle que leur union soit égale 
+ à l'univers. Montrer que tout événement $A$ de probabilité non nulle 
+ vérifie :
+ \[
+  \forall 1 \leq i \leq m, \qquad \Prob(B_i \vert A) \ = \ 
+  \dfrac{\Prob(A \vert B_i) \, \Prob(B_i)}{\Sum{j=1}{m} \Prob(A \vert 
+  B_j) \, \Prob(B_j)}
+ \]
+ On considère maintenant une nouvelle pièce ${\cal P}_2$ qui atterrit 
+ sur pile avec probabilité $\dfrac{1}{2}$ et sur face avec 
+ probabilité $\dfrac{1}{2}$. On choisit au hasard soit la première 
+ pièce ${\cal P}_1$ soit la nouvelle pièce ${\cal P}_2$ (avec égales 
+ probabilités).
+ 
+ \item On lance la pièce choisie $n$ fois. Sachant que la pièce a 
+ atterri $k$ fois sur pile, quelle est la probabilité que la pièce 
+ choisie soit la première pièce ?
+ 
+ \item On lance la pièce choisie jusqu'à ce qu'elle ait atterri $k$ 
+ fois sur pile. Sachant qu'on a dû effectuer $n$ lancers pour cela, 
+ quelle est la probabilité que la pièce choisie soit la première 
+ pièce ?
+\end{noliste}
+
+
+
+
+\newpage
+
+
+\section*{Planche 2}
+\subsection*{Question de cours}
+
+\noindent
+Espérance d'une \var suivant une loi de Poisson
+
+
+\subsection*{Exercice} % ENS 2015
+
+\noindent
+Chaque nuit, le prince choisit au hasard de dormir sur $6$, $7$ ou bien $8$ matelas (avec des probabilités égales). Chaque nuit, indépendamment, la princesse place sous les matelas un petit pois avec probabilité $\dfrac{1}{2}$. Par ailleurs :
+\begin{noliste}{$\sbullet$}
+  \item si le prince dort sur $6$ matelas et qu'un petit pois se trouve en-dessous, celui-ci dort mal ;
+  
+  \item si le prince dort sur $7$ matelas et qu'un petit pois se trouve en-dessous, celui-ci dort bien avec probabilité $\dfrac{1}{5}$ (sinon il dort mal) ;
+  
+  \item si le prince dort sur $8$ matelas et qu'un petit pois se trouve en-dessous, celui-ci dort bien avec probabilité $\dfrac{2}{5}$ (sinon il dort mal).
+\end{noliste}
+(s'il n'y a pas de petit pois, le prince dort toujours bien)
+\begin{noliste}{1.}
+  \item Soient $B_1$, $\ldots$, $B_n$ des événements de probabilités non nulles, deux à deux disjointes, et telle que leur union soit égale à l'univers. Montrer que tout événement $A$ vérifie :
+  \[
+   \Prob(A) \ = \ \Sum{i=1}{n} \Prob(A \vert B_i) \, \Prob(B_i)
+  \]
+  
+  \item Quelle est la probabilité que le prince annonce avoir bien dormi au réveil ?
+  
+  \item Si $A$ et $B$ sont deux événements de probabilité non nulles, montrer que :
+  \[
+   \Prob(A \vert B) \ = \ \Prob(B \vert A) \, \dfrac{\Prob(A)}{\Prob(B)}
+  \]
+  
+  \item Sachant que le prince a bien dormi, quelle est la probabilité qu'il ait dormi sur $7$ matelas ?
+  
+  \item Le matin du $17$ juin, le prince annonce avoir bien dormi. Sur combien de matelas a-t-il dormi en moyenne ?
+\end{noliste}
+
+
+
+
+\newpage
+
+
+\section*{Planche 3}
+\subsection*{Question de cours}
+
+\noindent
+Stabilité de la somme pour la loi de Poisson en cas d'indépendance
+
+
+\subsection*{Exercice} % ENS 2017
+
+\noindent
+On dispose d'une pièce truquée qui renvoie \og pile \fg{} avec une 
+probabilité $p \in \ ]0,1[$ et on souhaite s'en servir pour générer un 
+pile ou face équilibré. John von Neumann a imaginé l'algorithme suivant 
+(où les lancers successifs de la pièce truquée se font indépendamment) 
+:
+\begin{center}
+   \scalebox{.9}{
+   \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node
+     distance=4cm, thick, main node/.style={rectangle, draw}] %
+     \node[main node] (A) {
+     \begin{minipage}{1.5cm}
+      Lancer la pièce
+     \end{minipage}}; %
+     \node[main node] (B1) [above right of=A] {
+     \begin{minipage}{1.5cm}
+      Lancer la pièce
+     \end{minipage}}; %
+     \node[main node] (B2) [below right of=A] {
+     \begin{minipage}{1.5cm}
+      Lancer la pièce
+     \end{minipage}}; %
+     \node[main node] (C1) [right of=B1] {
+     \begin{minipage}{1.5cm}
+      Renvoyer Face
+     \end{minipage}}; %
+     \node[main node] (C2) [right of=B2] {
+     \begin{minipage}{1.5cm}
+      Renvoyer Pile
+     \end{minipage}}; %
+     \node[main node] (D) [left of=A] {}; %
+     \path[every node/.style={font=\sffamily\small}] %
+     (D) edge [right] node [above] {Début} (A.west) %
+     (A.east) edge node [above] {} %
+     node [anchor=south, below] {\quad pile} (B1.south) %
+     (B1.west) edge [bend right] node [above left] {pile} (A.north) %
+     (A.east) edge node [above] {\qquad face} %
+     node [anchor=south, below] {} (B2.north) %
+     (B2.west) edge [bend left] node [below left] {face} (A.south) %
+     (B1.east) edge [right] node [above] {face} (C1.west) %
+     (B2.east) edge [right] node [above] {pile} (C2.west) %
+      ;
+    \end{tikzpicture}
+    }
+  \end{center}
+
+
+\noindent
+On note $T \in \{2,4,6, \ldots\}$ la variable aléatoire donnée par le 
+nombre de lancers nécessaires pour que l'alorithme se termine, et $R\in 
+\{P,F\}$ le résultat de l'algorithme (où on note $P$ pour \og pile 
+\fg{} et $F$ pour \og face \fg{}).
+\begin{noliste}{1.}
+ \item Que valent $T$ et $R$ si on obtient comme premiers tirages 
+ $PPPPFFPPPFFP$ ?
+ 
+ \item Démontrer que pour tout $k \geq 1$ :
+ \[
+  \Prob(\Ev{T=2k}) \ = \ 
+  \big(p^2 + (1-p)^2\big)^{k-1} \, 2 \, p \, (1-p)
+ \]
+ En déduire que l'algorithme se termine presque-sûrement, c'est-à-dre : 
+ $\Prob(\Ev{T < +\infty}) = 1$.
+ 
+ \item Démontrer que l'algorithme renvoie bien \og pile \fg{} ou \og 
+ face \fg{} avec même probabilité, c'est-à-dire : $\Prob(\Ev{R=
+ \text{\og pile \fg{}}})=\dfrac{1}{2}$.
+ 
+ \item Calculer $\E(T)$.
+\end{noliste}
+
+
+
+
+
+\end{document}

@@ -1,0 +1,507 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 2009} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 2009}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+ HEC 2009 Eco 
+\end{center}
+
+\section*{Exercice}
+
+Toutes les matrices de cet exercice sont des éléments de l'ensemble
+$\M{2} $ des matrices carrées d'ordre 2 
+à. coefficients réels. On note $I$ la matrice identité de $\M{2} $. On
+rappelle qu'un élément 
+$A$ de $\M{2} $ est colinéaire $I$
+s'il existe un réel $\lambda $ tel que $A = \lambda I$.
+
+On définit les deux applications suivantes de $\M{2} $ dans $\R$,
+notées $d$ et $t$, par : pour
+tout élément $A = \left( a_{i,j}\right)_{1\leq i,j\leq2}$ de.$\M{2} $
+$d(A) = a_{1,1}a_{2,2}-a_{1,2}a_{2,1} $ et $t(A) = a_{1,1} + a_{2,2}.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $A$ et $B$ deux éléments de $\M{2} $.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $d(2I)$. En déduire que l'application $d$ n'est pas
+linéaire.
+
+\item Établir la formule : $d(AB) = d(A)\times d(B)$.
+
+\item En déduire que si $A$ et $B$ sont semblables, on a : $d(A) =
+d(B)$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $t$ est une application linéaire de $\M{2} $ dans
+$\R$. Déterminer la
+dimension de son image et celle de son noyau.
+
+\item Établir que si $A$ et $B$ sont deux éléments de $\M{2} $ on a :
+$t(AB) = t(BA)$.
+
+\item En déduire que si $A$ et $B$ sont semblables, on a : $t(A) =
+t(B)$.
+\end{noliste}
+
+\item Soit $A$ un élément donné de $\M{2} $ non colinéaire à $I$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir l'existence d'un unique couple $\left( \alpha,\beta
+\right) 
+$ de réels vérifiant : $A^{2} = \alpha A + \beta I.$
+
+\item Exprimer $\alpha$ et $\beta$ en fonction de $d(A)$ et $t(A)$.
+\end{noliste}
+
+\item Soit $A$ un élément donné de $\M{2} $ non colinéaire à $I$. On
+note $u$
+l'endomorphisme de $\R^{2}$ dont $A$ est la matrice associée
+dans la base canonique $\left( e_{1},e_{2}\right) $ de $\R^{2}$ On
+pose : $w = e_{1} + e_{2}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que les trois vecteurs $e_{1},e_{2}$ et $w$ ne peuvent
+être simultanément vecteurs propres de $u$.
+
+\item En déduire qu'il existe au moins un élément non nul $x$ de 
+$\R^{2}$ tel que la famille $\left( x,u\left( x\right) \right) $
+soit une base de $\R^{2}$
+
+\item Montrer que la matrice $M$ associée à $u$ dans la base $\left(
+x,u\left( x\right) \right) $ est de la forme $\left( 
+\begin{array}{cc}
+0 & a \\
+1 & b
+\end{array}
+\right) $ où $a$ et $b$ sont deux réels, indépendants de la base 
+$(x,u(x))$, que l'on exprimera en fonction de $d(A)$ et $t(A)$.
+
+\item En déduire que la matrice $A$ est semblable à sa transposée
+$^{t}A$
+\end{noliste}
+
+\item Soit $A$ un élément donné de $\M{2} $ et $\mathcal{C}(A)$
+l'ensemble défini par $\mathcal{C}(A) = \{B\in \M{2} $ / $AB = BA\}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\mathcal{C}(A)$ est un sous-espace vectoriel de
+$\M{2} $
+
+\item Déterminer une base et la dimension de $\mathcal{C}(A)$ (on
+discutera selon que $A$ est ou n'est pas colinéaire à $I$).
+\end{noliste}
+\end{noliste}
+
+\section*{Problème}
+
+Dans tout le problème, on considère la suite $\left( u_{n}\right)
+_{n\in \N}$\ définie par $u_{0} = 0$, $u_{1} = 1$ et la relation pour
+tout $n$ de $\N$, $u_{n + 2} = u_{n + 1} + u_{n}$.
+
+La partie II est indépendante de la partie I et la partie III est
+indépendante de la partie II.
+
+\subsection*{Partie I. Analyse}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la suite $\left( u_{n}\right)_{n\in \N}$ est une
+suite croissante d'entiers naturels.
+
+\item La suite est-elle convergente ?
+\end{noliste}
+
+\textbf{Dans toute la suite du problème, }$a$\textbf{\ et }$b$\textbf{\
+(}$a>b$\textbf{) désignent les deux solutions de l'équation du second
+degré suivante : }$x^{2}-x-1 = 0$
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : $b = 1-a = -\frac{1}{a}$. Établir l'encadrement
+suivant $1<a<2$.
+
+\item Montrer que, pour tout $n$ de $\N$, on a : $u_{n} =
+\frac{1}{\sqrt{5}}\left( a^{n}-b^{n}\right) $
+
+\item En déduire un équivalent de $u$ lorsque $n$ tend vers $ + \infty$
+\end{noliste}
+
+\item On pose, pour tout $n$ de $\N$ : $\beta_{n} = u_{n + 1}-au_{n}$.
+Exprimer, pour tout $n$ de $\N$, $\beta_{n}$ en fonction de $n$ et $b
+$.
+
+\item On rappelle que pour tout réel $x$, la partie entière de $x$
+est l'entier noté $\left\lfloor x\right\rfloor $ qui vérifie :
+$\left\lfloor x\right\rfloor \leq x<\left\lfloor x\right\rfloor + 1$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir, pour tout $n$ de $\N$, l'égalité suivante :
+$\left\lfloor au_{2n}\right\rfloor = u_{2n + 1}-1$
+
+\item Exprimer, pour tout $n$ de $\N^{\ast}$ $\left\lfloor
+au_{2n-1}\right\rfloor $, en fonction de $u_{2n}$
+\end{noliste}
+
+\item Soit $y$ un réel fixé vérifiant $\left| y\right|
+<1 $ et $k$ un entier fixé de $\N$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la série $\sum \limits_{n\geq1}n^{k}y^{n}$\ est
+absolument convergente.
+
+\item En deduire la convergence de la serie $\sum
+\limits_{n\geq1}n^{k}\frac{u_{n}}{2^{n + 1}}$
+
+\item En utilisant la définition de la suite $\left(
+u_{n}\right)_{n\in\N}$, calculer$\sum \limits_{n =
+1}{\infty}\frac{u_{n}}{2^{n + 1}}$
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie II. Algèbre et algorithmique}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit A la matrice carrée d'ordre 4 definie par : $A =
+\frac{1}{2}\left( 
+\begin{array}{cccc}
+1 & 1 & 1 & 1 \\
+1 & 0 & 0 & 1 \\
+1 & 0 & 0 & 1 \\
+1 & 1 & 1 & 1
+\end{array}
+\right) $
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item La matrice $A$ est-elle inversible ? $A$ est-elle diagonalisable
+?
+
+\item Calculer $A^{2}$ et $A^{3}$ Vérifier que $A^{3}$ est une
+combinaison linéaire de $A$ et $A^{2}$
+
+\item Déterminer les valeurs propres de $A$.
+
+\item Établir l'existence de deux suites $\left(
+a_{n}\right)_{n\in\N^{\ast}}$et $\left( b_{n}\right)_{n\in \N^{\ast}}$
+telles
+que, pour tout $n$ de $\N^{\ast}$ On ait : $A^{n} = a_{n}A +
+b_{n}A^{2}$
+
+\item Exprimer, pour tout $n$ de $\N^{\ast}$, $a_{n + 1}$ et $b_{n +
+1}$
+en fonction de $a_{n}$ et $b_{n}$. Montrer que les suites $\left(
+a_{n}\right)_{n\in \N^{\ast}}$ et $\left( b_{n}\right)_{n\in
+\N^{\ast}}$ vérifient une relation de récurrence linéaire
+d'ordre 2.
+\end{noliste}
+
+\item On propose la fonction \Scilab{} suivante : \\
+Function f(n : integer) integer ;\\
+var temp,u,v,k : integer ;\\
+Begin\\
+u : = 0 ; v : = 1 ;\\
+for k : = 1 to n-1 do \\
+\qquad Begin\\
+\qquad temp : = \_ \_ \_ \_ \_ ; v : = \_ \_ \_ \_ \_ ; u : = \_ \_ \_
+\_ \_ ;\\
+\qquad end;\\
+f : = \_ \_ \_ \_ \_ ;\\
+end;\\
+Compléter cette fonction aux quatre places signalées par des tirets
+de façon que la valeur rendue soit $u_{n}$.
+
+\item Soit $n$ un entier de $\N^{\ast}$. On dit que $n$ admet une $Z 
+$-décomposition s'il existe un entier $r$ de $\N^{\ast}$ tel que
+l'on puisse écrire $n = u_{k_{1}} + u_{k_{2}} + \cdots + u_{k_{r}}$,
+où,
+pour tout $i$ de $\left[ \ \left[ 1,r\right] \right] $ $k_{i}$\ est un
+entier
+supérieur ou égal à 2 et où, pour tout $i$ de $\left[ \ \left[
+1,r-1\right] \right] $ (avec $r\geq2$), on a : $k_{i + 1}-k_{i}\geq2$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que les entiers 37 et 272 admettent une
+$Z$-décomposition.
+
+\item Soit $n$ un entier admettant une $Z$-décomposition de la forme $n
+= u_{k_{1}} + u_{k_{2}} + \cdots + u_{k_{r}}.$ Montrer, par récurrence
+sur $r$, que l'on a : $n<u_{k_{r} + 1}$ En déduire l'unicité de $r$.
+
+\item Montrer que, pour tout entier $p$ supérieur ou égal à $2$,
+tout entier $n$ qui vérifie $1\leq n\leq u_{p}$ admet une unique
+$Z$-décomposition (on pourra faire un raisonnement par récurrence sur
+$p$).
+\end{noliste}
+
+\item On suppose que l'on a défini en \Scilab{} une constante p et un
+type
+tab par les instructions suivantes :
+
+const p = 20 ; type tab = array[2..p] of integer
+\end{noliste}
+
+On suppose également que l'on a défini une variable u de type tab
+telle que, pour tout k de [[2,p]] la variable u[k] contient la valeur
+$u_{k}$. On se donne un entier $n$ vérifiant : $1\leq n\leq u_{p}$
+
+Rédiger la procédure d'en-tête : procedure Z (n integer ; var
+Res : tab) de façon que :
+
+Res[k] = $\left\{ 
+\begin{array}{c}
+u_{k_{1}}\text{ si }k = k_{1} \\
+u_{k_{2}}\text{ si }k = k_{2} \\
+\vdots \\
+u_{k_{r}}\text{ si }k = k_{r} \\
+0\text{ sinon}
+\end{array}
+\right. $
+
+Expliquer et justifier l'algorithme utilisé.
+
+\subsection*{Partie III. Probabilités}
+
+On effectue dans une urne qui contient des boules numérotées 0 ou 1
+une suite illimitée de tirages avec remise d'une boule. \`{A} chaque
+tirage, la probabilité de tirer une boule numérotée 1 est $p$ ($0<p<1$)
+et la probabilité de tirer une boule numérotée $0$ est $q $, avec $q =
+1-p$, et on suppose que les résultats des différents
+tirages sont indépendants.
+
+On suppose que cette expérience est modélisée par un espace
+probabilisé $\left( \Omega,\mathcal{A},\mathcal{P}\right) $. On
+s'intéresse au nombre de tirages nécessaires pour obtenir deux boules
+numérotées 1 de suite, c'est-à-dire lors de deux tirages consécutifs.
+On définit, pour tout $i$ de $\N^{\ast}$, les événements $S_{i}$ : "le
+i-ième tirage donne une boule numérotée 1
+", et $B_{i} = S_{i}\cap S_{i + 1}.$
+
+Si au moins un des événements $B_{i}$ se réalise au cours de
+l'expérience, on note $Y$ la valeur de l'entier $j$ correspondant au
+premier événement $B_{j}$ réalisé. Sinon, c'est-à-dire
+si aucun des événements $B_{i}$ ne se réalise, on attribue à 
+$Y$ la valeur 0. On admet que $Y$ est une variable aléatoire définie
+sur $\left( \Omega,\mathcal{A},\mathcal{P}\right) $.
+
+Par exemple, si le résultat de l'expérience est : 0,1,0,0,0,
+1,1,0,1,1,1,0,., alors Y prend la valeur 6.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer, pour tout $i$ de $\N^{\ast}$ la probabilité
+$P\left(\Ev{ B_{i}}\right) $.
+
+\item Déterminer $Y\left( \Omega \right) $. Calculer $P\left(\Ev{ Y =
+1}\right),P\left(\Ev{ Y = 2}\right) $ et $P\left(\Ev{ Y = 3}\right) $.
+\end{noliste}
+
+\item Pour tout $n$ de $\N^{\ast}$, on note $C_{n}$, l'événement "lors
+des n premiers tirages. il n'apparait jamais deux fois de suite
+une boule numérotée 1 ". On pose : $C_{0} = \Omega$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $P\left(\Ev{ C_{0}}\right) $, $P\left(\Ev{ C_{1}}\right)
+$ et $P\left(\Ev{
+C_{2}}\right) $
+
+\item Établir, pour tout $n$ de $\N$, la relation : $P\left(\Ev{ Y = n
++ 2}\right) = p^{2}qP\left(\Ev{ C_{n}}\right) $
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En considérant les résultats possibles des deux premiers
+tirages, montrer, pour tout entier $n$ supérieur ou égal à 2, l'égalité
+: $P\left(\Ev{ C_{n}}\right) = qP\left(\Ev{ C_{n-1}}\right) +
+pqP\left(\Ev{
+C_{n-2}}\right) $
+
+\item Déterminer, pour tout $n$ de $\N^{\ast}$ une relation
+entre $P\left(\Ev{ Y = n + 2}\right) $, $P\left(\Ev{ Y = n + 1
+}\right) $ et $P\left(\Ev{ Y = n}\right) $
+\end{noliste}
+
+\item On suppose dans cette question que $p = q = 1/2$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout $n$ de $\N^{\ast}$, on a : $P\left(\Ev{ Y
+= n}\right) = \frac{u_{n}}{2^{n + 1}}$ où la suite $\left(
+u_{n}\right)_{n\in \N}$ a été définie dans le préambule du problème.
+
+\item Que vaut $P\left(\Ev{ Y = 0}\right) $ ?
+
+\item On note $\E(Y)$ l'espérance de $Y$. Montrer que $\E(Y) = 5$.
+
+\item Calculer la variance $\V(Y)$ de $Y$.
+\end{noliste}
+
+\item On revient au cas général : $0<p<1$ et $q = 1-p$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que l'équation du second degré $x^{2}-qx-pq$ = 0 admet
+deux racines distinctes. On les note $r$ et $s$. avec $r>s$.
+
+\item Établir les inégalités suivantes. $-1<s<0<r<1$ et $r>\left|
+s\right| $.
+
+\item On pose $\Delta = q^{2} + 4pq$. Montrer que, pour tout $n$ de
+$\N^{\ast }$ on a : $P\left(\Ev{ Y = n}\right) =
+\frac{p^{2}}{\sqrt{\Delta}}\left( r^{n}-s^{n}\right) $
+
+\item Calculer $P\left(\Ev{ Y = 0}\right) $.
+
+\item Montrer que $Y$ admet des moments de tous ordres et calculer
+l'espérance de $Y$.
+\end{noliste}
+
+\item ~
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer, pour tout réel $x$ vérifiant $\left| x\right|
+<\frac{1}{r}$, la convergence de la série $\sum
+\limits_{n\geq1}P\left(\Ev{ Y = n}\right) x^{n}$. On pose alors : $g(x)
+= \sum \limits_{n = 1}{+ \infty}P\left(\Ev{ Y = n}\right) x^{n}$.
+
+\item Établir, pour tout réel $x$ vérifiant $\left|
+x\right| <\frac{1}{r}$, la formule suivante : $g(x) =
+\frac{p^{2}x}{1-qx-pqx^{2}}$.
+\end{noliste}
+
+\item On suppose dans cette question que $p = 2/3$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier les variations de la fonction $g$ sur l'intervalle $I =
+\left] -\frac{3}{2},\frac{3}{2}\right[ $
+
+\item Montrer l'existence d'un unique réel $\alpha$ de $\left] -\frac
+{1}{2},0\right[ $ tel que $g$ soit concave sur l'intervalle $\left]
+-\frac{3}{2},\alpha \right[ $ et convexe sur l'intervalle $\left]
+\alpha,\frac{3}{2}\right[ $
+
+\item Tracer l'allure de la courbe représentative de $g$ sur $I$ dans
+le
+plan rapporté à un repère orthonormé.
+\end{noliste}
+\end{noliste}
+
+\end{document}
+

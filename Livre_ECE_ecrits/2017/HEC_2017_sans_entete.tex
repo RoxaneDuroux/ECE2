@@ -1,0 +1,599 @@
+\chapter*{HEC 2017 : le sujet}
+  
+%
+
+% 
+
+\section*{EXERCICE}
+
+\noindent
+Pour tout $n\in\N^*$, on note $\M{n}$ l'ensemble des matrices carrés à
+$n$ lignes et $n$ colonnes à coefficients réels et $\Bc{n}$ l'ensemble
+des matrices de $\M{n}$ dont tous les coefficients sont égaux à $0$ ou
+à $1$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item {\it Exemple 1}. Soit $A$ la matrice de $\Bc{2}$ définie par :
+  $A = 
+  \begin{smatrix} 
+    0 & 1 \\ 
+    1 & 0
+  \end{smatrix}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Calculer la matrice $A^2$.
+    
+    
+    
+  \item Quelles sont les valeurs propres de $A$ ?
+	
+    
+	
+
+    %\newpage
+
+
+  \item La matrice $A$ est-elle diagonalisable ?
+	
+    
+  \end{noliste}
+
+\item {\it Exemple 2}. Soit $B$ la matrice de $\Bc{3}$ définie par :
+  $B =
+  \begin{smatrix} 
+    0 & 1 & 0 \\
+    1 & 0 & 0 \\
+    0 & 0 & 1
+  \end{smatrix}$.\\
+  On considère les instructions et la sortie ({\tt
+    ans}) % (-$\rightarrow$)
+  \Scilab{} suivantes :
+  \begin{scilab}
+    & B = [0,1,0;1,0,0;0,0,1] \nl %
+    & P = [1,1,0;1,-1,0;0,0,1] \nl %
+    & inv(P) \Sfois{} B \Sfois{} P \nl %
+  \end{scilab}
+  % \hspace*{1cm}   -$\rightarrow$ \\
+  % \\
+  % \hspace*{1cm} $ \quad\begin{matrix}
+  %   1. & 0. & 0.\\
+  %   0. & -1. & 0.\\
+  %   0. & 0. & 1.
+  % \end{matrix}$
+  \[
+  \begin{console}
+    \lDisp{\qquad ans \ =} \nl %
+    \lDisp{\qquad \qquad 1. \quad 0. \quad 0.} \nl %
+    \lDisp{\qquad \qquad 0. \quad \moins 1. \quad 0.} \nl %
+    \lDisp{\qquad \qquad 0. \quad 0. \quad 1.} \nle %
+  \end{console}
+  \]
+
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Déduire les valeurs propres de $B$ de la séquence \Scilab{}
+    précédente.
+    
+    
+   	
+  \item Déterminer une base de chacun des sous-espaces propres de $B$.
+   	
+    
+    \end{noliste}
+
+
+%\newpage
+
+
+\item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Combien existe-t-il de matrices appartenant à $\Bc{n}$ ?
+	
+    
+    
+  \item Combien existe-t-il de matrices de $\Bc{n}$ dont chaque ligne
+    et chaque colonne comporte exactement un coefficient égal à $1$
+    ?
+	
+    
+  \end{noliste}
+
+
+  %\newpage
+
+  
+\item Dans cette question, $n$ est un entier supérieur ou égal à $2$.\\
+  Soit $E$ un espace vectoriel de dimension $n$ et $u$ un
+  endomorphisme de $E$. On note :
+  \begin{noliste}{$-$}
+  \item $\id$ l'endomorphisme identité de $E$ ;
+  \item $F$ le noyau de l'endomorphisme $(u+\id)$ et $G$ le noyau de
+    l'endomorphisme $(u-\id)$ ;
+  \item $p$ la dimension de $F$ et $q$ la dimension de $G$.
+  \end{noliste}
+  On suppose que $u \circ u =\id$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier que l'image de $(u-\id)$ est incluse dans $F$.
+	
+    
+    
+  \item En déduire l'inégalité : $p + q \geq n$.
+    
+    
+    {\it On suppose désormais que $1\leq p<q$.}\\
+    Soit $(f_1, f_2, \ldots, f_p)$ une base de $F$ et $(g_1, g_2,
+    \ldots, g_q)$ une base de $G$.
+
+  \item Justifier que $(f_1, f_2, \hdots, f_p, \ g_1,g_2,\hdots,g_q)$
+    est une base de $E$.
+    
+    
+  
+  \item Calculer $u(g_1-f_1)$ et $u(g_1+f_1)$.
+    
+    
+    
+  \item Trouver une base de $E$ dans laquelle la matrice de $u$
+    appartient à $\Bc{n}$.
+	
+    
+\end{noliste}
+%       \[
+%       \Mat_{\B'}(u) = %
+%       \begin{array}{l}
+%         \left(
+%         \begin{array}{cccccccccccccc}        
+%           0 & 1 & 0 & 0 & \cdots & 0 & 0
+%           & 0 & 0 & \cdots &
+%           0 &  0 &  \cdots &  0 \\
+%           1 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 & 0 & \cdots & 0 & 0 &
+%           \cdots & 0 \\
+%           0 & 0 & 0 & 1 & \cdots & 0 & 0 & 0 & 0 & \cdots &
+%           0 &  0 &  \cdots &  0 \\
+%           0 & 0 & 1 & 0 & \cdots & 0 & 0 & 0 & 0 & \cdots & 0 & 0 &
+%           \cdots & 0 \\
+%           \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots &
+%           \vdots & \vdots & \vdots & & \vdots & &
+%           \vdots \\
+%           0 & 0 & 0 & 0 & \cdots & 0 & 1 & 0 & 0 & \cdots &
+%           0 &  0 &  \cdots &  0 \\
+%           0 & 0 & 0 & 0 & \cdots & 1 & 0 & 0 & 0 & \cdots &
+%           0 &  0 &  \cdots &  0 \\
+%           0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 & 1 & \cdots &
+%           0 &  0 &  \cdots &  0 \\
+%           0 & 0 & 0 & 0 & \cdots & 0 & 0 & 1 & 0 & \cdots &
+%           0 &  0 &  \cdots &  0 \\
+%           \vdots & \vdots & \vdots & \vdots & & \vdots & \vdots & \vdots
+%           & \vdots & \ddots & \vdots & \vdots &
+%           &  \vdots \\
+%           0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 & 0 & \cdots &
+%           1 &  0 &  \cdots &  0 \\
+%           0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 & 0 & \cdots &
+%           0 &  1 &  \cdots &  0 \\
+%           \vdots & \vdots & \vdots & \vdots & & \vdots & \vdots & \vdots
+%           & \vdots & & \vdots & \vdots &
+%           \ddots &  \vdots \\
+%           0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 & 0 & \cdots &
+%           0 &  0 &  \cdots &  1 \\
+%         \end{array}
+%       \right)
+%       \begin{array}{c}
+%         g_1-f_1 \\ 
+%         g_1+f_1 \\ 
+%         g_2-f_2 \\
+%         g_2+f_2 \\ 
+%         \vdots \\ 
+%         g_i-f_i \\
+%         g_i+f_i \\ 
+%         g_{i+1}-f_{i+1} \\
+%         g_{i+1}+f_{i+1} \\ 
+%         \vdots \\ 
+%         g_{p+1}\\ 
+%         g_{p+2}\\ 
+%         \vdots \\ 
+%         g_q
+%       \end{array}
+%     \end{array}
+%     \]
+
+
+%\newpage
+
+
+%L}
+\end{noliste}
+
+
+%\newpage
+
+
+\section*{PROBLÈME}
+
+\noindent %
+{\it Les tables de mortalité sont utilisées en démographie et en
+  actuariat pour prévoir l'espérance de vie des individus d'une
+  population. On s'intéresse dans ce problème à un modèle qui permet
+  d'ajuster la durée de vie à des statistiques portant sur les décès
+  observés au sein d'une génération.}\\
+{\bf Dans tout le problème}, on note :
+\begin{noliste}{$\sbullet$}
+\item $a$ et $b$ deux réels strictement positifs ;
+\item $(\Omega,\mathcal{A},\Prob)$ un espace probabilisé sur lequel sont
+  définies toutes les variables aléatoires du problème ;
+\item $G_{a,b}$ la fonction définie sur $\R_+$ par :
+  $G_{a,b}(x)=\exp\left(-ax-\dfrac{b}{2}x^2\right)$.
+\end{noliste}
+
+\subsection*{Partie I. Loi exponentielle linéaire}
+
+\begin{noliste}{1.}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que la fonction $G_{a,b}$ réalise une bijection de
+    $\R_+$ sur l'intervalle $]0,1]$.
+    
+    
+    
+
+    %\newpage
+
+
+  \item Pour tout réel $y>0$, résoudre l'équation d'inconnue $x\in\R$
+    : $ax + \dfrac{b}{2} x^2 = y$.
+
+    
+
+  \item On note $G_{a,b}^{-1}$ la bijection réciproque de
+    $G_{a,b}$. \\
+    Quelle est, pour tout $u\in[0,1[$, l'expression de
+    $G_{a,b}^{-1}(1-u)$ ?
+
+    
+  \end{noliste}
+
+
+  %\newpage
+
+
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier la convergence de l'intégrale $\dint{0}{+\infty}
+    G_{a,b}(x)\dx$.
+
+    
+
+  \item Soit $f$ la fonction définie sur $\R$ par : $f(x) =
+    \sqrt{\dfrac{b}{2\pi}}\times \exp \left(-\dfrac{1}{2} b
+      \left(x+\dfrac{a}{b}\right)^2 \right)$.\\
+    Montrer que $f$ est une densité d'une variable aléatoire suivant
+    une loi normale dont on précisera les paramètres (espérance et
+    variance).
+
+    
+
+
+    %\newpage
+
+
+  \item Soit $\Phi$ la fonction de répartition de la loi normale
+    centrée réduite. \\
+    Déduire de la question \itbf{2.b)}, l'égalité :
+    \[
+    \dint{0}{+\infty} G_{a,b}(x)\dx = \sqrt{\frac{2\pi}{b}}\times
+    \exp\left(\frac{a^2}{2b}\right) \times
+    \Phi\left(-\frac{a}{\sqrt{b}}\right)
+    \]
+
+    
+  \end{noliste}
+
+\item Pour tout $a>0$ et pour tout $b>0$, on pose : $f_{a,b}(x) =
+  \left\{
+    \begin{array}{cR{1.4cm}}
+      (a+bx) \ \exp\left(-ax-\dfrac{b}{2}x^2\right) & si $x\geq 0$ \nl
+      0 & si $x<0$
+    \end{array}
+  \right.$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier que la fonction $f_{a,b}$ est une densité de
+    probabilité.\\
+    {\it On dit qu'une variable aléatoire suit la loi exponentielle
+      linéaire de paramètres $a$ et $b$, notée
+      $\mathcal{E}_\ell(a,b)$, si elle admet $f_{a,b}$ pour densité.}
+
+    
+
+  \item Soit $X$ une variable aléatoire suivant la loi
+    $\mathcal{E}_\ell(a,b)$. À l'aide d'une intégration par parties,
+    justifier que $X$ admet une espérance $\E(X)$ telle que : $\E(X) =
+    \dint{0}{+\infty} G_{a,b}(x)\dx$.
+
+    
+  \end{noliste}
+
+
+  %\newpage
+
+
+\item Soit $Y$ une variable aléatoire suivant la loi exponentielle de
+  paramètre $1$. On pose : $X = \dfrac{-a+\sqrt{a^2+2bY}}{b}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier que pour tout réel $x\in\R_+$, on a : $\Prob(\Ev{X\geq
+      x}) = G_{a,b}(x)$.
+
+    
+
+
+    %\newpage
+
+
+  \item En déduire que $X$ suit la loi $\mathcal{E}_\ell(a,b)$.
+
+    
+
+  \item On note $U$ une variable aléatoire suivant la loi uniforme sur
+    $[0,1[$.\\
+    Déterminer la loi de la variable aléatoire $G_{a,b}^{-1}(1-U)$.
+
+    
+  \end{noliste}
+
+
+  \newpage
+
+
+\item La fonction \Scilab{} suivante génère des simulations de la loi
+  exponentielle linéaire.
+  \begin{scilab}
+    & \tcFun{function} \tcVar{x} =
+    grandlinexp(\tcVar{a},\tcVar{b},\tcVar{n}) \nl %
+    & \qquad u = rand(\tcVar{n},1) \nl %
+    & \qquad y = ............ \nl %
+    & \qquad \tcVar{x} = (-\tcVar{a} + sqrt(\tcVar{a}\puis 2 + 2
+    \Sfois{} \tcVar{b} \Sfois{} y)) / \tcVar{b} \nl %
+    & \tcFun{endfunction} \nl %
+  \end{scilab}
+
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Quelle est la signification de la ligne de code \ligne{2} ?
+
+    
+
+  \item Compléter la ligne de code \ligne{3} pour que la fonction {\tt
+      grandlinexp} génère les simulations désirées.
+
+    
+
+  \end{noliste}
+
+\item De quel nombre réel peut-on penser que les six valeurs générées
+  par la boucle \Scilab{} suivante fourniront des valeurs approchées
+  de plus en plus précises et pourquoi ?
+  \begin{scilab}
+    & \tcFor{for} k = 1:6 \nl %
+    & \qquad mean(grandlinexp(0, 1, 10\puis{}k) \nl %
+    & \tcFor{end} \nl %
+  \end{scilab}
+
+  
+\end{noliste}
+
+
+%\newpage
+
+
+\noindent%
+{\it Dans la suite du problème, on note $(X_n)_{n\in\N^*}$ une suite
+  de variables aléatoires indépendantes suivant chacune la loi
+  exponentielle linéaire $\mathcal{E}_\ell(a,b)$ dont les paramètres
+  $a>0$ et $b>0$ sont inconnus.\\
+  Soit $h$ un entier supérieur ou égal à $2$. On suit pendant une
+  période de $h$ années, une \og cohorte \fg{} de $n$ individus de
+  même âge au début de l'étude et on modélise leurs durées de vie
+  respectives à partir de cette date par les variables aléatoires
+  $X_1$, $X_2$, $\hdots$, $X_n$.}
+
+
+\subsection*{Partie II. Premier décès et intervalle de confiance de $a$}
+
+\noindent
+Pour tout $n\in\N^*$, on définit les variables aléatoires $M_n$, $H_n$
+et $U_n$ par :
+\[
+M_n = \min(X_1,X_2,\hdots,X_n), \quad H_n=\min(h,X_1,X_2,\hdots,X_n)
+\quad \mbox{et} \quad U_n=nH_n.
+\]
+\begin{noliste}{1.}
+  \setcounter{enumi}{6}
+\item Calculer pour tout $x \in \R_+$, la probabilité 
+$\Prob(\Ev{M_n\geq x})$.\\
+  Reconnaître la loi de la variable aléatoire $M_n$.
+
+  
+
+\item Pour tout $n\in\N^*$, on note $F_{U_n}$ la fonction de
+  répartition de la variable aléatoire $U_n$.
+  
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que pour tout $x\in\R$, on a : $F_{U_n}(x) = %
+    \left\{
+      \begin{array}{lR{2.3cm}}
+	0 & si $x < 0$ \nl
+	1 - \exp\left(- ax - \dfrac{b}{2n}x^2\right) & si $0\leq x < nh$ \nl
+	1 & si $x \geq nh$
+      \end{array}
+    \right.$.
+
+    
+
+  \item Étudier la continuité de la fonction $F_{U_n}$.
+
+    
+
+  \item La variable aléatoire $U_n$ admet-elle une densité ?
+
+    
+
+  \item Montrer que la suite de variables aléatoires
+    $(U_n)_{n\in\N^*}$ converge en loi vers une variable aléatoire
+    dont on précisera la loi.
+
+    
+  \end{noliste}
+
+\item Soit $\alpha \in \ ]0,1[$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Soit $Y$ une variable aléatoire qui suit la loi exponentielle
+    de paramètre $1$.\\
+    Trouver deux réels $c$ et $d$ strictement positifs tels que :
+    \[
+    \Prob(\Ev{c\leq Y\leq d}) = 1-\alpha \quad \mbox{et} \quad 
+    \Prob(\Ev{Y\leq
+      c}) = \dfrac{\alpha}{2}
+    \]
+    
+    
+
+
+    %\newpage
+
+
+  \item Montrer que $\left[ \dfrac{c}{U_n} \ , \ \dfrac{d}{U_n} \right]$
+    est un intervalle de confiance asymptotique de $a$, de niveau de
+    confiance $1-\alpha$.
+
+    
+  \end{noliste}
+\end{noliste}
+  
+
+%\newpage
+
+
+\subsection*{Partie III. Nombre de survivants et estimateur convergent de $b$}
+
+\noindent
+Pour tout $i \in \N^*$, soit $S_i$ et $D_i$ les variables aléatoires
+telles que :
+\[
+S_i = \left\{
+  \begin{array}{lR{1.6cm}}
+    1 & si $X_i\geq h$ \nl
+    0 & sinon
+  \end{array}
+\right. %
+\qquad \mbox{ et } \qquad %
+D_i = \left\{
+  \begin{array}{lR{1.6cm}}
+    1 & si $X_i\leq 1$ \nl
+    0 & sinon
+  \end{array}
+\right.
+\]
+Pour tout $n\in\N^*$, on pose : $\overline{S}_n = \dfrac{1}{n} \
+\Sum{i=1}{n} S_i$ et $\overline{D}_n = \dfrac{1}{n} \ \Sum{i=1}{n}
+D_i$.
+\begin{noliste}{1.}
+  \setcounter{enumi}{9}
+\item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier que pour tout $i\in\llb 1,n\rrb$, on a $\E(S_i) =
+    G_{a,b}(h)$ et calculer $\E(S_iD_i)$.
+
+    
+
+  \item Pour quels couples $(i,j) \in \llb 1,n\rrb^2$, les variables
+    aléatoires $S_i$ et $D_j$ sont-elles indépendantes ?
+
+    
+
+  \item Déduire des questions précédentes l'expression de la
+    covariance $\cov(\overline{S}_n, \overline{D}_n)$ de
+    $\overline{S}_n$ et $\overline{D}_n$ en fonction de $n$,
+    $G_{a,b}(h)$ et $G_{a,b}(1)$. Le signe de cette covariance
+    était-il prévisible ?
+
+    
+  \end{noliste}
+
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $\overline{S}_n$ est un estimateur sans biais et
+    convergent du paramètre $G_{a,b}(h)$.
+
+    
+
+  \item De quel paramètre, $\overline{D}_n$ est-il un estimateur sans
+    biais et convergent ?
+    
+    
+  \end{noliste}
+  
+
+  %\newpage
+  
+  
+  
+  
+
+
+\item On pose : $z(a,b)=\ln(G_{a,b}(1))$ et $r(a,b)=\ln(G_{a,b}(h))$.\\
+  Pour tout $n\in\N^*$, on pose : $Z_n = \ln\left(1-\overline{D}_n
+    +\dfrac{1}{n}\right)$ et $R_n =
+  \ln\left(\overline{S}_n+\dfrac{1}{n}\right)$.\\
+  {\it On admet} que $Z_n$ et $R_n$ sont des estimateurs convergents
+  de $z(a,b)$ et $r(a,b)$ respectivement.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Soit $\eps$, $\lambda$ et $\mu$ des réels strictement
+    positifs.
+    \begin{noliste}{(i)}
+    \item Justifier l'inclusion suivante :
+      \[
+      \Ev{ \left\vert (\lambda Z_n-\mu R_n) - (\lambda z(a,b) -\mu
+          r(a,b))\right\vert \geq \eps} \subset \Ev{\lambda
+        \vert Z_n - z(a,b)\vert + \mu \vert R_n-r(a,b)\vert \geq
+        \eps}.
+      \]
+      
+    
+	
+	
+	
+	%\newpage
+	
+      
+    \item En déduire l'inégalité suivante :
+    \end{noliste}
+    \[
+    \Prob([\vert(\lambda Z_n-\mu R_n)-\left(\lambda z(a,b) -\mu
+      r(a,b)\right)\vert \geq \eps ]) \leq \Prob\left(\left[ \vert
+        Z_n-z(a,b)\vert \geq \dfrac{\eps}{2\lambda}\right]\right) +
+    \Prob\left(\left[\vert R_n-r(a,b)\vert \geq
+        \dfrac{\eps}{2\mu}\right]\right).
+    \]
+    
+    
+    
+  \item Pour tout $n\in\N^*$, on pose : $B_n=\dfrac{2}{h-1}Z_n -
+    \dfrac{2}{h(h-1)}R_n$.\\
+    Montrer que $B_n$ est un estimateur convergent du paramètre $b$.
+    
+    
+  \end{noliste}
+\end{noliste}
+
+% 
+
+

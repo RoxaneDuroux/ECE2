@@ -1,0 +1,263 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1987 - voie Générale} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION GENERALE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 1987}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent {Objectif du problème :} dans la première partie, on approche
+$\alpha = (1/2)^{1/3}$ à l'aide d'une suite numérique. Dans la seconde,
+on
+approche sur l'intervalle $[0,1]$ la fonction $t\rightarrow t^{1/3}$ à
+l'aide d'une suite de fonctions polynomiales et on évalue la rapidité
+de la
+convergence.\\
+On notera qu'une valeur approchée de $\alpha $ à la précision $10^{-9}$
+est $0,793\,700\,526$. 
+
+\section*{Première partie : Approximation de $\protect\alpha $ }
+
+Soit $\lambda $ un nombre réel strictement positif. On considère la
+fonction
+numérique $f$ définie sur l'intervalle $[0,1]$ par la relation : 
+\[
+f_{\lambda }(x) = x + \lambda \left( \frac{1}{2}-x^{3}\right) 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $\alpha $ est l'unique solution de l'équation
+$f_{\lambda
+}(x) = x$. 
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer la dérivée de $f_{\lambda }$. Montrer que $f_{\lambda }$
+est
+croissante sur $[0,1]$ si et seulement si $\lambda \leq \dfrac{1}{3}$. 
+\\
+On suppose désormais que cette condition est satisfaite. 
+
+\item Prouver que l'intervalle $]\alpha,1]$ est stable par $f_{\lambda
+}$,
+c'est à dire que : 
+\[
+f_{\lambda }(]\alpha,1])\subset ]\alpha,1]
+\]
+
+\item Montrer que, pour tout élément $x$ de $]\alpha,1]$ : 
+\[
+0\leq f_{\lambda }(x)-\alpha \leq (x-\alpha )f_{\lambda }{\prime
+}(\alpha )
+\]
+\end{noliste}
+
+\item Soient $c$ un élément de $]\alpha,1]$ et $v$ la suite définie par
+la
+relation de récurrence : 
+\[
+v_{n + 1} = v_{n} + \lambda \left( \frac{1}{2}-v_{n}{3}\right) 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la suite $v$ est strictement décroissante et qu'elle
+converge vers $\alpha $. 
+
+\item Montrer que, pour tout nombre entier naturel $n$ : 
+\[
+0<v_{n}-\alpha \leq (c-\alpha )\left[ f_{\lambda }{\prime }(\alpha
+)\right] ^{n}
+\]
+
+\item Montrer que $f_{\lambda }{\prime }(\alpha )$ est minimal si et
+seulement si $\lambda = \dfrac{1}{3}$. 
+\end{noliste}
+
+\item On suppose que $\lambda = \dfrac{1}{3}$ et on prend $v_{0} = c =
+0,8$.
+Calculer $v_{n}$ pour $n\leq 8$.\\
+Montrer que $0<c-\alpha <7.10^{-3}$ et majorer $v_{n}-\alpha $. (Dans
+cette
+question, on n'utilisera pas la valeur approchée de $\alpha $ donnée
+dans l'énoncé.) 
+\end{noliste}
+
+\section*{Deuxième partie : Approximation polynomiale de $t\rightarrow
+t^{1/3}$}
+
+Pour tout élément $t$ de l'intervalle $[0,1]$, on considère la suite
+$(u_{n}(t))$ définie par la relation de récurrence : 
+\[
+u_{n + 1}(t) = u_{n}(t) + \frac 13 \left[ t-u_{n}(t)^{3}\right]
+\]
+et la condition initiale $u_{0}(t) = 0$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $u_{1}(t)$ et $u_{2}(t)$. 
+
+\item Montrer par récurrence que, pour tout entier $n$, la fonction
+$t\rightarrow u_{n}(t)$ est une fonction polynomiale et déterminer son
+degré. 
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout nombre entier naturel $n$ : 
+\[
+t^{1/3}-u_{n + 1}(t) = \left[ t^{1/3}-u_{n}(t)\right] \left(
+1-\frac{1}{3}\left[
+t^{2/3} + t^{1/3}u_{n}(t) + u_{n}(t)^{2}\right] \right) 
+\]
+
+\item Montrer que, pour tout nombre entier naturel $n$, $u_{n}(t)\leq
+t^{1/3}$. 
+
+\item En déduire que la suite de terme général $u_{n}(t)$ est
+croissante et
+positive. 
+
+\item Montrer que la suite $(u_{n}(t))_{n\in \mathbf{N}}$ converge vers
+$t^{1/3}$. 
+\end{noliste}
+
+\item Montrer que pour tout nombre entier naturel $n$ : 
+\[
+t^{1/3}\left( 1-t^{2/3}\right) ^{n}\leq t^{1/3}-u_{n}(t)\leq
+t^{1/3}\left( 1-\frac{1}{3}t^{2/3}\right) ^{n}
+\]
+
+\item Pour tout nombre entier naturel non nul $n$, soit $\varphi_{n}$
+l'application de $[0,1]$ dans $R$ définie par la relation : 
+\[
+\varphi_{n}(x) = x\left( 1-\frac{1}{3}x^{2}\right) ^{n}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier les variations de $\varphi_{n}$ et déterminer son
+maximum. 
+
+\item On pose : 
+\[
+\beta_{n} = \sup_{t\in \lbrack 0,1]}\left[ t^{1/3}-u_{n}(t)\right] 
+\]
+Montrer que : 
+\[
+\beta_{n}\leq \sqrt{\frac{3}{2n}}
+\]
+
+\item Montrer qu'il existe un nombre réel strictement positif $\gamma $
+tel
+que, pour tout nombre entier naturel non nul $n$ : 
+\[
+\beta_{n}\geq \frac{\gamma }{\sqrt{n}}
+\]
+
+\item Plus précisément, soit $p$ un nombre entier naturel non nul.
+Montrer,
+que pour tout nombre entier naturel $n$ tel que $n\geq p$, on a : 
+\[
+e^{-1/2}\,\sqrt{\frac{1}{2n + 1}}<\beta_{n}\leq \left( 1-\frac{1}{2p +
+1}\right) ^{p}\sqrt{\frac{3}{2n + 1}}
+\]
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

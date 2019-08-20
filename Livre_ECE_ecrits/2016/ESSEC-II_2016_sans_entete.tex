@@ -1,0 +1,703 @@
+\chapter*{ESSEC-II 2016 : le sujet}
+  
+%
+
+\noindent
+Le but du problème est d'étudier le renouvellement d'un des composants 
+d'un système complexe (une machine, un réseau de distribution d'énergie 
+etc...) formé d'un assemblage de différentes pièces susceptibles de 
+tomber en panne. On s'intéresse donc à une de ces pièces susceptibles de 
+se casser ou de tomber en panne et on se place dans la situation idéale 
+où dès que la pièce est défectueuse, elle est immédiatement remplacée. 
+Dans une première partie, on étudie quelques propriétés fondamentales 
+des variables aléatoires discrètes. Puis, dans une deuxième partie, on 
+étudie la probabilité de devoir changer la pièce un certain jour donné. 
+Enfin, dans une troisième partie on cherche à estimer le temps de 
+fonctionnement du système avec un certain nombre de pièces de rechange à 
+disposition.\\
+Dans tout le problème, on considère un espace probabilisé $(\Omega, 
+\A, \Prob)$. Pour toute variable aléatoire réelle $X$ définie sur 
+$(\Omega, \A, \Prob)$, on note, sous réserve d'existence, $\E(X)$ 
+l'espérance de $X$ et $\V(X)$ sa variance.\\
+La deuxième partie peut être traitée en admettant si besoin les 
+résultats de la première partie.
+
+\subsection*{Première partie}
+
+\noindent
+Dans cette première partie, on étudie les propriétés asymptotiques
+d'une variable aléatoire $X$ à valeurs dans $\N^*$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{2mm}
+\item 
+  \begin{noliste}{a)}
+  \item Montrer que pour tout entier naturel $j$ non nul : 
+    \[
+    \Prob(\Ev{X=j}) = \Prob(\Ev{X > j-1}) - \Prob(\Ev{X>j})
+    \]
+    
+    
+
+
+    %\newpage
+
+    
+  \item Soit $p$ un entier naturel non nul. Montrer que :
+    \[
+    \Sum{j=1}{p} j \, \Prob(\Ev{X=j})= \Sum{j=0}{p-1} 
+    \Prob(\Ev{X>j})-p \, \Prob(\Ev{X>p})
+    \]
+    
+    
+\end{noliste}
+
+
+%\newpage
+
+
+\item 
+  \begin{noliste}{a)}
+  \item On suppose que $X$ admet une espérance $\E(X)= \mu$.
+    \begin{nonoliste}{i.}
+    \item Justifier la convergence de la série de terme général $k \,
+      \Prob(\Ev{X=k})$.
+      
+      
+
+    \item Montrer que : 
+      \[
+      \dlim{p \to +\infty} \Sum{k=p+1}{+\infty} k \, \Prob(\Ev{X=k})=0
+      \]
+      
+      
+
+
+      %\newpage
+
+
+    \item En déduire que :
+      \[
+      \dlim{p \to +\infty} p \ \Prob(\Ev{X>p}) = 0
+      \]
+
+      
+
+    \item Montrer que la série de terme général $\Prob(\Ev{X>j})$
+      converge.
+
+      
+
+
+    %\newpage
+
+
+  \item Montrer que : $\mu= \Sum{j=0}{+\infty} \Prob(\Ev{X >j})$.
+
+      
+    \end{nonoliste}
+    
+  \item On suppose que $\Sum{j=0}{+\infty} \Prob(\Ev{X >j})$ converge.
+    \begin{nonoliste}{i.}
+    \item Déterminer le sens de variation de la suite $(v_p)_{p \geq
+        1}$ définie par :
+      \[
+      v_p= \Sum{j=0}{p-1} \Prob(\Ev{X >j})
+      \]
+      
+      
+
+    \item Comparer $\Sum{j=1}{p} j \, \Prob(\Ev{X =j})$ et
+      $\Sum{j=0}{+\infty} \Prob(\Ev{X >j}).$
+    \end{nonoliste}
+
+      
+
+    \begin{nonoliste}{i.}
+      \setcounter{enumiii}{2}
+    \item En déduire que $X$ admet une espérance.
+
+      
+
+    \end{nonoliste}
+   
+  \item Conclure des questions précédentes que $X$ admet une espérance
+    si et seulement si la série de terme général $\Prob(\Ev{X>j})$
+    converge.
+
+    
+%     
+  \end{noliste}
+
+\item On suppose dans cette question qu'il existe un réel $\alpha$
+  strictement positif tel que pour tout entier naturel $j$ on ait :
+  \[
+  \Prob(\Ev{X >j})= \dfrac{1}{(j+1)^{\alpha}} \qquad (\ast)
+  \]
+  \begin{noliste}{a)}
+  \item Légitimer que $(\ast)$ définit bien une loi de probabilité d'une 
+    variable aléatoire à valeurs dans $\N^*$.
+    
+    
+
+
+    % %\newpage
+
+
+  \item Montrer que $X$ admet une espérance si et seulement si $\alpha$ 
+    est strictement supérieur à 1.
+
+    
+
+  \item Montrer que pour tout entier naturel $j$ non nul :
+    \[
+    \Prob(\Ev{X=j}) = \dfrac{1}{j^{\alpha}} \left( 1 -
+      \dfrac{1}{(1+\frac{1}{j})^{\alpha}}\right)
+    \]
+    
+    
+
+  \item
+    \begin{nonoliste}{i.}
+    \item Étudier les variations de $f : x \mapsto 1-(1+x)^{-\alpha}-\alpha 
+      x$ sur $[0,1]$. 
+
+      
+      
+    \item Montrer que pour tout entier naturel $j$ non nul :
+      \[
+      \Prob(\Ev{X=j}) \leq \frac{\alpha}{j^{1+\alpha}}
+      \]
+
+      
+
+    \end{nonoliste}
+
+
+    %\newpage
+
+    
+  \item Montrer, en utilisant le résultat de \itbf{3.c)}, que :
+    \[
+    \dlim{j \to +\infty} j^{\alpha+1} \, \Prob(\Ev{X=j}) = \alpha
+    \]
+
+    
+
+    
+    %\newpage
+
+
+  \item Montrer que $X$ admet une variance si et seulement si $\alpha 
+    >2$. 
+
+    
+
+  \end{noliste}
+\end{noliste}
+
+\subsection*{Deuxième partie : Étude de la probabilité de 
+panne un jour donné.}
+\noindent
+Dans cette deuxième partie, on suppose donnée une suite de variables
+aléatoires $(X_i)_{i \geq 1}$ mutuellement indépendantes et de même
+loi à valeurs dans $\N^*$.\\
+Pour tout entier $i$ non nul, $X_i$ représente la durée de vie en
+jours du $\eme{i}$ composant en fonctionnement.\\
+Soit $k$ un entier naturel non nul. On note $T_k= X_1+...+X_k$. $T_k$
+représente donc le jour où le $\eme{k}$ composant tombe en panne. On
+fixe un entier naturel $n$ non nul représentant un jour donné et on
+considère l'événement $A_n$ : \og le composant en place le jour $n$
+tombe en panne \fg{} c'est-à-dire $A_n$ : \og il existe $k$ entier
+naturel non nul tel que $T_k=n$ \fg{}, et on se propose d'étudier
+$\Prob(A_n)$ .
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{2mm} \setcounter{enumi}{3}
+\item Pour tout entier naturel non nul $j$, on note
+  $p_j=\Prob(\Ev{X_1=j})$ et $u_j=\Prob(A_j)$. On suppose que pour
+  tout entier naturel non nul $j$, on a $p_j \neq 0$. On pose de plus
+  par convention $u_0=1$.
+  \begin{noliste}{a)}
+  \item Montrer que : $u_1 = p_1$.%\\[-.8cm]
+
+    
+    
+
+    %\newpage
+
+
+  \item
+    \begin{nonoliste}{i.}
+    \item Montrer que : $A_2 \ = \ \Ev{X_1=2} \ \cup \
+      \left(\Ev{X_1=1} \cap \Ev{X_2=1}\right)$.
+      \end{nonoliste}
+
+      
+
+      \begin{nonoliste}{i.}
+        \setcounter{enumiii}{1}
+    \item En déduire $u_2$ en fonction de $p_1$ et $p_2$.
+
+      
+    \end{nonoliste}
+
+
+    %\newpage
+
+
+  \item Pour tout entier naturel $i$, on pose $\tilde{X}_i= X_{i+1}$.
+    \begin{nonoliste}{i.}
+    \item Montrer que les variables $\tilde{X}_i$ sont mutuellement
+      indépendantes, indépendantes de $X_1$ et de même loi que $X_1$.
+
+      
+
+    \item Soit $k$ un entier naturel non nul strictement inférieur à
+      $n$. Montrer que :
+      \[
+      A_n \cap \Ev{X_1=k}=\Ev{X_1=k} \ \cap \ \dcup{j \geq 1}{}
+      \Ev{\tilde{X}_1+\tilde{X}_2+ \ldots +\tilde{X}_j=n-k}
+      \]
+
+      
+
+    \item En déduire que pour tout entier naturel $k$ non nul
+      strictement inférieur à $n$ :
+      \[
+      \Prob_{\Ev{X_1=k}}(A_n) = \Prob(A_{n-k})
+      \]
+
+      
+
+    \end{nonoliste}
+
+  \item Montrer que :
+    \[
+    u_n = u_{n-1} \ p_1 + \ldots + u_0 \ p_n
+    \]
+    
+    
+
+  \item En \Scilab{}, soit $P=[p_1,p_2,...,p_n]$ le vecteur ligne tel
+    que $P(j)=p_j$ pour $j$ dans $\llb 1,n \rrb$.\\
+    Écrire un programme en \Scilab{} qui calcule $u_n$ à partir de
+    $P$.
+
+    
+\end{noliste}
+
+
+%\newpage
+
+  
+\item Soit $\lambda$ un réel appartenant à $]0,1[$.\\[.2cm]
+  \textbf{Dans cette question}, on suppose que $X_1$ suit la loi
+  géométrique de paramètre $\lambda$.\\
+  Pour tout entier naturel $j$ non nul, on a donc $\Prob(\Ev{X_1=j})=
+  \lambda (1-\lambda)^{j-1}$.
+  \begin{noliste}{a)}
+  \item Calculer $\Prob(\Ev{X_1>k})$ pour tout entier naturel $k$ non nul.
+
+    
+
+  \item Calculer $\Prob_{\Ev{X_1 >k}}(\Ev{X_1=k+1})$.
+
+    
+
+  \item Montrer que pour tout entier naturel $n$ non nul : $\Prob(A_n)
+    = \lambda$.
+
+    
+  \end{noliste}
+
+\item On suppose dans cette question que $p_1$ vérifie $0<p_1<1$ et
+  que $p_2 = 1 - p_1$.\\
+  Pour simplifier, on posera $p = p_1 = 1 - p_2$.
+  \begin{noliste}{a)}
+  \item Que vaut $p_i$ pour $i$ supérieur ou égal à 3 ?
+
+    
+
+
+    %\newpage
+
+
+  \item Soit la matrice $M =
+    \begin{smatrix}
+      p & 1-p\\
+      1 & 0 
+    \end{smatrix}$.\\
+    Montrer que pour tout entier naturel $n$ supérieur ou égal à 2 : $
+    \begin{smatrix}
+      u_n\\ 
+      u_{n-1} 
+    \end{smatrix}
+    = M \ 
+    \begin{smatrix}
+      u_{n-1}\\
+      u_{n-2} 
+    \end{smatrix}
+    $.
+
+    
+    
+  \item 
+    \begin{nonoliste}{i.}
+    \item Diagonaliser la matrice $M$.
+      
+      
+      
+    \item Montrer que :
+      \[
+      M^{n-1}=\dfrac{1}{2-p}
+      \begin{smatrix} 
+        1 & 1-p\\
+        1 & 1-p
+      \end{smatrix}
+      + \dfrac{(p-1)^{n-1}}{2-p}
+      \begin{smatrix} 
+        1-p & p-1\\
+        -1 & 1 
+      \end{smatrix}
+      \]
+
+      
+
+    \end{nonoliste}
+    
+  \item 
+    \begin{nonoliste}{i.}
+    \item Exprimer $u_n$ en fonction de $p$ et de $n$. 
+
+      
+
+    \item Déterminer $\dlim{n \to +\infty} u_n$. 
+
+      
+
+    \end{nonoliste}
+  \end{noliste}
+\end{noliste}
+
+\subsection*{Troisième partie : Étude de la durée de fonctionnement.}
+
+\noindent 
+Comme dans la partie précédente, on suppose donnée une suite de
+variables aléatoires $(X_{i})_{i \geq 1}$ indépendantes et de même
+loi, telle que pour tout entier $i$ non nul, $X_{i}$ représente la
+durée de vie en jours du $i$-ème composant en fonctionnement.\\
+Soit $k$ un entier naturel non nul. On étudie dans cette partie la
+durée de fonctionnement prévisible du système si on a $k$ composants à
+disposition (y compris celui installé au départ). \\
+On notera toujours $T_{k} = X_{1} +... + X_{k}$.\\
+On suppose dans cette partie qu'il existe un réel $\alpha >1$ tel que
+pour tout entier naturel $j$ on ait :
+\[
+\Prob\left(\Ev{X_{1} >j}\right) = \frac{1}{(j + 1)^{\alpha}}
+\]
+En particulier, dans toute cette partie, $X_{1}$ admet une espérance,
+on l'on notera $\mu = \E(X_{1})$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{6}
+\item Que vaut $\E(T_{k})$ ? 
+  
+  
+
+
+  %\newpage
+
+
+\item On suppose, \textbf{dans cette question}, que $\alpha$ est
+  strictement supérieur à 2. La variable aléatoire $X_{1}$ admet donc
+  une variance $\sigma^{2}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Calculer $\V(T_{k})$.
+
+    
+
+  \item Montrer que pour tout réel $\eps$ strictement positif, 
+    \[
+    \Prob\left(\Ev{ |T_{k} - k\mu| \geq k \eps}\right) \leq
+    \dfrac{\sigma^{2}}{k \eps^{2}}
+    \]
+    
+    
+
+    
+    %\newpage
+
+
+  \item Déduire que, pour tout réel strictement positif $\eps$, on a :
+    \[
+    \dlim{k \to + \infty} \Prob\left(\Ev{\frac{T_{k}}{k} \in \ ] \mu -
+        \eps, \mu + \eps[} \ \right) = 1
+    \]
+
+    
+  \end{noliste}
+
+\item On suppose maintenant uniquement que $\alpha >1$ et donc que
+  $X_{1}$ n'a pas nécessairement de variance d'où l'impossibilité
+  d'appliquer la méthode précédente. On va mettre en \oe{}uvre ce
+  qu'on appelle une méthode de troncation.\\
+  On fixe un entier naturel $m$ strictement positif. Pour tout entier
+  naturel non nul $i$, on définit deux variables aléatoires
+  $Y_{i}^{(m)}$ et $Z_{i}^{(m)}$ de la façon suivante
+  \[
+  Y_{i}^{(m)} = \left\{
+    \begin{array}{cl}
+      X_{i} & \text{ si } X_{i} \leq m, \\
+      0 & \text{ sinon}.
+    \end{array}
+  \right. %
+  \qquad %
+  Z_{i}^{(m)} = %
+  \left\{
+    \begin{array}{cl}
+      X_{i} & \text{ si } X_{i} > m, \\
+      0 & \text{ sinon}.
+    \end{array}
+  \right.
+  \]
+\end{noliste}
+\begin{liste}{a)}
+  \setlength{\itemsep}{2mm}
+\item Montrer que $X_{i} = Y_{i}^{(m)} + Z_{i}^{(m)}$.
+  
+  
+
+\item ~\\[-1.15cm]
+\end{liste}
+\begin{liste}{\ i.}
+\item En utilisant la question \itbf{3.d)ii.}, montrer que :
+  \[
+  \E\big(Z_{1}^{(m)} \big) \ \leq \ \Sum{i = m + 1}{+ \infty}
+  \dfrac{\alpha}{i^{\alpha}}
+  \]
+  
+  
+
+
+  %\newpage
+
+
+\item Montrer que :
+  \[
+  \E\big(Z_{1}^{(m)} \big) \ \leq \ \dint{m}{+ \infty}
+  \dfrac{\alpha}{x^{\alpha}} \dx
+  \]
+
+  
+  
+\item Calculer :
+  \[
+  \dint{m}{+ \infty} \dfrac{\alpha}{x^{\alpha}} \dx
+  \]
+
+  
+
+\item En déduire que :
+  \[
+  \dlim{m \to + \infty} \E\big(Z_{1}^{(m)} \big) = 0
+  \]
+
+  
+  
+\item Montrer que
+  \[
+  \dlim{m \to + \infty} \E\big(Y_{1}^{(m)} \big) = \mu
+  \]
+
+  
+\end{liste}
+
+
+%\newpage
+
+
+\begin{liste}{a)}
+  \setcounter{enumi}{2}
+\item ~\\[-1.15cm]
+\end{liste}
+\begin{liste}{\ i.}
+\item Montrer que
+  \[
+  \big( Y_{1}^{(m)} \big)^{2} \leq m X_{1}
+  \]
+  
+  
+  
+\item En déduire que
+  \[
+  \V\big(Y_{1}^{(m)} \big) \leq m \mu
+  \]
+  
+  
+\end{liste}
+
+\begin{liste}{a)}
+  \setcounter{enumi}{3}
+\item Soit $\eps$ un réel strictement positif. Montrer qu'il existe
+  un entier naturel $m_{0}$ non nul tel que pour tout entier naturel
+  $m$ supérieur ou égal à $m_{0}$,
+  \[
+  \dfrac{\alpha}{\alpha-1} m^{1-\alpha} \leq \eps
+  \]
+  
+  
+  
+  
+  %\newpage
+  
+  
+  \noindent
+  \textbf{Jusqu'à la fin du problème, $m$ désignera un entier
+    supérieur ou égal à $m_{0}$.}
+  
+\item On note, pour tout entier naturel $k$ non nul
+  \[
+  U_{k}^{(m)} = \Sum{i = 1}{k} Y_{i}^{(m)} \quad \text{ et } \quad
+  V_{k}^{(m)} = \Sum{i = 1}{k} Z_{i}^{(m)}
+  \]
+  Vérifier que :
+  \[
+  T_{k} = U_{k}^{(m)} + V_{k}^{(m)}
+  \]
+  
+  
+  
+  % \begin{liste}{a)}
+  %   \setcounter{enumi}{2}
+  % \item ~\\[-1.15cm]
+  % \end{liste}
+  % \begin{liste}{\ i.}
+  
+\item ~\\[-1.15cm]
+\end{liste}
+\begin{liste}{\ i.}
+\item Montrer que :
+  \[
+  \E\big(V_{k}^{(m)} \big) \ \leq \ k \ \dfrac{\alpha}{\alpha-1}
+  m^{1-\alpha}
+  \]
+  
+  
+  
+\item En déduire que :
+  \[
+  \Prob\left(\Ev{V_{k}^{(m)} \geq k \eps} \right) \ \leq \ 
+  \dfrac{\alpha}{\alpha-1} \dfrac{m^{1-\alpha}}{\eps}
+  \]
+
+  
+\end{liste}
+
+\begin{liste}{a)}
+  \setcounter{enumi}{6}
+\item
+  \begin{nonoliste}{i.}
+  \item Montrer que :
+    \[
+    \E\big(U_{k}^{(m)} \big) \ \geq \ k \mu - k
+    \dfrac{\alpha}{\alpha-1} m^{1-\alpha}
+    \]
+
+    
+
+  \item En déduire que :
+    \[
+    \left| \ \E(U_{k}^{(m)}) -k \mu \ \right| \ \leq \  k \eps
+    \]
+
+    
+
+
+    %\newpage
+
+
+  \item Montrer que :
+    \[
+    \Prob\left(\Ev{ |U_{k}^{(m)} - k \mu| \ \geq \ 2k \eps}\right) \
+    \leq \ \Prob\left(\Ev{ |U_{k}^{(m)} - \E(U_{k}^{(m)})| \ \geq \ k
+        \eps}\right)
+    \]
+
+    
+
+  \item Montrer que :
+    \[
+    \V\big(U_{k}^{(m)} \big) \ \leq \ km \mu
+    \]
+
+    
+
+  \item En déduire que :
+    \[
+    \Prob\left(\Ev{ |U_{k}^{(m)} - k \mu| \ \geq \  2k \eps}\right) \ \leq
+    \ \dfrac{m \mu}{k \eps^{2}}
+    \]
+
+    
+  \end{nonoliste}
+
+\item
+  \begin{nonoliste}{i.}
+  \item Montrer que pour tout couple d'événements $A$ et $B$ dans
+    $\mathcal{A}$, on a :
+    \[
+    \Prob(A \cap B) \ \geq \  \Prob\left(A\right) + \Prob\left(B \right)-1
+    \]
+
+    
+
+
+    %\newpage
+
+
+  \item En appliquant l'inégalité précédente aux événements :
+    \[
+    A = \Ev{V_{k}^{(m)} < k \eps} \quad \text{ et } \quad B =
+    \Ev{U_{k}^{(m)} \in \ ] k(\mu - 2 \eps), k(\mu + 2 \eps)[ }
+    \]
+    montrer que :
+    \[
+    \Prob\left(\Ev{T_{k} \in \ ]k(\mu - 3 \eps), k(\mu + 3 \eps)[ \ }
+      \ \right) \ \geq \ \Prob\left(\Ev{ V_{k}^{(m)} < k \eps}\right)
+    + \Prob\left(\Ev{U_{k}^{(m)} \in \ ]k(\mu - 2 \eps), k(\mu + 2
+        \eps)[} \ \right) - 1
+    \]
+
+    
+
+
+    %\newpage
+
+
+  \item Déduire des questions précédentes que pour tout réel $\eps$
+    strictement positif, et pour tout entier $m$ supérieur ou égal à
+    $m_{0}$, on a pour tout entier naturel $k$ non nul :
+    \[
+    \Prob\left(\Ev{\ T_{k} \in \ ]k(\mu - 3 \eps), k(\mu + 3 \eps)[ \
+      } \ \right) \ \geq \ 1 - \dfrac{\alpha}{\alpha-1}
+    \dfrac{m^{1-\alpha}}{\eps} - \dfrac{m \mu}{k \eps^{2}}
+    \]
+
+    
+
+  \item Pour $k$ assez grand, appliquer l'inégalité précédente à un
+    entier $m_{k} \in [\sqrt{k}, 2\sqrt{k}]$ et conclure que :
+    \[
+    \dlim{k \to + \infty} \Prob\left(\Ev{\frac{T_{k}}{k} \in \ ] \mu -
+        3 \eps, \mu + 3 \eps[} \ \right) = 1
+    \]
+
+    
+  \end{nonoliste}
+\end{liste}
+%\end{noliste}
+
+
+
+

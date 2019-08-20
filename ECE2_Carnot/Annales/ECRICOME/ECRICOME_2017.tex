@@ -1,0 +1,1906 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 2017} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+\everymath{\section*{Ecricome, voie E.\\
+Epreuve de mathématiques du 12 avril 2017.}
+
+
+
+\subsection*{Exercice 1}
+
+Dans tout l'exercice, on notera $\mathcal M_{3}(\R)$ l'ensemble des
+matrices carrées d'ordre 3 et $I$ la matrice identité d'ordre 3. On
+considère la matrice $A$ définie par :
+	\[
+A = 
+\begin{smatrix}
+0 & 1 & 2\\
+-1 & 2 & 2\\
+-3 & 3 & 1
+\end{smatrix}.
+\]
+L'objectif de cet exercice est de déterminer l'ensemble des matrices
+$M$ de $\mathcal M_{3}(\R)$ telles que $M^{2} = A$.	
+	
+\subsubsection*{Partie A : Étude de la matrice $A$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+	\item Calculer les matrices $(A-I)^{2}$ et $(A-I)^{3}$.
+	\item En déduire l'ensemble des valeurs propres de $A$.
+	\item La matrice $A$ est-elle inversible ? Est-elle diagonalisable ?
+\end{noliste}
+
+\subsubsection*{Partie B : Recherche d'une solution particulière}
+
+On note pour tout $x\in]-1,1[, \varphi(x) = \sqrt{1 + x}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+	\item Justifier que la fonction $\varphi$ est de classe $\mathcal
+C^{2}$ sur $]-1,1[$, et déterminer les valeurs de $\varphi^\prime(0)$
+et $\varphi^{\prime\prime}(0)$.
+	\item En utilisant la formule de Taylor-Young pour $\varphi$ en 0 à
+l'ordre 2, déterminer un réel $\alpha$ non nul tel que :
+		\[
+\sqrt{1 + x} = 1 + \dfrac12x + \alpha x^{2} + x^{2}\varepsilon(x) \quad
+\text{avec }\dlim{x\to0}\varepsilon(x) = 0.
+\]
+	\item On note $P\left(\Ev{x}\right) = 1 + \dfrac12x + \alpha x^{2}$ la
+fonction polynomiale de degré 2 ainsi obtenue. Développer
+$(P\left(\Ev{x}\right))^{2}$.
+	\item Soit $C = A-I$. En utilisant les résultats de la question 1,
+vérifier que $(P\left(\Ev{C}\right))^{2} = A$.\\
+		Expliciter alors une matrice $M$ telle que $M^{2} = A$.
+\end{noliste}
+
+\subsubsection*{Partie C : Résolution complète de l'équation}
+
+On munit l'espace vetoriel $\R^{3}$ de sa base canonique $\mathcal B =
+(e_{1},e_{2},e_{3})$.\\
+Soit $f$ l'endomorphisme de $\R^{3}$ dont la matrice représentative
+dans la base $\mathcal B$ est la matrice $A$.\\
+Dans cette partie, on pose : $T = 
+\begin{smatrix}
+1 & 1 & 0\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{smatrix}
+$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+	\item Soient $u,~ v$ et $w$ les vecteurs définis par : $\left\{
+\begin{array}{l}
+ w = (1,0,1),\\
+v = f(w)-w,\\
+u = f(v)-v.
+\end{array}
+\right.$
+	\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+		\item Calculer les vecteurs $v$ et $u$.
+		\item Démontrer que la famille $\mathcal B^\prime = (u,v,w)$ est une
+base de $\R^{3}$.
+		\item Déterminer la matrice représentative de $f$ dans la base
+$\mathcal B^\prime$.
+		\item En déduire qu'il existe une matrice $P\in\mathcal M_{3}(\R)$
+inversible telle que $T = P^{-1}AP$.
+	\end{noliste}
+	\item Soit $M\in\mathcal M_{3}(\R)$.
+	\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+		\item Montrer que si $N^{2} = T$, alors $NT = TN$. En déduire alors
+que $N$ est de la forme :
+			\[
+\begin{smatrix}
+a & b & c\\
+0 & a & b\\
+0 & 0 & c
+\end{smatrix}
+\]
+			où $a, b$ et $c$ sont trois réels.
+		\item Démontrer alors que l'équation matricielle $N^{2} = T$ admet
+exactement deux solutions : $N_{1}$ et $N_{2}$.
+	\end{noliste}
+	\item Montrer que l'équation matricielle $M^{2} = A$ d'inconnue
+$M\in\mathcal M_{3}(\R)$ admet exactement deux solutions que l'on
+écrira en fonction de $P, P^{-1}, N_{1}$ et $N_{2}$.
+	\item L'ensemble $E$ des matrices $M$ appartenant à $\mathcal
+M_{3}(\R)$ telles que $M^{2} = A$ est-il un espace vectoriel ?
+\end{noliste}
+
+
+
+\subsection*{Exercice 2}
+
+Dans tout l'exercice, $a$ est un réel strictement positif.
+
+\subsubsection*{Partie A}
+
+On considère la fonction $\varphi$ définie sur $\R^{+ *}$ par :
+$\forall x>0, \varphi(x) = \ln(x)-ax^{2a}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+	\item Déterminer $\dlim{x\to 0}\varphi(x)$ et $\dlim{x\to +
+\infty}\varphi(x)$.
+	\item Démontrer que si $a <\sqrt{\dfrac{1}{2e}}$, l'équation
+$\varphi(x) = 0$ admet exactement deux solutions $z_{1}$ et $z_{2}$,
+vérifiant : $z_{1} < x_{0} < z_{2}$.\\
+	Que se passe-t-il si $a = \sqrt{\dfrac{1}{2e}}$ ? Si $a >
+\sqrt{\dfrac{1}{2e}}$ ?
+\end{noliste}
+
+\subsubsection*{Partie B}
+
+Soit $f$ la fonction définie sur l'ouvert $U = (\R^{+ *})^{2}$ par :
+	\[
+\forall(x,y)\in U,~ f(x,y) = \ln(x)\ln(y)-(xy)^{a}.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+	\item Justifier que $f$ est de classe $\mathcal C^{2}$ sur $U$.
+	\item Calculer les dérivées partielles premières de $f$.
+	\item Démontrer que pour tout $(x,y)\in U$ :
+	\[
+(x,y) \text{ est un point critique de }f \ssi \left\{
+\begin{array}{l}
+ x = y,\\
+\varphi(x) = 0.
+\end{array}
+\right.
+\]
+	\item Démontrer que si $a <\sqrt{\dfrac{1}{2e}}$, la fonction $f$
+admet exactement deux points critiques : $(z_{1},z_{1})$ et
+$z_{2},z_{2})$, où $z_{1}$ et $z_{2}$ sont les réels définis dans la
+partie A.\\
+		Déterminer aussi les éventuels points critiques de $f$ dans les cas
+où $a = \sqrt{\dfrac{1}{2e}}$ et $a > \sqrt{\dfrac{1}{2e}}$.
+\end{noliste}
+
+\subsubsection*{Partie C}
+
+Dans cette partie, on suppose que $a <\sqrt{\dfrac{1}{2e}}$. On
+rappelle alors que la fonction $f$ admet exactement deux points
+critiques : $z_{1},z_{1})$ et $(z_{2},z_{2})$, où $z_{1}$ et $z_{2}$
+sont les réels définis dans la partie A.
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+	\item Calculer les dérivées partielles d'ordre 2 de la fonction $f$.
+	\item Calculer la matrice hessienne de $f$ au point $(z_{1},z_{1})$.
+Vérifier que cette matrice peut s'écrire sous la forme :
+		\[
+\nabla^{2}(f)(z_{1},z_{1}) = \begin{smatrix}
+			-a^{2}{z_{1}}{2a-2} & \dfrac1{{z_{1}}{2}}-a^{2}{z_{1}}{2a-2}\\
+			\dfrac1{{z_{1}}{2}}-a^{2}{z_{1}}{2a-2} & -a^{2}{z_{1}}{2a-2}
+		\end{smatrix}.
+\]
+	\item On pose $M = \nabla^{2}(f)(z_{1},z_{1})$, $X_{1} = 
+\begin{smatrix}
+1\\
+1
+\end{smatrix}
+$ et $X_{2} = 
+\begin{smatrix}
+-1\\
+1
+\end{smatrix}
+$.\\
+		Calculer $MX_{1}$ et $MX_{2}$, et en déduire les valeurs propres de
+$M$.
+	\item La fonction $f$ présente-t-elle un extremum local en
+$(z_{1},z_{1})$ ?\\
+		Si oui, est-ce un minimum ? Un maximum ?
+	\item La fonction $f$ présente-t-elle un extremum local en
+$(z_{2},z_{2})$ ?\\
+		Si oui, est-ce un minimum ? Un maximum ?
+\end{noliste}	
+
+
+
+
+\subsection*{Exercice 3}
+
+Soit $n$ un entier naturel non nul.\\
+On effectue une série illimité de tirages d'une boule avec remise dans
+une urne contenant $n$ boules numérotées de 1 à $n$. Pour tout entier
+naturel $k$ non nul, on note $X_{k}$ la variable aléatoire égale au
+numéro de la boule obtenue au $k$-ième tirage.\\
+Pour tout entier naturel $k$ non nul, on note $S_{k}$ la somme des
+numéros des boules obtenues lors des $k$ premiers tirages :
+	\[
+S_{k} = \Sum{i = 1}{k} X_{i}.
+\]
+	On considère enfin la variable aléatoire $T_{n}$ égale au nombre de
+tirages nécessaires pour que, pour la première fois, la somme des
+numéros des boules obtenues soit supérieure ou égale à $n$.\\
+	
+\underline{Exemple} : avec $n = 10$, si les numéros obtenus aux cinq
+premiers tirages sont dans cet ordre $2,4,1,5,9$, alors on obtient :
+$S_{1} = 2,~ S_{2} = 6,~ S_{3} = 7,~ S_{4} = 12,~ S_{5} = 21$ et
+$T_{10} = 4$.
+
+\subsubsection*{Partie A}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+	\item Pour $k\in\N^*$, déterminer la loi de $X_{k}$ ainsi que son
+espérance.
+	\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+		\item Déterminer $T_{n}(\Omega)$.
+		\item Calculer $\P\left(\Ev{T_{n} = 1}\right)$.
+		\item Montrer que :
+			\[
+\P\left(\Ev{T_{n} = n}\right) = \left(\dfrac1n\right)^{n-1}.
+\]
+	\end{noliste}
+	\item Dans cette question, $n = 2$. Déterminer la loi de $T_{2}$.
+	\item Dans cette question, $n = 3$. Donner la loi de $T_{3}$. Vérifier
+que $\E(T_{3}) = \dfrac{16}9$.
+\end{noliste}
+
+\subsubsection*{Partie B}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+	\item Déterminer $S_{k}(\Omega)$ pour tout $k\in\N^*$.
+	\item Soit $k\in\llbracket1, n-1\rrbracket$.
+	\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+		\item Exprimer $S_{k + 1}$ en fonction de $S_{k}$ et de $X_{k + 1}$.
+		\item En utilisation un système complet d'événements lié à la
+variable aléatoire $S_{k}$, démontrer alors que :
+			\[
+\forall i\in\llbracket k + 1, n\rrbracket,~ \P\left(\Ev{S_{k + 1} =
+i}\right) = \dfrac1n \Sum{j = k}{i-1} \P\left(\Ev{S_{k} = j}\right).
+\]
+	\end{noliste}
+	\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+		\item Pour $k\in\N^*$ et $j\in\N^*$, rappeler la formule du triangle
+de \Scilab{} liant les nombres : $\binom{j-1}{k-1}$, $\binom{j-1}k$ et
+$\binom jk$.
+		\item En déduire que pour tout $k\in\N^*$ et pour tout entier naturel
+$i$ supérieur ou égal à $k + 1$ :
+			\[
+\Sum{j = k}{i-1} \binom{j-1}{k-1} = \binom{i-1}k.
+\]
+		\item Pour tout entier $k\in\llbracket1,n\rrbracket$, on note
+$\mathcal H_{k}$ la proposition :
+		\[
+\text\og \forall i\in\llbracket k,n\rrbracket,~ \P\left(\Ev{S_{k} =
+i}\right) = \dfrac1{n^{k}}\binom{i-1}{k-1} \text\fg{}.
+\]
+		Démontrer par récurrence que pour tout entier
+$k\in\llbracket1,n\rrbracket$, $\mathcal H_{k}$ est vraie.
+	\end{noliste}
+	\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+		\item Soit $k\in\llbracket1,n-1\rrbracket$. Comparer les événements :
+$[T_{n}>k]$ et $[S_{k} \leq n-1]$.
+		\item En déduire que :~ $\forall k\in\llbracket
+0,n\rrbracket,~\P\left(\Ev{T_{n}>k}\right) = \dfrac1{n^{k}}
+\binom{n-1}k$.
+	\end{noliste}
+	\item Démontrer que $\E(T_{n}) = \Sum{k = 0}{n-1}
+\P\left(\Ev{T_{n}>k}\right)$, puis que $\E(T_{n}) = \left(1 +
+\dfrac1n\right)^{n-1}$.
+	\item Calculer $\dlim{n\to + \infty} \E(T_{n})$.
+\end{noliste}
+
+\subsubsection*{Partie C}
+
+Dans cette partie, on fait varier l'entier $n$ et on étudie la
+convergence en loi de la suite de variable $(T_{n})_{n\geq 1}$ obtenue.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+	\item Soit $Y$ une variable aléatoire à valeurs dans $\N^*$ telle que
+: $\forall k\in\N^*,~ \P\left(\Ev{Y = k}\right) = \dfrac{k-1}{k!}$.
+		\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+			\item Vérifier par le calcul que $\Sum{k = 1}{+ \infty}
+\P\left(\Ev{Y = k}\right) = 1$.
+			\item Montrer que $Y$ admet une espérance et calculer cette
+espérance.
+		\end{noliste}
+	\item Pour tout entier naturel $k$ non nul, démontrer que :
+		\[
+\dlim{n\to + \infty} \P\left(\Ev{T_{n}>k}\right) = \dfrac1{k!}.
+\]
+	\item Démontrer alors que $(T_{n})_{n\geq 1}$ converge en loi vers la
+variable aléatoire $Y$.
+	\item On rappelle qu'en langage Scilab, l'instruction
+\texttt{grand(1,1,'uin',1,n)} renvoie un entier aléatoire de
+$\llbracket 1,n\rrbracket$.\footnote{L'énoncé Ecricome oublie de
+préciser \og selon la loi uniforme \fg{}.} Compléter la fonction
+ci-dessous, qui prend en argument le nombre $n$ de boules contenues
+dans l'urne, afin qu'elle simule la variable aléatoire $T_{n}$ :
+	
+\begin{code}
+function y = T(n)
+ S =..........
+ y =..........
+ while..........
+ tirage = grand(1,1,'uin',1,n)
+ S = S + tirage
+ y =..........
+ end
+endfunction
+\end{code}
+	
+	\item On suppose déclarée la fonction précédente et on écrit le script
+ci-dessous :
+	
+\begin{code}
+function y = freqT(n)
+ y = zeros(1,n)
+ for i = 1 :100000
+ k = T(n)
+ y(k) = y(k) + 1
+ end
+ y = y/100000
+endfunction
+
+function y = loitheoY(n)
+ y = zeros(1,n)
+ for k = 1 :n
+ y(k) = (k-1)/prod(1 :k)
+ end
+endfunction
+
+clf
+n = input('n = ?')
+plot2d(loitheoY(6),style = -2)
+x = freqT(n)
+bar(x(1 :5))
+\end{code}
+
+L'exécution de ce script pour les valeurs de $n$ indiquées a permis
+d'obtenir les graphes ci-dessous :
+
+\newpage
+
+\definecolor{white}{RGB}{255,255,255}
+\definecolor{blue}{RGB}{0,0,255}
+
+\begin{multicols}{2}
+%% n = 5
+\begin{tikzpicture}[every node/.style = {scale = 0.5},y = 0.80pt, x =
+0.80pt, yscale = -0.500000, xscale = 0.500000, inner sep = 0pt, outer
+sep = 0pt,
+draw = black,fill = black,line join = miter,line cap = rect,miter limit
+= 10.00,line width = 0.800pt]
+ \begin{scope}[draw = white,fill = white]
+ \path[fill,rounded corners = 0.0000cm] (0.0000,0.0000) rectangle
+ (610.0000,460.0000);
+ \end{scope}
+ \begin{scope}[draw = white,fill = white,line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,402.5000) --
+(76.2500,402.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,57.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,57.5000) --
+(76.2500,402.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (76.2500,57.5000) --
+(533.7500,57.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,57.5000) --
+(533.7500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,402.5000) -- (76.2500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \end{scope}
+ \begin{scope}[shift = {(150.0,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-1.0938,10.0537) node[above right] (text4084) {1};
+ \end{scope}
+ \begin{scope}[shift = {(225.25,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.2969,10.0537) node[above right] (text4088) {2};
+ \end{scope}
+ \begin{scope}[shift = {(301.5,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4092) {3};
+ \end{scope}
+ \begin{scope}[shift = {(377.75,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.1250,10.0537) node[above right] (text4096) {4};
+ \end{scope}
+ \begin{scope}[shift = {(454.0,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4100) {5};
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (152.5000,402.5000) -- (152.5000,408.5000);
+ \path[draw] (228.7500,402.5000) -- (228.7500,408.5000);
+ \path[draw] (305.0000,402.5000) -- (305.0000,408.5000);
+ \path[draw] (381.2500,402.5000) -- (381.2500,408.5000);
+ \path[draw] (457.5000,402.5000) -- (457.5000,408.5000);
+ \path[draw] (533.7500,402.5000) -- (76.2500,402.5000);
+ \path[shift = {(60.25,395.5)},fill,line join = bevel,line width =
+0.000pt]
+ (-0.4219,10.0537) node[above right] (text4116) {0};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,280.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4120) {0.2};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,165.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4124) {0.4};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,50.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4128) {0.6};
+ \end{scope}
+ \begin{scope}[shift = {(52.25,338.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4132) {0.1};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,223.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4136) {0.3};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,108.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4140) {0.5};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,366.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4144) {0.05};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,309.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4148) {0.15};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,251.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4152) {0.25};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,194.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4156) {0.35};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,136.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4160) {0.45};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,79.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4164) {0.55};
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (76.2500,402.5000) -- (70.2500,402.5000);
+ \path[draw] (76.2500,373.7500) -- (70.2500,373.7500);
+ \path[draw] (76.2500,345.0000) -- (70.2500,345.0000);
+ \path[draw] (76.2500,316.2500) -- (70.2500,316.2500);
+ \path[draw] (76.2500,287.5000) -- (70.2500,287.5000);
+ \path[draw] (76.2500,258.7500) -- (70.2500,258.7500);
+ \path[draw] (76.2500,230.0000) -- (70.2500,230.0000);
+ \path[draw] (76.2500,201.2500) -- (70.2500,201.2500);
+ \path[draw] (76.2500,172.5000) -- (70.2500,172.5000);
+ \path[draw] (76.2500,143.7500) -- (70.2500,143.7500);
+ \path[draw] (76.2500,115.0000) -- (70.2500,115.0000);
+ \path[draw] (76.2500,86.2500) -- (70.2500,86.2500);
+ \path[draw] (76.2500,57.5000) -- (70.2500,57.5000);
+ \path[draw] (76.2500,57.5000) -- (76.2500,402.5000);
+ \path[shift = {(152.5,402.5)},draw] (-5.0000,-5.0000) --
+(5.0000,5.0000);
+ \path[shift = {(152.5,402.5)},draw] (-5.0000,5.0000) --
+(5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(152.5,402.5)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(152.5,402.5)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(228.75,115.0)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(305.0,210.8333)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(381.25,330.625)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(457.5,383.3333)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[draw = blue,fill = blue,line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (151.3562,402.5000) -- (153.6437,402.5000) --
+(153.6437,288.0348) --
+ cycle;
+ \path[fill] (151.3562,402.5000) -- (153.6437,288.0348) --
+(151.3562,288.0348) --
+ cycle;
+ \path[fill] (227.6062,402.5000) -- (229.8938,402.5000) --
+(229.8938,80.6840) --
+ cycle;
+ \path[fill] (227.6062,402.5000) -- (229.8938,80.6840) --
+(227.6062,80.6840) --
+ cycle;
+ \path[fill] (303.8563,402.5000) -- (306.1437,402.5000) --
+(306.1437,282.2617) --
+ cycle;
+ \path[fill] (303.8563,402.5000) -- (306.1437,282.2617) --
+(303.8563,282.2617) --
+ cycle;
+ \path[fill] (380.1063,402.5000) -- (382.3937,402.5000) --
+(382.3937,384.9280) --
+ cycle;
+ \path[fill] (380.1063,402.5000) -- (382.3937,384.9280) --
+(380.1063,384.9280) --
+ cycle;
+ \path[fill] (456.3563,402.5000) -- (458.6438,402.5000) --
+(458.6438,401.5915) --
+ cycle;
+ \path[fill] (456.3563,402.5000) -- (458.6438,401.5915) --
+(456.3563,401.5915) --
+ cycle;
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (151.3562,402.5000) -- (153.6437,402.5000);
+ \path[draw] (153.6437,402.5000) -- (153.6437,288.0348);
+ \path[draw] (153.6437,288.0348) -- (151.3562,288.0348);
+ \path[draw] (151.3562,288.0348) -- (151.3562,402.5000);
+ \path[draw] (227.6062,402.5000) -- (229.8938,402.5000);
+ \path[draw] (229.8938,402.5000) -- (229.8938,80.6840);
+ \path[draw] (229.8938,80.6840) -- (227.6062,80.6840);
+ \path[draw] (227.6062,80.6840) -- (227.6062,402.5000);
+ \path[draw] (303.8563,402.5000) -- (306.1437,402.5000);
+ \path[draw] (306.1437,402.5000) -- (306.1437,282.2617);
+ \path[draw] (306.1437,282.2617) -- (303.8563,282.2617);
+ \path[draw] (303.8563,282.2617) -- (303.8563,402.5000);
+ \path[draw] (380.1063,402.5000) -- (382.3937,402.5000);
+ \path[draw] (382.3937,402.5000) -- (382.3937,384.9280);
+ \path[draw] (382.3937,384.9280) -- (380.1063,384.9280);
+ \path[draw] (380.1063,384.9280) -- (380.1063,402.5000);
+ \path[draw] (456.3563,402.5000) -- (458.6438,402.5000);
+ \path[draw] (458.6438,402.5000) -- (458.6438,401.5915);
+ \path[draw] (458.6438,401.5915) -- (456.3563,401.5915);
+ \path[draw] (456.3563,401.5915) -- (456.3563,402.5000);
+ \end{scope}
+
+	\draw(500,150)[scale = 1] node{\Huge \texttt{n = 5}};
+\end{tikzpicture}
+
+%% n = 10
+\begin{tikzpicture}[every node/.style = {scale = 0.5},y = 0.80pt, x =
+0.80pt, yscale = -0.500000, xscale = 0.500000, inner sep = 0pt, outer
+sep = 0pt,
+draw = black,fill = black,line join = miter,line cap = rect,miter limit
+= 10.00,line width = 0.800pt]
+ \begin{scope}[draw = white,fill = white]
+ \path[fill,rounded corners = 0.0000cm] (0.0000,0.0000) rectangle
+ (610.0000,460.0000);
+ \end{scope}
+ \begin{scope}[draw = white,fill = white,line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,402.5000) --
+(76.2500,402.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,57.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,57.5000) --
+(76.2500,402.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (76.2500,57.5000) --
+(533.7500,57.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,57.5000) --
+(533.7500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,402.5000) -- (76.2500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \end{scope}
+ \begin{scope}[shift = {(150.0,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-1.0938,10.0537) node[above right] (text4747) {1};
+ \end{scope}
+ \begin{scope}[shift = {(225.25,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.2969,10.0537) node[above right] (text4751) {2};
+ \end{scope}
+ \begin{scope}[shift = {(301.5,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4755) {3};
+ \end{scope}
+ \begin{scope}[shift = {(377.75,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.1250,10.0537) node[above right] (text4759) {4};
+ \end{scope}
+ \begin{scope}[shift = {(454.0,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4763) {5};
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (152.5000,402.5000) -- (152.5000,408.5000);
+ \path[draw] (228.7500,402.5000) -- (228.7500,408.5000);
+ \path[draw] (305.0000,402.5000) -- (305.0000,408.5000);
+ \path[draw] (381.2500,402.5000) -- (381.2500,408.5000);
+ \path[draw] (457.5000,402.5000) -- (457.5000,408.5000);
+ \path[draw] (533.7500,402.5000) -- (76.2500,402.5000);
+ \path[shift = {(60.25,395.5)},fill,line join = bevel,line width =
+0.000pt]
+ (-0.4219,10.0537) node[above right] (text4779) {0};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,280.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4783) {0.2};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,165.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4787) {0.4};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,50.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4791) {0.6};
+ \end{scope}
+ \begin{scope}[shift = {(52.25,338.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4795) {0.1};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,223.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4799) {0.3};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,108.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4803) {0.5};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,366.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4807) {0.05};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,309.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4811) {0.15};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,251.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4815) {0.25};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,194.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4819) {0.35};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,136.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4823) {0.45};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,79.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text4827) {0.55};
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (76.2500,402.5000) -- (70.2500,402.5000);
+ \path[draw] (76.2500,373.7500) -- (70.2500,373.7500);
+ \path[draw] (76.2500,345.0000) -- (70.2500,345.0000);
+ \path[draw] (76.2500,316.2500) -- (70.2500,316.2500);
+ \path[draw] (76.2500,287.5000) -- (70.2500,287.5000);
+ \path[draw] (76.2500,258.7500) -- (70.2500,258.7500);
+ \path[draw] (76.2500,230.0000) -- (70.2500,230.0000);
+ \path[draw] (76.2500,201.2500) -- (70.2500,201.2500);
+ \path[draw] (76.2500,172.5000) -- (70.2500,172.5000);
+ \path[draw] (76.2500,143.7500) -- (70.2500,143.7500);
+ \path[draw] (76.2500,115.0000) -- (70.2500,115.0000);
+ \path[draw] (76.2500,86.2500) -- (70.2500,86.2500);
+ \path[draw] (76.2500,57.5000) -- (70.2500,57.5000);
+ \path[draw] (76.2500,57.5000) -- (76.2500,402.5000);
+ \path[shift = {(152.5,402.5)},draw] (-5.0000,-5.0000) --
+(5.0000,5.0000);
+ \path[shift = {(152.5,402.5)},draw] (-5.0000,5.0000) --
+(5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(152.5,402.5)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(152.5,402.5)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(228.75,115.0)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(305.0,210.8333)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(381.25,330.625)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(457.5,383.3333)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[draw = blue,fill = blue,line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (151.3562,402.5000) -- (153.6437,402.5000) --
+(153.6437,345.8855) --
+ cycle;
+ \path[fill] (151.3562,402.5000) -- (153.6437,345.8855) --
+(151.3562,345.8855) --
+ cycle;
+ \path[fill] (227.6062,402.5000) -- (229.8938,402.5000) --
+(229.8938,91.1145) --
+ cycle;
+ \path[fill] (227.6062,402.5000) -- (229.8938,91.1145) --
+(227.6062,91.1145) --
+ cycle;
+ \path[fill] (303.8563,402.5000) -- (306.1437,402.5000) --
+(306.1437,244.8293) --
+ cycle;
+ \path[fill] (303.8563,402.5000) -- (306.1437,244.8293) --
+(303.8563,244.8293) --
+ cycle;
+ \path[fill] (380.1063,402.5000) -- (382.3937,402.5000) --
+(382.3937,360.4157) --
+ cycle;
+ \path[fill] (380.1063,402.5000) -- (382.3937,360.4157) --
+(380.1063,360.4157) --
+ cycle;
+ \path[fill] (456.3563,402.5000) -- (458.6438,402.5000) --
+(458.6438,395.9392) --
+ cycle;
+ \path[fill] (456.3563,402.5000) -- (458.6438,395.9392) --
+(456.3563,395.9392) --
+ cycle;
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (151.3562,402.5000) -- (153.6437,402.5000);
+ \path[draw] (153.6437,402.5000) -- (153.6437,345.8855);
+ \path[draw] (153.6437,345.8855) -- (151.3562,345.8855);
+ \path[draw] (151.3562,345.8855) -- (151.3562,402.5000);
+ \path[draw] (227.6062,402.5000) -- (229.8938,402.5000);
+ \path[draw] (229.8938,402.5000) -- (229.8938,91.1145);
+ \path[draw] (229.8938,91.1145) -- (227.6062,91.1145);
+ \path[draw] (227.6062,91.1145) -- (227.6062,402.5000);
+ \path[draw] (303.8563,402.5000) -- (306.1437,402.5000);
+ \path[draw] (306.1437,402.5000) -- (306.1437,244.8293);
+ \path[draw] (306.1437,244.8293) -- (303.8563,244.8293);
+ \path[draw] (303.8563,244.8293) -- (303.8563,402.5000);
+ \path[draw] (380.1063,402.5000) -- (382.3937,402.5000);
+ \path[draw] (382.3937,402.5000) -- (382.3937,360.4157);
+ \path[draw] (382.3937,360.4157) -- (380.1063,360.4157);
+ \path[draw] (380.1063,360.4157) -- (380.1063,402.5000);
+ \path[draw] (456.3563,402.5000) -- (458.6438,402.5000);
+ \path[draw] (458.6438,402.5000) -- (458.6438,395.9392);
+ \path[draw] (458.6438,395.9392) -- (456.3563,395.9392);
+ \path[draw] (456.3563,395.9392) -- (456.3563,402.5000);
+ \end{scope}
+	\draw(500,150)[scale = 1] node{\Huge \texttt{n = 10}};
+\end{tikzpicture}
+
+\end{multicols}
+
+\begin{multicols}{2}
+%% n = 20
+\begin{tikzpicture}[every node/.style = {scale = 0.5},y = 0.80pt, x =
+0.80pt, yscale = -0.500000, xscale = 0.500000, inner sep = 0pt, outer
+sep = 0pt,
+draw = black,fill = black,line join = miter,line cap = rect,miter limit
+= 10.00,line width = 0.800pt]
+ \begin{scope}[draw = white,fill = white]
+ \path[fill,rounded corners = 0.0000cm] (0.0000,0.0000) rectangle
+ (610.0000,460.0000);
+ \end{scope}
+ \begin{scope}[draw = white,fill = white,line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,402.5000) --
+(76.2500,402.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,57.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,57.5000) --
+(76.2500,402.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (76.2500,57.5000) --
+(533.7500,57.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,57.5000) --
+(533.7500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,402.5000) -- (76.2500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \end{scope}
+ \begin{scope}[shift = {(150.0,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-1.0938,10.0537) node[above right] (text5410) {1};
+ \end{scope}
+ \begin{scope}[shift = {(225.25,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.2969,10.0537) node[above right] (text5414) {2};
+ \end{scope}
+ \begin{scope}[shift = {(301.5,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text5418) {3};
+ \end{scope}
+ \begin{scope}[shift = {(377.75,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.1250,10.0537) node[above right] (text5422) {4};
+ \end{scope}
+ \begin{scope}[shift = {(454.0,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text5426) {5};
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (152.5000,402.5000) -- (152.5000,408.5000);
+ \path[draw] (228.7500,402.5000) -- (228.7500,408.5000);
+ \path[draw] (305.0000,402.5000) -- (305.0000,408.5000);
+ \path[draw] (381.2500,402.5000) -- (381.2500,408.5000);
+ \path[draw] (457.5000,402.5000) -- (457.5000,408.5000);
+ \path[draw] (533.7500,402.5000) -- (76.2500,402.5000);
+ \path[shift = {(60.25,395.5)},fill,line join = bevel,line width =
+0.000pt]
+ (-0.4219,10.0537) node[above right] (text5442) {0};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,280.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text5446) {0.2};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,165.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text5450) {0.4};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,50.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text5454) {0.6};
+ \end{scope}
+ \begin{scope}[shift = {(52.25,338.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text5458) {0.1};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,223.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text5462) {0.3};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,108.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text5466) {0.5};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,366.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text5470) {0.05};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,309.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text5474) {0.15};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,251.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text5478) {0.25};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,194.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text5482) {0.35};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,136.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text5486) {0.45};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,79.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text5490) {0.55};
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (76.2500,402.5000) -- (70.2500,402.5000);
+ \path[draw] (76.2500,373.7500) -- (70.2500,373.7500);
+ \path[draw] (76.2500,345.0000) -- (70.2500,345.0000);
+ \path[draw] (76.2500,316.2500) -- (70.2500,316.2500);
+ \path[draw] (76.2500,287.5000) -- (70.2500,287.5000);
+ \path[draw] (76.2500,258.7500) -- (70.2500,258.7500);
+ \path[draw] (76.2500,230.0000) -- (70.2500,230.0000);
+ \path[draw] (76.2500,201.2500) -- (70.2500,201.2500);
+ \path[draw] (76.2500,172.5000) -- (70.2500,172.5000);
+ \path[draw] (76.2500,143.7500) -- (70.2500,143.7500);
+ \path[draw] (76.2500,115.0000) -- (70.2500,115.0000);
+ \path[draw] (76.2500,86.2500) -- (70.2500,86.2500);
+ \path[draw] (76.2500,57.5000) -- (70.2500,57.5000);
+ \path[draw] (76.2500,57.5000) -- (76.2500,402.5000);
+ \path[shift = {(152.5,402.5)},draw] (-5.0000,-5.0000) --
+(5.0000,5.0000);
+ \path[shift = {(152.5,402.5)},draw] (-5.0000,5.0000) --
+(5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(152.5,402.5)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(152.5,402.5)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(228.75,115.0)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(305.0,210.8333)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(381.25,330.625)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(457.5,383.3333)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[draw = blue,fill = blue,line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (151.3562,402.5000) -- (153.6437,402.5000) --
+(153.6437,374.0145) --
+ cycle;
+ \path[fill] (151.3562,402.5000) -- (153.6437,374.0145) --
+(151.3562,374.0145) --
+ cycle;
+ \path[fill] (227.6062,402.5000) -- (229.8938,402.5000) --
+(229.8938,102.4362) --
+ cycle;
+ \path[fill] (227.6062,402.5000) -- (229.8938,102.4362) --
+(227.6062,102.4362) --
+ cycle;
+ \path[fill] (303.8563,402.5000) -- (306.1437,402.5000) --
+(306.1437,225.6358) --
+ cycle;
+ \path[fill] (303.8563,402.5000) -- (306.1437,225.6358) --
+(303.8563,225.6358) --
+ cycle;
+ \path[fill] (380.1063,402.5000) -- (382.3937,402.5000) --
+(382.3937,346.5410) --
+ cycle;
+ \path[fill] (380.1063,402.5000) -- (382.3937,346.5410) --
+(380.1063,346.5410) --
+ cycle;
+ \path[fill] (456.3563,402.5000) -- (458.6438,402.5000) --
+(458.6438,390.9885) --
+ cycle;
+ \path[fill] (456.3563,402.5000) -- (458.6438,390.9885) --
+(456.3563,390.9885) --
+ cycle;
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (151.3562,402.5000) -- (153.6437,402.5000);
+ \path[draw] (153.6437,402.5000) -- (153.6437,374.0145);
+ \path[draw] (153.6437,374.0145) -- (151.3562,374.0145);
+ \path[draw] (151.3562,374.0145) -- (151.3562,402.5000);
+ \path[draw] (227.6062,402.5000) -- (229.8938,402.5000);
+ \path[draw] (229.8938,402.5000) -- (229.8938,102.4362);
+ \path[draw] (229.8938,102.4362) -- (227.6062,102.4362);
+ \path[draw] (227.6062,102.4362) -- (227.6062,402.5000);
+ \path[draw] (303.8563,402.5000) -- (306.1437,402.5000);
+ \path[draw] (306.1437,402.5000) -- (306.1437,225.6358);
+ \path[draw] (306.1437,225.6358) -- (303.8563,225.6358);
+ \path[draw] (303.8563,225.6358) -- (303.8563,402.5000);
+ \path[draw] (380.1063,402.5000) -- (382.3937,402.5000);
+ \path[draw] (382.3937,402.5000) -- (382.3937,346.5410);
+ \path[draw] (382.3937,346.5410) -- (380.1063,346.5410);
+ \path[draw] (380.1063,346.5410) -- (380.1063,402.5000);
+ \path[draw] (456.3563,402.5000) -- (458.6438,402.5000);
+ \path[draw] (458.6438,402.5000) -- (458.6438,390.9885);
+ \path[draw] (458.6438,390.9885) -- (456.3563,390.9885);
+ \path[draw] (456.3563,390.9885) -- (456.3563,402.5000);
+ \end{scope}
+	\draw(500,150)[scale = 1] node{\Huge \texttt{n = 20}};
+\end{tikzpicture}
+
+%% n = 50
+\begin{tikzpicture}[every node/.style = {scale = 0.5},y = 0.80pt, x =
+0.80pt, yscale = -0.500000, xscale = 0.500000, inner sep = 0pt, outer
+sep = 0pt,
+draw = black,fill = black,line join = miter,line cap = rect,miter limit
+= 10.00,line width = 0.800pt]
+ \begin{scope}[draw = white,fill = white]
+ \path[fill,rounded corners = 0.0000cm] (0.0000,0.0000) rectangle
+ (610.0000,460.0000);
+ \end{scope}
+ \begin{scope}[draw = white,fill = white,line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,402.5000) --
+(76.2500,402.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,57.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,57.5000) --
+(76.2500,402.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (76.2500,57.5000) --
+(533.7500,57.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,57.5000) --
+(533.7500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,402.5000) -- (76.2500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \end{scope}
+ \begin{scope}[shift = {(150.0,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-1.0938,10.0537) node[above right] (text87) {1};
+ \end{scope}
+ \begin{scope}[shift = {(225.25,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.2969,10.0537) node[above right] (text91) {2};
+ \end{scope}
+ \begin{scope}[shift = {(301.5,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text95) {3};
+ \end{scope}
+ \begin{scope}[shift = {(377.75,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.1250,10.0537) node[above right] (text99) {4};
+ \end{scope}
+ \begin{scope}[shift = {(454.0,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text103) {5};
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (152.5000,402.5000) -- (152.5000,408.5000);
+ \path[draw] (228.7500,402.5000) -- (228.7500,408.5000);
+ \path[draw] (305.0000,402.5000) -- (305.0000,408.5000);
+ \path[draw] (381.2500,402.5000) -- (381.2500,408.5000);
+ \path[draw] (457.5000,402.5000) -- (457.5000,408.5000);
+ \path[draw] (533.7500,402.5000) -- (76.2500,402.5000);
+ \path[shift = {(60.25,395.5)},fill,line join = bevel,line width =
+0.000pt]
+ (-0.4219,10.0537) node[above right] (text119) {0};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,280.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text123) {0.2};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,165.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text127) {0.4};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,50.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text131) {0.6};
+ \end{scope}
+ \begin{scope}[shift = {(52.25,338.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text135) {0.1};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,223.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text139) {0.3};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,108.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text143) {0.5};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,366.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text147) {0.05};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,309.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text151) {0.15};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,251.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text155) {0.25};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,194.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text159) {0.35};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,136.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text163) {0.45};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,79.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text167) {0.55};
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (76.2500,402.5000) -- (70.2500,402.5000);
+ \path[draw] (76.2500,373.7500) -- (70.2500,373.7500);
+ \path[draw] (76.2500,345.0000) -- (70.2500,345.0000);
+ \path[draw] (76.2500,316.2500) -- (70.2500,316.2500);
+ \path[draw] (76.2500,287.5000) -- (70.2500,287.5000);
+ \path[draw] (76.2500,258.7500) -- (70.2500,258.7500);
+ \path[draw] (76.2500,230.0000) -- (70.2500,230.0000);
+ \path[draw] (76.2500,201.2500) -- (70.2500,201.2500);
+ \path[draw] (76.2500,172.5000) -- (70.2500,172.5000);
+ \path[draw] (76.2500,143.7500) -- (70.2500,143.7500);
+ \path[draw] (76.2500,115.0000) -- (70.2500,115.0000);
+ \path[draw] (76.2500,86.2500) -- (70.2500,86.2500);
+ \path[draw] (76.2500,57.5000) -- (70.2500,57.5000);
+ \path[draw] (76.2500,57.5000) -- (76.2500,402.5000);
+ \path[shift = {(152.5,402.5)},draw] (-5.0000,-5.0000) --
+(5.0000,5.0000);
+ \path[shift = {(152.5,402.5)},draw] (-5.0000,5.0000) --
+(5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(152.5,402.5)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(152.5,402.5)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(228.75,115.0)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(305.0,210.8333)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(381.25,330.625)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(457.5,383.3333)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[draw = blue,fill = blue,line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (151.3562,402.5000) -- (153.6437,402.5000) --
+(153.6437,391.3853) --
+ cycle;
+ \path[fill] (151.3562,402.5000) -- (153.6437,391.3853) --
+(151.3562,391.3853) --
+ cycle;
+ \path[fill] (227.6062,402.5000) -- (229.8938,402.5000) --
+(229.8938,109.4570) --
+ cycle;
+ \path[fill] (227.6062,402.5000) -- (229.8938,109.4570) --
+(227.6062,109.4570) --
+ cycle;
+ \path[fill] (303.8563,402.5000) -- (306.1437,402.5000) --
+(306.1437,216.3092) --
+ cycle;
+ \path[fill] (303.8563,402.5000) -- (306.1437,216.3092) --
+(303.8563,216.3092) --
+ cycle;
+ \path[fill] (380.1063,402.5000) -- (382.3937,402.5000) --
+(382.3937,337.5652) --
+ cycle;
+ \path[fill] (380.1063,402.5000) -- (382.3937,337.5652) --
+(380.1063,337.5652) --
+ cycle;
+ \path[fill] (456.3563,402.5000) -- (458.6438,402.5000) --
+(458.6438,386.3310) --
+ cycle;
+ \path[fill] (456.3563,402.5000) -- (458.6438,386.3310) --
+(456.3563,386.3310) --
+ cycle;
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (151.3562,402.5000) -- (153.6437,402.5000);
+ \path[draw] (153.6437,402.5000) -- (153.6437,391.3853);
+ \path[draw] (153.6437,391.3853) -- (151.3562,391.3853);
+ \path[draw] (151.3562,391.3853) -- (151.3562,402.5000);
+ \path[draw] (227.6062,402.5000) -- (229.8938,402.5000);
+ \path[draw] (229.8938,402.5000) -- (229.8938,109.4570);
+ \path[draw] (229.8938,109.4570) -- (227.6062,109.4570);
+ \path[draw] (227.6062,109.4570) -- (227.6062,402.5000);
+ \path[draw] (303.8563,402.5000) -- (306.1437,402.5000);
+ \path[draw] (306.1437,402.5000) -- (306.1437,216.3092);
+ \path[draw] (306.1437,216.3092) -- (303.8563,216.3092);
+ \path[draw] (303.8563,216.3092) -- (303.8563,402.5000);
+ \path[draw] (380.1063,402.5000) -- (382.3937,402.5000);
+ \path[draw] (382.3937,402.5000) -- (382.3937,337.5652);
+ \path[draw] (382.3937,337.5652) -- (380.1063,337.5652);
+ \path[draw] (380.1063,337.5652) -- (380.1063,402.5000);
+ \path[draw] (456.3563,402.5000) -- (458.6438,402.5000);
+ \path[draw] (458.6438,402.5000) -- (458.6438,386.3310);
+ \path[draw] (458.6438,386.3310) -- (456.3563,386.3310);
+ \path[draw] (456.3563,386.3310) -- (456.3563,402.5000);
+ \end{scope}
+	\draw(500,150)[scale = 1] node{\Huge \texttt{n = 50}};
+\end{tikzpicture}
+\end{multicols}
+
+\begin{multicols}{2}
+%% n = 100
+\begin{tikzpicture}[every node/.style = {scale = 0.5},y = 0.80pt, x =
+0.80pt, yscale = -0.500000, xscale = 0.500000, inner sep = 0pt, outer
+sep = 0pt,
+draw = black,fill = black,line join = miter,line cap = rect,miter limit
+= 10.00,line width = 0.800pt]
+ \begin{scope}[draw = white,fill = white]
+ \path[fill,rounded corners = 0.0000cm] (0.0000,0.0000) rectangle
+ (610.0000,460.0000);
+ \end{scope}
+ \begin{scope}[draw = white,fill = white,line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,402.5000) --
+(76.2500,402.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,57.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,57.5000) --
+(76.2500,402.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (76.2500,57.5000) --
+(533.7500,57.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,57.5000) --
+(533.7500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,402.5000) -- (76.2500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \end{scope}
+ \begin{scope}[shift = {(150.0,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-1.0938,10.0537) node[above right] (text750) {1};
+ \end{scope}
+ \begin{scope}[shift = {(225.25,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.2969,10.0537) node[above right] (text754) {2};
+ \end{scope}
+ \begin{scope}[shift = {(301.5,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text758) {3};
+ \end{scope}
+ \begin{scope}[shift = {(377.75,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.1250,10.0537) node[above right] (text762) {4};
+ \end{scope}
+ \begin{scope}[shift = {(454.0,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text766) {5};
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (152.5000,402.5000) -- (152.5000,408.5000);
+ \path[draw] (228.7500,402.5000) -- (228.7500,408.5000);
+ \path[draw] (305.0000,402.5000) -- (305.0000,408.5000);
+ \path[draw] (381.2500,402.5000) -- (381.2500,408.5000);
+ \path[draw] (457.5000,402.5000) -- (457.5000,408.5000);
+ \path[draw] (533.7500,402.5000) -- (76.2500,402.5000);
+ \path[shift = {(60.25,395.5)},fill,line join = bevel,line width =
+0.000pt]
+ (-0.4219,10.0537) node[above right] (text782) {0};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,280.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text786) {0.2};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,165.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text790) {0.4};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,50.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text794) {0.6};
+ \end{scope}
+ \begin{scope}[shift = {(52.25,338.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text798) {0.1};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,223.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text802) {0.3};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,108.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text806) {0.5};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,366.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text810) {0.05};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,309.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text814) {0.15};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,251.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text818) {0.25};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,194.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text822) {0.35};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,136.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text826) {0.45};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,79.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text830) {0.55};
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (76.2500,402.5000) -- (70.2500,402.5000);
+ \path[draw] (76.2500,373.7500) -- (70.2500,373.7500);
+ \path[draw] (76.2500,345.0000) -- (70.2500,345.0000);
+ \path[draw] (76.2500,316.2500) -- (70.2500,316.2500);
+ \path[draw] (76.2500,287.5000) -- (70.2500,287.5000);
+ \path[draw] (76.2500,258.7500) -- (70.2500,258.7500);
+ \path[draw] (76.2500,230.0000) -- (70.2500,230.0000);
+ \path[draw] (76.2500,201.2500) -- (70.2500,201.2500);
+ \path[draw] (76.2500,172.5000) -- (70.2500,172.5000);
+ \path[draw] (76.2500,143.7500) -- (70.2500,143.7500);
+ \path[draw] (76.2500,115.0000) -- (70.2500,115.0000);
+ \path[draw] (76.2500,86.2500) -- (70.2500,86.2500);
+ \path[draw] (76.2500,57.5000) -- (70.2500,57.5000);
+ \path[draw] (76.2500,57.5000) -- (76.2500,402.5000);
+ \path[shift = {(152.5,402.5)},draw] (-5.0000,-5.0000) --
+(5.0000,5.0000);
+ \path[shift = {(152.5,402.5)},draw] (-5.0000,5.0000) --
+(5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(152.5,402.5)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(152.5,402.5)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(228.75,115.0)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(305.0,210.8333)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(381.25,330.625)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(457.5,383.3333)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[draw = blue,fill = blue,line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (151.3562,402.5000) -- (153.6437,402.5000) --
+(153.6437,396.9225) --
+ cycle;
+ \path[fill] (151.3562,402.5000) -- (153.6437,396.9225) --
+(151.3562,396.9225) --
+ cycle;
+ \path[fill] (227.6062,402.5000) -- (229.8938,402.5000) --
+(229.8938,109.5433) --
+ cycle;
+ \path[fill] (227.6062,402.5000) -- (229.8938,109.5433) --
+(227.6062,109.5433) --
+ cycle;
+ \path[fill] (303.8563,402.5000) -- (306.1437,402.5000) --
+(306.1437,215.7457) --
+ cycle;
+ \path[fill] (303.8563,402.5000) -- (306.1437,215.7457) --
+(303.8563,215.7457) --
+ cycle;
+ \path[fill] (380.1063,402.5000) -- (382.3937,402.5000) --
+(382.3937,334.3050) --
+ cycle;
+ \path[fill] (380.1063,402.5000) -- (382.3937,334.3050) --
+(380.1063,334.3050) --
+ cycle;
+ \path[fill] (456.3563,402.5000) -- (458.6438,402.5000) --
+(458.6438,385.1580) --
+ cycle;
+ \path[fill] (456.3563,402.5000) -- (458.6438,385.1580) --
+(456.3563,385.1580) --
+ cycle;
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (151.3562,402.5000) -- (153.6437,402.5000);
+ \path[draw] (153.6437,402.5000) -- (153.6437,396.9225);
+ \path[draw] (153.6437,396.9225) -- (151.3562,396.9225);
+ \path[draw] (151.3562,396.9225) -- (151.3562,402.5000);
+ \path[draw] (227.6062,402.5000) -- (229.8938,402.5000);
+ \path[draw] (229.8938,402.5000) -- (229.8938,109.5433);
+ \path[draw] (229.8938,109.5433) -- (227.6062,109.5433);
+ \path[draw] (227.6062,109.5433) -- (227.6062,402.5000);
+ \path[draw] (303.8563,402.5000) -- (306.1437,402.5000);
+ \path[draw] (306.1437,402.5000) -- (306.1437,215.7457);
+ \path[draw] (306.1437,215.7457) -- (303.8563,215.7457);
+ \path[draw] (303.8563,215.7457) -- (303.8563,402.5000);
+ \path[draw] (380.1063,402.5000) -- (382.3937,402.5000);
+ \path[draw] (382.3937,402.5000) -- (382.3937,334.3050);
+ \path[draw] (382.3937,334.3050) -- (380.1063,334.3050);
+ \path[draw] (380.1063,334.3050) -- (380.1063,402.5000);
+ \path[draw] (456.3563,402.5000) -- (458.6438,402.5000);
+ \path[draw] (458.6438,402.5000) -- (458.6438,385.1580);
+ \path[draw] (458.6438,385.1580) -- (456.3563,385.1580);
+ \path[draw] (456.3563,385.1580) -- (456.3563,402.5000);
+ \end{scope}
+	\draw(500,150)[scale = 1] node{\Huge \texttt{n = 100}};
+\end{tikzpicture}
+
+
+%% n = 1000
+\begin{tikzpicture}[every node/.style = {scale = 0.5},y = 0.80pt, x =
+0.80pt, yscale = -0.500000, xscale = 0.500000, inner sep = 0pt, outer
+sep = 0pt,
+draw = black,fill = black,line join = miter,line cap = rect,miter limit
+= 10.00,line width = 0.800pt]
+ \begin{scope}[draw = white,fill = white]
+ \path[fill,rounded corners = 0.0000cm] (0.0000,0.0000) rectangle
+ (610.0000,460.0000);
+ \end{scope}
+ \begin{scope}[draw = white,fill = white,line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,402.5000) --
+(76.2500,402.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(76.2500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (533.7500,57.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,57.5000) --
+(76.2500,402.5000) --
+ cycle;
+ \path[fill] (533.7500,57.5000) -- (76.2500,57.5000) --
+(533.7500,57.5000) --
+ cycle;
+ \path[fill] (76.2500,57.5000) -- (76.2500,57.5000) --
+(533.7500,57.5000) --
+ cycle;
+ \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \path[fill] (76.2500,402.5000) -- (76.2500,402.5000) --
+(533.7500,402.5000) --
+ cycle;
+ \end{scope}
+ \begin{scope}[shift = {(150.0,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-1.0938,10.0537) node[above right] (text750) {1};
+ \end{scope}
+ \begin{scope}[shift = {(225.25,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.2969,10.0537) node[above right] (text754) {2};
+ \end{scope}
+ \begin{scope}[shift = {(301.5,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text758) {3};
+ \end{scope}
+ \begin{scope}[shift = {(377.75,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.1250,10.0537) node[above right] (text762) {4};
+ \end{scope}
+ \begin{scope}[shift = {(454.0,411.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text766) {5};
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (152.5000,402.5000) -- (152.5000,408.5000);
+ \path[draw] (228.7500,402.5000) -- (228.7500,408.5000);
+ \path[draw] (305.0000,402.5000) -- (305.0000,408.5000);
+ \path[draw] (381.2500,402.5000) -- (381.2500,408.5000);
+ \path[draw] (457.5000,402.5000) -- (457.5000,408.5000);
+ \path[draw] (533.7500,402.5000) -- (76.2500,402.5000);
+ \path[shift = {(60.25,395.5)},fill,line join = bevel,line width =
+0.000pt]
+ (-0.4219,10.0537) node[above right] (text782) {0};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,280.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text786) {0.2};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,165.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text790) {0.4};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,50.5)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text794) {0.6};
+ \end{scope}
+ \begin{scope}[shift = {(52.25,338.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text798) {0.1};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,223.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text802) {0.3};
+ \end{scope}
+ \begin{scope}[shift = {(51.25,108.0)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text806) {0.5};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,366.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text810) {0.05};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,309.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text814) {0.15};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,251.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text818) {0.25};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,194.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text822) {0.35};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,136.75)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text826) {0.45};
+ \end{scope}
+ \begin{scope}[shift = {(45.25,79.25)},line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (-0.4219,10.0537) node[above right] (text830) {0.55};
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (76.2500,402.5000) -- (70.2500,402.5000);
+ \path[draw] (76.2500,373.7500) -- (70.2500,373.7500);
+ \path[draw] (76.2500,345.0000) -- (70.2500,345.0000);
+ \path[draw] (76.2500,316.2500) -- (70.2500,316.2500);
+ \path[draw] (76.2500,287.5000) -- (70.2500,287.5000);
+ \path[draw] (76.2500,258.7500) -- (70.2500,258.7500);
+ \path[draw] (76.2500,230.0000) -- (70.2500,230.0000);
+ \path[draw] (76.2500,201.2500) -- (70.2500,201.2500);
+ \path[draw] (76.2500,172.5000) -- (70.2500,172.5000);
+ \path[draw] (76.2500,143.7500) -- (70.2500,143.7500);
+ \path[draw] (76.2500,115.0000) -- (70.2500,115.0000);
+ \path[draw] (76.2500,86.2500) -- (70.2500,86.2500);
+ \path[draw] (76.2500,57.5000) -- (70.2500,57.5000);
+ \path[draw] (76.2500,57.5000) -- (76.2500,402.5000);
+ \path[shift = {(152.5,402.5)},draw] (-5.0000,-5.0000) --
+(5.0000,5.0000);
+ \path[shift = {(152.5,402.5)},draw] (-5.0000,5.0000) --
+(5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(152.5,402.5)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(152.5,402.5)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(228.75,115.0)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(305.0,210.8333)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(381.25,330.625)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(457.5,383.3333)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[shift = {(533.75,398.5069)},line cap = butt]
+ \path[draw] (-5.0000,-5.0000) -- (5.0000,5.0000);
+ \path[draw] (-5.0000,5.0000) -- (5.0000,-5.0000);
+ \end{scope}
+ \begin{scope}[draw = blue,fill = blue,line join = bevel,line cap =
+butt,line width = 0.000pt]
+ \path[fill] (151.3562,402.5000) -- (153.6437,402.5000) --
+(153.6437,396.9225) --
+ cycle;
+ \path[fill] (151.3562,402.5000) -- (153.6437,396.9225) --
+(151.3562,396.9225) --
+ cycle;
+ \path[fill] (227.6062,402.5000) -- (229.8938,402.5000) --
+(229.8938,109.5433) --
+ cycle;
+ \path[fill] (227.6062,402.5000) -- (229.8938,109.5433) --
+(227.6062,109.5433) --
+ cycle;
+ \path[fill] (303.8563,402.5000) -- (306.1437,402.5000) --
+(306.1437,215.7457) --
+ cycle;
+ \path[fill] (303.8563,402.5000) -- (306.1437,215.7457) --
+(303.8563,215.7457) --
+ cycle;
+ \path[fill] (380.1063,402.5000) -- (382.3937,402.5000) --
+(382.3937,334.3050) --
+ cycle;
+ \path[fill] (380.1063,402.5000) -- (382.3937,334.3050) --
+(380.1063,334.3050) --
+ cycle;
+ \path[fill] (456.3563,402.5000) -- (458.6438,402.5000) --
+(458.6438,385.1580) --
+ cycle;
+ \path[fill] (456.3563,402.5000) -- (458.6438,385.1580) --
+(456.3563,385.1580) --
+ cycle;
+ \end{scope}
+ \begin{scope}[line cap = butt]
+ \path[draw] (151.3562,402.5000) -- (153.6437,402.5000);
+ \path[draw] (153.6437,402.5000) -- (153.6437,396.9225);
+ \path[draw] (153.6437,396.9225) -- (151.3562,396.9225);
+ \path[draw] (151.3562,396.9225) -- (151.3562,402.5000);
+ \path[draw] (227.6062,402.5000) -- (229.8938,402.5000);
+ \path[draw] (229.8938,402.5000) -- (229.8938,109.5433);
+ \path[draw] (229.8938,109.5433) -- (227.6062,109.5433);
+ \path[draw] (227.6062,109.5433) -- (227.6062,402.5000);
+ \path[draw] (303.8563,402.5000) -- (306.1437,402.5000);
+ \path[draw] (306.1437,402.5000) -- (306.1437,215.7457);
+ \path[draw] (306.1437,215.7457) -- (303.8563,215.7457);
+ \path[draw] (303.8563,215.7457) -- (303.8563,402.5000);
+ \path[draw] (380.1063,402.5000) -- (382.3937,402.5000);
+ \path[draw] (382.3937,402.5000) -- (382.3937,334.3050);
+ \path[draw] (382.3937,334.3050) -- (380.1063,334.3050);
+ \path[draw] (380.1063,334.3050) -- (380.1063,402.5000);
+ \path[draw] (456.3563,402.5000) -- (458.6438,402.5000);
+ \path[draw] (458.6438,402.5000) -- (458.6438,385.1580);
+ \path[draw] (458.6438,385.1580) -- (456.3563,385.1580);
+ \path[draw] (456.3563,385.1580) -- (456.3563,402.5000);
+ \end{scope}
+	\draw(500,150)[scale = 1] node{\Huge \texttt{n = 1000}};
+\end{tikzpicture}
+
+\end{multicols}
+
+	\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+		\item Expliquer ce que représentent les vecteurs renvoyés par les
+fonctions \texttt{freqT} et \texttt{loitheoY}. Comment ces vecteurs
+sont-ils représentés graphiquement dans chaque graphique obtenu ?
+		\item Expliquer en quoi cette succession de graphiques permet
+d'illustrer le résultat de la question 13.
+	\end{noliste}
+\end{noliste}
+
+\end{document} 
+
+
+

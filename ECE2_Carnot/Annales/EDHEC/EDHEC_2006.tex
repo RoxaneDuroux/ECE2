@@ -1,0 +1,490 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 2006} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 2006}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\Huge EDHEC}
+
+\textbf{School of management\vspace{3cm}}
+
+{\large ECOLE D\E\ HAUTES\ ETUDES\ COMMERCIALES\ DU\ NORD}
+
+{\large Concours d'admission sur classes préparatoires}
+
+\underline{\hspace{3cm}}
+
+{\LARGE MATHEMATIQUES}
+
+{\large Option économique}
+
+\textbf{Année 2006}{\large }
+\end{center}
+
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document : seule
+l'utilisation d'une règle graduée est autorisée.\vspace{1cm}}
+
+\noindent \textbf{L'utilisation de toute calculatrice et de tout
+matériel électronique est interdite.}\vspace{1cm}
+
+\section*{Exercice 1}
+
+Soit $f$ l'endomorphisme de $\R^{3}$ dont la matrice dans la base
+canonique $\mathcal{B}$ de $\R^{3}$ est : $A = 
+\begin{smatrix}
+2 & 10 & 7 \\
+1 & 4 & 3 \\
+-2 & -8 & -6
+\end{smatrix}
+$
+
+On note $I$ la matrice unité et $O$ la matrice nulle de
+$\mathfrak{M}_{3}(
+\R)$ et on pose $u = (2;1;-2)$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\ker (f) = \Vect(u)$.
+
+\item La matrice $A$ est-elle inversible ?
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer le vecteur v de $\R^{3}$ dont la $2$-ième coordonnée
+dans $B$ vaut 1, et tel que $f(v) = u.$
+
+\item Démontrer que le vecteur $w$ de $\R^{3}$,dont la $2$-ième
+coordonnée dans $B$ vaut 1, et qui vérifie $f(w) = v$ est $w =
+(0;1;-1)$.
+
+\item Montrer que $(u;v;w)$ est une base de $\R^{3}$ que l'on notera 
+$\mathcal{B}{\prime }$. On note $P$ la matrice de passage de la base
+$\mathcal{B}$ à la base $\mathcal{B}{\prime }$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Écrire la matrice $N$ de f relativement à la base
+$\mathcal{B}{\prime
+}$. En déduire la seule valeur propre de $f$. L'endomorphisme $f$
+est-il
+diagonalisable ?
+
+\item Donner la relation liant les matrices $A,N,P$ et $P^{-1}$, puis
+en déduire que, pour tout entier $k$ supérieur ou égal à 3, on a :
+$A^{k} = O$.
+\end{noliste}
+
+\item On note $C_{N}$ (respectivement $C_{A}$) l'ensemble des matrices
+de $
+\mathfrak{M}_{3}(\R)$ qui commutent avec N (respectivement A),
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $C_{N}$ est un sous-espace vectoriel de
+$\mathfrak{M}_{3}(
+\R)$ et que $C_{N} = \Vect(I;N;N^{2})$.\\
+On admet que $C_{A}$ est aussi un sous-espace vectoriel de
+$\mathfrak{M}_{3}(
+\R)$.
+
+\item Établir que : \textquotedblleft $M\in C_{A}$ \textquotedblright\
+$
+\Leftrightarrow $ \textquotedblleft\ $P^{-1}MP\in C_{N}$
+\textquotedblright. En déduire que $C_{A} = \Vect(I;A;A^{2})$. Quelle
+est la dimension de $C_{A}$ ?
+\end{noliste}
+\end{noliste}
+
+\subsection*{Exercice 2}
+
+On considère la fonction f définie par f (x) = $\left\{ 
+\begin{array}{cc}
+\dfrac{1}{2(1-x)^{2}} & \text{si }x\in \left[ 0,\dfrac{1}{2}\right[
+\\
+\dfrac{1}{2x^{2}} & \text{si }x\in \left[ \ \dfrac{1}{2},1\right[ \ 
+\\
+0 & \text{si }x\in \R\backslash \left[ 0,1\right[ \ 
+\end{array}
+\right. $ 
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que f peut être considérée comme une densité de
+probabilité.
+\\
+Dans toute la suite, on considère une variable aléatoire $X$ définie
+sur un
+certain espace probabilisé \\
+$(\Omega ;A;P)$ et admettant la fonction f pour densité.
+
+\item Déterminer la fonction de répartition $F$ de $X$.
+
+\item Montrer que $X$ a une espérance et que celle-ci vaut
+$\dfrac{1}{2}$.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer $\E((X-1)^{2})$.
+
+\item En déduire que $X$ a une variance et que $\V(X) =
+\dfrac{3}{4}-\ln (2)$.
+\end{noliste}
+
+\item On appelle variable indicatrice d'un évènement A, la variable de
+Bernoulli qui vaut 1 si A est réalisé et 0 sinon. On considère
+maintenant la
+variable aléatoire $Y$, indicatrice de l'évènement $(X\leq 1/2)$ et la
+variable aléatoire $Z$, indicatrice de l'évènement $(X>1/2)$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Préciser la relation liant $Y$ et $Z$ puis établir sans calcul
+que le
+coefficient de corrélation linéaire de $Y$ et $Z$, noté $\rho (Y;Z)$,
+est égal à $-1.$
+
+\item En déduire la valeur de la covariance de $Y$ et $Z$.
+\end{noliste}
+\end{noliste}
+
+\subsubsection*{Exercice 3}
+
+Soit $f$ la fonction définie pour tout couple $(x;y)$ de $\R^{2}$ par :
+$f(x;y) = 2x^{2} + 2y^{2} + 2xy-x-y.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer les dérivées partielles premières de $f$.
+
+\item En déduire que le seul point critique de $f$ est $A = \left(
+\dfrac{1}{6},\dfrac{1}{6}\right) $.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer les dérivées partielles secondes de $f$.
+
+\item Montrer que $f$ présente un minimum local en $A$ et donner la
+valeur $m
+$ de ce minimum.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Développer $2\left( x + \dfrac{y}{2}-\dfrac{1}{4}\right) ^{2} +
+\dfrac{3}{2}\left( y-\dfrac{1}{6}\right) ^{2}$.
+
+\item En déduire que m est le minimum global de $f$ sur $\R^{2}$.
+\end{noliste}
+
+\item On considère la fonction $g$ définie pour tout couple $(x;y)$ de
+$
+\R^{2}$, par :$g(x;y) = 2e^{2x} + 2e^{2y} + 2e^{x + y}-e^{x}-e^{y}.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Utiliser la question 3. pour établir que : $\forall (x;y)\in \R
+^{2},\quad g(x;y)\geq -1/6$.
+
+\item En déduire que $g$ possède un minimum global sur $\R^{2}$ et
+préciser en quel point ce minimum est atteint.
+\end{noliste}
+\end{noliste}
+
+\section*{Problème}
+
+\subsection*{Partie I : Étude d'une variable discrète sans mémoire.}
+
+Soit $X$ une variable aléatoire discrète, à valeurs dans $\N$ telle
+que : $\forall m\in \N,\quad P\left(\Ev{X\geq m}\right)>0$. \\
+On suppose également que $X$ vérifie : $\forall (m;n)\in \N\times 
+\N,\quad P_{(x\geq m)}(X\geq n + m) = P\left(\Ev{X\geq n}\right)$.\\
+On pose $P\left(\Ev{X = 0}\right) = p$ et on suppose que $p>0$. 
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On pose $q = 1-p$. Montrer que $P\left(\Ev{X\geq 1}\right) = q$.
+En déduire que $0<q<1
+$.
+
+\item Montrer que : $\forall (m;n)\in \N\times \N,\quad
+P\left(\Ev{X\geq n + m}\right) = P\left(\Ev{X\geq
+m}\right)P\left(\Ev{X\geq n}\right)$. 
+
+\item Pour tout n de $N$ on pose $u_{n} = P\left(\Ev{X\geq n}\right)$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Utiliser la relation obtenue à la deuxième question pour montrer
+que la suite $(u_{n})$ est géométrique. 
+
+\item Pour tout $n$ de $\N$, exprimer $P\left(\Ev{X\geq n}\right)$ en
+fonction de $n$ et de $q$. 
+
+\item Établir que : $\forall n\in \N,\quad P\left(\Ev{X = n}\right) =
+P\left(\Ev{X\geq 
+n}\right)-P\left(\Ev{X\geq n + 1}\right)$ 
+
+\item En déduire que, pour tout $n$ de $\N$, on a $P\left(\Ev{X =
+n}\right) = q^{n}p$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Reconnaître la loi suivie par la variable $X + 1$.
+
+\item En déduire $\E(X)$ et $\V(X)$.
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie II : Taux de panne d'une variable discrète.}
+
+Pour toute variable aléatoire $Y$ à valeurs dans $\N$ et telle que,
+pour tout $n$ de $\N$, $P\left(\Ev{Y\geq n}\right)>0$, on définit le
+taux de
+panne de $Y$ à l'instant $n$, noté $\lambda_{n}$ par : $\forall n\in 
+\N,\quad \lambda_{n} = P_{(y\geq n)}(Y\geq n).$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : $\forall n\in \N,\quad \lambda_{n} =
+\dfrac{P\left(\Ev{Y = n}\right)
+}{P\left(\Ev{Y\geq n}\right)}.$
+
+\item En déduire que :$\forall n\in \N,\quad 1-\lambda_{n} = \dfrac{
+P\left(\Ev{Y\geq n + 1}\right)}{P\left(\Ev{Y\geq n}\right)}.$
+
+\item Établir alors que : $\forall n\in \N$, $0\leq \lambda
+_{n}<1$.
+
+\item Montrer par récurrence, que : $\forall n\in \N^{\times },\quad
+P\left(\Ev{Y\geq n}\right) = \dprod\limits_{k =
+0}{n-1}(1-\lambda_{k}).$
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que :$\forall n\in \N^{\times },\quad
+\dsum\limits_{k = 0}{n-1}P\left(\Ev{Y = k}\right) = 1-P\left(\Ev{Y\geq
+n}\right)$
+
+\item En déduire que $\dlim{n\rightarrow + \infty }P\left(\Ev{Y\geq
+n}\right) = 0$. 
+
+\item Montrer que $\dlim{n\rightarrow + \infty
+}\dsum\limits_{k = 0}{n-1}-\ln (1-\lambda_{k}) = + \infty $. 
+
+\item Conclure quant à la nature de la série de terme général
+$\lambda_{n}$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On considère la déclaration de fonction, en \Scilab{}, rédigée de
+manière
+récursive : \\
+Function f (n : integer) : integer ;\\
+Begin \\
+If (n = 0) then f : = ------ \\
+else f : = ------- ;\\
+end;\\
+Compléter cette déclaration pour qu'elle renvoie n! lorsqu'on appelle f
+(n).
+
+\item On considère la déclaration de fonction récursive suivante \\
+Function g (a : real ; n : integer) : real ;\\
+Begin \\
+lf (n = 0) then g : = 1 else g : = a *g(a,n -1); \\
+end ;\\
+Dire quel est le résultat retourné à l'appel de g(a, n).
+
+\item Proposer un programme (sans écrire la partie déclarative)
+utilisant
+ces deux fonctions et permettant d'une part le calcul de la somme $
+\dsum\limits_{k = 0}{n-1}\dfrac{a^{k}}{k!}e^{-a}$ et d'autre part, à
+l'aide
+du résultat de la question l.a), le calcul et l'affichage du taux de
+panne à
+l'instant n d'une variable aléatoire suivant la loi de Poisson de
+paramètre $
+a>0$, lorsque n et a sont entrés au clavier par l'utilisateur \\
+(on supposera $n\geq 1$).
+
+\item Compléter la déclaration de fonction suivante pour qu'elle
+renvoie la
+valeur de $\dsum\limits_{k = 0}{n-1}\dfrac{a^{k}}{k!}e^{-a}$ à l'appel
+de
+sigma (a, n).\\
+Function sigma(a : real ; n : integer) : real ;\\
+var k : integer ; p : real ;\\
+Begin \\
+p : = 1 ; s : = 1 ; \\
+For k : = 1 to n -1 do begin p : = p*a/ k ; s : =....... end ; \\
+s. =.....\dots \dots.. ; \\
+sigma : = s;\\
+end ;
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie III : Caractérisation des variables dont la loi est
+du
+type de celle de X.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer le taux de panne de la variable $X$ dont la loi a été
+trouvée à la question 3d) de la partie 1.
+
+\item On considère une variable aléatoire $Z$, à valeurs dans $\N$,
+et vérifiant : $\forall n\in \N^{\times },\quad P\left(\Ev{Z\geq
+n}\right)>0$.
+\\
+On suppose que le taux de panne de $Z$ est constant, c'est-à-dire que
+l'on a : $\forall n\in \N,\quad \lambda_{n} = \lambda $.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $0<\lambda <1$. 
+
+\item Pour tout $n$ de $\N$, déterminer $P\left(\Ev{Z\geq n$}\right) en
+fonction de $\lambda $ et $n$.
+
+\item Conclure que les seules variables aléatoires $Z$ à valeurs dans $
+\N$ dont le taux de panne est constant et telles que pour tout $n$
+de $\N,\quad P\left(\Ev{Z\geq n}\right)>0$, sont les variables dont la
+loi est
+du type de celle de $X$.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

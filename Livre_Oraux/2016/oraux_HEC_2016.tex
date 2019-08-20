@@ -1,0 +1,745 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+% \input{../../../macros.tex}
+\input{../../ECE2_Carnot/macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} 
+\lhead{ECE2 \hfill Mathématiques \\} 
+\chead{\hrule} 
+\rhead{} 
+\lfoot{} 
+\cfoot{} 
+\rfoot{\thepage} 
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2016} 
+\author{} 
+\date{} 
+\begin{document}
+\maketitle 
+\vspace{-1.2cm}\hrule 
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+%%DEBUT
+
+\subsection*{Sujet E 65}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 65; %
+% annee : 2016; % 
+% theme : vaDensite, vaExponentielle, vaMin, etudeFct, ic; % 
+
+\begin{exerciceAP}~\\
+  Soit $X$ une variable aléatoire définie sur un espace probabilisé
+  $(\Omega,\A,\Prob)$.\\
+  On appelle {\it médiane} de $X$ tout réel $m$ qui vérifie les deux
+  conditions :
+  \[
+  \Prob(\Ev{X\leq m}) \geq \dfrac{1}{2} \ \text{et} \ 
+  \Prob(\Ev{X\geq m})\geq \dfrac{1}{2}
+  \]
+  On suppose que $X$ suit la loi exponentielle de paramètre $\lambda>0$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition et propriétés de la loi
+    exponentielle.
+    
+    
+  
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $X$ admet une unique médiane $m$ que l'on
+      calculera.
+      
+    
+    
+    \item Soit $M$ la fonction définie sur $\R$, à valeurs réelles, 
+    telle que : $\forall x\in\R$, $M(x)=\E(\vert X-x\vert)$.\\
+    Étudier les variations de la fonction $M$ sur $\R$ et montrer 
+    que $m$ est l'unique point en lequel $M$ atteint son minimum.
+    
+    
+  \end{noliste}
+  
+  \item On suppose que le paramètre $\lambda$ est inconnu. Soit 
+  $\alpha$ un réel vérifiant $0<\alpha<1$.\\
+  Pour $n$ entier de $\N^*$, soit $(X_1,X_2,\hdots,X_n)$ un 
+  $n$-échantillon de variables aléatoires indépendantes et de même loi 
+  que $X$. On pose pour tout $n\in\N^*$ : $Z_n = 
+  \min(X_1,X_2,\hdots,X_n)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Quelle est la loi de $Z_n$ ?
+    
+    \item Établir l'existence de deux réels $c$ et $d$ tels que : 
+    $\Prob\left(\Ev{ Z_n \leq \dfrac{c}{\lambda}}\right) = 
+    \dfrac{\alpha}{2}$ et $\Prob\left(\Ev{ Z_n \geq 
+    \dfrac{d}{\lambda}}\right)=\dfrac{\alpha}{2}$.
+    
+    \item En déduire un intervalle de confiance du paramètre $m$ au 
+    niveau de confiance $1-\alpha$.
+  \end{noliste}
+\end{noliste}
+\end{exerciceAP}
+
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 65; %
+% annee : 2016; % 
+% theme : appliLineaire, reductionEnd; % 
+
+\begin{exerciceSP}~\\
+Soit $E$ un $\R$-espace vectoriel de dimension $n$ et $f$ un 
+endomorphisme de $E$ admettant $n$ valeurs propres distinctes.\\
+Montrer qu'un endomorphisme $g$ de $E$ vérifie $f\circ g = g\circ f$ si 
+et seulement si les vecteurs propres de $f$ sont des vecteurs propres 
+de $g$.
+\end{exerciceSP}
+
+
+
+%\newpage
+
+
+
+\subsection*{Sujet E 82}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 82; %
+% annee : 2016; % 
+% theme : vaDensite, vaUniformeDensite, partieEntiere, vaDiscrete, 
+% vaPartieEntiere; % 
+
+\begin{exerciceAP}~\\
+On suppose que toutes les variables aléatoires qui interviennent dans 
+l'exercice sont définies sur un même espace probabilisé $(\Omega, 
+\A,\Prob)$.
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Loi uniforme sur un intervalle $[a,b]$;
+    définition, propriétés.
+  
+  \item Pour tout $x$ réel, on note $\lfloor x \rfloor$ la partie 
+  entière de $x$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Pour $n$ entier de $\N^*$, montrer que pour tout $x$ réel, 
+    on a : $\dlim{n\to+\infty} \dfrac{\lfloor nx\rfloor}{n}=x$.
+    
+    \item Établir pour tout $(x,y)\in\R^2$ l'équivalence suivante 
+    : $\lfloor y \rfloor \leq x \ \Leftrightarrow \ y < \lfloor x 
+    \rfloor +1$.
+    
+    \item Soit $\alpha$ et $\beta$ deux réels vérifiant $0\leq 
+    \alpha\leq \beta\leq 1$ et soit $N_n(\alpha,\beta)$ le nombre 
+    d'entiers $k$ qui vérifient $\alpha <\dfrac{k}{n}\leq \beta$. 
+    Exprimer $N_n(\alpha,\beta)$ en fonction de $\lfloor n\alpha 
+    \rfloor$ et $\lfloor n\beta \rfloor$.
+  \end{noliste}
+  
+  \item Pour tout entier $n\geq 1$, on note $Y_n$ la variable aléatoire 
+  discrète dont la loi est donnée par :
+  \[
+    \forall k\in\llb 0,n-1\rrb, \ 
+    \Prob\left(\Ev{Y_n=\frac{k}{n}}\right)=\frac{1}{n}.
+  \]
+  Soit $Z$ une variable aléatoire suivant la loi uniforme sur 
+  l'intervalle $[0,1]$. Pour tout entier $n\geq 1$, on définit la 
+  variable aléatoire $Z_n$ par : $Z_n=\dfrac{\lfloor nZ\rfloor}{n}$. 
+  Soit $\alpha$ et $\beta$ deux réels vérifiant $0\leq \alpha\leq 
+  \beta\leq 1$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $\dlim{n\to+\infty} \Prob(\Ev{\alpha <Y_n\leq 
+    \beta})=\beta-\alpha$.
+    
+    \item Comparer les fonctions de répartition respectives de $Y_n$ 
+    et $Z_n$. Conclusion.
+  \end{noliste}
+\end{noliste}
+\end{exerciceAP}
+
+
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 82; %
+% annee : 2016; % 
+% theme : reductionMat; % 
+
+\begin{exerciceSP}~\\
+Soit $x$ réel et $M(x)$ la matrice de $\M{2}$ définie par : 
+$M(x)=\begin{smatrix}
+x&-1\\ 2x & 2x
+\end{smatrix}$.\\
+Pour quelles valeurs de $x$ la matrice $M(x)$ est-elle diagonalisable ?
+\end{exerciceSP}
+
+
+%\newpage
+
+
+\subsection*{Sujet E 83}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 83; %
+% annee : 2016; % 
+% theme : appliLineaire, reductionEnd, polynome; % 
+
+\begin{exerciceAP}~\\
+Pour tout entier naturel $n$, on note $\R_n[X]$ l'espace vectoriel des 
+polynômes à coefficients réels de degré inférieur ou égal à $n$.\\
+On définit l'application $\varphi$ de $\R_n[X]$ par : $\forall 
+P\in\R_n[X]$, $\varphi(P)(X)=P(X+1)-P(X)$.\\[.1cm]
+On pose $H_0(X)=1$ et pour tout $k\in\llb 1,n\rrb$, 
+$H_k(X)=\dfrac{X(X-1)(X-2)\cdots(X-k+1)}{k!}.$\\
+On note $\B=(1,X,X^2,\hdots,X^n)$ la base canonique de $\R_n[X]$.
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition de deux matrices semblables.
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $\varphi$ est un endomorphisme non bijectif de 
+    $\R_n[X]$.
+    
+    \item Justifier que la famille $\B'=(H_0,H_1,\hdots,H_n)$ est 
+    une base de $\R_n[X]$.
+    
+    \item Déterminer la matrice $M'$ de $\varphi$ dans la base 
+    $\B'$.
+    
+    \item L'endomorphisme $\varphi$ est-il diagonalisable ?
+  \end{noliste}
+  
+  \item Dans cette question, $p$ est un entier fixé supérieur ou égal à 
+  $1$. Pour tout $i\in\llb 0,p\rrb$, soit $f_i$ l'application de 
+  $\R_p[X]$ dans $\R$ définie par : $\forall Q\in\R_p[X]$, 
+  $f_i(Q)=\Sum{k=0}{i} (-1)^{i-k} \, \dbinom{i}{k} \, Q(k)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Justifier que pour tout $i\in\llb 0,p\rrb$, l'application 
+    $f_i$ est linéaire.
+    
+    \item Soit $(i,j)\in\llb 0,p\rrb^2$. Établir la relation : 
+    $f_i(H_j)=\left\{
+    \begin{array}{ll}
+      1 & \mbox{ si $i=j$}\\
+      0 & \mbox{ si $i\neq j$}
+    \end{array}
+    \right.$.
+    
+    \item Soit $a_0$, $a_1$, $\hdots$, $a_p$ les réels vérifiant : 
+    $X^p = a_0H_0+a_1H_1+\cdots +a_pH_p$.\\
+    Déduire de la question précédente, la relation : $\forall i 
+    \in\llb 0,p\rrb$, $a_i=\Sum{k=0}{i} (-1)^{i-k} \, \dbinom{i}{k} 
+    \, k^p$.
+  \end{noliste}
+\end{noliste}
+\end{exerciceAP}
+
+
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 83; %
+% annee : 2016; % 
+% theme : vaDensite, vaUniformeDensite, vaDiscrete, vaUniformeDiscrete,
+% vaConvergence; % 
+
+\begin{exerciceSP}~\\
+Les variables aléatoires de cet exercice sont supposées définies sur un 
+espace probabilisé $(\Omega,\A,\Prob)$.\\
+Soit $Z$ une variable aléatoire qui suit la loi uniforme sur 
+l'intervalle $[0,1]$ et pour tout entier $n\geq 1$, on note $Y_n$ une 
+variable aléatoire à valeurs dans 
+$\left\{0,\dfrac{1}{n},\dfrac{2}{n},\hdots, \dfrac{n-1}{n}\right\}$ 
+telle que : 
+\[
+  \forall k\in\llb 0,n-1\rrb, \ 
+  \Prob\left(\Ev{Y_n=\dfrac{k}{n}}\right)=\dfrac{1}{n}
+\]
+Soit $f$ une fonction définie et continue sur $[0,1]$. Montrer que 
+$\dlim{n\to+\infty} \E(f(Y_n))=\E(f(Z))$.
+\end{exerciceSP}
+
+
+%\newpage
+
+
+\subsection*{Sujet E 85}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 85; %
+% annee : 2016; % 
+% theme : vaCouple, vaCovariance, vaDiscrete, vaMoments; % 
+
+\begin{exerciceAP}~\\
+Toutes les variables aléatoires qui interviennent dans l'exercice sont 
+supposées définies sur le même espace probabilisé 
+$(\Omega,\A,\Prob)$.
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition et propriétés de la covariance 
+  de deux variables aléatoires discrètes.\\
+  Soit $p$, $q$ et $r$ des réels fixés de l'intervalle $]0,1[$ tels que 
+  $p+q+r=1$. \\
+  Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires à 
+  valeurs dans $\{-1,0,1\}$, indépendantes et de même loi donnée par :
+  \[
+    \forall n \in\N^*, \ \Prob(\Ev{X_n=1})=p, \ \Prob(\Ev{X_n=-1})=q, \ 
+    \Prob(\Ev{X_n=0})=r.
+  \]
+  On pose pour tout entier $n\geq 1$ : $Y_n=\Prod{k=1}{n} X_k$.
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Pour tout entier $n\geq 1$, préciser $Y_n(\Omega)$ et 
+    calculer $\Prob(\Ev{Y_n=0})$.
+    
+    \item Pour tout entier $n\geq 1$, calculer $\E(X_n)$ et $\E(Y_n)$.
+  \end{noliste}
+  
+  \item On pose pour tout entier $n\geq 1$, on a : 
+  $p_n=\Prob(\Ev{Y_n=1})$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer $p_1$ et $p_2$.
+    
+    \item Établir une relation de récurrence entre $p_{n+1}$ et 
+    $p_n$.
+    
+    \item En déduire que pour tout entier $n\geq 1$, on a : 
+    $p_n=\dfrac{(p+q)^n +(p-q)^n}{2}$.
+    
+    \item Pouvait-on à l'aide de la question $2$, trouver 
+    directement la loi de $Y_n$ ?
+  \end{noliste}
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Établir l'inégalité : $(p+q)^n > (p-q)^{2n}$. Calculer 
+    $\V(Y_n)$.
+    
+    \item Calculer la covariance $\cov(Y_n,Y_{n+1})$ des deux 
+    variables aléatoires $Y_n$ et $Y_{n+1}$.
+  \end{noliste}
+\end{noliste}
+\end{exerciceAP}
+
+
+
+
+
+%\newpage
+
+
+\subsection*{Sujet E 86}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 86; %
+% annee : 2016; % 
+% theme : equivalent, intSegment, fctContinuite, suiteFct, suiteInt, 
+% fctInt; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Fonctions équivalentes au voisinage de
+    $+\infty$.\\
+    Pour tout entier naturel $n$, soit $f_n$ la fonction définie sur
+    $\R_+$ par : $\forall x \geq 0$, $f_n(x)=\dint{0}{1} t^n \ee^{-tx}
+    \dt$.
+  
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que pour tout entier naturel $n$, la fonction 
+      $f_n$ est décroissante sur $\R_+$.
+      
+    \item Étudier la suite $(f_n(0))_{n\geq 0}$. En déduire pour 
+      tout réel $x\geq 0$ fixé, la limite de la suite $(f_n(x))_{n\geq 
+        0}$.
+    \end{noliste}
+    
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Soit $x$ un réel strictement positif. Établir pour tout
+      entier $n\geq 1$, la relation :
+      \[
+      f_{n+1}(x)=\dfrac{n+1}{x} \, f_n(x)-\dfrac{\ee^{-x}}{x}
+      \]
+      
+    \item Expliciter les fonctions $f_0$ et $f_1$.
+      
+    \item Montrer que pour tout entier naturel $n$, $f_n(x)$ est 
+      équivalent à $\dfrac{n!}{x^{n+1}}$ lorsque $x$ tend vers $+\infty$.
+    \end{noliste}
+    
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que pour tout entier naturel $n$ et tout réel $x>0$,
+      on a : $f_n(x)=\dfrac{1}{x^{n+1}}\dint{0}{x} u^n \ee^{-u} \ du$.
+    
+    \item En déduire que la fonction $f_n$ est dérivable sur $\R_+$ et
+      déterminer sa dérivée $f_n'$.
+    
+    \item Comparer pour tout réel $y\geq 0$, leq deux réels $y$ et
+      $1-\ee^{-y}$.\\
+      En déduire que pour tout entier naturel $n$, la fonction $f_n$
+      est continue en $0$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 86; %
+% annee : 2016; % 
+% theme : vaDensite, vaExponentielle, vaMethodeInversion, 
+% sciSimuVaDensite; % 
+
+\begin{exerciceSP}~\\
+  Soit $c$ et $r$ deux réels strictement positifs.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Justifier que la fonction $f$ définie sur $\R$ par
+    $f(x)=\left\{
+      \begin{array}{ll}
+        \dfrac{rc^r}{x^{r+1}} & \mbox{ si $x>c$}\\[.2cm]
+        0 & \mbox{ sinon}
+      \end{array}
+    \right.$ est une densité de probabilité.
+    
+  \item Soit $X$ une variable aléatoire de densité $f$. Identifier la 
+    loi de la variable aléatoire $Y=\ln(X)-\ln(c)$.
+    
+  \item Compléter les lignes du code \Scilab{} suivant pour que $V$
+    soit un vecteur ligne contenant $100$ réalisations de la loi de la
+    variable aléatoire $X$.
+  
+    \begin{scilab}
+      & c = input(\ttq{}c=\ttq{}) \nl 
+      & r = input(\ttq{}r=\ttq{}) \nl 
+      & U = grand( ?, ?, ?, ?) \nl 
+      & V = c \Sfois{} exp(U) \nl 
+    \end{scilab}
+  \end{noliste}
+\end{exerciceSP}
+
+
+%\newpage
+
+
+\subsection*{Sujet E 88}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 88; %
+% annee : 2016; % 
+% theme : vaConvergence, vaPartieEntiere, vaDensite, vaExponentielle,
+% vaDiscrete, vaGeometrique, vaUniformeDensite; % 
+
+\begin{exerciceAP}~\\
+Toutes les variables aléatoires qui interviennent dans l'exercice sont 
+supposées définies sur le même espace probabilisé $(\Omega, 
+\A,\Prob)$.
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Convergence en loi d'une suite de variables 
+  aléatoires.\\
+  Dans tout l'exercice, $X$ désigne une variable aléatoire suivant la 
+  loi exponentielle de paramètre $\lambda>0$.
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item On pose : $T=\lfloor X\rfloor$ (partie entière de $X$). 
+    Montrer que la loi de $T$ est donnée par :
+    \[
+      \forall k \in\N, \ 
+      \Prob(\Ev{T=k}) = \Big(1 - \ee^{-\lambda} \Big) \, 
+      \Big(\ee^{-\lambda}\Big)^k
+    \]
+    
+    \item Quelle est la loi de $T+1$ ? En déduire l'espérance et la 
+    variance de $T$.
+  \end{noliste}
+  
+  \item On pose : $Z=X-\lfloor X\rfloor$.\\
+  Montrer que $Z$ est une variable aléatoire à densité et déterminer 
+  une densité de $Z$.
+
+  \item Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires 
+  indépendantes telles que, pour tout $n\in\N^*$, $X_n$ suit une loi 
+  exponentielle de paramètre $\dfrac{\lambda}{n}$. On pose pour tout 
+  $n\in\N^*$ : $Z_n=X_n-\lfloor X_n\rfloor$.\\
+  Montrer que la suite de variables aléatoires $(Z_n)_{n\geq 1}$ 
+  converge en loi vers une variable aléatoire dont on précisera la loi.
+\end{noliste}
+\end{exerciceAP}
+
+
+
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 86; %
+% annee : 2016; % 
+% theme : polynomeAnnulateur, appliLineaire, reductionEnd, 
+% theoremeRang, noyauImage; % 
+
+\begin{exerciceSP}~\\
+Soit $E$ un espace vectoriel de dimension $3$ et $f$ un endomorphisme 
+de $E$ tel que $f^4=f^2$ et $\rg(f^2)=1$.\\
+Montrer que le spectre de $f$ est $\{0\}$ ou $\{0,1\}$ ou $\{-1,0\}$.
+\end{exerciceSP}
+
+
+%\newpage
+
+
+\subsection*{Sujet E 89}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 89; %
+% annee : 2016; % 
+% theme : vaDensite, etudeFct, vaExponentielle; % 
+
+\begin{exerciceAP}~
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition et propriétés de la fonction de 
+  répartition d'une variable aléatoire à densité.\\
+  Pour tout $n\in\N$, soit $f_n$ la fonction définie par :
+  \[
+    \forall x\in\R, \ f_n(x)= \left\{
+    \begin{array}{ll}
+      x^n \exp\left(-\dfrac{x^2}{2}\right) & \mbox{ si $x\geq 0$}\\
+      0 & \mbox{ sinon}
+    \end{array}
+    \right.
+  \]
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Établir la convergence de l'intégrale $\dint{0}{+\infty} 
+    f_n(x)\dx$. On pose : $\forall n\in\N$, $I_n=\dint{0}{+\infty} 
+    f_n(x)\dx$.
+    
+    \item Calculer $I_0$ et $I_1$.
+  \end{noliste}
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $f_1$ est une densité de probabilité.
+    
+    \item Tracer la courbe représentative de $f_1$ dans le plan 
+    rapporté à un repère orthogonal.\\
+    Dans la suite, on note $X$ une variable aléatoire définie sur 
+    un espace probabilisé $(\Omega, \A,\Prob)$ admettant $f_1$ 
+    pour densité.
+    
+    \item Déterminer la fonction de répartition $F$ de $X$.
+    
+    \item Justifier l'existence de l'espérance $\E(X)$ et de la 
+    variance $\V(X)$ de $X$. Calculer $\E(X)$ et $\V(X)$.
+  \end{noliste}
+  
+  \item On pose : $Y=X^2$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $Y$ est une variable aléatoire à densité.
+    
+    \item Quelle est la loi de $Y$ ?
+  \end{noliste}
+\end{noliste}
+\end{exerciceAP}
+
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 89; %
+% annee : 2016; % 
+% theme : noyauImage, polynomeAnnulateur, reductionMat; % 
+
+\begin{exerciceSP}~\\
+Soit $f$ l'endomorphisme de $\R^3$ dont la matrice $A$ dans la base 
+canonique de $\R^3$ est : $A=
+\begin{smatrix}
+  -1 & 1 & 1\\ 
+  0 & 0 & 2\\ 
+  1 & -1 & 1
+\end{smatrix}$.
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer une base de $\kr(f)$ et une base de $\im(f)$.
+  
+  \item On admet sans démonstration que $A^3=0$. Soit $M\in\M{3}$ 
+  définie par $M=
+  \begin{smatrix}
+    0 & 1 & 1\\ 
+    0 & 1 & 2\\ 
+    1 & -1 & 2
+  \end{smatrix}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Quelles sont les valeurs propres de $M$ ? La matrice $M$ 
+    est-elle diagonalisable ?
+    
+    \item Justifier que $M$ est inversible et exprimer $M^{-1}$ en 
+    fonction de $A$ et $I$ (matrice identité de $M\in\M{3}$).
+  \end{noliste}
+\end{noliste}
+\end{exerciceSP}
+
+
+
+%\newpage
+
+
+
+\subsection*{Sujet E 90}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 90; %
+% annee : 2016; % 
+% theme : LfGN, vaMin, vaDensite, vaUniformeDensite, sciSimuVaDensite, 
+% sciLfGN; % 
+
+\begin{exerciceAP}~\\
+Toutes les variables aléatoires utilisées dans cet exercice sont 
+supposées définies sur le même espace probabilisé $(\Omega, 
+\A,\Prob)$.
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : loi faible des grands nombres.\\
+  Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires 
+  indépendantes définies sur le même espace probabilisé 
+  $(\Omega,\A,\Prob)$, de loi uniforme sur $[0,1]$.
+  
+  \item Pour tout $n\in\N^*$, on note $U_n$ la variable aléatoire 
+  $\min(X_1,X_2,\hdots,X_n)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer la fonction de répartition de $U_n$.
+    
+    \item Démontrer que, pour tout $\eps >0$, la probabilité 
+    $\Prob(\Ev{U_n\geq \eps})$ tend vers $0$ quand $n$ tend vers 
+    l'infini.
+  \end{noliste}
+  
+  \item Compléter la deuxième ligne du code \Scilab{} suivant pour que 
+  la fonction \texttt{minu} simule la variable $U_k$ pour la valeur $k$ 
+  du paramètre.
+  
+  \begin{scilab}
+    & \tcFun{function} \tcVar{u} = minu(\tcVar{k}) \nl 
+    & \qquad x = .......... \nl 
+    & \qquad \tcVar{u} = min(x) \nl 
+    & \tcFun{endfunction} \nl 
+  \end{scilab}
+  
+  \item Soit $p\in \ ]0,1[$ et $Z$ une variable aléatoire telle que, 
+  pour tout réel $x$ :
+  \[
+    \Prob(\Ev{Z\leq x}) = \Sum{k=1}{+\infty} p \, (1-p)^{k-1} \,
+    \Prob(\Ev{U_k\leq x})
+  \]
+  (on admet qu'il existe une telle variable aléatoire et qu'elle 
+  possède une densité).
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Justifier, pour tout $x\in[0,1]$, l'égalité : 
+    $\Prob(\Ev{Z\leq x}) = 1- \dfrac{p(1-x)}{p+(1-p)x}$.
+    
+    \item En déduire une densité de $Z$.
+  \end{noliste}
+
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Justifier que la fonction \Scilab{} suivante fournit une 
+    simulation de la variable aléatoire $Z$ de la question précédente.
+
+    \begin{scilab}
+      & \tcFun{function} \tcVar{z} = geomin(\tcVar{p}) \nl 
+      & \qquad \tcVar{z} = 
+	minu(grand(1, 1, \ttq{}geom\ttq{}, \tcVar{p})) \nl 
+      & \tcFun{endfunction}
+    \end{scilab}
+
+    \item De quel nombre réel les instructions suivantes 
+    fournissent-elles une valeur approchée et pourquoi ?
+
+    \begin{scilab}
+      & p = 0.5 ; \nl 
+      & R = [] ; \nl 
+      & \tcFor{for} k = 1:10000 \nl 
+      & \qquad R = [R, geomin(p)] \nl 
+      & \tcFor{end} ; \nl 
+      & disp(mean(R)) \nl 
+    \end{scilab}
+  \end{noliste}
+\end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 90; %
+% annee : 2016; % 
+% theme : fctInt, suiteFct, etudeFct, thBijection, suiteImp; % 
+
+\begin{exerciceSP}~\\
+Pour tout $n\in\N$, soit $f_n$ la fonction définie sur l'intervalle 
+$[0,1]$ par :
+\[
+\forall x\in[0,1], \ f_n(x)=\dint{0}{x} \ee^{nt^2}\dt - \dint{x}{1} 
+\ee^{-nt^2}\dt.
+\]
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+\item Montrer que la fonction $f_n$ est strictement monotone sur 
+$[0,1]$.
+\item Établir l'existence d'un unique réel de $[0,1]$, noté $c_n$, tel 
+que $\dint{0}{c_n} \ee^{nt^2}\dt = \dint{c_n}{1} \ee^{-nt^2}\dt$.
+\item Montrer que la suite $(c_n)_{n\in\N}$ est convergente.
+\end{noliste}
+\end{exerciceSP}
+
+%%% FIN
+
+\end{document}
