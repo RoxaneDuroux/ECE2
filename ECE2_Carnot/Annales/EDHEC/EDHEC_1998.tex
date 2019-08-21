@@ -1,0 +1,447 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 1998} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 1998}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1998}}
+
+
+
+{\large \textbf{Concepteur : Edhec}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{Exercice 1}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On considère la fonction $g$ définie pour tout $x$ élément de
+$\R_{+}{\times }$ par $g(x) = \ln x + 2x + 1$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier les variations de $g$ et donner les limites de g en
+$0^{+}$ et
+en $ + \infty $.
+
+\item En déduire qu'il existe un unique réel $\alpha $, élément de
+$]0,\dfrac{1}{e}[$ tel que $g(\alpha ) = 0$.
+\end{noliste}
+
+\item On considère la fonction de deux variables réelles $f$ définie
+par : 
+\[
+\forall (x,y)\in \R_{+}{\times }\times \R\qquad
+f(x,y) = x(\ln x + x + y^{2})
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer le seul point critique de $f$, c'est à dire le seul
+couple
+de $\R_{+}{\times }\times \R$ en lequel $f$ est susceptible
+de présenter un extremum.
+
+\item Vérifier que $f$ présente un minimum relatif $m$ en ce point.
+
+\item Montrer que $m = -\alpha (\alpha + 1)$
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 2}
+
+$E$ désigne un espace vectoriel sur $\R$, rapporté à une base
+$\mathcal{B} = (e_{1},\ e_{2},\ e_{3})$.\\
+Pour tout réel $a$, on considère l'endomorphisme $f_{a}$ de $E$ défini
+par : 
+\[
+f_{a}(e_{2}) = 0\qquad \text{et}\qquad
+f_{a}(e_{1}) = f_{a}(e_{3}) = ae_{1} + e_{2}-ae_{3}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer une base de $\operatorname{Im}$ $f_{a}$.
+
+\item Montrer qu'une base de $\ker f_{a}$ est $(e_{2},\ e_{1}-e_{3})$.
+\end{noliste}
+
+\item Écrire la matrice de $f_{a}$ dans $\mathcal{B}$ et calculer
+$A^{2}$.
+En déduire sans calcul $f_{a}\circ f_{a}$
+
+\item On pose $e_{1}{\prime } = f_{a}(e_{1})\quad e_{2}{\prime
+} = e_{1}-e_{3}\quad e_{3}{\prime } = e_{3}$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $(e_{1}{\prime },\ e_{2}{\prime },\ e_{3}{\prime })$
+est une base de $E$.
+
+\item Donner la matrice $A^{\prime }$ de $f_{a}$ dans cette base.
+
+\item En déduire que $0$ est la seule valeur propre de $A$. $A$
+est-elle
+inversible ? $A$ est-elle diagonalisable ?
+\end{noliste}
+
+\item Pour tout réel $x$ non nul, on pose $B(x) = A-xI$, $I$ désignant
+la
+matrice identité de $\M{3}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer sans calcul que $B(x)$ est inversible.
+
+\item Calculer $(A-xI)(A + xI)$ puis écrire $(B(x))^{-1}$ en fonction
+de $x$, $I$ et $A$.
+
+\item Pour tout $n$ de $\N$, déterminer $(B(x))^{n}$ en fonction de
+$x$, $n$, $I$ et $A$.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 3}
+
+On réalise une suite de lancers d'une pièce équilibrée, chaque lancer
+amenant donc pile ou face avec une probabilité 1/2.\\
+On note $P_{k}$ (resp. $F_{k}$ ) l'évènement : \textquotedblleft on
+obtient
+pile (resp. face) au $k^{\acute{e}me}$ lancer".\\
+Pour ne pas surcharger l'écriture, on écrira, par exemple, $P_{1}F_{2}$
+à la
+place de $P_{1}\cap F_{2}$.\\
+On note $X$ la variable aléatoire qui prend la valeur $k$ si l'on
+obtient
+pour la première fois pile puis face dans cet ordre aux lancers $k-1$
+et $k$
+($k$ désignant un entier supérieur ou égal à 2), $X$ prenant la valeur
+$0$
+si l'on obtient jamais une telle succession.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer $P\left(\Ev{X = 2}\right).$
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En remarquant que $(X = 3) = P_{1}P_{2}F_{3}\cup
+F_{1}P_{2}F_{3}$,
+calculer $P\left(\Ev{X = 3}\right)$.
+
+\item Sur le modèle de la question précédente, écrire, pour tout entier
+$k$
+supérieur ou égal à 3, l'évènement $(X = k)$ comme réunion de $(k-1)$
+évènements incompatibles.
+
+\item Déterminer P$(X = k)$ pour tout entier $k$ supérieur ou égal à 2.
+
+\item Calculer P$(X = 0)$.
+\end{noliste}
+
+\item On se propose, dans cette question, de retrouver le résultat de
+la
+question 2) c : par une autre méthode.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, $k$ désignant un entier supérieur ou égal à 3, si le
+premier lancer est un pile, alors il faut et il suffit que
+$P_{2}P_{3}\dots
+P_{k-1}F_{k}$ se réalise pour que $(X = k)$ se réalise.
+
+\item En déduire, en utilisant la formule des probabilités totales que
+: 
+\[
+\forall k\geq 3\qquad P\left(\Ev{X = k}\right) =
+\dfrac{1}{2}P\left(\Ev{X = k-1}\right) + \dfrac{1}{2^{k}}
+\]
+
+\item On pose, pour tout entier $k$ supérieur ou égal à 2, $u_{k} =
+2^{k}P\left(\Ev{X = k}\right)
+$.\\
+Montrer que la suite $(u_{k})_{k\geq 2}$ est arithmétique. Retrouver le
+résultat annoncé.
+\end{noliste}
+
+\item Montrer que $X$ a une espérance $\E(X)$, puis la calculer.
+\end{noliste}
+
+\section*{Problème}
+
+La partie I permet d'établir des résultats utiles pour les parties II
+et III.\\
+Les parties II et III sont indépendantes entre elles.\\
+On considère le fonction $f$ définie pour tout réel $x$ positif ou nul
+par $f(x) = 1-e^{-x}$.
+
+\subsection*{Partie I}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Dresser le tableau de variations de $f$.
+
+\item Montrer que : $\forall x\in \R^{+}\qquad f(x)\leq x$
+\qquad, l'égalité ayant lieu seulement pour $x = 0$.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout entier naturel $n$ et pour tout réel $x$ :
+
+\[
+e^{-x} = \Sum{k = 0}{n}\dfrac{(-1)^{k}x^{k}}{k!} + (-1)^{n +
+1}\dint{0}{x}\dfrac{(x-t)^{n}}{n!}e^{-t}dt
+\]
+
+\item En écrivant l'égalité précédente pour $n = 2$, puis pour $n = 3$,
+montrer
+que : 
+\[
+\forall x\in \R\qquad \dfrac{x^{2}}{2}-\dfrac{x^{3}}{6}\leq
+x-f(x)\leq \dfrac{x^{2}}{2}
+\]
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie II}
+
+On considère la suite $(u_{n})$ définie par son premier terme $u_{0} =
+1$ et
+par la relation : 
+\[
+\forall n\in \N\qquad u_{n + 1} = f(u_{n})
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : $\forall n\in \N\qquad u_{n}\in \ ]0,1]$
+
+\item Montrer, grâce à la question I 1), que : $\forall n\in \N\qquad
+u_{n}-u_{n + 1}\geq 0$
+
+\item Conclure quant à la convergence de la suite $(u_{n})$ et donner
+sa
+limite.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Simplifier, pour tout $n$ élément de $\N^{\times }$, la somme
+$\Sum{k = 0}{n-1}(u_{k}-u_{k + 1})$.
+
+\item En déduire que la série de terme général $(u_{n}-u_{n + 1})$ est
+convergente.
+
+\item En utilisant la question I 2), montrer que $u_{n}-u_{n + 1}\sim
+\dfrac{u_{n}{2}}{2}$ en $ + \infty $.
+
+\item Donner enfin la nature de la série de terme général $u_{n}{2}$.
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie III}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On note $\phi $ la fonction définie sur $\R$ par : $\phi (0) = 1$
+et $\forall x\in \R_{\times }{+}$, \qquad $\phi (x) =
+\dfrac{f(x)}{x}$.\\
+Montrer que $\phi $ est continue sur $\R^{+}$.
+
+\hspace{-1cm}On considère la fonction réelle $g$ définie par $g(0) = 1$
+et $\forall x\in \R_{\times }{+}$, \qquad $g(x) =
+\dfrac{1}{x}\dint{0}{x}\phi (t)dt$.
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $g$ est bien définie et continue sur $\R_{\times
+}{+}$.
+
+\item Montrer que $\forall x\in \R_{\times }{+}\qquad
+1-\dfrac{x}{4}\leq g(x)\leq 1-\dfrac{x}{4} + \dfrac{x^{2}}{18}$.
+
+\item En déduire que $g$ est continue en $0$, dérivable en $0$ puis
+donner $g^{\prime }(0)$.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : $\forall x\in \ ]1, + \infty \lbrack \qquad
+\dint{1}{x}\phi (t)dt\leq \ln x$.
+
+\item En déduire que $g$ a une limite finie en $ + \infty $ et donner
+la
+valeur de cette limite.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout réel $x$ strictement positif, calculer $g^{\prime }(x)$
+et l'écrire sous la forme $g^{\prime }(x) = \dfrac{h(x)}{x^{2}}$
+
+\item Montrer alors que $xh^{\prime }(x) = (x + 1)e^{-x}-1$
+
+\item Étudier la fonction notée $k$ définie par :$\forall x\in
+\R^{+}\qquad k(x) = (x + 1)e^{-x}-1$
+
+\item Donner le signe de $k$, puis les variations de $g$ et enfin
+celles de $g$.
+
+\item Dresser le tableau de variations de $g$ et tracer l'allure de sa
+courbe représentative dans un repère orthonormé.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

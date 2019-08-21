@@ -1,0 +1,692 @@
+\chapter*{EDHEC 2018 : le sujet}
+  
+%
+
+%%% EPR %%% EDHEC;
+% : ;%
+% : ;%
+% : ;%
+% : ;%
+
+\subsection*{Exercice 1}
+
+\noindent
+On considère la matrice $A =
+\begin{smatrix}
+  1 & 2 \\
+  3 & 6
+\end{smatrix}
+$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item Vérifier que $A$ n'est pas inversible.
+
+  
+
+\item Déterminer les valeurs propres de $A$, puis trouver les
+  sous-espaces propres associés à ces valeurs propres.
+
+  
+\end{noliste}
+Dans la suite de l'exercice, on considère l'application $f$ qui, à
+toute matrice $M$ de $\M{2}$ associe :
+\[
+f(M) = AM
+\]
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{2}
+\item Montrer que $f$ est un endomorphisme de $\M{2}$.
+
+  
+  
+
+%\newpage
+
+
+\item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer une base de $\kr(f)$ et vérifier que $\kr(f)$ est
+    de dimension $2$.
+
+    
+
+
+    %\newpage
+
+
+  \item En déduire la dimension de $\im(f)$.
+
+    
+
+  \item On pose $E_1 =
+    \begin{smatrix}
+      1 & 0 \\
+      0 & 0
+    \end{smatrix}
+    $, $E_2 =
+    \begin{smatrix}
+      0 & 1 \\
+      0 & 0
+    \end{smatrix}
+    $, $E_3 =
+    \begin{smatrix}
+      0 & 0 \\
+      1 & 0
+    \end{smatrix}
+    $, $E_4 =
+    \begin{smatrix}
+      0 & 0 \\
+      0 & 1
+    \end{smatrix}
+    $ et on rappelle que la famille $(E_1, E_2, E_3, E_4)$ est une
+    base de $\M{2}$. Écrire $f(E_1)$, $f(E_2)$, $f(E_3)$, $f(E_4)$
+    sous forme de combinaisons linéaires de $E_1$, $E_2$, $E_3$, et
+    $E_4$ puis donner une base de $\im(f)$.
+    
+  \end{noliste}
+
+\item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer l'image par $f$ des vecteurs de $\im(f)$.
+
+    
+
+  \item Donner les valeurs propres de $f$ puis conclure que $f$ est
+    diagonalisable.
+
+    
+  \end{noliste}
+
+
+  %\newpage
+
+
+\item Généralisation : $f$ est toujours l'endomorphisme de $\M{2}$
+  défini par $f(M) = AM$, mais cette fois, $A$ est une matrice
+  quelconque de $\M{2}$. On admet que $f$ et $A$ possèdent des valeurs
+  propres et on se propose de montrer que ce sont les mêmes.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Soit $\lambda$ une valeur propre de $A$ et $X$ un vecteur
+    propre colonne associé.\\
+    Justifier que $X {}^tX$ appartient à $\M{2}$, puis montrer que
+    c'est un vecteur propre de $f$.\\
+    En déduire que $\lambda$ est valeur propre de $f$.
+
+    
+
+  \item Soit $\lambda$ une valeur propre de $f$ et $M$ une matrice de
+    $\M{2}$ vecteur propre de $f$ associé à cette valeur propre. En
+    considérant les colonnes $C_1$ et $C_2$ de $M$, montrer que
+    $\lambda$ est valeur propre de $A$.
+
+    
+  \end{noliste}
+\end{noliste}
+
+
+%\newpage
+
+
+\subsection*{Exercice 2}
+
+\noindent
+On dispose de trois pièces : une pièce numérotée $0$, pour laquelle la
+probabilité d'obtenir Pile vaut $\dfrac{1}{2}$ et celle d'obtenir Face
+vaut également $\dfrac{1}{2}$, une pièce numérotée $1$, donnant Face à
+coup sûr et une troisième pièce numérotée $2$, donnant Pile à coup
+sûr.\\
+On choisit l'une de ces pièces au hasard et on la lance
+indéfiniment.\\
+Pour tout $i$ de $\{0, 1, 2\}$, on note $A_i$ l'événement : \og on
+choisit la pièce numérotée $i$ \fg{}.\\
+Pour tout entier naturel $k$ non nul, on note $P_k$ l'événement : \og
+on obtient Pile au lancer numéro $k$ \fg{} et on pose $F_k =
+\overline{P_k}$.\\
+On considère la variable aléatoire $X$, égale au rang d'apparition du
+premier Pile et la variable aléatoire $Y$, égale au rang d'apparition
+du premier Face. On convient de donner à $X$ la valeur $0$ si l'on
+n'obtient jamais Pile et de donner à $Y$ la valeur $0$ si l'on
+n'obtient jamais Face.
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer $\Prob(\Ev{X = 1})$.
+
+    
+    
+
+%\newpage
+
+
+  \item Montrer que : $\forall n \geq 2$, $\Prob(\Ev{X = n}) =
+    \dfrac{1}{3} \ \left( \dfrac{1}{2} \right)^n$.
+
+    
+
+
+    %\newpage
+
+    
+  \item En déduire la valeur de $\Prob(\Ev{X = 0})$.
+
+    
+  \end{noliste}
+
+\item Montrer que $X$ admet une espérance et la calculer.
+
+  
+
+\item Montrer que $X (X-1)$ possède une espérance. \\
+  En déduire que $X$ possède une variance et vérifier que $\V(X) =
+  \dfrac{4}{3}$.
+
+  
+
+\item Justifier que $Y$ suit la même loi que $X$.
+
+  
+
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que, pour tout entier $j$ supérieur ou égal à $2$,
+    $\Prob(\Ev{X = 1} \cap \Ev{Y = j}) = \Prob(\Ev{Y = j})$.
+
+    
+
+  \item Montrer que, pour tout entier $i$ supérieur ou égal à $2$,
+    $\Prob(\Ev{X = i} \cap \Ev{Y = 1}) = \Prob(\Ev{X = i})$.
+
+    
+  \end{noliste}
+
+\item Loi de $X + Y$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Expliquer pourquoi $X + Y$ prend toutes les valeurs positives
+    sauf $0$ et $2$.
+
+    
+
+  \item Montrer que $\Prob\big(\Ev{X + Y =1} \big) = \dfrac{2}{3}$.
+
+    
+
+  \item Justifier que pour tout entier naturel $n$ supérieur ou égal à
+    $3$, on a : 
+    \[
+    \Ev{X+Y = n} = \big( \Ev{X = 1} \cap \Ev{Y = n-1} \big) \ \dcup{}
+    \ \big( \Ev{Y = 1} \cap \Ev{X = n-1} \big)
+    \]
+
+    
+
+  \item En déduire que l'on a, pour tout entier naturel $n$ supérieur
+    ou égal à $3$ : 
+    \[
+    \Prob(\Ev{X + Y = n}) = \dfrac{2}{3} \ \left( \dfrac{1}{2} \right)^{n-1}
+    \]
+
+    
+
+  \end{noliste}
+
+\item Informatique.\\
+  On rappelle que, pour tout entier naturel $m$, l'instruction {\tt
+    grand(1, 1, \ttq{}uin\ttq{}, 0, m)} renvoie un entier aléatoire
+  compris entre $0$ et $m$ (ceci de façon équiprobable).\\
+  On décide de coder Pile par $1$ et Face par $0$.
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Compléter le script \Scilab{} suivant pour qu'il permette le
+      calcul et l'affichage de la valeur prise par la variable
+      aléatoire $X$ lors de l'expérience réalisée dans cet exercice.\\[-.2cm]
+      \begin{scilab}
+        & piece = grand(1, 1, \ttq{}uin\ttq{}, ------, ------) \nl %
+        & x = 1 \nl %
+        & \tcIf{if} piece == 0 \tcIf{then} \nl %
+        & \qquad lancer == grand(1, 1, \ttq{}uin\ttq{}, ------, ------) \nl %
+        & \qquad \tcFor{while} lancer == 0 \nl %
+        & \qquad \qquad lancer = ------ \nl %
+        & \qquad \qquad x = ------ \nl %
+        & \qquad \tcFor{end} \nl %
+        & \tcIf{else} \nl %
+        & \qquad \tcIf{if} piece == 1 \tcIf{then} \nl %
+        & \qquad \qquad x = ------ \nl %
+        & \qquad \tcFor{end} \nl %
+        & \tcFor{end} \nl %
+        & disp(x) %
+      \end{scilab}
+
+      
+
+    \item Justifier que le cas où l'on joue avec la pièce numérotée
+      $2$ ne soit pas pris en compte dans le script précédent.
+
+      
+  \end{noliste}
+\end{noliste}
+
+
+%\newpage
+
+
+\section*{Exercice 3}
+
+\noindent
+On admet que toutes les variables aléatoires considérés dans cet
+exercice sont définies sur le même espace probabilisé $(\Omega, \A,
+\Prob)$ que l'on ne cherchera pas à déterminer.\\
+Soit $a$ un réel strictement positif et $f$ la fonction définie par :
+$f(x) = \left\{
+  \begin{array}{cR{1.4cm}}
+    \frac{x}{a} \ \ee^{-\frac{x^2}{2a}} & si $x \geq 0$ 
+    \nl
+    \nl[-.3cm]
+    0 & si $x < 0$
+  \end{array}
+\right.$.
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item Montrer que la fonction $f$ est une densité.
+
+  
+\end{noliste}
+\[
+\mbox{\it Dans la suite de l'exercice, on considère une variable
+  aléatoire $X$ de densité $f$.}
+\]
+
+
+%\newpage
+
+
+\begin{noliste}{1.}
+  \setcounter{enumi}{1} %
+  \setlength{\itemsep}{4mm}
+\item Déterminer la fonction de répartition $F_X$ de $X$.
+
+  
+
+\item On considère la variable aléatoire $Y$ définie par : $Y =
+  \dfrac{X^2}{2a}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $Y$ suit la loi exponentielle de paramètre $1$.
+
+    
+    
+  \item On rappelle qu'en \Scilab{} la commande {\tt grand(1, 1,
+      \ttq{}exp\ttq{}, 1/lambda)} simule une variable aléatoire
+    suivant la loi exponentielle de paramètre $\lambda$. Écrire un
+    script \Scilab{} demandant la valeur de $a$ à l'utilisateur et
+    permettant de simuler la variable aléatoire $X$.
+    
+    
+  \end{noliste}
+
+
+%\newpage
+
+
+\item  
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Vérifier que la fonction $g$ qui à tout réel associe $x^2 \
+    \ee^{- \frac{x^2}{2a}}$, est paire.
+
+    
+
+  \item Rappeler l'expression intégrale ainsi que la valeur du moment
+    d'ordre $2$ d'une variable aléatoire $Z$ suivant la loi normale de
+    paramètre $0$ et $a$.
+
+    
+
+  \item En déduire que $X$ possède une espérance et la déterminer.
+
+    
+  \end{noliste}
+
+\item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Rappeler l'espérance de $Y$ puis montrer que $X$ possède un
+    moment d'ordre $2$ et le calculer.
+
+    
+
+  \item En déduire que la variance de $X$ est donnée par :
+    \[
+    \V(X) = \dfrac{(4 - \pi) \ a}{2}
+    \]
+
+    
+  \end{noliste}
+\end{noliste}
+\[
+\mbox{\it On suppose désormais que le paramètre $a$ est inconnu et on
+  souhaite l'estimer.}
+\]
+
+
+%\newpage
+
+
+\begin{noliste}{1.}
+  \setcounter{enumi}{5} %
+  \setlength{\itemsep}{4mm}
+\item Soit $n$ un entier naturel supérieur ou égal à $1$. On considère
+  un échantillon $(X_1, \ldots, X_n)$ composé de variables aléatoires
+  indépendantes ayant toutes la même loi que $X$.\\
+  On note $S_n$ la variable aléatoire définie par $S_n = \dfrac{1}{2n}
+  \ \Sum{k=1}{n} X_k{}^2$.
+
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $S_n$ est un estimateur sans biais de $a$.
+
+    
+
+  \item Montrer que $X^2$ possède une variance et que $\V\big(X^2\big)
+    = 4a^2$.
+
+    
+
+  \item Déterminer le risque quadratique $r_a(S_n)$ de $S_n$ en tant
+    qu'estimateur de $a$.\\
+    En déduire que $S_n$ est un estimateur convergent de $a$.
+
+    
+  \end{noliste}
+
+\item On suppose que $a$ est inférieur ou égal à $1$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Écrire l'inégalité de Bienaymé-Tchebychev pour la variable
+    aléatoire $S_n$ et en déduire :
+    \[
+    \forall \eps > 0, \ \Prob\Big(\Ev{|S_n - a| \leq \eps} \Big) \
+    \geq \ 1 - \dfrac{1}{n \ \eps^2}
+    \]
+    
+    
+    
+
+    %\newpage
+
+
+  \item Déterminer une valeur de $n$ pour laquelle $\left[ S_n -
+      \dfrac{1}{10}, S_n + \dfrac{1}{10}\right]$ est un intervalle de
+    confiance pour $a$ avec niveau de confiance au moins égal à
+    $95\%$.
+
+    
+  \end{noliste}
+\end{noliste}
+
+
+%\newpage
+
+
+\section*{Problème}
+
+\noindent
+On considère la fonction $f$ qui à tout réel $x$ associe : $f(x) =
+\dint{0}{x} \ln(1+ t^2) \dt$.
+\[
+\mbox{\it Les deux parties de ce problème peuvent être traitées
+  indépendamment l'une de l'autre.}
+\]
+
+\subsection*{Partie 1 : étude de $f$}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer le signe de $f(x)$ selon le signe de $x$.
+  \end{noliste}
+    
+  
+
+
+  %\newpage
+
+  
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+    \setcounter{enumii}{1}
+  \item Justifier que $f$ est de classe $\Cont{1}$ sur $\R$ et
+    calculer $f'(x)$ pour tout réel $x$.
+    
+    
+    
+  \item En déduire les variations de $f$ sur $\R$ (on ne cherchera pas
+    à calculer les limites de $f$).
+
+    
+  \end{noliste}
+
+
+%\newpage
+
+
+\item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $f$ est impaire.
+
+    
+    
+  \item Étudier la convexité de la fonction $f$ et donner les
+    coordonnées des éventuels points d'inflexion de la courbe
+    représentative de $f$ dans un repère orthonormé.
+
+    
+  \end{noliste}
+
+
+%\newpage
+
+
+\item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer les réels $a$ et $b$ tels que :
+    \[
+    \forall t \in \R, \ \dfrac{t^2}{1 + t^2} = a + \dfrac{b}{1 + t^2}
+    \]
+
+    
+
+  \item En déduire, grâce à une intégration par parties, que, pour
+    tout réel $x$, on a :
+    \[
+    f(x) \ = \ x \ \left( \ln(1 + x^2) - 2 \right) + 2 \ \dint{0}{x}
+    \dfrac{1}{1 + t^2} \dt
+    \]
+    
+  \end{noliste}
+
+
+  %\newpage
+
+
+\item Recherche d'un équivalent de $f(x)$ au voisinage de $+\infty$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $\dint{0}{+\infty} \dfrac{1}{1+t^2} \dt$ est une
+    intégrale convergente.
+
+    
+    
+  \item En déduire que $f(x) \eqx{+\infty} x \ln(1 + x^2)$.
+
+    
+    
+  \item Vérifier que, pour tout réel $x$ strictement positif, on a
+    $\ln(1 + x^2) = 2 \ln(x) + \ln \left( 1 + \dfrac{1}{x^2} \right)$,
+    puis établir l'équivalent suivant :
+    \[
+    f(x) \eqx{+\infty} 2x \ \ln(x)
+    \]
+
+    
+
+  \item Donner sans calcul un équivalent de $f(x)$ lorsque $x$ est au
+    voisinage de $-\infty$.
+
+    
+
+  \end{noliste}
+
+\item Recherche d'un équivalent de $f(x)$ au voisinage de $0$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $f$ est de classe $\Cont{3}$ sur $\R$.
+
+    
+  \end{noliste}
+  On admet la formule de Taylor-Young à l'ordre $3$ au voisinage de
+  $0$ pour la fonction $f$, c'est à dire :
+  \[
+  f(x) = f(0) + \dfrac{x^1}{1!} f'(0) + \dfrac{x^2}{2!} f''(0) +
+  \dfrac{x^3}{3!} f^{(3)}(0) + \oox{0} (x^3)
+  \]
+  \begin{noliste}{a)}
+    \setcounter{enumii}{1} %
+    \setlength{\itemsep}{2mm}
+  \item Déterminer $f(0)$, $f'(0)$, $f''(0)$, $f^{(3)}(0)$.
+
+    
+
+  \item En déduire alors un équivalent de $f(x)$ au voisinage de $0$
+    (on trouve $f(x) \eqx{0} \dfrac{x^3}{3}$).
+
+    
+  \end{noliste}
+
+\item On rappelle qu'en \Scilab{}, la commande {\tt grand(1, 1,
+    \ttq{}unf\ttq{}, a, b)} simule une variable aléatoire suivant la
+  loi uniforme sur $[a, b]$. Compléter le script \Scilab{} suivant
+  pour qu'il calcule et affiche, à l'aide de la méthode de
+  Monte-Carlo, une valeur approchée de $f(1)$ :
+  \begin{scilab}
+    & U = grand(1, 100 000, \ttq{}unf\ttq{}, 0, 1) \nl %
+    & V = log(1 + U .\puis{}2)\nl %
+    & f = ---------- \nl %
+    & disp(f) %
+  \end{scilab}
+
+  
+\end{noliste}
+
+
+%\newpage
+
+
+\subsection*{Partie 2 : étude d'une suite}
+
+\noindent
+On pose $u_0 = 1$, et pour tout entier naturel $n$ non nul : $u_n =
+\dint{0}{1} \big( \ln(1 + t^2) \big)^n \dt$.
+
+\begin{noliste}{1.}
+  \setcounter{enumi}{6} %
+  \setlength{\itemsep}{4mm}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item La valeur donnée à $u_0$ est-elle cohérente avec l'expression
+    générale de $u_n$ ?
+
+    
+
+  \item Exprimer $u_1$ à l'aide de la fonction $f$.
+
+    
+  \end{noliste}
+
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que la suite $(u_n)_{n \in \N}$ est décroissante.
+
+    
+
+  \item Montrer que la suite $(u_n)_{n \in \N}$ est minorée par
+    $0$. En déduire qu'elle converge.
+
+    
+  \end{noliste}  
+
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Établir l'encadrement suivant :
+    \[
+    0 \leq u_n \leq (\ln(2))^n
+    \]
+
+    
+
+  \item Que peut-on en déduire sur la suite $(u_n)_{n \in \N}$ ? Sur
+    la série de terme général $u_n$ ?
+
+    
+  \end{noliste}  
+
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que : 
+    \[
+    0 \ \leq \ \dint{0}{1} \dfrac{\big( \ln(1 + t^2) \big)^n}{1 -
+      \ln(1 + t^2)} \dt \ \leq \ \dfrac{u_n}{1 - \ln(2)}
+    \]
+
+    
+
+  \item En déduire la valeur de $\dlim{n \tend +\infty} \dint{0}{1}
+    \dfrac{\big( \ln(1 + t^2) \big)^n}{1 - \ln(1 + t^2)} \dt$.
+
+    
+
+  \item Justifier que, pour tout entier naturel $n$, non nul, on a :
+    \[
+    \Sum{k = 0}{n-1} u_k \ = \ \dint{0}{1} \dfrac{1 - \big( \ln(1 +
+      t^2) \big)^n}{1 - \ln(1 + t^2)} \dt
+    \]
+
+    
+
+
+    %\newpage
+
+
+  \item En déduire que l'on a : 
+    \[
+    \Sum{k = 0}{+\infty} u_k \ = \ \dint{0}{1} \dfrac{1}{1 - \ln(1 +
+      t^2)} \dt
+    \]
+
+    
+
+  \item Modifier le script présenté à la question \itbf{6)} pour
+    donner un valeur approchée de $\Sum{k = 0}{+\infty} u_k$.
+
+    
+  \end{noliste}  
+
+\end{noliste}
+

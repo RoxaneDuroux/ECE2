@@ -1,0 +1,270 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1988 - voie Générale} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION GENERALE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 1988}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent Le but du problème est d'étudier les fonctions polynômes P à
+coefficients réels telles que, pour tout x réel :\begin{equation}
+(x-1)P{"}(x) + 4xP^{\prime }(x) = \lambda P\left(\Ev{x}\right)
+\label{1}
+\end{equation}où $\lambda $ est un nombre réel donné et où $P^{\prime
+}$ et $P{"}$ désigne
+les dérivés première et seconde de $P$. Dans la \textbf{partie I}, on
+détermine à partir d'une suite $(P_{0},P_{1},...,P_{n},...)$ de
+solutions
+particulières toutes les solutions de cette équation et on établit une
+relation de récurrence satisfaite par les polynômes $P_{n}$. Dans la
+\textbf{partie II}, on utilise cette relation pour obtenir le
+comportement de la
+suite des valeurs $(P_{n}(x))$ en un point $x$ donné, en commençant par
+le
+cas particulier où $x = \dfrac{5}{3}$.
+
+\section*{PARTIE I : ÉTUDE DE L'EQUATION (\protect\ref{1})}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $P$ une solution non nulle de (\ref{1}), de degré $n$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer, en identifiant dans (\ref{1}) les termes de plus haut
+degré,
+que $\lambda $ est nécessairement égal à $n(n + 3)$.
+
+\item Soit $Q(x) = (-1)^{n}P\left(\Ev{-x}\right)$. Montrer que $Q$ est
+solution de (\ref{1}).
+En étudiant le degré du polynôme $P-Q$, prouver que $P = Q$ et en
+déduire la
+parité de $P$ en fonction de $n$.
+\end{noliste}
+
+\item Inversement, on se propose de prouver qu'étant donné un entier
+$n\geq 0$, il existe un polynôme $P$ à coefficients réels et un seul
+dont le terme de plus haut degré est $x^{n}$ et tel que, pour tout réel
+$x$ :\begin{equation}
+(x-1)P + 4xP = n(n + 3)P \label{2}
+\end{equation}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer $P_{0},P_{1},P_{2}${\small.}
+
+\item Dans le cas général, on pose : $P_{n}(x) = \Sum{k =
+0}{\E(\dfrac{n}{2})}a_{2k}x^{n-2k} = a_{0}x^{n} + a_{2}x^{n-2} +... +
+a_{2k}x^{n-2k} +...$ avec $a_{0} = 1$\\
+où $E$ désigne le plus grand entier inférieur ou égal à
+$\dfrac{n}{2}$.\\
+Expliciter un système linéaire satisfait par les nombres $a_{2k}$, où
+$0\leq 2k\leq n$, et montrer que ce système admet une solution et
+une seule (que l'on ne demande pas d'expliciter). Donner l'expression
+du
+coefficient $a_{2}$.
+\end{noliste}
+
+\item À partir de la suite $(P_{n})$, déterminer, selon les valeurs de
+$\lambda $, l'ensemble $E_{\lambda }$ des solutions de (\ref{1}).
+
+\item On se propose d'établir que, pour tout réel $x$ et tout nombre
+entier $n\geq 2$ :\begin{equation}
+P_{n}(x)-xP_{n-1}(x) + \dfrac{n^{2}-1}{4n^{2}-1}P_{n-2}(x) = 0
+\label{3}
+\end{equation}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On considère, pour $n\geq 2$, la fonction polynôme :
+\[
+Q_{n}(x) = (x^{2}-1)P_{n}{\prime }(x)-nxP_{n}(x).
+\]
+Déterminer le monône de plus haut degré de $Q$.\\
+Montrer que $Q_{n}{\prime }(x) = (n + 2)(nP_{n}(x)-xP_{n}{\prime
+}(x))$, et
+calculer $(x^{2}-1)Q_{n}{\prime \prime }(x) + 4xQ_{n}{\prime }(x)$ en
+fonction de $Q_{n}(x)$ seulement.\\
+En déduire que :\begin{equation}
+(x^{2}-1)P_{n}{\prime }(x)-nxP_{n}(x) + \dfrac{n(n + 2)}{2n +
+1}P_{n-1}(x) = 0
+\label{4}
+\end{equation}
+
+\item En dérivant (\ref{4}), et en recourant par exemple à l'expression
+de
+la dérivée de $Q_{n}$ obtenue précédemment, donner une relation entre
+$P_{n},P_{n}{\prime }$et $P_{n-1}{\prime }$.\\
+En utilisant à nouveau la relation (\ref{4}), en déduire la relation
+(\ref{3}).
+\end{noliste}
+\end{noliste}
+
+\section*{PARTIE II : ETUDE DU COMPORTEMENT ASYMPTOTIQUE DE LA
+SUIT\E($P_{n}(x)$)}
+
+Soit $(u_{n})_{n\geq 0}$ la suite de nombres réels définie par la
+relation de récurrence :\begin{equation}
+u_{n} = u_{n-1} + \dfrac{1}{9}[(u_{n-1}-u_{n-2}) +
+\dfrac{3}{4n^{2}-1}u_{n-2}]
+\label{5}
+\end{equation}avec $n\geq 2$, et les conditions initiales $u_{0} = 1$
+et $u_{1} = 1 + \dfrac{1}{9}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item En remarquant que :
+\[
+\dfrac{1}{4k^{2}-1} = \dfrac{1}{2}(\dfrac{1}{2k-1}-\dfrac{1}{2k + 1})
+\]
+calculer pour tout entier $n\geq 2 :\quad S_{n} = \Sum{k =
+2}{2}\dfrac{1}{4k^{2}-1}$\\
+Quelle est la limite de la suite $(S_{n})$ ?
+
+\item On se propose, dans cette question, d'étudier la suite $(u_{n})$
+définie ci dessus.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer, par récurrence, que, pour tout entier $n\geq
+1$,\hspace{5mm}$u_{n}\geq u_{n-1}\geq 1$.
+
+\item Prouver que l'on a pour tout entier $n\geq 2$ : 
+\begin{equation}
+u_{n} = u_{1} + \dfrac{1}{9}\left[ (u_{n-1}-u_{0}) + \Sum{k =
+2}{n}\dfrac{3}{4k^{2}-1}u_{k-2}\right] \label{6}
+\end{equation}et en déduire, pour tout entier naturel $n$, que
+$u_{n}\leq \dfrac{6}{5}
+$.
+
+\item Montrer que la suite $(u_{n})$ est convergente, et, à l'aide de
+(\ref{6}), donner un encadrement de sa limite $L$ permettant d'en
+obtenir une
+valeur décimale approchée à $0,01$ près.
+\end{noliste}
+
+\item On reprend dans cette question les notations de la première
+partie et,
+pour tout entier naturel $n$ et pour tout réel $t>0$, on pose : 
+\[
+u_{n}(t) = \dfrac{2^{n}}{e^{nt}}P_{n}(\dfrac{e^{t} + e^{-t}}{{2}})
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout réel $x>1$, il existe un nombre réel $t>0$
+et
+un seul tel que : 
+\[
+x = \dfrac{e^{t} + e^{-t}}{2}
+\]
+
+\item Calculer $u_{0}(t)$ et $u_{1}(t)$, et montrer que, pour tout
+$n\geq 2$ :\begin{equation}
+u_{n}(t)-u_{n-1}(t) = e^{-2t}[(u_{n-1}(t)-u_{n-2}(t)) +
+\dfrac{3}{4n^{2}-1}u_{n-2}(t)] \label{7}
+\end{equation}
+
+\item Montrer par récurrence que, pour tout $n\geq 1$, les fonctions
+$u_{n}$et $(u_{n}-u_{n-1})$ sont strictement positives et décroissantes
+sur $]0, + \infty \lbrack $.
+
+\item Expliciter le réel $e^{t}$ quand $x = \dfrac{5}{3}$, et montrer
+que,
+dans ce cas, les suites $(u_{n})$ et $(u_{n}(t))$ définies
+respectivement
+par les relations (\ref{5}) et (\ref{7}) sont les mêmes. \\
+On suppose que $x\geq \dfrac{5}{3}$. Déduire des résultats précédents
+que la suite $(u_{n}(t))$ converge vers une limite strictement positive
+$L(x) $ que l'on ne demande pas d'expliciter, et en déduire un
+équivalent de $P_{n}(x)$ lorsque n tend vers l'infini.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

@@ -1,0 +1,273 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1978} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION GENERALE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 1978}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent Dans ce problème, toutes les fonctions envisagées sont des
+fonctions d'une variable réelle $x$ à valeurs dans $\R.$\\
+Soit $F$ une telle fonction; on note, si elles existent
+:\begin{eqnarray*}
+F(x + 0) & = & \dlim{h\downarrow 0}F(x + h) \\
+F(x-0) & = & \dlim{h\downarrow 0}F(x-h)
+\end{eqnarray*}La notation $h\downarrow 0$ signifiant que $h$ tend vers
+zéro par valeurs
+positives. On rappelle qu'une fonction $F,$ définie au point $x$, est
+continue à gauche en $x$ si et seulement si : $F(x) = F(x-0).$
+
+\section*{PARTI\E\ I}
+
+On considère la fonction $F$ définie par :
+\[
+\left\{ 
+\begin{array}{cc}
+F(x) = 0 & x\leq a \\
+F(x) = \dfrac{x}{8} & a<x\leq b \\
+F(x) = \dfrac{x^{2}}{16} & b<x\leq c \\
+F(x) = 1 & c<x
+\end{array}
+\right. 
+\]
+$a,$ $b,$ $c$ étant trois nombres réels satisfaisant à : $a<b<c.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, quels que soient $a,$ $b$ et $c,$ $F$ est continue à
+gauche sur $\R.$
+
+\item A quelles conditions doivent satisfaire $a,$ $b,$ c pour que $F$
+soit
+continue pour toutes valeurs de $x$ ? Est-elle dérivable quel que soit
+$x$ ?
+\end{noliste}
+
+\item Déterminer les conditions sur $a,$ $b,$ $c$ pour que $F$ soit
+non-décroissante; montrer que, si ces conditions sont réalisées, $F$
+peut alors être considérée comme la fonction de répartition d'une
+variable aléatoire $X$ :
+\[
+F(x) = P\left(\Ev{X\leq x}\right)
+\]
+\end{noliste}
+
+\section*{PARTI\E\ II}
+
+Dans cette seconde partie, on pose $a = 0,$ $b = 2,$ $c = 4.$ On note
+$X$ la
+variable aléatoire ayant $F$ pour fonction de répartition.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Étudier la fonction $F$ et tracer sa représentation graphique.
+
+\item Étudier la fonction $F^{\prime }$ dérivée de $F$ par rapport à
+$x.$
+
+\item En désignant par $F_{g}{\prime }$ la dérivée à gauche de $F,$
+définie
+quel que soit $x,$ on note $f$ la fonction telle que :
+\[
+\left\{ 
+\begin{array}{ll}
+f(x) = F^{\prime }(x) & \text{en toute valeur }x\text{ où }F^{\prime
+}\text{
+est définie} \\
+f(x) = F_{g}{\prime }(x) & \text{pour tout valeur }x_{i}\text{ où
+}F^{\prime }\text{ n'est pas définie}
+\end{array}
+\right. 
+\]
+Montrer que $f$ est continue à gauche, qu'elle est intégrable sur tout
+intervalle fermé de $\R$ et que $F(x) = \dint{0}{x}f(t)dt =
+\dint{-\infty }{x}f(t)dt.$\\
+La fonction $f$ apparait ainsi, et on l'admettra, comme la fonction de
+densité de la variable aléatoire $X.$
+
+\item Calculer l'espérance mathématique $\E(X)$ et la variance $\V(X)$
+de $X.$
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier la variation de la fonction $G$ de la variable $u$
+définie
+dans $\R$ par :
+\[
+G(u) = \dint{0}{u}[1-F(x)]dx
+\]
+
+\item Montrer qu'il existe une valeur $u_{0}$ que l'on précisera, telle
+que $G(u) = E(X)$ pour $u\geq u_{0}$
+\end{noliste}
+\end{noliste}
+
+\section*{PARTI\E\ III}
+
+On suppose dans cette troisième partie que $a,$ $b,$ $c$ satisfont aux
+conditions 
+\[
+\left\{ 
+\begin{array}{l}
+0<a<b \\
+2<b<c<4
+\end{array}
+\right. 
+\]
+On pose $\{x_{i}\}$ l'ensemble des points $x_{i}$ de discontinuité de
+la
+fonction $F$ et $p_{x_{i}} = F(x_{i} + 0)-F(x_{i}-0)$ le saut de la
+fonction $F$
+au point de discontinuité $x_{i}.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Expliciter les éléments de l'ensemble $\{x_{i}\}.$
+
+\item Calculer toutes les valeurs $p_{x_{i}}.$
+\end{noliste}
+
+\item Soit $\Phi $ la fonction définie par $\Phi
+(x) = \Sum{x_{i}<x}p_{x_{i}}.,$ la sommation étant étendue à tous les
+points de discontinuité de $F$ strictement inférieurs à $x.$\\
+Étudier la fonction $\Phi $ et tracer sa représentation graphique (on
+pourra, pour ce tracé seulement, choisir $a = 1,$ $b = 2,5,$ $c = 3).$
+
+\item On note $\Psi $ la fonction $\Psi = F-\Phi.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la fonction $\Psi $ est continue et non décroissante.
+
+\item Pour quelles valeurs de $x,$ $\Psi $ n'est-elle pas dérivable ?
+\end{noliste}
+
+\item Soit $\alpha = \dlim{x\rightarrow + \infty }\Phi (x)$ et $\beta
+ = \dlim{x\rightarrow + \infty }\Psi (x).$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\alpha \leq 1$ et $\beta \leq 1.$
+
+\item Quelle relation existe-t-il entre $\alpha $ et $\beta $ ?
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que l'on peut trouver deux fonctions de répartition l'une
+$F_{d}$ en escalier, l'autre $F_{c}$ continue, telles que $F$ soit
+décomposable en :
+\[
+F = \lambda_{1}F_{d} + \lambda_{2}F_{c}
+\]
+où $\lambda_{1}$ et $\lambda_{2}$ sont deux réels, que l'on
+déterminera,
+satisfaisant aux conditions 
+\[
+0\leq \lambda_{1}\leq 1,\qquad 0\leq \lambda_{2}\leq
+1\qquad \text{et}\qquad \lambda_{1} + \lambda_{2} = 1
+\]
+
+\item Une telle décomposition de $F$ est-elle unique ?
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

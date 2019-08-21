@@ -1,0 +1,775 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2014} %
+\author{} %
+\date{} %
+\begin{document}
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+%%DEBUT
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 26; %
+% annee : 2014; %
+% theme : vaCouple, vaDiscrete, vaFctGeneratrice, vaCovariance,
+% denombrement, fct2var; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition de l'indépendance de deux
+    variables aléatoires discrètes. Lien entre indépendance et
+    covariance.\\
+    Soit $X$ et $Y$ deux variables aléatoires discrètes finies à
+    valeurs dans $\N$, définies sur un espace probabilisé
+    $(\Omega,\A,P)$. On suppose que $X(\Omega)\subset \llb0,n\rrb$ et
+    $Y(\Omega) \subset \llb 0, m \rrb$, où $n$ et $m$ sont deux
+    entiers de $\N^*$.\\
+    Pour tout couple $(i,j) \in \llb 0, n \rrb \times \llb 0, m \rrb$,
+    on pose : $p_{i,j} = \Prob(\Ev{X=i} \cap \Ev{Y=j})$.\\
+    Soit $F_X$ et $F_Y$ les deux fonctions de $\R$ dans $\R$ définies
+    par : $F_X(x)=\Sum{i=0}{n} \Prob(\Ev{X=i})x^i$ et \\
+    $F_Y(x)=\Sum{j=0}{m} \Prob(\Ev{Y=j})x^j$.\\
+    Soit $Z=(X,Y)$ et $G_Z$ la fonction de $\R^2$ dans $\R$ définie
+    par : $G_Z(x,y)=\Sum{i=0}{n}\Sum{j=0}{m} p_{i,j}x^iy^j$.
+
+  \item Donner la valeur de $G_Z(1,1)$ et exprimer les espérances de
+    $X$, $Y$ et $XY$, puis la covariance de $(X,Y)$ à l'aide des
+    dérivées partielles premières et secondes de $G_Z$ au point
+    $(1,1)$.
+
+  \item Soit $f$ une fonction polynomiale de deux variables définies
+    sur $\R^2$ par : $f(x,y) = \Sum{i=0}{n} \Sum{j=0}{m}
+    a_{i,j}x^iy^j$ avec $a_{i,j} \in \R$.\\
+    On suppose que pour tout couple $(x,y)\in\R^2$, on a $f(x,y)=0$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que pour tout $(i,j) \in \llb0, n \rrb \times \llb 0,
+    m \rrb$, on a $a_{i,j}=0$.
+    \item En déduire que $X$ et $Y$ sont indépendantes, si et
+      seulement si, pour tout $(x,y)\in\R^2$,\\
+      $G_Z(x,y)=F_X(x)F_Y(y)$. (on pourra poser : $a_{i,j}=p_{i,j} -
+      \Prob(\Ev{X=i})\Prob(\Ev{Y=j})$).
+    \end{noliste}
+
+  \item Une urne contient des jetons portant chacun une des lettres
+    $A$, $B$ ou $C$. La proportion des jetons portant la lettre $A$
+    est $p$, celle des jetons portant la lettre $B$ est $q$ et celle
+    des jetons portant la lettre $C$ est $r$, où $p$, $q$ et $r$ sont
+    trois réels strictement positifs vérifiant $p+q+r=1$.\\
+    Soit $n\in\N^*$. On effectue $n$ tirages d'un jeton avec remise
+    dans cette urne. On note $X$ (resp. $Y$) la variable aléatoire
+    égale au nombre de jetons tirés portant la lettre $A$ (resp. $B$)
+    à l'issue de ces $n$ tirages.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Quelles sont les lois de $X$ et $Y$ respectivement ?
+      Déterminer $F_X$ et $F_Y$.
+    \item Déterminer la loi de $Z$. En déduire $G_Z$.
+    \item Les variables aléatoires $X$ et $Y$ sont-elles indépendantes
+      ?
+    \item Calculer la covariance de $(X,Y)$. Le signe de cette
+      covariance était-il prévisible ?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 26; %
+% annee : 2014; %
+% theme : ; %
+
+\begin{exerciceSP}~\\
+  Soit $n\in\N^*$ et $A$ une matrice de $\M{n}$ telle que $A ^t AA ^t
+  AA=I$, où $I$ est la matrice identité de $\M{n}$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que la matrice $A$ est symétrique.
+  \item Déterminer $A$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+
+\newpage
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 31; %
+% annee : 2014; %
+% theme : ; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition et représentation graphique de
+    la fonction partie entière.\\
+    On note $E$ l'espace vectoriel des applications de $\R$ dans $\R$
+    et $F$ le sous-espace vectoriel de $E$ engendré par les quatre
+    fonctions $f_0$, $f_1$, $f_2$ et $f_3$ définies par :
+    \[
+    \forall x\in\R, \ f_0(x)=1, \ f_1(x)=x, \ f_2(x)=\ee^x, \
+    f_3(x)=x\ee^x.
+    \]
+
+  \item On note : $\B=(f_0,f_1,f_2,f_3)$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $\B$ est une base de $F$.
+    \item Montrer que toutes les fonctions de $F$ sont continues et
+      dérivables sur $\R$.
+    \end{noliste}
+
+  \item Soit $\Phi$ l'application définie par : pour tout $f\in F$,
+    $\Phi(f)=f'$, où $f'$ est la dérivée de $f$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Justifier que $\Phi$ est un endomorphisme de $F$ et écrire
+      la matrice $M$ de $\Phi$ dans la base $\B$.
+    \item L'endomorphisme $\Phi$ est-il diagonalisable ?
+    \item Montrer que $f_3$ appartient à $\im(\Phi)$ et résoudre dans
+      $F$ l'équation : $\Phi(f)=f_3$.
+    \end{noliste}
+
+  \item On note $G$ l'ensemble des fonctions $g$ de $E$ telles que :
+    \[
+    \forall x\in\R, \ g(x+1)-g(x)=0.
+    \]
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $G$ est un sous-espace vectoriel de $E$ et
+      trouver $F\cap G$.
+    \item Trouver un élément de $G$ qui n'appartienne pas à $F$.
+    \end{noliste}
+  \item Trouver toutes les fonctions de $F$ vérifiant : $\forall
+    x\in\R$, $f(x+1-f(x)=(\ee -1)f'(x)$.
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 31; %
+% annee : 2014; %
+% theme : ; %
+
+\begin{exerciceSP}~\\
+  Soit $p$ un réel de $]0,1[$ et $q=1-p$. Soit $(X_n)_{n\in\N^*}$ une
+  suite de variables aléatoires indépendantes définies sur un espace
+  probabilisé $(\Omega,\A,P)$, de même loi de Bernoulli telle que :\\
+  $\forall k\in\N^*$, $\Prob(\Ev{X_k=1}) = p$ et $\Prob(\Ev{X_k=0}) =
+  q$. Pour $n$ entier de $\N^*$, on définit pour tout
+  $k\in\llb1,n\rrb$ la variable aléatoire $Y_k=X_k+X_{k+1}$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer pour tout $k\in\llb1,n\rrb$, $\Cov(Y_k,Y_{k+1})$.
+    \item Montrer que $0<\Cov(Y_k,Y_{k+1})\leq \dfrac{1}{4}$.
+    \end{noliste}
+  \item Calculer pour tout couple $(k,l)$ tel que $1\leq k<l\leq n$,
+    $\Cov(Y_k,Y_l)$.
+  \item On note $\eps$ un réel strictement positif fixé. Montrer que
+    $\dlim{n\to+\infty} \Prob \left(\Ev{\left \vert
+          \dfrac{1}{n}\Sum{k=1}{n} Y_k -2p \right\vert >\eps}\right)
+    =0$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 36; %
+% annee : 2014; % 
+% theme : ; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition de deux matrices semblables.\\
+    Soit $E$ un espace vectoriel sur $\R$ de dimension $2$. On note
+    $\LL{E}$ l'ensemble des endomorphismes de $E$.\\
+    Pour toute matrice $A=\begin{smatrix} a & c\\ b & d\end{smatrix}
+    \in\M{2}$, on note $D$ et $T$ les deux applications suivantes :
+    \[
+    D:\left\{
+      \begin{array}{rcl}
+        \M{2} & \rightarrow & \R\\
+        A & \mapsto & ad-bc
+      \end{array}
+    \right. \quad \mbox{et} \quad T:\left\{
+      \begin{array}{rcl}
+        \M{2} & \rightarrow & \R\\
+        A & \mapsto & a+d
+      \end{array}
+    \right.
+    \]
+
+  \item Soit $A$ et $B$ deux matrices de $\M{2}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Exprimer $D(AB)$ en fonction de $D(A)$ et $D(B)$. Montrer
+      que $T(AB)=T(BA)$.
+    \item En déduire que si $A$ et $B$ sont semblables, on a
+      $D(A)=D(B)$ et $T(A)=T(B)$.
+    \end{noliste}
+
+  \item Déterminer $\ker(D)$ et $\ker(T)$. Quelle est la dimension de
+    $\ker(T)$ ?\\
+    Dorénavant, si $u\in\ll{E}$ de matrice $A$ dans une base $\B$ de
+    $E$, on note : $D(u)=D(A)$ et $T(u)=T(A)$.
+
+  \item On note $\id_E$ l'endomorphisme identité de $E$. Exprimer
+    $u^2=u\circ u$ en fonction de $u$ et $\id_E$.
+
+  \item Soit $u\in\LL{E}$ et $\mathcal{S}_0=\{v\in\LL{E} \vert u \circ
+    v-v\circ u=0\}$.\\
+    Montrer que $\mathcal{S}_0$ est un espace vectoriel contenant
+    $\{P(u),P\in\R[X]\}$.
+
+  \item Soit $u\in\LL{E}$ avec $u\neq 0$. On pose :
+    $\mathcal{S}=\{v\in\LL{E} \vert u\circ v -v\circ u =u\}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que si $\mathcal{S}$ est non vide, alors
+      l'endomorphisme $u$ ne peut être bijectif. En déduire une
+      condition nécessaire et suffisante portant sur $u^2$ pour que
+      $\mathcal{S}$ soit non vide.
+    \item On suppose que $\mathcal{S}$ est non vide. Établir
+      l'existence d'une base $\B_1=(e_1,e_2)$ de $E$ dans laquelle la
+      matrice $M_u$ de $u$ d'écrit $M_u = 
+      \begin{smatrix} 
+        0 & 1\\ 
+        0 & 0
+      \end{smatrix}$ et déterminer la forme générale de la matrice des
+      éléments $v$ de $\mathcal{S}$ dans cette même base.
+    \item On suppose que $\mathcal{S}$ est non vide. Montrer que
+      $\mathcal{S}=\{v_0+\alpha \id_E+\beta u, \alpha, \beta\in\R\}$
+      où $v_0$ est un endomorphisme non inversible de $E$ à
+      déterminer.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 36; %
+% annee : 2014; % 
+% theme : ; % 
+
+\begin{exerciceSP}~\\
+  Soit $k$ et $\lambda$ deux réels et soir $f$ la fonction définie sur
+  $\R$ à valeurs réelles donnée par :
+  \[
+  f(t)=\left\{
+    \begin{array}{cl}
+      kt\ee^{-\lambda t} & \mbox{ si $t\geq 0$}\\
+      0 & \mbox{ sinon}
+    \end{array}
+  \right.
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Exprimer $k$ en fonction de $\lambda$ pour que $f$ soit une
+    densité de probabilité.\\
+    On note $X$ une variable aléatoire réelle ayant $f$ pour densité.
+  \item Montrer que pour tout $n\in\N^*$, la variable aléatoire $X$
+    admet un moment d'ordre $n$ que l'on calculera.
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 39; %
+% annee : 2014; %
+% theme : vaDiscrete, vaPoisson, vaCouple, vaCovariance, vaSomme, FPT; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : \\
+    Loi d'un couple de variables aléatoires discrètes. Lois
+    marginales. Lois conditionnelles.
+  \end{noliste}
+  Soit $c$ un réel strictement positif et soit $X$ et $Y$ deux
+  variables aléatoires à valeurs dans $\N$ définies sur un espace
+  probabilisé $(\Omega, \A, \Prob)$, telles que :
+  \[
+  \forall (i,j)\in\N^2, \ \Prob(\Ev{X=i}\cap\Ev{Y=j}) =
+  c\dfrac{i+j}{i!j!}
+  \]
+  \begin{noliste}{1.}
+    \setcounter{enumi}{1}
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que pour tout $i\in\N$, on a : $\Prob(\Ev{X=i}) = c
+    \dfrac{(i+1)}{i!} \ \ee$. \\
+    En déduire la valeur de $c$.
+    \item Montrer que $X$ admet une espérance et une variance et les
+      calculer.
+    \item Les variables aléatoires $X$ et $Y$ sont-elles indépendantes
+      ?
+    \end{noliste}
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer la loi de $X+Y-1$.
+    \item En déduire la variance de $X+Y$.
+    \item Calculer la covariance de $X$ et de $X+5Y$.\\
+      Les variables aléatoires $X$ et $X+5Y$ sont-elles indépendantes
+      ?
+    \end{noliste}
+
+  \item On pose : $Z=\dfrac{1}{X+1}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $Z$ admet une espérance et la calculer.
+    \item Déterminer pour $i\in\N$, la loi conditionnelle de $Y$
+      sachant $\Ev{X=i}$.
+    \item Pour $A\in\A$, on pose : $g_A(Y)=\Sum{k=0}{+\infty} k
+      P_A(\Ev{Y=k})$.\\
+      Établir l'existence d'une fonction affine $f$ telle que, pour
+      tout $\omega\in\Omega$, on a : 
+      \[
+      g_{\Ev{X=X(\omega)}}(Y) = f(Z(\omega))
+      \]
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 39; %
+% annee : 2014; % 
+% theme : ; % 
+
+\begin{exerciceSP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item La somme de deux matrices diagonalisables est-elle
+    diagonalisable ?
+  \item La somme de deux matrices inversibles est-elle inversible ?
+  \item Montrer que toute matrice carrée est la somme de deux matrices
+    inversibles?
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 43; %
+% annee : 2014; % 
+% theme : ; % 
+
+\begin{exerciceAP}~\\
+  On note $\M{3}$ l'ensemble des matrices carrées d'ordre $3$ et
+  $\R_2[X]$ l'ensemble des polynômes à coefficients réels de degré
+  inférieur ou égal à $2$.\\
+  Dans tout l'exercice, $A$ est une matrice de $\M{3}$ ayant trois
+  valeurs propres distinctes, notées $\lambda_1$, $\lambda_2$ et
+  $\lambda_3$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours :Définition d'un polynôme annulateur d'une
+    matrice. Lien avec les valeurs propres.
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Donner en fonction de $\lambda_1$, $\lambda_2$ et
+      $\lambda_3$, un polynôme annulateur de $A$ de degré $3$.
+    \item Peut-on trouver un polynôme annulateur de $A$ de degré $1$
+      ou de degré $2$ ?
+    \end{noliste}
+
+  \item Soit $\varphi$ l'application de $\R_2[X]$ dans $\R^3$ qui à
+    tout polynôme $P\in\R_2[X]$, associe le triplet
+    $\left(P(\lambda_1^5),P(\lambda_2^5), P(\lambda_3^5)\right)$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que l'application $\varphi$ est linéaire.
+    \item Déterminer $\ker(\varphi)$.
+    \item L'application $\varphi$ est-elle un isomorphisme de
+      $\R_2[X]$ sur $\R^3$ ?
+    \item Établir l'existence d'un unique polynôme $Q\in\R_2[X]$ tel
+      que : pour tout $i\in\llb1,3\rrb$, $Q(\lambda_i^5)=\lambda_i$.
+    \item Soit $T$ le polynôme défini par : $T(X)=Q(X^5)-X$.\\
+      Montrer que le polynôme $T$ est un polynôme annulateur de $A$.
+    \end{noliste}
+
+  \item On note $\mathcal{E}$ et $\mathcal{F}$ les deux sous-ensembles
+    de $\M{3}$ suivants :
+    \[
+    \mathcal{E}=\{N\in\M{3} \setminus AN=NA\} \ \mbox{ et } \
+    \mathcal{F}=\{N\in\M{3} \setminus A^5N=NA^5\}.
+    \]
+    Déduire des questions précédentes que $\mathcal{E}=\mathcal{F}$.
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 43; %
+% annee : 2014; % 
+% theme : ; % 
+
+\begin{exerciceSP}~\\
+  Soit $(X_n)_{n\in\N^*}$ une suite de variables aléatoires définies
+  sur un espace probabilisé $(\Omega,\A,P)$, indépendantes et de même
+  loi exponentielle de paramètre $\lambda>0$.\\
+  Pour $n\in\N^*$, on pose : $M_n=\max(X_1,\hdots,X_n)$ et on admet
+  que $M_n$ est une variable aléatoire définie sur $(\Omega,\A,P)$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer la loi de $M_n$.
+  \item Montrer que l'application $g$ qui à tout réel $x$ associe
+    $g(x)=\ee^{-x}\exp\left(-\ee^{-x}\right)$ est une densité de
+    probabilité.
+  \item Soit $Y$ une variable aléatoire définie sur $(\Omega,\A,P)$ de
+    densité $g$.\\
+    Montrer que la suite de variables aléatoires $(\lambda M_n -
+    \ln(n))_{n\geq 1}$ converge en loi vers $Y$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 46; %
+% annee : 2014; % 
+% theme : ; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition de la convergence d'une série
+    numérique (à termes réels).\\
+    {\it Dans tout l'exercice, $a$ est un réel strictement supérieur à
+      $1$.}
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que pour tout $n\in\N^*$, l'intégrale
+      $\dint{0}{+\infty} \dfrac{dt}{(1+t^a)^n}$ est convergente. On
+      pose alors pour tout $n\in\N^*$ : $u_n(a)=\dint{0}{+\infty}
+      \dfrac{dt}{(1+t^a)^n}$.
+    \item Établir la convergence de la suite $(u_n(a))_{n\in\N^*}$.
+    \end{noliste}
+
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que pour tout $n\in\N^*$, on a :
+      $u_n(a)=an(u_n(a)-u_{n+1}(a))$. En déduire $u_n(a)$ en fonction
+      de $u_1(a)$.
+    \item Montrer que la série de terme général
+      $\left(\dfrac{u_n(a)}{an}\right)$ est convergente.
+    \item En déduire la limite de la suite $(u_n(a))_{n\in\N^*}$.
+    \end{noliste}
+
+  \item On pose pour tout $n\in\N^*$ :
+    $w_n(a)=\ln(u_n(a))+\dfrac{\ln(n)}{a}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que la série de terme général $(w_{n+1}(a)-w_n(a))$
+      est convergente.
+    \item En déduire l'existence d'un réel $K(a)$ tel que $u_n(a)$
+      soit équivalent à $\dfrac{K(a)}{n^{\frac{1}{a}}}$ lorsque $n$
+      tend vers $+\infty$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 46; %
+% annee : 2014; %
+% theme : ; %
+
+\begin{exerciceSP}~\\
+  Les variables aléatoires sont définies sur un espace probabilisé
+  $(\Omega,\A,P)$.\\
+  Soit $X$ une variable aléatoire qui suit la loi de Poisson de
+  paramètre $\lambda>0$ et soit $Y$ une variable aléatoire
+  indépendante de $X$ telle que : $Y(\Omega) = \{1, 2\}$,
+  $\Prob(\Ev{Y=1}) = \Prob(\Ev{Y=2}) = \dfrac{1}{2}$.\\
+  On pose : $Z = XY$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer la loi de $Z$.
+  \item On admet que : $\Sum{k=0}{+\infty} \dfrac{\lambda^{2k}}{(2k)!}
+    = \dfrac{\ee^{\lambda}+\ee^{-\lambda}}{2}$. Quelle est la
+    probabilité que $Z$ prenne des valeurs paires ?
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 47; %
+% annee : 2014; % 
+% theme : ; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Critères de convergence d'une intégrale
+    impropre.\\
+    Préciser la nature de l'intégrale $\dint{a}{+\infty}
+    \dfrac{dt}{t^\alpha}$, où $a$ est un réel strictement positif et
+    $\alpha$ un réel quelconque.\\
+    Soit $T$ une variable aléatoire d"finie sur un espace probabilisé
+    $(\Omega,\A,P)$, suivnt la loi normale centrée réduite.\\
+    On note $\Phi$ et $\varphi$ respectivement, la fonction de
+    répartition et une densité de $T$.
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item \`A l'aide de l'inégalité de Bienaymé-Tchebychev, montrer
+      que pour tout $x>0$, on a :\\ $0\leq 1-\Phi(x)\leq
+      \dfrac{1}{2x^2}$.
+    \item En déduire que l'intégrale $\dint{0}{+\infty}
+      (1-\Phi(x))\dx$ est convergente et calculer sa valeur.
+    \end{noliste}
+
+  \item On note $\varphi'$ la dérivée de $\varphi$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer pour tout $x\in\R$, une relation entre
+      $\varphi'(x)$ et $\varphi(x)$.
+    \item En déduire, à l'aide de deux intégrations par parties, que
+      pour tout $x\in\R_+^*$, on a :\\
+      $\dfrac{1}{x}-\dfrac{1}{x^3}\leq
+      \dfrac{1-\Phi(x)}{\varphi(x)}\leq \dfrac{1}{x}$.
+    \item Donner un équivalent de $1-\Phi(x)$ quand $x$ tend vers
+      $+\infty$.
+    \end{noliste}
+
+  \item Soit $a>0$. Calculer $\dlim{x\to+\infty} \left(
+      P_{\Ev{T>x}}\left[T>x+\dfrac{a}{x}\right]\right)$.
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 47; %
+% annee : 2014; % 
+% theme : ; % 
+
+\begin{exerciceSP}~\\
+  Soit $D$ la matrice définie par : $D = 
+  \begin{smatrix} 
+    -1 & 0\\ 
+    0 & 4
+  \end{smatrix}$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer les matrices $A\in\M{2}$ telles que $AD=DA$.
+  \item En déduire les matrices $M\in\M{2}$ qui vérifient $M^3-2M=D$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 49; %
+% annee : 2014; % 
+% theme : ; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition de deux matrices semblables.\\
+    Soit $f$ un endomorphisme de $\R^3$ dont la matrice $A$ dans la
+    base canonique de $\R^3$ est donnée par :
+    \[
+    A = 
+    \begin{smatrix} 
+      3 & 2 & -2\\ 
+      -1 & 0 & 1\\ 
+      1 & 1 & 0
+    \end{smatrix}.
+    \]
+    On note $\id$ l'endomorphisme identité de $\R^3$ et on pose :
+    $f^2=f\circ f$.
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $2f-f^2=\id$.
+    \item Montrer que l'endomorphisme $f$ est un automorphisme. Quel
+      est l'automorphisme réciproque de $f$ ?
+    \item Montrer que $f$ admet l'unique valeur propre
+      $1$. L'endomorphisme $f$ est-il diagonalisable ?
+    \item Déterminer le sous-espace propre associé à la valeur propre
+      $1$. Quelle est sa dimension ?
+    \end{noliste}
+
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer pour tout $n\in\N$, $A^n$ en fonction de $n$.
+    \item Le résultat précédent s'étend-t-il au cas où $n\in\Z$ ?
+    \end{noliste}
+
+  \item Déterminer une base $(u,v,w)$ de $\R^3$ dans laquelle la
+    matrice de $f$ est la matrice $C = 
+    \begin{smatrix} 
+      1 & 0 & 0\\
+      0 & 1 & 1\\ 
+      0 & 0 & 1
+    \end{smatrix}$.
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 49; %
+% annee : 2014; % 
+% theme : ; % 
+
+\begin{exerciceSP}~
+  Soit $(X_n)_{n\in\N^*}$ une suite de variables aléatoires
+  indépendantes définies sur le même espace probabilisé
+  $(\Omega,\A,P)$ et suivant toutes la loi uniforme sur l'intervalle
+  $[0,1]$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Pour tout entier $k\geq 1$, déterminer une densité de la
+    variable aléatoire $Y_k=\max(X_1,X_2,\hdots,X_k)$.
+  \item Déterminer une densité de la variable aléatoire $Z_k=-Y_k$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 63; %
+% annee : 2014; % 
+% theme : ; % 
+
+\begin{exerciceAP}~\\
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Énoncer une condition nécessaire et
+    suffisante de diagonalisabilité d'un endomorphisme.\\
+    On considère la matrice $A\in\M{2}$ définie par $A=\begin{smatrix} 2 & 4\\
+    1 & 2\end{smatrix}$.
+  \item On note $\M{2,1}$ l'espace vectoriel des matrices à $2$ lignes
+    et $1$ colonne à coefficients réels.\\
+    Soit $u$ l'endomorphisme de $\M{2,1}$ défini par : pour tout
+    $X\in\M{2,1}$, $u(X)=AX$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer une base de $\ker(u)$ et une base de $\im(u)$.
+    \item L'endomorphisme $u$ est-il diagonalisable ?
+    \item Calculer pour tout $n\in\N^*$, la matrice $A^n$.
+    \end{noliste}
+
+  \item Soit $v$ l'endomorphisme de $\M{2}$ défini par : pour tout
+    $M\in\M{2}$, $v(M)=AM$.\\
+    On note $\B=\left(E_{1,1},E_{1,2},E_{2,1},E_{2,2}\right)$ la base
+    canonique de $\M{2}$ et on rappelle que :
+    \[
+    E_{1,1} = 
+    \begin{smatrix} 
+      1 & 0\\ 
+      0 & 0
+    \end{smatrix}, %
+    \ E_{1,2} = 
+    \begin{smatrix} 
+      0 & 1 \\
+      0 & 0 
+    \end{smatrix}, %
+    \ E_{2,1} = 
+    \begin{smatrix} 
+      0 & 0 \\ 
+      1 & 0 
+    \end{smatrix}, %
+    \ E_{2,2} = 
+    \begin{smatrix} 
+      0 & 0 \\
+      0 & 1
+    \end{smatrix}
+    \]
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Écrire la matrice $V$ de l'endomorphisme $v$ dans la base
+      $\B$.
+    \item Déterminer une base de $\ker(v)$ et une base de $\im(v)$.
+    \item L'endomorphisme $v$ est-il diagonalisable ?
+    \end{noliste}
+\end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 63; %
+% annee : 2014; % 
+% theme : ; % 
+
+\begin{exerciceSP}~
+  Soit $n$ un entier supérieur ou égal à $2$. On dispose de $n$ urnes
+  $U_1$, $U_2$, $\hdots$, $U_n$ contenant chacune trois boules. Dans
+  l'ensemble des $3n$ boules, une seule est rouge, les autres étant
+  bleues.\\
+  Sachant que l'on a tiré sans remise deux boules bleues dans l'urne
+  $U_1$, quelle est la probabilité que l'urne $U_2$ contienne la boule
+  rouge ?
+\end{exerciceSP}
+
+%%FIN
+
+\end{document}

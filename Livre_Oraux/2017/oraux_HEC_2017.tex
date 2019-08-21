@@ -1,0 +1,830 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+% \input{../../../macros.tex}
+\input{../../ECE2_Carnot/macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2017} %
+\author{} %
+\date{} %
+\begin{document}
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+%%DEBUT
+
+\subsection*{Sujet E 42}
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 42; %
+% annee : 2017; %
+% theme : polynome, reductionEnd; %
+
+\begin{exerciceAP}~\\
+  {\it Dans cet exercice, $n$ désigne un entier supérieur ou égal à
+    $1$.}
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours\\
+    Que peut-on dire du degré de la somme et du produit de deux
+    polynômes ?
+  \end{noliste}  
+  Soit $\R_n[X]$ l'espace vectoriel des polynômes à coefficients réels
+  de degré inférieur ou égal à $n$, et $f$ l'application qui à tout
+  polynôme $P\in \R_n[X]$, fait correspondre le polynôme $f(P)$ défini
+  par :
+  \[
+  f(P)(X) \ = \ n \, X \, P(X) + X(1-X)P'(X), \ \text{où $P'$ désigne
+    la dérivée du polynôme $P$}
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \setcounter{enumi}{1}
+  \item 
+    \begin{noliste}{a)}
+    \item Montrer que $f$ est un endomorphisme de $\R_n[X]$ et écrire
+      sa matrice dans la base canonique de $\R_n[X]$.
+      
+    \item L'endomorphisme $f$ est-il bijectif ? Quel est son rang ?
+      
+    \item L'endomorphisme $f$ est-il diagonalisable ?
+    \end{noliste}
+    
+  \item Pour tout $k \in \llb 0,n \rrb$, on note $H_k$ le 
+    polynôme de $\R_n[X]$ défini par : $H_k(X) = X^k(1-X)^{n-k}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer pour tout $k \in \llb 0, n \rrb$, $f(H_k)(X)$.
+      
+    \item Montrer que $\B=(H_0,H_1, \ldots, H_n)$ est une base de
+      $\R_n[X]$.
+      
+    \item Trouver les coordonnées du polynôme $(X+1)^n$ dans la base
+      $\B$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 42; %
+% annee : 2017; %
+% theme : sciSimuVaDiscrete, sciLfGN, vaDiscrete; %
+
+\begin{exerciceSP}~\\
+  On considère une urne contenant $b$ boules blanches et $r$ 
+  boules rouges.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item La fonction \Scilab{} suivante permet de simuler des 
+    tirages dans cette urne.
+    \begin{scilab}
+      & \tcFun{function} \tcVar{y} = X(\tcVar{b}, \tcVar{r}) \nl %
+      & \qquad V = \%F \commentaire{le booléen "faux"} \nl %
+      & \qquad \tcFor{for} k = 1:3 \nl %
+      & \qquad \qquad V = V|grand(1, 1, \ttq{}uin\ttq{}, 1, 
+      \tcVar{b} + \tcVar{r}) <= \tcVar{b}; \nl %
+      & \qquad \tcFor{end}; \nl %
+      & \qquad \tcIf{if} V \tcIf{then} \tcVar{y} = 1; \tcIf{else} 
+      \tcVar{y} = 2; \nl %
+      & \qquad \tcIf{end}; \nl %
+      & \tcFun{endfunction}
+    \end{scilab}
+    
+    Que retourne la fonction $X$ et quelle loi simule-t-elle ?
+    
+    \item De quelle valeur théorique la valeur affichée après 
+    l'exécution des instructions suivantes fournit-elle une 
+    approximation ?
+    \begin{scilab}
+      & R = []; \nl %
+      & \tcFor{for} k = 1:10000 \nl %
+      & \qquad R = [R, X(5,5)]; \nl %
+      & \tcFor{end}; \nl %
+      & disp(mean(R))
+    \end{scilab}
+  \end{noliste}
+\end{exerciceSP}
+
+
+
+%\newpage
+
+
+
+\subsection*{Sujet E 81}
+
+%%% EPR %%% HEC;
+% type : oralAP;
+% sujet : E 81;
+% annee : 2017;
+% theme : vaDiscrete, vaGeometrique, sciSimuVaDiscrete, denombrement,
+% vaCouple; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Question de cours
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Définition et propriétés de la loi géométrique.
+      
+      \item Compléter la ligne de code \Scilab{} contenant des points
+      d'interrogation pour que la fonction {\tt geo} suivante 
+      fournisse une simulation de la loi géométrique dont le 
+      paramètre est égal à l'argument $p$ de la fonction.
+      \begin{scilab}
+        & \tcFun{function} \tcVar{x} = geo(\tcVar{p}) \nl %
+        & \qquad \tcVar{x} = 1; \nl %
+        & \qquad \tcFor{while} rand() ??? \nl %
+        & \qquad \qquad \tcVar{x} = \tcVar{x} + 1; \nl %
+        & \qquad \tcFor{end}; \nl %
+        & \tcFun{endfunction}
+      \end{scilab}~
+    \end{noliste}
+   \end{noliste}
+    Une urne contient trois jetons numérotés $1$, $2$ et $3$. On 
+    effectue dans cette urne, une suite de tirages d'un jeton avec 
+    remise.
+    \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+      \setcounter{enumi}{1}
+      \item On note $Y$ la variable aléatoire égale au nombre de 
+      tirages nécessaires pour obtenir, pour la première fois, deux
+      numéros successifs distincts.
+      \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+	\item Reconnaître la loi de la variable aléatoire $Y-1$.
+	
+	\item Déterminer l'espérance $\E(Y)$ et la variance $\V(Y)$
+	de la variable aléatoire $Y$.
+      \end{noliste}
+      
+      \item On note $Z$ la variable aléatoire égale au nombre de 
+      tirages nécessaires pour obtenir, pour la première fois, les 
+      trois numéros.
+      \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+	\item Soit deux entiers $k \geq 2$ et $\ell \geq 3$.\\
+	Calculer $\Prob(\Ev{Y=k} \cap \Ev{Z=\ell})$ selon les 
+	valeurs de $k$ et $\ell$.
+	
+	\item En déduire que, pour tout entier $\ell \geq 3$, on a :
+	$\Prob(\Ev{Z = \ell}) = \dfrac{2}{3} \, \left( 
+	\dfrac{2^{\ell-2} -1}{3^{\ell -2}}\right)$.
+	
+	\item Calculer $\E(Z)$.
+      \end{noliste}
+      
+      \item D'une manière plus générale, calculer l'espérance de la 
+      variable aléatoire égale au nombre de tirages nécessaires 
+      pour obtenir, pour la première fois, tous les numéros, dans 
+      l'hypothèse où l'urne contient au départ $n$ jetons, numérotés
+      de $1$ à $n$.
+    \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 81;
+% annee : 2017; %
+% theme : appliLineaire; %
+
+\begin{exerciceSP}~\\
+  On considère les quatre matrices \quad $A_1 =
+  \begin{smatrix}
+    1 & 0\\
+    0 & 1
+  \end{smatrix}$, $A_2 =
+  \begin{smatrix}
+    1 & -1\\
+    -1 & 1
+  \end{smatrix}$, $A_3 = 
+  \begin{smatrix}
+    0 & 1\\
+    1 & 0
+  \end{smatrix}$ et $A_4 = 
+  \begin{smatrix}
+    1 & 1\\
+    1 & 1
+  \end{smatrix}$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Ces quatre matrices forment-elles une base de $\M{2}$ ?
+    
+    \item Soit $B_1$, $B_2$, $B_3$, $B_4$ quatre matrices de $\M{2}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Donner une condition nécessaire et suffisante portant sur 
+      les matrices $B_1$, $B_2$, $B_3$, $B_4$ pour qu'il existe un 
+      endomorphisme $f$ de $\M{2}$ vérifiant :
+      \[
+        \left\{
+        \begin{array}{rcl}
+          f(A_1) & = & B_1\\
+          f(A_2) & = & B_2\\
+          f(A_3) & = & B_3\\
+          f(A_4) & = & B_4
+        \end{array}
+        \right.
+      \]
+      
+      \item Donner une condition nécessaire et suffisante portant sur 
+      les matrices $B_1$, $B_2$, $B_3$, $B_4$ pour qu'il existe un 
+      automorphisme de $\M{2}$ vérifiant les mêmes égalités.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceSP}
+
+
+
+%\newpage
+
+
+
+\subsection*{Sujet E 91}
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 91; %
+% annee : 2017; %
+% theme : vaDiscrete, vaUniformeDiscrete, vaMax, estimBiais, 
+% estimation; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Question de cours : définition d'un estimateur sans biais
+    d'un paramètre inconnu.
+  \end{noliste}
+  
+  \noindent
+  Soit $N$ un entier supérieur ou égal à $2$.\\
+  Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires 
+  indépendantes, définies sur le même espace probabilisé 
+  $(\Omega, \A, \Prob)$, et suivant chacune la loi uniforme discrète
+  sur $\llb 1,N \rrb$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \setcounter{enumi}{1}
+    \item Pour tout entier $n\geq 1$, on pose : $s_n(N) = 
+    \Sum{k=1}{N-1} \left( \dfrac{k}{N} \right)^n$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Montrer que la suite $(s_n(N))_{n\geq 1}$ est 
+      strictement monotone et convergente.
+      
+      \item Trouver sa limite.
+    \end{noliste}
+    
+    \item Pour tout entier $n\geq 1$, on pose : $T_n = \max(X_1,
+    X_2, \ldots, X_n)$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Calculer pour tout $k\in \llb 1,N \rrb$, $\Prob(
+      \Ev{T_n=k})$.
+      
+      \item Montrer que $\E(T_n) = N - s_n(N)$.
+    \end{noliste}
+    
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Justifier que $\Prob(\Ev{ \vert T_N - N \vert \geq 1})$
+      tend vers $0$ quand $n$ tend vers l'infini.
+      
+      \item En déduire, pour tout $\eps>0$, la limite de 
+      $\Prob(\Ev{\vert T_n - N \vert \geq \eps})$ quand $n$ tend 
+      vers l'infini.
+    \end{noliste}
+    
+    \item On suppose dans cette question que $N$ est un paramètre 
+    inconnu.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Expliquer pourquoi on ne peut pas dire que $T_n + s_n(N)$
+      est un estimateur sans biais de $N$.
+      
+      \item Trouver une suite convergente et asymptotiquement sans 
+      biais d'estimateurs de $N$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 91; %
+% annee : 2017; %
+% theme : fct2var; %
+
+\begin{exerciceSP}~\\
+  Soit $f$ la fonction de deux variables définie sur $\R^2$ par :
+  \[
+    \forall (x,y) \in \R^2, \ f(x,y) = x^3 + y^3 - 9xy +1
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Donner le développement limité à l'ordre $2$ de $f$ 
+      au voisinage de $(0,0)$.
+      
+      \item En déduire que $(0,0)$ est un point-col de $f$.
+    \end{noliste}
+    
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Montrer que $f$ admet un extremum local.
+      
+      \item Cet extremum est-il global ?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceSP}
+
+
+
+%\newpage
+
+
+
+\subsection*{Sujet E 94}
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 94; %
+% annee : 2017; %
+% theme : partieEntiere, vaDensite, vaMin, equivalent, vaPartieEntiere; 
+%
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Question de cours
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Définition et représentation graphique de la fonction 
+      partie entière.
+      
+      \item Donner un programme \Scilab{} permettant de représenter la 
+      fonction partie entière sur l'intervalle $\left[ - 
+      \dfrac{5}{2}, \dfrac{5}{2} \right]$.
+    \end{noliste}
+  \end{noliste}
+  
+  \noindent
+  Pour tout $n\in \N^*$, on note $X_n$ une variable aléatoire 
+  définie sur un espace probabilisé $(\Omega, \A, \Prob)$ dont une 
+  densité $f_n$ est donnée par :
+  \[
+    f_n(t) = \left\{
+    \begin{array}{cR{2cm}}
+      \dfrac{1}{n} \, \ee^{-\frac{t}{n}} & si $t\geq 0$
+      \nl
+      \nl[-.2cm]
+      0 & sinon
+    \end{array}
+    \right.
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \setcounter{enumi}{1}
+    \item Reconnaître la loi de $X_n$, puis en donner l'espérance et la 
+    variance.
+    
+    \item Pour tout $n\in \N^*$, on pose : $u_n = \Prob(\Ev{\vert X_n
+    - \E(X_n) \vert <1})$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Montrer que $u_n = \Big(\ee^{\frac{2}{n}} -1 \Big) 
+      \ee^{-\frac{n+1}{n}}$.
+      
+      \item Déterminer un équivalent de $u_n$ lorsque $n$ tend vers 
+      $+\infty$, de la forme $\dfrac{\alpha}{n}$ où $\alpha$ est un 
+      réel que l'on déterminera.
+    \end{noliste}
+    
+    \item Pour tout $k\in \N$, on considère l'événement 
+    $A_k = \Ev{k + \dfrac{1}{2} < X_n < k+1}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Exprimer l'événement $B_n = \Ev{X_n - \lfloor X_n \rfloor 
+      > \dfrac{1}{2}}$ en fonction des événements $A_k$ ($k\in \N$).
+      
+      \item Pour tout $n\in \N^*$, on pose : $v_n = \Prob(B_n)$.
+      Calculer $v_n$ puis $\dlim{n\to +\infty} v_n$.
+    \end{noliste}
+    
+    \item On suppose désormais que les variables aléatoires $X_1$, 
+    $X_2$, $\ldots$, $X_n$, $\ldots$ sont indépendates et, pour 
+    tout $n\in\N^*$, on pose :
+    \[
+      M_n = \min(X_1, X_2, \ldots, X_n)
+    \]
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Déterminer la loi de $M_n$.
+      
+      \item Pour tout $n\in\N^*$, on pose : $w_n = \Prob(\Ev{\vert 
+      M_n - \E(M_n) \vert <1})$. Calculer $w_n$ puis $\dlim{n\to 
+      +\infty} w_n$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 94; %
+% annee : 2017; %
+% theme : noyauImage, appliLineaire, reductionEnd; %
+
+\begin{exerciceSP}~\\
+  On considère les deux sous-espaces vectoriels $F$ et $G$ de $\R^3$
+  définis par :
+  \[
+    \left\{
+    \begin{array}{rcl}
+      F & = & \Vect{(1,1,1)}\\[.1cm]
+      G & = & \Vect{(1,-1,0),(0,2,1)}
+    \end{array}
+    \right.
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Trouver un endomorphisme de $\R^3$ dont l'image est $F$
+    et le noyau $G$.
+    
+    \item Peut-on le choisir diagonalisable ?
+  \end{noliste}
+\end{exerciceSP}
+
+
+
+%\newpage
+
+
+
+\subsection*{Sujet E 102}
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 102; %
+% annee : 2017; %
+% theme : fctContinuite, intImpropre, series, sciSomme; %
+
+\begin{exerciceAP}~\\
+  Soit $f$ la fonction définie sur $\R_+^*$ par : $\forall x>0$, 
+  $f(x) = \dfrac{x^2}{\ee^x -1}$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Question de cours\\
+      Rappeler la définition de la continuité en un point d'une fonction
+      réelle d'une variable réelle.
+      
+      \item Montrer que $f$ se prolonge de manière unique en une 
+      fonction continue sur $\R_+$.
+    \end{noliste}
+    
+  \item Justifier, pour tout entier $n\in \N^*$, l'égalité :
+    $\dint{0}{+\infty} t^2 \, \ee^{-nt} \dt \ = \ \dfrac{2}{n^3}$.
+    
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Établir, pour tout $t>0$, l'inégalité : $\dfrac{t^2}
+      {\ee^t -1} \leq t$.
+      
+      \item Justifier, pour tout $n\in \N$, la convergence de 
+      l'intégrale $\dint{0}{+\infty} f(t) \, \ee^{-nt} \dt$.
+      
+      \item Montrer que $\dlim{n\to +\infty} \dint{0}{+\infty}
+      f(t) \, \ee^{-nt} \dt = 0$.
+    \end{noliste}
+    
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Établir, pour tout $t>0$, l'égalité : $f(t) = t^2 \, 
+      \Sum{k=1}{n} \ee^{-kt} + f(t) \ee^{-nt}$.
+      
+      \item En déduire l'égalité : $\dint{0}{+\infty} f(t) \dt = 
+      2 \, \Sum{k=1}{+\infty} \dfrac{1}{k^3}$.
+    \end{noliste}
+    
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Justifier, pour tout $n\in \N^*$, l'inégalité 
+      $\Sum{k=n+1}{+\infty} \dfrac{2}{k^3} \leq \dfrac{1}{n^2}$.
+      
+      \item Compléter les lignes $3$ et $5$ du script \Scilab{} 
+      suivant, pour que la fonction {\tt approx} affiche une 
+      valeur approchée de l'intégrale $I= \dint{0}{+\infty} f(t) \dt$,
+      avec une précision {\tt epsilon} entrée en argument.
+      \begin{scilab}
+        & \tcFun{function} \tcVar{I} = approx(\tcVar{epsilon}) \nl %
+        & \qquad \tcVar{I} = 0; \nl %
+        & \qquad n = ??? ; \nl %
+        & \qquad \tcFor{for} i = 1:n \nl %
+        & \qquad \qquad \tcVar{I} = \tcVar{I} + ??? ; \nl %
+        & \qquad \tcFor{end} ; \nl %
+        & \qquad disp(\tcVar{I}, \ttq{}integrale = \ttq{}) ; \nl %
+        & \tcFun{endfunction}
+      \end{scilab}
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 102; %
+% annee : 2017; %
+% theme : vaPartieEntiere, reductionMat, vaUniformeDensite; %
+
+\begin{exerciceSP}~\\
+  Soit $U$ et $V$ deux variables aléatoires indépendantes, définies 
+  sur un espace probabilisé $(\Omega, \A, \Prob)$, suivant chacune 
+  la loi uniforme sur $[0,1]$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Calculer, pour tout $n\in \N^*$, la probabilité 
+      $\Prob(\Ev{\lfloor n \, U \rfloor = \lfloor n \, V \rfloor})$.
+      
+      \item En déduire la probabilité $\Prob(\Ev{U=V})$.
+    \end{noliste}
+    
+    \item Soit $A$ la matrice aléatoire $
+    \begin{smatrix}
+      U & 1\\
+      0 & V
+    \end{smatrix}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Quelle est la probabilité que $A$ soit inversible ?
+      
+      \item Quelle est la probabilité que $A$ soit diagonalisable ?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceSP}
+
+
+
+%\newpage
+
+
+
+\subsection*{Sujet E 106}
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 106; %
+% annee : 2017; %
+% theme : vaMoments, vaDiscrete, partieEntiere; %
+
+\begin{exerciceAP}~\\
+  Dans tout l'exercice, $(\Omega, \A, \Prob)$ désigne un espace
+  probabilisé, et toutes les variables considérées sont définies sur
+  cet espace probabilisé et $X$ désigne une variable aléatoire
+  \underline{à valeurs dans $\N$}.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Question de cours : rappeler la formule de Koenig-Huygens.
+      
+    \item Démontrer que, si $X$ admet un moment d'ordre deux, alors on
+      a :
+      \[
+      \forall c \in \R, \ \V(X) \leq \E((X-c)^2)
+      \]
+    \end{noliste}
+    
+  \item Dans cette question, $n$ est un entier strictement positif et
+    $X$ une variable aléatore telle que :
+    \[
+    X(\Omega) \subset \llb 0, 2n \rrb
+    \]
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item En utilisant une des inégalités prouvées en \itbf{1.b)}, 
+      démontrer que la variance de $X$ est inférieure ou égale à $n^2$.
+      
+    \item Démontrer que, si $\E(X) = n$, alors la variance de $X$ est
+      égale à $n^2$ si, et seulement si, $\Prob(\Ev{X=0}) =
+      \Prob(\Ev{X=2n}) = \dfrac{1}{2}$.
+    
+    \item Quelle est la plus petite valeur possible de $\V(X)$ lorsque
+      $\E(X) = n$ ?
+    \end{noliste}
+  
+  \noindent
+  Dans toute la suite de l'exercice, $c$ désigne un nombre réel positif
+  qui n'est \underline{pas entier} et $\lfloor c \rfloor$ sa partie 
+  entière.
+%   \begin{noliste}{1.}
+%     \setlength{\itemsep}{2mm}
+%     \setcounter{enumi}{2}
+    \item Soit $X_0$ une variable aléatoire vérifiant : $\left\{
+    \begin{array}{l}
+      X_0(\Omega) = \{ \lfloor c \rfloor, \ \lfloor c \rfloor 
+      +1\}\\[.1cm]
+      \E(X_0) = c
+    \end{array}
+    \right.$
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Vérifier que : $\Prob(\Ev{X_0 = \lfloor c \rfloor }) =
+      \lfloor c \rfloor +1-c$.
+      
+      \item En déduire que la variance de $X_0$ est égale à 
+      $(c- \lfloor c \rfloor )(\lfloor c \rfloor +1-c)$.
+    \end{noliste}
+    
+    \item Dans cette question et la suivante, $X$ est une variable 
+    aléatoire à valeurs dans $\N$ qui admet une espérance et une 
+    variance, et vérifie : $\E(X)=c$.\\
+    On note $A= \Ev{X \leq c}$ et $p=\Prob(A)$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Justifier que $p$ est strictement compris $0$ et $1$.
+      
+      \item Justifier la ocnvergence de la série $\Sum{k\geq 0}{} 
+      k \, \Prob_{\bar{A}}(\Ev{X=k})$, où $\bar{A}$ désigne le 
+      complémentaire de l'événement $A$.
+    \end{noliste}
+    
+    \item On note : $c_0 = \Sum{k=0}{\lfloor c \rfloor} 
+    k \, \Prob_A(\Ev{X=k})$ et $c_1 = \Sum{k= \lfloor c \rfloor +1}
+    {+\infty} k \, \Prob_{\bar{A}}(\Ev{X=k})$.\\[.1cm]
+    Soit $Y$ une variable aléatoire telle que $\Prob(\Ev{Y=c_0})
+    =p$ et $\Prob(\Ev{Y=c_1})=1-p$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Vérifier que les variables aléatoires $X$ et $Y$ ont la même
+      espérance.
+      
+      \item Prouver l'égalité : $\V(Y) = (c-c_0)(c_1-c)$.
+      
+      \item Démonter l'inégalité :
+      \[
+        \V(X) \geq \V(Y)
+      \]
+      
+      \item En déduire que $\V(X_0)$ est la plus petite valeur possible 
+      de $\V(X))$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 106; %
+% annee : 2017; %
+% theme : intImpropre; %
+
+\begin{exerciceSP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Quelle est la limite quand $t$ tend vers $0$ de 
+    $\dfrac{\ee^t -1}{t}$ ?
+    
+    \item Justifier la convergence de l'intégrale impropre 
+    $\dint{0}{+\infty} \left( \dfrac{\ee^t -1}{\sqrt{t^3}} \right)
+    \, \ee^{-2t} \dt$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+%\newpage
+
+
+\subsection*{Sujet E 108}
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 108; %
+% annee : 2017; %
+% theme : theoremeRang, ev, appliLineaire, noyauImage, reductionEnd; %
+
+\begin{exerciceAP}~\\
+  Dans tout l'exercice, $n$ désigne un entier supérieur ou égal à $2$ 
+  et $\M{n}$ l'espace vectoriel des matrices réelles à $n$ lignes 
+  et $n$ colonnes.\\
+  Pour toute matrice $M \in \M{n}$, on note ${}^t M$ la transposée
+  de $M$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Question de cours : théorème du rang.
+      \item Justifier que l'ensemble des matrices de $\M{n}$ dont la 
+      somme des coefficients est nulle est un espace vectoriel 
+      et préciser sa dimension.
+    \end{noliste}
+    
+    \item Soit $\varphi$ l'application qui à toute matrice $M\in \M{n}$,
+    associe la matrice $\varphi(M) = M + {}^t M$.\\
+    Montrer que $\varphi$ est un endomorphisme de $\M{n}$.
+    
+    \item Dans cette question, et seulement dans cette question, on 
+    suppose que $n=2$.\\
+    Pour tout $(i,j) \in \llb 1,2 \rrb^2$, on note $E_{i,j}$ la 
+    matrice de $\M{n}$ dont tous les éléments sont nuls excepté celui
+    de la $\eme{i}$ et $\eme{j}$ colonne qui vaut $1$.\\
+    On rappelle que la famille $(E_{1,1}, E_{1,2}, E_{2,1}, E_{2,2})$
+    est une base de $\M{2}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Écrire la matrice $A$ de $\varphi$ dans la base $(E_{1,1},
+      E_{1,2}, E_{2,1}, E_{2,2})$.
+      
+      \item Préciser le rang de $\varphi$.
+      
+      \item Donner une base du noyau de $\varphi$.
+    \end{noliste}
+    
+    \item On suppose désormais $n\geq 3$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Déterminer $\varphi(\varphi(M))$, pour toute matrice 
+      $M\in \M{n}$. Que peut-on en déduire sur les valeurs propres 
+      de l'endomorphisme $\varphi$ ?
+      
+      \item L'endomorphisme $\varphi$ est-il diagonalisable ?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 108; %
+% annee : 2017; %
+% theme : vaDensite, equivalent; %
+
+\begin{exerciceSP}~\\
+  Pour tout réel $c>0$, on note $f_c$ définie par :
+  \[
+    \forall x \in \R, \ f_c(x) = \left\{
+    \begin{array}{cR{3cm}}
+      \dfrac{c}{x(x+1)(x+2)} & si $x\geq 1$
+      \nl
+      \nl[-.2cm]
+      0 & sinon
+    \end{array}
+    \right.
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Justifier l'existence d'une unique valeur $c_0$ de $c$ pour 
+    laquelle $f_{c_0}$ est une densité de probabilité.
+    
+    \item Soit $X$ une variable aléatoire de densité $f_{c_0}$.\\
+    Trouver la limite et un équivalent de $\Prob(\Ev{X \geq n})$ 
+    quand $n$ tend vers l'infini.
+  \end{noliste}
+\end{exerciceSP}
+
+%%FIN
+
+\end{document}

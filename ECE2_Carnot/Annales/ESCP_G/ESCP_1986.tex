@@ -1,0 +1,309 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1986 - voie Générale} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION GENERALE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 1986}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent Pour tout nombre entier naturel $p$, on considère la fonction
+$A_{p}$ définie sur $[0; + \infty \lbrack $ par la relation : 
+\[
+A_{p}(x) = \Sum{k = 0}{p}(-1)^{k}\dfrac{x^{k}}{k!}
+\]
+Dans ce problème, on étudie la suite des nombres réels positifs
+$(x_{n})$
+tels que $A_{2n-1}(x_{n}) = 0$ où $n\geq 1$, ce qui fait l'objet de la 
+\textbf{partie III}. Dans les \textbf{parties I et II}, on établit des
+résultats auxiliaires.
+
+\section*{Partie I}
+
+Dans cette partie, on étudie un algorithme d'approximation de l'unique
+solution de l'équation $f(t) = t$, où, pour tout nombre réel positif
+$t$ : 
+\[
+f(t) = e^{-1-t}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Construire sur une même figure les représentations graphiques de
+la
+fonction $f$ et de la fonction $t\mapsto t$.
+
+\item Montrer que l'équation $f(t) = t$ admet une solution $a$ et une
+seule.
+
+\item Montrer que, pour tout couple $(x,y)$ de nombres réels positifs :
+
+\[
+\left| f(x)-f(y)\right| \leq \dfrac{1}{e}\left|
+x-y\right|
+\]
+
+\item Prouver que l'intervalle $\left[ 0;\dfrac{1}{e}\right] $ est
+stable
+par $f$ et que $a$ appartient à cet intervalle.
+\end{noliste}
+
+\item Soit $u$ la suite numérique définie par la relation de récurrence
+
+\[
+u_{n + 1} = f(u_{n})
+\]
+et la condition initiale $u_{0} = 0$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout nombre entier naturel $n$ : 
+\[
+0\leq u_{n}\leq \dfrac{1}{e}\qquad \text{et}\qquad \left|
+u_{n}-a\right| \leq \dfrac{1}{e^{n + 1}}
+\]
+En déduire que la suite $u$ converge et donner sa limite.
+
+\item Déterminer un nombre entier naturel $n_{0}$ tel que : 
+\[
+\left| u_{n_{0}}-a\right| \leq 10^{-6}
+\]
+Écrire des valeurs décimales approchées à la précision $10^{-6}$ des
+termes $u_{n}$, où $1\leq n\leq n_{0}$.
+\end{noliste}
+\end{noliste}
+
+\section*{Partie II}
+
+On se propose d'étudier les suites $v$ et $w$ définies par les
+relations : 
+\[
+v_{n} = \dfrac{1}{n}\sqrt[n]{n!}\qquad w_{n} = \dfrac{n^{n}}{n!}\qquad
+\text{où $n\geq 1$}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Trouver une relation simple entre $\ln (v_{n})$ et $\ln (w_{n})$.
+
+\item \textit{Minoration de }$w$\textit{\ }
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout nombre entier naturel non nul $n$ : 
+\[
+\dfrac{w_{n + 1}}{w_{n}} = \left( 1 + \dfrac{1}{n}\right) ^{n}
+\]
+
+\item Montrer que, pour tout nombre entier naturel non nul $n$ : 
+\[
+\left( 1 + \dfrac{1}{n}\right) ^{n}\geq 2
+\]
+
+\item En déduire que, si $n\geq 6$, alors $w_{n}\geq 2^{n}$.
+
+\item Déterminer un majorant de la suite $(v_{n})_{n\geq 6}$.
+\label{maj}
+\end{noliste}
+
+\item \textit{Convergence de la suite }$v$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la limite de la suite : $(\ln (w_{n + 1})-\ln
+(w_{n}))$.
+
+\item Établir que, pour tout nombre réel $x\geq 0$ : 
+\[
+0\leq x-\ln (1 + x)\leq \dfrac{x^{2}}{2}
+\]
+En déduire que : 
+\[
+0\leq 1 + \ln (w_{n})-\ln (w_{n + 1})\leq \dfrac{1}{2n}
+\]
+
+\item Établir que, pour tout nombre réel $x$ appartenant à $[0;1[$ : 
+\[
+x\leq -\ln (1-x)
+\]
+En déduire que : 
+\[
+1 + \dfrac{1}{2} + \ldots + \dfrac{1}{n}\leq 1 + \ln (n)
+\]
+
+\item Prouver finalement que $\dlim{n\rightarrow + \infty
+}\dfrac{1}{n}\ln (w_{n}) = 1$.\\
+En déduire la limite de la suite $v$.\\
+Peut-on retrouver ainsi la majoration obtenue dans la question
+\textbf{II}.\ref{maj} ?
+\end{noliste}
+\end{noliste}
+
+\section*{Partie III : \emph{Étude de la suite $(x_{n})$}}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Prouver que, pour tout nombre entier naturel $p$ et pour tout
+nombre réel positif $x$ : 
+\[
+e^{-x} = A_{p}(x) + (-1)^{p + 1}I_{p}(x)\qquad \text{où}\qquad
+I_{p}(x) = \dint{0}{x}e^{-t}\dfrac{(x-t)^{p}}{p!}dt
+\]
+
+\item En déduire que, pour tout nombre entier naturel $n$ et pour tout
+nombre réel positif $x$ : 
+\begin{equation}
+A_{2n + 1}(x)\leq e^{-x}\leq A_{2n}(x) \label{exp(-x)}
+\end{equation}
+
+\item Exprimer la dérivée $A_{p + 1}{\prime }$ en fonction de $A_{p}$.
+
+\item Prouver que, pour tout nombre entier naturel non nul $n$, la
+fonction $A_{2n-1}$ est strictement décroissante et que, sur
+l'intervalle $[0; + \infty
+\lbrack $, l'équation $A_{2n-1}(x) = 0$ admet une solution $x_{n}$ et
+une
+seule.\\
+Calculer $A_{2n}{\prime }(x_{n})$ et dresser le tableau de variation de
+$A_{2n-1}$ et de $A_{2n}$.
+\end{noliste}
+
+\item Soit $n$ un nombre entier naturel non nul.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : 
+\[
+A_{2n}(x_{n}) = \dfrac{x_{n}{2n}}{(2n)!}\qquad \text{et}\qquad
+A_{2n + 1}(x_{n}) = \dfrac{x_{n}{2n}}{(2n)!}\left( 1-\dfrac{x_{n}}{2n +
+1}\right)
+\]
+
+\item En déduire que $\dfrac{x_{n}{2n}}{(2n)!}\leq 1$. À l'aide de la
+majoration établie au \textbf{II}.\ref{maj}, montrer que si $n\geq 3$,
+$x_{n}\leq n$. Vérifier directement que ce dernier résultat est encore
+valable si $n = 1$ et si $n = 2$.
+
+\item Montrer que $A_{2n + 1}(x_{n})>0$. En déduire que la suite
+$(x_{n})$ est
+strictement croissante.
+\end{noliste}
+
+\item Soit $n$ un nombre entier naturel non nul.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item À l'aide de (\ref{exp(-x)}) et de la majoration $x_{n}\leq n$,
+établir l'encadrement : 
+\[
+1\leq \dfrac{x_{n}{2n}}{(2n)!}e^{x_{n}}\leq 2
+\]
+
+\item On pose $y_{n} = \dfrac{x_{n}}{2n}$. Montrer que : 
+\[
+v_{2n}\leq y_{n}e^{y_{n}}\leq 2^{1/2n}v_{2n}
+\]
+
+\item En déduire que la suite de terme général $z_{n} = y_{n}e^{y_{n}}$
+converge vers $\dfrac{1}{e}$.
+\end{noliste}
+
+\item En conclure que la suite $(y_{n})$ converge vers $a$ (On étudiera
+à
+cet effet la fonction $y\mapsto ye^{y}$))
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

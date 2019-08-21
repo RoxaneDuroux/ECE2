@@ -1,0 +1,384 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EML 2001} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{EML 2001}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2001}}
+
+
+
+{\large \textbf{Concepteur : EML}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{Exercice 1}
+
+\noindent On considère la matrice carrée réelle d'ordre quatre :
+\[
+A = \left(
+\begin{array}{rrrr}
+1 & 0 & 0 & -1 \\
+1 & 0 & 0 & -1 \\
+0 & 1 & 0 & -1 \\
+0 & 0 & 1 & -1
+\end{array}
+\right)
+\]
+et l'endomorphisme $f$ de $\R^{4}$ dont la matrice dans la base
+canonique $\mathcal{B} = (e_{1},e_{2},e_{3},e_{4})$ de $\R^{4}$ est
+$A$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{1.}] Montrer que $A$ n'est pas inversible. En déduire
+que $0$
+est valeur propre de $A$.
+
+\item[ \ \textbf{2.}]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $A^{2}$, $A^{3}$, $A^{4}$.
+
+\item Établir que $0$ est la seule valeur propre de $f$.
+
+\item Déterminer la dimension du noyau de $f$.
+
+\item Est-ce que $f$ est diagonalisable ?
+\end{noliste}
+
+\item[ \ \textbf{3.}] On note $\varepsilon_{1} = e_{1}$, $\varepsilon
+_{2} = f(\varepsilon_{1}),\varepsilon_{3} =
+f(\varepsilon_{2}),\varepsilon
+_{4} = f(\varepsilon_{3})$, et $\mathcal{C} =
+(\varepsilon_{1},\varepsilon
+_{2},\varepsilon_{3},\varepsilon_{4})$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\mathcal{C}$ est une base de $\R^{4}$.
+
+\item Déterminer la matrice $N$ de $f$ relativement à la base
+$\mathcal{C}$
+de $\R^{4}$.
+\end{noliste}
+
+\item[ \ \textbf{4.}] Existe-t-il un automorphisme $g$ de l'espace
+vectoriel $\R^{4}$ tel que $g\circ f\circ g^{-1} = f^{2}$ ?
+\end{noliste}
+
+\section*{Exercice 2}
+
+\noindent On considère l'application $f\ :[0; + \infty \lbrack
+\longrightarrow
+\R$, définie, pour tout $x$ de $[0; + \infty \lbrack $, par :
+\[
+f(x) = \left\{
+\begin{array}{cl}
+\dfrac{x}{e^{x}-1} & \text{si }x>0 \\
+1 & \text{si }x = 0
+\end{array}
+\right.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f$ est continue sur $[0; + \infty \lbrack $.
+
+\item Montrer que $f$ est de classe $C^{1}$ sur $]0; + \infty \lbrack
+$. Pour
+tout $x\in \ ]0, + \infty \lbrack $, calculer $f^{\prime }(x)$.
+
+\item Montrer que $f^{\prime }(x)$ tend vers $-\dfrac{1}{2}$ lorsque
+$x$
+tend vers $0$.
+
+\item En déduire que $f$ est $C^{1}$ sur $[0; + \infty \lbrack $.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f$ est de classe $C^{2}$ sur $]0; + \infty \lbrack $
+et
+que : $\forall x\in \ ]0; + \infty \lbrack \qquad f^{\prime \prime }(x)
+= \dfrac{e^{x}}{(e^{x}-1)^{3}}(xe^{x}-2e^{x} + x + 2)$
+
+\item Étudier les variations de la fonction $g\ :[0; + \infty \lbrack
+\longrightarrow \R$, définie, pour tout $x$ de $[0; + \infty \lbrack $,
+par :
+\[
+g(x) = xe^{x}-2e^{x} + x + 2
+\]
+En déduire : \qquad $\forall x\in \ ]0; + \infty \lbrack,\quad
+f^{\prime \prime
+}(x)>0$.
+
+\item En déduire le sens de variation de $f$. On précisera la limite de
+$f$
+en $ + \infty $. Dresser le tableau de variation de $f$.
+
+\item Tracer l'allure de la courbe représentative de $f$.
+\end{noliste}
+
+\item[ \ \textbf{3.}] On considère la suite $(u_{n})_{n\geq 0}$ définie
+par $u_{0} = 0$ et : $\forall n\in \N,\quad u_{n + 1} = f(u_{n})$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer :
+\[
+\forall x\in \lbrack 0; + \infty \lbrack,\quad |f^{\prime }(x)|\leq
+\dfrac{1}{2}\quad \text{et}\quad 0\leq f(x)\leq 1
+\]
+
+\item Résoudre l'équation $f(x) = x$, d'inconnue $x\in \ ]0; + \infty
+\lbrack $.
+
+\item Montrer :
+\[
+\forall n\in \N\quad |u_{n + 1}-\ln 2|\leq
+\dfrac{1}{2}|u_{n}-\ln 2|
+\]
+
+\item Établir que la suite $(u_{n})_{n\geq 0}$ converge et
+déterminer sa limite.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 3}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{1.}] Pour tout entier naturel $n$, on considère la
+fonction $f_{n}\ :\ \R\longrightarrow \R$ définie par :
+\[
+\forall t\in \R,\quad f_{n}(t) = \left\{
+\begin{array}{cl}
+\dfrac{e^{-t}t^{n}}{n!} & \text{si }t>0 \\
+0 & \text{si }t\leq 0
+\end{array}
+\right.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $n\in \N$. Montrer que $\dlim{t\rightarrow + \infty
+}t^{2}f_{n}(t) = 0$.\\
+En déduire que l'intégrale $\dint{0}{+ \infty }f_{n}(t)\ dt$ est
+convergente.
+
+\item Montrer : \qquad $\forall n\in \N^{\ast },\quad \forall x\in
+\lbrack 0; + \infty \lbrack,\qquad \dint{0}{x}f_{n}(t)\ dt =
+-\dfrac{e^{-x}x^{n}}{n!} + \dint{0}{x}f_{n-1}(t)\ dt$.
+
+\item En déduire : \qquad $\forall n\in \N,\qquad
+\dint{0}{+ \infty}f_{n}(t)\ dt = 1$
+
+\item Montrer que, pour tout entier naturel $n$, la fonction $f_{n}$
+est la
+densité de probabilité d'une variable aléatoire.
+\end{noliste}
+
+\item Pour tout entier naturel $n$, on définit la variable aléatoire
+$X_{n}$
+admettant $f_{n}$ pour densité de probabilité.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout entier naturel $n$, l'espérance
+$\E(X_{n})$ et
+la variance $\V(X_{n})$ vérifient :
+\[
+\E(X_{n}) = n + 1\qquad V(X_{n}) = n + 1
+\]
+
+\item Dans cette question, on suppose que $n = 4$. On donne les valeurs
+approchées à $10^{-2}$ suivantes :
+\[
+\dint{0}{4}f_{4}(t)\ dt\simeq 0,37\qquad
+\dint{0}{6}f_{4}(t)\ dt\simeq 0,71\qquad
+\dint{0}{8}f_{4}(t)\ dt\simeq 0,90
+\]
+Tracer l'allure de la courbe représentative de la fonction de
+répartition de $X_{4}$.\\
+ Déterminer une valeur décimale
+approchée de la probabilité $P\left(\Ev{X_{4}>4}\right)$ et une valeur
+décimale
+approchée de la probabilité $P\left(\Ev{4<X_{4}\leq 8}\right)$.
+\end{noliste}
+
+\item[ \ \textbf{3.}] Pour tout réel $t>0$, on définit la variable
+aléatoire $Y_{t}$ égale au nombre de voitures arrivant à un péage
+d'autoroute de
+l'instant $0$ à l'instant $t$.\\
+On suppose que la variable aléatoire $Y_{t}$ suit une loi de Poisson de
+paramètre $t$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Rappeler, pour tout réel $t>0$, les valeurs de l'espérance et de
+la
+variance de $Y_{t}$.\\
+Pour tout entier naturel $n$ non nul, on définit la variable aléatoire
+réelle $Z_{n}$, prenant ses valeurs dans $\R^{+}$, égale à l'instant
+d'arrivée de la $n^{i\grave{e}me}$ voiture au péage à partir de
+l'instant $0$.
+
+\item Soient $t\in \ ]0; + \infty \lbrack $ et $n\in \N^{\ast }$.\\
+Justifier l'égalité de l'évènement $(Z_{n}\leq t)$ et de l'évènement
+$(Y_{t}\geq n)$
+
+\item En déduire, pour tout entier naturel $n$ non nul, la fonction de
+répartition de la variable aléatoire réelle $Z_{n}$.
+
+\item Montrer que, pour tout entier naturel $n$ non nul, la variable
+aléatoire $Z_{n}$ admet $f_{n-1}$ comme densité de probabilité.
+\end{noliste}
+\end{noliste}
+
+\begin{center}
+{- \ FIN \ -}
+\end{center}
+
+\label{fin}
+
+\end{document}
+

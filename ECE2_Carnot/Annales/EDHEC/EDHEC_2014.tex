@@ -1,0 +1,532 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 2014} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\im}{\operatorname{Im}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum\limits}
+\newcommand{\dprod}{\prod}
+\newcommand{\lb}{\llbracket}
+\newcommand{\rb}{\rrbracket}
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.8
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 2014}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\indent \vspace{0.3cm}
+
+\Tbox{\begin{center} \textbf{\Huge Edhec 2014} \end{center} }
+
+\vspace{0.5cm}
+
+\section*{Exercice 1}
+
+\noindent On note $I$ la matrice $I = \begin{smatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{smatrix}
+$ et on considère la matrice $A = \begin{smatrix}
+7 & 5 & 1 \\
+6 & -1 & 2 \\
+6 & 1 & 3 \\
+\end{smatrix}
+$. 
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Montrer, grâce à la méthode du pivot de Gauss, que les valeurs
+propres $\lambda$ de $A$ sont les solutions de l'équation $\lambda^{3}
+- 9 \lambda^{2} - 27 \lambda + 53 = 0$. 
+
+\item Étudier la fonction $f$ qui, à tout réel $x$, associe $f(x) =
+x^{3} - 9 x^{2} - 27 x + 53$, puis dresser son tableau de variation (on
+précisera les limites de $f$ en $-\infty$ et $ + \infty$, on notera $m$
+le minimum local de $f$ sur $\R$, $M$ le maximum local de $f$ sur $\R$
+et on ne cherchera ni à calculer $m$, ni à calculer $M$).
+
+\item Calculer $f(0)$ et $f(3)$ puis déterminer les signes de $m$ et
+$M$.
+
+\item Montrer que $A$ possède trois valeurs propres, que l'on ne
+cherchera pas à calculer et que l'on notera $\lambda_{1}$,
+$\lambda_{2}$ et $\lambda_{3}$, avec $\lambda_{1} < \lambda_{2} <
+\lambda_{3}$.
+
+\item En déduire qu'il existe une matrice $P$ inversible telle que $A =
+P D P^{-1}$, avec $D = \begin{smatrix}
+\lambda_{1} & 0 & 0 \\
+0 & \lambda_{2} & 0 \\
+0 & 0 & \lambda_{3} \\
+\end{smatrix}
+$.
+
+\end{noliste}
+
+\item L'objectif de cette question est de déterminer l'ensemble $E$ des
+matrices $M$ de $\mathcal{M}_{3} (\R)$ qui commutent avec $A$
+c'est-à-dire qui vérifient $A M = MA$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Montrer que les matrices qui commutent avec $D$ sont les matrices
+diagonales. 
+
+\item Montrer l'équivalence entre les deux propositions suivantes : 
+
+\begin{nonoliste}{(i)}
+
+\item $M$ est une matrice de $E$.
+
+\item $P^{-1} M P$ commute avec $D$.
+
+\end{nonoliste}
+
+\item Établir que toute matrice $M$ de $E$ est combinaison linéaires
+des trois matrices suivantes : 
+\[
+ P \begin{smatrix}
+1 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+\end{smatrix}
+P^{-1} \, \ P \begin{smatrix}
+0 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 0 \\
+\end{smatrix}
+P^{-1} \, \ P \begin{smatrix}
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 1 \\
+\end{smatrix}
+P^{-1} 
+\]
+
+\item En déduire que $E$ est un sous-espace vectoriel de
+$\mathcal{M}_{3} (\R)$ et donner sa dimension.
+
+\item Montrer, en raisonnant sur les valeurs propres de $A$, qu'il
+n'existe aucun polynôme annulateur non nul de $A$ de degré inférieur ou
+égal à 2. En déduire que $(I, \ A,\ A^{2})$ est une base de $E$.
+
+\end{noliste}
+
+\end{noliste}
+
+\section*{Exercice 2}
+
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Montrer que l'intégrale $\dint{x}{2x} \frac{ 1 }{ \sqrt{ t^{2} +
+1 } } $ est définie pour tout réel $x$.
+
+\end{noliste}
+
+\noindent On considère désormais la fonction $f$ définie par : 
+\[
+ \forall x \in \R, \ f(x) = \dint{x}{2x} \frac{ 1 }{ \sqrt{ t^{2} + 1 }
+} \ dt 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Établir que $f$ est impaire.
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Montrer que $f$ est de classe $C^{1}$ sur $\R$.
+
+\item Déterminer $f'(x)$, pour tout réel $x$, et en déduire que $f$ est
+strictement croissante sur $\R$.
+
+\end{noliste}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item En utilisant la relation $t^{2} \leq t^{2} + 1 \leq t^{2} + 2t +
+1$, valable pour tout $t$ positif ou nul, montrer que l'on a
+l'encadrement suivant :
+\[
+ \forall x \in \R_+^{\ast}, \ \ln (2x + 1) - \ln (x + 1) \leq f(x) \leq
+\ln 2 
+\]
+
+\item Donner alors la limite de $f(x)$ lorsque $x$ tend vers $ +
+\infty$.
+
+\item Dresser le tableau de variation complet de $f$.
+
+\item Résoudre l'équation $f(x) = 0$.
+
+\end{noliste}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Montrer que, pour tout réel $x$, on a : $x + \sqrt{ x^{2} + 1 } >
+0$.
+
+\item Déterminer la dérivée de la fonction $h$ qui, à tout réel $x$,
+associe $\ln \left( x + \sqrt{ x^{2} + 1 } \right)$.
+
+\item En déduire une expression explicite de $f(x)$.
+
+\end{noliste}
+
+\item Recherche d'un équivalent de $f(x)$ lorsque $x$ est au voisinage
+de $0$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Établir que, pour tout réel $x$ strictement positif, on a : $x -
+f(x) = \dint{x}{2x} \frac{ t^{2} }{ \sqrt{ t^{2} + 1} \left( 1 + \sqrt{
+t^{2} + 1 } \right) }\ dt $.
+
+\item En déduire :
+\[
+ \forall x \in \R_+^{\ast}, \ 0 \leq x - f(x) \leq \frac{7}{6} x^{3} 
+\]
+
+\item Conclure que : $f(x) \underset{0^+}{\sim} x $.
+
+\item Montrer que l'on a aussi : $f(x) \underset{0^-}{\sim} x $.
+
+\end{noliste}
+
+\end{noliste}
+
+\section*{Exercice 3}
+
+\noindent Dans cet exercice, $\theta$ désigne un réel strictement
+positif et $n$ un entier naturel supérieur ou égal à 2. \\
+Pour tout $k$ de $\N$, on pose : $u_{k} = \frac{ 1 }{ 1 + \theta }
+\left( \frac{ \theta }{ 1 + \theta } \right)^{k} $.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Montrer que la suite $(u_{k})_{ k \in \N}$ définit une loi de
+probabilité.
+
+\end{noliste}
+
+\noindent On considère maintenant une variable aléatoire $X$ prenant
+ses valeurs dans $\N$ et dont la loi est donnée par : 
+\[
+ \forall k \in \N, \ \Prob\left(\Ev{ X = k}\right) = u_{k}. 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item On pose $Y = X + 1$. Reconnaître la loi de $Y$, puis en déduire
+l'espérance et la variance de $X$.
+
+\item Compléter la fonction \Scilab{} suivante pour qu'elle simule la
+variable aléatoire $X$ : 
+\begin{verbatim}
+Function X(theta : real) : interger;
+var Y : real;
+Begin Y : = 0; Repeat Y : = Y + 1; until (-------); X : = -------; end;
+\end{verbatim}
+
+\end{noliste}
+
+\item Dans cette question, on souhaite estimer le paramètre $\theta$
+par la méthode du maximum de vraisemblance. Pour ce faire, on considère
+un échantillon $(X_{1}, X_{2}, \dots, X_{n})$ composé de variables
+aléatoires indépendantes ayant toutes la même loi que $X$ et on
+introduit $L$, de $\R_+^{\ast}$ dans $\R$, définie par :
+\[
+ \forall \theta \in \R_+^{\ast}, \ L( \theta = \prod\limits_{k = 1}{n}
+\Prob\left(\Ev{ X_{k} = x_{k} }\right) 
+\]
+
+où $x_{1}, x_{2}, \dots, x_{n}$ désignent des entiers naturels éléments
+de $X ( \Omega ) $. \\
+
+L'objectif est de chosir la valeur de $\theta$ qui rend $ L (\theta)$
+maximale.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Écrire $\ln \left( \rule{0cm}{0.3cm} L( \theta) \right) $ en
+fonction de $\theta$ et de $S_{n} = \Sum{k = 1}{n} x_{k}$.
+
+\item On considère la fonction $\varphi$ définie par :
+\[
+ \forall \theta \in \ ] 0 ; + \infty [, \ \varphi ( \theta ) = S_{n}
+\ln \theta - (S_{n} + n) \ln ( 1 + \theta ) 
+\]
+
+Montrer que la fonction $\varphi$ admet un maximum, atteint en un seul
+réel que l'on notera $\widehat{\theta_{n}}$ et que l'on exprimera en
+fonction de $S_{n}$. Que représente $\widehat{\theta_{n}}$ pour la
+fonction $L$ ?
+
+\end{noliste}
+
+On pose dorénavant : $T_{n} = \frac{1}{n} \Sum{i = 1}{n} X_{i}$. La
+variable $T_{n}$ est appelée estimateur du maximum de vraisemblance
+pour $\theta$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Vérifier que $T_{n}$ est un estimateur sans biais de $\theta$.
+
+\item Calculer le risque quadratique $r_{T_{n}} (\theta)$ de $T_{n}$ et
+vérifier que $\dlim{n \rightarrow + \infty} r_{T_{n}} (\theta) = 0$.
+
+\end{noliste}
+
+\end{noliste}
+
+\section*{Problème}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Soit $x$ un réel quelconque. \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Justifier que la fonction $t \mapsto \max ( x, t)$ est continue
+sur $\R$.
+
+\end{noliste}
+
+On considère maintenant l'intégrale $y = \dint{0}{1} \max (x,t)\ dt$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Montrer que : $y = \left\{ 
+\begin{array}{l}
+ \frac{1}{2} \text{ si } x \leq 0 \\
+\\\
+frac{ x^{2} + 1 }{ 2 } \text{ si } 0 < x \leq 1 \\
+\\x \text{ si } x > 1
+\end{array}
+\right.$.
+
+\end{noliste}
+
+\end{noliste}
+
+\noindent Dans la suite de ce problème, on considère une variable
+aléatoire $X$ définie sur un certain espace probabilisé $(\Omega,
+\mathcal{A}, \Pr)$, que l'on ne cherchera pas à déterminer. \\
+On admet que l'on définit une variable aléatoire $Y$, elle aussi
+définie sur $(\Omega, \mathcal{A}, \Pr)$, en posant $Y = \dint{0}{x}
+\max ( X, t)\ dt$, ce qui signifie que, pour tout $\omega$ de $\Omega$,
+on a : 
+\[
+ Y (\omega) = \dint{0}{1} \max \left( X (\omega, t \rule{0cm}{0.3cm}
+\right)\ dt 
+\]
+
+\noindent On note $F_{Y}$ la fonction de répartition de $Y$.
+\begin{center}
+\textit{On se propose dans la suite de déterminer la loi de Y
+connaissant celle de X}.
+\end{center}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Vérifier que si $X$ suit une loi géométrique alors on a : $Y =
+X$.
+
+\item On suppose, dans cette question, que $X (\Omega) = \{ -1, 0, 1
+\}$ et que l'on a : 
+\[
+ \Prob\left(\Ev{ X = -1 }\right) = \Prob\left(\Ev{ X = 1 }\right) =
+\frac{1}{4} 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Déterminer la valeur de $\Prob\left(\Ev{ X = 0 }\right) $.
+
+\item Vérifier que $Y ( \Omega ) = \left\{ \frac{1}{2} ; 1 \right\}$
+puis donner la loi de $Y$.
+
+\item Compléter la déclaration de fonction suivante pour qu'elle simule
+la variable aléatoire $Y$.
+\begin{verbatim}
+Function y : real;
+Var u : integer;
+Begin
+u : = random(4) ;
+If ------- then ------ else y : = ------;
+End;
+\end{verbatim}
+
+\end{noliste}
+
+\item On suppose, dans cette question, que $X$ suit la loi uniforme sur
+$[0;1[$, avec $X(\Omega) = [ 0 ; 1[$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Vérifier, en utilisant la première question, que l'on a : $Y =
+\frac{ X^{2} + 1 }{2} $.
+
+\item En déduire que $Y(\Omega) = \left[ \ \frac{1}{2}, 1 \right[ $.
+
+\item Montrer alors que, pour tout $x$ de $\left[ \ \frac{1}{2}, 1
+\right[$, on a : $F_{Y} (x) = \sqrt{ 2x -1 }$.
+
+\item Expliquer pourquoi $Y$ est une variable à densité.
+
+\item Donner la valeur de $\E(Y)$.
+
+\item Compléter la déclaration de fonction suivante pour qu'elle simule
+la variable aléatoire $Y$.
+\begin{verbatim}
+Function y :real;
+Var u : real;
+Begin
+u : = random;
+y : = ------;
+End;
+\end{verbatim}
+
+\end{noliste}
+
+\item On suppose, dans cette question, que $X$ suit la loi normale
+centrée réduite. On rappelle que $X (\Omega) = \R$ et on note $\Phi$ la
+fonction de répartition de $X$. 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Vérifier que $Y (\Omega) = \left[ \ \frac{1}{2} ; + \infty
+\right[$.
+
+\item Donner la valeur de $\Prob\left(\Ev{ Y = \frac{1}{2}}\right)$.
+
+\item Utiliser la formule des probabilités totales associées au système
+complet d'évènements \\
+$\left( \rule{0cm}{0.3cm} [ X \leq 0 ], [ 0 < X \leq 1 ], [ X > 1]
+\right)$ pour établir l'égalité suivante :
+\[
+ F_{Y} (x) = \left\{ 
+\begin{array}{l}
+ 0 \text{ si } x < \frac{1}{2} \\
+\\\
+Phi \left( \sqrt{ 2x - 1 } \right) \text{ si } \frac{1}{2} \leq x \leq
+1 \\
+\\\
+Phi (x) \text{ si } x > 1
+\end{array}
+\right. 
+\]
+
+\item La variable aléatoire $Y$ est-elle à densité ? Est-elle discrète
+?
+
+\end{noliste}
+
+\end{noliste}
+
+\end{document}
+

@@ -1,0 +1,358 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../macros.tex}
+%\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \\
+  Mathématiques\\[.2cm]
+  \hrule} %
+\chead{} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} EML 2011} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+
+\section*{Exercice 1}
+
+\noindent
+On considère l'application
+\[
+f : \left\{
+\begin{array}{ccl}
+\left] 0, + \infty \right[ & \longrightarrow & \R
+\\
+x & \longmapsto & f(x) = \left( x + \ln (x)\right) \ee^{x-1}.
+\end{array}
+\right.
+\]
+
+
+\subsection*{Partie I : Étude et représentation graphique de $f$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $f$ est dérivable sur $\left] 0, + \infty \right[ $.
+On note $f'$ sa fonction dérivée.\\
+Pour tout $x\in \left] 0, + \infty \right[,$ calculer $f'(x)$.
+
+\item Établir :
+\[
+\forall x\in \left] 0, + \infty \right[,\quad \ln( x) + \frac{1}{x}>0
+\]
+
+
+\item En déduire :
+\[
+\forall x\in \left] 0, + \infty \right[,\quad x + \ln(x) + 1 +
+\frac{1}{x}>0.
+\]
+
+
+\item En déduire le sens de variation de $f$.
+
+\item Dresser le tableau de variation de $f$, comprenant la limite de
+$f$ en
+$0$ et la limite de $f$ en $ + \infty$.
+
+Calculer $f\left( 1\right) $ et $f'\left( 1\right).$
+
+\item Préciser la nature des branches infinies de la courbe
+représentative $\mathcal{C}$ de $f$ dans un repère du plan.\\
+\emph{Cette question est hors programme, pour notre programme actuel. 
+Je vous laisse cependant la question si vous souhaitez y réfléchir.}
+
+\item Tracer l'allure de $\mathcal{C}$. On précisera la tangente au 
+point d'abscisse $1$.
+\end{noliste}
+
+Il n'est demandé ni l'étude de la convexité, ni la recherche
+d'éventuels points d'inflexion.
+
+\subsection*{Partie II : Étude d'une suite récurrente associée
+à $f$.}
+
+\noindent
+On considère la suite réelle $\left( u_{n}\right) _{n\in \N}$
+définie par $u_{0} = 2$ et, pour tout $n\in \N,$ $u_{n + 1} = f\left(
+u_{n}\right).$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \setcounter{enumi}{7}
+\item Montrer que, pour tout $n\in \N,$ $u_{n}$ existe et $u_{n}\geq2$.
+
+\item Établir, par récurrence :\qquad$\forall n\in \N,\quad
+u_{n}\geq \ee^{n}$.\\
+Quelle est la limite de $(u_n)$ lorsque l'entier $n$ tend vers l'infini
+?
+
+\item Écrire un programme en \Scilab{} qui calcule et affiche le plus
+petit entier naturel $n$ tel que $u_{n} \geq 10^{20}.$
+\end{noliste}
+
+\newpage
+
+\subsection*{Partie III : Étude d'extremums locaux pour une fonction de
+deux variables associée à $f$}
+
+\noindent
+On considère l'application
+\[
+F :
+\left\{
+\begin{array}{ccl}
+\left] 0, + \infty \right[ & \longrightarrow & \R
+\\
+x & \longmapsto & F(x) = \dint{1}{x}f( t)\ dt
+\end{array}
+\right.
+\]
+
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \setcounter{enumi}{10}
+\item Montrer que $F$ est de classe $\Cont{2}$ sur $\left] 0, + \infty
+\right[$ et exprimer $F'( x) $, pour tout $x\in \left]
+0, + \infty \right[ $, à l'aide de $f( x)$.\\
+On considère l'application de classe $\Cont{2}$
+\[
+G :\left\{
+\begin{array}{ccl}
+\left] 0, + \infty \right[^{2} & \longrightarrow & \R
+\\
+(x,y) & \longmapsto & G(x,y) = F(x) + F(y)
+-2\ee^{\tfrac{x + y}{2}}.
+\end{array}
+\right.
+\]
+
+
+\item Exprimer les dérivées partielles premières $\dfn{G}{1}(x,y)$ 
+et $\dfn{G}{2}(x,y)$, pour tout
+$( x,y) \in \left] 0, + \infty \right[^{2}$ à l'aide de
+$f\left( x\right) $, $f\left( y\right) $ et $\ee^{\tfrac{x + y}{2}}.$
+
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f$ est bijective.
+
+\item Établir que, pour tout $( x,y) \in \left]
+0, + \infty \right[^{2},\ (x,y) $ est un point critique de
+$G$ si et seulement si :
+\[
+x = y\quad \text{et\quad}x + \ln x = \ee.
+\]
+\end{noliste}
+
+\item Montrer que l'équation $x + \ln x = \ee$, d'inconnue $x\in \left]
+0, + \infty \right[ $ admet une solution et une seule, que l'on notera
+$\alpha$, et montrer que : $1<\alpha<\ee.$
+
+\item Montrer que $G$ admet un extremum local. Préciser sa nature.
+\end{noliste}
+
+\newpage
+
+\section*{Exercice 2}
+
+\noindent
+On considère les matrices carrées d'ordre 3 suivantes :
+\[
+I = 
+\begin{smatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{smatrix},\quad A = 
+\begin{smatrix}
+1 & 1 & 1\\
+1 & 1 & 1\\
+1 & 1 & 3
+\end{smatrix}.
+\]
+
+
+\subsection*{Partie I : Détermination d'une racine carrée de $A$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Sans calcul, justifier que $A$ est diagonalisable et non
+inversible.
+Déterminer le rang de $A$.
+
+\item Montrer que $0$, $1$ et $4$ sont les trois valeurs propres de $A$
+et
+déterminer les sous-espaces propres associés.
+
+\item En déduire une matrice diagonale $D$ de $\M{3} $ dont les
+coefficients diagonaux sont dans l'ordre
+croissant, et une matrice inversible $P$ de $\M{3} $, dont les
+coefficients de la première ligne sont tous
+égaux à $1$, telles que : $A = PDP^{-1}.$
+
+\item Calculer $P^{-1}$.
+
+\item Montrer qu'il existe une matrice diagonale $\Delta$ de $\M{3} $,
+dont les coefficients diagonaux sont dans
+l'ordre croissant, telle que $\Delta^{2} = D$, et déterminer $\Delta$.
+
+\item On note $R = P\Delta P^{-1}$. Montrer $R^{2} = A$ et calculer
+$R$.
+\end{noliste}
+
+\subsection*{Partie II : Étude d'endomorphismes}
+
+\noindent
+On munit $\R^{3}$ de sa base canonique $\mathcal{B = }\left(
+e_{1},e_{2},e_{3}\right) $ et on considère les endomorphismes $f$ et
+$g$ de $\R^{3}$ dont les matrices dans $\mathcal{B}$ sont respectivement
+$A$ et $R$.\\
+On note $\mathcal{C = }\left( u_{1},u_{2},u_{3}\right) $ la base de
+$\R^{3}$ telle que $P$ est la matrice de passage de $\mathcal{B}$
+à $\mathcal{C}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer les matrices de $f$ et $g$ dans la base $\mathcal{C}$.
+
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer une base et la dimension de $\kr (f) $.
+
+\item Déterminer une base et la dimension de $\im (f) $.
+\end{noliste}
+
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer une base et la dimension de $\kr (g).$
+
+\item Déterminer une base et la dimension de $\im(g) 
+$.
+\end{noliste}
+
+\item Trouver au moins un automorphisme $h$ de $\R^{3}$ tel que
+$g = f\circ h$.\\
+On déterminera $h$ par sa matrice $H$ dans la base $\mathcal{C}$, puis
+on exprimera la matrice de $h$ dans la base $\mathcal{B}$ à l'aide de 
+$H$ et de $P$.
+\end{noliste}
+
+\newpage
+
+\section*{Exercice 3}
+
+\noindent
+Les deux parties sont indépendantes.\\
+Soit $p\in \left] 0,1\right[.$ On note $q = 1-p.$
+
+\subsection*{Partie I : Différence de deux variables aléatoires.}
+
+\noindent
+Soit $n$ un entier naturel non nul. On considère $n$ joueurs qui visent
+une cible. Chaque joueur effectue deux tirs. À chaque tir, chaque
+joueur a la probabilité $p$ d'atteindre la cible. Les tirs sont 
+indépendants les uns des autres.\\
+On définit la variable aléatoire $X$ égale au nombre de joueurs
+ayant atteint la cible au premier tir et la variable aléatoire $Z$
+égale au nombre de joueurs ayant atteint la cible au moins une fois à
+l'issue des deux tirs.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer la loi de $X$. Rappeler son espérance et sa variance.
+
+\item Montrer que $Z$ suit une loi binomiale. Donner son espérance et
+sa variance.\\
+On note $Y = Z-X$.
+
+\item Que représente la variable aléatoire $Y$ ? Déterminer la loi
+de $Y$.
+
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Les variables aléatoires $X$ et $Y$ sont-elles indépendantes ?
+
+\item Calculer la covariance du couple $\left( X,Y\right) $.
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie II : Variable aléatoire à densité
+conditionnée par une variable aléatoire discrète}
+
+\noindent
+Dans cette partie, on note $U$ une variable aléatoire suivant la loi
+géométrique de paramètre $p.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Rappeler la loi de $U$, son espérance et sa variance.\\
+On considère une variable aléatoire $T$ telle que :
+\qquad $\forall n\in \N^*,\ \forall t\in \left[ 0, + \infty
+\right[, \ \Prob_{\Ev{ U = n} }(\Ev{ T>t}) = \ee^{-nt}.$
+
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer : $\forall t\in \left[ 0, + \infty \right[,\quad
+\Prob\left(\Ev{T>t}\right) = \dfrac{p~\ee^{-t}}{1-q~\ee^{-t}}.$
+
+\item Déterminer la fonction de répartition de la variable
+aléatoire $T$.
+
+\item En déduire que $T$ est une variable aléatoire à densité
+et en déterminer une densité.
+\end{noliste}
+
+\item On note $Z = U \, T$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer : $\forall n\in \N^*,\ \forall z\in \left[
+0, + \infty \right[,\quad \Prob_{\Ev{ U = n} }\left(\Ev{
+Z>z}\right) = \ee^{-z}.$
+
+\item En déduire que la variable aléatoire $Z$ suit une loi
+exponentielle dont on précisera le paramètre.
+
+\item Montrer : $\forall n\in \N^*, \quad \forall z\in \left[
+0, + \infty \right[,\quad \Prob \left( \Ev{U = n} \cap \Ev{Z>z}\right) =
+\Prob\left(\Ev{U = n}\right) \Pro\left(\Ev{ Z>z}\right)$.
+\end{noliste}
+\end{noliste}
+
+
+
+
+
+\end{document}

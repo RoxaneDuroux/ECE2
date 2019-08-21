@@ -1,0 +1,455 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper, 
+ lmargin = 2cm, rmargin = 2cm, tmargin = 2. 5cm, bmargin = 2. 5cm}
+
+\input{. . /. . /macros. tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill \\
+ Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0, 4 point. Mettre 0pt
+ % pour supprimer le trait. 
+
+\renewcommand{\footrulewidth}{0. 4pt}% : Trace un trait de séparation
+ % de largeur 0, 4 point. Mettre 0pt
+ % pour supprimer le trait. 
+
+\setlength{\headheight}{14pt}
+
+
+\title{\bf \vspace{- 1cm} EDHEC 2012} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{- 1. 6cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{1cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0. 8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0. 6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en - têtes et pieds de pages puis
+définition des en - têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC - Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 2012}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en - tête et texte et texte
+et pied de page)\renewcommand{\footrulewidth}{0. 4pt}
+\renewcommand{\headrulewidth}{0. 4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2012}}
+
+
+
+{\large \textbf{Concepteur : Edhec}}
+
+
+
+\rule{2. 39cm}{0. 05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2. 39cm}{0. 05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies. }
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs. }
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée. }
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre. }
+
+\vspace*{3cm}
+
+\subsection*{Exercice 1 }
+
+On admet que, si une suite $\left(a_{n}\right)_{n\in\N}$
+converge vers le réel $\ell$, alors on a : ${ \dlim{n\rightarrow +
+\infty}\dfrac{1}{n}{ \Sum{j = 0}{n - 1}a_{j} = \ell}}$
+. On se propose d'étudier la suite $\left(u_{n}\right)_{n\in\N}$
+définie par la donnée de $u_{0} = 0$ et par la relation, valable pour
+tout entier naturel $n$, $u_{n + 1} = \dfrac{u_{n}{2} + 1}{2}$. 
+\begin{noliste}{1. }
+\item {}
+
+\begin{noliste}{a)}
+\item Montrer que, pour tout entier naturel $n$ on a, $0\leq u_{n}<1$
+  .
+\item Étudier les variations de la suite $\left(u_{n}\right)_{n\in\N}$
+. 
+\item Déduire des questions précédentes que la suite
+$\left(u_{n}\right)_{n\in\N}$
+converge et donner sa limite. 
+\end{noliste}
+\item Pour tout entier naturel $n$ on pose, $v_{n} = 1 - u_{n}$. 
+
+\begin{noliste}{a)}
+\item Montrer que ${ \dlim{n\rightarrow + \infty}\left(\dfrac{1}{v_{n +
+1}} - \dfrac{1}{v_{n}}\right) = \dfrac{1}{2}}$
+. 
+\item Utiliser le résultat admis en début d'exercice pour trouver un
+équivalent
+de $v_{n}$ lorsque $n$ tend vres $ + \infty$. 
+\item En déduire que $u_{n} = 1 - \dfrac{2}{n} +
+\dfrac{1}{n}\varepsilon\left(n\right)$
+avec ${ \dlim{n\rightarrow + \infty}\varepsilon\left(n\right) = 0}$. 
+\end{noliste}
+\item {}
+
+\begin{noliste}{a)}
+\item Écrire une fonction \Scilab{} d'en - tête \texttt{function u(n :
+integer)
+ : real ; }qui renvoie la valeur de $u_{n}$. 
+\item En déduire un programme, rédigé en \Scilab{}, qui permet de
+déterminer
+et d'afficher la plus petite valeur de $n$ pour laquelle on a $1 -
+u_{n}<10^{- 3}$
+. 
+\end{noliste}
+\end{noliste}
+
+\subsection*{Exercice 2}
+\begin{noliste}{1. }
+\item Montrer que, si $f$ désigne un endomorphisme de $\R^{3}$
+diagonalisable, alors l'endomorphisme $f^{2}$ est aussi diagonalisable.
+
+\\
+On rappelle que $f^{2} = f\circ f$. 
+\\
+\\
+On se propose dans la suite de montrer que la réciproque de cette
+assertion est fausse. \\
+Pour ce faire, on considère l'endomorphisme $g$ de $\R^{3}$
+dont la matrice dans la base canonique de $\R^{3}$ est $A = \left(
+\begin{array}{crr}
+0 & 2 & - 1\\
+2 & - 5 & 4\\
+3 & - 8 & 6
+\end{array}
+\right)$. \\
+ On note $I$ la matrice identité de $\M{3}$. 
+\item {}
+
+\begin{noliste}{a)}
+\item Déterminer la matrice $A^{2}$ puis établir que $A^{4} = I$. En
+déduire
+les valeurs propres possibles de la matrice $A$. 
+\item Donner une base $(u)$ de $\ker(g - Id)$. 
+\item Déterminer $\ker(g + Id)$. 
+\item En déduire que $g$ n'est pas diagonalisable. 
+\end{noliste}
+\item {}
+
+\begin{noliste}{a)}
+\item Résoudre l'équation, $A^{2}X = - X$, d'inconnue le vecteur $X$
+élément
+de $\M{3;1}$, et en déduire une
+base $(v;w)$ de $\ker(g^{2} + Id)$. 
+\item Montrer que la famille $(u;v;w)$ est une base de $\R^{3}$. 
+\item Écrire la matrice de $g^{2}$ dans la base $(u;v;w)$ et conclure. 
+\end{noliste}
+\end{noliste}
+
+\subsection*{Exercice 3 }
+
+\noindent \begin{flushleft}
+On désigne par $n$ un entier naturel supérieur ou égal à $2$. On
+note $p$ un réel de $]0;1[$ et on pose $q = 1 - p$. \\
+On dispose d'une pièce donnant \textquotedbl{}Pile\textquotedbl{}
+avec la probabilité $p$ et \textquotedbl{}Face\textquotedbl{} avec
+la probabilité $q$. \\
+On lance cette pièce et on arrête les lancers dans l'une des deux
+situations suivantes : \\
+\textbullet{} Soit si l'on a obtenu \textquotedbl{}Pile\textquotedbl{}
+. \\
+\textbullet{} Soit si l'on a obtenu $n$ fois
+\textquotedbl{}Face\textquotedbl{}. 
+\\
+Pour tout entier naturel $k$ non nul, on note $P_{k}$ (respectivement
+$F_{k}$ l'évènement " on obtient \textquotedbl{}Pile\textquotedbl{}
+(respectivement \textquotedbl{}Face\textquotedbl{}) au $k^{\textrm{e}}$
+lancer ". \\
+On note $T_{n}$ le nombre de lancers effectués, $X_{n}$ le nombre
+de \textquotedbl{}Pile\textquotedbl{} obtenus et enfin $Y_{n}$ le
+nombre de \textquotedbl{}Face\textquotedbl{} obtenus. \\
+On admet que $T_{n}$, $X_{n}$ et $Y_{n}$ sont des variables aléatoires
+toutes les trois définies sur un espace probabilisé
+$\left(\Omega;\mathcal{A};P\right)$
+que l'on ne cherchera pas à préciser. 
+\par\end{flushleft}
+\begin{noliste}{1. }
+\item Loi de $T_{n}$. 
+
+\begin{noliste}{a)}
+\item Pour tout $k$ de $\left[ \ \!\left[1;n - 1\right]\!\right]$,
+déterminer, 
+en distinguant le cas $k = 1$, la probabilité $P\left(\Ev{T_{n} =
+k}\right)$. 
+\item Déterminer $P\left(\Ev{T_{n} = n}\right)$. 
+\item Vérifier que ${ \Sum{k = 1}{n}P\left(\Ev{T_{n} = k}\right) = 1}$
+. 
+\item Établir que $T_{n}$ possède une espérance et vérifier que
+$\E\left(T_{n}\right) = \dfrac{1 - q^{n}}{1 - q}$
+. 
+\end{noliste}
+\item Loi de $X_{n}$. 
+
+\begin{noliste}{a)}
+\item Donner la loi de $X_{n}$. 
+\item Vérifier que $\E(X_{n}) = 1 - q^{n}$. 
+\end{noliste}
+\item Loi de $Y_{n}$. 
+
+\begin{noliste}{a)}
+\item Déterminer, pour tout $k$ de $\left[ \ \!\left[0;n -
+1\right]\!\right]$
+, la probabilité $P\left(\Ev{Y_{n} = k}\right)$. 
+\item Déterminer $P\left(\Ev{Y_{n} = n}\right)$. 
+\item Écrire une égalité liant les variables aléatoires $T_{n}$,
+$X_{n}$
+et $Y_{n}$, puis en déduire $\E\left(Y_{n}\right)$. 
+\end{noliste}
+\item Montrer que la suite $\left(T_{n}\right)_{n\in\N^{*}}$ converge
+en loi vers une variable aléatoire $T$ dont on donnera la loi. 
+\item Simulation informatique. \\
+Compléter les trois instructions manquantes pour que le programme
+suivant simule l'expérience aléatoire décrite ci - dessus et pour qu'il
+affiche, dans cet ordre, les valeurs prises par les variables
+aléatoires
+$T_{n}$, $X_{n}$ et $Y_{n}$, à l'exécution de l'instruction
+\texttt{Writeln
+(t, x, y) ; }\\
+\texttt{Program EDHEC \_{2}012 ; }~\\
+\texttt{Var n, t, x, y : integer ; p : real; }~\\
+\texttt{Begin }~\\
+\texttt{Randomize ; t : = 0 ; x : = 0 ; y : = 0 ;}~\\
+\texttt{ Readln(n) ; }~\\
+\texttt{While (x = 0) and (t<n) do }~\\
+\texttt{begin }~\\
+\texttt{- {} - {} - {} - {} - {} - ; }~\\
+\texttt{If random >p then - {} - {} - {} - {} - {} - else - {} - {} -
+{} - {} - {} - ;
+}~\\
+\texttt{end; }~\\
+\texttt{Writeln (t, x, y) ; }~\\
+\texttt{End. }
+\end{noliste}
+
+\subsection*{Problème }
+
+On désigne par $\lambda$, un réel strictement positif et on considère
+la fonction $f$, définie sur $\R$, par $\forall x\in\R$
+, $f\left(x\right) = \lambda\left|x\right|e^{- \lambda x^{2}}$. 
+\begin{noliste}{1. }
+\item {}
+
+\begin{noliste}{a)}
+\item Montrer que $f$ est paire. 
+\item Établir que l'intégrale ${ \dint{0}{+ \infty}f\left(x\right)dx}$
+converge et donner sa valeur. 
+\item Montrer que la fonction $f$ peut être considérée comme densité
+d'une
+variable aléatoire $X$ que l'on suppose, dans la suite, définie sur
+un certain espace probabilisé $\left(\Omega;\mathcal{A};P\right)$. 
+\end{noliste}
+\item {}
+
+\begin{noliste}{a)}
+\item Justifier la convergence de l'intégrale ${ \dint{0}{+
+\infty}xf\left(x\right)dx}$
+. 
+\item En déduire que la variable aléatoire $X$ possède une espérance,
+notée
+$\E(X)$, et donner sa valeur. 
+\end{noliste}
+\item {}
+
+\begin{noliste}{a)}
+\item Montrer, grâce à une intégration par parties, que l'intégrale ${
+\dint{0}{+ \infty}x^{2}f\left(x\right)dx}$
+converge et donner sa valeur. 
+\item En déduire que la variable aléatoire $X$ possède une variance,
+notée
+$\V(X)$, et donner sa valeur. 
+\end{noliste}
+\item On pose $Y = X^{2}$ et on admet que $Y$ est une variable
+aléatoire
+à densité, elle aussi définie sur l'espace probabilisé
+$\left(\Omega;\mathcal{A};P\right)$. 
+
+\begin{noliste}{a)}
+\item Donner l'expression de la fonction de répartition $F_{Y}$ de la
+variable
+aléatoire $Y$ à l'aide de la fonction de répartition $F_{X}$ de
+la variable aléatoire $X$. 
+\item Déterminer une densité $f_{Y}$ de $Y$, puis vérifier que $Y$ suit
+la loi exponentielle de paramètre $\lambda$. 
+\item Retrouver alors sans calcul la valeur de $\V(X)$. 
+\end{noliste}
+\item Soit $U$ une variable aléatoire suivant la loi uniforme sur
+$[0;1[$
+. 
+
+\begin{noliste}{a)}
+\item On pose $W = - \dfrac{1}{\lambda}\ln(1 - U)$ et on admet que
+$W$est une
+variable aléatoire. \\
+Déterminer la fonction de répartition de $W$ et en déduire la loi
+suivie par la variable aléatoire $W$. 
+\item En déduire une fonction \Scilab{} dont l'en - tête est
+\texttt{\textbf{function
+vax (lambda : real) : real ;}} qui simule la loi de $\left|X\right|$. 
+\\
+Vérifier que la probabilité que $X$ prenne des valeurs positives
+est égale à la probabilité que $X$ prenne des valeurs négatives. 
+\\
+En déduire une fonction \Scilab{}, utilisant \texttt{random(2) }, dont
+l'en - tête est\\
+ \texttt{\textbf{function x (lambda : real) : real ;}} qui simule la
+loi de $X$. 
+\end{noliste}
+
+On suppose, dans la suite, que le paramètre $\lambda$ est inconnu
+et on souhaite l'estimer en utilisant la loi de $Y$. \\
+On désigne par $n$ un entier naturel supérieur ou égal à $2$ et
+on considère un échantillon $\left(Y_{1};\ldots;Y_{n}\right)$ de
+la loi de $Y$. \\
+Les variables $Y_{1};\ldots;Y_{n}$ sont supposées définies sur
+$\left(\Omega;\mathcal{A};P\right)$
+et on rappelle qu'elles sont indépendantes et de même loi que $Y$. 
+
+\item On considère des réels $x_{1};\ldots;x_{n}$ strictement positifs,
+
+ainsi que la fonction $L$, à valeurs dans $\R$, définie
+sur $\left]0; + \infty\right[$ par $\forall\lambda\in\left]0; +
+\infty\right[$
+, $L\left(\lambda\right) = { \prod_{k = 1}{n}f_{Y}\left(x_{k}\right)}$
+. 
+
+\begin{noliste}{a)}
+\item Exprimer $L\left(\lambda\right)$, puis
+$\ln\left(L\left(\lambda\right)\right)$
+en fonction de $\lambda$, $x_{1};\ldots;x_{n}$. 
+\item On considère la fonction $\varphi$, définie pour tout réel
+$\lambda$
+de $\left]0; + \infty\right[$ par $\varphi\left(\lambda\right) =
+n\ln\left(\lambda\right) - \lambda{ \Sum{ = 1}{n}x_{k}}$
+. \\
+Montrer que la fonction $\varphi$ admet un maximum, atteint en un
+seul réel que l'on notera $z$ et que l'on exprimera en fonction de
+$x_{1};\ldots;x_{n}$. \\
+Que peut - on dire de $z$ pour la fonction $L$ ? 
+\end{noliste}
+\item On pose dorénavant, toujours avec $n$ supérieur ou égal à 2,
+$Z_{n} = \dfrac{n}{{ \Sum{k = 1}{n}Y_{k}}}$
+. \\
+On admet que $Z_{n}$ est une variable aléatoire définie, elle aussi, 
+sur l'espace probabilisé $\left(\Omega;\mathcal{A};P\right)$. \\
+La suite $(Z_{n}){}_{n\geq 2}$ est appelée estimateur du maximum
+de vraisemblance pour $\lambda$. \\
+On admet que la variable aléatoire ${ \Sum{k = 1}{n}}Y_{k}$
+admet pour densité la fonction $f_{n}$ définie par \\
+$\forall t\in\R$, $f_{n}\left(t\right) = \left\{ 
+\begin{array}{ccc}
+0 & \textrm{si} & t<0\\
+\dfrac{\lambda^{n}}{\left(n - 1\right)!}t^{n - 1}e^{- \lambda t} &
+\textrm{\ensuremath{{\textstyle si}}} & t\geq 0
+\end{array}
+\right. $. 
+
+\begin{noliste}{a)}
+\item En remarquant que ${ \dint{0}{+ \infty}f_{n - 1}\left(t\right)dt}
+= 1$
+, montrer que $Z_{n}$ possède une espérance et que $\E(Z_{n}) =
+\dfrac{n}{n - 1}\lambda$
+. 
+\item Déterminer un estimateur $Z_{n}'$, fonction simple de $Z_{n}$ qui
+soit un estimateur sans biais de $\lambda$. \end{noliste}
+\end{noliste}
+
+
+\end{document}

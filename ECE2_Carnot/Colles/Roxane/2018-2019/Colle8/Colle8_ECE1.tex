@@ -1,0 +1,158 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE1 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 8}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+
+
+\section{Série 1}
+
+\subsection*{Exercice 1}
+\noindent
+  On considère les matrices $A =
+  \begin{smatrix}
+    2 & \frac{2}{3} \\[.2cm]
+    -\frac{5}{2} & -\frac{2}{3}
+  \end{smatrix}$
+  et
+  $P =
+  \begin{smatrix}
+    -2 & -2 \\
+    3 & 5
+  \end{smatrix}
+  $.
+  \begin{noliste}{1.}
+  \item Les matrices $A$ et $P$ sont-elles inversibles ?
+  \item On donne $P^{-1}=\dfrac{1}{4} 
+  \begin{smatrix}
+    -5 & -2\\
+    3 & 2
+  \end{smatrix}
+  $. Calculer $B = P^{-1} A P$.
+  \item En déduire $B^n$ puis $A^n$ pour tout $n\in \N$.
+  \item Déterminer l'ensemble des suites réelles $(x_n)$ et $(y_n)$
+    qui vérifient : $\forall n \in \N, \left\{
+    \begin{array}{rcrrr}
+      x_{n+1} & = & 2 x_n & + & \frac{2}{3} y_n \\[.2cm]
+      y_{n+1} & = & -\frac{5}{2} x_n & - & \frac{2}{3} y_n
+    \end{array}
+    \right.
+    $
+  \end{noliste}
+
+\subsection*{Exercice 2}
+\noindent
+On considère la matrice $A = 
+      \begin{smatrix}
+        1 & 1 & 1\\
+        0 & 1 & 1\\
+        0 & 0 & 1\\
+      \end{smatrix}$. On pose $B = A - I_3$.
+      \begin{noliste}{1.}
+       \item Soit $n\in\N$. Calculer $B^n$.
+       \item On donne le résultat suivant :\\
+    Soit $(M,N)\in\left(\M{p}\right)^2$ tel que $MN=NM$, alors
+    \[
+     \forall n \in\N, \ (M+N)^n = \DSum{k=0}{n} \dbinom{n}{k} 
+     M^k N^{n-k}
+    \]
+    Soit $n\in\N$. En déduire une expression de $A^n$.
+      \end{noliste}
+
+\newpage
+
+\section{Série 2}
+
+\subsection*{Exercice 1}
+\noindent
+On considère la matrice $A =
+      \begin{smatrix}
+        -1 & -2 \\
+        3 & 4 \\
+      \end{smatrix}$.
+    \begin{noliste}{1.}
+    \item Calculer $A^2 - 3A + 2I_2$. En déduire que $A$ est
+      inversible et calculer son inverse.  
+    \item On donne le résultat suivant :\\
+    Soit $(M,N)\in\left(\M{p}\right)^2$ tel que $MN=NM$, alors
+    \[
+     \forall n \in\N, \ (M+N)^n = \DSum{k=0}{n} \dbinom{n}{k} 
+     M^k N^{n-k}
+    \]
+    Prouver l'existence de deux suites $(u_n)$ et $(v_n)$ telles
+      que : $\forall n \in \N, A^n = u_n A + v_n I_2$.
+    \item Que peut-on dire de la suite $(u_n+v_n)$ ?
+    \item En déduire l'expression de $(u_n)$, $(v_n)$ et $A^n$.
+    \end{noliste}
+
+
+\subsection*{Exercice 2}
+\noindent
+On considère la matrice $A$ définie par $A = 
+\begin{smatrix} 1 & 0 & 0 \\ 6 & -5 & 6 \\ 3 & -3 & 4 \end{smatrix}$.
+\begin{noliste}{1.}
+\item Démontrer qu'il existe une suite $(a_n)_{n \in \N}$ telle que 
+pour tout $n \in \N$, on ait:
+\[
+A^n = \begin{smatrix} 1 & 0 & 0 \\ 2a_n & 1 - 2a_n & 2a_n \\ a_n & 
+-a_n & 1+a_n \end{smatrix}
+\]
+\item Montrer que la suite $(a_n)$ est arithmético-géométrique. En 
+déduire $a_n$ en fonction de $n$, puis $A^n$ en fonction de $n$.
+\end{noliste}
+
+\newpage
+
+\section{Série 3}
+
+\subsection*{Exercice 1}
+\noindent
+Soit $M$ une matrice de $\M{n}$ telle que : $~^tM = -M$. Soit $X 
+\in\M{n,1}$ et $U = ~^tXMX$.
+  \begin{noliste}{1.}
+  \item Quel est la taille de la matrice $U$ ? En déduire $~^tU$.
+  \item En déduire que $U = 0$.
+  \item Montrer que $I+M$ est inversible.\\
+    \emph{(on pourra supposer $(I+M)X = 0$ et calculer $~^t(MX)(MX)$
+      dans ce cas)}
+  \item Soit $A = (I-M)(I+M)^{-1}$. Montrer que $~^tA =
+    (I-M)^{-1}(I+M)$.
+  \item À quelle condition a-t-on $~^tA = A^{-1}$ ? Montrer que cette
+    condition est vérifiée.
+  \end{noliste}
+
+\subsection*{Exercice 2}
+\noindent
+\begin{noliste}{1.}
+\item Soit $A = \begin{smatrix} 0 & 1 & 0   \\ -1& 2 & 0  \\ 1 & 0 & -1 
+ \end{smatrix}$. 
+ Montrer que $A^3 - A^2 - A + I = 0$. En déduire que $A$ est inversible 
+et calculer $A^{-1}$.
+ Montrer ensuite que $A^2$ est inversible et calculer $(A^2)^{-1}$.
+\item Soit $C = \begin{smatrix} -2 & -1 & -1 \\ 3 &  2 & 1 \\  1 & 1 & 
+0 \end{smatrix}$. Calculer $C^3$, en déduire que $C$ n'est pas 
+inversible.
+\end{noliste}
+
+
+
+
+\end{document}

@@ -1,0 +1,495 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 2002} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Epreuve Ecricome 2002}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT
+
+\noindent {\Large \textbf{ECRI%TCIMACRO{\TeXButton{TeX
+field}{\colorbox[gray]{0.95}{COME}}}%BeginExpansion
+\colorbox[gray]{0.95}{COME}%EndExpansion
+}}\vspace{0.3cm}
+
+\noindent \textbf{Banque d'épreuves communes}
+
+\noindent aux concours des Ecoles
+
+\noindent esc%TCIMACRO{\TeXButton{TeX
+field}{\colorbox[gray]{0.95}{bordeaux}} }%BeginExpansion
+\colorbox[gray]{0.95}{bordeaux}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{marseille}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{marseille}
+%EndExpansion
+/ icn%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{nancy}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{nancy}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{reims}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{reims}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{rouen}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{rouen}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX
+field}{\colorbox[gray]{0.95}{toulouse}}}%BeginExpansion
+\colorbox[gray]{0.95}{toulouse}%EndExpansion
+\vspace{1cm}
+
+\begin{center}
+{\large CONCOURS D'ADMISSION }\vspace{0.5cm}
+
+\textbf{option économique} \vspace{0.5cm}
+
+{\Large \textbf{MATHÉMATIQUES}} \vspace{0.5cm}
+
+\textbf{Année 2002}
+\end{center}
+
+\noindent \textbf{Aucun instrument de calcul n'est autorisé.}
+
+\noindent \textbf{Aucun document n'est autorisé.}
+
+\noindent L'énoncé comporte \pageref{fin} pages
+
+\begin{quotation}
+\noindent Les candidats sont invités à soigner la présentation de leur
+copie, à mettre en évidence les principaux résultats, à respecter les
+notations de l'énoncé, et à donner des démonstrations complètes (mais
+brèves) de leurs affirmations.
+\end{quotation}
+
+\newpage
+
+\section*{EXERCICE 1}
+
+Dans l'ensemble $\mathfrak{M}_{3}(\R)$ des matrices carrées d'ordre $
+3$ à coefficients réels, on considère le sous-ensemble $E$ des matrices
+$
+M(a,b)$ définies par : 
+\[
+M(a,b) = 
+\begin{smatrix}
+b & a & b \\
+a & b & b \\
+b & b & a
+\end{smatrix}.
+\]
+Ainsi : 
+\[
+E = \{M(a,b)\quad a,b\in \R\}.
+\]
+On note $f_{a,b}$ l'endomorphisme de $\R^{3}$ représenté par la
+matrice $M(a,b)$ dans la base canonique $\mathcal{B} =
+(e_{1},e_{2},e_{3})$ de 
+$\R^{3}$.
+
+\subsection*{I. Structure de $E$.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $E$ est un sous-espace vectoriel de $\M{3}$.
+
+\item Donner une base de $E$, ainsi que sa dimension.
+\end{noliste}
+
+\subsection*{II. Étude d'un cas particulier.}
+
+On pose $A = M(1,0)$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer $A^{2}$. En déduire que $A$ est une matrice inversible
+et
+exprimer $A^{-1}$ en fonction de $A$.
+
+\item Déterminer les valeurs propres de $A$.
+
+\item Trouver une base de $\R^{3}$ dans laquelle la matrice de $
+f_{1,0}$ est : 
+\[
+\begin{smatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & -1
+\end{smatrix}.
+\]
+\end{noliste}
+
+\subsection*{III. Diagonalisation des éléments de $E$ et application.}
+
+On considère les vecteurs de $\R^{3}$ suivants : 
+\[
+\vec{u} = (1,1,1),\quad \vec{v} = (1,-1,0),\quad \vec{w} = (1,1,-2).
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Justifier que les matrices de l'ensemble $E$ sont
+diagonalisables.
+
+\item Montrer que $\mathcal{C} = \left( \vec{u},\vec{v},\vec{w}\right)
+$ est
+une base de $\R^{3}$.
+
+\item On note $P$ la matrice de passage de la base $\mathcal{B}$ à la
+base $\mathcal{C}$. Écrire $P$.
+
+\item Déterminer $P^{-1}$.
+
+\item Exprimer les vecteurs $f_{a,b}\left( \vec{u}\right) $,
+$f_{a,b}\left( 
+\vec{v}\right) $, $f_{a,b}\left( \vec{w}\right) $ en fonction de
+$\vec{u}$, $\vec{v}$, $\vec{w}$.
+
+\item En déduire l'expression de la matrice $D_{a,b}$ de $f_{a,b}$ dans
+la
+base $\mathcal{C}$.
+
+\item Justifier l'égalité : 
+\[
+P^{-1}M_{a,b}P = D_{a,b}.
+\]
+
+\item Donner une condition nécessaire et suffisante portant sur $a$ et
+$b$
+pour que $D_{a,b}$ soit inversible.
+
+\item Cette condition étant réalisée, déterminer la matrice inverse de
+$
+D_{a,b}$.
+
+\item Donner une condition nécessaire et suffisante portant sur $a$ et
+$b$
+pour que $M_{a,b}$ soit inversible.
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+On considère la famille de fonctions $(f_{n})_{n\in \N^{\ast }}$
+définies sur $]-1, + \infty \lbrack $ par : 
+\[
+f_{n}(x) = x^{n}\ln (1 + x).
+\]
+
+\subsection*{I. Étude des fonctions $f_{n}$.}
+
+Soit $n\in \N^{\ast }$. On note $h_{n}$ la fonction définie sur $]-1, +
+\infty \lbrack $ par : 
+\[
+h_{n}(x) = n\ln (1 + x) + \dfrac{x}{1 + x}.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Étudier le sens de variation des fonctions $h_{n}$.
+
+\item Calculer $h_{n}(0)$, puis en déduire le signe de $h_{n}$.
+
+\item Étude du cas particulier $n = 1$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Après avoir justifié la dérivabilité de $f_{1}$ sur $]-1, +
+\infty
+\lbrack $, exprimer $f_{1}{\prime }(x)$ en fonction de $h_{1}(x)$.
+
+\item En déduire les variations de la fonction $f_{1}$ sur $]-1, +
+\infty
+\lbrack $.
+\end{noliste}
+
+\item Soit $n\in \N^{\ast }\setminus \{1\}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier la dérivabilité de $f_{n}$ sur $]-1, + \infty \lbrack $
+et
+exprimer $f_{n}{\prime }(x)$ en fonction de $h_{n}(x)$.
+
+\item En déduire les variations de $f_{n}$ sur $]-1, + \infty \lbrack
+$. (On
+distinguera les cas $n$ pair et $n$ impair). On précisera les limites
+aux
+bornes sans étudier les branches infinies.
+\end{noliste}
+\end{noliste}
+
+\subsection*{II. Étude d'une suite.}
+
+On considère la suite $\left( U_{n}\right)_{n\in \N^{\ast }}$ définie
+par : 
+\[
+U_{n} = \dint{0}{1}f_{n}(x)\,dx.
+\]
+
+\subsubsection*{Calcul de $U_{1}$.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Prouver l'existence de trois réels $a$, $b$, $c$ tels que : 
+\[
+\forall x\in \lbrack 0,1],\quad \dfrac{x^{2}}{x + 1} = ax + b +
+\dfrac{c}{x + 1}.
+\]
+
+\item En déduire la valeur de l'intégrale : 
+\[
+\dint{0}{1}\dfrac{x^{2}}{x + 1}\,dx.
+\]
+
+\item Montrer que $U_{1} = \dfrac{1}{4}$.
+\end{noliste}
+
+\subsubsection*{Convergence de la suite $\left( U_{n}\right)_{n\in
+\N^{\ast }}$.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que la suite $\left( U_{n}\right)_{n\in \N^{\ast }}$
+est monotone.
+
+\item Justifier la convergence de la suite $\left( U_{n}\right)_{n\in 
+\N^{\ast }}$. (On ne demande pas sa limite.)
+
+\item Démontrer que : 
+\[
+\forall n\in \N^{\ast },\quad 0\leq U_{n}\leq \dfrac{\ln 2}{n + 1}.
+\]
+
+\item En déduire la limite de la suite $\left( U_{n}\right)_{n\in
+\N^{\ast }}$.
+\end{noliste}
+
+\subsubsection*{Calcul de $U_{n}$ pour $n\geq 2$.}
+
+Pour $x\in \lbrack 0,1]$ et $n\in \N^{\ast }\setminus \{1\}$, on
+pose : 
+\[
+S_{n}(x) = 1-x + x^{2} + \cdots + (-1)^{n}x^{n} = \Sum{k =
+0}{n}(-1)^{k}x^{k}.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que : 
+\[
+S_{n}(x) = \dfrac{1}{1 + x} + \dfrac{(-1)^{n}x^{n + 1}}{1 + x}.
+\]
+
+\item En déduire que : 
+\[
+\Sum{k = 0}{n}\dfrac{(-1)^{k}}{k + 1} = \ln 2 +
+(-1)^{n}\dint{0}{1}\dfrac{x^{n + 1}}{1 + x}\,dx.
+\]
+
+\item En utilisant une intégration par parties dans le calcul de
+$U_{n}$,
+montrer que : 
+\[
+U_{n} = \dfrac{\ln 2}{n + 1} + \dfrac{(-1)^{n}}{n + 1}\left[ \ \ln
+2-\left( 1-\dfrac{1}{2} + \cdots + \dfrac{(-1)^{k}}{k + 1} + \cdots +
+\dfrac{(-1)^{n}}{n + 1}\right) \right].
+\]
+\end{noliste}
+
+\section*{EXERCICE 3}
+
+Une urne contient une boule blanche et une boule noire, les boules
+étant
+indiscernables au toucher.
+
+On y prélève une boule, chaque boule ayant la même probabilité d'être
+tirée,
+on note sa couleur, et on la remet dans l'urne avec $c$ boules de la
+couleur
+de la boule tirée. On répète cette épreuve, on réalise ainsi une
+succession
+de $n$ tirages ($n\geq 2$).
+
+\subsection*{I. Étude du cas $c = 0$.}
+
+On effectue donc ici $n$ tirages avec remise de la boule dans l'urne.
+
+On note $X$ la variable aléatoire réelle égale au nombre de boules
+blanches
+obtenues au cours des $n$ tirages et $Y$ la variable aléatoire réelle
+définie par : 
+\[
+\left\{
+\begin{array}{cl}
+Y = k & \text{si l'on obtient une boule blanche pour la première fois
+au }k^{\grave{e}me}\text{ tirage.} \\
+Y = 0 & \text{si les $n$ boules tirées sont noires.}
+\end{array}
+\right.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer la loi de $X$. Donner la valeur de $\E(X)$ et de
+$\V(X)$.
+
+\item Pour $k\in \{1,\ldots,n\}$, déterminer la probabilité
+$P\left(\Ev{Y = k}\right)$ de l'évènement $(Y = k)$, puis déterminer
+$P\left(\Ev{Y = 0}\right)$.
+
+\item Vérifier que : 
+\[
+\Sum{k = 0}{n}P\left(\Ev{Y = k}\right) = 1.
+\]
+
+\item Pour $x\neq 1$ et $n$ entier naturel non nul, montrer que : 
+\[
+\Sum{k = 1}{n}kx^{k} = \dfrac{nx^{n + 2}-(n + 1)x^{n + 1} +
+x}{(1-x)^{2}}.
+\]
+
+\item En déduire $\E(Y)$.
+\end{noliste}
+
+\subsection*{II. Étude du cas $c\neq 0$.}
+
+On considère les variables aléatoires $\left( X_{i}\right)_{1\leq
+i\leq n}$ définies par : 
+\[
+\left\{
+\begin{array}{cl}
+X_{i} = 1 & \text{si on obtient une boule blanche au
+}i^{\grave{e}me}\text{
+tirage.} \\
+X_{i} = 0 & \text{sinon.}
+\end{array}
+\right.
+\]
+On définit alors, pour $2\leq p\leq n$, la variable aléatoire $Z_{p}$,
+par : 
+\[
+Z_{p} = \Sum{i = 1}{p}X_{i}.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Que représente la variable $Z_{p}$ ?
+
+\item Donner la loi de $X_{1}$ et l'espérance $\E(X_{1})$ de $X_{1}$.
+
+\item Déterminer la loi du couple $(X_{1},X_{2})$. En déduire la loi de
+$X_{2}$ puis l'espérance $\E(X_{2})$.
+
+\item Déterminer la loi de probabilité de $Z_{2}$.
+
+\item Déterminer l'univers image $Z_{p}\left( \Omega \right) $ de
+$Z_{p}$.
+
+\item Soit $p\leq n-1$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer $P\left(\Ev{X_{p + 1} = 1\,/Z_{p} = k}\right)$ pour
+$k\in Z_{p}\left( \Omega
+\right) $.
+
+\item En utilisant la formule des probabilités totales, montrer que : 
+\[
+P\left(\Ev{X_{p + 1} = 1}\right) = \dfrac{1 + c\E(Z_{p})}{2 + pc}.
+\]
+
+\item En déduire que $X_{p}$ est une variable aléatoire de Bernoulli de
+paramètre $\dfrac{1}{2}$.
+
+(On raisonnera par récurrence sur $p$ : les variables $X_{1}$,
+$X_{2}$,...., $X_{p}$ étant supposées suivre une loi de de Bernoulli de
+paramètre $\dfrac{1}{2}$, et on calculera $\E(Z_{p})$).
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

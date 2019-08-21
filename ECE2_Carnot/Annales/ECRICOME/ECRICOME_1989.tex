@@ -1,0 +1,438 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 1989} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dint}{\int}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 1989}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\Huge ECRICOME Eco 1989}
+\end{center}
+
+\begin{center}
+\textbf{EXERCICE DE MATHEMATIQUES}
+\end{center}
+
+On considère l'ensemble $E$ des suites de nombres réels $u_{n}$ (où
+$n\in 
+\N)$ vérifiant 
+\[
+\forall n\in \N,\quad u_{n + 3} = 4u_{n + 2}-4u_{n + 1} + u_{n}.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que pour tous $\lambda $ et $\mu $ réels et toutes suites
+$u$
+et $v$ de $E,$ la suite $\lambda u + \mu v$ appartient à $E.$
+
+\item Vérifier l'existence, et préciser la valeur, de trois réels
+distincts $r$ non nuls tels que la suite de terme général $u_{n} =
+r^{n}$ soit élément de 
+$E.$ Ces trois réels seront notés $r_{1},r_{2},r_{3}.$
+
+\item Soit $u$ un élement de $E.$ Montrer qu'il existe
+$\alpha,\beta,\gamma $ réels tels que la relation 
+\[
+u_{n} = \alpha r_{1}{n} + \beta r_{2}{n} + \gamma r_{3}{n}
+\]
+soit vérifiée pour $n = 0,$ $n = 1$ et $n = 2.$
+
+\item Montrer alors que $\forall n\in \N,\quad u_{n} = \alpha
+r_{1}{n} + \beta r_{2}{n} + \gamma r_{3}{n}.$
+\end{noliste}
+
+\begin{center}
+\textbf{EXERCICE DE STATISTIQUES-PROBABILITES}
+\end{center}
+
+\noindent Deux personnes $A$ et $B$ partent en vacances de façons
+indépendantes dans un pays $E.$ \\
+Leur séjour dans ce pays peut s'étaler sur $n$ journées $(n>3)$
+numérotées $1,2,...,n.$\\
+Pour éventuellement s'y rencontrer, elles ont projeté de séjourner
+trois
+jours consécutifs (et trois jours seulement) dans un hotel $H,$ choisi
+par
+elles.\\
+On suppose que les jours d'arrivée possibles $1,2,..,n-2$ de ces deux
+personnes dans cet hôtel sont deux variables aléatoires uniformes et
+indépendantes.\\
+Les arrivées ont lieu le matin et les départs le soir, deux jours plus
+tard.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Quelle est la probabilité que $A$ et $B$ arrivent le même jour ?
+
+\item Quelle est la probabilité qu'elles arrivent avec un jour d'écart
+?
+
+\item Quelle est la probabilité qu'elles puissent se rencontrer dans
+l'hôtel
+ ?
+\end{noliste}
+
+\item Sachant que $A$ et $B$ se sont rencontrées, quelle est la
+probabilité
+qu'elles ne puissent passer qu'une journée ensemble ?
+\end{noliste}
+
+\begin{center}
+\textbf{PROBLEME}
+\end{center}
+
+\noindent Les bons de commande que renvoient les clients d'une
+entreprise de
+vente par correspondance portent des numéros tous différents qui
+permettent
+de les archiver.\\
+Le service chargé de les classer, les reçoit par paquets de $n$ ($n$
+fixe $\in \N^{\times }$), auxquels s'ajoute éventuellement un paquet
+incomplet contenant donc un nombre de bons inférieur ou égal à $n-1.$\\
+Sur une période donnée, le service d'archivage reçoit toujours $p$
+paquets
+de $n$ fiches, $p$ étant un entier naturel non nul fixé, supérieur ou
+égal à 
+$2$ et un complément éventuel. Le nombre de fiches reçues est donc $pn
++ X$ où 
+$X$ est une variable aléatoire prenant ses valeurs dans l'ensemble
+$\{0,..,n-1\}.$
+
+\begin{center}
+\textbf{Première partie -A }
+\end{center}
+
+\noindent On suppose ici que $X$ suit la loi uniforme sur
+$\{1,..,n-1\}.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On note $F_{1}$ l'évènement :\\
+"la première fiche extraite au hasard de l'ensemble de toutes les
+fiches a
+comme numéro le plus petit des numéros".\\
+Décomposer l'évènement $F_{1}$ à l'aide du système complet d'évènements
+$(X = 0),(X = 1),...,(X = n-1).$\\
+En déduire que la probabilité $\alpha_{n,1}$ de l'évènement $F_{1}$ est
+: $\alpha_{n,1} = \dfrac{1}{n}\Sum{k = 1}{n-1}\dfrac{1}{pk + n}.$
+
+\item Soit $i\in \N^{\times },$ $i\leq np.$ \\
+On note $F_{i}$ l'évènement :\\
+"les $i$ premières fiches successivement extraites de l'ensemble sans
+remise
+ont, et dans le bon ordre, les $i$ numéros les plus faibles".\\
+Montrer que la probabilité $\alpha_{n,i}$ de l'évènement $F_{i}$ est :
+$\alpha_{n,i} = \dfrac{1}{n}\Sum{k = 1}{n-1}\dfrac{1}{A_{pn}{i} +
+k}.$\\
+Rappel : on note $A_{n}{k} = n(n-1)\cdots (n-k + 1).$
+\end{noliste}
+
+\item \textbf{Étude de} $\alpha_{n,2}.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier l'existence de deux réels $a$ et $b$ tels que, pour tout
+$x\in \R^{\times }\backslash \{1\}$
+\[
+\dfrac{1}{x(x-1)} = \dfrac{a}{x} + \dfrac{b}{x-1}.
+\]
+
+\item En déduire $\alpha_{n,2} = \dfrac{1}{(pn-1)(pn + n-1)}.$
+\end{noliste}
+
+\item \textbf{Étude de} $\alpha_{n,1}.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer, en utilisant l'approximation d'une intégrale par la
+méthode
+des rectangles, que 
+\[
+\dlim{n\rightarrow + \infty }\dfrac{1}{n}\Sum{k = 0}{n-1}\dfrac{1}{pn +
+k} = \ln \left( \dfrac{p + 1}{p}\right) 
+\]
+et en déduire que :
+\[
+\alpha_{n,1} = \dfrac{1}{n}\ln \left( \dfrac{p + 1}{p}\right) +
+\dfrac{1}{n}\varepsilon (n)\text{ où }\dlim{n\rightarrow + \infty
+}\varepsilon
+(n) = 0.
+\]
+
+\item En utilisant la monotonie de la fonction $x\mapsto \dfrac{1}{p +
+x},$ établir plus précisément que :
+\[
+\dint{k/n}{(k + 1)/n}\dfrac{dx}{p + x}\leq \dfrac{1}{n}\times 
+\dfrac{1}{p + (k/n)}\leq \dint{(k-1)/n}{k/n}\dfrac{dx}{p + x}
+\]
+puis que 
+\[
+\dfrac{1}{n}\ln \left( \dfrac{p + 1}{p}\right) \leq \alpha
+_{n,1}\leq \dfrac{1}{n}\ln \left( \dfrac{p + 1-(1/n)}{p-(1/n)}\right).
+\]
+
+\item Étudier et représenter graphiquement la fonction $f$ définie par
+:
+\[
+f(x) = \ln \left( \dfrac{p + 1-x}{p-x}\right) 
+\]
+où $p$ désigne un entier naturel non nul.
+
+\item On suppose $p\geq 2.$\\
+Vérifier que, pour tout $x\in \lbrack 0,1],\quad \left| f^{\prime
+}(x)\right| \leq \dfrac{1}{p(p-1)}.$\\
+En déduire que pour $n\in \N$ et $n\geq 2,\quad \left|
+f(\dfrac{1}{n})-f(0)\right| \leq \dfrac{1}{np(p-1)}$\\
+puis que 
+\[
+0\leq \alpha_{n,1}-\dfrac{1}{n}\ln \left( \dfrac{p + 1}{p}\right)
+\leq \dfrac{1}{n^{2}p(p-1)}.
+\]
+Pour quelles valeurs de $n$ peut-on alors considérer que
+$\dfrac{1}{n}\ln
+\left( \dfrac{p + 1}{p}\right) $ est une valeur approchée de
+$\alpha_{n,1}$
+avec une valeur inférieure ou égale à $10^{-2}$ ?
+\end{noliste}
+\end{noliste}
+
+\begin{center}
+\textbf{Deuxième partie -B}
+\end{center}
+
+I) Dans cette partie, $\alpha_{n,1}$ représente toujours la probabilité
+que
+la première fiche extraite porte le premier numéro, mais en faisant
+l'hypothèse suivante :\\
+le nombre de fiches reçues est $pn + X$ où $X$ est une variable
+aléatoire
+prenant ses valeurs dans l'ensemble $\{0,1,2,...,n-1\}$ selon la loi
+précédente
+\[
+P\left(\Ev{X = k}\right) = C_{n}e^{-k/n}\qquad C_{n}\text{ désignant
+une constante réelle ne dépendant que de }n.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $C_{n} = \dfrac{e}{e-1}(1-e^{-1//n}).$
+
+\item Déterminer la valeur de $\alpha_{n,1}$ et montrer que :
+$\dlim{n\rightarrow + \infty }n\alpha_{n,1} =
+\dfrac{e}{e-1}\dint{0}{1}\dfrac{e^{-x}}{p + x}dx.$
+\end{noliste}
+
+II) On se propose de déterminer selon différentes méthodes des valeurs
+approchées de :
+\[
+I = \dint{0}{1}\dfrac{e^{-x}}{1 + x}dx.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que pour tout $x\in \lbrack 0,1],$
+\[
+1-x\leq e^{-x}\leq 1-x + \dfrac{x^{2}}{2}.
+\]
+
+\item En déduire que pour tout $x\in \lbrack 0,1],$
+\[
+-1 + \dfrac{2}{1 + x}\leq \dfrac{e^{-x}}{1 + x}\leq
+\dfrac{x}{2}-\dfrac{3}{2} + \dfrac{5/2}{1 + x}.
+\]
+
+\item Préciser alors un encadrement de $I$ et en conclure qu'une valeur
+approchée de $I$ est 
+\[
+I_{1} = \dfrac{9}{4}\ln 2-\dfrac{9}{8}\qquad \text{avec}\qquad \left|
+I-I_{1}\right| \leq 0,05.
+\]
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier et représenter la fonction $g$ définie par : $g(x) =
+\dfrac{e^{-x}}{1 + x}.$
+
+\item Jusitifier les inégalités
+\[
+\dfrac{1}{n}\Sum{k = 1}{n}g(\dfrac{k}{n})\leq I\leq \dfrac{1}{n}\Sum{k
+= 0}{n-1}g(\dfrac{k}{n}).
+\]
+En déduire qu'une valeur approchée de $I$ est :
+\[
+I_{2}(n) = \dfrac{1}{2}\left[ \ \dfrac{1}{n}\Sum{k =
+1}{n}g(\dfrac{k}{n}) + \dfrac{1}{n}\Sum{k =
+0}{n-1}g(\dfrac{k}{n})\right] 
+\]
+avec $\left| I-I_{2}(n)\right| \leq \dfrac{2e-1}{4e}\dfrac{1}{n}.$\\
+Quelle valeur conviendrait-il de donner à $n$ pour obtenir $I_{2}(n)$
+comme
+valeur approchée à $10^{-2}$ près ?
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Constater que :
+\[
+I_{2}(n) = \Sum{k = 0}{n-1}\dfrac{1}{n}\left[ \ \dfrac{g(\dfrac{k}{n})
++ g(\dfrac{k + 1}{n})}{2}\right] 
+\]
+puis que 
+\[
+I_{2}(n) = \Sum{k = 0}{n}\dint{k/n}{(k + 1)/n}\left[ g(\dfrac{k}{n}) +
+\left( \dfrac{g(\dfrac{k + 1}{n})-g(\dfrac{k}{n})}{\dfrac{1}{n}}\right)
+(x-\dfrac{k}{n})\right\dx
+\]
+et 
+\[
+I-I_{2}(n) = \Sum{k = 0}{n}\dint{k/n}{(k + 1)/n}\left[
+g(x)-g(\dfrac{k}{n})-\left( \dfrac{g(\dfrac{k +
+1}{n})-g(\dfrac{k}{n})}{\dfrac{1}{n}}\right) (x-\dfrac{k}{n})\right\dx.
+\]
+
+\item Soit $[a,b]$ un segment inclus dans $[0,1],$ avec $a<b.$\\
+On pose, pour $x\in \lbrack a,b],$
+\[
+\Phi (x) = g(x)-g(a)-\left[ \ \dfrac{g(b)-g(a)}{b-a}\right] (x-a)\qquad
+\text{et}\qquad \alpha = \dint{a}{b}\Phi (x)dx.
+\]
+Montrer, en utilisant par exemple une intégration par parties, que pour
+$t\in \lbrack a,b] :$
+\[
+g(t)-g(a) = (t-a)g^{\prime }(a) + \dint{a}{t}(t-u)g"(u)du.
+\]
+En déduire $\forall x\in \lbrack a,b],\quad \Phi
+(x) = \dint{a}{x}(x-u)g"(u)du-\dfrac{x-a}{b-a}\dint{a}{b}(b-u)g"(u)du.$
+
+\item Étudier le signe de $g"$ sur $[0,1]$ et établir que 
+\[
+\left| \Phi (x)\right| \leq 2(x-a)\left[ g^{\prime
+}(b)-g^{\prime }(a)\right] 
+\]
+puis que 
+\[
+\left| \alpha \right| \leq (b-a)^{2}\left[ g^{\prime
+}(b)-g^{\prime }(a)\right].
+\]
+
+\item Déduire du résultat précédent que :
+\[
+\left| I-I_{2}(n)\right| \leq \dfrac{1}{n^{2}}\left[ g^{\prime
+}(1)-g^{\prime }(0)\right] \leq \dfrac{1,75}{n^{2}}.
+\]
+Quelle valeur $n_{0}$ convient-il de donner à $n$ pour obtenir
+$I_{2}(n)$
+comme valeur approchée de $I$ à $10^{-2}$ près ?\\
+Calculer $I_{2}(n_{0}).$
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

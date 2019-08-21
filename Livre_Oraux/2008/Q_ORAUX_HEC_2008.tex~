@@ -1,0 +1,882 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} Q_{O}RAUX_{H}EC 2008} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+\section{Annales 2008}
+
+ %\setcounter{exercice}{0}
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Toutes les variables admettent alors une variance et on a : \\
+ $\V( \Sum{k = 1}{n} X_{k} ) = \Sum{k = 1}{n} \V(X_{k}) + 2 \Sum{1 \leq
+i < j \leq n} \Cov (X_{i}, X_{j})$. \\
+\\
+ Soit $(X_{n})_{n \geq 1}$ une suite de variables aléatoires
+indépendantes de même loi, à valeurs dans $\{-1 ; 1\}$, définies sur
+une même espace probabilisé $(\Omega, \mathcal{A}, P)$. On pose, pour
+tout $n \in \N^*$, $p = \Prob\left(\Ev{\Ev{[X_{n} = 1]}}\right)$, et on
+suppose que $p \in \ ] 0 ; 1[$. \\
+ \item Pour tout $n \in \N^*$, on pose $Y_{n} = \prod\limits_{i = 1}{n}
+X_{i}$.
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item $Y_{2} (\Omega) = \{ -1 ; 1\}$ et $\Prob\left(\Ev{\Ev{Y_{2} =
+1}}\right) = \Prob\left(\Ev{\Ev{ X_{1} = Y_{1}}}\right) = p^{2} +
+(1-p)^{2}$, et $\Prob\left(\Ev{\Ev{Y_{2} = -1}}\right) =
+\Prob\left(\Ev{ X_{1} \neq Y_{1}}\right) = 2 p (1-p)$. \\
+\\
+ $Y_{3} (\Omega) = \{ -1 ; 1\}$, $\Prob\left(\Ev{\Ev{Y_{3} = 1}}\right)
+= \Prob\left(\Ev{\Ev{Y_{2} = X_{3}}}\right) = p (p^{2} + (1-p)^{2} ) +
+2 p (1-p)^{2}$ et $\Prob\left(\Ev{\Ev{Y_{3} = -1}}\right) =
+\Prob\left(\Ev{ Y_{2} \neq X_{3}}\right) = p^{2} (1-p) + (1-p)^{3} + 2
+p^{2} (1-p)$. \\
+ On peut s'amuser à simplifier ces résultats mais cela n'a pas grand
+intérêt. \\
+ \item De même $Y_{n} ( \Omega) = \{-1 ; 1\}$ pour tout $n$ et on a :
+\\
+ $\Prob\left(\Ev{Y_{n + 1} = 1}\right) = P \left(\Ev{Y_{n} X_{n + 1} =
+1}\right) = \Prob\left(\Ev{Y_{n} = X_{n + 1}}\right) = p_{n} \times p +
+(1-p_{n}) (1-p) = p_{n} (2p -1) + 1 - p$. \\
+\\
+ C'est une suite arithmético-géométrique, on résout l'équation $k = k
+(2p-1) + 1-p \Leftrightarrow 2 k (1-p) = 1-p \Leftrightarrow k =
+\frac{1}{2}$. \\
+\\
+ Puis on considère $u_{n} = p_{n} - \frac{1}{2}$, on montre qu'elle est
+géométrique de raison $2p-1$ et on obtient $u_{n} = (p-1)^{n-1} u_{1}$,
+donc $p_{n} = (2p-1)^{n-1} \left( p_{1} + \frac{1}{2} \right) +
+\frac{1}{2} = (2p-1)^{n-1} \left( p + \frac{1}{2} \right) +
+\frac{1}{2}$. \\
+ \item Il faut pour cela $\Prob\left(\Ev{Y_{n} = i, Y_{n + 1} =
+j}\right) = \Prob\left(\Ev{\Ev{Y_{n} = i}}\right) \Prob\left(\Ev{ Y_{n
++ 1} = j}\right)$ pour $i$ et $j$ dans $\{ 1 ; 2\}$. \\
+ Or $\Prob\left(\Ev{Y_{n} = 1, Y_{n + 1} = 1}\right) = \Prob\left(\Ev{
+Y_{n} = 1, X_{n + 1} = 1 }\right) = p_{n} p$ donc il faut que
+$\Prob\left(\Ev{ Y_{n + 1} = 1}\right) = p_{n + 1} = p$ ou que $p_{n} =
+0$. \\
+\\
+ De même $\Prob\left(\Ev{Y_{n} = -1, Y_{n + 1} = -1}\right) =
+\Prob\left(\Ev{Y_{n} = -1, X_{n + 1} = 1}\right) = (1-p_{n}) p$ donc il
+faut $\Prob\left(\Ev{Y_{n + 1} = -1}\right) = 1 - p_{n + 1} = p$ ou
+$p_{n} = 1$.
+ $\Prob\left(\Ev{Y_{n} = 1, Y_{n + 1} = -1}\right) =
+\Prob\left(\Ev{Y_{n} = 1, X_{n + 1} = -1}\right) = p_{n} (1-p)$ donc il
+faut $p_{n} = 0$ ou $1 - p_{n + 1} = 1-p$; cela ne donne rien de plus.
+De même pour la dernière. \\
+\\
+ Comme on ne peut avoir $p_{n} = 0 = 1$, il y a deux possibilités :
+soit $p_{n} = 0$ et $p_{n + 1} = 1-p$, soit $p_{n} = 1$ et $p_{n + 1} =
+p$. \\
+\\
+ $p_{n} = 0$ donne $(2p-1)^{n-1} = - \frac{1}{2 \left( p + \frac{1}{2}
+\right)} $ qui impose $2p - 1 < 0$ et $n-1$ impair, et $(n-1) \ln
+(1-2p) = - \ln 2 - \ln \left( p + \frac{1}{2} \right)$ donc $n = 1 -
+\frac{ \ln 2 + \ln \left( p + \frac{1}{2} \right)}{ \ln (1-2p)}$, $n$
+impair et $p < \frac{1}{2}$. \\
+\\
+ On a alors $p_{n + 1} = p_{n} ( 2p-1) + 1 - p = 0 (2p-1) + 1-p = 1-p$
+et la deuxième condition est bien vérifiée. \\
+\\
+ $p_{n} = 1$ donne $(2p-1)^{n-1} = \frac{1}{2 \left( p + \frac{1}{2}
+\right)} $ qui impose $2p - 1 > 0$ ou $n-1$ pair; \\
+ si $2p-1 <0$ on a $(n-1) \ln (1-2p) = \ln 2 + \ln \left( p +
+\frac{1}{2} \right)$ donc $n = 1 + \frac{ \ln 2 + \ln \left( p +
+\frac{1}{2} \right)}{ \ln (1-2p)}$, $n$ pair et $p < \frac{1}{2}$. \\
+ si $2p-1 >0$ on a $(n-1) \ln (2p-1) = \ln 2 + \ln \left( p +
+\frac{1}{2} \right)$ donc $n = 1 + \frac{ \ln 2 + \ln \left( p +
+\frac{1}{2} \right)}{ \ln (2p-1)}$, $n$ pair ou impair et $p >
+\frac{1}{2}$. \\
+\\
+ On a alors $p_{n + 1} = p_{n} ( 2p-1) + 1 - p = (2p-1) + 1-p = p$ et
+la deuxième condition est bien vérifiée. \\
+ \end{noliste}
+ \item On détermine les valeurs de $S_{n}$ en considérant que si $k$
+variables $X_{i}$ valent 1, alors $n-k$ valent $-1$ et $S_{n} = k -
+(n-k) = 2k-n$. \\
+ Comme la fonction de $k$ obtenue est bijective, la probabilité que
+$S_{n} = 2k - n$ est celle que $k$ variables $X_{i}$ valent 1, et en
+posant $X_{i}' = 1$ si $X_{i} = 1$ et 0 si $X_{i} = -1$,
+$\Prob\left(\Ev{S_{n} = 2k - n}\right) = \Prob\left(\Ev{ \Sum{i = 1}{n}
+X_{i}' = k}\right)$ qui est une loi binomiale. \\
+ D'où $\Prob\left(\Ev{\Ev{S_{n} = 2k-n}}\right) = \binom{n}{k} p^{k}
+(1-p)^{n-k}$, $\E(S_{n}) = 2 \E( \Sum{k = 1}{n} X_{i}' ) -n = 2 n p - n
+= n (2p - 1)$ puis $\V(S_{n}) = 4 \V(\Sum{k = 1}{n} X_{i}') = 4 n
+p(1-p)$. \\
+\\
+ Deuxième solution : on exprime tout de suite les $X_{i}'$ sous la
+forme $X_{i}' = \frac{X_{i} + 1}{2}$ donc $X_{i} = 2 X_{i}' - 1$ et on
+a $S_{n} = 2 S_{n}' -n$, avec $S_{n}'$ qui suit la loi binomiale de
+paramètres $n$ et $p$. On retrouve le même résultat. \\
+ \item La deuxième modélisation ci-dessus permet de le faire. \\
+ var S, x, k, n : integer; p : real; \\
+ begin ; \\
+ readln (p); readln (n); S : = 0; \\
+randomize ;\\
+ for k : = 1 to n do \\
+ begin \\
+ x : = random (1); x : = 2x - 1 ; S : = S + x; \\
+ end ; end. \\
+\\
+ Si on utilise la première modélisation, on remplace (x : = 2x-1 ;) par
+(if x : = 0 then x : = -1;) et on obtient le même résultat.
+ \\
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ La question suivante permet de conjecturer que la limite est 1, et
+$u_{n}$ est trivialement supérieure à 1, on va donc chercher à majorer
+$u_{n} -1 = \frac{u_{n-1}}{n + 1}$ par une suite qui tend vers 0; cela
+conduit à essayer de majorer $u_{n}$ par une constante. \\
+ Le calcul des premiers termes ($u_{0} < 1$, $u_{1} = 1 + u_{0} < 2$,
+$u_{2} = 1 + \frac{1 + u_{0}}{2} < 2$, etc...) permet de conjecturer
+$u_{n} \leq 2$, qu'on prouve par récurrence : \\
+ $u_{0} \leq 2$, $u_{1} \leq 2$ et $u_{2} \leq 2$ viennent d'être
+prouvés. \\
+ Si il existe $n \geq 2$ tel que $u_{n} \leq 2$, alors $u_{n + 1} = 1 +
+\frac{u_{n}}{n + 1} \leq 1 + \frac{u_{n}}{3} \leq 1 + \frac{2}{3} \leq
+2$ et le résultat est prouvé pour tout $n$. \\
+\\
+ Attention l'hérédité doit être faite à partir de $n = 1$ au plus bas;
+en effet si on suppose $u_{0} \leq 2$ seulement on a $u_{1} \leq 1 + 2
+\leq 3$ qui n'est pas suffisant. Mais comme l'énoncé donnait $u_{0}
+\leq 1$ on a résolu le problème en initialisant aux valeurs $0$ et $1$.
+\\
+\\
+ Enfin on obtient pour tout $n \geq 1$, $1 \leq u_{n} \leq 1 +
+\frac{u_{n-1} }{n} \leq 1 + \frac{2}{n}$ et par théorème de
+comparaison, $\lim u_{n} = 1$.
+ \\
+\\
+ Pour trouver la valeur de $a$ on regarde $ (u_{n} -1) \times n$ qui
+doit converger vers $a$. \\
+ On a $n (u_{n} - 1) = \frac{n u_{n-1} }{n + 1} \xrightarrow[ n
+\rightarrow + \infty]{} 1$ donc $a = 1$. \\
+ Ensuite doit avoir $n[n(u_{n} -1) -1 ] \rightarrow b$ donc on étudie :
+\\
+ $n[ n (u_{n} - 1) - 1] = n \left( \frac{n u_{n-1} }{n + 1} -1 \right)
+= n \frac{ n u_{n-1} - n -1}{n + 1} \sim n u_{n-1} - n - 1 = n (
+u_{n-1} - 1) -1 = (n-1 + 1) ( u_{n-1} -1 ) - 1 = (n-1) (u_{n-1} - 1) +
+u_{n-1} - 2 \xrightarrow[ n \rightarrow + \infty]{} 1 + 1 - 2 = 0$ donc
+$b = 0$. \\
+\\
+ On obtient $n[ n (u_{n} - 1) - 1] = o(1)$ donc $n (u_{n} -1) -1 = o
+\left( \frac{1}{n} \right)$, $n (u_{n} -1) = 1 + o \left( \frac{1}{n}
+\right)$, $u_{n} - 1 = \frac{1}{n} + o \left( \frac{1}{n^{2}} \right)$,
+et enfin $u_{n} = 1 + \frac{1}{n} + o \left( \frac{1}{n^{2}} \right)$.
+
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Une variable suit la loi de Bernouilli si elle a deux issues
+possibles : le succès pour lequel elle vaut 1, et l'échec pour lequel
+elle vaut 0. \\
+ On a alors $\Prob\left(\Ev{\Ev{X = 1}}\right) = p = \E(X)$ et $\V(X) =
+p (1-p)$. \\
+ On réalise une succession de $n$ épreuves de Bernouilli indépendantes
+et identiques de paramètre $p$, et on compte le nombre de succès : on
+obtient alors une loi binomiale de paramètres $n$ et $p$. \\
+ La variable $X$ associée vérifie alors $X(\Omega) = \llb 0 ; b \rrb$.
+\\
+ Pour calculer $\Prob\left(\Ev{\Ev{X = k}}\right)$, on compte le nombre
+de possibilités amenant à ce résultat et la probabilité de chacune. \\
+ Il faut obtenir $k$ succès et $n-k$ échecs : on place les $k$ succès
+parmi les $n$ épreuves pour obtenir toutes les possibilités : il y en a
+donc $\binom{n}{k}$. \\
+ Dans chacun de ces cas, on obtient de manière indépendante $k$ succès
+et $n$ échecs avec une probabilité $p^{k} q^{n-k}$. \\
+ On obtient alors $\Prob\left(\Ev{\Ev{X = k}}\right) = \binom{n}{k}
+p^{k} q^{n-k}$. \\
+ L'espérance s'obtient en écrivant les $n$ $X_{i}$ variables de
+Bernouilli, avec la linéarité de l'espérance : $\E(X) = n p$. \\
+ De même grâce à l'indépendance on calcule facilement la variance de la
+somme : $\V(X) = n p (1-p)$. \\
+ \item $X_{i}$ suit une loi de Bernouilli, et $\Prob\left(\Ev{\Ev{X_{i}
+= 1}}\right) = \frac{ \binom{1}{1} \times \binom{2n-1}{n-1} }{
+\binom{2n}{n} } = \frac{ (2n-1)! \times (n!)^{2} }{(2n)! (n-1)! (n!)} =
+\frac{n}{ 2n } = \frac{1}{2 }$. \\
+ \item $X_ i X_{j}$ est la variable de Bernouilli qui vaut 1 si la
+boule $i$ et la boule $j$ sont dans la poignée. \\
+ D'où $\E( X_{i} X_{j}) = \Prob\left(\Ev{ X_{i} X_{j} = 1}\right) =
+\frac{ \binom{2}{2} \times \binom{2n-2}{n-2} }{ \binom{2n}{n} } =
+\frac{ (2n-2)! \times (n!)^{2} }{(2n)! (n-2)! (n!)} = \frac{n(n-1)}{ 2n
+(2n-1) } = \frac{n-1}{4n-2 }$. \\
+\\
+ On en déduit que $\Cov (X_{i}, X_{j}) = \frac{n-1}{4n-2} - \frac{1}{4}
+= \frac{ 2 n - 2 - ( 2n - 1) }{8n - 4} = -\frac{1}{4 (2n -1)}$. \\
+ \item On note $S$ la variable aléatoire réelle prenant pour valeur la
+somme des numéros portés par les boules figurant dans la poignée. 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $S = \Sum{i = 1}{n} i X_{i}$. \\
+ \item Par linéarité de l'espérance, $\E(S) = \Sum{i = 1}{n}
+\frac{i}{2} = \frac{1}{2} \times \frac{n (n + 1)}{2} = \frac{n (n +
+1)}{4}$. \\
+ Par indépendance des $X_{i}$ on a $\V( S) = \Sum{i = 1}{n} i^{2}
+\V(X_{i}) = \frac{1}{4} \times \frac{n (n + 1) (2n-1)}{6} = \frac{ n (n
++ 1) (2n-1)}{24}$. \\
+ \end{noliste}
+ \item On note $Y = \Sum{i = 1}{n} X_{i}$ qui compte le nombre de
+boules non numérotées $0$ dans la poignée, et qui suit une loi
+binomiale de paramètres $n$ et $\frac{1}{2}$. \\
+ On a alors $Z = n - Y$ donc $Z(\Omega) = \llb 0 ; n \rrb$ et
+$\Prob\left(\Ev{\Ev{Z = k}}\right) = \Prob\left(\Ev{\Ev{ Y =
+n-k}}\right) = \binom{n}{k} \frac{1}{2^{n}}$. \\
+ On voit que $Z$ suit une loi binomiale, et on a $\E(Z) = \frac{n}{2}$.
+\\
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $f$ la fonction définie par : 
+ 
+\[
+ \forall (x,y) \in \R^{2},\ f(x,y) = x^{3} + y^{3} - 3 xy + 1.
+ 
+\]
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Aucune difficulté ici : \\
+ $f_{x}'(x,y) = 3 x^{2} - 3 y$, $f_{y}'(x,y) = 3 y^{2} - 3 x$,
+$f_{x,x}''(x,y) = 6 x$, $f_{x,y}''(x,y) = -3$ et $f_{y,y}''(x,y) = 6
+y^{2}$. \\
+ \item $f_{x}'(x,y) = f_{y}'(x,y) = 0$ donne $x^{2} = y$ (donc $y$
+positif) et $y^{2} = x$ (donc $x$ positif), puis $y^{2} = x^{4} = x$
+donc $x = 0$ ou $x = 1$, puis $x = 0$ donne $y = 0$ et $x = 1$ donne $y
+= 1$. \\
+ Les deux points critiques sont $(0,0)$ et $(1,1)$. \\
+ \item En $(0,0)$ on a $r = t = 0$ et $s = -3$ donc $rt - s^{2} = -9 <
+0$, c'est un point selle. \\
+ En $(1,1)$ on a $r = t = 6$ et $s = -3$ donc $rt-s^{2} = 36-9 = 27>0$,
+avec $r>0$ donc c'est un minimum local.
+ \end{noliste}
+ \end{exercice}
+
+
+ \newpage
+
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Un estimateur d'un paramètre $\theta$ de la loi $P_{X}$ d'une
+variable aléatoire $X$ dont on dispose d'un échantillon $(X_{n})$ est
+une suite de variables aléatoires $(T_{n})$ où pour tout $n$, $T_{n}$
+est une fonction des variables $X_{1},\ \dots\, X_{n})$. \\
+ On définit alors son risque quadratique comme l'espérance des écarts à
+$\theta$ mis au carré : \\
+$R = E ( [X - \theta]^{2})$. \\
+\\
+ \item On pose, pour tout $n \in \N^*$, $M_{n} = \dfrac{1}{n} \Sum{k =
+1}{n} Z_{k}$. \\
+ On a $Z_{k} (\Omega) = \llb 1 ; N \rrb$ et pour tout $i \in \llb 1 ; N
+\rrb$, $\Prob\left(\Ev{\Ev{Z_{k} = i}}\right) = \frac{1}{N}$. \\
+ D'où $\E(Z_{k}) = \frac{1}{N} \Sum{i = 1}{N} i = \frac{N + 1}{2}$. \\
+ On a donc par linéarité de l'espérance, $\E(M_{n}) = \frac{N + 1}{2}$
+et en posant $T_{n} = 2 M_{n} -1$, on obtient un estimateur $(T_{n})$
+sans biais de $N$, car $\E(T_{n}) = 2 \E(M_{n}) - 1 = N + 1 - 1 = N$.
+\\
+ De plus on a $R(T_{n}) = b^{2} + \V(T_{n}) = \V(T_{n}) = 4 \V(M_{n}) =
+\frac{4}{n^{2}} \times n \V(Z_{1}) = \frac{4}{n} \V(Z_{k})
+\xrightarrow[n \rightarrow + \infty]{} 0$. \\
+ \item On note $S_{n} = \max ( Z_{1}, Z_{2},\ \dots\, Z_{n})$.
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item Pour tout $x \in \R$, on a $F_{S_{n}} (x) = \Prob\left(\Ev{\Ev{
+S_{n} \leq x}}\right) = P\left(\Ev{ \max (Z_{1},\ \dots\, Z_{n} ) \leq
+x }\right)\left(\Ev{Z_{1},\ \dots\, Z_{n} }\right) \leq x ) = P
+\left(\Ev{ \bigcap\limits_{k = 1}{n} \Ev{ Z_{k} \leq x}}\right) =
+\prod\limits_{k = 1}{n} F_{Z_{k}} (x) = \left( F_{Z_{1}} (x)
+\right)^{n}$. \\
+ Or pour tout $k \in \llb 1 ; N \rrb$ on a $F_{Z_{1}} (k) =
+\Prob\left(\Ev{\Ev{ Z_{1} \leq k}}\right) = \frac{k}{N}$ donc pour tout
+$k \in \llb 1 ; N \rrb$, $F_{S_{n}} (k) = \left( \frac{k}{N}
+\right)^{n}$. \\
+ \item $ \Sum{k = 1}{N} \Prob\left(\Ev{\Ev{ Y \geq k}}\right) = \Sum{k
+= 1}{N} \Sum{i = k}{N} \Prob\left(\Ev{\Ev{ Y = i}}\right) = \Sum{ i
+\geq k, 1 \leq k \leq N, 1 \leq i \leq N} \Prob\left(\Ev{\Ev{ Y =
+i}}\right) = \Sum{ k \leq i, 1 \leq k \leq N, 1 \leq i \leq N}
+\Prob\left(\Ev{\Ev{ Y = i}}\right) = \Sum{i = 1}{N} \Sum{k = 1}{i}
+\Prob\left(\Ev{\Ev{ Y = i}}\right) = \Sum{i = 1}{N} i
+\Prob\left(\Ev{\Ev{ Y = i}}\right) = \E(Y) $. \\
+ \item On a donc $\E(S_{n} ) = \Sum{k = 1}{N} \Prob\left(\Ev{\Ev{ S_{n}
+\geq k}}\right) = \Sum{k = 1}{N} [ 1 - \Prob\left(\Ev{\Ev{ S_{n} <
+k}}\right) ] = N - \Sum{k = 1}{N} \Prob\left(\Ev{\Ev{ S_{n} \leq k
+-1}}\right) = N - \Sum{k = 1}{N} \left( \frac{k-1}{N} \right)^{n}$. \\
+\\
+ $\E(S_{n}) \geq N - \frac{N}{n + 1}$ ? ?? ? J'obtiens la majoration
+$\E(S_{n}) \geq N - N \left( 1 - \frac{1}{N} \right)^{n}$ qui donne le
+résultat pour la question suivante, mais je ne vois absolument pas
+comment obtenir la majoration demandée. \\
+ \item $S_{n}$ est n estimateur de $N$ par définition, et on a $N \geq
+\E(S_{n}) \geq N - \frac{N}{n + 1} \xrightarrow[n \rightarrow +
+\infty]{} N$ donc par théorème d'encadrement, $\E(S_{n}) \rightarrow
+N$. \\
+ \end{noliste}
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $A$ la matrice de $\mathcal{M}_{3} (\R)$ telle que :
+ 
+\[
+ A = \begin{smatrix}
+0 & 1 & -1 \\
+-1 & 2 & -1 \\
+1 & -1 & 2 \\
+\end{smatrix}. 
+ 
+\]
+ 
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item On calcule $A^{2}$ et on obtient $A^{2} = 3 A - 2I$. \\
+ \item On en déduit que $A \left[ \ \frac{1}{2} ( 3I - A) \right] = I$
+donc $A$ est inversible et $A^{-1} = \frac{1}{2} ( 3I - A)$. \\
+ \end{noliste}
+ \item Le polynôme $P\left(\Ev{x}\right) = x^{2} - 3 x + 2$ est
+annulateur de $A$ et a pour racines $1$ et $2$ donc $\spc A \subset \{
+1 ; 2\}$.
+ \item On a $A - I = \begin{smatrix}
+-1 & 1 & -1 \\
+-1 & 1 & -1 \\
+1 & -1 & 1 \\
+\end{smatrix}
+$ est de rang 1 (toutes les colonnes sont colinéaires) donc $1$ est
+valeur propre et $\dim E_{1} (A) = \dim \ker (A-I) = 2$ par théorème du
+rang. \\
+ On a $A - 2I = \begin{smatrix}
+-2 & 1 & -1 \\
+-1 & 0 & -1 \\
+1 & -1 & 0 \\
+\end{smatrix}
+$ n'est pas inversible car $C_{1} + C_{2} - C_{3} = 0$ donc $2$ est
+valeur propre et $A$ est de rang 2 car les deux premières colonnes ne
+sont pas colinéaires, donc $\dim E_{2} (A) = \dim \ker (A-2I) = 1$ par
+théorème du rang. \\
+\\
+ Enfin la somme des dimensions des sous-espaces propres vaut 3 donc $A$
+est diagonalisable.
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+
+ \begin{exercice}{\it (Exercice avec préparation)}~\\
+ Dans cet exercice, on note $C^{0}$ l'espace vectoriel des fonctions
+continues de $\R$ dans $\R$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Soit $u$ un endomorphisme de $E$, un réel $\lambda \in \R$ est
+valeur propre de $u$ s'il existe $x \in E$ non nul tel que $u(x) =
+\lambda x$. Tout vecteur non nul vérifiant $u(x) = \lambda x$ est
+appelé vecteur propre de $u$ associé à la valeur propre $\lambda$. \\
+\\
+ Soit $\Phi$ l'application définie sur $C^{0}$ qui, à toute fonction
+$f$ de $C^{0}$, associe la fonction $g = \Phi(f)$ définie par :
+ 
+\[
+ \forall x \in \R,\ \ g(x) = \dint{0}{x} f(t)\ dt.
+ 
+\]
+ \item $f$ est continue donc admet des primitives, donc en notant $F$
+une primitive de $f$ on a $\Phi (f) (x) = F(x) - F(0)$ est dérivable,
+de dérivée $f$. \\
+ \item Pour tout $f$, $\Phi(f)$ est dérivable sur $\R$ donc continue
+sur $\R$, et $\Phi (f) \in C^{0}$. \\
+ La linéarité est évidente par linéarité de l'intégrale. \\
+ \item La fonction valeur absolue est une fonction continue sur $\R$ et
+non dérivable sur $\R$, car elle n'est pas dérivable en 0. \\
+ $\Phi$ n'est donc pas surjective puisque la fonction valeur absolue,
+qui est dans $C^{0}$, ne peut être atteinte par $\Phi$. \\
+ Pour l'injectivité, on résout $\Phi (f) = 0$. \\
+ Supposons $\Phi (f) = 0$, alors $f = \Phi'(f) = 0$ donc $\ker \Phi =
+\{ 0 \}$ et $\Phi$ est injective. \\
+\\
+ Soit $\lambda$ un réel quelconque. On dit que $\lambda$ est une valeur
+propre de $\Phi$ s'il existe une fonction $f$ non nulle de $C^{0}$,
+telle que $\Phi(f) = \lambda f$. Une telle fonction est appelée
+fonction propre associée à la valeur propre $\lambda$. \\
+ \item Recherche des valeurs propres non nulles de $\Phi$. \\
+ On suppose, dans cette question, que $\Phi$ admet une valeur propre
+$\lambda$ non nulle. \\
+\\
+ Soit $f$ une fonction propre associée à $\lambda$. 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $\Phi (f) = \lambda f$ est dérivable sur $\R$ donc $f =
+\frac{1}{\lambda} \Phi (f)$ est dérivable sur $\R$. \\
+ \item $h'(x) = e^{ - \frac{x}{\lambda} } \left( f'(x) -
+\frac{1}{\lambda} f(x) \right)$. \\
+ Or $\Phi(f) '(x) = f(x)$ donc $(\lambda f)'(x) = f(x)$ et enfin $f'(x)
+= \frac{1}{\lambda} f(x)$, donc $h'(x) = 0$, et $h(x)$ est égale à une
+constante $K$, et enfin $f(x) = K e^{ \frac{x}{\lambda} }$. \\
+ Or on a $\Phi (f) (0) = \lambda f(0) = \dint{0}{0} f(t)\ dt = 0$ donc
+$f(0) = 0$, $K = 0$ et enfin $f(x) = 0$ pour tout $x \in \R$. \\
+ \item La seule valeur propre possible est donc 0. \\
+ Or on a vu que $\ker \Phi = \{ 0 \}$ donc $0$ n'est pas valeur propre,
+et $\Phi$ n'admet donc aucune valeur propre. \\
+ \end{noliste}
+ \item Pour toute fonction $f$ de $C^{0}$, on pose : $F_{0} = \Phi(f)$
+et $\forall n \in \N^*,\ F_{n} = \Phi ( F_{n-1} )$. \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item Par récurrence évidente on obtient que $F_{n}$ est de classe
+$C^{n}$, puis on écrit $F_{n} ( 0) = \Phi (F_{n-1} ) (0) = \dint{0}{0}
+F_{n-1} (t)\ dt = 0$. Seule $F_{0} (0) = f(0)$ peut être différent de
+0. \\
+ Enfin pour tout $k \in \llb 0 ; n \rrb$, $F_{n}{(k)} = F_{n-k}$ donc
+$F_{n}{(k)} (0) = 0$ pour $0 \leq k \leq n-1$ et $F_{n}{(n)} (0) =
+f(0)$. \\
+ \item $F_{n}$ est de classe $C^{n}$, on utilise la formule de Taylor
+avec reste intégral à l'ordre $n-1$, qui donne immédiatement le
+résultat puisque les $n-1$ premières dérivées en 0 de $F_{n}$ sont
+nulles. \\
+ \end{noliste}
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ $X$ et $Y$ sont deux variables aléatoires réelles indépendantes
+définies sur le même espace probabilisé $(\Omega, \mathcal{A}, P)$ et
+ayant la même loi de densité $\varphi$, définie par :
+ 
+\[
+ \forall x \in \R,\ \ \ \varphi(x) = k e^{ - | x |}.
+ 
+\]
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $\phi$ est continue et positive sur $\R$, il faut que
+$\dint{-\infty}{+ \infty} \phi(t)\ dt = 1$. \\
+ Or $\phi$ est paire donc il suffit de prouver que $\dint{0}{+ \infty}
+\phi (t)\ dt = \frac{1}{2}$. \\
+ On a $\dint{0}{+ \infty} \phi (t)\ dt = k \dint{0}{+ \infty} e^{-t}\
+dt = k$ (loi exponentielle de paramètre $\lambda = 1$), donc il faut
+que $k = \frac{1}{2}$. \\
+ \item Pour tout $x \leq 0$, on a $F (x) = \dint{-\infty}{x} \phi(t)\
+dt = \dint{-\infty}{0} f(t)\ dt + \dint{0}{x} \phi(t)\ dt = \frac{1}{2}
++ \frac{1}{2} \dint{0}{x} e^{t}\ dt = \frac{1}{2} + \frac{1}{2} ( e^{x}
+- 1) = \frac{1}{2} e^{x}$. \\
+ Pour tout $x > 0$, $F(x) = \dint{-\infty}{x} \phi(t)\ dt =
+\dint{-\infty}{0} f(t)\ dt + \dint{0}{x} \phi(t)\ dt = \frac{1}{2} +
+\frac{1}{2} \dint{0}{x} e^{-t}\ dt = \frac{1}{2} + \frac{1}{2} (
+-e^{-x} + 1) = 1 - \frac{1}{2} e^{-x}$. \\
+ \item Par parité de $f$ on obtient que le moment d'ordre 2 existe si
+et seulement si $\dint{0}{+ \infty} \phi (t)\ dt$ existe, ce qui est le
+cas (on reconnaît le moment d'ordre deux de la loi exponentielle de
+paramètre $\lambda = 1$). \\
+ On en déduit que $e(X)$ et $\V(X)$ existent. \\
+ De plus la fonction $t \rightarrow t \phi(t)\ dt$ est impaire donc
+$\E(X) = \dint{-\infty}{+ \infty} t \phi (t)\ dt = 0$. \\
+ Enfin la fonction $t \rightarrow t^{2} \phi(t)\ dt$ est paire donc
+$\E(X^{2}) = 2 \dint{0}{+ \infty} t^{2} \phi (t)\ dt = \dint{0}{+
+\infty} t^{2} e^{-t}\ dt = \E(Y^{2}) = \V(Y) + [ (\E(Y)]^{2}$, où $Y
+\suit \mathcal{E} (1)$, donc : \\
+ $\V(X) = \E(X^{2}) - [ \ \E(X)]^{2} = \V(Y) + [ \ \E(Y)]^{2} =
+\frac{1}{1^{2}} + \frac{1}{1^{2}} = 2$. 
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~\\
+ Pour tout nombre réel $a$, on note $A(a)$ la matrice
+ 
+\[
+ A(a) = \begin{smatrix}
+2 & 1 & a \\
+1 & 1 + a & 1 \\
+a & 1 & 2 \\
+\end{smatrix}
+ 
+\]
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item Une matrice est diagonalisable si et seulement si elle est
+semblable à une matrice diagonale. \\
+ \item Soit $M$ une matrice diagonalisable, et $D$ diagonale et $P$
+inversible telles que $M = P D P^{-1}$. \\
+ On a alors ${}{t} M = {}{t}(P D P^{-1} ) = {}{t} (P^{-1}) {}{t} D
+{}{t} P = ({}{t} P)^{-1} D {}{t} P$ donc ${}{t}M$ est diagonalisable
+car elle est semblable à la matrice diagonale $D$. \\
+ \end{noliste} 
+ \item 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $A(a)$ est symétrique donc diagonalisable. \\
+ \item $A(a) - a I = \begin{smatrix}
+2 & 1 & a \\
+1 & 1 + a & 1 \\
+a & 1 & 2 \\
+\end{smatrix}
+$ n'est pas inversible car $C_{1} + C_{3} - 2C_{2} = 0$ donc $a$ est
+valeur propre de $A(a)$. \\
+ D'autre part la matrice obtenue est de rang 1 si et seulement si les
+trois colonnes sont colinéaires ce qui donne (la 2e ligne vaut 1 pour
+les trois) que les trois colonnes sont égales et donc $a = 2- a = 1$.
+\\
+ D'où pour $a = 1$ la matrice est de rang 1 et le sous-espace propre
+est de dimension 2 par théorème du rang, égale à $\begin{smatrix}
+1 & 1 & 1 \\
+1 & 1 & 1 \\
+1 & 1 & 1 \\
+\end{smatrix}
+$ donc vérifie que $f(e_{2} - e_{1}) = f(e_{3} - e_{1}) = 0$ et $(e_{2}
+- e_{1}, e_{3} - e_{1})$ est libre car échelonnée donc c'est une base
+de $E_{a} (A(a) )$. \\
+ Pour $a \neq 1$ la matrice est de rang 2 donc $E_{a} (A(a) )$ est de
+dimension 1, et la relation $f(e_{1}) + f(e_{3}) - 2 f(e_{2}) = 0$
+donne $f(e_{1} - 2 e_{2} + e_{3}) = 0$ donc $(e_{1} - 2e_{2} + e_{3})$
+famille libre (car d'un vecteur non nul) de $E_{a} (A(a) )$ donc c'est
+une base de $E_{a} (A(a) )$.
+ \\
+ \item $A(a) \begin{smatrix}
+1 \\
+1 \\
+1 \\
+\end{smatrix}
+ = (3 + a) \begin{smatrix}
+1 \\
+1 \\
+1 \\
+\end{smatrix}
+$ et $A(a) \begin{smatrix}
+1 \\
+0 \\
+-1 \\
+\end{smatrix}
+ = (2-a) \begin{smatrix}
+1 \\
+0 \\
+-1 \\
+\end{smatrix}
+$. \\
+ \item Dans tous les cas, la famille $[ ( 1, -2, 1), (1, 1, 1), (1,,0,
+-1)]$ est une base de vecteurs propres de $A$ donc on peut diagonaliser
+dans cette base : \\
+ On pose $P = \begin{smatrix}
+a & 0 & 0 \\
+0 & 3 + a & 0 \\
+0 & 0 & 2-a \\
+\end{smatrix}
+$ et $D = \begin{smatrix}
+2 & 1 & a \\
+1 & 1 + a & 1 \\
+a & 1 & 2 \\
+\end{smatrix}
+$ et on a $A(a) = P D P^{-1}$. \\
+ \end{noliste}
+ \item Soit $(x_{n})_{n \in \N}$, $(y_{n})_{n \in \N}$, $(z_{n})_{n \in
+\N}$ trois suites réelles vérifiant, pour tout $n$ entier naturel,
+ 
+\[
+ \left\{ 
+\begin{array}{l}
+ x_{n + 1} = 2 x_{n} + y_{n} \\
+y_{n + 1} = x_{n} + y_{n} + z_{n} \\
+z_{n + 1} = y_{n} + 2 z_{n} \\
+\end{array}
+\right. 
+ 
+\]
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $X_{n + 1} = A(0) X_{n}$. \\
+ \item Les valeurs propres de $A(0)$ sont 0, 2 et 3; or on aura $X_{n}
+= A(0)^{n} X_{0} = P D^{n} P^{-1} X_{0}$ avec $D^{n}$ comportant les
+valeurs 0, $2^{n}$ et $3^{n}$ sur la diagonale; il faut donc que
+celles-ci ne rentrent pas en compte. \\
+ Chaque suite s'écrit comme combinaison linéaire de $0^{n}$, $2^{n}$ et
+$3^{n}$, il faut donc qu'elles ne soient combinaisons linéaires que de
+$0^{n}$, donc que $x_{n} = y_{n} = z_{n} = 0$ pour $n \geq 1$,
+c'est-à-dire que $X_{1} = A (0) X_{0} = 0$ donc $X_{0} \in \ker A(0)$,
+donc $X_{0} \in \Vect[ (1, -2, 1)]$. \\
+ La condition cherchée est donc $x_{0} + z_{0} - 2 y_{0} = 0$. \\
+ \end{noliste}
+ \item
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item $B = P B' P^{-1}$ et $C^{2} = B$, donc $B' = P^{-1} B P = P^{-1}
+C^{2} P = ( P^{-1} C P)^{2}$ donc avec $C' = P^{-1} C P$ on a bien
+$C'^{2} = B'$. \\
+ \item $ BC = C^{2} C = C^{3} = C C^{2} = C B$. \\
+ \item $\begin{smatrix}
+3 & 0 & 0 \\
+0 & 6 & 0 \\
+0 & 0 & -1 \\
+\end{smatrix}
+\begin{smatrix}
+a & b & c \\
+d & e & f \\
+g & h & i \\
+\end{smatrix}
+ = \begin{smatrix}
+a & b & c \\
+d & e & f \\
+g & h & i \\
+\end{smatrix}
+\begin{smatrix}
+3 & 0 & 0 \\
+0 & 6 & 0 \\
+0 & 0 & -1 \\
+\end{smatrix}
+\Leftrightarrow \begin{smatrix}
+3a & 3b & 3c \\
+6d & 6e & 6f \\
+- g & -h & -i \\
+\end{smatrix}
+ = \begin{smatrix}
+3a & 6b & -c \\
+3d & 6e & -f \\
+3g & 6h & - i \\
+\end{smatrix}
+\Leftrightarrow b = c = d = f = g = h = 0 \Leftrightarrow
+\begin{smatrix}
+a & b & c \\
+d & e & f \\
+g & h & i \\
+\end{smatrix}
+ = \begin{smatrix}
+a & 0 & 0 \\
+0 & e & 0 \\
+0 & 0 & i \\
+\end{smatrix}
+$ est diagonale. \\
+ \item D'après les questions précédentes cela revient à cherchez une
+matrice $N$ vérifiant $N^{2} = \begin{smatrix}
+3 & 0 & 0 \\
+0 & 6 & 0 \\
+0 & 0 & -1 \\
+\end{smatrix}
+ = D$ qui est semblable à $A(3)$, et $N$ commute alors avec $D$, donc
+d'aptrèsd la question précédente il faut la chercher diagonale. \\
+ En posant $N = \operatorname{diag} ( a, b, c)$ on obtient $N^{2} =
+\operatorname{diag}(a^{2}, b^{2}, c^{2}) = \operatorname{diag}( 3, 6,
+-1)$ ce qui est impossible car un carré est toujours positif. Il n'y a
+donc pas de solution à l'équation matricielle $M^{2} = A(3)$. \\
+ \end{noliste} 
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item A priori on en demande pas de vérifier que c'est une fonction de
+répartition de variable à densité. \\
+ Il faut prouver que $F$ est croissante (évident avec sa dérivée), de
+limites 0 en $-\infty$ (évident) et 1 et $ + \infty$ (évident encore)
+et continue à droite (évident puisque $F$ est continue sur $\R$). Cela
+ne coûte pas grand-chose de préciser que $F$ est de classe $c^{1}$ sur
+$\R$ et donc continue sur $\R$ donc que c'est une fonction de
+répartition de variable à densité. \\
+ \item Pour cette question classique on obtient $G(x) = F(x)^{2} =
+\frac{1}{ (1 + e^{-x} )^{2}}$ et $G_{n} (x) = F(x)^{n} = \frac{1}{(1 +
+e^{-x})^{n}}$. 
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $f(b) = \Sum{k = 0}{n} \frac{f^{(k)} (a)}{k!} (b-a)^{k} +
+\dint{a}{b} \frac{(b-t)^{n}}{n!} f^{n + 1} (t)\ dt$. \\
+\\
+ Soit $f$ la fonction définie sur $\R$ par $f(x) = e^{-x^{2}}$, et $F$
+la primitive de $f$ qui vérifie $F(0) = 0$. \\
+ \item $F$ est dérivable sur $\R$, et $F'(x) = f(x) = e^{ - x^{2}} > 0$
+donc $F$ est strictement croissante sur $\R$, de plus par parité de
+$f$, $F(x) = \dint{0}{x} f(t)\ dt$ est impaire, passe par 0 en 0 et sa
+limite en $ + \infty$ vaut $\dint{0}{+ \infty} e^{-x^{2}}\ dt =
+\frac{\sqrt{\pi}}{\sqrt{2} }$ (avec la loi normale). \\
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item L'intégrale n'est pas généralisée et la fonction intégrée est
+continue, l'intégrale existe bien. \\
+ On définit alors la fonction $G$ par :
+ 
+\[
+ G(x) = \dint{0}{1} e^{-(xt)^{2}}\ dt. 
+ 
+\]
+ \item Le changement de variable $u = xt$ donne $G(x) = \dint{0}{x}
+\frac{1}{x} e^{ -u^{2}}\ du = \frac{1}{x} \dint{0}{x} e^{-u^{2}}\ du =
+\frac{F(x)}{x}$. \\
+ On en déduit que $G$ est dérivable sur $\R^*$ et que $G'(x) = \frac{x
+F'(x) - F(x) }{x^{2}} = \frac{x e^{-x^{2}} - F(x)}{x^{2}}$. \\
+ Le signe de $G'$ est celui de $x e^{-x^{2}} - F(x) = x e^{-x^{2}} -
+\dint{0}{x} e^{-t^{2}}\ dt$, qui est impaire comme somme de deux
+fonctions impaires. Etudions son signe sur $\R_+^*$ : \\
+ Pour tout $t \in [0 ; x]$, $ 0 \leq t \leq x$ donc $0 \leq t^{2} \leq
+x^{2}$ et $- x^{2} \leq -t^{2} \leq 0$, on compose par exp qui est
+croissante pour obtenir $e^{-x^{2}} \leq e^{-t^{2}}$ et enfin
+$\dint{0}{x} e^{-x^{2}}\ dt = x e^{-x^{2}} \leq \dint{0}{x} e^{-t^{2}}\
+dt = F(x)$, donc $G'(x) \leq 0$. \\
+ On en déduit par imparité que $G'(x) \geq 0$ sur $\R_-*$, puis que $G$
+est croissante sur $\R_-^*$ et décroissante sur $\R_+^*$. \\
+ \item $\dlim{x \rightarrow 0, x \neq 0} G(x) = \dlim{x \rightarrow 0,
+x \neq 0} \frac{F(x)}{x} = \dlim{x \rightarrow 0, x \neq 0} \frac{ F(x)
+- F(0)}{x-0}$, or $F$ est dérivable en 0 donc $\dlim{x \rightarrow 0, x
+\neq 0} G(x)$ existe et vaut $\dlim{x \rightarrow 0, x \neq 0} G(x) =
+F'(0) = f(0) = 1$. \\
+ D'autre part $G(0) = \dint{0}{1} e^{0}\ dt = 1$ donc $G$ est continue
+en 0. \\
+ D'autre part $\dlim{x \rightarrow + \infty} F(x) = \sqrt{ \frac{ \pi
+}{2} }$ est finie donc par quotient de limites, $\dlim{x \rightarrow +
+\infty} G(x) = \dlim{x \rightarrow + \infty} \frac{F(x)}{x} = 0$. \\
+ \item On étudie $\dlim{x \rightarrow 0, x \neq 0} G'(x)$ pour conclure
+avec le théorème de prolongement de la dérivée. \\
+ On a $G'(x) = \frac{ \dint{0}{x} ( e^{-x^{2}} - e^{-t^{2}} )\ dt
+}{x^{2}}$, on étudie donc la fonction $f(x) - f(t)$. \\
+ La formule de Taylor avec reste intégral à l'ordre 2 donne $f(t) -f(x)
+= f'(x) (t-x) + f''(x) \frac{(t-x)^{2}}{2} + \dint{x}{t}
+\frac{(u-x)^{2}}{2} f''(u)\ du$ donc $f(x) - f(t) = f'(x) (x-t) -
+f''(x) \frac{(x-t)^{2}}{2} + g(x,t)$, avec $| g(x) | \leq \dint{t}{x}
+\frac{x^{2}}{2} \times M\ du \leq \frac{x^{3} M}{2}$, où $M$ est un
+majorant de $| f''(u) |$ sur $[0 ; x]$ ou $[x ; 0]$. \\
+\\
+ On obtient alors $\dint{0}{x} ( e^{-x^{2}} - e^{-t^{2}} )\ dt = f'(x)
+\dint{0}{x} (x-t)\ dt - \frac{f''(x)}{2} \dint{0}{x} ( x-t)^{2}\ dt +
+\dint{0}{x} g(x,t)\ dt = f'(x) \frac{x^{2}}{2} - \frac{f''(x)}{2}
+\frac{x^{3}}{3} + h(x)$, avec $| h(x) | \leq | \dint{0}{x} M
+\frac{x^{3}}{2} | = M \frac{ | x^{4} |}{2}$. \\
+ Enfin on obtient $G'(x) = \frac{f'(x)}{2} + o (1)$, donc $ \dlim{x
+\rightarrow 0, x \neq 0} G'(x) = \frac{f'(0)}{2} = 0$. \\
+\\
+ La fonction $G'$ admet donc une limite finie en 0 à gauche et à droite
+et celles-ci sont égales; le théorème de prolongement de la dérivée
+permet de conclure, et donne $G'(0) = 0$. \\
+\\\
+\
+ Autre possibilité : écrire puis sommer les développements limités de
+$x f(x)$ et $F(x)$ obtenus à l'aide de la formule de Taylor.
+ \end{noliste}
+ \item
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item Pour tout $x \neq 0$, on a $x G'(x) + G(x) = \frac{x f(x) -
+F(x)}{x} + \frac{F(x)}{x} = \frac{x f(x)}{x} = f(x)$. \\
+ De plus comme les fonction $x \rightarrow x G'(x) + G(x)$ et $x
+\rightarrow f(x)$ sont continues, on obtient par continuité en 0 la
+relation en $x = 0$. \\
+ \item On veut prouver que $G$ est l'unique fonction $g$ dérivable sur
+$\R$ telle que : 
+ 
+\[
+ \forall x \in \R,\ x g'(x) + g(x) = f(x) \ \ \ (E). 
+ 
+\]
+ Soit $G_{1}$ une fonction réelle dérivable sur $\R$ et vérifiant
+l'équation $(E)$. On pose $H = G - G_{1}$. Déterminer $H(x)$ pour $x >
+0$ puis pour $x < 0$. conclure en utilisant la continuité de $H$ en 0.
+\\
+\\
+ On a $H(x) = G (x) - G_{1} (x)$ vérifie $x H'(x) + H(x) = 0$, donc en
+posant $A(x) = x H(x)$ on a $ A'(x) = x H'(x) + H(x) = 0$, donc $A(x)$
+est constante égale à $K$ sur $\R$. \\
+\\
+ On en déduit que $H(x) = \frac{K}{x}$ sur $\R_+^*$ et sur $\R_-^*$, et
+la continuité de $H$ en 0 impose que $\frac{K}{x}$ admette une limite
+finie en 0. Or si $K \neq 0$, on obtient une limite infinie : ceci
+impose que $K = 0$, puis $H(x) = 0$ sur $\R^*$ puis sur $\R$ par
+continuité de $H$. \\
+\\
+ Enfin on obtient $G_{1} (x) = G(x)$, et $G$ est bien l'unique solution
+de l'équation différentielle $(E)$. \\
+ \end{noliste} 
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Les variables aléatoires considérées dans cet exercice sont définies
+sur un espace probabilisé $(\Omega, \mathcal{A}, P)$. Soit $a$ un réel
+strictement positif et $X$ une variable aléatoire de loi uniforme sur
+$[0 ; 2a]$. \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Soit $n \in \N^*$. On considère $n$ variables aléatoires
+indépendantes $X_{1},\ \dots\, X_{n}$ qui ont toutes la même loi que
+$X$. On pose : 
+ 
+\[
+ M_{n} = \max ( X_{1},\ \dots\, X_{n}). 
+ 
+\]
+ De manière classique $F_{M_{n}} (x) = F_{X}(x)^{n} = \left\{
+\begin{array}{cl}
+ 0 \text{ si } x \leq 0 \\
+\frac{x^{n}}{(2a)^{n}} \text{ si } 0 \leq x \leq 2a \\
+1 \text{ si } x \geq 1
+\end{array}
+\right.$. \\
+ On en déduit que $f_{M_{n}} (x) = 0$ si $x \notin [ 0 ; 2a]$, et
+$f_{M_{n}} (x) = n \frac{x^{n-1}}{(2a)^{n}}$ sinon. \\
+\\
+ Ensuite on a $\E(M_{n}) = \frac{n}{(2a)^{n}} \dint{0}{2a} x^{n}\ dx =
+\frac{ n (2a)^{n + 1} }{ (n + 1) (2a)^{n}} = \frac{2a n}{n + 1}$. \\
+ De même $\E(M_{n}{2}) = \frac{ n (2a)^{n + 2} }{(n + 2) (2a)^{n}} =
+\frac{4 a^{2} n}{n + 2}$, et enfin : \\
+ $\V(M_{n}) = \frac{4 a^{2} n}{n + 2} - \frac{4a^{2} n^{2}}{(n +
+1)^{2}}$ donc $\V(M_{n}) = 4 a^{2} n \left( \frac{1}{n + 2} -
+\frac{n}{(n + 1)^{2}} \right)$. \\
+ \item On a $\E(U_{n}) = \frac{n + 1}{2n} \E(M_{n}) = a = \E(X)$ donc
+$U_{n}$ est un estimateur sans biais de $a = \E(X)$. \\
+ Pour comparer les estimateurs, on compare leurs risques quadratiques :
+\\
+ $R (V_{n}) = V (V_{n}) = \frac{1}{n^{2}} \times n \V(X) =
+\frac{\V(X)}{n} = \frac{ 4 a^{2}}{12 n} \rightarrow 0$ et proportionnel
+à $\frac{1}{n}$. \\
+ D'autre part $R(U_{n}) = V ( U_{n}) = \frac{(n + 1)^{2}}{4 n^{2}}
+\V(M_{n}) = \frac{a^{2}}{n} \left( \frac{(n + 1)^{2}}{n + 2} - n
+\right) = a^{2} \left( \frac{(n + 1)^{2} - n (n + 2)}{n (n + 2)}
+\right) = a^{2} \left( \frac{1}{n (n + 2)} \right) \rightarrow 0$ mais
+proportionnel à $\frac{1}{n^{2}}$, donc il tend plus vite vers 0. \\
+ $U_{n}$ est donc un meilleur estimateur que $V_{n}$ de $a = \E(X)$.
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ 
+
+\end{document}

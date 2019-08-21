@@ -1,0 +1,427 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 2014} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\im}{\operatorname{Im}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum\limits}
+\newcommand{\dprod}{\prod}
+\newcommand{\lb}{\llbracket}
+\newcommand{\rb}{\rrbracket}
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.8
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 2014}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\indent \vspace{0.3cm}
+
+\Tbox{\begin{center} \textbf{\Huge Ecricome 2014} \end{center} }
+
+\vspace{0.5cm}
+
+
+\section*{Exercice 1}
+
+\noindent Soit $f$ l'endomorphisme de $\R^{3}$ dont la matrice dans la
+base canonique de $\R^{3}$ est :
+\[
+ A = \begin{smatrix}
+1 & 0 & 0 \\
+1 & 2 & 1 \\
+2 & -2 & -1
+\end{smatrix}
+\]
+On considère les vecteurs $u$ et $v$ de $\R^{3}$ définis par :
+\[
+ u = (0,1,-2) \quad\text{et}\quad v = (0,1,-1) 
+\]
+On note $\mathrm{Ker}(f)$ le noyau de $f$ et $\mathrm{Im}(f)$ son
+image.
+Si $\lambda$ est une valeur propre de $f$, on désigne par
+$E_{\lambda}(f)$ l'espace propre de $f$ associé à la valeur propre
+$\lambda$.
+
+\subsection*{Partie I : Réduction de l'endomorphisme $f$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer une base de $\mathrm{Ker}(f)$ et une base de
+$\mathrm{Im}(f)$.
+
+\item Justifier que $f$ n'est pas bijectif. En déduire, \textit{sans le
+moindre calcul}, une valeur propre de $f$.
+
+\item Prouver que $u$ et $v$ sont deux vecteurs propres de $f$.
+
+Préciser la valeur propre $\lambda$ (respectivement $\mu$) associée à
+$u$ (respectivement à $v$).
+
+Donner la dimension de l'espace propre $E_{\lambda}(f)$ (respectivement
+$E_{\mu}(f)$).
+
+\item L'endomorphisme $f$ est-il diagonalisable ?
+
+\item Rechercher tous les vecteurs $t = (x,y,z)$ de $\R^{3}$ vérifiant
+l'équation :
+\[
+ f(t) = t + v 
+\]
+
+\item Déterminer un vecteur $w$ de $\R^{3}$, dont la troisième
+coordonnée (dans la base canonique de $\R^{3}$) est nulle, telle que la
+famille $C = (u,v,w)$ soit une base de $\R^{3}$ et que la matrice de
+$f$ dans la base $C$ soit la matrice 
+\[
+ T = \begin{smatrix}
+0 & 0 & 0 \\
+0 & 1 & 1 \\
+0 & 0 & 1
+\end{smatrix}
+\]
+\end{noliste}
+
+\subsection*{Partie II : Résolution d'une équation}
+
+\noindent Dans les questions 1,2 et 3 de cette partie, on suppose qu'il
+existe un endomorphisme $g$ de $\R^{3}$ vérifiant : 
+\[
+ g\circ g = f 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que : 
+\[
+ f\circ g = g \circ f 
+\]
+En déduire que :
+\[
+ f(g(u)) = 0 \quad\text{et}\quad f(g(v)) = g(v) 
+\]
+
+\item Justifier qu'il existe deux réels $a$ et $b$ tels que $g(u) = au$
+et $g(v) = bv$.
+
+\item On note $N$ la matrice de $g$ dans la base $C = (u,v,w)$ définie
+à la question I.6. Justifier que :
+\[
+ N = \begin{smatrix}
+a & 0 & c \\
+0 & b & d \\
+0 & 0 & e \\
+\end{smatrix}
+\]
+où $a$ et $b$ sont les deux réels définis à la question précédente
+(II.2) et $c,d,e$ des réels.
+
+\item Existe-t-il des endomorphismes $g$ de $\R^{3}$ tels que $g\circ g
+= f$ ?
+
+\textit{Indication : Utiliser les matrices de $f$ et $g$ dans la base
+$C = (u,v,w)$ définie à la question I.6.}
+\end{noliste}
+
+\section*{Exercice 2}
+
+\noindent On considère la fonction $f$ définie sur $[0; + \infty[$ par
+:
+\[
+ f(x) = \left\{ 
+\begin{array}{cl}
+ 1 & \text{si }x = 0 \\
+ & \\
+\dfrac{x}{\ln(1 + x)} & \text{si }x\in \left]0; + \infty\right[ \
+\end{array}
+\right. 
+\]
+ainsi que la suite $(u_{n})_{n\in \N}$ définie par :
+\[
+ u_{0} = e \quad\text{et}\quad \forall n\in \N,\; u_{n + 1} = f(u_{n}) 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer le signe de $f$ sur l'intervalle $[0; + \infty[$. En
+déduire que, pour tout entier naturel $n$, $u_{n}$ existe.
+
+\item Écrire un programme en -\Scilab{} qui, pour une valeur $N$
+fournie par l'utilisateur, calcule et affiche $u_{N}$.
+
+\item Montrer que $f$ est continue sur $[0; + \infty[$.
+
+\item Établir que $f$ est de classe $\mathcal{C}{1}$ sur $\left]0; +
+\infty\right[$.
+
+\item Donner le développement limité à l'ordre $2$ au voisinage de $0$
+de 
+\[
+ \ \ln(1 + x) - \dfrac{x}{1 + x} 
+\]
+puis déterminer un équivalent de $f'(x)$ lorsque $x$ tend vers $0$.
+
+\item Prouver que $f$ est de classe $\mathcal{C}{1}$ sur $[0; +
+\infty[$.
+
+\item Établir que :
+\[
+ \ \forall x\geq e-1,\quad f(x)\leq x \quad\text{et}\quad (x + 1)\ln(x
++ 1)\geq (x + 1) 
+\]
+En déduire que :
+\[
+ \ \forall x\geq e-1,\quad f'(x)\geq 0 
+\]
+
+\item Démontrer que :
+\[
+ \ \forall n\in \N,\quad e-1\leq u_{n} 
+\]
+
+\item Établir que la suite $(u_{n})_{n\in \N}$ converge et préciser la
+valeur de sa limite $L$.
+\end{noliste}
+
+
+
+
+\section*{Exercice 3}
+
+\noindent Soit $p$ un réel appartenant à l'intervalle ouvert $]0;1[$.
+On note $q = 1-p$.\\
+
+\noindent On dispose dans tout l'exercice d'une même pièce dont la
+probabilité d'obtenir PILE vaut $p$.
+
+\subsection*{Partie I : Étude d'une première expérience}
+
+\noindent On procède à l'expérience suivante $\mathcal{E}$ : \og
+\textit{On effectue une succession illimitée de lancers de la pièce}
+\fg.\\
+
+\noindent On note :
+\begin{noliste}{$\sbullet$}
+\item[$\bullet$] pour tout entier naturel non nul $n$, $X_{n}$ la
+variable aléatoire égale au nombre de PILE obtenus lors des $n$
+premiers lancers de la pièce ;
+\item[$\bullet$] pour tout entier naturel non nul $j$, $F_{j}$
+l'évènement : \og La pièce donne FACE lors du $j$-ième lancer \fg ;
+\item[$\bullet$] $Y$ la variable aléatoire égale au nombre de FACE
+obtenus avant l'apparition du second PILE.\\
+\end{noliste}
+
+\noindent Par exemple, si les lancers ont donné dans cet ordre : 
+\begin{center} \og FACE, PILE, FACE, FACE, FACE, PIL\E\fg \end{center}
+alors $Y = 4$.\\
+
+\noindent On admet que les variables aléatoires $X_{n}$ ($n\in \N^*$)
+et $Y$ sont définies sur un même espace probabilisé modélisant
+l'expérience $\mathcal{E}$.\\
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Simulation informatique.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Écrire une fonction en -\Scilab{} d'en-tête : 
+\begin{center} \texttt{function LANCER(p : real) : integer ;}
+\end{center}
+qui crée un nombre aléatoire dans l'intervalle $[0;1]$ et renvoie $1$
+si ce nombre aléatoire est strictement inférieur à $p$ et $0$ sinon.
+
+\item Écrire une fonction en -\Scilab{} d'en-tête : 
+\begin{center} \texttt{function PREMIER\_{P}IL\E(p : real) : integer ;}
+\end{center}
+qui simule autant de lancers de la pièce que nécessaire jusqu'à
+l'obtention du premier PILE et renvoie le nombre de lancers effectués.
+
+\textit{Indication : si on le souhaite, on pourra utiliser la fonction
+}\texttt{LANCER}\textit{ en la répétant convenablement.}
+
+\item Écrire un programme en -\Scilab{} qui demande un réel $p$ à
+l'utilisateur, puis qui simule autant de lancers de la pièce que
+nécessaire jusqu'à l'obtention du second PILE, et affiche le nombre de
+FACE obtenus en tout.
+
+\textit{Indication : on pourra utiliser la fonction
+}\texttt{PREMIER\_{P}ILE}\textit{ en la répétant convenablement.}
+\end{noliste}
+
+\item Soit $n$ un entier naturel non nul. Donner la loi de $X_{n}$.
+Préciser la valeur de son espérance $\E(X_{n})$ et de sa variance
+$\V(X_{n})$.
+
+\item Déterminer les valeurs prises par la variable aléatoire $Y$.
+
+\item Donner les valeurs des probabilités : 
+\[
+ P\left(\Ev{Y = 0}\right),\quad P\left(\Ev{Y = 1}\right) \quad
+\text{et}\quad P\left(\Ev{Y = 2}\right) 
+\]
+
+\item Soit $n$ un entier naturel. Justifier que les évènements :
+\[
+ (Y = n) \quad\text{et}\quad (X_{n + 1} = 1)\cap \overline{F_{n + 2}} 
+\]
+sont égaux.
+
+\item Prouver que :
+\[
+ \ \forall n\in \N,\quad P\left(\Ev{Y = n}\right) = \left(\Ev{n +
+1}\right)p^{2}q^{n} 
+\]
+
+\item Vérifier par le calcul que :
+\[
+ \ \Sum{n = 0}{+ \infty} P\left(\Ev{Y = n}\right) = 1 
+\]
+
+\item Démontrer que la variable aléatoire $Y$ possède une espérance
+$\E(Y)$ et donner sa valeur.
+
+\item Soit $k\in\N^*$. On note $Y_{k}$ la variable aléatoire égale au
+nombre de FACE obtenus avant l'apparition du $k$-ième PILE. En
+particulier, on a $Y_{2} = Y$.
+
+En généralisant la méthode utilisée dans les questions précédentes,
+déterminer la loi de $Y_{k}$.
+\end{noliste}
+
+\subsection*{Partie II : Étude d'une seconde expérience}
+
+\noindent On procède à l'expérience suivante : \\
+\\
+\noindent $\mathcal{F}$ : \og \textit{Deux joueurs se relaient pour
+effectuer des lancers successifs de la pièce pendant la pause déjeuner.
+\\
+Le joueur 1 arrive à 12h (considéré comme l'instant 0) et joue jusqu'à
+l'arrivée du joueur 2. \\
+ Le joueur 2 arrive au hasard entre 12h et 13h puis joue jusqu'à 13h
+(considéré comme l'instant 1).} \fg\\
+
+\noindent On note :
+\begin{noliste}{$\sbullet$}
+\item[$\bullet$] $R$ la variable aléatoire égale à la durée (en heure)
+du jeu pour le joueur 1 ;
+\item[$\bullet$] $S$ la variable aléatoire égale à la durée (en heure)
+du jeu pour le joueur 2 ;
+\item[$\bullet$] $T$ la variable aléatoire égale à la durée (en heure)
+de jeu effectuée par le joueur ayant joué le plus longtemps
+c'est-à-dire que : 
+\[
+ T = \max(R,S) 
+\]
+\end{noliste}
+
+\noindent Pour tout variable aléatoire $X$, on note $F_{X}$ la fonction
+de répartition de $X$.\\
+
+\noindent On admet que $R$ et $S$ sont deux variables aléatoires
+définies sur un même espace probabilisé muni d'une probabilité $P$
+modélisant l'expérience $\mathcal{F}$. En outre, on suppose que :
+\begin{center}\fbox{$R$ suit la loi uniforme sur $[0;1]$ et que $S =
+1-R$} \end{center}
+(cette dernière relation traduisant que le temps total consacré au jeu
+par le joueur 1 et le joueur 2 est exactement d'une heure).\\
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Expliciter la fonction $F_{R}$ puis la fonction $F_{S}$.
+Reconnaître alors la loi suivie par la variable aléatoire $S$.
+
+\item Pour tout réel $t$, prouver que :
+\[
+ P\left(\Ev{T\leq t}\right) = P\Big( (R\leq t)\cap (R\geq 1-t) \Big) 
+\]
+
+\item Déterminer, pour tout $t\in \left[ \ \dfrac{1}{2} ; 1\right]$,
+l'expression de $F_{T}$ en fonction de $T$.
+
+\item Justifier que $T$ suit la loi uniforme sur $\left[ \ \dfrac{1}{2}
+; 1\right]$.
+
+\item En déduire que $T$ admet une espérance $\E(T)$ et une variance
+$\V(T)$ que l'on précisera.
+\end{noliste}
+
+\end{document}
+

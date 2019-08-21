@@ -1,0 +1,697 @@
+\subsection*{Exercices oraux HEC 2015}
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 68; %
+% annee : 2015; %
+% theme : vaExponentielle, vaDensite, vaGumbel, vaLCHP, vaMax,
+% vaConvergence, inegMarkov; %
+
+\begin{exerciceAP}~\\
+  {\it Dans cet exercice, toutes les variables sont définies sur un
+    espace probabilisé $(\Omega,\A,P)$.}
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition de la convergence en loi d'une
+    suite de variables aléatoires.
+  \item Soit $X$ une variable aléatoire strictement positive suivant
+    la loi exponentielle de paramètre $1$.\\
+    On pose : $Z=-\ln(X)$ et on note $F_Z$ la fonction de répartition
+    de $Z$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que pour tout $x\in\R$, on a :
+      $F_Z(x)=\ee^{-\ee^{-x}}$.
+    \item Montrer que $Z$ admet une densité de probabilité continue
+      $f_Z$ qui atteint sa valeur maximale en un unique point $x_0$.
+    \item Tracer l'allure de la courbe représentative de $F_Z$ dans le
+      plan rapporté à un repère orthogonal.
+    \item Que représente le point d'abscisse $x_0$ et d'ordonnée
+      $F_Z(x_0)$ pour cette courbe ?
+    \end{noliste}
+  \item On considère une suite de variables aléatoires $(X_n)_{n\geq
+      1}$ indépendantes et de même loi que $X$.\\
+    On pose pour tout $n\in\N^*$ : $Y_n=\max(X_1,\hdots,X_n)$ et
+    $Z_n=Y_n-\ln(n)$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer les fonctions de répartition $F_{Y_n}$ et
+      $F_{Z_n}$ de $Y_n$ et $Z_n$ respectivement.
+    \item Montrer que la suite de variables aléatoires $(Z_n)_{n\geq
+        1}$ converge en loi vers la variable aléatoire $Z$.
+    \item Établir pour tout réel $c>0$, l'inégalité : $\E(Y_n)\geq
+      c\Prob(Y_n\geq c)$.
+    \item En déduire $\dlim{n\to+\infty} \E(Y_n)$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 76; %
+% annee : 2015; % 
+% theme : vaDensite, vaMax, vaExponentielle, IPP, intImpropre; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition et propriétés de la fonction de
+    répartition d'une variable aléatoire à densité.\\
+    {\it Dans cet exercice, les variables aléatoires sont définies sur
+      un espace probabilisé $(\Omega,\A,P)$, à valeurs dans $\R_+$ et
+      admettent une densité.}\\
+    Soit $X$ une variable aléatoire à densité admettant une espérance
+    $\E(X)$. On note respectivement $F$ et $f$, la fonction de
+    répartition et une densité de $X$.\\
+    Soit $(X_n)_{n\in\N^*}$ une suite de variables aléatoires
+    indépendantes de même loi que $X$.
+
+  \item Pour $x\geq 0$ :
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Justifier la convergence de l'intégrale $\dint{x}{+\infty}
+      tf(t)\dt$.
+
+    \item Établir les inégalités : $\dint{x}{+\infty} tf(t) \dt \geq
+      x(1-F(x))\geq 0$.
+
+    \item Montrer à l'aide d'une intégration par parties que :
+      $\E(X)=\dint{0}{+\infty} (1-F(t))\dt$.
+    \end{noliste}
+
+  \item Pour tout $n\in\N^*$, on note $Z_n=\max(X_1,X_2,\hdots,X_n)$,
+    $G_n$ la fonction de répartition de $Z_n$ et $g_n$ une densité de
+    $Z_n$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Exprimer pour tout $t\in\R$, $G_n(t)$ en fonction de $F(t)$.
+    \item Établir l'existence de $\E(Z_n)$.
+    \item Pour $n\geq 2$, montrer que : $\E(Z_n)-\E(Z_{n-1})=
+      \dint{0}{+\infty} (F(t))^{n-1}(1-F(t))\dt$.
+    \item Soit $m>0$. On suppose que $X$ suit la loi exponentielle de
+      paramètre $m$ (d'espérance $\dfrac{1}{m}$). Calculer $\E(Z_n)$.\\
+      Donner un équivalent de $\E(Z_n)$ lorsque $n$ tend vers
+      $+\infty$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 77; %
+% annee : 2015; % 
+% theme : vaDensite, vaConvergence, fctContinuite; % 
+
+\begin{exerciceSP}~\\
+  Soit $(X_n)_{n\in\N^*}$ une suite de variables aléatoires telles que
+  pour tout $n\geq 1$, $X_n$ admet une densité $f_n$ continue sur
+  $\R$, nulle sur $\R_-$ et sur $[\frac{2}{n}, +\infty [$, affine sur
+  $[0, \frac{1}{n}]$ et sur $[ \frac{1}{n}, \frac{2}{n}]$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer une densité $f_n$ de $X_n$.
+  \item Étudier la convergence en loi de la suite de variables
+    aléatoires $(X_n)_{n\in\N^*}$.
+  \end{noliste}
+\end{exerciceSP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 79; %
+% annee : 2015; % 
+% theme : vaFDR, vaDensite, vaDiscrete, vaPartieEntiere, ; % 
+
+\begin{exerciceAP}~\\
+  {\it Toutes les variables aléatoires de cet exercice sont définies
+    sur un espace probabilisé $(\Omega,\A,P)$}.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition et propriétés de la fonction de
+    répartition d'une variable aléatoire à densité.\\
+    Soit $a$ un paramètre réel et $F$ la fonction définie sur $\R$, à
+    valeurs réelles, telle que :
+    \[
+    F(x)=\left\{
+      \begin{array}{cl}
+        1+\ln\left(\dfrac{x}{x+1}\right) & \mbox{ si $x\geq a$}\\
+        0 & \mbox{ si $x<a$}
+      \end{array}
+    \right.
+    \]
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $F$ est continue sur $\R$ si et seulement si
+      $a=\dfrac{1}{\ee -1}$.
+
+    \item Étudier les variations de $F$ et tracer l'allure de sa
+      courbe représentative dans un repère orthogonal du plan.
+    \end{noliste}
+
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $F$ est la fonction de répartition d'une
+      variable aléatoire $X$ à densité.
+    \item La variable aléatoire $X$ admet-elle une espérance ?
+    \end{noliste}
+
+  \item Soit $Y$ la variable aléatoire à valeurs dans $\N$ définie par
+    $Y=\lfloor X\rfloor$ (partie entière de $X$). On pose : $Z=X-Y$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Calculer $\Prob(Y=0)$ et montrer que pour tout $n\in\N^*$, on
+    a : $\Prob(Y=n) = \ln\left(1 + \dfrac{1}{n(n + 2)}\right)$.
+    \item Déterminer la fonction de répartition et une densité de $Z$.
+    \item Établir l'existence de l'espérance $\E(Z)$ de $Z$. Calculer
+      $\E(Z)$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+
+\subsection*{Exercices oraux HEC 2016}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 65; %
+% annee : 2016; % 
+% theme : vaDensite, vaExponentielle, vaMin, etudeFct, ic; % 
+
+\begin{exerciceAP}~\\
+  Soit $X$ une variable aléatoire définie sur un espace probabilisé
+  $(\Omega,\A,\Prob)$.\\
+  On appelle {\it médiane} de $X$ tout réel $m$ qui vérifie les deux
+  conditions :
+  \[
+  \Prob(\Ev{X\leq m}) \geq \dfrac{1}{2} \ \text{et} \ 
+  \Prob(\Ev{X\geq m})\geq \dfrac{1}{2}
+  \]
+  On suppose que $X$ suit la loi exponentielle de paramètre $\lambda>0$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition et propriétés de la loi
+    exponentielle.
+    
+    
+  
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $X$ admet une unique médiane $m$ que l'on
+      calculera.
+      
+    
+    
+    \item Soit $M$ la fonction définie sur $\R$, à valeurs réelles, 
+    telle que : $\forall x\in\R$, $M(x)=\E(\vert X-x\vert)$.\\
+    Étudier les variations de la fonction $M$ sur $\R$ et montrer 
+    que $m$ est l'unique point en lequel $M$ atteint son minimum.
+    
+    
+  \end{noliste}
+  
+  \item On suppose que le paramètre $\lambda$ est inconnu. Soit 
+  $\alpha$ un réel vérifiant $0<\alpha<1$.\\
+  Pour $n$ entier de $\N^*$, soit $(X_1,X_2,\hdots,X_n)$ un 
+  $n$-échantillon de variables aléatoires indépendantes et de même loi 
+  que $X$. On pose pour tout $n\in\N^*$ : $Z_n = 
+  \min(X_1,X_2,\hdots,X_n)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Quelle est la loi de $Z_n$ ?
+    
+    \item Établir l'existence de deux réels $c$ et $d$ tels que : 
+    $\Prob\left(\Ev{ Z_n \leq \dfrac{c}{\lambda}}\right) = 
+    \dfrac{\alpha}{2}$ et $\Prob\left(\Ev{ Z_n \geq 
+    \dfrac{d}{\lambda}}\right)=\dfrac{\alpha}{2}$.
+    
+    \item En déduire un intervalle de confiance du paramètre $m$ au 
+    niveau de confiance $1-\alpha$.
+  \end{noliste}
+\end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 82; %
+% annee : 2016; % 
+% theme : vaDensite, vaUniformeDensite, partieEntiere, vaDiscrete, 
+% vaPartieEntiere; % 
+
+\begin{exerciceAP}~\\
+On suppose que toutes les variables aléatoires qui interviennent dans 
+l'exercice sont définies sur un même espace probabilisé $(\Omega, 
+\A,\Prob)$.
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Loi uniforme sur un intervalle $[a,b]$;
+    définition, propriétés.
+  
+  \item Pour tout $x$ réel, on note $\lfloor x \rfloor$ la partie 
+  entière de $x$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Pour $n$ entier de $\N^*$, montrer que pour tout $x$ réel, 
+    on a : $\dlim{n\to+\infty} \dfrac{\lfloor nx\rfloor}{n}=x$.
+    
+    \item Établir pour tout $(x,y)\in\R^2$ l'équivalence suivante 
+    : $\lfloor y \rfloor \leq x \ \Leftrightarrow \ y < \lfloor x 
+    \rfloor +1$.
+    
+    \item Soit $\alpha$ et $\beta$ deux réels vérifiant $0\leq 
+    \alpha\leq \beta\leq 1$ et soit $N_n(\alpha,\beta)$ le nombre 
+    d'entiers $k$ qui vérifient $\alpha <\dfrac{k}{n}\leq \beta$. 
+    Exprimer $N_n(\alpha,\beta)$ en fonction de $\lfloor n\alpha 
+    \rfloor$ et $\lfloor n\beta \rfloor$.
+  \end{noliste}
+  
+  \item Pour tout entier $n\geq 1$, on note $Y_n$ la variable aléatoire 
+  discrète dont la loi est donnée par :
+  \[
+    \forall k\in\llb 0,n-1\rrb, \ 
+    \Prob\left(\Ev{Y_n=\frac{k}{n}}\right)=\frac{1}{n}.
+  \]
+  Soit $Z$ une variable aléatoire suivant la loi uniforme sur 
+  l'intervalle $[0,1]$. Pour tout entier $n\geq 1$, on définit la 
+  variable aléatoire $Z_n$ par : $Z_n=\dfrac{\lfloor nZ\rfloor}{n}$. 
+  Soit $\alpha$ et $\beta$ deux réels vérifiant $0\leq \alpha\leq 
+  \beta\leq 1$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $\dlim{n\to+\infty} \Prob(\Ev{\alpha <Y_n\leq 
+    \beta})=\beta-\alpha$.
+    
+    \item Comparer les fonctions de répartition respectives de $Y_n$ 
+    et $Z_n$. Conclusion.
+  \end{noliste}
+\end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 83; %
+% annee : 2016; % 
+% theme : vaDensite, vaUniformeDensite, vaDiscrete, vaUniformeDiscrete,
+% vaConvergence; % 
+
+\begin{exerciceSP}~\\
+Les variables aléatoires de cet exercice sont supposées définies sur un 
+espace probabilisé $(\Omega,\A,\Prob)$.\\
+Soit $Z$ une variable aléatoire qui suit la loi uniforme sur 
+l'intervalle $[0,1]$ et pour tout entier $n\geq 1$, on note $Y_n$ une 
+variable aléatoire à valeurs dans 
+$\left\{0,\dfrac{1}{n},\dfrac{2}{n},\hdots, \dfrac{n-1}{n}\right\}$ 
+telle que : 
+\[
+  \forall k\in\llb 0,n-1\rrb, \ 
+  \Prob\left(\Ev{Y_n=\dfrac{k}{n}}\right)=\dfrac{1}{n}
+\]
+Soit $f$ une fonction définie et continue sur $[0,1]$. Montrer que 
+$\dlim{n\to+\infty} \E(f(Y_n))=\E(f(Z))$.
+\end{exerciceSP} 
+
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 86; %
+% annee : 2016; % 
+% theme : vaDensite, vaExponentielle, vaMethodeInversion, 
+% sciSimuVaDensite; % 
+
+\begin{exerciceSP}~\\
+  Soit $c$ et $r$ deux réels strictement positifs.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Justifier que la fonction $f$ définie sur $\R$ par
+    $f(x)=\left\{
+      \begin{array}{ll}
+        \dfrac{rc^r}{x^{r+1}} & \mbox{ si $x>c$}\\[.2cm]
+        0 & \mbox{ sinon}
+      \end{array}
+    \right.$ est une densité de probabilité.
+    
+  \item Soit $X$ une variable aléatoire de densité $f$. Identifier la 
+    loi de la variable aléatoire $Y=\ln(X)-\ln(c)$.
+    
+  \item Compléter les lignes du code \Scilab{} suivant pour que $V$
+    soit un vecteur ligne contenant $100$ réalisations de la loi de la
+    variable aléatoire $X$.
+  
+    \begin{scilab}
+      & c = input(\ttq{}c=\ttq{}) \nl 
+      & r = input(\ttq{}r=\ttq{}) \nl 
+      & U = grand( ?, ?, ?, ?) \nl 
+      & V = c \Sfois{} exp(U) \nl 
+    \end{scilab}
+  \end{noliste}
+\end{exerciceSP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 88; %
+% annee : 2016; % 
+% theme : vaConvergence, vaPartieEntiere, vaDensite, vaExponentielle,
+% vaDiscrete, vaGeometrique, vaUniformeDensite; % 
+
+\begin{exerciceAP}~\\
+Toutes les variables aléatoires qui interviennent dans l'exercice sont 
+supposées définies sur le même espace probabilisé $(\Omega, 
+\A,\Prob)$.
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Convergence en loi d'une suite de variables 
+  aléatoires.\\
+  Dans tout l'exercice, $X$ désigne une variable aléatoire suivant la 
+  loi exponentielle de paramètre $\lambda>0$.
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item On pose : $T=\lfloor X\rfloor$ (partie entière de $X$). 
+    Montrer que la loi de $T$ est donnée par :
+    \[
+      \forall k \in\N, \ 
+      \Prob(\Ev{T=k}) = \Big(1 - \ee^{-\lambda} \Big) \, 
+      \Big(\ee^{-\lambda}\Big)^k
+    \]
+    
+    \item Quelle est la loi de $T+1$ ? En déduire l'espérance et la 
+    variance de $T$.
+  \end{noliste}
+  
+  \item On pose : $Z=X-\lfloor X\rfloor$.\\
+  Montrer que $Z$ est une variable aléatoire à densité et déterminer 
+  une densité de $Z$.
+
+  \item Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires 
+  indépendantes telles que, pour tout $n\in\N^*$, $X_n$ suit une loi 
+  exponentielle de paramètre $\dfrac{\lambda}{n}$. On pose pour tout 
+  $n\in\N^*$ : $Z_n=X_n-\lfloor X_n\rfloor$.\\
+  Montrer que la suite de variables aléatoires $(Z_n)_{n\geq 1}$ 
+  converge en loi vers une variable aléatoire dont on précisera la loi.
+\end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 89; %
+% annee : 2016; % 
+% theme : vaDensite, etudeFct, vaExponentielle; % 
+
+\begin{exerciceAP}~
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition et propriétés de la fonction de 
+  répartition d'une variable aléatoire à densité.\\
+  Pour tout $n\in\N$, soit $f_n$ la fonction définie par :
+  \[
+    \forall x\in\R, \ f_n(x)= \left\{
+    \begin{array}{ll}
+      x^n \exp\left(-\dfrac{x^2}{2}\right) & \mbox{ si $x\geq 0$}\\
+      0 & \mbox{ sinon}
+    \end{array}
+    \right.
+  \]
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Établir la convergence de l'intégrale $\dint{0}{+\infty} 
+    f_n(x)\dx$. On pose : $\forall n\in\N$, $I_n=\dint{0}{+\infty} 
+    f_n(x)\dx$.
+    
+    \item Calculer $I_0$ et $I_1$.
+  \end{noliste}
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $f_1$ est une densité de probabilité.
+    
+    \item Tracer la courbe représentative de $f_1$ dans le plan 
+    rapporté à un repère orthogonal.\\
+    Dans la suite, on note $X$ une variable aléatoire définie sur 
+    un espace probabilisé $(\Omega, \A,\Prob)$ admettant $f_1$ 
+    pour densité.
+    
+    \item Déterminer la fonction de répartition $F$ de $X$.
+    
+    \item Justifier l'existence de l'espérance $\E(X)$ et de la 
+    variance $\V(X)$ de $X$. Calculer $\E(X)$ et $\V(X)$.
+  \end{noliste}
+  
+  \item On pose : $Y=X^2$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $Y$ est une variable aléatoire à densité.
+    
+    \item Quelle est la loi de $Y$ ?
+  \end{noliste}
+\end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 90; %
+% annee : 2016; % 
+% theme : LfGN, vaMin, vaDensite, vaUniformeDensite, sciSimuVaDensite, 
+% sciLfGN; % 
+
+\begin{exerciceAP}~\\
+Toutes les variables aléatoires utilisées dans cet exercice sont 
+supposées définies sur le même espace probabilisé $(\Omega, 
+\A,\Prob)$.
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : loi faible des grands nombres.\\
+  Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires 
+  indépendantes définies sur le même espace probabilisé 
+  $(\Omega,\A,\Prob)$, de loi uniforme sur $[0,1]$.
+  
+  \item Pour tout $n\in\N^*$, on note $U_n$ la variable aléatoire 
+  $\min(X_1,X_2,\hdots,X_n)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer la fonction de répartition de $U_n$.
+    
+    \item Démontrer que, pour tout $\eps >0$, la probabilité 
+    $\Prob(\Ev{U_n\geq \eps})$ tend vers $0$ quand $n$ tend vers 
+    l'infini.
+  \end{noliste}
+  
+  \item Compléter la deuxième ligne du code \Scilab{} suivant pour que 
+  la fonction \texttt{minu} simule la variable $U_k$ pour la valeur $k$ 
+  du paramètre.
+  
+  \begin{scilab}
+    & \tcFun{function} \tcVar{u} = minu(\tcVar{k}) \nl 
+    & \qquad x = .......... \nl 
+    & \qquad \tcVar{u} = min(x) \nl 
+    & \tcFun{endfunction} \nl 
+  \end{scilab}
+  
+  \item Soit $p\in \ ]0,1[$ et $Z$ une variable aléatoire telle que, 
+  pour tout réel $x$ :
+  \[
+    \Prob(\Ev{Z\leq x}) = \Sum{k=1}{+\infty} p \, (1-p)^{k-1} \,
+    \Prob(\Ev{U_k\leq x})
+  \]
+  (on admet qu'il existe une telle variable aléatoire et qu'elle 
+  possède une densité).
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Justifier, pour tout $x\in[0,1]$, l'égalité : 
+    $\Prob(\Ev{Z\leq x}) = 1- \dfrac{p(1-x)}{p+(1-p)x}$.
+    
+    \item En déduire une densité de $Z$.
+  \end{noliste}
+
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Justifier que la fonction \Scilab{} suivante fournit une 
+    simulation de la variable aléatoire $Z$ de la question précédente.
+
+    \begin{scilab}
+      & \tcFun{function} \tcVar{z} = geomin(\tcVar{p}) \nl 
+      & \qquad \tcVar{z} = 
+	minu(grand(1, 1, \ttq{}geom\ttq{}, \tcVar{p})) \nl 
+      & \tcFun{endfunction}
+    \end{scilab}
+
+    \item De quel nombre réel les instructions suivantes 
+    fournissent-elles une valeur approchée et pourquoi ?
+
+    \begin{scilab}
+      & p = 0.5 ; \nl 
+      & R = [] ; \nl 
+      & \tcFor{for} k = 1:10000 \nl 
+      & \qquad R = [R, geomin(p)] \nl 
+      & \tcFor{end} ; \nl 
+      & disp(mean(R)) \nl 
+    \end{scilab}
+  \end{noliste}
+\end{noliste}
+\end{exerciceAP} 
+
+
+\subsection*{Exercices oraux HEC 2017}
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 94; %
+% annee : 2017; %
+% theme : partieEntiere, vaDensite, vaMin, equivalent, vaPartieEntiere; 
+%
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Question de cours
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Définition et représentation graphique de la fonction 
+      partie entière.
+      
+      \item Donner un programme \Scilab{} permettant de représenter la 
+      fonction partie entière sur l'intervalle $\left[ - 
+      \dfrac{5}{2}, \dfrac{5}{2} \right]$.
+    \end{noliste}
+  \end{noliste}
+  
+  \noindent
+  Pour tout $n\in \N^*$, on note $X_n$ une variable aléatoire 
+  définie sur un espace probabilisé $(\Omega, \A, \Prob)$ dont une 
+  densité $f_n$ est donnée par :
+  \[
+    f_n(t) = \left\{
+    \begin{array}{cR{2cm}}
+      \dfrac{1}{n} \, \ee^{-\frac{t}{n}} & si $t\geq 0$
+      \nl
+      \nl[-.2cm]
+      0 & sinon
+    \end{array}
+    \right.
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \setcounter{enumi}{1}
+    \item Reconnaître la loi de $X_n$, puis en donner l'espérance et la 
+    variance.
+    
+    \item Pour tout $n\in \N^*$, on pose : $u_n = \Prob(\Ev{\vert X_n
+    - \E(X_n) \vert <1})$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Montrer que $u_n = \Big(\ee^{\frac{2}{n}} -1 \Big) 
+      \ee^{-\frac{n+1}{n}}$.
+      
+      \item Déterminer un équivalent de $u_n$ lorsque $n$ tend vers 
+      $+\infty$, de la forme $\dfrac{\alpha}{n}$ où $\alpha$ est un 
+      réel que l'on déterminera.
+    \end{noliste}
+    
+    \item Pour tout $k\in \N$, on considère l'événement 
+    $A_k = \Ev{k + \dfrac{1}{2} < X_n < k+1}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Exprimer l'événement $B_n = \Ev{X_n - \lfloor X_n \rfloor 
+      > \dfrac{1}{2}}$ en fonction des événements $A_k$ ($k\in \N$).
+      
+      \item Pour tout $n\in \N^*$, on pose : $v_n = \Prob(B_n)$.
+      Calculer $v_n$ puis $\dlim{n\to +\infty} v_n$.
+    \end{noliste}
+    
+    \item On suppose désormais que les variables aléatoires $X_1$, 
+    $X_2$, $\ldots$, $X_n$, $\ldots$ sont indépendates et, pour 
+    tout $n\in\N^*$, on pose :
+    \[
+      M_n = \min(X_1, X_2, \ldots, X_n)
+    \]
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Déterminer la loi de $M_n$.
+      
+      \item Pour tout $n\in\N^*$, on pose : $w_n = \Prob(\Ev{\vert 
+      M_n - \E(M_n) \vert <1})$. Calculer $w_n$ puis $\dlim{n\to 
+      +\infty} w_n$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 102; %
+% annee : 2017; %
+% theme : vaPartieEntiere, reductionMat, vaUniformeDensite; %
+
+\begin{exerciceSP}~\\
+  Soit $U$ et $V$ deux variables aléatoires indépendantes, définies 
+  sur un espace probabilisé $(\Omega, \A, \Prob)$, suivant chacune 
+  la loi uniforme sur $[0,1]$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Calculer, pour tout $n\in \N^*$, la probabilité 
+      $\Prob(\Ev{\lfloor n \, U \rfloor = \lfloor n \, V \rfloor})$.
+      
+      \item En déduire la probabilité $\Prob(\Ev{U=V})$.
+    \end{noliste}
+    
+    \item Soit $A$ la matrice aléatoire $
+    \begin{smatrix}
+      U & 1\\
+      0 & V
+    \end{smatrix}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Quelle est la probabilité que $A$ soit inversible ?
+      
+      \item Quelle est la probabilité que $A$ soit diagonalisable ?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceSP} 
+
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 108; %
+% annee : 2017; %
+% theme : vaDensite, equivalent; %
+
+\begin{exerciceSP}~\\
+  Pour tout réel $c>0$, on note $f_c$ définie par :
+  \[
+    \forall x \in \R, \ f_c(x) = \left\{
+    \begin{array}{cR{3cm}}
+      \dfrac{c}{x(x+1)(x+2)} & si $x\geq 1$
+      \nl
+      \nl[-.2cm]
+      0 & sinon
+    \end{array}
+    \right.
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Justifier l'existence d'une unique valeur $c_0$ de $c$ pour 
+    laquelle $f_{c_0}$ est une densité de probabilité.
+    
+    \item Soit $X$ une variable aléatoire de densité $f_{c_0}$.\\
+    Trouver la limite et un équivalent de $\Prob(\Ev{X \geq n})$ 
+    quand $n$ tend vers l'infini.
+  \end{noliste}
+\end{exerciceSP} 
+
+

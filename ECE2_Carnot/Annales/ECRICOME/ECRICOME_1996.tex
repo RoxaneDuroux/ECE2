@@ -1,0 +1,533 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 1996} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dint}{\int}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 1996}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\Huge ECRICOME Eco 1996}
+\end{center}
+
+\section*{EXERCICE 1}
+
+On désigne par $n$ un entier naturel non nul, et l'on se propose
+d'étudier
+les racines de l'équation 
+\[
+(E_{n}) :\ln x + x = n
+\]
+A cet effet, on introduit la fonction $f$ de la variable réelle $x$
+définie
+sur $\R_{+}{\times }$ par :
+\[
+f(x) = \ln x + x
+\]
+
+\subsection*{1.1. Existence des racines de $(E_{n})$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Étudier les variations de la fonction $f.$ Montrer que $f$ est
+une
+bijection de $\R_{+}{\times }$ sur $\R.$ En déduire que,
+pour tout entier naturel non nul $n,$ $(E_{n})$ admet une racine et une
+seule $x_{n}$ et que la suite $(x_{n})_{n\in \N}$ est strictement
+croissante.
+
+\item Donner la valeur de $x_{1}.$ Trouver à l'aide de la calculatrice,
+une
+valeur approchée de $x_{2}$ à $10^{-2}$ près, et déterminer l'entier
+naturel 
+$p$ tel que 
+\[
+\dfrac{p}{100}\leq x_{2}<\dfrac{p + 1}{100}.
+\]
+
+\item Représenter la fonction $f$ relativement à un repère orthonormal
+du
+plan (unité graphique : $2$ cm).
+\end{noliste}
+
+\subsection*{1.2. Étude de la convergence de $(x_{n})_{n\in \N^{\times
+}}$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que :
+\[
+\forall x\in \R_{+}{\times },\qquad \ln x<x.
+\]
+
+\item Prouver que l'on a :
+\[
+\forall n\in \N^{\times },\qquad \dfrac{n}{2}\leq
+x_{n}\leq n
+\]
+
+\item Quelle est la limite de $x_{n}$ quand $n$ tend vers $ + \infty $
+?
+\end{noliste}
+
+\subsection*{1.3. Comportement asymptotique de $(x_{n})_{n\in
+\N^{\times }}$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $\dfrac{\ln (x_{n})}{n}$ tend vers $0$ quand $n$ tend
+vers 
+$ + \infty.$ En déduire que :
+\[
+x_{n}\underset{n\rightarrow + \infty }{\sim }n.
+\]
+
+\item Calculer la limite de $x_{n + 1}-x_{n}$ quand $n$ tend vers $ +
+\infty.$
+
+\item On pose :
+\[
+\forall n\in \N^{\times },\qquad u_{n} = \dfrac{n-x_{n}}{\ln n}.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que :
+\[
+\forall n\in \N^{\times },\qquad u_{n}-1 = \dfrac{\ln \left(
+\dfrac{x_{n}}{n}\right) }{\ln n}.
+\]
+
+\item Quelle est la limite de $u_{n}$ quand $n$ tend vers $ + \infty $
+?
+
+\item Prouver alors que :
+\[
+1-u_{n}\underset{n\rightarrow + \infty }{\sim }\dfrac{1}{n}
+\]
+\end{noliste}
+
+\item En déduire qu'il existe une fonction $\varepsilon $ ayant une
+limite
+nulle en $0$ telle que, pour tout entier supérieur ou égal à $2,$ on
+ait :
+\[
+x_{n} = n-\ln n + \dfrac{\ln n}{n} + \dfrac{\ln n}{n}\varepsilon
+(\dfrac{1}{n})
+\]
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+Dans cet exercice, on se propose d'étudier la nature et la somme de la
+série
+de terme général :
+\[
+\forall n\in \N^{\times },\quad u_{n} = \dint{0}{\pi /2}x\sin
+(nx)\cos ^{n}xdx.
+\]
+A cet effet, on pose :
+\[
+\forall n\in \N^{\times },\quad S_{n} = \Sum{k = 1}{n}\dfrac{1}{k}
+\]
+et \textit{on admettra} dans la suite que, pour tout réel $x :$
+\[
+\Sum{p = 1}{n}C_{n}{p}\sin (2px) = 2^{n}\sin (nx)\cos ^{n}x
+\]
+
+\subsection*{2.1. Calcul de $u_{n}$ en fonction de $S_{n}$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On définit la fonction $f_{n}$ par :
+\[
+\left\{ 
+\begin{array}{cc}
+\forall t\in \ ]0,1] & f_{n}(t) = \dfrac{1-(1-t)^{n}}{t} \\
+ & f_{n}(0) = n
+\end{array}
+\right.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f_{n}$ est une fonction polynômiale sur $[0,1].$
+
+\item On pose :
+\[
+I_{n} = \dint{0}{1}f_{n}(t)dt.
+\]
+Prouver que :
+\[
+I_{n} = \Sum{p = 1}{n}C_{n}{p}\dfrac{(-1)^{p-1}}{p}
+\]
+puis, après avoir calculé $\dint{0}{1}(1-t)^{k-1}dt$ montrer que 
+\[
+I_{n} = S_{n}
+\]
+\end{noliste}
+
+\item Montrer que, pour tout entier naturel $p$ non nul :
+\[
+\dint{0}{\pi /2}x\sin (2px)dx = \dfrac{\pi (-1)^{p + 1}}{4p}
+\]
+et, à l'aide de la formule admise, en déduire que :
+\[
+u_{n} = \dfrac{\pi }{2^{n + 2}}S_{n}
+\]
+\end{noliste}
+
+\subsection*{2.2. Convergence et somme de la série}
+
+Soit $f$ la fonction définie sur $[0,1[$ par :
+\[
+f(x) = -\ln (1-x).
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Étudier les variations de la fonction $\varphi $ définie par :
+\[
+\forall t\in \lbrack 0,x],\quad \varphi (t) = \dfrac{x-t}{1-t}
+\]
+et montrer que :
+\[
+\forall t\in \lbrack 0,x],\quad 0\leq \varphi (t)\leq x.
+\]
+
+\item Vérifier que :
+\[
+\forall t\in \lbrack 0,x],\quad \dfrac{\varphi (t)}{1-t} =
+\dfrac{x-1}{(1-t)^{2}} + \dfrac{1}{1-t}.
+\]
+
+\item Montrer, par récurrence que :
+\[
+\forall n\in \N^{\times },\quad \forall x\in \lbrack 0,1[,\quad
+f(x) = \Sum{k = 1}{n}\dfrac{x^{k}}{k} + R_{n}(x)
+\]
+où l'on a posé :
+\[
+R_{n}(x) = \dint{0}{x}\dfrac{(\varphi (t))^{n}}{1-t}dt.
+\]
+
+\item En déduire de $2.2.1$ que :
+\[
+\forall x\in \lbrack 0,1[,\quad 0\leq R_{n}(x)\leq -x^{n}\ln (1-x)
+\]
+
+\item Exprimer la quantité $(1-x)\Sum{k = 1}{n}S_{k}x^{k}$ en
+fonction de $f(x),$ $R_{n}(x),$ $S_{n}$ et $x.$\\
+Prouver que la série de terme général $S_{k}x^{k}$ est convergente.
+Montrer
+que sa somme est $\dfrac{f(x)}{1-x}.$
+
+\item En déduire la valeur de $\Sum{p = 1}{+ \infty }u_{p}.$
+\end{noliste}
+
+\section*{PROBLEME}
+
+\subsection*{3.1. Première partie}
+
+On désigne par $E$ l'espace vectoriel $\R^{3},$ par $B =
+(e_{1},e_{2},e_{3})$ une base de $E,$ et par $f$ l'endomorphisme de $E$
+qui, à tout vecteur $u$ de coordonnées $(x,y,z)$ dans la base $B,$
+associe
+le vecteur $u^{\prime }$ de coordonnées $(x^{\prime },y^{\prime
+},z^{\prime
+})$ dans la base $B$ tel que :
+\[
+\left\{ 
+\begin{array}{c}
+4x^{\prime } = y \\
+4y^{\prime } = 4x + 2y + 4z \\
+4z^{\prime } = y
+\end{array}
+\right.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Écrire la matrice $M$ de l'endomorphisme $f$ dans la base $B.$
+
+\item Calculer les valeurs propres de $f$\\
+$f$ est-il diagonalisable ?\\
+$M$ est-elle inversible ?
+
+\item Déterminer les sous-espaces propres de $f.$
+\end{noliste}
+
+\subsection*{3.2. Deuxième partie}
+
+On dispose de deux urnes A et B : initialement l'urne A contient $N$
+boules
+noires tandis que l'urne B contient $N$ boules blanches, avec $N\geq
+2.$
+On y effectue une suite d'épreuves, chaque épreuve étant réalisée de la
+façon suivante :\\
+On tire au hasard une boule dans chacune des deux urnes, la boule tirée
+de
+l'urne A est mise dans B, celle tirée de B est mise dans A.\\
+On appelle $Y_{k}$ la variable aléatoire égale au nombre de boules
+noires présentes dans l'urne A à l'issue de la $k^{i\grave{e}me}$
+épreuve et l'on pose 
+$Z_{k} = Y_{k-1}-Y_{k},$ pour $k$ entier naturel non nul, avec la
+convention $Y_{0} = N.$\\
+Pour $k$ et $j$ entiers naturels, on pose :
+\[
+P\left(\Ev{k,j}\right) = P\left(\Ev{Y_{k} = j}\right)
+\]
+où $P$ désigne la probabilité. Ainsi :\begin{eqnarray*}
+P\left(\Ev{Y_{k} & = & j}\right) = 0\text{ si }j>N \\
+P\left(\Ev{Y_{0} & = & N}\right) = 1 \\
+P\left(\Ev{Y_{0} & = & k}\right) = 0\text{ si }k\neq N \\
+P\left(\Ev{Y_{k} & = & -1}\right) = 0
+\end{eqnarray*}
+
+\subsubsection*{3.2.1 Étude du cas particulier $N = 2$}
+
+On note $U_{k} = 
+\begin{smatrix}
+p(k,0) \\
+p(k,1) \\
+p(k,2)\end{smatrix},\quad V = \dfrac{1}{6}\begin{smatrix}
+1 \\
+4 \\
+1
+\end{smatrix}
+$ et $W = \dfrac{1}{6}\begin{smatrix}
+-1 \\
+2 \\
+-1
+\end{smatrix}.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer $U_{1}.$\\
+Calculer les probabilités conditionnelles :
+\[
+P_{(Y_{k} = j)}(Y_{k + 1} = i)
+\]
+pour $i\in \{0,1,2\}$ et $j\in \{0,1,2\}$ puis montrer que, pour tout
+entier
+naturel $k :$
+\[
+U_{k + 1} = M.U_{k}
+\]
+
+\item Prouver que, pour tout entier naturel $k$ non nul :
+\[
+U_{k} = \left( -\dfrac{1}{2}\right) ^{k-1}W + V
+\]
+
+\item En déduire l'expression de $p(k,0),$ $p(k,1)$ et $p(k,2)$ en
+fonction
+de $k$ pour $k$ entier naturel non nul.
+
+\item Montrer que l'espérance $\E(Y_{k})$ de la variable $Y_{k}$ est
+constante.
+
+\item Calculer la variance $\V(Y_{k})$ de la variable $Y_{k}$ en
+fonction de $k$ et sa limite quand $k$ tend vers $ + \infty.$
+\end{noliste}
+
+\subsubsection*{3.2.2. Retour au cas général}
+
+Dans cette deuxième partie, on revient au cas général avec $N\geq 3$ et
+on se propose d'étudier la convergence des suites $(\E(Y_{k}))_{k\in
+\N^{\times }}$ et $(\V(Y_{k}))_{k\in \N^{\times }}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calcul de l'espérance $\E(Y_{k})$ de la variable $Y_{k}.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Quelles sont les valeurs prises par la variable $Z_{k}$ ?
+Calculer :
+\[
+P\left(\Ev{Z_{k} = 1/Y_{k-1} = j}\right)\text{ et }P\left(\Ev{Z_{k} =
+-1/Y_{k-1} = j}\right)
+\]
+pour $j\in \N,$ $j\leq N$ et $k\in \N^{\times }.$
+
+\item En appliquant la formule des probabilités totales, prouver que,
+pour
+tout entier naturel $k$ non nul :
+\[
+\E(Z_{k}) = \dfrac{2}{N}\E(Y_{k-1})-1.
+\]
+
+\item Montrer que la suite $(\E(Z_{k}))_{k\in \N^{\times }}$ est
+géométrique.
+
+\item En déduire l'expression de $\E(Z_{k})$ et $\E(Y_{k})$ en fonction
+de $k$
+et de $N.$
+
+\item Montrer que les suites $(\E(Z_{k}))_{k\in \N^{\times }}$ et
+$(\E(Y_{k}))_{k\in \N^{\times }}$ sont convergentes et donner leur
+limite quand $k$ tend vers $ + \infty.$
+\end{noliste}
+
+\item Calcul de la variance $\V(Y_{k})$ de la variable $Y_{k} :$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que :
+\[
+\E(Z_{k}{2}) = E(Y_{k-1}{2})-2\E(Y_{k}Y_{k-1}) + E(Y_{k}{2})
+\]
+puis que 
+\[
+\E(Z_{k}Y_{k-1}) = E(Y_{k-1}{2})-\E(Y_{k}Y_{k-1}).
+\]
+
+\item En utilisant la méthode du $3.2.2.1.(b)$ montrer que :
+\[
+\E(Z_{k}Y_{k-1}) = \dfrac{2}{N}\E(Y_{k-1}{2})-\E(Y_{k-1})
+\]
+puis que :
+\[
+\E(Z_{k}{2}) = \dfrac{2}{N^{2}}\E(Y_{k-1}{2})-\dfrac{2}{N}\E(Y_{k-1}) +
+1
+\]
+
+\item Déduire des résultats précédents que :
+\[
+\E(Y_{k}{2}) = 2\dfrac{N-1}{N}\E(Y_{k-1}) + \dfrac{N^{2}-4N +
+2}{N^{2}}\E(Y_{k-1}{2}) + 1
+\]
+puis que :
+\[
+\V(Y_{k}) = \dfrac{N^{2}-4N +
+2}{N^{2}}\V(Y_{k-1})-\dfrac{2}{N^{2}}\left[
+\E(Y_{k-1})-\dfrac{N}{2}\right] ^{2} + \dfrac{1}{2}.
+\]
+(On utilisera la relation $\E(Y_{k}) = \dfrac{N-2}{N}\E(Y_{k-1}) + 1).$
+
+\item En remarquant que :
+\[
+\E(Y_{k})-\dfrac{N}{2} = \dfrac{N-2}{N}\left[
+E(Y_{k-1})-\dfrac{N}{2}\right]
+\]
+en déduire que $\V(Y_{k + 1})$ est égal à :
+\[
+\dfrac{2(N-1)(N-3)}{N^{2}}\V(Y_{k})-\dfrac{(N-2)^{2}(N^{2}-4N +
+2)}{N^{4}}\V(Y_{k-1}) + \dfrac{2(N-1)}{N^{2}}
+\]
+
+\item On pose :
+\[
+u_{k} = V(Y_{k})-\dfrac{N^{2}}{4(2N-1)}
+\]
+Montrer que :
+\[
+u_{k + 1} = \dfrac{2(N-1)(N-3)}{N^{2}}u_{k}-\dfrac{(N-2)^{2}(N^{2}-4N +
+2)}{N^{4}}u_{k-1}
+\]
+
+\item En déduire qu'il existe deux réels $\lambda $ et $\mu,$ que l'on
+ne
+calculera pas, tels que :
+\[
+\V(Y_{k}) = \dfrac{N^{2}}{4(2N-1)} + \lambda \left(
+\dfrac{N-2}{N}\right)
+^{2k} + \mu \left( \dfrac{N^{2}-4N + 2}{N^{2}}\right) ^{k}
+\]
+
+\item Montrer enfin que $\V(Y_{k})$ tend vers $\dfrac{N^{2}}{4(2N-1)}$
+lorsque $k$ tend vers $ + \infty $
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

@@ -1,0 +1,510 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 2005} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 2005}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2005}}
+
+
+
+{\large \textbf{Concepteur : Edhec}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{Exercice 1}
+
+On note $J_{1} = \left( 
+\begin{array}{cc}
+1 & 0 \\
+0 & 0
+\end{array}
+\right),\,J_{2} = \left( 
+\begin{array}{cc}
+0 & 1 \\
+0 & 0
+\end{array}
+\right),\,J_{3} = \left( 
+\begin{array}{cc}
+0 & 0 \\
+1 & 0
+\end{array}
+\right),\,$et $J_{4} = \left( 
+\begin{array}{cc}
+0 & 0 \\
+0 & 1
+\end{array}
+\right),$ et on rappelle que la famille $\left(
+J_{1},J_{2},J_{3},J_{4}\right) $ est une base de
+$\mathfrak{M}_{2}\left( 
+\R\right) $.
+
+Soit $f$ l'application qui, à toute matrice $M = \left( 
+\begin{array}{cc}
+a & b \\
+c & d
+\end{array}
+\right) $ de $\mathfrak{M}_{2}\left( \R\right),$ associe $f\left(
+M\right) = M + \left( a + b\right) I$ où $I$ désigne la matrice $\left(
+
+\begin{array}{cc}
+1 & 0 \\
+0 & 1
+\end{array}
+\right) $.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $f$ est un endomorphisme de $\mathfrak{M}_{2}\left( 
+\R\right) $.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer $f\left( J_{1}\right),$ $f\left( J_{2}\right),$ $f\left(
+J_{3}\right),$ et $f\left( J_{4}\right) $ comme combinaisons linéaires
+de $
+J_{1},\,J_{2},\,J_{3}$ et $J_{4}.$
+
+\item Vérifier que la matrice $A$ de $f$ dans la base $\left(
+J_{1},J_{2},J_{3},J_{4}\right) $ est $A = \left( 
+\begin{array}{rrrr}
+2 & 0 & 0 & 1 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+1 & 0 & 0 & 2
+\end{array}
+\right) $.
+
+\item Justifier que $f$ est diagonalisable.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\left( J_{1}-J_{4},J_{2},J_{3},I\right) $ est une
+base de 
+$\mathfrak{M}_{2}\left( \R\right) $.
+
+\item Écrire la matrice $D$ de $f$ dans cette base.
+
+\item En déduire l'existence d'une matrice $P$ inversible telle que $
+A = PDP^{-1}$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la matrice $P^{-1}$.
+
+\item Montrer que, pour tout $n$ de $\N$, $A^{n} = PD^{n}P^{-1}$.
+
+\item En déduire explicitement la matrice $A^{n}$.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 2}
+
+Soit $f$ la fonction définie sur $\R^{2}$ par : $\forall \left(
+x,y\right) \in \R^{2},\quad f\left( x,y\right) = x\,e^{x\left(
+y^{2} + 1\right) }$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Justifier que $f$ est de classe $C^{2}$ sur $\R^{2}$.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les dérivées partielles premières de $f$.
+
+\item En déduire que le seul point en lequel $f$ est susceptible de
+présenter un extremum local est $A = \left( -1,0\right) $.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les dérivées partielles secondes de $f$.
+
+\item Montrer qu'effectivement, $f$ présente un extremum local en $A$.
+En préciser la nature et la valeur.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : $\forall \left( x,y\right) \in \R^{2},\;f\left(
+x,y\right) \geq x\,e^{x}$.
+
+\item En étudiant la fonction $g$ définie sur $\R$ par $g\left(
+x\right) = x\,e^{x},$ conclure que l'extremum trouvé à la question 2b)
+est un
+extremum global de $f$ sur $\R^{2}$.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 3}
+
+Dans cet exercice, $a$ désigne un réel strictement positif.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On considère la fonction $f$ sur $\R$ par : $f\left( t\right)
+ = \left\{ 
+\begin{array}{ccc}
+a\left( 1-t\right) ^{a-1} & \text{si} & t\in \left[ 0,1\right[ \\
+0 & \text{si} & t\notin \left[ 0,1\right[ 
+\end{array}
+\right. $
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout $x$ de $\left[ 0,1\right[,$ calculer $\dint{0}{x}f
+\left( t\right) \,dt$.
+
+\item En déduire que $\dint{0}{1}f\left( t\right) \,dt$ est une
+intégrale convergente et donner sa valeur.
+
+\item Montrer que $f$ peut être considérée comme une fonction densité
+de
+probabilité.\\
+On considère maintenant une variable aléatoire $X$ admettant $f$ comme
+densité et on note $F$ sa fonction de répartition.
+\end{noliste}
+
+\item Expliciter $F(x)$ pour tout réel $x$.\\
+On se propose de déterminer l'espérance $\E\left( X\right) $et la
+variance $
+\V\left( X\right) $ de la variable aléatoire $X$. Pour ce faire, on
+pose $
+Y = -\ln \left( 1-X\right) $ et on admet que $Y$ est une variable
+aléatoire à
+densité. On note alors $G$ sa fonction de répartition.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout réel $x$ positif, exprimer $G\left( x\right) $ en
+fonction
+de $x.$
+
+\item En déduire que $Y$ suit la loi exponentielle de paramètre $a$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout réel $\lambda >0$, donner la valeur de $\dint{0}{+
+\infty }e^{-\lambda \,x}dx$.
+
+\item En déduire que la variable aléatoire $e^{-Y}$ possède une
+espérance et
+donner sa valeur en fonction de $a$.
+
+\item Exprimer $X$ en fonction de $Y$, puis en déduire que $X$ possède
+une
+espérance dont on donnera l'expression en fonction de $a$.
+
+\item Montrer que la variable aléatoire $e^{-2Y}$ possède une espérance
+et
+que $\E\left( e^{-2Y}\right) = \dfrac{a}{a + 2}$. \\
+En déduire la variance de $e^{-Y}$ puis la variance de $X$.
+\end{noliste}
+\end{noliste}
+
+\section*{Problème}
+
+Un mobile se déplace sur les points à coordonnées entières d'un axe
+d'origine $O.$\\
+Au départ, le mobile est à l'origine.\\
+Le mobile se déplace selon la règle suivante : s'il est sur le point
+d'abscisse $k$ à l'instant $n$, alors, à l'instant $\left( n + 1\right)
+$ il
+sera sur le point d'abscisse $\left( k + 1\right) $ avec la probabilité
+$p$ ($
+0<p<1$) ou sur le point d'abscisse $0$ avec la probabilité $1-p$.\\
+Pour tout $n$ de $\N$, on note $X_{n}$ l'abscisse de ce point à
+l'instant $n$ et l'on a donc $X_{0} = 0$.\\
+On admet que, pour tout $n$ de $\N$ $X_{n}$ est définie sur un
+espace probabilisé $\left( \Omega,\mathcal{A},P\right) $.\\
+Par ailleurs, on note $T$ l'instant auquel le mobile se trouve pour la
+première fois à l'origine (sans compter son positionnement au
+départ).\\
+Par exemple, si les abscisses successives du mobile après son départ
+sont $0$, $0$, $1$, $2$, $0$, $0$, $1$, alors on a $T = 1$. Si les
+abscisses successives sont : $1$, $2$, $3$, $0$, $0$, $1$, alors on a
+$T = 4$.\\
+On admet que $T$ est une variable aléatoire définie sur $\left(
+\Omega,\mathcal{A},\Prob\right) $.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout $k$ de $\N^{\times }$, exprimer l'évènement $\left(
+T = k\right) $ en fonction d'évènements mettant en jeu certaines des
+variables 
+$X_{i}$.
+
+\item Donner la loi de $X_{1}$.
+
+\item En déduire $P\left(\Ev{ T = k}\right) $ pour tout $k$ de
+$\N^{\times }
+$, puis reconnaître la loi de $T$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer par récurrence que, pour tout entier naturel $n$,
+$X_{n}\left(
+\Omega \right) = [ \ \hspace{-0.15em}[0,n]\hspace{-0.13em}]$.
+
+\item Pour tout $n$ de $\N^{\times }$, utiliser le système complet
+d'évènements $\left( X_{n-1} = k\right)_{0\leq k\leq n-1}$ pour montrer
+que : $P\left(\Ev{ X_{n} = 0}\right) = 1-p$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir que : $\forall n\in \N,\quad \forall k\in \left\{
+1,2,\dots n + 1\right\},\quad P\left(\Ev{ X_{n + 1} = k}\right) =
+pP\left(\Ev{
+X_{n} = k-1}\right) $.
+
+\item En déduire que : $\forall n\in \N^{\times },\quad \forall k\in
+\left\{ 0,1,2\dots,n-1\right\},\quad P\left(\Ev{ X_{n} = k}\right) =
+p^{k}\left(
+1-p\right).$\\
+En déduire également la valeur de $P\left(\Ev{ X_{n} = n}\right) $.
+Donner une
+explication probabiliste de ce dernier résultat.
+
+\item Vérifier que $\Sum{k = 0}{n}P\left(\Ev{ X_{n} = k}\right) = 1$.
+\end{noliste}
+
+\item Dans cette question et dans cette question seulement, on prend $p
+= 
+\dfrac{1}{3}$.\\
+On rappelle que \texttt{random(3)} renvoie au hasard un entier de
+$\left\{
+0,1,2\right\} $.\\
+Compléter le programme suivant pour qu'il simule l'expérience aléatoire
+étudiée et affiche la valeur prise par $X_{n}$ pour une valeur de $n$
+entrée par l'utilisateur.\\
+\texttt{Program edhec2005 ;}
+
+\texttt{Var k, n, u, X : integer ;}
+
+\texttt{begin}
+
+\texttt{\hspace{1cm}Readln(n) ;}
+
+\texttt{\hspace{1cm}Randomize ; }
+
+\texttt{\hspace{1cm}X : = O;}
+
+\texttt{\hspace{1cm}For k : = 1 to n do }
+
+\texttt{\hspace{1cm}begin}
+
+\texttt{\hspace{2cm}u : = random(3) ;}
+
+\texttt{\hspace{2cm}if (u = 2) then X : =.........;}
+
+\texttt{\hspace{2cm}\hspace{1cm}else X : =.......;}
+
+\texttt{\hspace{2cm}end ;}
+
+\texttt{\hspace{1cm}Writeln (X) ;}
+
+\texttt{end.}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : $\forall n\geq 2,\quad
+\Sum{k = 1}{n-1}kp^{k-1} = \dfrac{\left( n-1\right) p^{n}-n\,p^{n-1} +
+1}{\left( 1-p\right) ^{2}}$.
+
+\item En déduire que $\E\left( X_{n} \right) = \dfrac{p\left(
+1-p^{n}\right) }{1-p}$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer, en utilisant la question 3a), que : $\forall n\in
+\N,\quad E\left( X_{n + 1}{2}\right) = p\left( E\left( X_{n}{2}\right)
++ 2\E\left(
+X_{n}\right) + 1\right) $.
+
+\item Pour tout entier naturel $n$, on pose $u_{n} = E\left(
+X_{n}{2}\right)
+ + \left( 2n-1\right) \dfrac{p^{n + 1}}{1-p}$. \\
+Montrer que $u_{n + 1} = pu_{n} + \dfrac{p\left( 1 + p\right) }{1-p}$.
+
+\item En déduire l'expression de $u_{n}$, puis celle de $\E\left(
+X_{n}{2}\right) $ en fonction de $p$ et $n$.
+
+\item Montrer enfin que : $\V\left( X_{n}\right) = \dfrac{p}{\left(
+1-p\right)
+^{2}}\left( 1-\left( 2n + 1\right) p^{n}\left( 1-p\right) -p^{2n +
+1}\right) $.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+
+
+
+\end{document}
+

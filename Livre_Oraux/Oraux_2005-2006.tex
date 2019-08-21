@@ -1,0 +1,613 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill 15 mai 2017 \\
+  Mathématiques\\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                  % de largeur 0,4 point. Mettre 0pt
+                                  % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+ \setlength{\headheight}{14pt}
+
+
+ \title{Oraux HEC - 2005 - 2006} %
+ \author{} %
+ \date{} %
+ \begin{document}
+
+ \maketitle %
+ \vspace{-1.6cm}\hrule %
+ \thispagestyle{fancy}
+
+ \vspace*{1cm}
+
+ % \noindent
+ % {\Large \bf Chaque exercice sera rédigé sur des copies séparées.}
+
+\section{Annales 2006}
+
+%\setcounter{exercice}{0}
+\begin{exercice}{\it (Exercice avec préparation)}~\\
+  Soient $X$ et $Y$ deux variables aléatoires indépendantes à
+  densité continues.\\
+  Soit $U=\min \left( X,Y\right) $ et $V=\max \left( X,Y\right)$.\\
+  Soient $F_{X}$, $F_{Y}$, $F_{U}$, $F_{V}$ les fonctions de répartition
+  de $X$, $Y$, $U$ et $V$ respectivement.
+
+  \begin{noliste}{1.}
+  \item Définition et propriétés de la fonction de ré%
+    partition d'une variable aléatoire.
+
+  \item Montrer que $\forall t\in \R,\mathbb{\ F}_{U}\left( t\right)
+    =1-\left( 1-F_{X}\left( t\right) \right) \left( 1-F_{Y}\left( t\right)
+    \right) $.
+
+  \item Établir une relation analogue entre $F_{V},\ F_{X}$ et
+    $F_{Y}$.
+
+  \item On suppose à présent que $X$ et $Y$ suivent la loi
+    exponentielle de paramètre 1.
+
+    \begin{noliste}{a)}
+    \item Quelle est la loi de $U$ ? Que vaut $\Prob\left( U=X\right) $ ?
+
+    \item Montrer que $V$ a même loi que $Z=X+Y$. \\
+      En déduire l'espérance et la variance de $V$.
+    \end{noliste}
+  \end{noliste}
+
+
+
+\end{exercice}
+
+\addtocounter{exercice}{-1}
+\begin{exercice}{\it (Exercice sans préparation)}~\\
+  Soit $A$ la matrice de $\mathcal{M}_{3}\left( \R\right) $ définie
+  par : $A=%
+  \begin{smatrix}
+    0 & 1 & 1 \\
+    1 & 0 & 1 \\
+    0 & 0 & 1%
+  \end{smatrix}%
+  $.
+  \begin{noliste}{1.}
+  \item La matrice $A$ est-elle diagonalisable ? La matrice $A$
+    est-elle inversible ?
+  \item Déterminer tous les entiers naturels $p$ et $q$ tels que $%
+    A^{2p+1}=A^{2q}$
+  \item Existe-t-il un entier $n$ tel que $M^{n}=A$ si
+    \begin{noliste}{a)}
+    \item $M=\left(
+        \begin{array}{ccc}
+          0 & 1 & 2 \\
+          1 & 1 & 1 \\
+          1 & 2 & 3%
+        \end{array}%
+      \right) $
+    \item $M_{2}=\left(
+        \begin{array}{ccc}
+          0 & 1 & 0 \\
+          1 & -1 & 1 \\
+          0 & 1 & 1%
+        \end{array}%
+      \right) $
+    \end{noliste}    
+  \end{noliste}
+\end{exercice}
+
+
+\newpage
+
+
+\begin{exercice}{\it (Exercice avec préparation)}~\\
+  Soit $f$ l'endomorphisme de $\R^{3}$ dont la matrice dans la base
+  canonique s'écrit : $A=%
+  \begin{smatrix}
+    -1 & 0 & 1 \\
+    0 & 0 & 0 \\
+    1 & 0 & -1%
+  \end{smatrix}%
+  $
+  \begin{noliste}{1.}
+  \item Définition et propriétés des matrices de passage.
+
+  \item Donner une base et la dimension de $\ker \left( f\right)$.
+
+  \item Donner une base et la dimension de $\im \left( f\right)$.
+
+  \item Donner les valeurs propres et les sous espaces propres de $f$.
+
+  \item $f$ est-il diagonalisable ?
+
+  \item Calculer $A^{n}$ pour $n\in \N^{\ast }.$
+
+  \item On note $I$ la matrice identité dans la base canonique.\\
+    Déterminer les réels $a$ tels que $\left( A-aI\right) ^{2}=I.$
+  \end{noliste}
+\end{exercice}
+
+\addtocounter{exercice}{-1}
+\begin{exercice}{\it (Exercice sans préparation)}~\\
+  Soient $X_{1},\cdots ,X_{n}$, des variables aléatoires indépendantes
+  de même loi définie :
+  \[
+  \Prob\left( X_{i}=-1\right) =\Prob\left( X_{i}=0\right)
+  =\Prob \left( X_{i}=1\right) =\frac{1}{3}
+  \]
+  On définit alors des variables aléatoires $\left( Y_{i}\right)
+  _{1\leq i\leq n}$ et $\left( Z_{i}\right) _{1\leq i\leq n}$ par
+  :\\
+  $Y_{i}=1$ si $X_{i}=1$ et $Y_{i}=0$ sinon.\\
+  $Z_{i}=1$ si $X_{i}=0$ et $Z_{i}=0$ sinon.\\
+  On pose $T_{1}=\Sum{i=1}{n}Y_{i},\quad T_{2}=\Sum{i=1}{n}Z_{i}$ et
+  $U=T_{1}+T_{2}$.\\
+  Déterminer $\Prob_{\left( T_{1}=t_{1}\right) \cap \left(
+      T_{2}=t_{2}\right) }\left( X_{i}=1\right) $.\\
+  Déterminer $\Prob_{\left( U=k\right) }\left( T_{1}=t_{1}\right)
+  $ (avec $0\leq t_{1}\leq k\leq n$ et expliquer ce résultat.
+\end{exercice}
+
+
+\newpage
+
+
+\begin{exercice}{\it (Exercice avec préparation)}~\\
+  Soit $E$ l'ensemble des fonctions $f$ de $\R^{+}$ dans $\R$ de
+  classe $C^{2}$ telles que
+  \[
+  \forall x\in \R^{+},\quad f^{\prime \prime }\left( x\right) -\left(
+    1+x^{4}\right) f\left( x\right) =0
+  \]
+  On admet que $E$ contient une unique fonction $f_{0}$ vérifiant $%
+  f_{0}\left( 0\right) =f^{\prime }\left( 0\right) =1$
+
+  \begin{noliste}{1.}
+  \item Rappeler la définition et les propriétés des fonctions
+    convexes et montrer que $f_{0}^{2}$ est convexe.
+
+  \item Montrer que $\forall t\in \R^{+},\ f_{0}\left( t\right) \geq 1$
+
+  \item Montrer l'existence de l'intégrale $\dint{0}{+\infty
+    }\dfrac{1}{ f_{0}^{2}\left( t\right) }dt$.\\[.2cm]
+    On définit $f_{1}$par $\forall x\in \R^{+}:f_{1}\left( x\right)
+    =f_{0}\left( x\right) \dint{x}{+\infty }\dfrac{1}{f_{0}^{2}\left(
+        t\right) }dt$.
+
+  \item Montrer que $f_{1}\in E$ et que $f_{1}$ est bornée.
+  \end{noliste}
+\end{exercice}
+
+\addtocounter{exercice}{-1}
+\begin{exercice}{\it (Exercice sans préparation)}~\\
+  Soit $\left( X_{n}\right) $ une suite de variables aléatoires
+  indépendantes suivant une même loi de Bernoulli de paramètre $p$,
+  $0<p<1$.\\
+  On pose $Y_{n}=X_{n}X_{n+1}$ et \ $U_{n}=Y_{1}+\cdots +Y_{n}$.
+  \begin{noliste}{1.}
+  \item Déterminer la loi de $Y_{n}$.
+  \item Les variables $Y_{i}$, sont-elles deux à eux indépendantes
+  \item Calculer $\E\left( U_n\right) $ et $\V\left( U_{n}\right) $
+  \item Étudier la convergence de la suite $\left(
+      \frac{U_{n}}{n}\right) $.
+  \end{noliste}
+\end{exercice}
+
+
+\newpage
+
+
+\begin{exercice}{\it (Exercice avec préparation)}~\\
+  Soient $\theta \in \left[ -2;2\right] $ et $X$ une variable
+  aléatoire à densité $f_{\theta }$ définie par $f_{\theta }\left(
+    x\right) =\theta x-\frac{\theta }{2}+1$ si $x\in \left[
+    0,1\right]$ et $0$ sinon.
+
+  \begin{noliste}{1.}
+  \item Donner la définition et des exemples d'esimateurs.
+
+  \item Montrer que $X$ admet une espérance et une variance que l'on
+    calculera.
+
+  \item On admet que $\forall k\in \N,\mathbb{\ }\dint{0}{+\infty
+    }u^{k}e^{-u}du=k!$.\\
+    Montrer que la variable aléatoire $Y=-\ln \left( X\right) $ admet
+    une espérance et une variance que l'on calculera (on pourra
+    effectuer le changement de variable défini par la fonction
+    $x\rightarrow -\ln \left( x\right) $ sur un intervalle adéquat)
+
+    On considère un échantillon de $n$ variables aléatoires
+    indépendantes de même loi que $X$ et on pose $\widehat{X_{n}} =
+    \dfrac{X_{1}+\cdots +X_{n}}{n}$ et $T_{n} = 12\left(
+      \widehat{X_{n}}-\dfrac{1}{2}\right) $.
+
+  \item Montrer que $T_{n}$ est un estimateur sans biais de $\theta $.
+  \end{noliste}
+\end{exercice}
+
+\addtocounter{exercice}{-1}
+\begin{exercice}{\it (Exercice sans préparation)}~\\
+  Soient $a>0$ et $f$ définie sur $\left( \R_{+}^{\ast }\right) ^{2}$
+  par $f\left( x,y\right) =x^{2}+y^{2}+\dfrac{a}{xy}$.\\
+  Déterminer les extrema de $f$.
+\end{exercice}
+
+
+\newpage
+
+
+\begin{center} 
+  Petits exercices à utiliser en cas de besoin. \\
+  La forme de l'oral a changé depuis, ils ne sont pas tellement
+  caractéristiques dans leur forme \\
+  mais intéressants sur le fond. 
+\end{center}
+
+\rule{15cm}{0.1cm}
+
+On dispose d'urnes $U_{1},\ U_{2},\ \cdots ,U_{n},\cdots .$ La premi%
+ère $U_{1}$ contient une boule noire, une boule blanche et une boule
+$B$ de couleur. inconnue. Les suivantes $U_{2},\ \cdots ,U_{n},\cdots$
+contiennent une boule blanche et une boule noire.
+
+On tire une première boule de l'urne $U_{1}$ qu'on remet dans
+$U_{2}$..  Puis on tire une deuxième boule de $U_{2}$ qu'on remet
+clans $U_{3}$ etc.
+
+On désigne par $p_{n}$ \ la probabilité que la $n^{i\grave{e}me}$ \
+boule tirée (de $U_{n}$) soit blanche.
+
+\begin{noliste}{1.}
+\item Dans cette question, on suppose que $p_{1000}=\frac{1}{2}-\left( \frac{%
+      1}{3}\right) ^{999}$. \\
+  La boule $B$ était-elle blanche ?
+
+\item Dans cette question, on suppose que. pour tout $n$ supérieur
+  à $1000$ on a l'égalité $p_{n}=\dfrac{2}{3}-\dfrac{1}{2}\dfrac{%
+    1-\left( \frac{1}{3}\right) ^{n}}{1+\left( \frac{1}{3}\right)
+    ^{n}}$
+
+  La boule $B$ était-elle noire.
+\end{noliste}
+
+\rule{15cm}{0.1cm}
+
+On dispose de $7$ Euros. Chaque semaine a lieu une loterie de 100
+billets dont 10 sont gagnants. Chaque billet co\^{u}te 1 Euro.
+
+\begin{noliste}{1.}
+\item Dans cette question on veut, maximiser la chance de gagner au moins
+  une fois. Discuter l'affirmation "On a intérêt, à acheter sept
+  billets la première semaine plut\^{o}t que d'acheter un billet pendant
+  sept semaines".
+
+\item On veut maximiser le nombre de billets gagnants achetés. Discuter
+  l'affirmation "On a intérêt à acheter sept billets la premiè%
+  re semaine plut\^{o}t que d'acheter un billet pendant sept semaines".
+\end{noliste}
+
+\rule{15cm}{0.1cm}
+
+Vous disposez d'une trousse contenant 10 stylos dont un seul
+fonctionne.
+
+\begin{noliste}{1.}
+\item Vous en essayez un (au hasard), puis s'il y a échec, un deuxiè%
+  me, s'il y a échec, vous remettez le premier et vous tirez \ (au hasard)
+  le troisième puis, s'il y a échec, vous remettez le deuxième et
+  vous tirer (au hasard) le quatrième, puis...\\
+  Combien devrez vous effectuer d'essais de stylo en moyenne pour trouver le
+  bon ?
+
+\item Vous les essayez l'un après l'autre jusqu'à trouver celui qui
+  fonctionne. \\
+  Combien devrez vous effectuer d'essais de stylo en moyenne ?
+
+\item Même question si suppose qu'à chaque essai infructueux. vous
+  remettez (à tort ) le stylo et que vous tirez au hasard à, nouveau.
+\end{noliste}
+
+\rule{15cm}{0.1cm}
+
+Dans un programme de calcul, l'opérateur décide d'utiliser $J$
+chiffres significatifs après la virgule et d'arrondir tous les ré%
+sultats d'opérations à cette configuration (donc à $0,5\cdot
+10^{-J}$ près).
+
+On suppose qu'il effectue $10^{6}$ opérations élémentaires
+successives, que les erreurs commises pour chacune sont indépendantes,
+de loi uniforme sur $\left[ -0,5\cdot 10^{-J};0,5\cdot 10^{-J}\right] $ et
+que l'erreur sur le résultat final est la somme des erreurs commises sur
+chaque opération.
+
+Déterminer une valeur approchée de la \ probabilité \ pour que
+l'erreurs finale soit inférieure ou égale, en valeur absolue à $%
+0,5\cdot 10^{-J+3}$\\
+On \ donne $2F\left( \sqrt{3}\right) -1\sim 0,92$ où $F$ est la
+fonction de répartition de la loi normale centrée réduite.
+
+
+\newpage
+
+
+\rule{15cm}{0.1cm}
+
+
+\begin{noliste}{1.}
+\item Montrer que la fonction $g_{n}$ définie sur $\R$ par $%
+  g_{n}\left( x\right) =\left( \Sum{k=0}{n}\dfrac{x^{k}}{k!}\right) e^{-x}$
+  est dérivable et calculer sa dérivée.
+
+\item Montrer que, pour tout $n$ de $\N$ l'équation $%
+  \Sum{k=0}{n}\dfrac{x^{k}}{k!}=\dfrac{e^{x}}{2}\ $admet une solution et une
+  seule dans $\R^{+}$
+
+  \hspace{-1cm}Dans la suite on note $a_{n}$ cette solution.
+
+\item Écrire un programme Turbo-pascal permettant de calculer le plus
+  \ "économiquement" possible la valeur de
+  $\Sum{k=0}{n}\dfrac{x^{k}}{k!}$ pour $x$ donné.
+
+\item La suite de terme général $a_{n}$ est-elle monotone ?
+\end{noliste}
+
+
+\newpage
+
+
+\section{Annales 2005}
+
+\begin{center} 
+  Petits exercices à utiliser en cas de besoin. \\ La forme de l'oral
+  a changé depuis, ils ne sont pas tellement caractéristiques dans
+  leur forme \\ mais intéressants sur le fond 
+\end{center}
+
+\section*{\textbf{Questions avec préparation.}}
+
+\begin{noliste}{1.}
+\item À tout triplet de nombres réels $\left( a,b,c\right) ,$ on
+  associe la matrice
+  \[
+  M\left( a,b,c\right) =\left( 
+    \begin{array}{rrr}
+      1 & 0 & 0 \\ 
+      a & 1 & 0 \\ 
+      b & c & 1%
+    \end{array}%
+  \right) 
+  \]
+
+  \begin{noliste}{a)}
+  \item Une telle matrice $M\left( a,b,c\right) $ est-elle diagonalisable ?
+
+  \item Calculer $\left( M\left( a,b,c\right) -I\right) ^{n}$ pour tout $n$
+    entier naturel non nul
+
+  \item Déterminer $M^{n}$ en fonction de $I\;,\,M$ et $M^{2}$ pour $n\in 
+    \N$ puis pour $n\in \mathbb{Z}$
+  \end{noliste}
+
+\item 
+  \begin{noliste}{a)}
+  \item La matrice $A=\left( 
+      \begin{array}{rrr}
+        13 & -9 & 45 \\ 
+        -3 & 3 & -11 \\ 
+        -3 & 2 & -10%
+      \end{array}%
+    \right) $,est -elle diagonalisable ?
+
+  \item Déterminer $P$ inversible telle que $P^{-1}AP=\left( 
+      \begin{array}{rrr}
+        a & 0 & 0 \\ 
+        0 & b & c \\ 
+        0 & 0 & b%
+      \end{array}%
+    \right) =T$
+  \end{noliste}
+
+\item Soit $t$ un nombre réel et $A\left( t\right) $ la matrice : 
+  \[
+  A\left( t\right) =\left( 
+    \begin{array}{ccc}
+      1-t & -t & 0 \\ 
+      -t & 1-t & 0 \\ 
+      -t & t & 1-2t%
+    \end{array}%
+  \right) 
+  \]
+
+  On note $\mathcal{M}$ l'ensemble de ces matrices quand $t$ décrit
+  $\R$.
+
+  \begin{noliste}{a)}
+  \item Montrer que $\mathcal{M}$ est stable par produit matricielle.
+
+  \item Déterminer les valeurs de $t$ pour lesquelles $A\left( t\right) $
+    est inversible .
+
+    Montrer que $A\left( t\right) ^{-1}$ appartient encore à $\mathcal{M}$
+
+  \item résoudre l'équation $X^{2}=A\left( \frac{-3}{2}\right) $
+    d'inconnue $X$ appartenant à $\mathcal{M}$
+
+  \item Soit $C=A\left( -1\right) .$ déterminer $C^{n}$ pour tout entier
+    naturel $n$que)
+  \end{noliste}
+
+\item Étudier la fonction
+
+  \[
+  f:x\rightarrow \dint{x}{2x}\frac{1}{\sqrt{t^{4}+t^{2}+1}}dt 
+  \]
+
+  Ensemble de définition, continuité, dérivée, graphe.
+
+\item Pour tout $n\in \N^{\ast }$ on pose : 
+  \[
+  I_{n}=\dint{0}{1}\frac{1}{\left( 1+x\right) \left( 1+\frac{x}{2}\right)
+    \cdots \left( 1+\frac{x}{n}\right) }dx 
+  \]
+
+  Étudier la suite $\left( I_{n}\right) _{n\in \N^{\ast }}$, montrer
+  que
+  \[
+  I_{n}\leq \dint{0}{1}\frac{dx}{1+x\ln \left( n\right) }dx 
+  \]
+
+  et déterminer la limite de la suite $\left( I_{n}\right) _{n\in
+    \mathbb{N}}$.
+
+\item Soit $a$ un réel strictement positif. On se propose de
+  déterminer les fonctions $f$ trois fois dérivables sur un intervalle
+  $\left[ 0,2a\right] $ à valeurs réelles et telles que
+  \[
+  \forall x\in \left[ 0,2a\right] ,\frac{f\left( x\right) }{2}=f\left( \frac{x%
+    }{2}\right) +f\left( a-\frac{x}{2}\right) 
+  \]
+
+  Montrer qu'il existe $c\in \left[ 0,a\right] $ tel que $f^{\prime \prime
+  }\left( c\right) =\max_{t\in \left[ 0,2a\right] }\left( f^{\prime \prime
+    }\left( t\right) \right) $ et prouver que $f^{\prime \prime }\left( c\right)
+  =f^{\prime \prime }\left( \frac{c}{2}\right) $
+
+  Déterminer alors les solutions $f$.
+
+\item On se donne $n$ variables aléatoires mutuellement indépendantes
+  $\left( U_{i}\right) _{1\leq i\leq n}$ de même loi de Bernoulli de
+  paramètre $p\in \left] 0,1.\right[ $
+
+  \begin{noliste}{a)}
+  \item Déterminer l'espérance et la variance de la variable aléatoire
+    $Y = \Sum{i=1}{n}U_{i}$.
+
+  \item On suppose que $n\geq 4.$ calculer , pour chaque entier $k\in
+    \mathbb{N}$ la probabilité de l'événement $\left[ Y=k\right] $
+    conditionné par l'événement $\left[ U_{2}=0\right] \cap \left[
+      U_{4}=1 \right]$.
+
+  \item Calculer , pour chaque entier $k\in \N,$ la probabilité de
+    l'événement $\left[ Y=k\right] $ conditionné à l'évé%
+    nement $\left[ Y>0\right] $
+  \end{noliste}
+
+\item Soit $X$ une variable aléatoire définie sur un espace
+  probabilité $\left( \Omega ,A,\Prob\right) $ et à valeurs dans
+  $\N$. Pour tout $\omega $ de $\Omega $, on pose $Y\left( \omega
+  \right) =\frac{X\left( \omega \right) }{2}$ si $X\left( \omega
+  \right) $ est pair et $Y\left( \omega \right) =\frac{1-X\left(
+      \omega \right) }{2}$ sinon.
+
+  \begin{noliste}{a)}
+  \item Déterminer $\left[ Y=0\right] $ et, pour chaque $k\in \mathbb{Z},$ 
+    $\left[ Y=k\right] .$
+
+  \item Soit $p\in \left] 0,1\right[ .$ On suppose que la loi de $X$
+    est donnée par :
+    \[
+    \forall k\in \N,\ \Prob\left( X=k\right) =p\left( 1-p\right)
+    ^{k} 
+    \]%
+    Déterminer alors la loi de $Y$ ainsi que son espérance
+    mathématique.
+  \end{noliste}
+
+\item \textbf{Dénombrement. }
+
+  Une urne contient des boules numérotées de $1$ à $n$. On effectue
+  des tirages avec remise tant que les numéros obtenus forment une
+  suite strictement décroissante.
+
+  \begin{noliste}{a)}
+  \item Déterminer la loi de la variable aléatoire $X$ représentant le
+    nombre de tirages effectués.
+
+  \item Déterminer son espérance mathématique et la limite de cette
+    espérance quand $n\rightarrow +\infty$.
+
+    On pourra utiliser sans démonstration la formule suivante :
+
+    si $X$ admet une espérance alors $\E\left( X\right) =
+    \Sum{k=0}{+\infty } \Prob\left( X>k\right)$.
+  \end{noliste}
+\end{noliste}
+
+\section*{\textbf{Question sans préparation}}
+
+\begin{noliste}{1.}
+\item Extrema de 
+  \[
+  f\left( x,y\right) =x^{2}+y^{2}-\left( x-y\right) ^{2} 
+  \]
+
+\item Montrer que la famille $\left( p_{i,j}\right) _{\left(
+      i,j\right) \in \mathbb{Z}^{2}}$ définie par
+  \begin{eqnarray*}
+    p_{1,1} & = & p_{-1,1}=\frac{1}{32} \\
+    p_{-1,-1} & = & p_{1,-1}=p_{1,0}=p_{0,1}=\frac{3}{32} \\
+    p_{-1},_{0} & = & p_{0,-1}=\frac{5}{32} \\
+    p_{0,0} & = & \frac{8}{32}
+  \end{eqnarray*}%
+  et $p_{i,j}=0$ sinon, peut être considérée comme la loi d'un couple
+  $\left( X,Y\right)$.
+
+  Étudier l'indépendance de $X$ et de $Y;$ de $X^{2}$ et de $Y^{2}. =
+  \dots $
+
+\item On considère la fonction définie par 
+  \[
+  f\left( x\right) =\left( x-1\right) ^{1/\left( x-2\right) } 
+  \]
+
+  Quel est l'ensemble de définition de $f$? Quelle valeur attribuer à
+  $f\left( 2\right) $ pour prolonger $f$ en une fonction continue en
+  $x=2?$ Tracer l'allure du graphe de $f$ au voisinage de $x=2$.
+
+\item On considère trois variables aléatoires mutuellement
+  indépendantes $U$, $V$, et $W$ suivant des lois de Poisson de
+  paramêtre respectifs $\alpha ,$ $\beta $ et $\gamma$.
+
+  On pose $X=U+V$ et $Y=V+W$. Calculer $\Cov(X, Y)$.
+
+\item Soit $X$ une variable aléatoire suivant une loi uniforme sur
+  $\left[ 0,1\right]$.\\
+  Déterminer les fonctions de répartitions et les espérances
+  mathématiques des variables aléatoires
+  \[
+  Y=\inf \left( X,1-X\right) ,\quad Z=\sup \left( X,1-X\right) \text{
+    et }R = \frac{Y}{Z}\text{ }
+  \]
+
+\item Une matrice $N\in \mathcal{M}_{n}\left( \R\right) $ est dite
+  nilpotente s'il existe ne puissance $p\in \N^{\ast }$ telle que
+  $N^{p}=0$.
+
+  À quelle condition une matrice nilpotente est-elle diagonalisable ?
+
+  % Si elle est diagonalisable alors $N=PDP^{-1}$ avec $N^{p}=PD^{p}P^{-1}=0$
+  % pour un $p$ précédent.
+
+  % Alors $D^{n}=0$ et $D$ étant diagonale, tous ses termes diagonaux sont
+  % nuls.
+
+  % Donc $N=0$.
+\end{noliste}
+
+
+
+\end{document}

@@ -1,0 +1,142 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE1 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 13}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section{Série 1}
+
+\subsection*{Exercice 1}
+\noindent
+Calculer $\Sum{k=1}{n} k \dbinom{n}{k}$ puis $\Sum{k=1}{n} 
+k(k-1) \dbinom{n}{k}$.
+
+
+\subsection*{Exercice 2}
+\noindent
+Soient $A$, $B$, $C$ trois ensembles.\\
+  Soient $f : A \to B$, $g : B \to C$ et $h : C \to A$ trois
+  applications telles que :
+  \begin{liste}{$\sbullet$}
+  \item $h \circ g \circ f$ et $f \circ h \circ g$ sont injectives
+  \item $g \circ f \circ h$ est surjective
+  \end{liste}
+  Montrer que $f$, $g$ et $h$ sont bijectives.
+
+
+
+\section{Série 2}
+
+\subsection*{Exercice 1}
+\noindent
+Soient $n$ et $p$ deux entiers tels que $p \leq n$.
+  \begin{noliste}{1.}
+  \item En raisonnant par récurrence sur $n$ montrer la formule de \og
+    Pascal généralisée \fg{} :
+    \[
+     \Sum{k=p}{n} \dbinom{k}{p} = \dbinom{n+1}{p+1}
+    \]
+  \item Justifier, que pour tout $k$, on a : $\dbinom{k}{p} =
+    \dbinom{k+1}{p+1} - \dbinom{k}{p+1}$.
+  \item En déduire une nouvelle démonstration de la formule de \og
+    Pascal généralisée \fg{}.
+  \end{noliste}
+
+
+\subsection*{Exercice 2}
+\noindent
+\begin{noliste}{1)}
+  \item On considère tout d'abord les applications $f$ et $g$
+    suivantes.
+    \[
+    \begin{array}{ccc}
+      \begin{array}{ccrcl}
+        f & : & \N & \to & \N \\
+        & & n & \mapsto & 2n \\[.7cm]
+      \end{array}
+      & \qquad \qquad &
+      \begin{array}{ccrcl}
+        g & : & \N & \to & \N \\
+        & & n & \mapsto & \left\{
+          \begin{array}{l@{\quad}R{3cm}}
+            \dfrac{n}{2} & si $n$ est pair \nl
+            n & si $n$ est impair
+          \end{array}
+        \right.
+      \end{array}
+    \end{array}
+    \]
+    \begin{noliste}{a.}
+    \item Étudier le caractère injectif, surjectif, bijectif de ces
+      applications.
+    \item Calculer $g \circ f$. Cette application est-elle injective /
+      surjective / bijective ?
+    \item Calculer $f \circ g$. Cette application est-elle injective /
+      surjective / bijective ?
+    \end{noliste}
+
+  \item On considère maintenant $f : E \to E$ et $g : E \to E$ deux
+    applications.
+    \begin{noliste}{a.}
+    \item Démontrer que :
+      \[
+      g \circ f = id_E \quad \Rightarrow \quad \left\{
+        \begin{array}{l}
+          \mbox{$f$ injective}\\
+          \mbox{$g$ surjective}
+        \end{array}
+      \right.
+      \]
+    \item Donner un tel exemple avec $f$ et $g$ non bijectives.
+    \item La réciproque de l'implication est-elle vraie ?
+    \item Que devient ce résultat lorsque $E$ est un ensemble fini ?
+  \end{noliste}
+  \end{noliste}
+
+      
+      \newpage
+      
+
+\section{Série 3}
+
+\subsection*{Exercice 1}
+\noindent
+Montrer que : $\dbinom{n}{0} + \dbinom{n}{2} + \dbinom{n}{4} + \dots =
+  \dbinom{n}{1} + \dbinom{n}{3} + \dbinom{n}{5} + \dots$ et trouver la
+  valeur commune des deux sommes.
+
+
+
+\subsection*{Exercice 2}
+\noindent
+Démontrer que : $\forall a \in \N, \forall b \in \N, \forall p \in
+  \N, \ \Sum{k=0}{p} \dbinom{a}{k} \dbinom{b}{p-k} = \dbinom{a+b}{p}$.
+  \begin{noliste}{1.}
+  \item En calculant de deux manières $(1+x)^a (1+x)^b$.
+  \item En cherchant le nombre de parties de cardinal $p$ dans $E \cup
+    F$ où $E$ et $F$ sont des ensembles disjoints de cardinaux $a$ et 
+    $b$.
+  \item Application : soit $n, p, q$ des entiers naturels. Montrer que
+    : $\Sum{k=0}{q} \dbinom{q}{k} \dbinom{n}{p+k} = 
+    \dbinom{n+q}{p+q}$.
+  \end{noliste}
+
+
+\end{document}

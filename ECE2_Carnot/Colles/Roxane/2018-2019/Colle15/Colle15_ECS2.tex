@@ -1,0 +1,173 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECS2 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 15}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Série 1}
+\subsection*{Question de cours}
+\noindent
+Démontrer que les espaces vectoriels $F$ et $F^\perp$ sont 
+supplémentaires dans $E$, et que $(F^\perp)^\perp=F$.
+
+\subsection*{Exercice} % ESCP 2017
+\noindent
+On considère l'application $F$ définie sur $\R$ par : 
+$F(t)=\dfrac{\ee^t}{1+\ee^t}$.
+\begin{noliste}{1.}
+ \item Montrer que $F$ est la fonction de répartition d'une variable 
+ aléatoire à densité dont on déterminera une densité notée $f$.
+ 
+ \item Soit $X$ une variable aléatoire de densité $f$. Montrer que $X$
+ admet des moments d'ordre $n$ pour tout entier naturel $n$.\\[.2cm]
+ On pose : $I=\dint{0}{+\infty} \dfrac{t}{1+\ee^t} \dt$.\\[.2cm]
+ Calculer l'espérance $\E(X)$ de $X$ ainsi que sa variance $\V(X)$ en 
+ fonction de $I$.
+ 
+ \item On considère une suite de \var $(X_n)_{n\geq 1}$ définies sur le 
+ même espace probabilisé $(\Omega, \A, \Prob)$, mutuellement 
+ indépendantes et de densité $f$.\\
+ Soit $(\overline{X}_n)_{n\geq 1}$ la suite de \var définie par :
+ \[
+  \forall n\geq 1, \ \overline{X}_n = \dfrac{1}{n} \, \Sum{i=1}{n} X_i
+ \]
+ \begin{noliste}{a)}
+  \item Montrer que la suite $(\overline{X}_n)_{n\geq 1}$ converge en 
+  probabilité vers $0$, puis déterminer une suite de réels 
+  $(a_n)_{n\geq 1}$ telle que la suite $(a_n \, \overline{X}_n)_{n\geq 
+  1}$ converge en loi vers une variable aléatoire suivant la loi 
+  normale centrée réduite.
+  
+  \item On pose $S_n^2 = \dfrac{1}{n} \, \Sum{i=1}{n} X_i^2$.\\
+  Construire à partir de $S_n^2$ un estimateur sans biais de $I$. 
+  Montrer que cet estimateur est convergent.
+ \end{noliste}
+ 
+ \item Proposer en \Scilab{} une simulation de la loi associée à $f$.
+\end{noliste}
+
+
+
+
+
+\newpage
+
+\section*{Série 2}
+\subsection*{Question de cours}
+\noindent
+Déterminer le spectre de $A=
+\begin{smatrix}
+ 3 & 0 & 1\\
+ -1 & 2 & -1\\
+ -2 & 0 & 0
+\end{smatrix}$.
+
+\subsection*{Exercice} % ESCP 2017
+\noindent
+Soit $n\in\N^*$ et $E=\R_{2n+1}[X]$ l'espace vectoriel des polynômes à 
+coefficients de degré inférieur ou égal à $2n+1$.\\
+On définit l'application $f$ qui à tout $P\in E$ associe le polynôme 
+$f(P)$ défini par :
+\[
+ \forall x \in \R^*, \ f(P)(x) = x^{2n+1} \, P\left(\dfrac{1}{x}\right)
+\]
+\begin{noliste}{1.}
+ \item Montrer que $f$ est un endomorphisme de $E$.
+ 
+ \item 
+ \begin{noliste}{a)}
+  \item Déterminer $f \circ f$.
+  
+  \item En déduire que $f$ est diagonalisable (on pourra utiliser 
+  l'application $p=\dfrac{1}{2} (f+ \id_E)$).
+ \end{noliste}
+ 
+ \item Soit $\varphi$ l'application définie sur $E \times E$ par :
+ \[
+  \mbox{pour } P(X)= \Sum{k=0}{2n+1} a_k \, X^k \mbox{ et } Q(X) =
+  \Sum{k=0}{2n+1} b_k \, X^k, \quad \varphi(P,Q) = 
+  \Sum{k=0}{2n+1} a_k \, b_k
+ \]
+ Montrer que $\varphi$ est un produit scalaire sur $E$.
+ 
+ \item 
+ \begin{noliste}{a)}
+  \item Montrer que $f$ est un endomorphisme symétrique de 
+  $(E,\varphi)$.
+  
+  \item En déduire que $\kr(f-\id_E)$ et $\kr(f+\id_E)$ sont 
+  supplémentaires.
+  
+  \item Déterminer la dimension de chaque sous-espace propre de $f$.
+ \end{noliste}
+ 
+ \item Les résultats précédents restent-ils valables si $E=
+ \R_{2n}[X]$ et :
+ \[
+  \forall x \in \R^*, \ f(P)(x) = x^{2n} \, P\left(\dfrac{1}{x}\right)
+ \]
+\end{noliste}
+
+
+
+
+
+\newpage
+ 
+\section*{Série 3}
+\subsection*{Question de cours}
+\noindent
+Démontrer l'inégalité de Markov, puis celle de Bienaymé-Tchebychev.
+
+
+\subsection*{Exercice} % ESCP 2017
+\noindent
+Soit $\alpha$ un réel strictement positif et $(Y_i)_{i\in\N^*}$ une 
+suite de variables aléatoires indépendantes définies sur le même espace 
+probabilisé $(\Omega, \A, \Prob)$. On suppose de plus que pour tout 
+$i$, $Y_i$ suit la loi exponentielle de paramètre $i \, \alpha$.\\
+Pour tout $n\in\N^*$, on pose $Z_n=\Sum{i=1}{n} Y_i$ et on note $g_n$ 
+la densité de $Z_n$ nulle sur $\R_-$ et continue sur $\R_+^*$.
+\begin{noliste}{1.}
+ \item 
+ \begin{noliste}{a)}
+  \item Déterminer la fonction $g_2$.
+  \item Montrer que pour $n\geq 1$ et $x>0$, on a : $g_n(x) =
+  n \, \alpha \, \ee^{-\alpha \, x}\left(1-\ee^{-\alpha \, 
+  x}\right)^{n-1}$
+  \item Calculer l'espérance de $Z_n$ et en donner un équivalent simple 
+  lorsque $n$ tend vers l'infini.
+  \item Calculer la variance de $Z_n$ et montrer qu'elle admet une 
+  limite finie lorsqie $n$ tend vers l'infini.
+ \end{noliste}
+ 
+ \item Pour $n\in\N^*$, on pose $U_n=\dfrac{1}{n} \, Z_n$.
+ \begin{noliste}{a)}
+  \item Déterminer la fonction de répartition $H_n$ de $U_n$.
+  \item Montrer que la suite $(U_n)$ converge en loi et déterminer 
+  la loi limite.
+  \item Déterminer la limite quand $n$ tend vers l'infini de $\E(U_n)$ 
+  et $\V(U_n)$.
+ \end{noliste}
+\end{noliste}
+
+
+
+\end{document}

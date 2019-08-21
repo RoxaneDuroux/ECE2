@@ -1,0 +1,242 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1992} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+\begin{center}
+\textbf{\Large ESCP}
+
+\textsc{\large CONCOURS D'ADMISSION DE 1992}
+
+\textbf{voie économique}
+
+
+\end{center}
+
+\hrule
+
+
+\section*{Exercice~1}
+On considère un élément $M$ de l'ensemble $\M{2}$ des matrices carrées
+d'ordre $2$. On suppose que $M$ satisfait aux deux conditions
+suivantes~ :
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}[i)]
+\item $M^{2} + M = 2I$, où $I$ désigne la matrice unité de $\M{2}$ ;
+\item $M$ n'est pas de la forme $cI$, où $c$ est un nombre réel.
+\end{noliste}
+On note $V_{M}$ l'ensemble des éléments $Z$ de $\M{2}$
+de la forme $Z = xM + yI$, où $x$ et $y$ sont des nombres réels.
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Dans cette question, on suppose que $M$ est diagonalisable.
+Déterminer
+ses valeurs propres. Donner un exemple de matrice satisfaisant aux 
+conditions i) et ii).
+\item Soit $Z$ un élément de $V_{M}$. Montrer qu'il y a unicité du
+couple
+$(x,y)$ tel que $Z = xM + yI$. On dira désormais que ce couple est
+associé
+à $Z$.
+\item Montrer que si $Z$ et $Z'$ appartiennent à $V_{M}$, il en est de
+même
+pour le produit $ZZ'$.
+\item Montrer que la matrice $M$ possède une inverse qui appartient 
+à $V_{M}$, et déterminer le couple $(x,y)$ associé à l'inverse de $M$.
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $A = \alpha M + \beta I$ un élément de $V_{M}$.
+Exprimer en fonction du couple $(\alpha, \beta )$ associé à $A$ le
+couple
+$(\alpha', \beta' )$ associé au produit $MA$. Montrer qu'il existe un
+élément
+$\Delta$ de $\M{2}$, que l'on déterminera, tel que~ :
+\[
+ \ \begin{smatrix}
+ \alpha' \\
+\beta'
+\end{smatrix}
+ = \Delta
+\begin{smatrix}
+ \alpha \\
+\beta
+\end{smatrix}.
+\]
+\item Déterminer les valeurs propres et une base de vecteurs propres de
+la
+matrice $\Delta$.
+\item Soit $n$ un nombre entier naturel. Déduire de ce qui précède le
+couple $(x_{n},y_{n})$ associé à $M^{n}$.
+\end{noliste}
+\item Trouver (en déterminant les couples de nombres réels associés)
+toutes les matrices de $V_{M}$ égales à leur carré.
+\end{noliste}
+
+\subsection*{Exercice~2}
+Pour tout nombre entier naturel $k$, on considère la fonction $f_{k}$
+définie sur $\R_+ $
+par la relation~ :
+\[
+f_{k}(x) = \dint{0}{1} t^{k} e^{-tx} \ \ dt.
+\]
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item Montrer que, pour tout nombre entier naturel $k$, la fonction
+$f_{k}$ est décroissante sur $\R_+ $. 
+\item Étudier la suite $\left( f_{k}(0) \right)_{k \geq 0} $ de nombres
+réels.
+En déduire, pour tout nombre réel positif fixé $x$, la limite de la
+suite 
+$\left( f_{k}(x) \right)_{k \geq 0}$.
+\end{noliste}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item \label{quesa} Soit $x$ un nombre réel strictement positif.
+Établir une relation
+entre $f_{k}(x)$ et $f_{k + 1} (x)$.
+\item Expliciter les fonction $f_{0}$, $f_{1}$ et $f_{2}$.
+\item Montrer que, lorsque $x$ tend vers $ + \infty$~ : 
+\[
+f_{0} (x) \sim \frac{1}{x}.
+\]
+\item À l'aide de la relation établie au \ref{quesa}), montrer que, 
+pour tout nombre entier naturel $k$, lorsque $x$ tend vers
+$ + \infty$ :
+\[
+f_{k} (x) \sim \frac{A_{k}}{x^{k + 1}}
+\]
+où $A_{k}$ est une constante que l'on déterminera.
+\end{noliste}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item Montrer que, pour tout nombre entier naturel $k$ et
+pour tout réel strictement positif $x$~ :
+\[
+f_{k}(x) = \frac{1}{x^{k + 1}}\dint{0}{x} u^{k} e^{-u} \, du.
+\]
+En déduire que $f_{k}$ est dérivable sur $]0, + \infty[$ et calculer sa
+dérivée.
+\item Trouver une relation simple entre $f'_{k}$ et $f_{k + 1}$.
+\end{noliste}
+\item Montrer que pour tout nombre réel $y$ positif ou nul : 
+\[
+1 - e^{-y} \leq y.
+\]
+En déduire que, pour tout nombre entier naturel $k$, la fonction
+$f_{k}$ est continue en $0$.
+Est-elle dérivable à droite en ce point~ ?
+\end{noliste}
+%%%%%%%%%%%%%%%%%%%%%%%\section*{Exercice 3}
+Le président d'un club de football de première division veut engager un
+joueur J. Les données statistiques
+recueillies lors des saisons précédentes permettent de formuler les
+hypothèses suivantes :
+\begin{noliste}{$\sbullet$}
+	\item le nombre $N$ d'occasions de but qu'aura J pendant un match
+donné est une variable aléatoire de Poisson
+de paramètre $5$ ;
+\item à chaque occasion de but qu'aura J, la probabilité pour qu'il
+marque effectivement le but est $0{,}2$ ;
+\item les variables aléatoires relatives à des matchs différents sont
+indépendantes.
+\end{noliste}
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+	\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+	\item Trouver le nombre moyen d'occasions de but qu'aura J pendant un
+match.
+\item Pour tout nombre entier naturel $n$, on note $p_{n}$ la
+probabilité que J ait $n$ occasions de but au cours
+d'un match donné. 
+Calculer le rapport $\frac{p_{n + 1}}{p_{n}}$.
+En déduire les nombres les plus probables d'occasions de but
+que J aura pendant un match donné.
+\end{noliste}
+\item On note $N$ la variable aléatoire égale au nombre de buts marqués
+par J pendant un match. Trouver
+la loi de $X$, donner son espérance et sa variance.
+\item Pour le Championnat de France de première division, chacune des
+$20$ équipes de cette division joue
+deux matchs (aller-retour) contre chacune des autres équipes. On
+suppose que J joue tous les matchs du
+Championnat avec son équipe.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+	\item 	Déterminer le nombre de matchs que J jouera avec son équipe
+dans le Championnat de France.
+ \item On note $T$ la variable aléatoire égale an nombre de buts
+marqués par J pendant le Championnat.
+Trouver la loi de T ; donner son espérance et sa variance.
+\item On admet que la loi de T peut être approchée par la loi de
+Laplace-Gauss de moyenne $38$ et de
+variance $38$. Donner une valeur approchée de la probabilité que J
+marque au moins $50$ buts pendant le
+Championnat. (On utilisera la table de la loi normale donnée en annexe,
+page 4.)
+\end{noliste}
+\item L'équipe de J participe également à la Coupe de France, tournoi
+mettant aux prises $64$ équipes engagées au départ. À chaque tour,
+chaque équipe rencontre une autre équipe tirée au sort, et l'équipe
+perdante
+est éliminée.
+
+	On suppose que J joue tous les matchs de la Coupe auxquels son équipe
+participe.
+	
+	On suppose qu'à chaque tour l'équipe de J a la même probabilité, égale
+à $\frac{2}{3}$, de gagner son match.
+	\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+	\item Trouver la loi de la variable aléatoire $Y$ égale au nombre de
+matchs disputés par J en Coupe de
+France, et l'espérance de $Y$.
+\item Calculer la probabilité que $J$ marque, en tout, deux buts en
+Coupe de France.
+\item Calculer la probabilité conditionnelle que l'équipe J gagne la
+Coupe de France sachant que $J$ a marqué en tout deux buts pendant
+cette Coupe.
+\end{noliste}
+\end{noliste}
+\end{document}

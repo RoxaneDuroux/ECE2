@@ -1,0 +1,143 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+
+\vspace{0.1cm}
+
+\begin{center}
+\textbf{\Large{Programme de colle - Semaine 1}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Notation}
+
+On adoptera les principes suivants pour noter les étudiants :
+\begin{noliste}{$\stimes$}
+\item si l'étudiant sait répondre à la question de cours, il 
+aura une note $> 8$.
+\item si l'étudiant ne sait pas répondre à la question de 
+cours ou s'il y a trop d'hésitations, il aura une note $\leq 8$.
+\end{noliste}
+
+\section*{Questions de cours}
+
+On choisira pour chaque étudiant une question de cours parmi les 
+suivantes :
+\begin{noliste}{$\sbullet$}
+  \item 
+  {\bf Proposition 1} :\\
+  Toute suite convergente est bornée :
+  \[
+  \left( u_n \right) \mbox{ convergente } \Rightarrow \ \left( u_n 
+  \right) \mbox{ bornée }.
+  \]
+  
+  \begin{proof}[Preuve]~\\
+  Soit $\left( u_n \right)$ une suite qui converge vers $\ell \in \R$, 
+  donc, soit $\eps>0$,
+  \[
+    \exists n_0 \in \N, \mbox{ tel que } \forall n \geq n_0, \vert u_n 
+    - \ell \vert < \eps,
+  \]
+  c'est-à-dire pour tout $ n \geq n_0$, $\ell - \eps < u_n < \ell + 
+  \eps$.\\
+  On note
+  \[
+    M= \max_{i \in \llbracket 0, n_0 \rrbracket} \vert u_i \vert.
+  \]
+  $M$ existe car $\Card{(\llbracket 0, n_0 \rrbracket)}$ est fini. On a 
+  donc
+  \[
+    \forall n \in \N, \min (M, \ell - \eps) \leq u_n \leq \max(M, \ell 
+    + \eps),
+  \]
+  \ie la suite $\left( u_n \right)$ est bornée.
+\end{proof}
+
+  \item {\bf Proposition 2} : \\
+         Toute suite croissante non majorée diverge.
+
+  \begin{proof}~\\
+    Soit $\left( u_n \right)$ une suite réelle croissante et non 
+    majorée. Traduisons ces propositions \og avec des $\eps$ \fg{}.\\
+    $\left( u_n \right)$ est croissante, c'est-à-dire
+    \[
+      \forall n \in \N, \ u_n \leq u_{n+1}.
+    \]
+    $\left( u_n \right)$ n'est pas majorée, c'est-à-dire 
+    \texttt{NON}$(\exists A >0, \ \forall n \in \N, \ u_n \leq A)$. Donc
+    \[
+      \forall A >0, \ \exists N \in \N, \ u_N > A.
+    \]
+    Traduisons maintenant ce que l'on veut obtenir : $\left( u_n 
+    \right)$ diverge vers $+ \infty$ :
+    \[
+      \forall A >0, \exists N \in \N, \forall n \geq N, \ u_n >A.
+    \]
+    On peut remarquer qu'on y est déjà presque avec la définition de 
+    \og non   majorée \fg{}.
+    On sait donc que pour tout $A>0$, il existe $N \in \N$ tel que $u_N 
+    >A$. \\
+    Or la suite $\left( u_n \right)$ est croissante. Donc par 
+    récurrence 
+    immédiate, pour tout $n \geq N$, $u_n >A$, ce qui est exactement ce 
+    qu'il fallait démontrer.
+   \end{proof}
+   
+   \item {\bf Propriété de recouvrement} :\\
+   Soit $\left( u_n \right)$ une suite à valeurs réelles.\\ 
+   Si les 
+   sous-suites $\left(u_{2n} \right)$ et $\left( u_{2n+1} \right)$ 
+   convergent vers un même réel $\ell$, alors la suite $\left( u_n 
+   \right)$ converge vers $\ell$.
+   \begin{proof}[Preuve]~\\
+    Soit $I$ un intervalle ouvert contenant $\ell$.
+    \begin{noliste}{$\triangleright$}
+    \item $(u_{2n}) \tendn \ell$ donc l'intervalle $I$ contient 
+    tous les termes de la suite $(u_{2n})$ (\ie $I$ 
+    contient tous les termes pairs de la suite $(u_{n})$) sauf un 
+    nombre fini,
+    \item $(u_{2n+1}) \tendn \ell$ donc l'intervalle $I$ contient 
+    tous les termes de la suite $(u_{2n+1})$ (\ie $I$ 
+    contient tous les termes impairs de la suite $(u_{n})$) sauf un 
+    nombre fini.
+    \end{noliste}
+    Finalement, $I$ contient tous les termes de la suite $\left( u_n 
+    \right)$ sauf un nombre fini.\\
+    Ceci est valable pour tout intervalle ouvert contenant $\ell$. 
+    Donc la suite $\left( u_n \right)$ 
+    converge donc vers $\ell$.
+    \end{proof}
+\end{noliste}
+
+
+\section*{Connaissances exigibles}
+
+\begin{noliste}{$-$}
+\item convergence de suites numériques (théorème de convergence 
+monotone, théorème d'encadrement, etc.)
+\item suites adjacentes
+\item la proriété de recouvrement est connu mais est hors programme. 
+Une démonstration est donc nécessaire à chaque utilisation.
+\item étude de suites récurrentes (les élèves seront guidés dans 
+le cheminement de ces études)
+\item Les séries ne sont pas au programme de cette série de colles. On 
+peut néanmoins demander la manipulation de sommes.
+\end{noliste}
+
+\end{document}

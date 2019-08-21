@@ -1,0 +1,441 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1996 - voie Générale} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION SCIENTIFIQUE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 1996}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent Dans tout le problème, $p$ désigne un entier naturel
+supérieur ou égal à deux. On note $\mathfrak{M}_{p}(\R)$ l'algèbre des
+matrices
+carrées à coefficients réels et $I_{p}$ la matrice identité. Pour tout
+élément $M$ de $\mathfrak{M}_{p}(\R)$ et pour tout couple $(i,j)$
+d'entiers compris entre 1 et $p$, on note $a_{i,j}(M)$ le coefficient
+de $M$
+situé sur la $i^{\text{ième}}$ ligne et la $j^{\text{ième}}$ colonne.\\
+Une matrice M appartenant à $\mathfrak{M}_{p}(\R)$ est dite
+\emph{stochastique} si elle satisfait au deux conditions suivantes :
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour tout couple $(i,j)$ d'entiers compris entre 1 et $p$,
+$a_{i,j}(M)\geq 0$
+
+\item Pour tout entier $i$ compris entre $1$ et $p$, $\Sum{j =
+1}{p}a_{i,j}(M) = 1$.
+\end{noliste}
+
+\noindent On dit qu'une suite indexée par $n$, $(M_{n}) =
+(M_{0},M_{1},\ldots,M_{n},\ldots )$ de matrices appartenant à
+$\mathfrak{M}_{p}(\R)$
+converge vers un élément $M$ de $\mathfrak{M}_{p}(\R)$ si, pour tout
+couple $(i,j)$, la suite des coefficients $a_{i,j}(M_{n})$ converge
+vers $a_{i,j}(M)$; on dit alors que $M$ est la limite de la suite
+$(M_{n})$.\\
+Étant donné une matrice $A$ appartenant à $\mathfrak{M}_{p}(\R)$,
+pour tout entier $n\geq 0$, on note $C_{n}$ la matrice définie par la
+relation : 
+\begin{equation}
+C_{n} = \dfrac{1}{n + 1}\left[ I_{p} + A + A^{2} + \ldots +
+A^{n}\right] \label{C_{n}}
+\end{equation}On dit enfin qu'une matrice $A$ de $\mathfrak{M}_{p}(\R)$
+est $r$-périodique, où $r$ est un entier strictement positif, si $A^{r}
+= I_{p}$.\\
+L'objectif de ce problème est d'étudier quelques propriétés des
+matrices
+stochastiques et notamment, la convergence de la suite $(C_{n})$
+lorsque $A$
+est stochastique et $r$-périodique.
+
+\section*{Partie I :\ Étude d'exemples }
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $\alpha $ un nombre réel. Pour tout entier $n\geq 0$, on
+pose 
+\[
+\gamma_{n} = \dfrac{1}{n + 1}\left[ 1 + \alpha + \alpha ^{2} + \ldots +
+\alpha ^{n}\right] 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $\gamma_{n}$, en distinguant deux cas : $\alpha \neq 1$
+et $\alpha = 1$. 
+
+\item Étudier en fonction de $\alpha $, la convergence de la suite
+$(\gamma
+_{n})$ et, en cas de convergence, préciser sa limite. 
+\end{noliste}
+
+\item \textbf{Premier exemple d'étude de }$(C_{n})$
+
+On prend $p = 3$ et 
+\[
+A = 
+\begin{smatrix}
+0 & 0 & 1 \\
+1 & 0 & 0 \\
+0 & 1 & 0
+\end{smatrix}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $A^{2}$ et $A^{3}$. En déduire $A^{k}$ pour tout entier
+$k$.
+On distinguera trois cas selon que $k = 3h$, $k = 3h + 1$ et $k = 3h +
+2$. 
+
+\item Pour tout entier $q$, calculer $C_{3q}$, $C_{3q + 1}$ et $C_{3q +
+2}$. En déduire que la suite $(C_{n})$ converge et préciser sa limite
+$C$. 
+
+\item Soient $(e_{1},e_{2},e_{3})$ la base canonique de $\R^{3}$ et $v$
+l'endomorphisme de $\R^{3}$ canoniquement associé à $C$. Déterminer le
+noyau $F$ de $v$, et prouver que son image $G$ est la droite
+vectorielle $\Re$ de vecteur directeur $e = \dfrac{1}{3}\left[
+e_{1} + e_{2} + e_{3}\right] $. Prouver que les sous-espaces vectoriels
+$F$ et $G
+$ sont supplémentaires et que $v$ est le projecteur de $\R^{3}$ sur $G$
+parallèlement à $F$. 
+\end{noliste}
+
+\item \textbf{Deuxième exemple d'étude de }$(C_{n})$
+
+On prend $p = 2$ et 
+\[
+A = 
+\begin{smatrix}
+\dfrac{1}{3} & \dfrac{2}{3} \\
+\dfrac{1}{2} & \dfrac{1}{2}\end{smatrix}
+\]
+On note $w$ l'endomorphisme de $\R^{2}$ canoniquement associé à $A$. 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les valeurs propres de $w$ et une base $(f_{1},f_{2})$
+de
+vecteurs propres de $w$. 
+
+\item Déterminer une matrice inversible $P$ telle que : 
+\[
+A = P
+\begin{smatrix}
+1 & 0 \\
+0 & -\dfrac{1}{6}\end{smatrix}
+P^{-1}
+\]
+En déduire une expression de $A^{k}$, pour tout entier $k\geq 0$. 
+
+\item Déterminer deux matrices $U$ et $V$ appartenant à
+$\mathfrak{M}_{2}(\R)$, telles que, pour tout $k\geq 0$ : 
+\[
+A^{k} = U + \left( -\dfrac{1}{6}\right) ^{k}V
+\]
+
+\item Pour tout entier $n\geq 0$, exprimer $C_{n}$ en fonction de $n$,
+$U$ et $V$ et déterminer la limite $C$ de la suite $(C_{n})$. 
+
+\item Prouver que l'endomorphisme $v$ de $\R^{2}$ canoniquement
+associé à C est un projecteur dont on précisera le noyau $F$ et l'image
+$G$. 
+\end{noliste}
+\end{noliste}
+
+\section*{Partie II : Étude de $C_{n}$ lorsque $A$ est $r$-périodique }
+
+On désigne par $r$ un entier strictement positif. 
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $(\alpha_{k})$ une suite $r$-périodique de nombres réels,
+c'est à
+dire telle que, pour tout entier naturel $k\geq 0$, $\alpha
+_{k + r} = \alpha_{k}$. On pose : 
+\[
+\gamma = \dfrac{1}{r}\left[ \ \alpha_{0} + \alpha_{1} + \ldots +
+\alpha_{r-1}\right] 
+\]
+Pour tout entier $n\geq 0$, on pose : 
+\begin{equation}
+\gamma_{n} = \dfrac{1}{n + 1}\left[ \ \alpha_{0} + \alpha_{1} + \ldots
++ \alpha_{n}\right] \label{gamma_{n}}
+\end{equation}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Prouver que pour tout entier $k\geq 0$, 
+\[
+\gamma = \dfrac{1}{r}\left[ \ \alpha_{k} + \alpha_{k + 1} + \ldots +
+\alpha_{k + r-1}\right] 
+\]
+
+\item Montrer que la suite de terme général 
+\[
+\beta_{n} = (n + 1)\gamma_{n}-(n + 1)\gamma 
+\]
+est $r$-périodique. En déduire que $(\beta_{n})$ est bornée. 
+
+\item Établir que $(\gamma_{n})$ converge et préciser sa limite. 
+\end{noliste}
+
+\item Soit $A$ une matrice $r$-périodique appartenant à $M_{p}(R)$. 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout couple $(i,j)$ d'entiers compris entre $1$
+et $p
+$, la suite de terme général $\alpha_{k} = a_{i,j}(A^{k})$ est
+$r$-périodique. En déduire que la suite $(C_{n})$ converge vers : 
+\[
+C = \dfrac{1}{r}\left[ I_{p} + A + \ldots + A^{r-1}\right] 
+\]
+
+\item Soient $(e_{1},e_{2},\ldots,e_{p})$ la base canonique de
+$\R^{p}$, $u$ et $v$ les endomorphismes de $\R^{p}$ canoniquement
+associés aux matrices $A$ et $C$. Prouver que $u^{r} = I$, où $I$ est
+l'endomorphisme identique de $\R^{p}$. Montrer que $v\circ u = u\circ v
+$ et que $u\circ v = v$ 
+
+\item Soit $x$ un élément de $\R^{p}$. Prouver que $u(x) = x$ si et
+seulement si $v(x) = x$, puis que $x$ appartient à $\text{Im}(v)$ si et
+seulement si $u(x) = x$. En déduire que $\text{Im}(v) =
+\text{Ker}(u-I)$. 
+
+\item Montrer que $v$ est le projecteur sur $G = \text{Im}(v)$
+parallèlement à 
+$F = \text{Ker}(v)$. 
+
+\item Établir enfin que $\text{Ker}(v) = \text{Im}(u-I)$ : on pourra
+d'abord
+prouver que $\text{Im}(u-I)\subset \text{Ker}(v)$ 
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $(\alpha_{k})$ une suite de nombres réels $r$-périodique
+\emph{à
+partir d'un certain rang} positif $m$, c'est à dire telle que pour tout
+$k\geq m$, $\alpha_{k + r} = \alpha_{k}$. On définit $(\gamma_{n})$ par
+la relation (\ref{gamma_{n}}). Prouver que $\gamma_{n}$ admet une
+limite que
+l'on précisera. Pour cela, on pourra considérer la suite $\alpha
+_{k}{\prime } = \alpha_{k + m}$, observer que $(\alpha_{k}{\prime })$
+est $r$-périodique, et prouver que, $\gamma_{n}{\prime }$ étant
+associée à $(\alpha_{k}{\prime })$ par la relation (\ref{gamma_{n}}),
+$\gamma
+_{n}{\prime }-\gamma_{n}$ tend vers $0$ lorsque $n$ tend vers $ +
+\infty $. 
+
+\item Soit $A$ une matrice de $\M_{p}(R)$ $r$-périodique \emph{à
+partir d'un certain rang} positif $m$, c'est à dire telle que pour tout
+$k\geq m$, $A^{k + r} = A^{k}$. Prouver que la suite $(C_{n})$ admet
+une
+limite que l'on précisera. 
+\end{noliste}
+\end{noliste}
+
+\section*{Partie III : Étude de matrices stochastiques }
+
+On note $S_{p}$ l'ensemble des matrices stochastiques de
+$\mathfrak{M}_{p}(R)
+$ et $D_{p}$ l'ensemble des matrices \emph{déterministes}, c'est à dire
+stochastiques et dont tous les coefficients sont égaux à $0$ ou $1$.
+Enfin,
+on note $\Delta_{p}$ l'ensemble des matrices déterministes et
+inversibles. 
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \textbf{Matrices stochastiques} 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Prouver que, pour tout couple $(\lambda,\mu )$ de nombres réels
+tels
+que $\lambda \geq 0$, $\mu \geq 0$ et $\lambda + \mu = 1$, et pour
+tout couple $(M,N)$ d'éléments de $S_{p}$, $\lambda M + \mu N$
+appartient
+encore à $S_{p}$. 
+
+\item Prouver que le produit $MN$ de deux éléments $M$ et $N$ de
+$S_{p}$
+appartient à $S_{p}$. 
+
+\item Soit $A$ un élément de $S_{p}$. Prouver que, pour tout entier
+$n\geq 0$, $C_{n}$ (définie par (\ref{C_{n}})) appartient à $S_{p}$.
+Que
+peut-on en déduire pour la limite $C$ de $(C_{n})$, lorsqu'elle existe
+? 
+\end{noliste}
+
+\item \textbf{Matrices déterministes} 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer qu'une matrice $M$ est déterministe si et seulement si
+tous
+ses coefficients sont égaux à $0$ ou $1$ et si chaque ligne de $M$
+contient
+exactement un coefficient égal à $1$. 
+
+\item En déduire que $D_{p}$ est un ensemble fini et préciser le nombre
+de
+ses éléments. 
+
+\item Montrer que le produit $MN$ de deux éléments $M$ et $N$ de
+$D_{p}$
+appartient à $D_{p}$. 
+
+\item Soit $A$ une matrice déterministe. Prouver qu'il existe un entier
+$r\geq 1$ et un entier $m\geq 0$ tels que $A^{m + r} = A^{m}$. En
+déduire que, dans ces conditions, $A$ est $r$- périodique \emph{à
+partir de ce
+rang} $m$ et que, si de plus $A$ est inversible, $A$ est
+$r$-périodique. 
+
+\item Soit $A$ une matrice déterministe inversible. Prouver que
+$A^{-1}$
+l'est aussi. \label{determinisme_{i}nverse} 
+\end{noliste}
+
+\item \textbf{Étude de la suite }$C_{n}$\textbf{\ associée à une
+matrice }$A$\textbf{\ déterministe} 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En utilisant les résultats de la partie II, établir le résultat
+suivant : 
+
+Soit $A$ une matrice déterministe inversible, alors $(C_{n})$ converge
+vers
+une matrice stochastique $C$ telle que $C^{2} = C$. 
+
+\item Étendre ce résultat au cas où $A$ est déterministe \textbf{non
+inversible}. 
+\end{noliste}
+
+\item \textbf{Matrices stochastiques inversible}\\
+Soient $X$ et $Y$ des éléments de $S_{p}$ tels que $XY = I_{p}$. On se
+propose
+de montrer que $X$ et $Y$ sont déterministes inversibles. 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Prouver que $Y$ est une matrice inversible, et que $X$ l'est
+aussi. 
+
+\item On pose $X = (\alpha_{i,j})$, $Y = (\beta_{i,j})$ et, pour tout
+$j$
+compris entre 1 et $p$, 
+\[
+\mu_{j} = \text{max}\{\beta_{1,j},\beta_{2,j},\ldots,\beta_{p,j}\}
+\]
+Prouver que $\mu_{j} = 1$. Pour cela, on pourra calculer le coefficient
+$a_{j,j}(XY)$. 
+
+\item Montrer que $\Sum{i = 1}{p}\Sum{j = 1}{p}\beta
+_{i,j} = \Sum{j = 1}{p}\mu_{j}$. En déduire que tous les coefficients
+de $Y$ sont égaux à $0$ ou $1$. 
+
+\item Prouver que $Y$ et $X$ appartiennent à $\Delta_{p}$. 
+
+\item Plus généralement, soient $U$ et $V$ deux matrices de $S_{p}$
+telles
+que le produit $UV$ appartienne à $\Delta_{p}$. Prouver que $U$ et $V$
+appartiennent à $\Delta_{p}$. (On pourra utiliser le résultat de la
+question III.\ref{determinisme_{i}nverse}) 
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

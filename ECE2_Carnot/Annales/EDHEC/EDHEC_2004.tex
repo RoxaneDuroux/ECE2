@@ -1,0 +1,506 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 2004} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 2004}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\Huge EDHEC}
+
+\textbf{School of management\vspace{3cm}}
+
+{\large ECOLE D\E\ HAUTES\ ETUDES\ COMMERCIALES\ DU\ NORD}
+
+{\large Concours d'admission sur classes préparatoires}
+
+\underline{\hspace{3cm}}
+
+{\LARGE MATHEMATIQUES}
+
+{\large Option économique}
+
+\textbf{Année 2004}{\large }
+\end{center}
+
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document : seule
+l'utilisation d'une règle graduée est autorisée.\vspace{1cm}}
+
+\noindent \textbf{L'utilisation de toute calculatrice et de tout
+matériel électronique est interdite.}\vspace{1cm}
+
+\section*{Exercice 1}
+
+Le but de cet exercice est de calculer $\dlim{n\rightarrow + \infty
+}\dint{0}{+ \infty }\dfrac{1}{1 + t + t^{n}}dt$. \\
+Pour tout n de $\N$, on pose $u_{n} = \dint{0}{1}\dfrac{1}{
+1 + t + t^{n}}dt$ et on a, en particulier, $u_{0} =
+\dint{0}{1}\dfrac{1}{
+2 + t}dt$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour tout $n$ de $\N$, justifier l'existence de $u_{n}$.
+
+\item Calculer $u_{0}$ et $u_{1}$.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la suite $(u_{n})$ est croissante.
+
+\item Montrer que : $\forall n\in \N,\quad u_{n}\leq \ln 2$.
+
+\item En déduire que la suite $(u_{n})$ est convergente.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout $n$ de $\N$, écrire $\ln 2-u_{n}$ sous la forme
+d'une intégrale.
+
+\item En déduire que : $\forall n\in \N,\quad \ln 2-u_{n}\leq 
+\dfrac{1}{n + 1}$.
+
+\item Donner la limite de la suite $(u_{n})$.
+\end{noliste}
+
+\item Pour tout entier naturel $n$ supérieur ou égal à 2, on pose
+$v_{n} = \dint{1}{+ \infty }\dfrac{1}{1 + t + t^{n}}dt$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier la convergence de l'intégrale défnissant $v_{n}$.
+
+\item Montrer que : $\forall n\geq 2,\quad 0\leq v_{n}\leq 
+\dfrac{1}{n-1}$.
+
+\item En déduire $\dlim{n\rightarrow + \infty }v_{n}$, puis donner la
+valeur de $\dlim{n\rightarrow + \infty }\dint{0}{+ \infty }
+\dfrac{1}{1 + t + t^{n}}dt$.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 2}
+
+On note $E$ l'espace vectoriel des fonctions polynomiales réelles de
+degré inférieur ou égal à 2. \\
+On note $e_{0},e_{1},e_{2}$ les fonctions définies, pour tout réel $x$
+par 
+\[
+e_{0}(x) = 1,\quad e_{1}(x) = x\quad \text{et}\quad e_{2}(x) = x^{2}
+\]
+et on rappelle que $B = (e_{0},e_{1},e_{2})$ est une base de $E$.\\
+Soit $f$ l'application qui à toute fonction polynomiale $P$ de $E$
+associe
+la fonction $Q = f(P)$, où $Q$ est la dérivée seconde de l'application
+qui à
+tout réel $x$ associe $(x^{2}-x)P\left(\Ev{x}\right)$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f$ est un endomorphisme de $E$.
+
+\item Déterminer $f(e_{0}),$ $f(e_{1})$ et $f(e_{2})$ en fonction de
+$e_{0},$
+$e_{1}$ et $e_{2}$.
+
+\item En déduire que la matrice de $f$ dans la base $B$ est $A = \left(
+
+\begin{array}{ccc}
+2 & -2 & 0 \\
+0 & 6 & -6 \\
+0 & 0 & 12
+\end{array}
+\right) $
+
+\item Montrer sans calcul que $f$ est un automorphisme de $E$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner les valeurs propres de $f$, puis en déduire que $f$ est
+diagonalisable.
+
+\item Déterminer les sous-espaces propres de $f$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier l'existence d'une matrice P inversible dont la première
+ligne ne contient que des \textquotedblleft 1\textquotedblright\ telle
+que$
+A = PDP^{-1}$, où $D = \left( 
+\begin{array}{ccc}
+2 & 0 & 0 \\
+0 & 6 & 0 \\
+0 & 0 & 12
+\end{array}
+\right).$
+
+\item Montrer que : $\forall n\in \N,\quad A^{n} = PD^{n}P^{-1}$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la matrice $P^{-1}$.
+
+\item En déduire explicitement, en fonction de $n$, la matrice $A^{n}$.
+
+\item On dit qu'une suite de matrices $(M_{n})$ tend vers la matrice
+$M$,
+lorsque $n$ tend vers $ + \infty $, si chaque coefficient de $M_{n}$
+tend
+vers le coefficient situé à la même place dans $M$. \\
+On pose $B = \dfrac{1}{12}A$. Montrer que la suite $(B^{n})$ tend vers
+une
+matrice $J$ vérifiant $J^{2} = J$.
+\end{noliste}
+\end{noliste}
+
+\newpage
+
+\section*{Exercice 3}
+
+On désigne par $n$ un entier naturel supérieur ou égal à $2$.\\
+On lance n fois une pièce équilibrée (c'est-à-dire donnant
+\textquotedblleft
+pile\textquotedblright\ avec la probabilité $\dfrac{1}{2}$ et
+\textquotedblleft face\textquotedblright\ également avec la probabilité
+$
+\dfrac{1}{2}$), les lancers étant supposés indépendants. \\
+On note $Z$ la variable aléatoire qui vaut 0 si l'on n'obtient aucun
+\textquotedblleft pile\textquotedblright\ pendant ces $n$ lancers et
+qui,
+dans le cas contraire, prend pour valeur le rang du premier
+\textquotedblleft pile\textquotedblright.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer, en argumentant soigneusement, l'ensemble $Z(\Omega
+)$.
+
+\item Pour tout $k$ de $Z(\Omega )$, calculer $P\left(\Ev{Z =
+k}\right)$. On distinguera les
+cas $k = 0$ et $k\geq 1$.
+
+\item Vérifier que $\Sum{k\in Z(\Omega )}P\left(\Ev{Z = k}\right) = 1.$
+
+\item On rappelle que l'instruction \textquotedblleft
+random(2)\textquotedblright\ renvoie un nombre au hasard parmi les
+nombres 0
+et 1. Recopier et compléter le programme suivant pour qu'il simule \\
+l'expérience décrite ci-dessus, l'entier n étant entré au clavier par
+l'utilisateur (\textquotedblleft pile\textquotedblright\ sera codé par
+le
+nombre 1 et \textquotedblleft face\textquotedblright\ par 0).
+
+\texttt{Program EDHEC2004 ;}
+
+\texttt{var k, n, z, lancer : integer ;}
+
+\texttt{Begin}
+
+\texttt{Randomize ;}
+
+\texttt{Readln(n) ; k : = 0 ; z : = 0 ;}
+
+\texttt{Repeat }
+
+\texttt{k : = k + 1 ; lancer : = random(2) ; }
+
+\texttt{If (lancer = 1) then..................;}
+
+\texttt{until (lancer = 1 or..........) ;}
+
+\texttt{Writeln (z) ; }
+
+\texttt{end.}
+
+\noindent On dispose de $n + 1$ urnes $U_{0},U_{1},...,U_{n}$ telles
+que pour
+tout $k$ de $\{0,1,...,n\}$, l'urne $U_{k}$ contient $k$ boules
+blanches et $
+n-k$ boules noires.\\
+On effectue des tirages d'une boule, au hasard et avec remise dans ces
+urnes
+de la façon suivante : \\
+si après les lancers de la pièce décrits dans la première question, la
+variable $Z$ prend la valeur $k$ (avec $k\geq 1$), alors on tire une
+par une et avec remise, $k$ boules dans l'urne $U_{k}$ et l'on note $X$
+la
+variable aléatoire égale au nombre de boules blanches obtenues à
+l'issue de
+ces tirages. \\
+Si la variable $Z$ a pris la valeur 0, aucun tirage n'est effectué et
+$X$
+prend la valeur 0.
+\end{noliste}
+
+\item Déterminer $X(\Omega )$.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer, en distinguant les cas $i = 0$ et $1\leq i\leq n$,
+la probabilité $P\left(\Ev{X = i/Z = 0}\right)$.
+
+\item Déterminer, en distinguant les cas $i = n$ et $0\leq i\leq n-1$,
+la probabilité $P\left(\Ev{X = i/Z = n}\right)$.
+
+\item Pour tout $k$ de $\{1,2,...,n-1\}$ déterminer, en distinguant les
+cas $
+0\leq i\leq k$ et $k<i\leq n$, la probabilité conditionnelle $
+P\left(\Ev{X = i/Z = k}\right)$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $P\left(\Ev{X = 0}\right) = \Sum{k =
+1}{n-1}(\dfrac{n-k}{2n})^{k} + 
+\dfrac{1}{2^{n}}$.
+
+\item Montrer que $P\left(\Ev{X = n}\right) = \dfrac{1}{2^{n}}$.
+
+\item Exprimer, pour tout $i$ de $\{1,2,...,n-1\}$, $P\left(\Ev{X =
+i}\right)$ sous forme
+d'une somme que l'on ne cherchera pas à réduire.
+\end{noliste}
+
+\item Vérifier, avec les expressions trouvées à la question précédente,
+que $\Sum{i = 0}{n}P\left(\Ev{X = i}\right) = 1$.
+\end{noliste}
+
+\newpage
+
+\section*{Problème}
+
+Dans ce problème, la lettre $n$ désigne un entier naturel non nul.\\
+On note $f_{n}$ la fonction définie sur $\R$ par : $f_{n}(x) =
+xe^{-\dfrac{n}{x}}$ si $x\neq 0$ et $f_{n}(0) = 0$.\\
+On note $(C_{n})$ la courbe représentative de $f_{n}$ dans un repère
+orthonormé $(O,\vec{i},\vec{j})$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f_{n}$ est continue à droite en 0.
+
+\item Montrer que $f_{n}$ est dérivable à droite en 0 et donner la
+valeur du
+nombre dérivé \\
+à droite en 0 de $f_{n}$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f_{n}$ est dérivable sur $]-\infty,0[$ et sur $
+]0, + \infty \lbrack $. Pour tout réel $x$ non nul, \\
+calculer $f_{n}{\prime }(x)$ puis étudier son signe.
+
+\item Calculer les limites de $f_{n}$ en $ + \infty $, $-\infty $ et
+$0^{-}$,
+puis donner le tableau de variation de $f_{n}$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Rappeler le développement limité à l'ordre $2$ de $e^{u}$ lorsque
+$u$
+est au voisinage de 0.
+
+\item En déduire que, lorsque $x$ est au voisinage de $ + \infty $ ou
+au
+voisinage de $-\infty $, on a :
+\[
+f_{n}(x) = x-n + \dfrac{n^{2}}{2x} + o(\dfrac{1}{x}).
+\]
+
+\item En déduire qu'au voisinage de $ + \infty $, ainsi qu'au voisinage
+de $
+-\infty $, $(C_{n})$ admet une asymptote \textquotedblleft
+oblique\textquotedblright\ $(D_{n})$ dont on donnera une équation.
+Préciser
+la position relative de $(D_{n})$ et $(C_{n})$ aux voisinages de $ +
+\infty $
+et de $-\infty $.
+
+\item Donner l'allure de la courbe $(C_{1})$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer qu'il existe un unique réel, que l'on notera $u_{n}$, tel
+que $
+f_{n}(u_{n}) = 1$.
+
+\item Vérifier que, pour tout $n$ de $\N^{\times }$, $u_{n}$ est
+strictement supérieur à $1$ et que $u_{n}$ est solution de l'équation
+$x\ln
+(x) = n$.
+
+\item Étudier la fonction $g$ définie sur $[1, + \infty \lbrack $ par $
+g(x) = x\ln x$. En déduire, en utilisant la fonction $g^{-1}$, que $
+\dlim{n\rightarrow + \infty }u_{n} = + \infty.$
+
+\item Justifier la relation $\ln u_{n} + \ln (\ln u_{n}) = \ln n$, puis
+montrer
+que $\ln u_{n}\underset{n\rightarrow + \infty }{\sim }\ln n$. \\
+En déduire un équivalent de $u_{n}$ lorsque n est au voisnage de $ +
+\infty $.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la suite $(u_{n})_{n\geq 1}$ est strictement
+croissante.
+
+\item Montrer que : $f_{n}(u_{n + 1}) = \exp (\dfrac{1}{u_{n + 1}})$.
+\end{noliste}
+
+\item On pose $I_{n} = \dint{u_{n}}{u_{n + 1}}f_{n}(t)dt$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : $1\leq \dfrac{I_{n}}{u_{n + 1}-u_{n}}\leq \exp (
+\dfrac{1}{u_{n + 1}})$.
+
+\item En déduire un équivalent de $I_{n}$ lorsque $n$ est au voisinage
+de $
+ + \infty $.
+
+\item Montrer alors que la série de terme général $I_{n}$ est
+divergente.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

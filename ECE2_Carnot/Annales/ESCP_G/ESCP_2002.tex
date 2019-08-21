@@ -1,0 +1,472 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 2002 - voie Générale} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION SCIENTIFIQUE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 2002}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent Dans tout le problème, $n$ désigne un entier supérieur ou
+égal à $2 $.\\
+On considère une fonction réelle $f$ de classe $C^{\infty }$ sur
+$[-1,1]$,
+et on note $I(f)$ l'intégrale : $\dint{-1}{1}f(x)dx$.\\
+Pour tout entier naturel $k$ non nul, on pose :
+\[
+M_{k}(f) = \sup_{x\in \lbrack -1,1]}f^{(k)}(x),\text{ où }f^{(k)\text{
+}}\text{désigne la dérivée d'ordre }k\text{ de }f.
+\]
+Les polynômes considérés sont à coefficients réels, et on confond
+polynôme
+et fonction polynomiale associée.\\
+Pour tout entier naturel $m$, on note $\R_{m}[X]$ le $\R$-espace
+vectoriel des polynômes de degré inférieur ou égal à $m$.\\
+On rappelle que si $r_{1},r_{2},\dots,r_{p}$ sont des racines réelles
+distinctes d'un polynôme $P$, avec des multiplicités respectives
+$k_{1},k_{2},\dots,k_{p}$, alors il existe un polynôme $Q$ tel que $P =
+Q\prod\limits_{i = 1}{p}(X-r_{i})^{k_{i}}$.\\
+Enfin, $a_{1},a_{2},\dots,a_{n}$ désignent $n$ réels deux à deux
+distincts
+de $[-1,1]$, et on note $A_{n}$ le polynôme : 
+\[
+A_{n} = \prod_{i = 1}{n}(X-a_{i})
+\]
+L'objet de ce problème est l'approximation de $I(f)$ par des intégrales
+de
+fonctions polynomiales.
+
+\section*{Préliminaire}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Énoncer le théorème de Rolle.
+
+\item Soit $g$ une fonction de classe $C^{n}$ sur $[-1,1]$, s'annulant
+en $n + 1$ points distincts de $[-1,1]$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la dérivée de $g$ s'annule en au moins $n$ points
+distincts de $]-1,1[$.
+
+\item Montrer qu'il existe un réel $c$ de $]-1,1[$ tel que $g^{(n)}(c)
+= 0$.
+\end{noliste}
+\end{noliste}
+
+\section*{Partie I}
+
+\textit{Dans cette partie, on va proposer comme valeur approchée de
+}$I(f)$\textit{\ la valeur de l'intégrale obtenue en remplaçant la
+fonction }$f$\textit{\ par la fonction polynomiale de degré inférieur
+ou égal à }$n-1$\textit{, introduite ci-dessous, qui coïncide avec
+}$f$\textit{\ sur chacun
+des points }$a_{i}$\textit{.}\\
+Pour tout entier $i$ de $\{1,2,\dots,n\}$, on note $L_{i}$ le polynôme
+: $L_{i} = \prod\limits_{\QATOP{k\in \{1,\dots,n\}}{k\not =
+i}}(X-a_{k})$.\\
+Par exemple, si $n = 3$, $a_{1} = -1$, $a_{2} = 0$, et $a_{3} = 1$,
+alors : $L_{1} = X(X-1)$, $L_{2} = (X-1)(X + 1)$, $L_{3} = X(X + 1)$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que, pour tous entiers $i$ et $j$ de $\{1,2,\dots,n\}$,
+le réel $L_{i}(a_{j})$ est nul lorsque $i$ est différent de $j$, et est
+non nul
+lorsque $i$ est égal à $j$.
+
+\item Montrer qu'il existe un \textbf{unique} polynôme, que l'on note
+$P_{f}$, de degré inférieur ou égal à $n-1$, tel que, pour tout entier
+$j$ de $\{1,2,\dots,n\}$, on a l'égalité $P_{f}(a_{j}) = f(a_{j})$, et
+que ce polynôme est donné par la formule : 
+\[
+P = \Sum{i = 1}{n}\dfrac{f(a_{i})}{L_{i}(a_{i})}L_{i}
+\]
+\end{noliste}
+
+\item Pour tout entier $i$ de $\{1,2,\dots,n\}$, on pose : $\delta_{i}
+= \dfrac{1}{L_{i}(a_{i})}\dint{-1}{1}L_{i}(x)dx$.\\
+Montrer que : $\dint{-1}{1}P_{f}(x)dx = \Sum{i = 1}{n}\delta
+_{i}f(a_{i})$.\\
+\textit{Dans toute la suite, on note :} $J_{n}(f) =
+\dint{-1}{1}P_{f}(x)dx = \Sum{i = 1}{n}\delta_{i}f(a_{i})$.
+
+\item Que peut-on dire de $I(f)$ et $J_{n}(f)$ lorsque $f$ est une
+fonction
+polynomiale de degré inférieur ou égal à $n-1$ ?
+
+\item Soit $x$ un élément fixé de $[-1,1]$, distinct de chacun des
+réels $a_{i}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier l'existence d'un réel $\lambda $ vérifiant l'égalité :
+$f(x)-P_{f}(x)-\lambda A_{n}(x) = 0$.\\
+On note maintenant $g_{\lambda }$ l'application qui à tout réel $t$ de
+$[-1,1]$ associe : 
+\[
+g_{\lambda }(t) = f(t)-P_{f}(t)-\lambda A_{n}(t)
+\]
+
+\item Calculer $g_{\lambda }(a_{i})$ pour chaque entier $i$ de
+$\{1,2,\dots,n\}$.
+
+\item Montrer qu'il existe un réel $c$ de $]-1,1[$ tel que $g_{\lambda
+}{(n)}(c) = 0$, puis établir l'égalité : 
+\[
+\lambda = \dfrac{f^{(n)}(c)}{n!}
+\]
+\end{noliste}
+
+\item En déduire que, pour tout réel $x$ de $[-1,1]$, \quad $\left|
+f(x)-P_{f}(x)\right| \leq \dfrac{M_{n}(f)}{n!}\left|
+A_{n}(x)\right| $.\\
+puis établir l'inégalité : 
+\[
+\left| I(f)-J_{n}(f)\right| \leq \dfrac{M_{n}(f)}{n!}\dint{-1}{1}\left|
+A_{n}(x)\right\dx
+\]
+
+\item Dans cette question, on suppose que $a_{1} = -1$, $a_{n} = 1$ et
+que $a_{1},a_{2},\dots,a_{n}$ sont répartis régulièrement, c'est-à-dire
+que,
+pour tout entier $i$ de $\{1,2,\dots,n\}$, on a : $a_{i} = -1 +
+\dfrac{2(i-1)}{n-1}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $k$ un entier tel que $1\leq k\leq n-1$ et soit $x$ un réel
+de $[a_{k},a_{k + 1}]$. Justifier l'inégalité : 
+\[
+\left| A_{n}(x)\right| \leq (\dfrac{2}{n-1})^{n}k!(n-k)!
+\]
+
+\item En déduire que, pour tout réel $x$ de $[-1,1]$, on a : $\left|
+A_{n}(x)\right| \leq \left( \dfrac{2}{n-1}\right) ^{n}(n-1)!$.
+
+\item \textbf{On admet} que, quand l'entier naturel $p$ tend vers
+l'infini,
+on a l'équivalence suivante : $p!\underset{p\rightarrow + \infty }{\sim
+}\left( \dfrac{p}{e}\right) ^{p}\sqrt{2\pi p}$.\\
+Montrer que, si l'entier $n$ est assez grand, on a, pour tout réel $x$
+de $[-1,1]$, la majoration : 
+\[
+\left| A_{n}(x)\right| \leq \left( \dfrac{2}{e}\right) ^{n}
+\]
+\end{noliste}
+\end{noliste}
+
+\section*{Partie II}
+
+\textit{Dans cette partie, on va proposer comme valeur approchée de
+}$I(f)$\textit{\ la valeur de l'intégrale obtenue en remplaçant la
+fonction }$f$\textit{\ par une certaine fonction polynomiale de degré
+inférieur ou égal à 
+}$2n-1$\textit{, qui réalise une approximation de }$f$\textit{\ plus
+fine
+que la fonction polynomiale de la partie précédente.}\\
+Pour tout polynôme $Q$, on note $Q^{\prime }$ le polynôme dérivé de
+$Q$.
+
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On considère l'application $T$ de $\R_{2n-1}[X]$ dans $\R^{2n}$
+définie par : 
+\[
+\forall Q\in \R_{2n-1}[X],\;T(Q) =
+(Q(a_{1}),Q(a_{2}),\dots,Q(a_{n}),Q^{\prime }(a_{1}),Q^{\prime
+}(a_{2}),\dots,Q^{\prime }(a_{n}))
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $T$ est une application linéaire de $\R_{2n-1}[X]$
+dans $\R^{2n}$.
+
+\item Montrer que $T$ est injective (\textit{on rappelle qu'un réel
+}$a$\textit{\ est racine au moins double d'un polynôme }$Q$\textit{\ si
+et
+seulement si }$Q(a) = Q^{\prime }(a) = 0$\textit{)}. En déduire que $T$
+est
+bijective.
+
+\item Utiliser la question précédente pour montrer qu'il existe un
+unique
+polynôme, noté $Q_{f}$, de degré inférieur ou égal à $2n-1$, tel que,
+pour
+tout entier $j$ de $\{1,2,\dots,n\}$ : 
+\[
+Q_{f}(a_{j}) = f(a_{j})\text{ et }Q_{f}{\prime }(a_{j}) = f^{\prime
+}(a_{j})
+\]
+(on ne demande pas d'expliciter $Q_{f}$)\\
+\textit{Dans toute la suite, on note } : $K_{n}(f) =
+\dint{-1}{1}Q_{f}(x)dx$.
+\end{noliste}
+
+\item Que peut-on dire de $I(f)$ et $K_{n}(f)$ lorsque $f$ est une
+fonction
+polynomiale de degré inférieur ou égal à $2n-1$ ?
+
+\item Par une méthode analogue à celle de la partie précédente, on
+pourrait démontrer, et \textbf{on admettra}, la majoration : 
+\[
+\left| I(f)-K_{n}(f)\right| \leq
+\dfrac{M_{2n}(f)}{(2n)!}\dint{-1}{1}A_{n}{2}(x)dx
+\]
+Que vaut le polynôme $Q_{f}$ lorsque $f$ est la fonction polynomiale
+$x\mapsto A_{n}{2}(x)$ ?\\
+Montrer que, dans ce cas, l'inégalité précédente est une égalité.
+
+\item Soit $\Phi $ l'application définie sur $\R_{n}[X]\times 
+\R_{n}[X]$ par : 
+\[
+\forall (P,Q)\in \R_{n}[X]\times \R_{n}[X],\quad \Phi
+(P,Q) = \dint{-1}{1}P\left(\Ev{x}\right)Q\left(\Ev{x}\right)dx
+\]
+Montrer que $\Phi $ est un produit scalaire.
+
+\item L'espace vectoriel $\R_{n}[X]$ est maintenant muni de ce
+produit scalaire.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier l'existence d'un polynôme $V$ de degré au plus $n-1$
+vérifiant : $Q_{f}-P_{f} = A_{n}V$.\\
+En déduire que si le polynôme $A_{n}$ est orthogonal à tout polynôme de
+$\R_{n-1}[X]$, alors $K_{n}(f) = J_{n}(f)$.
+
+\item Inversement, si le polynôme $A_{n}$ n'est pas orthogonal à tout
+polynôme de $\R_{n-1}[X]$, montrer qu'il existe une fonction $f$ telle
+que 
+$K_{n}(f)\not = J_{n}(f)$.
+\end{noliste}
+\end{noliste}
+
+\section*{Partie III}
+
+\textit{Dans cette partie, l'espace vectoriel }$\R_{n}[X]$\textit{\
+est toujours muni du produit scalaire }$\Phi $\textit{\ introduit dans
+}\textbf{II.}4)$.$\\
+On note $R_{n}$ l'image du polynôme $X^{n}$ par la projection
+orthogonale
+sur le sous espace-vectoriel $\R_{n-1}[X]$, et on pose : $S_{n} =
+X^{n}-R_{n}$. Ainsi, $S_{n}$ est orthogonal à tout polynôme de
+$\R_{n-1}[X]$, et $X^{n} = R_{n} + S_{n}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item En se plaçant dans le cas particulier où $n = 3$, déterminer
+$S_{3}$.
+
+\item On revient désormais au cas général.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer le degré et le coefficient dominant de $S_{n}$.
+
+\item Justifier l'égalité : $\dint{-1}{1}S_{n}(x)dx = 0$.\\
+En déduire que le polynôme $S_{n}$ admet au moins une racine dans
+$]-1,1[$.
+\end{noliste}
+
+\item On se propose de montrer que $S_{n}$ admet exactement $n$ racines
+réelles distinctes dans l'intervalle $]-1,1[$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On suppose qu'il existe un réel $\alpha $ et un polynôme $Q$ tels
+que $S_{n} = (X-\alpha )^{2}Q$.\\
+Aboutir à une contradiction en considérant le signe de $S_{n}Q$ et la
+valeur
+de $\Phi (S_{n},Q)$.\\
+En déduire que toutes les racines réelles de $S_{n}$ sont simples.
+
+\item Soit $p$ le nombre de racines distinctes de $S_{n}$ qui
+appartiennent à
+$]-1,1[$, et soient $\alpha_{1},\alpha_{2},\dots,\alpha_{p}$ ces
+racines.\\
+On définit le polynôme : 
+\[
+U = \prod_{i = 1}{p}(X-\alpha_{i})
+\]
+Montrer que le polynôme $S_{n}U$ est de signe constant sur $[-1,1]$, et
+en déduire, en considérant $\Phi (S_{n},U)$, que $p$ n'est pas
+inférieur ou égal à
+$n-1$.\\
+Conclure que $S_{n}$ admet exactement $n$ racines réelles distinctes
+$\alpha
+_{1},\alpha_{2},\dots,\alpha_{n}$ dans $]-1,1[$, et que : 
+\[
+S_{n} = \prod_{j = 1}{n}(X-\alpha_{j})
+\]
+\textit{Dans toute la suite du problème, on suppose que
+}$(a_{1},a_{2},\dots,a_{n}) =
+(\alpha_{1},\alpha_{2},\dots,\alpha_{n})$\textit{, et on
+conserve toutes les notations précédentes. En particulier, on a
+maintenant }$A_{n} = S_{n}$\textit{, et, avec les réels
+}$\delta_{1},\delta_{2},\dots,\delta_{n}$\textit{\ introduits dans la
+partie I, (et qui sont indépendants de }$f$\textit{), on note toujours
+}$J_{n}(f) = \dint{-1}{1}P_{f}(x)dx = \Sum{i =
+1}{n}\delta_{i}f(\alpha_{i})$\textit{. }
+\end{noliste}
+
+\item En utilisant les résultats de la \textbf{partie II}, montrer que
+: 
+\[
+\left| I(f)-J_{n}(f)\right| \leq
+\dfrac{M_{2n}(f)}{(2n)!}\dint{-1}{1}S_{n}{2}(x)dx
+\]
+
+\item En se plaçant à nouveau dans le cas particulier où $n = 3$,
+montrer que : 
+\[
+J_{3}(f) = \dfrac{1}{9}\left( 5f(-\sqrt{\dfrac{3}{5}}) + 8f(0) +
+5f(\sqrt{\dfrac{3}{5}})\right)
+\]
+
+\item \textit{Étude des réels
+}$\alpha_{1},\alpha_{2},\dots,\alpha_{n}$\textit{\ et
+}$\delta_{1},\delta_{2},\dots,\delta_{n}$\textit{\ }
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En considérant $J_{n}(f)$ lorsque $f$ est constante égale à $1$,
+donner la valeur de $\delta_{1} + \delta_{2} + \cdots + \delta_{n}$.
+
+\item Pour chaque entier $j$ de $\{1,2,\dots,n\}$, montrer, en
+considérant
+la valeur de $J_{n}(f)$ lorsque $f$ est la fonction polynomiale
+$x\mapsto
+L_{j}{2}(x)$, que $\delta_{j}$ est positif.
+
+\item On suppose dans cette question que les racines de $S_{n}$ sont
+numérotées par ordre croissant, c'est-à-dire : 
+\[
+\alpha_{1}<\alpha_{2}<\dots <\alpha_{n}
+\]
+Justifier que $S_{n}(-X) = (-1)^{n}S_{n}(X)$.\\
+En déduire que les réels $\alpha_{1},\alpha_{2},\dots,\alpha_{n}$ sont
+répartis symétriquement par rapport à $0$, autrement dit que pour tout
+entier $i$ de $\{1,2,\dots,n\}$, on a l'égalité : $\alpha_{n + 1-i} =
+-\alpha_{i}$.\\
+En conclure que, pour tout entier $j$ de $\{1,2,\dots,n\}$, on a
+l'égalité : $\delta_{n + 1-j} = \delta_{j}$.
+\end{noliste}
+
+\item \textit{Majoration de }$\dint{-1}{1}S_{n}{2}(x)dx$\textit{\ }
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que pour tout polynôme $P$ de degré $n$ et de coefficient
+dominant $1$, on a l'inégalité : 
+\[
+\dint{-1}{1}S_{n}{2}(x)dx\leq \dint{-1}{1}P^{2}(x)dx
+\]
+
+\item Montrer par récurrence que, pour tout entier naturel non nul $k$,
+il
+existe un polynôme $T_{k}$ de degré $k$ et de coefficient dominant $1$
+tel
+que, pour tout réel $\theta $ :\quad $\cos (k\theta ) =
+2^{k-1}T_{k}(\cos
+\theta )$.\\
+En déduire la majoration : 
+\[
+\dint{-1}{1}S_{n}{2}(x)dx\leq \dfrac{\pi }{2^{2n-2}}
+\]
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

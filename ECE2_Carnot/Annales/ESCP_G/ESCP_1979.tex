@@ -1,0 +1,309 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1979} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION GENERALE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 1979}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent Dans ce problème, on note 
+
+\begin{noliste}{$\sbullet$}
+\item $J$ l'ensemble $\{1,2,3\}$
+
+\item $M$ une matrice carrée d'ordre $3$ à coefficients réels,
+d'élément générique $a_{ij},$ $i$ étant l'indice de ligne, $j$ l'indice
+de colonne.
+
+\item $\lambda_{1},$ $\lambda_{2},$ $\lambda_{3}$ les valeurs propres
+réelles ou complexes, distinctes ou confondues de $M$ et $\left|
+\lambda
+_{1}\right|,$ $\left| \lambda_{2}\right|,$ $\left|
+\lambda_{3}\right| $ leurs modules.
+
+\item $I$ la matrice unité de dimension 3
+\[
+I = 
+\begin{smatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{smatrix}
+\]
+
+\item $\func{tr}(M)$ le nombre : $\Sum{i\in J}a_{ii}$ appelé trace
+de la matrice $M$
+\end{noliste}
+
+\section*{PARTI\E\ I}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Démontrer que $\func{tr}(M) = \Sum{i\in J}\lambda_{i}$
+
+\item Démontrer que l'une, au moins, des valeurs propres de $M$ est
+réelle.
+
+\item Soit $M^{2}$ le carré de la matrice $M.$ Démontrer que pour tout
+$i\in
+J,$ $\lambda_{i}{2}$ est valeur propre de $M^{2}.$\\
+Réciproquement, si $\mu $ est une valeur propre de la matrice $M^{2},$
+démontrer que l'une au moins des racines carrées (dans $\C)$ de $\mu $
+est valeur propre de $M$ (on pourra poser $\mu = \omega ^{2})$\\
+Quelle conclusion dégage-t-on de cette étude ?
+\end{noliste}
+
+\section*{PARTI\E\ II}
+
+Dans cette partie, on suppose que $M$ satisfait à la condition (1)
+suivante :
+\[
+(1)\qquad \exists k\in \R_{+}{\times },\quad \text{tel que}\quad 
+\func{tr}M = k\quad \text{et}\quad \func{tr}(M^{2}) = k^{2}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Démontrer que $M$ admet au moins une valeur propre réelle non
+nulle.
+
+\item On suppose $\lambda_{1}>k.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Démontrer que les deux autres valeurs propres $\lambda_{2}$ et
+$\lambda_{3}$ sont non réelles ou nulles.
+
+\item Démontrer que $\left| \lambda_{2}\right| <\lambda_{1}$ et $\left|
+\lambda_{3}\right| <\lambda_{1}.$
+\end{noliste}
+\end{noliste}
+
+\section*{PARTI\E\ III}
+
+Dans cette partie, on suppose que $M$ satisfait à la condition (2)
+suivante :
+\[
+(2)\qquad \forall (i,j)\in J^{2},\quad a_{ij}\in \R_{+}{\times
+}\quad \text{et}\quad a_{ij} = \dfrac{1}{a_{ij}}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour cette question, on suppose, de plus, $M$ singulière
+(c'est-à-dire
+non inversible).
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les valeurs propres de $M.$
+
+\item Démontrer que les vecteurs colonnes de $M$ sont vecteurs propres
+de $M.
+$ A quelle(s) valeur(s) propre(s) sont associés ces vecteurs propres ?
+
+\item Démontrer que $M$ satisfait à la condition (3) suivante :
+\[
+(3)\qquad \forall n\in \N^{\times },\qquad M^{n} = 3^{n-1}M
+\]
+
+\item Soit $\Delta (\lambda ) = a_{3}\lambda ^{3} + a_{2}\lambda
+^{2} + a_{1}\lambda + a_{0},$ le déterminant de la matrice $M-\lambda
+I,$ où $\lambda $ est un complexe. Déduire de $(3)$ que, si on note
+$\Delta (M)$ la
+matrice : 
+\[
+a_{3}M^{3} + a_{2}M^{2} + a_{1}M + a_{0}I,
+\]
+alors $\Delta (M)$ est la matrice nulle.
+
+\item Peut-on trouver un polynôme $\varphi $ à coefficients réels de
+degré
+strictement inférieur à trois tel que $\varphi (M)$ soit la matrice
+nulle ?
+\end{noliste}
+
+\item Démontrer qu'une condition nécessaire et suffisante pour que $M$
+soit
+singulière est :
+\[
+\forall (i,j,k)\in J^{3},\qquad a_{ik}.a_{kj} = a_{ij}.
+\]
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Démontrer que si $M$ est régulière (c'est-à-dire inversible) elle
+admet alors une seule valeur propre réelle $\lambda_{1}$ et que
+$\lambda
+_{1}>3.$
+
+\item En déduire que $\left| \lambda_{2}\right| <\lambda_{1}$ et
+$\left| \lambda_{3}\right| <\lambda_{1}.$
+\end{noliste}
+
+\item Démontrer que $M$ est singulière si et seulement elle admet la
+valeur
+propre $3.$
+\end{noliste}
+
+\section*{PARTI\E\ IV}
+
+L'espace vectoriel $\R^{3}$ étant rapporté à la base canonique $B_{0},$
+soit $f_{1}$ l'endomorphisme de $\R^{3}$ dont la matrice
+dans la base $B_{0}$ est :
+\[
+M_{0} = 
+\begin{smatrix}
+1 & \dfrac{1}{x} & \dfrac{1}{xz}\\
+x & 1 & \dfrac{1}{z}\\
+xz & z & 1
+\end{smatrix},\qquad x>0\quad \text{et}\quad z>0.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer dans la base $B_{1}$ définie par les vecteurs :
+\[
+V_{1} = 
+\begin{smatrix}
+1 \\
+x \\
+xz
+\end{smatrix}
+\qquad V_{2} = 
+\begin{smatrix}
+1 \\
+x \\
+0
+\end{smatrix}
+\qquad V_{3} = 
+\begin{smatrix}
+0 \\
+1 \\
+-z
+\end{smatrix}
+\]
+la matrice $T_{0}$ de l'endomorphisme $f_{1}.$
+
+\item Soit $f_{\alpha }$ l'endomorphisme de $\R^{3}$ dont la matrice 
+$T_{\alpha }$ dans la base $B_{1}$ est définie par :
+\[
+T_{\alpha } = T_{0} + \alpha 
+\begin{smatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 0
+\end{smatrix}
+\]
+Montrer que quel que soit $\alpha $ réel, $\alpha \neq 0$ et $\alpha
+\neq 3,$
+$T_{\alpha }$ est singulière et possède trois valeurs propres
+distinctes de
+que l'on déterminera.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la matrice $M_{\alpha }$ de l'endomorphisme $f_{\alpha
+}$
+dans la base $B_{0}.$
+
+\item Déterminer une base $B_{2}$ de $\R^{3}$ dont les vecteurs
+sont, pour tout $\alpha $ réel, $\alpha \neq 0$ et $\alpha \neq 3,$
+vecteurs
+propres de $f_{\alpha }$.
+
+\item La matrice $M_{\alpha }$ est-elle diagonalisable ?
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

@@ -1,0 +1,304 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 1998} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 1998}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\huge HEC Eco 1998}
+\end{center}
+
+\section*{EXERCICE I}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $\mu $ un paramètre réel. On considère le système
+d'équations
+
+$(1)\left\{ 
+\begin{tabular}{l}
+$\mu x_{1} + x_{2}\hfill = 0$ \\
+$3x_{1} + \mu x_{2} + 2x_{3}\hfill = 0$ \\
+$2x_{2} + \mu x_{3} + 3x_{4}\hfill = 0$ \\
+$x_{3} + \mu x_{4}\hfill = 0$\end{tabular}\ \right. $ d'inconnues
+$x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$.
+
+\begin{nonoliste}{(i)}
+\item Montrer que ce système admet les mêmes solutions que le système
+$(2)\left\{ 
+\begin{tabular}{lcr}
+$\mu x_{1} + x_{2}\hfill $ & $ = $ & $0$ \\
+$x_{3} + \mu x_{4}\hfill $ & $ = $ & $0$ \\
+$(3-\mu ^{2})x_{1}-2\mu x_{4}$ & $ = $ & $0$ \\
+$-2\mu x_{1} + (3-\mu ^{2})x_{4}$ & $ = $ & $0$\end{tabular}\ \right. $
+
+\item Résoudre, en discutant suivant les valeurs de $\mu $, le sysème
+$\quad \left\{ 
+\begin{tabular}{lcr}
+$(3-\mu ^{2})x_{1}-2\mu x_{4}$ & $ = $ & $0$ \\
+$-2\mu x_{1} + (3-\mu ^{2})x_{4}$ & $ = $ & $0$\end{tabular}\ \right. $
+
+\item Déterminer enfin, suivant les valeurs de $\mu $, les solutions du
+système (1).
+\end{nonoliste}
+
+\item Déterminer les valeurs propres et les vecteurs propres de la
+matrice
+
+$A = \left( 
+\begin{tabular}{cccc}
+$1$ & $1$ & $0$ & $0$ \\
+$3$ & $1$ & $2$ & $0$ \\
+$0$ & $2$ & $1$ & $3$ \\
+$0$ & $0$ & $1$ & $1$\end{tabular}\right).$
+\end{noliste}
+
+\item Pour tout entier $n\geq 1$ on note $\R_{n}[x]$ l'espace
+vectoriel des fonctions polynômes de degré inférieur ou égal à $n$ et,
+à
+toute fonction polynôme $P$ de $\R_{n}[x]$, on associe la fonction
+polynôme $T_{n}P$ définie sur $\R$ par $T_{n}P\left(\Ev{x}\right) =
+\left(\Ev{nx + 1}\right)\,P\left(\Ev{x}\right) +
+\left(\Ev{1-x^{2}}\right)\,P^{\prime }(x).$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout $n\geq 1$, l'application $P\mapsto T_{n}P$
+est un endomorphisme de $\R_{n}[x]$.
+
+\item Donner la matrice $M_{n}$ de cet endomorphisme $T_{n}$ dans la
+base de 
+$\R_{n}[x]$ formée des fonctions polynômes $1,\;X,\dots \;X^{n}$ où
+$X^{k}$ désigne, pour tout $k\in \{0,1,...,n\}$, la fonction $x\mapsto
+x^{k}$.
+
+\item Dans le cas $n = 3$, donner les valeurs propres de $T_{3}$ et
+écrire
+les fonctions polyn\^{o}mes formant une base de vecteurs propres.
+
+\item En faisant la somme des lignes de la matrice $M_{n}$, déterminer
+simplement une valeur propre de $T_{n}.$
+\end{noliste}
+
+\item On se propose de déterminer plus généralement toutes les valeurs
+propres de $T_{n}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Etant donné un réel $\lambda $ calculer, pour $\,-1<x<1$,
+l'intégrale $g_{\lambda }(x) = \dint{0}{x}\dfrac{nt + 1-\lambda
+}{1-t^{2}}\,dt.$ On
+cherchera d'abord deux réels $a$ et $b$ tels que $\,\,\dfrac{nt +
+1-\lambda }{1-t^{2}} = \dfrac{a}{1-t} + \dfrac{b}{1 + t}\,$
+
+\item Montrer que si les nombres $\,h = n + 1 - \lambda\, $ et $\, k =
+n - 1
+ + \lambda\, $ sont des nombres entiers, positifs ou nuls, pairs, alors
+la
+fonction $\exp(-g_{\lambda}(x))$ est une fonction polyn\^{o}me.
+Vérifier que
+ces conditions impliquent que $\; -(n-1) \leq \lambda \leq n + 1$.
+
+\item Pour $n = 3$ quels sont les réels $\lambda$ qui vérifient les
+conditions précédentes ? Pour un entier $n \geq 1$ quelconque,
+combien de réels $\lambda$ vérifient ces conditions ?
+
+\item Montrer que si $\lambda$ est une valeur propre de $T_{n}$ et si
+$P_\lambda$ est un vecteur propre associé, alors la fonction $h$,
+définie
+sur $]-1,1[$ par $h(x) = P_\lambda(x) \exp(g_\lambda(x))$, a une
+dérivée
+nulle. Que vaut alors $P_\lambda$ ?
+
+\item Déterminer les valeurs propres de $T_{n}$ et une base de vecteurs
+propres (on pourra distinguer les cas $n$ pair et $n$ impair).
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE II}
+
+On effectue une suite de lancers d'une pièce de monnaie. On suppose que
+les résultats des lancers sont indépendants et que, à chaque lancer, la
+pièce
+donne face avec la probabilité $p$ $\,(0<p<1\,)$ et pile avec la
+probabilité 
+$\,q = 1-p$.\\
+L'objet de l'exercice est l'étude du nombre de lancers nécessaires pour
+obtenir deux faces de suite, c'est à dire lors de deux lancers
+consécutifs.\\
+On suppose donné un espace probabilisé, muni d'une probabilité $P$,
+modélisant cette expérience.\\
+Pour tout entier $n\geq 1$, on note
+
+\begin{noliste}{$\sbullet$}
+\item $U_{n}$ l'événement~ : \textsl{on obtient 2 faces de suite, pour
+la
+première fois, aux lancers numéro $n$ et $n + 1$,}
+\end{noliste}
+
+et on pose $u_{n} = P\left(\Ev{U_{n}}\right)$.
+
+Pour tout entier $n \geq 2$, on note
+
+\begin{noliste}{$\sbullet$}
+\item $A_{n}$ l'événement : \textsl{les $n$ premiers lancers ne donnent
+pas deux faces de suite et le $n$-ième lancer donne face},
+
+\item $B_{n}$ l'événement : \textsl{les $n$ premiers lancers ne donnent
+pas deux faces de suite et le $n$-ième lancer donne pile,}
+\end{noliste}
+
+et on pose $\; x_{n} = P\left(\Ev{A_{n}}\right)$,\quad $y_{n} =
+P\left(\Ev{B_{n}}\right)$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer $u_{1}\,$ ; $\,x_{2}$, $\,y_{2}$, $\,u_{2}\,$ ;
+$\;x_{3}$, $\,y_{3}$, $\,u_{3}$.
+
+\item Trouver, pour $n\geq 2$, une relation simple entre $x_{n}$ et
+$u_{n}$.
+
+\item Pour tout $n\geq 2$ déterminer les probabilités conditionnelles
+
+$\,P\left(\Ev{A_{n + 1}\,/\,A_{n}}\right),\quad P\left(\Ev{A_{n +
+1}\,/\,B_{n}}\right),\quad
+P\left(\Ev{B_{n + 1}\,/\,A_{n}}\right),\quad P\left(\Ev{B_{n +
+1}\,/\,B_{n}}\right).$
+
+\item En déduire, pour tout $n\geq 2$, les relations de récurrence
+suivantes~ : $\left\{ 
+\begin{tabular}{rcl}
+$x_{n + 1}$ & $ = $ & $py_{n}$ \\
+$y_{n + 1}$ & $ = $ & $q(x_{n} + y_{n})$\end{tabular}\ \right. $
+\end{noliste}
+
+\item On suppose, dans cette question, que $p = q = \dfrac{1}{2}\cdot $
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $(f_{n})_{n\geq 0}$ la suite de nombres entiers définie par
+les conditions :
+
+$\,f_{0} = 1,\,f_{1} = 1\,\,$et pour tout entier $n\geq 
+0,\,\,f_{n + 2}\, = \,f_{n + 1}\, + \,f_{n}\,.$
+
+Montrer que, pour tout $n\geq 2$, on a $2^{n}y_{n} = f_{n}$.
+
+\item On pose $\;\alpha = \dfrac{1 + \sqrt{5}}{2}\;$ et $\;\beta =
+\dfrac{1-\sqrt{5}}{2}\cdot $ Montrer que l'on a, pour tout entier
+$n\geq 0,\quad
+f_{n} = \dfrac{\alpha ^{n + 1}-\beta ^{n + 1}}{\alpha -\beta }\,\cdot $
+
+\item En déduire, pour tout entier $n\geq 2$, une expression de
+$\,x_{n}
+$, puis de $\,u_{n}$, en fonction de $n,\alpha \,$et $\beta $.
+
+\item Vérifier que $\Sum{n = 1}{\infty }u_{n} = 1$, c'est à dire que la
+probabilité d'obtenir deux faces de suite au bout d'un nombre fini de
+lancers est égale à 1.
+\end{noliste}
+
+\item On considère maintenant le cas où $p = \dfrac{2}{3}.$\\
+Donner, pour tout entier $n\geq 1$, une expression de $\,u_{n}$ en
+fonction de $n$.
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

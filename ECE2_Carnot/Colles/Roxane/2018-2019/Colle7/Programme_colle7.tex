@@ -1,0 +1,257 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+
+\vspace{0.1cm}
+
+\begin{center}
+\textbf{\Large{Programme de colle - Semaine 7}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Notation}
+
+\noindent
+On adoptera les principes suivants pour noter les étudiants :
+\begin{noliste}{$\stimes$}
+\item si l'étudiant sait répondre à la question de cours, il 
+aura une note $>8$.
+\item si l'étudiant ne sait pas répondre à la question de 
+cours ou s'il y a trop d'hésitations, il aura une note $\leq 8$.
+\end{noliste}
+
+\section*{Questions de cours}
+
+\begin{noliste}{$\sbullet$}
+  \item {\bf Variance d'une $\Pois{\lambda}$}\\
+  Soit $\lambda>0$ et soit $X \suit \Pois{\lambda}$. Alors
+\begin{noliste}{1.}
+\item $X$ admet une espérance et une variance
+\item De plus : $\E(X) = \lambda$ \qquad et \qquad $\V(x) = \lambda$.
+\end{noliste}
+
+\begin{proof}[Preuve]~\\
+Montrons que $\E(X^2)$ existe. Soit $n 
+\geq 0$, alors :
+\[
+  \begin{array}{rcl}
+   \Sum{k=0}{n} k^2 \Prob(\Ev{X=k}) 
+   &=& \lambda  \Sum{k=1}{n} k \ \dfrac{\lambda^{k-1}}{(k-1)!}\ee^{-
+   \lambda}
+   \\[.6cm] 
+   & = & \lambda \Sum{j=0}{n-1} (j+1) \ \dfrac{\lambda^{j}}{j!}\ee^{-
+   \lambda}  
+   \\[.6cm]
+   & = & \lambda \big(\Sum{j=0}{n-1} j \ \dfrac{\lambda^{j}}{j!}\ee^{-
+   \lambda} + \Sum{j=0}{n-1} \dfrac{\lambda^{j}}{j!}\ee^{-\lambda}\big)
+  \end{array}
+\]
+On reconnaît la série exponentielle $\Sum{j\geq 0}{} 
+\dfrac{\lambda^j}{j!}$ qui est une série convergente, et la série 
+$\Sum{j=0}{n-1} j \ \dfrac{\lambda^{j}}{j!}\ee^{-\lambda}$ qui est 
+convergente (on reconnaît l'expression de $\E(X)$ quand $n \to 
++\infty$). \\
+Donc $X$ admet un moment d'ordre 
+$2$, donc une variance et : 
+\[
+ \E(X^2) = \Sum{k=0}{+\infty} k^2 \Prob(\Ev{X=k}) = \lambda 
+\left(\Sum{j=0}{+\infty}
+ j\dfrac{\lambda^{j}}{j!}\ee^{-\lambda}  +  
+\Sum{j=0}{+\infty} \dfrac{\lambda^{j}}{j!}\ee^{-\lambda}\right) \ 
+= \ \lambda(\E(X) + \bcancel{\ee^\lambda} \bcancel{\ee^{-\lambda}}) = 
+\lambda (\lambda +1)
+\]
+Enfin d'après la formule de Koenig-Huyghens,
+\[
+\V(X) = \E(X^2) - \E(X)^2 = \lambda (\lambda +1) - \lambda^2 = \lambda.
+\]
+\end{proof}
+
+
+\newpage
+
+
+\item {\bf Variance d'une $\G{p}$}\\
+Soit $p \in ]0,1[$ et soit $X \suit \G{p}$. Alors 
+\begin{noliste}{1.}
+\item $X$ admet une 
+espérance et une variance
+\item De plus : $\E(X) = \dfrac{1}{p}$ \qquad et \qquad $\V(x) = 
+\dfrac{1 -  p}{p^2}$.
+\end{noliste}
+
+\begin{proof}[Preuve]~\\
+Calculons $\E(X^2)$ :\\ 
+On rappelle que $k^2 
+= k(k-1)+k$. Soit $n\in\N$.
+\[
+ \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+  \Sum{k=1}{n} k^2 \Prob(\Ev{X=k}) & = & \Sum{k=1}{n} k(k-1) 
+p(1-p)^{k-1} + \Sum{k=1}{n} k p(1-p)^{k-1} & (car $k^2 = k(k-1)+k$)
+\nl[-.4cm]
+\nl
+&=& p(1-p)\Sum{k=1}{n} k(k-1) (1-p)^{k-2} + p \Sum{k=1}{n} k 
+(1-p)^{k-1}\\[.6cm]
+&=& p(1-p)\Sum{k=\textcolor{red}{2}}{n} k(k-1) (1-p)^{k-2} + p 
+\Sum{k=1}{n} k(1-p)^{k-1} & (car $1(1-1)(1-p)^{1-2}=0$)
+ \end{array}
+\]
+On reconnaît la série géométrique dérivée $\Sum{k\geq 1}{} k(1-p)^{k-1}$ 
+et la série géométrique dérivée deux fois $\Sum{k\geq 2}{} k(k-1) 
+(1-p)^{k-2}$ toutes deux de raison $(1-p)\in]0,1[$ qui sont des séries 
+convergentes.\\ 
+Donc $X$ admet un moment d'ordre $2$, donc une variance. 
+Et on a :
+\[
+ \begin{array}{rcl}
+  \E(X^2) &=& p(1-p)\Sum{k=2}{+\infty} k(k-1) (1-p)^{k-2} + p 
+\Sum{k=1}{+\infty} k(1-p)^{k-1}\\[.6cm]
+ &=&  p(1-p) \dfrac{2}{(1-(1-p))^3} + p 
+\dfrac{1}{(1-(1-p))^2}\\[.6cm]
+ &=& 2 \ \dfrac{1-p}{p^2} + \dfrac{1}{p}\\[.6cm] 
+ &=& \dfrac{2}{p^2} - \dfrac{1}{p}
+ \end{array}
+\]
+D'après la formule de Koenig-Huyghens, on en déduit que
+\[
+\V(X) \ = \ \E(X^2) - \E(X)^2 \ = \ \dfrac{2}{p^2} - \dfrac{1}{p} - 
+\dfrac{1}{p^2} \ = \ \dfrac{1}{p^2} - \dfrac{1}{p} \ = \ 
+\dfrac{1 -  p}{p^2}
+\]
+\end{proof}
+
+
+\newpage
+
+
+\item {\bf Le noyau et l'image sont des ev}\\
+Soit $f \in \LL{E,F}$. Alors : 
+\begin{noliste}{$\stimes$}
+  \item $\kr(f)$ est un sous espace vectoriel de $E$,
+  
+  \item $\im(f)$ est un sous espace vectoriel de $F$.
+\end{noliste}
+
+\begin{proof}[Preuve]~
+  \begin{noliste}{$\sbullet$}
+    \item \dashuline{$\kr(f)$} : 
+      \begin{noliste}{-}
+        \item $\kr(f) \subset E$ par définition.
+        
+        \item $0_{E} \in \kr(f)$ car $f(0_{E}) = 0_{F}$ 
+        
+        \item Soit $(u_1,u_2) \in (\kr(f))^2$ et soit $(\lambda_1,
+        \lambda_2) \in \R^2$, vérifions : 
+        $\lambda_1 \cdot u_1 + \lambda_2 \cdot u_2 \in \kr(f)$, \ie 
+        montrons : $f(\lambda_1 \cdot u_1 + \lambda_2 \cdot u_2)=
+        0_{F}$.
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+            f(\lambda_1 \cdot u_1 + \lambda_2 \cdot u_2) & = & 
+            \lambda_1 \cdot f(u_1) + \lambda_2 \cdot f(u_2) 
+            & (car $f$ est linéaire) 
+            \nl
+            \nl[-.2cm]
+            &=& \lambda_1 \cdot 0_F + \lambda_2 \cdot 0_F 
+            & (car $u_1\in \kr(f)$ et $u_2\in\kr(f)$)
+            \nl
+            \nl[-.2cm]
+            &=& 0_F
+          \end{array}
+        \]
+        Donc $\lambda_1 \cdot u_1 + \lambda_2 \cdot u_2\in\kr(f)$.
+      \end{noliste}
+      $\kr(f)$ est donc un sous espace vectoriel de $E$.      
+      
+    \item \dashuline{$\im(f)$} :
+      \begin{noliste}{-}
+        \item $\im(f) \subset F$ par définition.
+        
+        \item $0_{F} \in \im(f)$ car $f(0_{E}) = 0_{F}$
+        
+        \item Soit $(v_1,v_2) \in (\im(f))^2$ et soit $(\lambda_1,
+        \lambda_2)\in \R^2$, vérifions : 
+        $v_3= \lambda_1 \cdot v_1 + \lambda_2 \cdot v_2 \in \im(f)$, 
+        c'est-à-dire :
+        \[
+          \exists u_3 \in E, \ \ f(u_3) \ = \ v_3.
+        \]
+        Comme $v_1$ et $v_2$ appartiennent à $\im(f)$, on sait alors :
+        \[
+          \exists (u_1,u_2) \in E^2, \ f(u_1) = v_1 \ \text{ et } \ 
+          f(u_2) =v_2
+        \]
+        Donc, comme $f$ est linéaire :
+        \[
+          v_3 \ = \ \lambda_1 \cdot v_1 + \lambda_2 \cdot v_2 \ = \ 
+          \lambda_1 \cdot f(u_1) + \lambda_2 \cdot f(u_2) \ = \ 
+          f(\lambda_1 \cdot u_1 + \lambda_2 \cdot u_2)
+        \]
+        Donc en posant $u_3 = \lambda_1 \cdot u_1 + \lambda_2 \cdot 
+        u_2$, on a bien $f(u_3) = v_3$, donc $v_3 \in \im(f)$. 
+      \end{noliste}
+      On conclut que $\im(f)$ est un sous-espace vectoriel de $F$.
+  \end{noliste}
+\end{proof}
+\end{noliste}
+
+
+\section*{Connaissances exigibles}
+
+\subsection*{Algèbre linéaire}
+
+\begin{noliste}{$\sbullet$}
+  \item Application linéaire, endomorphisme, isomorphisme, 
+  automorphisme.
+\item Noyau, image, caractérisation des injections et surjections, 
+caractérisation de $\im(f)$.
+\item Rang, théorème du rang, caractérisation des isomorphismes.
+\item Application linéaire associée à une matrice.
+\item Matrice associée à une application linéaire.
+\item {\bf Aucun résultat de réduction n'est au programme.}
+\end{noliste}
+
+
+
+
+\subsection*{Probabilités}
+
+\begin{noliste}{$\sbullet$}
+\item définition de tribu, probabilité
+\item événements incompatibles, système complet d'événements, 
+indépendance
+\item probabilités conditionnelles, formule de Bayes
+\item formule du crible, formule des probabilités totales, formule des 
+probabilités composées
+\item \var discrètes finies et infinies, leurs lois (usuelles ou non)
+\item espérance, théorème de transfert, moments, variance, formule de 
+Koenig-Huygens
+\item variables aléatoires discrètes finies et infinies, leurs lois
+\item variables aléatoires discrètes usuelles (finies et infinies), 
+leurs espérances et variances.
+\item Les colleurs sanctionneront {\bf très sévèrement} les confusions 
+entre objets mathématiques : probabilité / événement, variable aléatoire 
+/ événement, etc.
+\item l'indépendance entre \var n'a pas encore été abordée.
+\end{noliste}
+
+
+
+
+
+\end{document}

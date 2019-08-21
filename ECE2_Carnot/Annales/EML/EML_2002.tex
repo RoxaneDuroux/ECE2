@@ -1,0 +1,443 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EML 2002} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{EML 2002}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2002}}
+
+
+
+{\large \textbf{Concepteur : EML}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+
+\begin{center}
+{\LARGE Exercice 1}
+\end{center}
+
+\noindent On considère les deux matrices carrées réelles d'ordre
+quatre suivantes : 
+\[
+I = \left( 
+\begin{array}{rrrr}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{array}
+\right) \,\quad K = \left( 
+\begin{array}{rrrr}
+1 & 1 & -1 & -3 \\
+1 & 1 & 1 & -2 \\
+0 & -1 & 0 & 1 \\
+1 & 1 & 0 & -2
+\end{array}
+\right) 
+\]
+\textsl{Les questions 2 et 3 sont indépendantes entre elles.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $K^{2}$.
+
+\item En déduire que la matrice $K$ est inversible et déterminer
+$K^{-1}$.
+
+\item Montrer que la matrice $K$ n'admet aucune valeur propre réelle.
+\end{noliste}
+
+\item Soient $a$ et $b$ deux nombres réels. On note $M$ la matrice
+définie par $M = aI + bK$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer : $\quad M^{2} = -(a^{2} + b^{2})I + 2aM$.
+
+\item En déduire que, si $(a,b)\neq (0,0)$, alors la matrice $M$ est
+inversible, et exprimer son inverse comme combinaison linéaire de $I$
+et 
+$M$.
+
+\item \textsl{Application :} donner l'inverse de la matrice 
+\[
+\left( 
+\begin{array}{rrrr}
+1 + \sqrt{2} & 1 & -1 & -3 \\
+1 & 1 + \sqrt{2} & 1 & -2 \\
+0 & -1 & \sqrt{2} & 1 \\
+1 & 1 & 0 & -2 + \sqrt{2}
+\end{array}
+\right) 
+\]
+\end{noliste}
+
+\item On note $\mathcal{B} = (e_{1},e_{2},e_{3},e_{4})$ la base
+canonique de $\R^{4}$, et $f$ l'endomorphisme de $\R^{4}$ associé à
+la matrice $K$ relativement à la base $\mathcal{B}$. On considère
+les quatre éléments suivants de $\R^{4}$ : 
+\[
+v_{1} = e_{1}\qquad v_{2} = f(e_{1})\qquad v_{3} = e_{3}\qquad v_{4} =
+f(e_{3}) 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la famille $\mathcal{C} = (v_{1},v_{2},v_{3},v_{4})$
+est une
+base de $\R^{4}$.
+
+\item Exprimer $f(v_{1})$, $f(v_{2})$, $f(v_{3})$, $f(v_{4})$ en
+fonction de 
+$v_{1}$, $v_{2}$, $v_{3}$, $v_{4}$ et en déduire la matrice $K^{\prime
+}$
+associée à $f$ relativement à la base $\mathcal{C}$.
+
+\item Déterminer la matrice de passage $P$ de la base $\mathcal{B}$ à
+la base $\mathcal{C}$.
+
+\item Rappeler l'expression de $K^{\prime }$ en fonction de $K$, $P$ et
+$P^{-1}$.\newpage
+\end{noliste}
+\end{noliste}
+
+\begin{center}
+{\LARGE Exercice 2}
+\end{center}
+
+\noindent On considère, pour tout $n \in \N^*$, la
+fonction polynomiale $P_{n} \ : \ [0, + \infty[ \ \longrightarrow \R$
+définie pour tout $x \in [0, + \infty[$, par : 
+\[
+P_{n}(x) = \Sum{k = 1}{2n}{\frac{(-1)^{k} x^{k} }{k}} = -x +
+{\frac{x^{2}}{2}} + \ldots + {\frac{-x^{2n-1} }{2n- 1}} +
+{\frac{x^{2n}}{2n}} 
+\]
+\textbf{I. Étude des fonctions polynomiales $\mathbf{P_{n}}$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer, pour tout $n\in \N^{\ast }$ et tout $x\in \lbrack
+0, + \infty \lbrack $ : 
+\[
+P_{n}{\prime }(x) = {\frac{x^{2n}-1}{x + 1}}\quad \text{où
+}P_{n}{\prime }\text{ désigne la dérivée de }P_{n}
+\]
+
+\item Établir, pour $n\in \N^{\ast }$, les variations de $P_{n}$
+sur $[0, + \infty \lbrack $ et dresser le tableau de variations de
+$P_{n}$.
+
+\item Montrer, pour tout $n\in \N^{\ast }$ : $P_{n}(1)<0$.
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier, pour tout $n\in \N^{\ast }$ et tout $x\in
+\lbrack 0, + \infty \lbrack $ : 
+\[
+P_{n + 1}(x) = P_{n}(x) + x^{2n + 1}\left( -{\frac{1}{2n + 1}} +
+{\frac{x}{2n + 2}}\right) 
+\]
+
+\item En déduire, pour tout $n\in \N^{\ast }$ : $P_{n}(2)\geq 0$.
+\end{noliste}
+
+\item Montrer que, pour tout $n\in \N^{\ast }$, l'équation $P_{n}(x) =
+0$, d'inconnue $x\in \lbrack 1, + \infty \lbrack $, admet une
+solution et une seule notée $x_{n}$, et que : 
+\[
+1<x_{n}\leq 2
+\]
+
+\item Écrire un programme en langage \Scilab{} qui calcule une valeur
+approchée décimale de $x_{2}$ à $10^{-3}$ près.
+\end{noliste}
+
+\textbf{II. Limite de la suite $\mathbf{\ (x_{n})_{n \in \N^*}}$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Établir, pour tout $n\in \N^{*}$ et tout $x\in [0, + \infty [
+$ : 
+\[
+P_{n}(x) = \dint{0}{x}{\frac{t^{2n}-1}{t + 1}}\ dt 
+\]
+
+\item En déduire, pour tout $n\in \N^{*}$ : 
+\[
+\dint{1}{x_{n}}{\frac{t^{2n}-1}{t + 1}}\ dt =
+\dint{0}{1}{\frac{1-t^{2n}}{t + 1}}\ dt 
+\]
+
+\item Démontrer, pour tout $n\in \N^{*}$ et tout $t\in
+[1, + \infty [$ : 
+\[
+t^{2n}-1\geq n(t^{2}-1) 
+\]
+
+\item En déduire, pour tout $n\in \N^{*}$ : 
+\[
+\dint{1}{x_{n}}{\frac{t^{2n}-1}{t + 1}}\ dt\geq
+{\frac{n}{2}}(x_{n}-1)^{2}\, 
+\]
+puis : 
+\[
+0<x_{n}-1\leq {\frac{\sqrt{2\ln 2}}{\sqrt{n}}} 
+\]
+
+\item Conclure quant à la convergence et à la limite de la suite
+$(x_{n})_{n\in \N^{*}}$.
+\end{noliste}
+
+\begin{center}
+{\LARGE Exercice 3}
+\end{center}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \textbf{Étude préliminaire}
+
+\noindent On admet, pour tout entier $k$ et pour tout $x\in [0,1[$
+que la série $ \Sum{n\geq k}\binom{n}{k}x^{n}$ est
+convergente et on note $s_{k}(x) =  \Sum{n = k}{+ \infty
+}\binom{n}{k}x^{n}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier, pour tout réel $x$ de $[0,1[$ : 
+\[
+s_{0}(x) = {\frac{1}{1-x}}\qquad \hbox{ et }\qquad s_{1}(x) =
+{\frac{x}{(1-x)^{2}}} 
+\]
+
+\item Pour tout couple d'entiers naturels $(n,k)$ tels que $n<k$,
+montrer : 
+\[
+\binom{n + 1}{k + 1} = \binom{n}{k} + \binom{n}{k + 1} 
+\]
+
+\item Pour tout entier naturel $k$ et pour tout réel $x$ de $[0,1[$,
+déduire de la question précédente : 
+\[
+s_{k + 1}(x) = xs_{k}(x) + xs_{k + 1}(x) 
+\]
+
+\item Montrer par récurrence : 
+\[
+\forall k\in \N\quad \forall x\in [0,1[ \ \qquad s_{k}(x) =
+{\frac{x^{k}}{(1-x)^{k + 1}}} 
+\]
+\newpage
+\end{noliste}
+
+\item \textbf{Étude d'une expérience aléatoire}
+
+\noindent On considère une urne contenant une boule noire et
+quatre boules blanches. On effectue l'expérience aléatoire suivante :
+
+\begin{noliste}{$\sbullet$}
+\item On commence par tirer des boules de l'urne une à une avec remise
+jusqu'à obtenir la boule noire (que l'on remet aussi dans l'urne ).\\
+On définit la variable aléatoire $N$ égale au nombre de tirages
+avec remise nécessaires pour obtenir la boule noire.
+
+\item Puis, si $N$ prend une valeur entière positive non nulle notée 
+$n$, on réalise alors une seconde série de $n$ tirages dans l'urne,
+toujours avec remise.\\
+On définit la variable aléatoire $X$ égale au nombre de fois où la
+boule noire a été obtenue dans cette seconde série de
+tirages.
+\end{noliste}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la loi de la variable aléatoire $N$. Donner son
+espérance.
+
+\item Soient $k\in \N$ et $n\in \N^{\ast }$. Déterminer
+la probabilité conditionnelle $P_{N = n}(X = k)$.
+
+\item Vérifier que : \quad $ P\left(\Ev{X = 0}\right) = {\frac{4}{9}}$.
+
+\item En utilisant l'étude préliminaire, montrer : 
+\[
+\forall k\in \N^{*}\qquad P\left(\Ev{X = k}\right) =
+{\frac{25}{36}}\left( {\frac{4}{9}}\right) ^{k} 
+\]
+
+\item Montrer que $X$ admet une espérance $\E(X)$ et calculer $\E(X)$.
+
+\item Montrer : $\qquad \forall k\in \N\qquad  P\left(\Ev{X\leq
+k}\right) = 1-{\frac{5}{9}}\left( {\frac{4}{9}}\right) ^{k}$.
+\end{noliste}
+
+\item \textbf{Étude d'une variable à densité}
+
+\noindent On note $a =  -{\frac{\ln 9-\ln 5}{\ln 9-\ln 4}}$ et on
+définit la fonction $F$ sur $\R$ par 
+\[
+\left\{ 
+\begin{array}{ll}
+F(x) = 1- {\frac{5}{9}}\left( {\frac{4}{9}}\right) ^{x} & 
+\hbox{ si
+}x\in [a, + \infty [ \ \\
+F(x) = 0 & \text{sinon}
+\end{array}
+\right. 
+\]
+On rappelle : $\qquad \forall x\in \R\quad  \left( {\frac{4}{9}}\right)
+^{x} = e^{x\ln {\frac{4}{9}}}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $F$ est la fonction de répartion d'une variable à
+densité, notée $Y$.
+
+\item Déterminer une densité $f$ de $Y$.
+
+\item Déterminer une primitive de la fonction $g$ définie par $ =
+x\,e^{x\ln {\frac{4}{9}}}$.
+
+\item Montrer que $Y$ admet une espérance $\E\left( Y\right) $ et
+calculer $\E(Y)$.
+\end{noliste}
+\end{noliste}
+
+\end{document}
+

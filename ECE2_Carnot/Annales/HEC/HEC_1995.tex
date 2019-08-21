@@ -1,0 +1,331 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 1995} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 1995}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\huge HEC Eco 1995}
+\end{center}
+
+\section*{EXERCICE I}
+
+Soit $A$ la matrice de $\mathfrak{M}_{3}(\R)$ définie par 
+\[
+A = \left( 
+\begin{array}{ccc}
+-4 & -6 & 0 \\
+6 & 7 & 2 \\
+0 & 2 & -2
+\end{array}
+\right) 
+\]
+et soit $n$ un entier, strictement positif, fixé. \\
+
+Cet exercice a pour but de déterminer toutes les matrices $X$ de
+$\mathfrak{M}_{3}(\R)$ vérifiant l'équation 
+\[
+(\ast )\qquad X^{n} = A^{n}.
+\]
+\\
+On désigne par $(e_{1},e_{2},e_{3})$ la base canonique de $\R^{3}$
+et par $\phi $ l'endomorphisme de $\R^{3}$ représenté par la matrice 
+$A$ dans cette base.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer l'image par $\phi $ du vecteur $(-2e_{1} + e_{2} +
+2e_{3})$.
+
+\item Déterminer le noyau de $\phi $.
+
+\item Montrer que 2 est une valeur propre de $\phi $ et déterminer le
+sous-espace propre associé.
+
+\item Montrer que la matrice $A$ est diagonalisable.
+
+\item Déterminer les valeurs propres de la matrice $A^{n}$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que si l'équation (*) admet une solution $X$, alors
+$XA^{n} = A^{n}X$.
+
+\item En déduire que si $(f_{1},f_{2},f_{3})$ est une base formée de
+vecteurs propres de $A$, c'est aussi une base de vecteurs propres de
+$X$.
+
+\item Déterminer une matrice $Q$ telles que les matrices $Q^{-1}AQ$ et
+$Q^{-1}XQ$ soient toutes les deux diagonales.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Si $n$ est un nombre impair, déterminer toutes les solutions de
+(*).
+
+\item Si $n$ est un nombre pair, déterminer toutes les solutions de
+(*).
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE II}
+
+Soit $f$ la fonction numérique définie sur $\left[ 1, + \infty \right[
+$ par
+la relation 
+\[
+f(t) = \dfrac{e^{t}}{t}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la fonction $f$ est strictement croissante.
+
+\item En déduire que, pour tout nombre entier naturel non nul $n$, 
+\[
+\dfrac{e^{n}}{n}\leq \dint{n}{n + 1}f(t)\ dt\leq \dfrac{e^{n + 1}}{n +
+1}
+\]
+Montrer que l'équation 
+\[
+\dfrac{e^{x}}{x} = \dint{n}{n + 1}f(t)\ dt
+\]
+admet une solution et une seule dans l'intervalle $\left[ n;n +
+1\right] $. On
+notera $u_{n}$ cette solution, ce qui définit une suite
+$(u_{n})_{n>0}$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout nombre entier naturel non nul $p$, 
+\[
+0\leq \dint{1}{2}f(t)\ dt-\dfrac{1}{p}\Sum{k = 0}{p-1}f(1 +
+\dfrac{k}{p})\leq \dfrac{1}{p}\left[ f(2)-f(1)\right]
+\]
+
+\item En utilisant la méthode des rectangles, donner une valeur
+approchée à
+0,1 près de l'intégrale $\dint{1}{2}f(t)\ dt$. En déduire une valeur
+approchée de $u_{1}$ à 0,1 près.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que 
+\[
+\dlim{x\rightarrow + \infty }\dfrac{u_{n}}{n} = 1
+\]
+
+\item Montrer que 
+\[
+\dlim{x\rightarrow + \infty }\dfrac{\dint{n}{n +
+1}\dfrac{e^{t}}{t^{2}}\ dt}{\dint{n}{n + 1}\dfrac{e^{t}}{t}\ dt} = 0
+\]
+A l'aide d'une intégration par parties, montrer que 
+\[
+\dlim{x\rightarrow + \infty }(u_{n}-n) = \ln {(e-1)}
+\]
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE III}
+
+La roue d'une loterie est représentée par un disque de rayon 1 dont le
+centre $O$ est pris pour origine d'un repère orthonormé $\left(
+O,\overset{\rightarrow }{i},\overset{\rightarrow }{j}\right) $. La roue
+est lancée dans
+le sens trigonométrique. L'angle (exprimé en radians) dont elle tourne
+avant
+de s'arrêter est une variable aléatoire qu'on note $U$ et qui est
+supposée
+suivre une loi exponentielle de paramètre $\lambda $, de densité la
+fonction
+valant $\lambda e^{-\lambda x}$ si $x\geq 0$ et 0 si $x<0$.\\
+La roue porte une marque $M$ qui, au départ, est située au point de
+coordonnées $(1,0)$ et qui, après l'arrêt de la roue, est située au
+point de coordonnées 
+\[
+X = \cos {U}\qquad Y = \sin {U}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On admet (la justification n'est pas demandée) que les intégrales
+
+\[
+\dint{0}{+ \infty }\cos {u}\ e^{-\lambda u}du\qquad \text{et}\qquad
+\dint{0}{+ \infty }\sin {u}\ e^{-\lambda u}du
+\]
+sont absolument convergentes et on se propose de les calculer. \\
+Pour cela on pose, pour $\lambda >0$ et $T>0$ : 
+\[
+I(T) = \dint{0}{T}\cos {u}\ e^{-\lambda u}du\qquad \text{et}\qquad
+J(T) = \dint{0}{T}\sin {u}\ e^{-\lambda u}du.
+\]
+A l'aide d'intégrations par parties, établir les relations 
+\[
+I(T) = \sin {T}\ e^{-\lambda T}-\lambda \cos {T}\ e^{-\lambda T} +
+\lambda
+-\lambda ^{2}I(T)
+\]
+\[
+J(T) = -\cos {T}\ e^{-\lambda T} + 1-\lambda \sin {T}\ e^{-\lambda
+T}-\lambda
+^{2}J(T)
+\]
+
+\item En déduire les limites de $I(T)$ et de $J(T)$ quand $T$ tend vers
+$ + \infty $.
+
+\item Calculer l'espérance des variables aléatoires $X$ et $Y$ en
+fonction
+du paramètre $\lambda $.
+\end{noliste}
+
+\item Un joueur gagne à cette loterie si, à l'arrêt de la roue,
+l'ordonnée
+de $M$ vérifie la condition : $Y\geq \dfrac{1}{2}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour quelles valeurs de $U$ le joueur a-t-il gagné ?
+
+\item Calculer la probabilité $q(\lambda )$ que le joueur gagne.
+
+\item Montrer que, quand $\lambda $ tend vers 0, $q(\lambda )$ a une
+limite
+que l'on déterminera.
+\end{noliste}
+
+\item On suppose dans cette question, pour simplifier, que $\lambda =
+1$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer les espérances de $X^{2}$, $Y^{2}$ et $XY$.
+
+\item Calculer, pour toute valeur du nombre réel $a$, la variance de la
+variable aléatoire 
+\[
+Z = X-aY
+\]
+
+\item Montrer qu'il existe une valeur de $a$, que l'on déterminera,
+pour
+laquelle la variance de $Z$ est minimum.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

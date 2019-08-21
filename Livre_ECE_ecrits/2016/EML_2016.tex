@@ -1,0 +1,633 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../macros_Livre.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\pagestyle{fancy} %
+ \lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} EML 2016} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+%%DEBUT
+
+\section*{EXERCICE I}
+
+\noindent
+On note $I$ et $A$ les matrices de $\M{3}$ définies 
+par :
+\[
+I=
+\begin{smatrix}
+ 1 & 0 & 0\\
+ 0 & 1 & 0\\
+ 0 & 0 & 1
+\end{smatrix}
+, \qquad 
+A=
+\begin{smatrix}
+ 0 & 1 & 0\\
+ 1 & 0 & 1\\
+ 0 & 1 & 0
+\end{smatrix},
+\]
+et $\mathcal{E}$ l'ensemble des matrices de $\M{3}$ 
+défini par :
+\[
+\mathcal{E}=\left\{
+\begin{smatrix}
+ a+c & b & c\\
+ b & a+2c & b\\
+ c & b & a+c
+\end{smatrix} \; ; \; (a,b,c) \in \R^3 \right\}
+\]
+
+\subsection*{PARTIE I : Étude de la matrice $A$}
+
+\begin{noliste}{1.}
+\setlength{\itemsep}{2mm}
+\item Calculer $A^2$.
+
+
+
+
+\item Montrer que la famille $(I,A,A^2)$ est libre.
+
+
+
+%\newpage
+
+\item
+\begin{noliste}{a)}
+\item Justifier, sans calcul, que $A$ est diagonalisable.
+
+
+
+\item Déterminer une matrice $P$ de $\M{3}$ 
+inversible dont tous les coefficients de la première ligne sont égaux à 
+1 et une matrice $D$ de $\M{3}$ diagonale dont tous 
+les coefficients diagonaux sont dans l'ordre croissant telles que : 
+$A=PDP^{-1}$.
+
+
+\end{noliste}
+
+\item Montrer : $A^3=2A$.
+
+
+\end{noliste}
+
+\subsection*{PARTIE II : Étude d'une application définie sur 
+$\mathcal{E}$}
+\begin{noliste}{1.}
+\setcounter{enumi}{4}
+\item Montrer que $\mathcal{E}$ est un sous-espace vectoriel de 
+$\M{3}$ et que la famille $(I,A,A^2)$ est une base 
+de $\mathcal{E}$. En déduire la dimension de $\mathcal{E}$.
+
+
+
+%\newpage
+
+\item Montrer que, pour toute matrice $M$ de $\mathcal{E}$, la matrice 
+$AM$ appartient à $\mathcal{E}$.
+
+
+\end{noliste}
+
+\noindent
+On note $f$ l'application de $\mathcal{E}$ dans $\mathcal{E}$ qui, à 
+toute matrice $M$ de $\mathcal{E}$, associe $AM$.
+
+\begin{noliste}{1.}
+\setcounter{enumi}{6}
+\item Vérifier que $f$ est un endomorphisme de l'espace vectoriel 
+$\mathcal{E}$.
+
+
+
+\item Former la matrice $F$ de $f$ dans la base $(I,A,A^2)$ de 
+$\mathcal{E}$.
+
+
+
+\item
+\begin{noliste}{a)}
+\item Montrer : $f\circ f\circ f=2f$.
+
+
+
+%\newpage
+
+\item En déduire que toute valeur propre $\lambda$ de $f$ vérifie : 
+$\lambda^3=2\lambda$.
+
+
+
+\item Déterminer les valeurs propres et les sous-espaces propres de $f$.
+
+
+\end{noliste}
+
+\item L'endomorphisme $f$ est-il bijectif ? diagonalisable ?
+
+
+
+\item Déterminer une base de $\im(f)$ et une base de 
+$\kr(f)$.
+
+
+
+\item 
+\begin{noliste}{a)}
+\item Résoudre l'équation $f(M)=I+A^2$, d'inconnue $M\in \mathcal{E}$.
+
+
+
+
+%\newpage
+
+
+\item Résoudre l'équation $f(N)=A+A^2$, d'inconnue $N\in \mathcal{E}$.
+
+
+
+\end{noliste}
+\end{noliste}
+
+
+%\newpage
+
+
+\section*{EXERCICE II}
+
+\noindent
+On considère l'application $f: [0, +\infty[\to \R$ définie, pour tout
+$t$ de $[0, +\infty[$, par :
+\[
+f(t) =
+\left\{
+  \begin{array}{cR{1.4cm}}
+    t^2-t\ln(t) & si $t\neq 0$ \nl
+    0 & si $t = 0$
+  \end{array}
+\right.
+\]
+On admet : $0, \ 69 < \ln(2)<0, \ 70$.
+
+\subsection*{PARTIE I :  Étude de la fonction $f$}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{2mm}
+\item Montrer que $f$ est continue sur $[0, +\infty[$.
+  
+  
+
+
+\item Justifier que $f$ est de classe $\Cont{2}$ sur $]0,+\infty[$ et
+  calculer, pour tout $t$ de $]0,+\infty[$, $f'(t)$ et $f''(t)$.
+
+  
+
+\item Dresser le tableau des variations de $f$. On précisera la limite
+  de $f$ en $+\infty$.
+
+
+
+\item On note $C$ la courbe représentative de $f$ dans un repère 
+orthonormal $(0, \vec{i} ,\vec{j})$.
+\begin{noliste}{a)}
+\item Montrer que $C$ admet une tangente en $0$ et préciser celle-ci.
+
+
+
+
+\item Montrer que $C$ admet un point d'inflexion et un seul, noté $I$, 
+et préciser les coordonnées de $I$.
+
+
+
+
+%\newpage
+
+
+\item Tracer l'allure de $C$.
+
+  
+  
+\end{noliste}
+
+\item Montrer que l'équation $f(t)=1$, d'inconnue $t\in[0,+\infty[$, 
+admet une solution et une seule et que celle-ci est égale à $1$.
+
+
+
+\end{noliste}
+
+
+%\newpage
+
+
+\subsection*{PARTIE II : Étude d'une fonction $F$ de deux 
+variables réelles}
+
+\noindent
+On considère l'application $F: \ ]0,+\infty[^2 \to \R$ de 
+classe $\Cont{2}$, définie, pour tout $(x,y)$ de $]0,+\infty[^2$ , par 
+: 
+\[
+F(x,y)=x\ln(y)-y\ln(x)
+\]
+\begin{noliste}{1.}
+  \setlength{\itemsep}{2mm} %
+  \setcounter{enumi}{5}
+\item Calculer les dérivées partielles premières de $F$ en tout
+  $(x,y)$ de $]0,+\infty[^2$.
+
+  
+  
+
+\item
+\begin{noliste}{a)}
+\item Soit $(x,y)\in \ ]0,+\infty[^2$. Montrer que $(x,y)$ est un point 
+critique de $F$ si et seulement si :
+\[
+x > 1, \quad y=\dfrac{x}{\ln(x)} \quad \text{et} \quad 
+f\left(\ln(x)\right)=1
+\]
+
+
+
+
+\item Établir que $F$ admet un point critique et un seul et qu'il
+  s'agit de $(\ee,\ee)$.
+
+  
+
+\end{noliste}
+
+\item La fonction $F$ admet-elle un extremum local en $(\ee,\ee)$?
+
+  
+  
+\end{noliste}
+
+\subsection*{PARTIE III : Étude d'une suite récurrente}
+
+\noindent
+On considère la suite $(u_n)_{n\in \N}$ définie par : $u_0 =
+\dfrac{1}{2}$ \quad et \quad $\forall n\in \N$, $u_{n+1} = f(u_n)$.
+
+\begin{noliste}{1.}
+\setlength{\itemsep}{2mm}
+\setcounter{enumi}{8}
+\item Montrer : $\forall n\in \N$, $u_n \in \left[\frac{1}{2},
+    1\right]$.
+
+  
+
+\item Montrer que la suite $(u_n)_{n\in \N}$ est croissante.
+
+  
+
+\item En déduire que la suite $(u_n)_{n\in \N}$ converge et déterminer
+  sa limite.\\
+  {\it (on pourra étudier les variations de la fonction $t\mapsto
+    t-\ln(t)$)}
+
+
+
+\item Écrire un programme en \Scilab{} qui calcule et affiche un entier 
+naturel $N$ tel que $1-u_N<10^{-4}$.
+
+
+
+\end{noliste}
+
+%\newpage
+
+\section*{EXERCICE III}
+
+
+\subsection*{PARTIE I : Étude d'une variable aléatoire}
+
+\noindent
+On considère l'application $f:\R\rightarrow\R$ définie, 
+pour tout $t$ de $\R$, par : 
+$f(t)=\dfrac{\ee^{-t}}{(1+\ee^{-t})^2}$.
+
+\begin{noliste}{1.}
+\setlength{\itemsep}{2mm}
+\item Vérifier que la fonction $f$ est paire.
+
+
+
+
+
+%\newpage
+
+
+
+\item Montrer que  $f$ est une densité d'une variable aléatoire réelle.
+
+
+
+\end{noliste}
+
+\noindent
+Dans toute la suite de l'exercice, on considère une variable aléatoire 
+réelle $X$ à densité, de densité $f$.
+\begin{noliste}{1.}
+\setlength{\itemsep}{2mm}
+\setcounter{enumi}{2}
+\item Déterminer la fonction de répartition de $X$.
+
+
+
+%\newpage
+
+\item
+\begin{noliste}{a)}
+\item Montrer que l'intégrale $\dint{0}{+\infty}t \, f(t)\dt$ 
+converge.
+
+
+
+\item En utilisant l'imparité de la fonction $\R\to \R$, $t\mapsto t
+  \, f(t)$, montrer que $X$ admet une espérance et que l'on a :
+  $\E(X)=0$.
+
+
+
+\end{noliste}
+\end{noliste}
+
+\subsection*{PARTIE II. Étude d'une autre variable aléatoire}
+
+\noindent
+On considère l'application $\varphi: \R\rightarrow\R$ définie, pour
+tout $x$ de $\R$, par : $\varphi(x) = \ln(1+\ee^x)$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{2mm}%
+  \setcounter{enumi}{4}
+\item Montrer que $\varphi$ est une bijection de $\R$ sur un 
+  intervalle $I$ à préciser.
+
+
+
+\item Exprimer, pour tout $y$ de $I$, $\varphi^{-1}(y)$.
+
+
+
+\end{noliste}
+
+
+%\newpage
+
+
+\noindent
+On considère la variable aléatoire réelle $Y$ définie par : 
+$Y=\varphi(X)$.
+\begin{noliste}{1.}
+\setlength{\itemsep}{2mm}
+\setcounter{enumi}{6}
+\item Justifier : $\Prob(\Ev{Y\leq 0})=0$.
+
+
+
+\item Déterminer la fonction de répartition de $Y$.
+
+
+
+
+\item Reconnaître alors la loi de $Y$ et donner, sans calcul, son 
+espérance et sa variance.
+
+
+
+\end{noliste}
+
+
+%\newpage
+
+
+\subsection*{PARTIE III : Étude d'une convergence en loi}
+
+\noindent
+On considère une suite de variables aléatoires réelles $(X_n)_{n\in
+  \N^*}$, mutuellement indépendantes, de même densité $f$, où $f$ a
+été définie dans la partie I.\\
+On pose, pour tout $n$ de $\N^*$ : $T_n=\max(X_1,\ldots,X_n)$ et
+$U_n=T_n-\ln(n)$.
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{2mm}
+  \setcounter{enumi}{9}
+\item
+  \begin{noliste}{a)}
+  \item Déterminer, pour tout $n$ de $\N^*$, la fonction de
+    répartition de $T_n$.
+
+    
+    
+  \item En déduire : $\forall n\in \N^*, \ \forall x\in \R, \
+    \Prob(\Ev{U_n\leq x}) = \left(1 + \dfrac{\ee^{-x}}{n}
+    \right)^{-n}$.
+    
+    
+  \end{noliste}
+
+\item En déduire que la suite de variables aléatoires
+  $(U_n)_{n\in\N^*}$ converge en loi vers une variable aléatoire
+  réelle à densité dont on précisera la fonction de répartition et une
+  densité.
+
+
+
+\end{noliste} 
+
+%%% VERSION ROXANE %%%
+%%% la version au-dessus est une version "corrigé du DS8vA"
+% \subsection*{PARTIE I : Étude d'une variable aléatoire}
+
+% \noindent
+% On considère l'application $f:\R\rightarrow\R$ définie, 
+% pour tout $t$ de $\R$, par : 
+% $f(t)=\dfrac{\ee^{-t}}{(1+\ee^{-t})^2}$.
+
+% \begin{noliste}{1.}
+% \setlength{\itemsep}{2mm}
+% \item Vérifier que la fonction $f$ est paire.
+
+% 
+
+
+
+% %\newpage
+
+
+
+% \item Montrer que  $f$ est une densité d'une variable aléatoire réelle.
+
+% 
+
+% \end{noliste}
+
+% \noindent
+% Dans toute la suite de l'exercice, on considère une variable aléatoire 
+% réelle $X$ à densité, de densité $f$.
+% \begin{noliste}{1.}
+% \setlength{\itemsep}{2mm}
+% \setcounter{enumi}{2}
+% \item Déterminer la fonction de répartition de $X$.
+
+% 
+
+% %\newpage
+
+% \item
+% \begin{noliste}{a)}
+% \item Montrer que l'intégrale $\dint{0}{+\infty}t \, f(t)\dt$ 
+% converge.
+
+% 
+
+
+
+% \item En utilisant l'imparité de la fonction $\R\to 
+% \R$, $t\mapsto t \, f(t)$, montrer que $X$ admet une espérance et 
+% que l'on a : $\E(X)=0$.
+
+% 
+
+% \end{noliste}
+% \end{noliste}
+
+
+% \subsection*{PARTIE II. Étude d'une autre variable aléatoire}
+
+% \noindent
+% On considère l'application $\varphi: \R\rightarrow\R$ 
+% définie, pour tout $x$ de $\R$, par : $\varphi(x)=\ln(1+\ee^x)$.
+% \begin{noliste}{1.}
+% \setlength{\itemsep}{2mm}
+% \setcounter{enumi}{4}
+% \item Montrer que $\varphi$ est une bijection de $\R$ sur un 
+% intervalle $I$ à préciser.
+
+% 
+
+
+
+% %\newpage
+
+
+% \item Exprimer, pour tout $y$ de $I$, $\varphi^{-1}(y)$.
+
+% 
+
+% \end{noliste}
+
+
+
+% \noindent
+% On considère la variable aléatoire réelle $Y$ définie par : 
+% $Y=\varphi(X)$.
+% \begin{noliste}{1.}
+% \setlength{\itemsep}{2mm}
+% \setcounter{enumi}{6}
+% \item Justifier : $\Prob(\Ev{Y\leq 0})=0$.
+
+% 
+
+
+% \item Déterminer la fonction de répartition de $Y$.
+
+% 
+
+
+% \item Reconnaître alors la loi de $Y$ et donner, sans calcul, son 
+% espérance et sa variance.
+
+% 
+
+% \end{noliste}
+
+% \subsection*{PARTIE III : Étude d'une convergence en loi}
+
+% \noindent
+% On considère une suite de variables aléatoires réelles $(X_n)_{n\in 
+% \N^*}$, mutuellement indépendantes, de même densité $f$, où $f$ 
+% a été définie dans la partie I.\\
+% On pose, pour tout $n$ de $\N^*$ : $T_n=\max(X_1,\ldots,X_n)$ et 
+% $U_n=T_n-\ln(n)$.
+
+% \begin{noliste}{1.}
+% \setlength{\itemsep}{2mm}
+% \setcounter{enumi}{9}
+% \item
+% \begin{noliste}{a)}
+% \item Déterminer, pour tout $n$ de $\N^*$, la fonction de 
+% répartition de $T_n$.
+
+% 
+
+
+
+% %\newpage
+
+
+% \item En déduire : $\forall n\in \N^*, \quad \forall x\in 
+% \R, \quad \Prob(\Ev{U_n\leq 
+% x})=\left(1+\dfrac{\ee^{-x}}{n}\right)^{-n}$.
+
+% 
+% \end{noliste}
+
+
+
+% \item En déduire que la suite de variables aléatoires 
+% $(U_n)_{n\in\N^*}$ converge en loi vers une variable aléatoire 
+% réelle à densité dont on précisera la fonction de répartition et une 
+% densité.
+
+% 
+
+% \end{noliste} 
+
+
+
+
+
+
+
+\end{document}

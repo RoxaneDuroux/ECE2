@@ -1,0 +1,3979 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+% \input{../macros_Livre.tex}
+\input{../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} EML 2019} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{-.2cm}
+
+%%DEBUT
+
+\section*{EXERCICE 1}
+
+\noindent %
+Dans ce problème, toutes les variables aléatoires sont supposées
+définies sur un même espace probabilisé noté $(\Omega, \A, \Prob)$. %
+
+\subsection*{PARTIE A : Des résultats préliminaires} %
+
+\noindent %
+Soient $U$ et $V$ deux variables aléatoires à densité indépendantes,
+de densités respectives $f_U$ et $f_V$ et de fonctions de répartition
+respectives $F_U$ et $F_V$.\\
+On suppose que les fonctions $f_U$ et $f_V$ sont nulles sur $]-\infty,
+0[$ et continues sur $[0,+\infty[$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier : $\forall t \in [0,+\infty[$, $0 \ \leq \ F_U(t) \,
+    f_V(t) \ \leq \ f_V(t)$.
+    \begin{proof}~\\
+      Soit $t \in [0,+\infty[$.\\
+      Comme la fonction $F_U$ est une fonction de répartition :
+      \[
+        0 \ \leq \ F_U(t) \ \leq \ 1
+      \]
+      De plus, la fonction $f_V$ est une densité de probabilité, donc
+      : $f_V(t) \geq 0$. Ainsi :
+      \[
+        0 \times f_V(t) \ \leq \ F_U(t) \times f_V(t)
+        \ \leq \ 1 \times f_V(t)
+      \]
+      \conc{On obtient : $\forall t \in [0,+\infty[$, $0 \ \leq \ F_U(t)
+        \, f_V(t) \ \leq \ f_V(t)$.}~\\[-1cm]
+    \end{proof}
+    
+  \item En déduire que l'intégrale $\dint{0}{+\infty} F_U(t) \, f_V(t)
+    \dt$ converge.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item La fonction $t \mapsto F_U(t) \, f_V(t)$ est continue sur
+        $[0,+ \infty[$ en tant que produit de fonctions continues sur
+        cet intervalle. En effet :
+        \begin{noliste}{$\stimes$}
+        \item la fonction $F_U$ est continue sur $\R$ (et donc sur
+          $[0,+\infty[$) en tant que fonction de répartition d'une \var
+          à densité.
+          
+        \item la fonction $f_V$ est continue sur $[0,+\infty[$ d'après
+          l'énoncé.
+        \end{noliste}
+        
+      \item De plus :
+        \begin{noliste}{$\stimes$}
+        \item $\forall t \in [0,+\infty[$, $0 \ \leq \ F_U(t) \,
+          f_V(t) \ \leq \ f_V(t)$
+          
+        \item l'intégrale $\dint{0}{+\infty} f_V(t) \dt$ est
+          convergente. En effet, comme $f_V$ est une densité de
+          probabilité, l'intégrale $\dint{-\infty}{+\infty} f_V(t)
+          \dt$ est convergente (et vaut $1$). Ainsi, en
+          particulier, l'intégrale $\dint{0}{+\infty} f_V(t) \dt$ converge.
+        \end{noliste}
+        \conc{Par critère de comparaison d'intégrales généralisées de
+          fonctions continues positives,\\
+          $\dint{0}{+\infty} F_U(t) \, f_V(t) \dt$ est convergente.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+  \end{noliste}
+
+
+  \newpage
+
+
+  \noindent %
+  On admet le résultat suivant :
+  \[
+    \dint{0}{+\infty} F_U(t) \, f_V(t) \dt \ = \ \Prob(\Ev{U \leq V})
+  \]
+  
+\item En déduire : $\Prob(\Ev{U > V}) \ = \ \dint{0}{+\infty} \big(1 -
+  F_U(t)\big) \, f_V(t) \dt$.
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item Tout d'abord, pour tout $t \in [0,+\infty[$ :
+      \[
+        \big(1- F_U(t)\big) \, f_V(t) \ = \ f_V(t) - F_U(t) \, f_V(t)
+      \]
+      Or les intégrales $\dint{0}{+\infty} f_V(t) \dt$ et
+      $\dint{0}{+\infty} F_U(t) \, f_V(t) \dt$ sont convergentes
+      d'après la question précédente.
+      On en déduit que l'intégrale $\dint{0}{+\infty} \big(1-
+      F_U(t)\big) \, f_V(t) \dt$ est convergente.
+      
+    \item De plus :
+      \[
+        \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+          \dint{0}{+\infty} \big(1- F_U(t)\big) \, f_V(t) \dt
+          & = & \dint{0}{+\infty} f_V(t) - F_U(t) \, f_V(t) \dt
+          \\[.6cm]
+          & = & \dint{0}{+\infty} f_V(t) \dt - \dint{0}{+\infty}
+                F_U(t) \, f_V(t) \dt
+          \\[.6cm]
+          & = & \dint{0}{+\infty} f_V(t) \dt - \Prob(\Ev{U \leq V})
+          & (d'après le résultat admis de l'énoncé)
+          \nl
+          \nl[-.2cm]
+          & = & \dint{-\infty}{+\infty} f_V(t) \dt - \Prob(\Ev{U \leq
+                V})
+          & (car $f_V$ est nulle en dehors de $[0,+\infty[$)
+          \nl
+          \nl[-.2cm]
+          & = & 1 - \Prob(\Ev{U \leq V})
+          & (car $f_V$ est une densité de probabilité)
+          \nl
+          \nl[-.2cm]
+          & = & \Prob(\Ev{ U > V}) 
+        \end{array}
+      \]
+    \end{noliste}
+    \conc{$\Prob(\Ev{U > V}) \ = \ \dint{0}{+\infty} \big(1 -
+      F_U(t)\big) \, f_V(t) \dt$}~\\[-1cm]
+  \end{proof}
+  
+\item {\bf Exemple} : Soient $\lambda, \mu \in \R^2$. On suppose dans
+  cette question que $U$ suit la loi exponentielle de paramètre
+  $\lambda$ et que $V$ suit la loi exponentielle de paramètre $\mu$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Rappeler, pour tout $t$ de $\R_+$, une expression de $F_U(t)$
+    et de $f_V(t)$.
+    \begin{proof}~
+      \conc{Comme $U \suit \Exp{\lambda}$ et $V \suit \Exp{\mu}$, pour
+        tout $t \in [0,+\infty[$ :\\[.2cm]
+        $F_U(t) = 1 - \ee^{-\lambda \, t}$ \quad et \quad $f_V(t) =
+        \mu \, \ee^{-\mu \, t}$.}~\\[-1cm]
+    \end{proof}
+
+
+  \newpage
+
+    
+  \item En déduire : $\Prob(\Ev{U > V}) \ = \ \dfrac{\mu}{\lambda +
+      \mu}$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord, on précise que les \var $U$ et $V$ sont des
+        \var à densité. On est donc bien dans le cadre d'application de la question
+        \itbf{2.}
+        
+      \item On obtient alors :
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+            \Prob(\Ev{U > V})
+            & = & \dint{0}{+\infty} \big(1 - F_U(t)\big) \, f_V(t) \dt
+            \\[.6cm]
+            & = & \dint{0}{+\infty} \left(\bcancel{1}-
+                  \left(\bcancel{1} - \ee^{-\lambda \,
+                  t}\right)\right) \, \mu \, \ee^{-\mu \, t} \dt
+            & (d'après la question précédente)
+            \nl
+            \nl[-.2cm]
+            & = & \mu \ \dint{0}{+\infty} \ee^{-\lambda \, t} \
+                  \ee^{-\mu \, t} \dt
+            \\[.6cm]
+            & = & \mu \ \dint{0}{+\infty} \ee^{-(\lambda + \mu) t} \dt
+          \end{array}
+        \]
+        
+      \item De plus, soit $A \in [0,+\infty[$ :
+        \[
+          \dint{0}{A} \ee^{-(\lambda + \mu) t} \dt \ = \ \Prim{-
+            \dfrac{1}{\lambda + \mu} \ \ee^{-(\lambda + \mu) t}}{0}{A}
+          \ = \ - \dfrac{1}{\lambda + \mu} \left(\ee^{-(\lambda + \mu)
+              A} - 1\right) \ = \ -\dfrac{1}{\lambda + \mu} \
+          \ee^{-(\lambda + \mu) A} + \dfrac{1}{\lambda + \mu}
+        \]
+        Or, comme $\lambda >0$ et $\mu >0$ : $\dlim{A \to +\infty}
+        \ee^{-(\lambda + \mu) A} = 0$. Ainsi :
+        \[
+          \dint{0}{+\infty} \ee^{-(\lambda + \mu) t} \dt =
+          \dfrac{1}{\lambda + \mu}
+        \]
+        \conc{On en déduit : $\Prob(\Ev{U > V}) \ = \ \mu \
+          \dint{0}{+\infty} \ee^{-(\lambda + \mu) t} \dt \ = \
+          \dfrac{\mu}{\lambda + \mu}$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+
+
+\subsection*{PARTIE B : Une application} %
+
+\noindent %
+Soit $\lambda \in \R_+^*$. On considère une suite $(T_n)_{n \in \N}$
+de variables aléatoires indépendantes, suivant toutes la loi
+exponentielle de paramètre $\lambda$.\\
+On définit ensuite la variable aléatoire $N$ égale au plus petit
+entier $k$ de $\N^*$ tel que $T_k \leq T_0$ si un tel entier existe et
+égale à $0$ sinon.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{3}
+\item Soit $n \in \N^*$. On définit la variable aléatoire $M_n$ par :
+  $M_n  = \min(T_1, \ldots, T_n)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Calculer, pour tout $t$ de $\R_+$, $\Prob(\Ev{M_n > t})$.
+    \begin{proof}~\\
+      Soit $t \in [0,+\infty[$.
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord :
+        \[
+          \begin{array}{rcl}
+            \Ev{M_n >t}
+            & = & \Ev{\min(T_1, \ldots, T_n) > t}
+            \\[.2cm]
+            & = & \dcap{i=1}{n} \Ev{T_i > t}
+          \end{array}
+        \]
+
+
+        \newpage
+        
+        
+      \item On en déduit :
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+            \Prob(\Ev{M_n > t})
+            & = & \Prob\left( \dcap{i=1}{n} \Ev{T_i >t}\right)
+            \\[.4cm]
+            & = & \Prod{i=1}{n} \Prob(\Ev{T_i > t})
+            & (car les \var $T_1$, $\ldots$, $T_n$ sont indépendantes)
+            \nl
+            \nl[-.2cm]
+            & = & \Prod{i=1}{n} \left(1 - F_{T_i}(t)\right)
+            \\[.4cm]
+            & = & \Prod{i=1}{n} \left(\bcancel{1}- \left(\bcancel{1} -
+                  \ee^{-\lambda \, t}\right) \right)
+            & (car, pour tout $i \in \llb 1,n \rrb$, $T_i \suit
+              \Exp{\lambda}$ et $t \geq 0$)
+            \nl
+            \nl[-.2cm]
+            & = & \Prod{i=1}{n} \ee^{-\lambda \, t}
+            \\[.6cm]
+            & = & \left(\ee^{-\lambda \, t}\right)^n
+          \end{array}
+        \]
+        \conc{$\forall t \in [0,+\infty[$, $\Prob(\Ev{M_n > t}) =
+          \ee^{-n \lambda \, t}$}
+      \end{noliste}
+      \begin{remark}
+        \begin{noliste}{$\sbullet$}
+        \item On fait ici l'étude de la loi d'un minimum de
+          \var. Cette étude est classique et commence toujours par
+          l'énoncé de l'égalité entre événements, pour tout $t \in \R$ :
+          \[
+            \Ev{\min(T_1, \ldots, T_n) > t} \ = \ \dcap{i=1}{n}
+            \Ev{T_i > t}
+          \]
+          
+        \item On rappelle que dans le cas de l'étude d'un maximum de \var, on
+          commence par une égalité similaire, pour tout $t \in \R$ :
+          \[
+            \Ev{\max(T_1, \ldots, T_n) \leq t} \ = \ \dcap{i=1}{n}
+            \Ev{T_i \leq t}
+          \]
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+    
+  \item En déduire la fonction de répartition de $M_n$ sur $\R$.\\
+    Reconnaître la loi de $M_n$ et préciser son (ses) paramètre(s).
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord, comme pour tout $i \in \llb 1,n \rrb$, $T_i
+        \suit \Exp{\lambda}$, on a : $T_i(\Omega) = [0,+\infty[$.
+        \conc{On en déduit : $M_n(\Omega) \subset [0,+\infty[$.}
+        
+      \item Soit $t \in \R$. Deux cas se présentent :
+        \begin{noliste}{$\stimes$}
+        \item \dashuline{si $t \in \ ]-\infty, 0[$}, alors : $\Ev{M_n
+            \leq t} = \emptyset$ car $M_n(\Omega) \subset
+          [0,+\infty[$. Donc :
+          \[
+            F_{M_n}(t) \ = \ \Prob(\Ev{M_n \leq t}) \ = \
+            \Prob(\emptyset) \ = \ 0
+          \]
+          
+        \item \dashuline{si $t \in [0,+\infty[$}, alors :
+          \[
+            \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+              F_{M_n}(t)
+              & = & \Prob(\Ev{M_n \leq t})
+                    \ = \ 1 - \Prob(\Ev{M_n > t})
+              \\[.2cm]
+              & = & 1 - \ee^{-n\lambda \, t}
+              & (d'après la question précédente)
+            \end{array}
+          \]
+        \end{noliste}
+        \conc{Finalement : $F_{M_n} : t \mapsto \left\{
+            \begin{array}{cR{2.5cm}}
+              0 & si $t \in \ ]-\infty, 0[$
+              \nl
+              \nl[-.2cm]
+              1 - \ee^{-n \lambda \, t} & si $t \in [0,+\infty[$    
+            \end{array}
+          \right.$}
+
+
+        \newpage
+        
+        
+      \item On reconnaît la fonction de répartition d'une \var de loi
+        $\Exp{n \lambda}$.\\
+        Or la fonction de répartition caractérise la loi.
+        \conc{On en déduit : $M_n \suit \Exp{n \lambda}$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+  \end{noliste}
+  
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer : $\Prob(\Ev{N = 1}) \ = \ \Prob(\Ev{T_1 \leq T_0}) \
+    = \ \dfrac{1}{2}$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord, notons que l'événement $\Ev{N = 1}$ est
+        réalisé si et seulement si le plus petit entier $k$ de $\N^*$
+        tel que $T_k \leq T_0$ est $1$, autrement dit, si et seulement
+        si l'événement $\Ev{T_1 \leq T_0}$ est réalisé.
+        \conc{On en déduit : $\Ev{N=1} = \Ev{T_1 \leq T_0}$. D'où :\\[.2cm]
+          $\Prob(\Ev{N=1}) \ = \ \Prob(\Ev{T_1 \leq T_0})$.}
+        
+      \item De plus :
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{6.5cm}}
+            \Prob(\Ev{T_1 \leq T_0})
+            & = & 1 - \Prob(\Ev{T_1 > T_0})
+            \\[.2cm]
+            & = & 1 - \dfrac{\lambda}{\lambda + \lambda}
+            & (d'après \itbf{3.b)} car $T_1$ et $T_0$ sont
+              indépendantes et suivent la loi $\Exp{\lambda}$)
+            \nl
+            \nl[-.2cm]  
+            & = & 1 - \dfrac{\bcancel{\lambda}}{2 \,
+                  \bcancel{\lambda}}
+            \\[.4cm]
+            & = & 1 - \dfrac{1}{2}
+          \end{array}
+        \]
+        \conc{D'où : $\Prob(\Ev{T_1 \leq T_0}) = \dfrac{1}{2}$.}
+      \end{noliste}
+      \begin{remark}
+        On utilise ici le résultat d'une question précédente. On
+        n'omettra donc pas de préciser que toutes les hypothèses
+        nécessaires à son application sont vérifiées.
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+    
+  \item Justifier : $\forall n \in \N^*$, $\Ev{N > n} \cup \Ev{N = 0}
+    \ = \ \Ev{M_n >  T_0}$.\\
+    En déduire, pour tout $n$ de $\N^* $, une expression de
+    $\Prob(\Ev{N > n} \cup \Ev{N = 0})$ en fonction de $n$.
+  \end{noliste}
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Soit $n \in \N^*$.\\ %
+        Tout d'abord :
+        \[
+          \Ev{M_n > T_0} \ = \ \dcap{i=1}{n} \Ev{T_i > T_0}
+        \]
+        Démontrons donc : $\dcap{i=1}{n} \Ev{T_i > T_0} = \Ev{N > n}
+        \cup \Ev{N = 0}$.\\
+        Soit $\omega \in \Omega$.
+        \begin{liste}{}
+        \item[$(\subset)$] Supposons $\omega \in \dcap{i=1}{n} \Ev{T_i > T_0}$,
+          \ie, pour tout $i \in \llb 1,n \rrb$, $T_i(\omega) >
+          T_0(\omega)$.\\ %
+          Deux cas se présentent alors :
+          \begin{noliste}{-}
+          \item soit il existe un entier $k > n$ tel que $T_k(\omega)
+            \leq T_0(\omega)$.\\
+            Alors : $N(\omega) > n$, c'est-à-dire
+            $\omega \in \Ev{N > n}$.
+            
+          \item soit, pour tout $k \in \N^*$, $T_k(\omega) >
+            T_0(\omega)$. \\
+            Alors : $N(\omega) = 0$, c'est-à-dire
+            $\omega \in \Ev{N = 0}$.
+          \end{noliste}
+          Finalement : $\omega \in \Ev{N > n}$ $\OU$ $\omega \in \Ev{N =
+            0}$. Donc : $\omega \in \Ev{N > n} \cup \Ev{N = 0}$.
+          \conc{$\dcap{i=1}{n} \Ev{T_i > T_0} \ \subset \ \Ev{N > n}
+            \cup \Ev{N = 0}$}
+          
+
+          \newpage
+          
+          
+        \item[$(\supset)$] Supposons $\omega \in \Ev{N > n} \cup \Ev{N
+            = 0}$, \ie $N(\omega) > n$ ou $N(\omega) = 0$.\\
+          Alors, dans les deux cas, par définition de la \var $N$,
+          pour tout $i \in \llb 1,n \rrb$ : $T_i(\omega) >
+          T_0(\omega)$. Autrement dit : $\omega \in \dcap{i=1}{n}
+          \Ev{T_i > T_0}$.
+          \conc{$\dcap{i=1}{n} \Ev{T_i > T_o} \ \supset \ \Ev{N > n}
+            \cup \Ev{N = 0}$} 
+        \end{liste}
+        \conc{Finalement : $\Ev{M_n > T_0} \ = \ \dcap{i=1}{n} \Ev{T_i > T_0}
+          \ = \ \Ev{N > n} \cup \Ev{N = 0}$.}
+        
+      \item Les \var $M_n$ et $T_0$ sont :
+        \begin{noliste}{$\stimes$}
+        \item des \var à densité,
+          
+        \item indépendantes par lemme des coalitions.
+        \end{noliste}
+        On peut donc appliquer le résultat de la question \itbf{2.} :
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+            \Prob(\Ev{M_n > T_0})
+            & = & \dint{0}{+\infty} \big(1- F_{M_n}(t)\big) \, f_{T_0}(t)
+                  \dt
+            \\[.6cm]
+            & = & \dint{0}{+\infty} \left(\bcancel{1} -
+                  \left(\bcancel{1} - \ee^{-n \lambda \, t}\right)\right) \,
+                  \lambda \, \ee^{-\lambda \, t} \dt
+            & (d'après la question \itbf{4.b)})
+            \nl
+            \nl[-.2cm]
+            & = & \lambda \, \dint{0}{+\infty} \ee^{-n \lambda \, t}
+                  \, \ee^{-\lambda \, t} \dt
+            \\[.6cm]
+            & = & \lambda \, \dint{0}{+\infty} \ee^{-(n+1)\lambda \,
+                  t} \dt
+          \end{array}
+        \]
+        
+      \item De plus, soit $A \in [0,+\infty[$ :
+        \[
+          \begin{array}{rcl}
+            \dint{0}{A} \ee^{-(n+1) \lambda \, t} \dt
+            & = & \Prim{- \dfrac{1}{(n+1) \lambda} \ \ee^{-(n+1)
+                  \lambda  \, t}}{0}{A}
+            \\[.6cm]
+            & = & -\dfrac{1}{(n+1) \lambda} \left(\ee^{-(n+1) \lambda
+                  \, A}  - 1\right)
+            \\[.6cm]
+            & = & -\dfrac{1}{(n+1) \lambda} \ \ee^{-(n+1) \lambda \, A}
+                  + \dfrac{1}{(n+1) \lambda}
+          \end{array}
+        \]
+        Or, comme $\lambda >0$ et $n>0$ : $\dlim{A \to + \infty}
+        \ee^{-(n+1) \lambda \, A} = 0$. Ainsi :
+        \[
+          \Prob(\Ev{M_n > T_0}) \ = \ \bcancel{\lambda} \
+          \dfrac{1}{(n+1) \bcancel{\lambda}} \ = \ \dfrac{1}{n+1}
+        \]
+        \conc{Finalement, pour tout $n \in \N^*$ :$ \Prob(\Ev{N > n}
+          \cup \Ev{N = 0}) \ = \ \Prob(\Ev{M_n > T_0}) \ = \
+          \dfrac{1}{n+1}$.}
+      \end{noliste}
+      \begin{remark}
+        L'énoncé original proposait de démontrer l'égalité : $\Ev{N >
+          n} = \Ev{M_n > T_0}$. Cependant : $\Ev{M_n > T_0}
+        \not\subset \Ev{N > n}$. En effet, considérons
+        l'événement $\dcap{i=1}{+\infty} \Ev{T_i > T_0}$.
+        \begin{noliste}{$\stimes$}
+        \item Tout d'abord :
+          \[
+            \dcap{i=1}{+\infty} \Ev{T_i > T_0} \ \subset \
+            \dcap{i=1}{n} \Ev{T_i > T_0} \ = \ \Ev{M_n > T_0}
+          \]
+          
+        \item Soit $\omega \in \Omega$.\\
+          On sait que $\omega \in \dcap{i=1}{+\infty} \Ev{T_i
+            > T_0}$ si et seulement si, pour tout $i \in \N^*$, $T_i(\omega) >
+          T_0(\omega)$.\\
+          Par définition de $N$, cela équivaut à
+          $N(\omega) = 0$, \ie $\omega \in \Ev{N = 0}$. Ainsi :
+          \[
+            \dcap{i=1}{+\infty} \Ev{T_i > T_0} \ = \ \Ev{N = 0}
+          \]
+          Or : $\Ev{N = 0} \not\subset \Ev{N > n}$. Donc :
+          $\dcap{i=1}{+\infty} \Ev{T_i > T_0} \not\subset \Ev{N > n}$.
+          
+        \item Si $\Ev{M_n > T_0} \subset \Ev{N > n}$, on obtiendrait
+          par transitivité :
+          \[
+            \dcap{i=1}{+\infty} \Ev{T_i > T_0} \ \subset \ \Ev{M_n >
+              T_0} \ \subset \ \Ev{N >n}
+          \]
+          Comme ce n'est pas le cas, on a bien : $\Ev{M_n > T_0}
+          \not\subset \Ev{N > n}$.
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+
+  \begin{noliste}{a)}
+    \setcounter{enumii}{2}  
+  \item Montrer alors : $\forall n \in \N \, \setminus \, \{0,1\}$,
+    $\Prob(\Ev{ N = n}) = \dfrac{1}{n(n+1)}$.
+    \begin{proof}~\\
+      Soit $n \in \N \, \setminus \, \{0,1\}$.
+      \begin{noliste}{$\sbullet$}
+      \item Notons tout d'abord l'égalité suivante :
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+            \Ev{N > n-1}
+            & = & \Ev{N \geq n}
+            & (car $N$ est à valeurs entières)
+            \nl
+            \nl[-.2cm]
+            & = & \Ev{N  = n} \cup \Ev{ N > n}
+          \end{array}
+        \]
+        On en déduit :
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+            \Ev{N > n-1} \cup \Ev{N = 0}
+            & = & \big(\Ev{N = n} \cup \Ev{N > n}\big) \cup \Ev{N = 0}
+            \\[.4cm]
+            & = & \Ev{N = n} \cup \big(\Ev{N > n} \cup \Ev{N = 0}\big)
+            & (par associativité de $\cup$)
+          \end{array}
+        \]
+        
+      \item De plus, les événements $\Ev{N = n}$ et $\Ev{N > n} \cup
+        \Ev{N = 0}$ sont incompatibles. Donc :
+        \[
+          \Prob(\Ev{N > n-1} \cup \Ev{N = 0}) \ = \ \Prob(\Ev{N = n})
+          + \Prob(\Ev{N > n} \cup \Ev{N = 0})
+        \]
+
+
+        \newpage
+        
+        
+      \item On en déduit :
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{4.5cm}}
+            \Prob(\Ev{N = n})
+            & = & \Prob(\Ev{N > n-1} \cup \Ev{N = 0}) - \Prob(\Ev{N >
+                  n} \cup \Ev{N = 0})
+            \\[.2cm]
+            & = & \dfrac{1}{(n-\bcancel{1})+\bcancel{1}} -
+                  \dfrac{1}{n+1}
+            & (d'après \itbf{5.b)} car $n\in \N^*$ et $n-1 \in \N^*$)
+            \nl
+            \nl[-.2cm]
+            & = & \dfrac{1}{n} - \dfrac{1}{n+1}
+            \\[.6cm]
+            & = & \dfrac{(\bcancel{n} +1) - \bcancel{n}}{n(n+1)}
+          \end{array}
+        \]
+      \end{noliste}
+      \conc{Finalement : $\forall n \in \N \, \setminus \, \{0,1\}$,
+        $\Prob(\Ev{N=n}) = \dfrac{1}{n(n+1)}$.}~\\[-1cm]
+    \end{proof}
+    
+  \item En déduire la valeur de $\Prob(\Ev{N = 0})$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item La famille $(\Ev{N = n})_{n \in \N}$ forme un système
+        complet d'événements. Ainsi :
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+            \Prob(\Ev{N = 0})
+            & = & 1 - \Sum{n=1}{+\infty} \Prob(\Ev{N = n})
+            \\[.4cm]
+            & = & 1 - \left(\Prob(\Ev{N = 1}) + \Sum{n=2}{+\infty}
+                  \Prob(\Ev{N = n})\right)
+            \\[.4cm]
+            & = & 1 - \dfrac{1}{2} - \Sum{n=2}{+\infty}
+                  \dfrac{1}{n(n+1)}
+            & (d'après \itbf{5.a)} et \itbf{5.c)})
+            \nl
+            \nl[-.2cm]
+            & = & \dfrac{1}{2} - \Sum{n=2}{+\infty} \dfrac{1}{n(n+1)}
+          \end{array}
+        \]
+        
+      \item Notons d'abord que, pour tout $n \in \N^*$ :
+        \[
+          \dfrac{1}{n} - \dfrac{1}{n+1} \ = \ \dfrac{(\bcancel{n}+1) -
+            \bcancel{n}}{n(n+1)} \ = \ \dfrac{1}{n(n+1)}
+        \]
+        Ainsi, soit $N \geq 2$ :
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+            \Sum{n=2}{N} \dfrac{1}{n(n+1)}
+            & = & \Sum{n=2}{N} \left(\dfrac{1}{n} -
+                  \dfrac{1}{n+1}\right)
+            \\[.6cm]
+            & = & \dfrac{1}{2} - \dfrac{1}{N+1}
+            & (par télescopage)
+            \nl
+            \nl[-.2cm]
+            & \tendd{N}{+\infty} & \dfrac{1}{2}
+          \end{array}
+        \]
+        On en déduit que la série $\Sum{n \geq 2}{} \dfrac{1}{n(n+1)}$
+        est convergente et que sa somme vaut $\dfrac{1}{2}$.
+      \end{noliste}
+      \conc{Ainsi : $\Prob(\Ev{N = 0}) \ = \ \dfrac{1}{2} -
+        \dfrac{1}{2} \ = \ 0$.}
+
+
+      \newpage
+
+      
+      \begin{remark}
+        Prendre l'initiative de la décomposition :
+        \[
+          \dfrac{1}{n(n+1)} \ = \ \dfrac{1}{n} - \dfrac{1}{n+1}
+        \]
+        pour faire apparaître la somme télescopique, peut paraître
+        ardu. On s'efforcera donc de garder en mémoire cet exemple
+        classique de somme télescopique.
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+  
+\item La variable aléatoire $N$ admet-elle une espérance ?
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item La \var $N$ admet une espérance si et seulement si la série
+      $\Sum{n \geq 0}{} n \, \Prob(\Ev{N = n})$ est absolument
+      convergente. Cette série étant à termes positifs, cela revient à
+      démontrer qu'elle est convergente.
+      
+    \item Soit $N \geq 2$.
+      \[
+        \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+          \Sum{n=0}{N} n \, \Prob(\Ev{N = n})
+          & = & \bcancel{0 \times \Prob(\Ev{N = 0})} + 1 \times
+                \Prob(\Ev{N = 1}) + \Sum{n=2}{N} n \, \Prob(\Ev{N =n})
+          \\[.4cm]
+          & = & \dfrac{1}{2} + \Sum{n=2}{N} \bcancel{n} \
+                \dfrac{1}{\bcancel{n}(n+1)}
+          & (d'après \itbf{5.a)} et \itbf{5.c)})
+          \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{2} + \Sum{n=3}{N+1} \dfrac{1}{n}
+          & (par décalage d'indice)      
+        \end{array}
+      \]
+      
+    \item Or la série $\Sum{n \geq 3}{} \dfrac{1}{n}$ est une série de
+      Riemann d'exposant $1$ ($1 \ngtr 2$). Elle est donc
+      divergente.\\ %
+      Ainsi, la série $\Sum{n \geq 0}{} n \, \Prob(\Ev{N = n})$ est
+      divergente.
+      \conc{On en déduit que la \var $N$ n'admet pas d'espérance.}~\\[-1.4cm]
+    \end{noliste}
+  \end{proof}
+\end{noliste}
+
+
+\newpage %
+
+
+\section*{Exercice 2}
+
+\noindent
+On rappelle que deux matrices $A$ et $B$ de $\M{3}$ sont dites
+semblables lorsqu'il existe $P$ de $\M{3}$ inversible telle que : 
+\[
+B \ = \ P^{-1} \, A \, P
+\]~\\[-1.4cm]
+\begin{remarkL}{.72}
+  On peut noter que cette égalité est équivalente à l'égalité : $A \ =
+  \ P \, B \, P^{-1}$.
+\end{remarkL}~\\[-.6cm]
+L'objectif de cet exercice est d'étudier des exemples de matrices
+inversibles qui sont semblables à leur inverse. Les trois parties de
+cet exercice sont indépendantes entre elles.
+
+\subsection*{PARTIE A : Premier exemple}
+
+\noindent
+On considère la matrice $A$ de $\M{3}$ définie par : $A \ = \ 
+\begin{smatrix}
+  1 & -1 & 1 \\
+  0 & \frac{1}{2} & 0 \\
+  0 & 0 & 2
+\end{smatrix}
+$.
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+\item Déterminer les valeurs propres de $A$.\\
+  Justifier que $A$ est inversible et diagonalisable.
+
+  \begin{proof}~%
+    \begin{noliste}{$\sbullet$}
+    \item La matrice $A$ est triangulaire supérieure. Ses valeurs
+      propres sont donc ses coefficients diagonaux. %
+      \conc{$\spc(A) = \{\frac{1}{2}, 1, 2\}$}
+
+    \item Le réel $0$ n'est pas valeur propre de $A$. %
+      \conc{On en déduit que $A$ est inversible.}
+
+    \item On a :
+      \begin{noliste}{$\stimes$}
+      \item $A \in \M{3}$,
+      \item $A$ possède trois valeurs propres distinctes.
+      \end{noliste}
+      \conc{On en déduit que $A$ est diagonalisable.}~\\[-1.65cm]
+    \end{noliste}
+  \end{proof}
+
+\item Déterminer une matrice $D$ de $\M{3}$ diagonale où les
+  coefficients diagonaux sont rangés dans l'ordre croissant, et une
+  matrice $P$ de $\M{3}$ inversible telles que : $A \ = \ P \, D \,
+  P^{-1}$.\\
+  Expliciter la matrice $D^{-1}$.
+  
+  \begin{proof}~%
+    \begin{noliste}{$\sbullet$}    
+    \item Déterminons $E_{\frac{1}{2}}(A)$ le sous-espace propre de
+      $A$ associé à la valeur propre $\frac{1}{2}$.\\
+      % \item Déterminons une base de $E_{\frac{1}{2}}(A)$ le sous-espace
+      %   propre de $A$ associé à la valeur propre $\frac{1}{2}$.\\
+      Soit $X =
+      \begin{smatrix}
+        x \\ 
+        y \\
+        z
+      \end{smatrix} 
+      \in \M{3,1}$.
+      \[
+      \begin{array}{rcl}
+        X\in E_{\frac{1}{2}}(A)
+        & \Longleftrightarrow & (A - \frac{1}{2} \, I_3) \, X = 0
+        \\[.2cm]
+        & \Longleftrightarrow & 
+        \begin{smatrix}
+          \frac{1}{2} & -1 & 1 \\
+          0 & 0 & 0 \\
+          0 & 0 & \frac{3}{2}
+        \end{smatrix}
+        \begin{smatrix}
+          x \\
+          y \\
+          z
+        \end{smatrix}
+        =
+        \begin{smatrix}
+          0 \\
+          0 \\
+          0
+        \end{smatrix}
+        \\[.8cm]
+        & \Longleftrightarrow & 
+        \left\{
+	  \begin{array}{rcrcrcl}
+            \frac{1}{2} \, x & - & y & + & z & = & 0 \\
+            & & & & 0 & = & 0 \\
+            & & & & \frac{3}{2} \, z & = & 0
+	  \end{array}
+        \right.
+        \\[.8cm]
+        & 
+        \begin{arrayEq}
+          L_1 \leftarrow L_1 - \frac{2}{3} \, L_3
+        \end{arrayEq}
+        & 
+        \left\{
+	  \begin{array}{rcrcrcl}
+            \frac{1}{2} \, x & - & y & & & = & 0 \\
+            & & & & \frac{3}{2} \, z & = & 0
+	  \end{array}
+        \right.
+        \\[.8cm]
+        &
+        \Longleftrightarrow
+        &
+        \left\{
+	  \begin{array}{rcrcl}
+            x & & & = & 2 \, y \\
+            & & z & = & 0 
+	  \end{array}
+        \right.
+      \end{array}
+      \]
+
+
+      \newpage
+
+
+      \noindent
+      Finalement on obtient l'expression de $E_{\frac{1}{2}}(A)$
+      suivante :
+      \[
+      \begin{array}{rcl}
+        E_{\frac{1}{2}}(A) & = & 
+        \{ 
+        X \in \M{3,1} \ | \ AX = \frac{1}{2} \, X \}
+        \ = \ 
+        \{
+        \begin{smatrix}
+          x \\ 
+          y \\
+          z
+        \end{smatrix}
+        \ | \
+        x = 2 y \ \text{ et } \ z = 0
+        \}
+        \\[.6cm]
+        & = & 
+        \{
+        \begin{smatrix}
+          2 y \\ 
+          y \\ 
+          0
+        \end{smatrix}
+        \ | \
+        y \in \R 
+        \}
+        \ = \ 
+        \{
+        y \cdot
+        \begin{smatrix}
+          2 \\ 
+          1 \\ 
+          0
+        \end{smatrix}
+        \ | \ y \in \R 
+        \}
+        % \\[.6cm]
+        \ = \ 
+        \Vect{
+	  \begin{smatrix}
+            2 \\
+            1 \\ 
+            0
+	  \end{smatrix}
+        }
+      \end{array}
+      \]
+      \conc{$E_{\frac{1}{2}}(A) = \Vect{
+          \begin{smatrix}
+            2 \\
+            1 \\
+            0
+          \end{smatrix}
+        }$} %
+      La famille ${\cal F} = \left(
+        \begin{smatrix} 
+          2 \\
+          1 \\ 
+          0
+        \end{smatrix}
+      \right)$ :
+      \begin{noliste}{$\stimes$}
+      \item engendre $E_{\frac{1}{2}}(A)$,
+      \item est une famille libre de $\M{3,1}$ car elle est uniquement
+        constituée d'un vecteur non nul.
+      \end{noliste}      
+      \conc{Ainsi, ${\cal F}$ est une base de $E_{\frac{1}{2}}(A)$.}
+
+    \item Déterminons $E_1(A)$ le sous-espace propre de $A$ associé à
+      la valeur propre $1$.\\
+%     \item Déterminons une base de $E_1(A)$ le sous-espace propre de
+%       $A$ associé à la valeur propre $1$.\\
+      Soit $X =
+      \begin{smatrix}
+        x \\ 
+        y \\
+        z
+      \end{smatrix}
+      \in \M{3,1}$.
+      \[
+      \begin{array}{rcl}
+        X \in E_{1}(A)
+        & \Longleftrightarrow & (A - I_3) \, X = 0
+        \\[.2cm]
+        & \Longleftrightarrow & 
+        \begin{smatrix}
+          0 & -1 & 1 \\
+          0 & -\frac{1}{2} & 0 \\[.1cm]
+          0 & 0 & 1
+        \end{smatrix}
+        \begin{smatrix}
+          x \\
+          y \\
+          z
+        \end{smatrix}
+        =
+        \begin{smatrix}
+          0 \\
+          0 \\
+          0
+        \end{smatrix}
+        \\[.8cm]
+        & \Longleftrightarrow & 
+        \left\{
+	  \begin{array}{crcrcl}
+            - & y & + & z & = & 0 \\
+            - & \frac{1}{2} \, y & & & = & 0 \\
+            & & & z & = & 0
+	  \end{array}
+        \right.
+        \\[.8cm]
+        &
+        \Longleftrightarrow
+        &
+        \left\{
+	  \begin{array}{crcrcl}
+            & y & & & = & 0 \\
+            & & & z & = & 0
+	  \end{array}
+        \right.
+      \end{array}
+      \]
+      Finalement on obtient l'expression de $E_1(A)$ suivante :
+      \[
+      \begin{array}{rcl}
+        E_{1}(A) & = & \{ X \in \M{3,1} \ | \ AX = X\}
+        \ = \ 
+        \{
+        \begin{smatrix}
+          x \\ 
+          y \\
+          z
+        \end{smatrix}
+        \ | \
+        y = 0 \ \text{ et } \ z = 0
+        \}
+        \\[.6cm]
+        & = & 
+        \{
+        \begin{smatrix}
+          x \\ 
+          0 \\ 
+          0
+        \end{smatrix}
+        \ | \
+        x \in \R 
+        \}
+        \ = \ 
+        \{
+        x \cdot
+        \begin{smatrix}
+          1 \\ 
+          0 \\ 
+          0
+        \end{smatrix}
+        \ | \ x \in \R 
+        \}
+        % \\[.6cm]
+        \ = \
+        \Vect{
+	  \begin{smatrix}
+            1 \\
+            0 \\ 
+            0
+	  \end{smatrix}
+        }
+      \end{array}
+      \]
+%       On sait donc que la famille $\left( 
+%         \begin{smatrix} 
+%           1 \\
+%           0 \\ 
+%           0
+%         \end{smatrix}
+%       \right)$ :
+%       \begin{noliste}{$\stimes$}
+%       \item engendre $E_{1}(A)$,
+%       \item est une famille libre de $\M{3,1}$ car elle est uniquement
+%         constituée d'un vecteur non nul.
+%       \end{noliste}      
+      \conc{$E_{1}(A) = \Vect{
+          \begin{smatrix}
+            1 \\
+            0 \\
+            0
+          \end{smatrix}
+        }$} %
+      \conc{Par un raisonnement analogue au précédent, la famille
+        $\left(
+          \begin{smatrix}
+            1 \\
+            0 \\
+            0
+          \end{smatrix} 
+        \right)$ est une base de $E_{1}(A)$.}
+
+
+      \newpage
+
+
+    \item Déterminons $E_{2}(A)$ le sous-espace propre de $A$ associé
+      à la valeur propre $2$.\\
+%     \item Déterminons une base de $E_{2}(A)$ le sous-espace propre de
+%       $A$ associé à la valeur propre $2$.\\
+      Soit $X =
+      \begin{smatrix}
+        x \\ 
+        y \\
+        z
+      \end{smatrix} 
+      \in \M{3,1}$.
+      \[
+      \begin{array}{rcl}
+        X \in E_{2}(A)
+        & \Longleftrightarrow & (A - 2 \, I_3) \, X = 0
+        \\[.2cm]
+        & \Longleftrightarrow & 
+        \begin{smatrix}
+          -1 & -1 & 1 \\
+          0 & -\frac{3}{2} & 0 \\
+          0 & 0 & 0
+        \end{smatrix}
+        \begin{smatrix}
+          x \\
+          y \\
+          z
+        \end{smatrix}
+        =
+        \begin{smatrix}
+          0 \\
+          0 \\
+          0
+        \end{smatrix}
+        \\[.8cm]
+        & \Longleftrightarrow & 
+        \left\{
+	  \begin{array}{rcrcrcl}
+            - \, x & - & y & + & z & = & 0 \\
+            & - & \frac{3}{2} \, y & & & = & 0 \\
+            & & & & 0 & = & 0
+	  \end{array}
+        \right.
+        \\[.8cm]
+        & \Longleftrightarrow & 
+        \left\{
+	  \begin{array}{rcrcl}
+            x & + & y & = & z \\[.1cm]
+            & - & \frac{3}{2} \, y & = & 0 
+	  \end{array}
+        \right.
+        \\[.8cm]
+        &
+        \begin{arrayEq}
+          L_1 \leftarrow L_1 + \frac{2}{3} \, L_2
+        \end{arrayEq}
+        &
+        \left\{
+	  \begin{array}{rcrcl}
+            x & & & = & z \\
+            & & y & = & 0 
+	  \end{array}
+        \right.
+      \end{array}
+      \]
+      Finalement on obtient l'expression de $E_{2}(A)$ suivante :
+      \[
+      \begin{array}{rcl}
+        E_{2}(A) & = & 
+        \{ 
+        X \in \M{3,1} \ | \ AX = 2 \, X \}
+        \ = \ 
+        \{
+        \begin{smatrix}
+          x \\ 
+          y \\
+          z
+        \end{smatrix}
+        \ | \
+        x = z \ \text{ et } \ y = 0
+        \}
+        \\[.6cm]
+        & = & 
+        \{
+        \begin{smatrix}
+          z \\ 
+          0 \\ 
+          z
+        \end{smatrix}
+        \ | \
+        z \in \R 
+        \}
+        \ = \ 
+        \{
+        z \cdot
+        \begin{smatrix}
+          1 \\ 
+          0 \\ 
+          1
+        \end{smatrix}
+        \ | \ z \in \R 
+        \}
+        % \\[.6cm]
+        \ = \
+        \Vect{
+	  \begin{smatrix}
+            1 \\
+            0 \\ 
+            1
+	  \end{smatrix}
+        }
+      \end{array}
+      \]
+      % On sait donc que la famille $\left(
+      %   \begin{smatrix}
+      %     1 \\
+      %     0 \\ 
+      %     1
+      %   \end{smatrix}
+      % \right)$ :
+      % \begin{noliste}{$\stimes$}
+      % \item engendre $E_{2}(A)$,
+      % \item est une famille libre de $\M{3,1}$ car elle est uniquement
+      %   constituée d'un vecteur non nul.
+      % \end{noliste}      
+      \conc{$E_{2}(A) = \Vect{
+          \begin{smatrix}
+            1 \\
+            0 \\
+            1
+          \end{smatrix}
+        }$} %
+      \conc{Par un raisonnement analogue au précédent, la famille
+        $\left(
+          \begin{smatrix}
+            1 \\
+            0 \\
+            1
+          \end{smatrix}
+        \right)$ est une base de $E_{2}(A)$.}
+      
+    \item D'après la question \itbf{1.}, la matrice $A$ est
+      diagonalisable.\\
+      Il existe donc une matrice $P$ inversible et une matrice $D$
+      diagonale telles que $A = P \, D \, P^{-1}$.\\
+      Plus précisément :
+      \begin{noliste}{$\stimes$}
+      \item la matrice $P$ est obtenue par concaténation de bases des
+        sous-espaces propres de $A$,
+      \item la matrice $D$ est la matrice diagonale dont les
+        coefficients diagonaux sont les valeurs propres de $A$ (dans
+        le même ordre d'apparition que les vecteurs propres).
+      \end{noliste}
+      Comme $\left(
+        \begin{smatrix}
+          2 \\
+          1 \\
+          0
+        \end{smatrix}
+      \right)$, %
+      $\left(
+        \begin{smatrix}
+          1 \\
+          0 \\
+          0
+        \end{smatrix}
+      \right)$ et %
+      $\left(
+        \begin{smatrix}
+          1 \\
+          0 \\
+          1
+        \end{smatrix}
+      \right)$ sont des bases respectives de $E_{\frac{1}{2}}(A)$,
+      $E_1(A)$ et $E_2(A)$ :
+      \[
+      P=
+      \begin{smatrix}
+        2 & 1 & 1 \\
+        1 & 0 & 0 \\
+        0 & 0 & 1
+      \end{smatrix}
+      \quad \text{ et } \quad %
+      D =
+      \begin{smatrix}
+        \frac{1}{2} & 0 & 0\\
+        0 & 1 & 0\\
+        0 & 0 & 2
+      \end{smatrix}
+      \]
+      \conc{On obtient bien : $A = P \, D \, P^{-1}$.}%~\\[-1cm]
+      
+
+      \newpage
+
+
+    \item La matrice $D$ est inversible car elle est diagonale et à
+      coefficients diagonaux tous non nuls.
+    \end{noliste}
+    \conc{Enfin : $D^{-1} =
+      \begin{smatrix}
+        2 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & \frac{1}{2}
+      \end{smatrix}
+      $.}~\\[-1.1cm]
+    \begin{remarkL}{.96}%~%
+      \begin{noliste}{$\sbullet$}
+      \item Il faut s'habituer à déterminer les ensembles $E_\lambda(A)$
+        par lecture de la matrice $A - \lambda \, I$.
+
+      \item Illustrons la méthode avec la matrice de l'exercice et
+        $\lambda = \frac{1}{2}$.\\
+        On cherche les vecteurs $X =
+        \begin{smatrix}
+          x \\
+          y \\
+          z
+        \end{smatrix}
+        $ de $E_{\frac{1}{2}}(A) $ c'est-à-dire les vecteurs tels que
+        : \\
+        $(A - \frac{1}{2} \, I_3) \, X = 0_{\M{3,1}}$. Or :\\[-.1cm]
+        \[
+        \begin{array}{rcl}
+          \begin{smatrix}
+            \frac{1}{2} & -1 & 1 \\
+            0 & 0 & 0 \\
+            0 & 0 & \frac{3}{2}
+          \end{smatrix}
+          \begin{smatrix}
+            x \\
+            y \\
+            z 
+          \end{smatrix}
+          & = & x \cdot C_1 + y \cdot C_2 + z \cdot C_3
+          \\[-.2cm]
+          & = & 
+          x \cdot
+          \begin{smatrix}
+            \frac{1}{2} \\
+            0 \\
+            0
+          \end{smatrix}
+          + y \cdot
+          \begin{smatrix}
+            -1 \\
+            0 \\
+            0 
+          \end{smatrix}
+          + z \cdot
+          \begin{smatrix}
+            1 \\
+            0 \\
+            \frac{3}{2}
+          \end{smatrix}
+        \end{array}
+        \]~\\[-.6cm]
+        Pour obtenir le vecteur $
+        \begin{smatrix}
+          0 \\
+          0 \\
+          0
+        \end{smatrix}
+        $ à l'aide de cette combinaison linéaire, on doit forcément
+        choisir $z = 0$. En effet, si $z$ est non nul, les
+        coefficients en $\eme{2}$ et $\eme{3}$ position de la
+        combinaison linéaire sont non nuls. On prend alors $z = 0$.\\
+        La combinaison linéaire restante est nulle si $\frac{1}{2} \,
+        x - y = 0$, c'est-à-dire si $x = 2y$.\\
+        En prenant par exemple $y = 1$, on obtient : $
+        E_{\frac{1}{2}}(A) \ \supset \ \Vect{
+          \begin{smatrix}
+            2 \\
+            1 \\
+            0 
+          \end{smatrix}
+        } $.\\
+        Et l'égalité est vérifiée pour des raisons de dimension.
+        
+      \item Explicitons maintenant la construction de la matrice
+        $P$.\\
+        Notons $\B = (e_1, e_2, e_3)$ la base canonique de $\R^3$ et
+        introduisons l'endomorphisme $f$ dont la représentation dans
+        la base canonique est $\B$ (cet endomorphisme est unique par
+        bijectivité de l'application $\Mat_{\B}(\cdot)$). Notons aussi
+        : $v_1 = (2, 1, 0)$, \ $v_2 = (1, 0, 0)$, et $v_3 = (1, 0,
+        1)$.\\[.1cm]
+        La famille $\B' = (v_1, v_2, v_3)$ :
+        \begin{noliste}{$\stimes$}
+        \item est libre car est la concaténation de familles libres de
+          vecteurs propres associés à des valeurs propres distinctes
+          de l'endomorphisme $f$. 
+
+        \item de cardinal $\Card( \B' ) = 3 = \dim\big( \R^3 \big)$.
+        \end{noliste}
+        On en déduit que $\B'$ est une base de vecteurs propres de
+        $f$.\\
+        Notons alors $D = \Mat_{\B'}(f)$. Par la formule du changement
+        de base on a :
+        \[
+        \begin{array}{ccccccc}
+          \Mat_{\B}(f) & = & P_{\B, \B'} & \times & \Mat_{\B'}(f) &
+          \times & P_{\B', \B}
+          \\[.2cm]
+          \shortparallel & & \shortparallel & & \shortparallel & &
+          \shortparallel  
+          \\[.2cm]
+          A & = & P & \times & D & \times & P^{-1}
+        \end{array}
+        \]
+        On obtient bien la formule annoncée.
+
+      \item Rappelons que si $\Delta$ est une matrice diagonale à
+        coefficients diagonaux $a$, $b$, $c$ tous non nuls
+        \[
+        \text{alors} \quad 
+        \Delta^{-1}
+        \ = \ 
+        \begin{smatrix}
+          \frac{1}{a} & 0 & 0 \\
+          0 & \frac{1}{b} & 0 \\
+          0 & 0 & \frac{1}{c}
+        \end{smatrix}
+        \quad \text{ puisque } \quad
+        \begin{smatrix}
+          a & 0 & 0 \\
+          0 & b & 0 \\
+          0 & 0 & c
+        \end{smatrix}
+        \begin{smatrix}
+          \frac{1}{a} & 0 & 0 \\
+          0 & \frac{1}{b} & 0 \\
+          0 & 0 & \frac{1}{c}
+        \end{smatrix}
+        \ = \
+        \begin{smatrix}
+          1 & 0 & 0 \\
+          0 & 1 & 0 \\
+          0 & 0 & 1
+        \end{smatrix}
+        \]
+      \end{noliste}
+    \end{remarkL}~\\[-1.6cm]
+  \end{proof}
+  
+
+  \newpage
+
+
+\item On note $Q \ = \
+  \begin{smatrix}
+    0 & 0 & 1 \\
+    0 & 1 & 0 \\
+    1 & 0 & 0
+  \end{smatrix}
+  $. Calculer $Q^2$ et $Q \, D \, Q$.
+
+  \begin{proof}~%
+    \begin{noliste}{$\sbullet$}
+    \item Tout d'abord :
+      \[
+      Q^2 \ = \
+      \begin{smatrix}
+        0 & 0 & 1 \\
+        0 & 1 & 0 \\
+        1 & 0 & 0
+      \end{smatrix}
+      \begin{smatrix}
+        0 & 0 & 1 \\
+        0 & 1 & 0 \\
+        1 & 0 & 0
+      \end{smatrix}
+      \ = \ 
+      \begin{smatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+      \end{smatrix}
+      \]
+      \conc{Ainsi : $Q^2 = Q \times Q = I_3$. On en déduit que la
+        matrice $Q$ est inversible d'inverse $Q^{-1} = Q$.}
+
+    \item Ensuite :
+      \[
+      \begin{array}{rcl}
+        Q \, D \, Q & = & 
+        \begin{smatrix}
+          0 & 0 & 1 \\
+          0 & 1 & 0 \\
+          1 & 0 & 0
+        \end{smatrix}
+        \begin{smatrix}
+          \frac{1}{2} & 0 & 0 \\
+          0 & 1 & 0 \\
+          0 & 0 & 2
+        \end{smatrix}
+        \begin{smatrix}
+          0 & 0 & 1 \\
+          0 & 1 & 0 \\
+          1 & 0 & 0
+        \end{smatrix}
+        % \\[.8cm]
+        \ = \ 
+        \begin{smatrix}
+          0 & 0 & 2 \\
+          0 & 1 & 0 \\
+          \frac{1}{2} & 0 & 0
+        \end{smatrix}
+        \begin{smatrix}
+          0 & 0 & 1 \\
+          0 & 1 & 0 \\
+          1 & 0 & 0
+        \end{smatrix}
+        % \\[.8cm]
+        \ = \
+        \begin{smatrix}
+          2 & 0 & 0 \\
+          0 & 1 & 0 \\
+          0 & 0 & \frac{1}{2}
+        \end{smatrix}
+      \end{array}      
+      \]
+      \conc{$Q \, D \, Q = D^{-1}$}~\\[-1cm]
+    \begin{remarkL}{.98}%
+      \begin{noliste}{$\sbullet$}
+      \item Les coefficients de la matrice $Q$ sont tous dans $\{ 0, 1
+        \}$. De plus, la matrice $Q$ admet un seul $1$ par ligne et
+        par colonne. Une telle matrice est appelée {\bf matrice de
+          permutation}.
+
+      \item Ces matrices permettent de formaliser les opérations
+        élémentaires permettant d'échanger des lignes (resp. des
+        colonnes) lors de l'algorithme du pivot de Gauss. Plus
+        précisément, multiplier une matrice $A$ à gauche (resp. à
+        droite) par une matrice de permutation permet d'échanger des
+        lignes (des colonnes). Dans notre exemple, la matrice $Q$
+        permet d'échanger les éléments en $\ere{1}$ et $\eme{3}$
+        position. Ainsi :
+        \[
+        \begin{array}{rC{1cm}l}
+          \begin{smatrix}
+            0 & 0 & 1 \\
+            0 & 1 & 0 \\
+            1 & 0 & 0 
+          \end{smatrix}
+          \begin{smatrix}
+            1 & -1 & 1 \\
+            0 & \frac{1}{2} & 0 \\
+            0 & 0 & 2
+          \end{smatrix}
+          \ = \ 
+          \begin{smatrix}
+            0 & 0 & 2 \\
+            0 & \frac{1}{2} & 0 \\
+            1 & -1 & 1 
+          \end{smatrix}      
+          & et &
+          \begin{smatrix}
+            1 & -1 & 1 \\
+            0 & \frac{1}{2} & 0 \\
+            0 & 0 & 2
+          \end{smatrix}
+          \begin{smatrix}
+            0 & 0 & 1 \\
+            0 & 1 & 0 \\
+            1 & 0 & 0 
+          \end{smatrix}
+          \ = \ 
+          \begin{smatrix}
+            1 & -1 & 1 \\
+            0 & \frac{1}{2} & 0 \\
+            2 & 0 & 0
+          \end{smatrix}      
+          \\[.8cm]
+          \text{\it (on échange les lignes $1$ et $3$ de $A$)}
+          & & 
+          \text{\it (on échange les colonnes $1$ et $3$ de $A$)}
+        \end{array}
+        \]
+        On peut retenir l'idée développée dans le paragraphe par la
+        forme :
+        \[
+        L \ A \ C
+        \]
+        qui signifie qu'avec une multiplication à gauche, on
+        effectue une opération sur les (L)ignes, tandis qu'avec une
+        multiplication à droite, on effectue une multiplication sur
+        les (C)olonnes.
+
+      \item L'écriture $Q \, D \, Q^{-1} = D^{-1}$ réfère à un
+        changement de base. Pour bien comprendre ce point,
+        introduisons la famille $\B'' = (w_1, w_2, w_3)$ définie par :
+        $w_1 = u_3$, $w_2 = u_2$, et $w_3 = u_1$.\\[.1cm]
+        La famille $(w_1, w_2, w_3)$ est :
+        \begin{noliste}{$\stimes$}
+        \item génératrice de $\R^3$ puisque : $\Vect{ w_1, w_2, w_3} =
+          \Vect{ u_3, u_2, u_1} = \Vect{ u_1, u_2, u_3} = \R^3$.
+        \item de cardinal $\Card\big( (w_1, w_2, w_3) \big) = 3 =
+          \dim\big( \R^3 \big)$.
+        \end{noliste}
+        Ainsi, la famille $\B''$ est une base de $\R^3$.\\
+        Remarquons alors : $Q^{-1} = P_{\B', \B''}$ (matrice de
+        passage de la base $\B'$ à la base $\B''$). Ainsi :
+        \[
+        \begin{array}{rccccccl@{\qquad}>{\it}R{3.5cm}}
+          D^{-1} & = & Q & \times & D & \times & Q^{-1}
+          \\%[.2cm]
+          & = & P_{\B'', \B'} & \times & \Mat_{\B'}(f) & \times &
+          P_{\B', \B''} & = \ \Mat_{\B'}(f)
+          & (par formule de changement de base)
+          % \\[.2cm]
+          % & = & \multicolumn{5}{l}{\Mat_{\B'}(f)}
+        \end{array}
+        \]
+        Ainsi, la matrice $D^{-1}$ apparaît comme matrice
+        représentative de $f$ dans la base $\B'$.
+      \end{noliste}
+    \end{remarkL}~\\[-1.7cm]
+    \end{noliste}
+  \end{proof}
+
+
+\newpage
+
+
+\item En déduire que les matrices $A$ et $A^{-1}$ sont semblables.
+
+  \begin{proof}~%
+    \begin{noliste}{$\sbullet$}
+    \item D'après la question \itbf{2.} : $A = P \, D \, P^{-1}$. On
+      en déduit :
+      \begin{noliste}{$\stimes$}
+      \item $P^{-1} \, A = D \, P^{-1}$ \ puis \ $P^{-1} \, A \, P =
+        D$.
+
+%       \item $      
+%         \begin{array}[t]{rcl@{\qquad}>{\it}R{5cm}}
+%           A^{-1} & = & \Big( P \, \big( D \, P^{-1} \big) \Big)^{-1}
+%           \\[.2cm]
+%           & = & \big( D \, P^{-1} \big)^{-1} \, P^{-1}
+%           \\[.2cm]
+%           & = & \big( P^{-1} \big)^{-1} \, D^{-1} \, P^{-1}
+%           \\[.2cm]
+%           & = & P \, D^{-1} \, P^{-1}
+%         \end{array}
+%         $\\[.2cm]
+
+      \item $A^{-1} \ = \ \Big( P \, \big( D \, P^{-1} \big)
+        \Big)^{-1}
+        \ = \ \big( D \, P^{-1} \big)^{-1} \, P^{-1}
+        \ = \ \big( P^{-1} \big)^{-1} \, D^{-1} \, P^{-1}
+        \ = \ P \, D^{-1} \, P^{-1}
+        $.
+        % \\[.1cm]
+        % Et ainsi : $D^{-1} = P^{-1} \, A^{-1} \, P$.
+      \end{noliste}
+
+    \item En combinant ce résultat avec ce qui précède :
+      \[
+      \begin{array}{C{2cm}rcl@{\qquad}>{\it}R{6.5cm}}
+        & A^{-1} & = & P \, D^{-1} \, P^{-1}
+        \\%[.2cm]
+        & & = & 
+        P \, \big( Q \, D \, Q^{-1} \big) \, P^{-1}
+        & (d'après la question précédente, \\ en remarquant $Q = Q^{-1}$)
+        \nl
+        %\nl[-.2cm]
+        & & = & 
+        P \, Q \, \big( P^{-1} \, A \, P \big) \, Q^{-1} \, P^{-1}
+        \\[.2cm]
+        & & = & 
+        \big( P \, Q \, P^{-1} \big) \, A \, \big( P \, Q^{-1} \,
+        P^{-1} \big)
+        \\[.2cm]
+        & & = & 
+        \big( P \, Q \, P^{-1} \big) \, A \, \big( P \, Q \, P^{-1}
+        \big)^{-1} 
+      \end{array}
+      \]
+      La dernière ligne est obtenue en remarquant :
+      \[
+      \big( P \, Q \, P^{-1} \big)^{-1} \ = \ \big( Q \, P^{-1}
+      \big)^{-1} \, P^{-1} \ = \ \big( P^{-1} \big)^{-1} \, Q^{-1} \,
+      P^{-1} \ = \ P \, Q^{-1} \, P^{-1}
+      \]
+    \end{noliste}
+    \concL{En posant $H = P \, Q \, P^{-1}$, on obtient $A^{-1} = H \,
+      A \, H^{-1}$ ou encore $A = H^{-1} \, A^{-1} \, H$.\\
+      Les matrices $A$ et $A^{-1}$ sont donc semblables.
+    }{14.4}~\\[-1cm]
+    \begin{remarkL}{.98}%
+      \begin{noliste}{$\sbullet$}
+%       \item En début d'exercice, il est précisé que les matrices $A
+%         \in \M{3}$ et $B \in \M{3}$ sont semblables s'il existe une
+%         matrice $P \in \M{3}$ inversible telle que : $B \ = \ P^{-1}
+%         \, A \, P$.\\
+%         Notons que cette égalité est équivalente à l'égalité : $A \ =
+%         \ P \, B \, P^{-1}$.
+
+      \item D'après le cours :
+        \[
+        \begin{array}{L{5.2cm}cR{7.2cm}}
+          Deux matrices $A \in \M{3}$ et $B \in \M{3}$ sont
+          semblables & \Leftrightarrow & Les matrices $A$ et $B$
+          représentent le même endomorphisme dans des bases
+          différentes
+        \end{array}
+        \]
+        Cela revient à démontrer que toute matrice inversible peut
+        être considérée comme une matrice de changement de base.
+%         \\[.2cm]
+%         Or, on a noté dans les précédentes remarques :
+%         \[
+%         A = \Mat_{\B}(f) \ \qquad \ D = \Mat_{\B'}(f) \ \qquad \
+%         D^{-1} = \Mat_{\B''}(f)
+%         \]
+%         Ces matrices représentent toutes le même endomorphisme $f$
+%         dans des bases différentes. Elles sont donc semblables deux à
+%         deux.
+
+      \item On peut illustrer ce point à l'aide de la question. On
+        démontre : $A^{-1} = H \, A \, H^{-1}$, ce qui signifie que
+        $A$ et $A^{-1}$ sont semblables. On peut aussi faire
+        apparaître $H$ et $H^{-1}$ comme des matrices de changement de
+        base ce qui permettra d'interpréter cette égalité comme une
+        formule de changement de base. Pour ce faire, introduisons la
+        famille $\B''' = (z_1, z_2, z_3)$ définie par : $z_1 = e_1$,
+        $z_2 = -e_1 + e_3$, et $z_3 = e_1 + e_2$.\\[.1cm]
+        Cette famille est une base de $\R^3$ (car génératrice de
+        $\R^3$ et de cardinal $3$).\\
+        Remarquons alors : $H^{-1} = P_{\B, \B'''}$ (matrice de
+        passage de la base $\B$ à la base $\B'''$). Ainsi :
+        \[
+        \begin{array}{rccccccl@{\quad}>{\it}R{3.5cm}}
+          A^{-1} & = & H & \times & A & \times & H^{-1}
+          \\%[.2cm]
+          & = & P_{\B''', \B} & \times & \Mat_{\B}(f) & \times &
+          P_{\B, \B'''} & = \ \Mat_{\B'''}(f)
+          & (par formule de changement de base)
+          \nl[-.2cm]
+          % & = & \multicolumn{5}{l}{\Mat_{\B}(f)}
+        \end{array}
+        \]
+        Ainsi, les matrices $A$ et $A^{-1}$ représentent le même
+        endomorphisme $f$ dans des bases différentes.
+
+      \item Notons que si $A$ est une représentation matricielle d'un
+        endomorphisme $f$ alors $A^{-1}$ représente naturellement
+        l'endomorphisme $f^{-1}$. En effet :
+        \[
+        \text{si \ $A = \Mat_{\B}(f)$ \quad alors \quad $A^{-1} =
+          \big(\Mat_{\B}(f) \big)^{-1} = \Mat_{\B}\big( f^{-1} \big)$
+        }
+        \]
+        On a ainsi trouvé une base $\B'''$ dans laquelle $A^{-1}$ est
+        une représentation de $f$ et une base $\B$ dans laquelle
+        $A^{-1}$ est une représentation de $f^{-1}$. On ne peut
+        conclure pour autant : $f \xcancel{\rule[0cm]{0cm}{.3cm} =
+          \rule[-.1cm]{0cm}{.3cm}} f^{-1}$.\\
+        {\it (cela sera vrai si les bases $\B$ et $\B'''$ étaient égales)}
+      \end{noliste}
+    \end{remarkL}~\\[-1.5cm]
+  \end{proof}
+\end{noliste}
+
+
+\newpage
+
+
+\subsection*{PARTIE B : Deuxième exemple}
+
+\noindent
+On considère $f$ l'endomorphisme de $\R^3$ défini par : 
+\[
+\forall (x, y, z) \in \R^3, \quad f(x, y, z) \ = \ (x, -z, y + 2z)
+\]
+On note $M$ la matrice de $f$ dans la base canonique de $\R^3$.\\
+On considère également les vecteurs $u_1$ et $u_2$ de $\R^3$ définis
+par : $u_1 = (1, 0, 0)$ et $u_2 = (0, 1, -1)$.
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{4}
+\item Expliciter la matrice $M$ et montrer que $M$ est inversible.
+
+  \begin{proof}~\\%
+    Notons $\B = (e_1, e_2, e_3)$ la base canonique de $\R^3$.
+    % Autrement dit :
+    % \[
+    % e_1 = (1, 0, 0), \qquad e_2 = (0, 1, 0) \qquad \text{ et } \qquad
+    % e_3 = (0, 0, 1)
+    % \]
+    \begin{noliste}{$\sbullet$}
+    \item $f(e_1) = f(1, 0, 0) = (1, 0, 0) = e_1 = 1 \cdot e_1 + 0
+      \cdot e_2 + 0 \cdot e_3$.\\[.1cm]
+      Ainsi : $\Mat_{\B}\big( f(e_1) \big) =
+      \begin{smatrix}
+        1 \\
+        0 \\
+        0
+      \end{smatrix}
+      $.
+      
+    \item $f(e_2) = f(0, 1, 0) = (0, 0, 1) = e_3 = 0 \cdot e_1 + 0
+      \cdot e_2 + 1 \cdot e_3$.\\[.1cm]
+      Ainsi : $\Mat_{\B}\big( f(e_2) \big) =
+      \begin{smatrix}
+        0 \\
+        0 \\
+        1
+      \end{smatrix}
+      $.
+      
+    \item $f(e_3) = f(0, 0, 1) = (0, -1, 2) = 0 \cdot e_1 - 1 \cdot
+      e_2 + 2 \cdot e_3$.\\[.1cm]
+      Ainsi : $\Mat_{\B}\big( f(e_3) \big) =
+      \begin{smatrix}
+        0 \\
+        -1 \\
+        2
+      \end{smatrix}
+      $.
+    \end{noliste}
+    \conc{Finalement : $M = \Mat_{\B}(f)=
+      \begin{smatrix}
+        1 & 0 & 0 \\
+        0 & 0 & -1 \\
+        0 & 1 & 2
+      \end{smatrix}
+      $.}%~\\[-1cm]
+    \begin{noliste}{$\sbullet$}
+    \item D'autre part :
+      \[
+      \rg(M) \ = \ \rg \left( 
+        \begin{smatrix}
+          1 & 0 & 0 \\
+          0 & 0 & -1 \\
+          0 & 1 & 2
+        \end{smatrix}
+      \right)
+      \
+      \begin{arrayEg}
+        L_2 \leftrightarrow L_3
+      \end{arrayEg}
+      \ 
+      \rg \left( 
+        \begin{smatrix}
+          1 & 0 & 0 \\
+          0 & 1 & 2 \\
+          0 & 0 & -1
+        \end{smatrix}
+      \right)
+      \]
+      La réduite obtenue est triangulaire supérieure et à coefficients
+      diagonaux non nuls.\\
+      Elle est donc inversible et il en est de même de la matrice
+      initiale $M$.\\[-.2cm] %
+      \conc{La matrice $M$ est inversible.}~\\[-1.5cm]
+    \end{noliste}
+  \end{proof}
+
+\item
+  \begin{noliste}{a.}
+    \setlength{\itemsep}{2mm} %
+  \item Vérifier que $1$ est valeur propre de $f$ et $(u_1, u_2)$ est
+    une base du sous-espace propre associée.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord :
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+        \rg(M - I_3) %
+        & = & \rg\left(
+          \begin{smatrix}
+            0 & 0 & 0 \\
+            0 & -1 & -1 \\
+            0 & 1 & 1
+          \end{smatrix}
+        \right) %
+        \\[.8cm]
+        &
+        \begin{arrayEg}
+          L_3 \leftarrow L_3 + L_2
+        \end{arrayEg}
+        &
+        \rg\left(
+          \begin{smatrix}
+            0 & 0 & 0 \\
+            0 & -1 & -1 \\
+            0 & 0 & 0 
+          \end{smatrix}
+        \right) %
+        \\[.8cm]
+        & 
+        \begin{arrayEg}
+          C_3 \leftarrow C_3 - C_2
+        \end{arrayEg}
+        &
+        \rg\left(
+          \begin{smatrix}
+            0 & 0 & 0 \\
+            0 & -1 & 0 \\
+            0 & 0 & 0 
+          \end{smatrix}
+        \right) %
+        % \\[.8cm]        
+        \ = \ 1
+      \end{array}
+      \]
+      \conc{On en déduit : $\rg\big( f - \id_{\R^3} \big) \ = \
+        \rg\big( M - I_3 \big) \ = \ 1$.}
+
+
+      \newpage
+
+
+      \item Or, par théorème du rang :
+        \[
+        \begin{array}{C{2cm}ccccc}
+          & \dim\big( \R^3 \big) & = & \dim\Big( \kr\big( f - \id_{\R^3}
+          \big) \Big) & + & \rg\big( f - \id_{\R^3} \big)
+          \\[.2cm]
+          donc & \dim\big( \R^3 \big) & = & \dim\big( E_1(f) \big) & +
+          & \rg\big( M - I_3 \big) 
+          \\[.2cm]
+          & \shortparallel & & & & \shortparallel
+          \\[.2cm]
+          & 3 & & & & 2
+        \end{array}
+        \]
+        On en déduit : $\dim\big( E_{1}(f) \big) \ = \ 3 - 1 \ = \
+        2$.%
+        \conc{$\dim\big( E_{1}(f) \big) \ = \ 2$}
+
+      \item D'autre part :
+        \begin{noliste}{$\stimes$}
+        \item $f(u_1) = f(1, 0, 0) = (1, 0, 0) = u_1 = 1 \cdot u_1$.
+        \item $f(u_2) = f(0, 1, -1) = (0, 1, 1-2) = u_2 = 1 \cdot u_2$.
+        \end{noliste}
+        \conc{Ainsi $u_1$ et $u_2$ sont deux vecteurs propres de $f$
+          associés à la valeur propre $1$.}
+
+      \item Ainsi, ${\cal F} = (u_1, u_2)$ est une famille d'éléments
+        de $E_1(f)$ qui est :
+        \begin{noliste}{$\stimes$}
+        \item libre car constituée de deux vecteurs non colinéaires.
+        \item de cardinal $\Card\big( {\cal F} \big) = 2 = \dim\big(
+          E_1(f) \big)$. %\\[-.8cm]
+        \end{noliste}
+        \concL{On en déduit que ${\cal F}$ est une base de $E_1(f)$,
+          sous-espace propre de $f$ associé à la valeur propre
+          $1$.}{13.4}
+      \end{noliste}
+      \begin{remarkL}{.98}%~
+        \begin{noliste}{$\sbullet$}
+        \item La formulation de l'énoncé, à savoir \og {\bf Vérifier}
+          que $1$ est valeur propre \fg{} oriente vers une méthode
+          directe consistant généralement en un calcul simple. Il ne
+          s'agit donc pas de mettre en place une démonstration
+          théorique. Ici, il serait malvenu de chercher toutes les
+          valeurs propres en effectuant le calcul de $\rg(M - \lambda
+          \, I_3)$.
+        \item L'énoncé demande de démontrer que la famille $(u_1, u_2)$
+          est une base de $E_1(f)$.\\
+          En démontrant que $u_1$ et $u_2$ sont deux vecteurs propres de
+          $f$ associés à la valeur propre $1$, on démontre :
+          \[
+          E_1(f) \ \supset \ \Vect{u_1, u_2}
+          \]
+          On conclut à l'égalité de ces deux espaces vectoriels à l'aide
+          d'un argument de dimension fournit par le théorème du rang.
+          
+        \item On peut aussi rédiger tout autrement. On ne démontre pas
+          que $1$ est valeur propre mais on détermine directement, par
+          la méthode usuelle $E_{1}(f)$. Détaillons cette méthode.\\[.1cm]
+          Soit $u = (x, y, z) \in \R^3$. Notons $U = \Mat_{\B}(u) =
+          \begin{smatrix}
+            x \\
+            y \\
+            z
+          \end{smatrix}
+          $.
+          \[
+          \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+            u \in E_{1}(f)
+            & \Longleftrightarrow & 
+            U \in E_{1}(M)
+            \\[.2cm]
+            & \Longleftrightarrow & 
+            (M - I_3) \, U = 0_{\M{3,1}}
+            \\[.2cm]
+            & \Longleftrightarrow & 
+            \begin{smatrix}
+              0 & 0 & 0 \\
+              0 & - 1 & -1 \\
+              0 & 1 & 1
+            \end{smatrix}
+            \begin{smatrix}
+              x \\
+              y \\
+              z
+            \end{smatrix}
+            =
+            \begin{smatrix}
+              0 \\
+              0 \\
+              0
+            \end{smatrix}
+            \\[.8cm]
+            & \Longleftrightarrow & 
+            \left\{
+              \begin{array}{crcrcr}
+                & & & 0 & = & 0 
+                \\[.2cm]
+                - & y & - & z & = & 0 
+                \\[.2cm]
+                & y & + & z & = & 0 
+              \end{array}
+            \right.
+            % \\[1cm]
+            % & 
+            % \begin{arrayEq}
+            %   L_3 \leftarrow L_3 + L_2
+            % \end{arrayEq}
+            % & 
+            \
+            \begin{arrayEq}
+              L_3 \leftarrow L_3 + L_2
+            \end{arrayEq}
+            \ 
+            \left\{
+              \begin{array}{crcrcr}
+                & & & 0 & = & 0 
+                \\[.2cm]
+                - & y & - & z & = & 0 
+                \\[.2cm]
+                & & & 0 & = & 0 
+              \end{array}
+            \right.
+          \end{array}
+          \]
+        \end{noliste}
+      \end{remarkL}%~\\[-5.4cm]
+      \begin{remarkL}{.98}
+        On obtient alors :
+        \[
+        \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+          E_{1}(f) & = & 
+          \{ \ 
+          (x, y, z) \in \R^3
+          \ | \ \ y = -z \ \}
+          \\[.2cm]
+          & = & 
+          \{ \ 
+          (x, -z, z) \in \R^3
+          \ | \ \ (x, z) \in \R^2 
+          \ \}
+          \\[.2cm]
+          & = & 
+          \{ \ 
+          x \cdot (1, 0, 0) + y \cdot (0, -1, 1)
+          \ | \ \ (x, z) \in \R^2 
+          \ \}
+          \\[.2cm]
+          & = &
+          \Vect{\ (1, 0, 0), \ (0, -1, 1) \ }
+          \\[.2cm]
+          & = &
+          \Vect{\ (1, 0, 0), \ (0, 1, -1) \ } \ = \ \Vect{u_1, u_2}
+        \end{array}
+        \]
+        Comme : $E_{1}(f) \neq \{ 0_{\M{3,1}} \}$, le réel $1$ est
+        bien valeur propre de $f$ et $E_{1}(f)$ est le sous-espace
+        propre associé à cette valeur propre.
+      \end{remarkL}~\\[-1.4cm]
+    \end{proof}
+    
+  \item Déterminer un vecteur $u_3$ de $\R^3$ tel que : $f(u_3) - u_3 =
+    u_2$.
+    
+    \begin{proof}~\\%
+      Soit $u_3 = (x, y, z) \in \R^3$. Notons $U_3 = \Mat_{\B}(u_3) =
+      \begin{smatrix}
+        x \\
+        y \\
+        z
+      \end{smatrix}
+      $ \ et \ $U_2 = \Mat_{\B}(u_2) =
+      \begin{smatrix}
+        0 \\
+        1 \\
+        -1
+      \end{smatrix}
+      $.
+      \[
+      \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+        f(u_3) - u_3 = u_2
+        & \Longleftrightarrow & 
+        \big( f - \id_{\R^3} \big) (u_3) = u_2
+        \\[.2cm]
+        & \Longleftrightarrow & 
+        (M - I_3) \, U_3 = U_2
+        \\[.2cm]
+        & \Longleftrightarrow & 
+        \begin{smatrix}
+          0 & 0 & 0 \\
+          0 & - 1 & -1 \\
+          0 & 1 & 1
+        \end{smatrix}
+        \begin{smatrix}
+          x \\
+          y \\
+          z
+        \end{smatrix}
+        =
+        \begin{smatrix}
+          0 \\
+          1 \\
+          -1
+        \end{smatrix}
+        \\[.8cm]
+        & \Longleftrightarrow & 
+        \left\{
+          \begin{array}{crcrcr}
+            & & & 0 & = & 0 
+            \\[.2cm]
+            - & y & - & z & = & 1
+            \\[.2cm]
+            & y & + & z & = & -1
+          \end{array}
+        \right.
+        \\[1cm]
+        &
+        \begin{arrayEq}
+          L_3 \leftarrow L_3 + L_2
+        \end{arrayEq}
+        & 
+        \left\{
+          \begin{array}{crcrcr}
+            & & & 0 & = & 0 
+            \\[.2cm]
+            - & y & - & z & = & 1
+            \\[.2cm]
+            & & & 0 & = & 0 
+          \end{array}
+        \right.
+      \end{array}
+      \]
+      \conc{En prenant $x = 0$ et $y = 0$ (par exemple), on obtient
+        $u_3 = (0, 0, -1)$.}
+      \begin{remarkL}{.98}%
+        On démontre ici que tous les vecteurs $(x, y, z)$ vérifiant
+        $y+z = -1$ sont solutions de l'équation énoncée. Autrement
+        dit, tous les vecteurs s'écrivant sous la forme $(x, -1 - z,
+        z)$, où $x$ et $y$ sont des réels quelconques, sont
+        solutions. On a choisi $x = 0$ et $z= -1$ (ou $y= 0$) par
+        simplicité. Mais on aurait très bien pu faire d'autres choix
+        comme : 
+        \[
+        (1, 0, -1), \ (1, -2, 1), \ (1, -3, 2), \ (0, -2, 1), \ (0,
+        -1, 0) \ldots
+        \]
+      \end{remarkL}~\\[-1.5cm]
+    \end{proof}
+    
+
+    \newpage
+
+
+  \item Montrer que la famille $\B_1 = (u_1, u_2, u_3)$ est une base
+    de $\R^3$.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Montrons que la famille $(u_1, u_2, u_3)$ est libre.\\
+	Soit $(\lambda_1, \lambda_2, \lambda_3) \in \R^3$. Supposons :
+        $\lambda_1 \cdot u_1 +\lambda_2 \cdot u_2 + \lambda_3 \cdot
+        u_3 \ = \ 0_{\R^3}$.\\[.2cm]
+	Les équivalences suivantes sont vérifiées.
+	\[
+	\begin{array}{cl@{\qquad}>{\it}R{3cm}}
+          & \lambda_1 \cdot u_1 + \lambda_2 \cdot u_2 + \lambda_3 \cdot 
+          u_3 = 0_{\R^3} 
+          \\[.2cm]
+          \Longleftrightarrow &  
+          (\lambda_1, \ \lambda_2, \ -\lambda_2 - \lambda_3) \ = \ (0,
+          0, 0)  
+          \\[.2cm]
+          \Longleftrightarrow &
+          \left\{
+            \begin{array}{rcrcrcl}
+              \lambda_1 & & & & & = & 0 \\
+              & & \lambda_2 & & & = & 0 \\
+              & - & \lambda_2 & - & \lambda_3 & = & 0 
+            \end{array}
+          \right.
+          \\[.8cm]            
+          \begin{arrayEq}
+            L_3 \leftarrow L_3 + L_2
+          \end{arrayEq}
+          &  
+          \left\{
+            \begin{array}{rcrcrcl}
+              \lambda_1 & & & & & = & 0 \\
+              & & \lambda_2 & & & = & 0 \\
+              & & & - & \lambda_3 & = & 0 
+            \end{array}
+          \right.
+          \\[.8cm]
+          \Longleftrightarrow &  
+          \left\{
+            \lambda_1 = \lambda_2 = \lambda_3 = 0
+          \right.
+	\end{array}
+	\]
+	\conc{Ainsi, $\B_1 = (u_1, u_2, u_3)$ est une famille libre
+          de $\R^3$.}
+		
+      \item On a alors :
+	\begin{noliste}{$\stimes$}
+        \item la famille $(u_1, u_2, u_3)$ est une famille libre,
+        \item $\Card\big( (u_1, u_2, u_3) \big) = 3 = \dim(\R^3)$.
+	\end{noliste}
+      \end{noliste}
+      \conc{Ainsi, $\B_1 = (u_1, u_2, u_3)$ est une base de
+        $\R^3$.}
+      \begin{remark}%~
+        \begin{noliste}{$\sbullet$}
+        \item Le terme {\bf cardinal} est réservé aux ensembles
+          finis. La famille $(u_1, u_2, u_3)$ est un ensemble qui
+          contient $3$ vecteurs. Elle est donc finie, de cardinal $3$
+          (ce qu'on note $\Card((u_1, u_2, u_3)) = 3$).
+
+        \item $\Vect{u_1, u_2, u_3}$ est l'espace vectoriel constitué
+          de toutes les combinaisons linéaires des vecteurs $(u_1,
+          u_2, u_3)$. C'est un ensemble {\bf infini} de vecteurs, on
+          ne peut parler de son cardinal. Par contre, si l'on dispose
+          d'une base $(u_1, u_2, u_3)$ d'un espace vectoriel, tout
+          vecteur se décompose de manière unique sur cette base. Ceci
+          permet de donner une représentation finie de cet ensemble
+          infini.
+
+        \item Les notations : $\bcancel{\Card\big( \Vect{u_1, u_2,
+              u_3} \big)}$ et $\bcancel{\dim((u_1, u_2, u_3))}$ n'ont
+          aucun sens !
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+
+  \end{noliste}
+\end{noliste}
+On admet que $\B_2 = (u_1, -u_2, u_3)$ est également une base de $\R^3$.
+\begin{remarkL}{.78}%
+  Ce résultat se démontre sans pein. En effet, la famille $\B_2 =
+  (u_1, -u_2, u_3)$ est :
+  \begin{noliste}{$\stimes$}
+  \item génératrice de $\R^3$ puisque : $\Vect{ u_1, -u_2, u_3 } =
+    \Vect{ u_1, u_2, u_3 } = \R^3$.
+  \item de cardinal $\Card\big( (u_1, -u_2, u_3) \big) = 3 = \dim\big(
+    \R^3 \big)$.
+  \end{noliste}
+  Ainsi, la famille $\B_2$ est bien une base de $\R^3$.  
+\end{remarkL}
+
+
+\newpage
+
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{6}
+\item
+  \begin{noliste}{a.}
+    \setlength{\itemsep}{2mm} %
+  \item Écrire la matrice $M_1$ de $f$ dans la base $\B_1$ et la
+    matrice $M_2$ de $f$ dans la base $\B_2$.
+    
+    \begin{proof}~\\%
+      Déterminons tout d'abord $M_1 = \Mat_{\B_1}(f)$.
+      \begin{noliste}{$\sbullet$}
+      \item $f(u_1) = u_1 = 1 \cdot u_1 + 0 \cdot u_2 + 0 \cdot u_3$.\\[.1cm]
+        Ainsi : $\Mat_{\B}\big( f(u_1) \big) =
+        \begin{smatrix}
+          1 \\
+          0 \\
+          0
+        \end{smatrix}
+        $.
+        
+      \item $f(u_2) = u_2 = 0 \cdot u_1 + 1 \cdot u_2 + 0 \cdot u_3$.\\[.1cm]
+        Ainsi : $\Mat_{\B}\big( f(u_2) \big) =
+        \begin{smatrix}
+          0 \\
+          1 \\
+          0
+        \end{smatrix}
+        $.
+        
+      \item $f(u_3) = u_2 + u_3 = 0 \cdot u_1 + 1 \cdot u_2 + 1 \cdot
+        u_3$.\\[.1cm]
+        Ainsi : $\Mat_{\B}\big( f(u_3) \big) =
+        \begin{smatrix}
+          0 \\
+          1 \\
+          1
+        \end{smatrix}
+        $.
+      \end{noliste}
+      \conc{Finalement : $M_1 = \Mat_{\B_1}(f) =
+        \begin{smatrix}
+          1 & 0 & 0 \\
+          0 & 1 & 1 \\
+          0 & 0 & 1
+        \end{smatrix}
+        $.}%~\\[-1cm]
+      \begin{remarkL}{.98}%
+        \begin{noliste}{$\sbullet$}
+        \item Cette écriture permet de démontrer que $1$ est l'unique
+          valeur propre de l'endomorphisme $f$. En effet, comme $M_1$
+          est une matrice triangulaire supérieure, ses valeurs propres
+          sont ses coefficients diagonaux. Ainsi :
+          \[
+          \spc(f) \ = \ \spc(M_1) \ = \ \{ 1 \}
+          \]
+          Ainsi, l'endomorphisme $f$ possède une unique valeur
+          propre. On en déduit, en procédant par l'absurde, que $f$
+          n'est pas diagonalisable. En effet, si on suppose $f$
+          diagonalisable, $M_1 = \Mat_{\B_1}(f)$ l'est aussi. Il
+          existe donc une matrice inversible $P \in \M{3}$ et une
+          matrice diagonale $D \in \M{3}$ dont les coefficients
+          diagonaux sont les valeurs propres de $M_1$ (ainsi $D =
+          I_3$) telles que $M_1 = P \, D \, P^{-1} = P \, I_3 \,
+          P^{-1} = I_3$. Ce qui est absurde.
+
+        \item L'endomorphisme $f$ n'étant pas diagonalisable, on se
+          rabat sur une propriété plus faible : existe-t-il une base
+          dans laquelle la représentation matricielle de $f$ est
+          triangulaire supérieure ? Cette propriété est beaucoup plus
+          simple à obtenir notamment si l'on accepte d'utiliser des
+          matrices dont les coefficients sont complexes (hors de
+          portée en ECE).\\
+          On parle alors de {\bf trigonaliser} (on dit aussi {\bf
+            triangulariser}) l'endomorphisme $f$.
+
+        \item Si un endomorphisme $f : E \to E$ est triangularisable,
+          comment le triangularise-t-on ? \\
+          Notons $\lambda_1$, \ldots, $\lambda_m$ les valeurs propres
+          de $f$. On cherche alors une base de chaque sous-espace
+          propre $E_{\lambda_i}$ et on considère la famille obtenue en
+          concaténant toutes ces bases.\\
+          Cette famille {\tt N'EST PAS} une base de $E$. Si tel était
+          le cas, on aurait formé une base de vecteurs prores et donc
+          $E$ serait diagonalisable. \\
+          Par contre, cette famille est libre. On peut alors la
+          compléter en une base de $E$.\\
+          Sans entrer dans les détails, on peut faire en sorte (en
+          choisissant correctement les vecteurs qu'on ajoute) que la
+          matrice représentative de $f$ dans la base $\B'$ soit
+          triangulaire supérieure.
+
+        \item C'est la méthode développée dans cet énoncé. Ici, $f$
+          n'a qu'une valeur propre. Le sous-espace propre $E_1(f)$ a
+          pour base la famille $\big( u_1, u_2 \big)$. On complète
+          alors cette famille en ajoutant $u_3$. La matrice
+          représentant $f$ dans la base $\B_1$ ainsi formée est
+          bien triangulaire supérieure.
+
+%       \item On peut remarquer : 
+%         \begin{noliste}{$\stimes$}
+%         \item comme $f(e_2') = e_1'$ alors $f\big( f(e_2') \big) =
+%           f(e_1') = 0_{\R^3}$.\\[.1cm]
+%           Autrement dit : $e_2' \in \kr( f^2 )$.
+%         \item comme $f(e_3') = e_2'$ alors $f^2\big( f(e_3') \big) =
+%           f^2\big( e_2' \big) = f\big( f(e_2') \big) = f\big( e_1'
+%           \big) = 0_{\R^3}$.\\[.1cm]
+%           Autrement dit : $e_3' \in \kr( f^3 )$.          
+%         \end{noliste}        
+      \end{noliste}
+    \end{remarkL}%~\\[-1.5cm]
+
+
+    \newpage
+
+    
+    \noindent
+      Déterminons maintenant $M_2 = \Mat_{\B_2}(f)$.
+      \begin{noliste}{$\sbullet$}
+      \item $f(u_1) = u_1 = 1 \cdot u_1 + 0 \cdot (-u_2) + 0 \cdot
+        u_3$.\\[.1cm] 
+        Ainsi : $\Mat_{\B}\big( f(u_1) \big) =
+        \begin{smatrix}
+          1 \\
+          0 \\
+          0
+        \end{smatrix}
+        $.
+        
+      \item $f(-u_2) = -u_2 = 0 \cdot u_1 + 1 \cdot (-u_2) + 0 \cdot
+        u_3$.\\[.1cm]
+        Ainsi : $\Mat_{\B}\big( f(-u_2) \big) =
+        \begin{smatrix}
+          0 \\
+          1 \\
+          0
+        \end{smatrix}
+        $.
+        
+      \item $f(u_3) = u_2 + u_3 = 0 \cdot u_1 - 1 \cdot (-u_2) + 1
+        \cdot u_3$.\\[.1cm]
+        Ainsi : $\Mat_{\B}\big( f(u_3) \big) =
+        \begin{smatrix}
+          0 \\
+          -1 \\
+          1
+        \end{smatrix}
+        $.
+      \end{noliste}
+      \conc{Finalement : $M_2 = \Mat_{\B_2}(f) =
+        \begin{smatrix}
+          1 & 0 & 0 \\
+          0 & 1 & -1 \\
+          0 & 0 & 1
+        \end{smatrix}
+        $.}~\\[-1.2cm]
+    \end{proof}
+    
+  \item Justifier que les matrices $M_1$ et $M_2$ sont semblables, et
+    calculer $M_1 M_2$.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item Les matrices $M_1$ et $M_2$ sont semblables car elles
+        représentent le même endomorphisme $f$ dans des bases
+        différentes.
+
+      \item Par ailleurs : 
+        \[
+        M_1 \, M_2 \ = \ 
+        \begin{smatrix}
+          1 & 0 & 0 \\
+          0 & 1 & 1 \\
+          0 & 0 & 1
+        \end{smatrix}
+        \begin{smatrix}
+          1 & 0 & 0 \\
+          0 & 1 & -1 \\
+          0 & 0 & 1
+        \end{smatrix}
+        \ = \ 
+        \begin{smatrix}
+          1 & 0 & 0 \\
+          0 & 1 & 0 \\
+          0 & 0 & 1
+        \end{smatrix}
+        \]
+        \concL{Ainsi : $M_1 \, M_2 = I_3$. On en déduit que les
+          matrices $M_1$ et $M_2$ sont inversibles et inverses l'une
+          de l'autre.}{13.4}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+  \end{noliste}
+
+\item En déduire que les matrices $M$ et $M^{-1}$ sont semblables.
+
+  \begin{proof}~\\%
+    Notons $P = P_{\B, \B_1}$ et $Q = P_{\B, \B_2}$.
+    \begin{noliste}{$\sbullet$}
+    \item D'après la formule de changement de base :
+      \[
+      \begin{array}{ccccccc@{\quad}>{\it}R{3.5cm}}
+        \Mat_{\B}(f) & = & P_{\B, \B_1} & \times & \Mat_{\B_1}(f) &
+        \times & P_{\B_1, \B} 
+        \\[.2cm]
+        \shortparallel & & \shortparallel & & \shortparallel & &
+        \shortparallel 
+        \\[.2cm]
+        M & = & P & \times & M_1 & \times & P^{-1}
+      \end{array}
+      \]
+      \conc{On en déduit : $M^{-1} = P \, M_1^{-1} \, P^{-1}$.}
+
+    \item Ainsi : 
+      \[
+      \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+        M^{-1} & = & P \, M_1^{-1} \, P^{-1}
+        \\[.2cm]
+        & = & P \, M_2 \, P^{-1}
+        & (d'après la question \itbf{7.b)})
+        \nl
+        \nl[-.2cm]
+        & = & P \, \big( Q \, M \, Q^{-1} \big) \, P^{-1}
+        & (d'après la question \itbf{7.a)})
+        \nl
+        \nl[-.2cm]
+        & = & \big(P \, Q \big) \, M \, \big( P \, Q \big)^{-1}
+      \end{array}
+      \]
+    \end{noliste}
+    \conc{Les matrices $M$ et $M^{-1}$ sont semblables.}~\\[-1cm]
+  \end{proof}
+\end{noliste}
+
+
+\newpage
+
+
+\subsection*{PARTIE C : Troisième exemple}
+
+\noindent 
+On considère la matrice $T$ de $\M{3}$ définie par : $T =
+\begin{smatrix}
+  1 & -1 & 1 \\
+  0 & 1 & -1 \\
+  0 & 0 & 1
+\end{smatrix}
+$.\\
+On note $I_3$ la matrice identité de $\M{3}$ et on pose : $N = T -
+I_3$.
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{8}
+\item Justifier que la matrice $T$ est inversible. Est-elle
+  diagonalisable ?
+
+  \begin{proof}~%
+    \begin{noliste}{$\sbullet$}
+    \item La matrice $T$ est triangulaire supérieure. Ses valeurs
+      propres sont donc ses coefficients diagonaux. %
+      \conc{$\spc(T) = \{ 1 \}$}
+
+    \item Le réel $0$ n'est pas valeur propre de $T$. %
+      \conc{On en déduit que $T$ est inversible.}
+
+    \item Démontrons que $T$ n'est pas diagonalisable. On procède par
+      l'absurde.\\
+      Supposons que $T$ est diagonalisable.\\
+      Il existe donc une matrice inversible $P \in \M{3}$ et une
+      matrice diagonale $D \in \M{3}$ dont les coefficients diagonaux
+      sont les valeurs propres de $T$ telles que $T = PDP^{-1}$.\\
+      Or $1$ est la seule valeur propre de $T$. Ainsi $D = I_3$ et :
+      \[
+      T \ = \ P \, I_3 \, P^{-1} \ = \ P \, I_3 \, P^{-1} \ = \ I_3
+      \]
+      Absurde !%      
+      \conc{La matrice $T$ n'est pas diagonalisable.}~\\[-1.6cm]
+    \end{noliste}
+  \end{proof}
+
+\item 
+  \begin{noliste}{a.}
+    \setlength{\itemsep}{2mm} %
+  \item Calculer $N^3$ puis $(I_3 + N) \, (I_3 - N + N^2)$.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord :
+        \[
+        \begin{array}{rcl}
+          N^3 & = & (T - I_3)^3 \ = \
+          \begin{smatrix}
+            0 & -1 & 1 \\
+            0 & 0 & -1 \\
+            0 & 0 & 0
+          \end{smatrix}
+          \begin{smatrix}
+            0 & -1 & 1 \\
+            0 & 0 & -1 \\
+            0 & 0 & 0
+          \end{smatrix}
+          \begin{smatrix}
+            0 & -1 & 1 \\
+            0 & 0 & -1 \\
+            0 & 0 & 0
+          \end{smatrix}
+          \\[.8cm]
+          & = & 
+          \begin{smatrix}
+            0 & 0 & 1 \\
+            0 & 0 & 0 \\
+            0 & 0 & 0
+          \end{smatrix}
+          \begin{smatrix}
+            0 & -1 & 1 \\
+            0 & 0 & -1 \\
+            0 & 0 & 0
+          \end{smatrix}
+          \ = \ 
+          \begin{smatrix}
+            0 & 0 & 0 \\
+            0 & 0 & 0 \\
+            0 & 0 & 0
+          \end{smatrix}          
+        \end{array}
+        \]
+        \conc{Ainsi : $N^3 = 0_{\M{3}}$.}
+
+      \item D'autre part :
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          (I_3 + N) \, (I_3 - N + N^2) & = & (I_3 - \bcancel{N} +
+          \xcancel{N^2}) + (\bcancel{N} - \xcancel{N^2} + N^3) 
+          \\[.2cm]
+          & = & I_3 - N^3 \ = \ I_3
+          & (car $N^3 = 0_{\M{3}}$)
+        \end{array}
+        \]
+        \conc{$(I_3 + N) \, (I_3 - N + N^2) = I_3$}~\\[-1.6cm]
+      \end{noliste}
+    \end{proof}
+
+  \item En déduire une expression de $T^{-1}$ en fonction de $I_3$,
+    $N$ et $N^2$.
+
+    \begin{proof}~\\%
+      Par définition : $T = I_3 + N$. Ainsi, d'après ce qui précède :
+      \[
+      T \, (I_3 - N + N^2) = I_3
+      \]
+      \conc{On en déduit que $T$ est inversible d'inverse $T^{-1} =
+        I_3 - N + N^2$.}~\\[-1.2cm]
+    \end{proof}
+  \end{noliste}
+
+
+  \newpage
+
+
+\item On note $g$ l'endomorphisme de $\R^3$ dont la matrice dans la
+  base canonique est $N$.
+  \begin{noliste}{a.}
+    \setlength{\itemsep}{2mm} %
+  \item Justifier qu'il existe un vecteur $u$ de $\R^3$ tel que : $g
+    \circ g (u) \neq 0_{\R^3}$ \ et \ $g \circ g \circ g (u) =
+    0_{\R^3}$.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord, d'après la question \itbf{10.a)} : $N^2 =
+        \begin{smatrix}
+          0 & 0 & 1 \\
+          0 & 0 & -1 \\
+          0 & 0 & 0
+        \end{smatrix}
+        \ \neq \ 0_{\M{3}}$.
+
+      \item Or : 
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          N^2 \neq 0_{\M{3}} & \Leftrightarrow & g^2 \neq
+          0_{\LL{\R^3}}
+          & (par isomorphisme \\ de représentation)
+          \nl
+          \nl[-.2cm]
+          & \Leftrightarrow & \exists u \in \R^3, \ g^2(u) \neq
+          0_{\R^3} 
+          \nl
+          \nl[-.2cm]
+          & \Leftrightarrow & \exists u \in \R^3, \ g \circ g(u) \neq
+          0_{\R^3} 
+        \end{array}
+        \]
+        \conc{Ainsi, il existe $u \in \R^3$ tel que : $g \circ g(u) =
+          0_{\R^3}$.}
+
+      \item Enfin, comme $N^3 = 0_{\M{3}}$, on a : $g^3 =
+        0_{\LL{\R^3}}$ (toujours par isomorphisme de représentation).%
+        \conc{On en déduit : $g \circ g \circ g(u) =
+          0_{\R^3}$.}~\\[-1.4cm] 
+      \end{noliste}
+    \end{proof}
+
+  \item Montrer que la famille $\B_3 = (g \circ g(u), g(u), u)$ est
+    une base de $\R^3$.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item Montrons que la famille $(g \circ g(u), g(u), u)$ est libre.\\
+	Soit $(\lambda_1, \lambda_2, \lambda_3) \in \R^3$.\\
+        Supposons : $\lambda_1 \cdot g \circ g(u) +\lambda_2 \cdot
+        g(u) + \lambda_3 \cdot u \ = \ 0_{\R^3}$ $(*)$.
+        \begin{noliste}{$\stimes$}
+        \item Par linéarité de $g^2$, on obtient, en appliquant $g^2$ de
+          part et d'autre de l'égalité :
+          \[
+          \begin{array}{ccc}
+            \lambda_1 \cdot \bcancel{g^4(u)} + \lambda_2 \cdot
+            \bcancel{g^3(u)} + \lambda_3 \cdot g^{2}(u) & = & g^2\big(
+            0_{\R^3} \big) 
+            \\[.2cm]
+            \shortparallel & & \shortparallel
+            \\[.2cm]
+            \lambda_3 \cdot g^2(u) & & 0_{\R^3}
+          \end{array}
+          \]
+          En effet, comme $g^3 = 0_{\LL{\R^3}}$ alors $g^4 = g \circ
+          0_{\LL{\R^3}} = 0_{\LL{\R^3}}$.\\[.1cm]
+          Et en particulier : $g^3(u) = 0_{\R^3}$ et $g^4(u) =
+          0_{\R^3}$. %
+          \conc{Comme $\lambda_1 \cdot g^2(u) = 0_{\R^3}$ \ et \
+            $g^2(u) \neq 0_{\R^3}$, alors : $\lambda_3 = 0$.}
+
+        \item L'égalité $(*)$ se réécrit alors : $\lambda_1 \cdot
+          g^2(u) + \lambda_2 \cdot g(u) = 0_{\R^3}$.\\
+          En appliquant $g$ de part et d'autre, on obtient alors :
+          \[
+          \lambda_1 \cdot \bcancel{g^3(u)} + \lambda_2 \cdot g^2(u) =
+          0_{\R^3}
+          \]
+          \conc{On en déduit, comme ci-dessus : $\lambda_2 = 0$.}
+
+        \item L'égalité $(*)$ se réécrit alors : $\lambda_1 \cdot
+          g^{2}(u) = 0_{\R^3}$.%
+          \conc{On en conclut une nouvelle fois : $\lambda_3 = 0$.}
+        \end{noliste}
+        \conc{Ainsi, la famille $(g^{2}(u), g(u), u)$ est bien libre.}
+
+
+        \newpage
+
+
+      \item La famille ${\cal F} = (g^{2}(u), g(u), u)$ est :
+        \begin{noliste}{$\stimes$}
+        \item libre.
+        \item de cardinal : $\Card({\cal F}) = 3 = \dim(\R^3)$.
+        \end{noliste}
+        \conc{Ainsi, la famille ${\cal F}$ est une base de
+          $\R^3$.}~\\[-1.6cm]
+      \end{noliste}
+    \end{proof}
+
+  \item Écrire la matrice de $g$ dans la base $\B_3$.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item $g\big( g^2(u) \big) = g^3(u) = 0_{\R^3} = 0 \cdot g^2(u)
+        + 0 \cdot g(u) + 0 \cdot u$.\\[.1cm] 
+        Ainsi : $\Mat_{\B_3}\Big( g\big( g^2(u) \big) \Big) =
+        \begin{smatrix}
+          0 \\
+          0 \\
+          0
+        \end{smatrix}
+        $.
+
+      \item $g\big( g(u) \big) = g^2(u) = 1 \cdot g^2(u) + 0 \cdot
+        g(u) + 0 \cdot u$.\\[.1cm] 
+        Ainsi : $\Mat_{\B_3}\Big( g\big( g(u) \big) \Big) =
+        \begin{smatrix}
+          1 \\
+          0 \\
+          0
+        \end{smatrix}
+        $.
+
+      \item $g\big( u \big) = g(u) = 0 \cdot g^2(u) + 1 \cdot g(u) + 0
+        \cdot u$.\\[.1cm] 
+        Ainsi : $\Mat_{\B_3}\big( g(u) \big) =
+        \begin{smatrix}
+          0 \\
+          1 \\
+          0
+        \end{smatrix}
+        $.
+      \end{noliste}
+      \conc{Finalement : $\Mat_{\B_3}(g) =
+        \begin{smatrix}
+          0 & 1 & 0 \\
+          0 & 0 & 1 \\
+          0 & 0 & 0
+        \end{smatrix}
+        $.}~\\[-1.2cm]
+    \end{proof}
+
+  \item Calculer $N^2 - N$ et en déduire que les matrices $N$ et $N^2
+    - N$ sont semblables.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord :
+        \[
+        N^2 - N \ = \
+        \begin{smatrix}
+          0 & 0 & 1 \\
+          0 & 0 & -1 \\
+          0 & 0 & 0
+        \end{smatrix}
+        -
+        \begin{smatrix}
+          0 & -1 & 1 \\
+          0 & 0 & -1 \\
+          0 & 0 & 0
+        \end{smatrix}
+        \ = \
+        \begin{smatrix}
+          0 & 1 & 0 \\
+          0 & 0 & 1 \\
+          0 & 0 & 0
+        \end{smatrix}        
+        \]
+        \conc{Ainsi : $N^2 - N = \Mat_{\B_3}(g)$.}
+
+      \item Or, d'après la formule de changement de base :
+        \[
+        \begin{array}{R{2cm}ccccccc@{\quad}>{\it}R{5.5cm}}
+          & \Mat_{\B}(g) & = & P_{\B, \B_3} & \times & \Mat_{\B_3}(g) &
+          \times & P_{\B_3, \B} 
+          \\[.2cm]
+          & \shortparallel & & \shortparallel & & \shortparallel & &
+          \shortparallel 
+          \\[.2cm]
+          & N & = & R & \times & (N^2 - N) & \times & R^{-1}
+          & (en notant $R = P_{\B, \B_3}$)
+        \end{array}
+        \]
+        \conc{Ainsi, les matrices $N$ et $N^2 - N$ sont
+          semblables.}~\\[-1.5cm]
+      \end{noliste}
+    \end{proof}
+  \end{noliste}
+
+\item Montrer que les matrices $T$ et $T^{-1}$ sont semblables.
+
+  \begin{proof}~\\%
+    D'après la question précédente :
+    \[
+    \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+      R \, T^{-1} \, R^{-1} & = & R \, \big( I_3 - N + N^2 \big) \,
+      R^{-1}
+      & (d'après la question \itbf{10.a)})
+      \nl
+      \nl[-.2cm]
+      & = & R \, I_3 \, R^{-1} + R \, \big(N^2 - N \big) \, R^{-1}
+      % \\[.2cm]
+      \ = \ I_3 + N \ = \ T
+    \end{array}
+    \]
+    \conc{Ainsi, $T = R \, T^{-1} \, R^{-1}$ et les matrices $T$ et
+      $T^{-1}$ sont semblables.}~\\[-1.2cm]
+  \end{proof}
+\end{noliste}
+
+
+\newpage
+
+
+\section*{EXERCICE 3} %
+
+\noindent %
+On considère la fonction $f$ définie sur $]0,+\infty[$ par :
+\[
+  \forall t \in \ ]0,+\infty[, \ f(t) = t + \dfrac{1}{t}
+\]
+
+\subsection*{PARTIE A : \'Etude d'une fonction d'une variable} %
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item \'Etudier les variations de la fonction $f$ sur $]0,+\infty[$.\\
+  Dresser le tableau de variations de $f$ en précisant les limites en
+  $0$ et $+\infty$.
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item La fonction $f$ est dérivable sur $]0,+\infty[$ en tant que
+      somme $f_1+f_2$ avec :
+      \begin{noliste}{$\stimes$}
+      \item $f_1 : t \mapsto t$ dérivable sur $]0,+\infty[$ en tant
+        que fonction polynomiale,
+        
+      \item $f_2 : t \mapsto \dfrac{1}{t}$ dérivable sur $]0,+\infty$
+        en tant qu'inverse d'une fonction polynomiale qui ne s'annule
+        pas sur cet intervalle.
+      \end{noliste}
+      
+    \item Soit $t \in \ ]0,+\infty[$.
+      \[
+        f'(t) \ = \ 1 - \dfrac{1}{t^2}
+      \]
+      De plus :
+      \[
+        \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+          f'(t) \geq 0
+          & \Leftrightarrow & 1-\dfrac{1}{t^2} \geq 0
+          \\[.6cm]
+          & \Leftrightarrow & 1 \geq \dfrac{1}{t^2}
+          \\[.6cm]
+          & \Leftrightarrow & 1 \leq t^2
+          & (par stricte décroissance de la fonction $t \mapsto
+            \dfrac{1}{t}$ sur $]0,+\infty[$)
+          \nl
+          \nl[-.2cm]
+          & \Leftrightarrow & 1 \leq t
+          & (par stricte croissance de la fonction $t \mapsto
+            \sqrt{t}$ sur $[0,+\infty[$)                               
+        \end{array}
+      \]
+      
+    \item On obtient alors le tableau de variations suivant :\\[-.2cm]
+      \begin{center}
+        \begin{tikzpicture}[scale=0.8, transform shape]
+          \tkzTabInit[lgt=4,espcl=3] 
+          {$t$ /1, Signe de $f'(t)$ /1, Variations de $f$
+          /2} 
+          {$0$, $1$, $+\infty$}%
+          \tkzTabLine{ , - ,z, + , } 
+          \tkzTabVar{+/$+\infty$, -/$2$, +/$+\infty$}
+        \end{tikzpicture}
+      \end{center}
+      
+    \item Détaillons les éléments de ce tableau :
+      \begin{noliste}{$\stimes$}
+      \item $f(1) \ = \ 1+ \dfrac{1}{1} \ = \ 2$.
+        
+      \item comme $\dlim{t\to 0^+} \dfrac{1}{t} = +\infty$, alors :
+        $\dlim{t\to 0^+} f(t) = +\infty$.
+        
+      \item comme $\dlim{t\to +\infty} \dfrac{1}{t} = 0$, alors :
+        $\dlim{t\to +\infty} f(t) = +\infty$.
+      \end{noliste}
+    \end{noliste}
+  \end{proof}
+
+
+  \newpage
+  
+  
+\item Montrer que $f$ réalise une bijection de $[1,+\infty[$ vers
+  $[2,+\infty[$.
+  \begin{proof}~\\
+    D'après la question précédent, la fonction $f$ est :
+    \begin{noliste}{$\stimes$}
+    \item continue (car dérivable) sur $[1,+\infty[$,
+      
+    \item strictement croissante sur $[1,+\infty[$.
+    \end{noliste}
+    Ainsi, la fonction $f$ réalise une bijection de $[1,+\infty[$ sur
+    $f\big([1, +\infty[\big)$ avec :
+    \[
+      f\big([1, +\infty[\big) \ = \ \left[ f(1), \dlim{t\to +\infty}
+        f(t) \right[ \ = \ [2,+\infty[
+    \]
+    \conc{Finalement, la fonction $f$ réalise une bijection de
+      $[1,+\infty[$ sur $[2,+\infty[$.}~\\[-1cm]
+  \end{proof}
+\end{noliste}
+On note $g : [2,+\infty[ \ \to [1,+\infty[$ la bijection réciproque de
+la restriction de $f$ à $[1,+\infty[$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{2}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Dresser le tableau de variations de $g$.
+    \begin{proof}~\\
+      D'après le théorème de la bijection, la fonction $g$ est
+      continue sur $[2,+\infty[$ et strictement monotone sur
+      $[2,+\infty[$, de même sens de variation que $f$ sur
+      $[1,+\infty[$.\\
+      On obtient alors le tableau de variations suivant :\\[-.2cm]
+      \begin{center}
+        \begin{tikzpicture}[scale=0.8, transform shape]
+          \tkzTabInit[lgt=4,espcl=3] 
+          {$t$ /1, Variations de $g$ /2} 
+          {$2$, $+\infty$}% 
+          \tkzTabVar{-/$1$, +/$+\infty$}
+        \end{tikzpicture}
+      \end{center}
+    \end{proof}
+    
+  \item Justifier que la fonction $g$ est dérivable sur $]2,+\infty[$.
+    \begin{proof}~\\
+      La fonction $f$ :
+      \begin{noliste}{$\stimes$}
+      \item réalise une bijection de $]1,+\infty[$ sur $]2,+\infty[$,
+        
+      \item est dérivable sur $]1,+\infty[$ (d'après \itbf{1.}),
+        
+      \item est telle que : $\forall t \in \ ]1,+\infty[$, $f(t) \neq
+        0$. En effet : $\forall t \in \ ]1,+\infty[$, $f(t) \geq 2 > 0$.
+      \end{noliste}
+      \conc{On en déduit que $g$ est dérivable sur $]2,+\infty[$.}
+      \begin{remark}
+        \begin{noliste}{$\sbullet$}
+        \item On connaît même l'expression de $g'$ : $g' =
+          \dfrac{1}{f' \circ g}$.
+          
+        \item On peut retrouver cette formule via l'égalité $f \circ g
+          = \id$.\\
+          En effet, en dérivant formellement cette égalité, on obtient
+          :
+          \[
+            (f' \circ g) \times g' \ = \ 1
+          \]
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+
+
+    \newpage
+    
+    
+  \item Soit $y \in [2,+\infty[$.
+    En se ramenant à une équation du second degré, résoudre l'équation
+    $f(t) = y$ d'inconnue $t \in \ ]0,+\infty[$. En déduire une
+    expression de $g(y)$ en fonction de $y$.
+    \begin{proof}~\\
+      Soit $y \in [2,+\infty[$. Soit $t \in \ ]0,+\infty[$.
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord : 
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+            f(t) = y
+            & \Leftrightarrow & t + \dfrac{1}{t} = y
+            \\[.4cm]
+            & \Leftrightarrow & t^2 + 1 = y \, t
+            & (car $t \neq 0$)
+            \nl
+            \nl[-.2cm]
+            & \Leftrightarrow & t^2 - y \, t +1 = 0
+          \end{array}
+        \]
+        
+      \item On note $P\in \R[X]$ le polynôme défini par : $P(X) = X^2 - y \, X +1$.
+        \begin{noliste}{-}
+        \item Calculons le discriminant du polynôme $P$ :
+          \[
+            \Delta \ = \ (-y)^2 - 4 \times 1 \times 1 \ = \ y^2 - 4
+          \]
+          Comme $y\geq 2$, alors, par croissance de la foncion $x
+          \mapsto x^2$ sur $[0,+\infty[$ : $y^2 \geq 4$. Ainsi : $\Delta \geq 0$.
+          
+        \item Distinguons les cas suivant le nombre de racines de
+          $P$. Deux cas se présentent alors :
+        \end{noliste}
+        \begin{liste}{$\stimes$}
+        \item \dashuline{si $\Delta >0$} (\ie si $y>2$), alors $P$ admet exactement
+          deux racines notées $r_1$ et $r_2$ :
+          \[
+            r_1 = \dfrac{-(-y) - \sqrt{\Delta}}{2 \times 1} =
+            \dfrac{y- \sqrt{y^2 - 4}}{2} \quad \text{et} \quad r_2 =
+            \dfrac{-(-y) + \sqrt{\Delta}}{2 \times 1} = \dfrac{y+
+              \sqrt{y^2 -4}}{2}
+          \]
+          \conc{Si $y>2$, l'équation $f(t)=y$ admet exactement deux
+            solutions :\\[.2cm] %
+            $r_1 = \dfrac{y- \sqrt{y^2-4}}{2}$ \quad et \quad $r_2 = \dfrac{y+
+              \sqrt{y^2-4}}{2}$.}
+        \item \dashuline{si $\Delta = 0$} (\ie si $y=2$), alors $P$ admet exactement
+          une racine notée $r_0$ :
+          \[
+            r_0 \ = \ \dfrac{-(-y)}{2 \times 1} \ = \ \dfrac{y}{2} \ =
+            \ \dfrac{2}{2} \ = \ 1
+          \]
+          \conc{Si $y=2$, l'équation $f(t)=y$ admet une unique
+            solution : $r_0 = 1$.}
+        \end{liste}
+      \begin{remark}
+        Remarquons que, pour $y=2$, $r_1$ et $r_2$ prennent la valeur $1$. Les
+        expressions de $r_0$, $r_1$ et $r_2$ coïncident donc en $y=2$.
+      \end{remark}
+
+
+      \newpage
+      
+      
+      \item Comme $g$ est la bijection réciproque de la restriction de
+        $f$ à $[1,+\infty[$, pour tout $y \in [2,+\infty[$ et tout $t
+        \in [1,+\infty[$ :
+        \[
+          g(y) = t \quad \Leftrightarrow \quad f\big(g(y)\big) = f(t) \quad
+          \Leftrightarrow \quad y = f(t)
+        \]
+        On en déduit que, pour tout $y \in [2,+\infty[$, $g(y)$ est
+        la solution de l'équation $f(t)=y$ sur l'intervalle
+        $[1,+\infty[$.
+
+
+        % \newpage
+
+
+        \noindent %
+        Soit $y \in [2,+\infty[$. Deux cas se présentent donc :
+        \begin{noliste}{$\stimes$}
+        \item \dashuline{si $y>2$}, alors on cherche à déterminer
+          quelle solution de $r_1$ ou de $r_2$ appartient à
+          $[1,+\infty[$.
+        \end{noliste}
+        \begin{liste}{-}
+        \item Tout d'abord :
+          \[
+            \begin{array}{rcl@{\quad}>{\it}R{6.5cm}}
+              r_1 \geq 1
+              & \Leftrightarrow & \dfrac{y- \sqrt{y^2-4}}{2} \geq 1
+              \\[.4cm]
+              & \Leftrightarrow & y-\sqrt{y^2-4} \geq 2
+              \\[.4cm]
+              & \Leftrightarrow & y-2 \geq \sqrt{y^2-4}
+              \\[.4cm]
+              & \Leftrightarrow & (y-2)^2 \geq y^2-4
+              & (par stricte croissance de la fonction $x \mapsto x^2$
+                sur $[0,+\infty[$, et $y \geq 2$)
+              \nl
+              \nl[-.2cm]
+              & \Leftrightarrow & \bcancel{y^2}-4y+4 \geq
+                                  \bcancel{y^2}-4
+              \\[.4cm]
+              & \Leftrightarrow & 8 \geq 4y \ \Leftrightarrow \ 2 \geq y
+            \end{array}
+          \]
+          Or cette dernière inégalité est fausse (on a supposé $y>2$), donc, par
+          équivalence : $r_1 < 1$.
+        \item Ensuite : $\sqrt{y^2-4} \geq 0$. Donc, comme $y \geq 2$ : $y
+          + \sqrt{y^2-4} \geq 2$.\\[.1cm] %
+          Ainsi : $r_2 = \dfrac{y+ \sqrt{y^2-4}}{2} \geq 1$.
+          \conc{On en déduit, pour tout $y \in \ ]2,+\infty[$, $g(y) =
+            \dfrac{y + \sqrt{y^2-4}}{2}$.}
+        \end{liste}
+
+        \begin{noliste}{$\stimes$}
+        \item \dashuline{si $y =2$}, alors $g(y) = r_0 = 1$.
+          \conc{On en déduit : $g(2)=1$.}
+        \end{noliste}.
+        \conc{Comme les expressions de $r_0$ et de $r_2$ coïncident en
+          $2$, on obtient finalement :\\[.2cm] %
+          $g : y \mapsto \dfrac{y+ \sqrt{y^2-4}}{2}$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+
+
+\newpage
+
+
+\subsection*{PARTIE B : Étude d'une fonction de deux variables} %
+
+\noindent %
+On considère la fonction $h$ de classe $\Cont{2}$ sur l'ouvert $U = \
+]0,+\infty[ \, \times \, ]0,+\infty[$ définie par :
+\[
+\forall (x,y) \in U, \ h(x,y) = \left( \dfrac{1}{x} +
+  \dfrac{1}{y}\right) (1+x) (1+y)
+\]
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{3}
+\item Calculer les dérivées partielles d'ordre $1$ de $h$ en tout
+  $(x,y)$ de $U$.
+
+  \begin{proof}~%
+    \begin{noliste}{$\sbullet$}
+    \item La fonction $h$ est de classe $\Cont{1}$ (car de classe
+      $\Cont{2}$) sur $]0, +\infty[ \ \times \ ]0, +\infty[$. \\
+      Elle admet donc des dérivées partielles premières sur cet
+      ensemble.
+
+    \item Soit $(x, y) \in \ ]0, +\infty[ \ \times \ ]0,
+      +\infty[$. Tout d'abord : %
+      \[
+      \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+        \dfn{h}{1}(x, y) & = & (1+y) \ \left( - \dfrac{1}{x^2} \ (1+x)
+          + \left( \dfrac{1}{x} + \dfrac{1}{y}\right) \right)
+        \\[.6cm]
+        & = & (1+y) \ \left( - \dfrac{1}{x^2} - \bcancel{\dfrac{1}{x}}
+          + \left( \bcancel{\dfrac{1}{x}} + \dfrac{1}{y} \right) \right) 
+        \ = \ (1+y) \ \left( \dfrac{1}{y} - \dfrac{1}{x^2} \right)
+      \end{array}      
+      \]
+      Par ailleurs :
+      \[
+      \dfn{h}{2}(x, y) \ = \ (1+x) \ \left( - \dfrac{1}{y^2} \ (1+y) +
+        \left( \dfrac{1}{x} + \dfrac{1}{y}\right) \right) \ = \ (1+x)
+      \ \left( \dfrac{1}{x} - \dfrac{1}{y^2} \right)
+      \]
+      \conc{$\dfn{h}{1}(x, y) \ = \ (1+y) \ \left( \dfrac{1}{y} -
+          \dfrac{1}{x^2} \right)$ \quad et \quad $\dfn{h}{2}(x, y) \ =
+        \ (1+x) \ \left( \dfrac{1}{x} - \dfrac{1}{y^2} \right)$}
+    \end{noliste}
+    \begin{remarkL}{.98}%
+      \begin{noliste}{$\sbullet$}
+      \item Il faut noter que l'expression $(1+y)$ est une constante
+        par rapport à $x$. Ainsi, lorsque l'on dérive $h$ par rapport
+        à la première variable, on met en facteur cette constante
+        $(1+y)$ et on dérive le produit $\left( \dfrac{1}{x} +
+          \dfrac{1}{y}\right) (1+x)$.
+
+      \item Dans l'expression de $h$, les variables $x$ et $y$ jouent
+        des rôles symétriques.\\
+        Plus précisément : $\forall (x, y) \in U, \ h(x, y) = h(y,
+        x)$. On peut alors en déduire :
+        \[
+        \forall (x, y) \in U, \ \dfn{h}{2}(x, y) \ = \ \dfn{h}{1}(y, x)
+        \]
+        {\it (ce qu'on a retrouvé par le calcul)}\\[.1cm]
+        On peut démontrer ce résultat en remarquant :
+        \[
+        \dfn{h}{2}(x, y) \ = \ \dlim{h \tend 0} \dfrac{f(x, y + h) -
+          f(x, y)}{h} \ = \ \dlim{h \tend 0} \dfrac{f(y + h, x) - f(y,
+          x)}{h} \ = \ \dfn{h}{1}(y, x)
+        \]
+
+      \item Ce cas est relativement fréquent lors de l'étude de
+        fonction de deux variables et le résultat qui en découle est
+        plutôt naturel. Même si ce résultat ne figure pas
+        explicitement dans le programme, il est conseillé de le
+        connaître. On peut alors concevoir ce résultat comme un
+        procédé de vérification permettant de vérifier que le deuxième
+        calcul effectué est juste.
+      \end{noliste}
+    \end{remarkL}~\\[-1.4cm]
+  \end{proof}
+  
+
+  \newpage
+
+
+\item Soit $(x,y) \in U$. Montrer :
+  \[
+  \text{$(x,y)$ est un point critique de $h$} \ \Leftrightarrow \
+  \left\{
+    \begin{array}{l}
+      y \ = \ x^2 \\[.1cm]
+      x \ = \ y^2
+    \end{array}
+  \right.
+  \]
+  
+  \begin{proof}~%
+    \begin{noliste}{$\sbullet$}
+    \item Rappelons tout d'abord :
+      \[
+      \text{$(x, y)$ est un point critique de $h$} \ \Leftrightarrow \
+      \nabla(h)(x, y) = 0_{\M{2,1}} \ \Leftrightarrow \ \left\{
+        \begin{array}{l}
+          \dfn{h}{1}(x, y) \ = \ 0
+          \\[.2cm]
+          \dfn{h}{2}(x, y) \ = \ 0
+        \end{array}
+      \right.
+      \]
+      % Ainsi :
+
+    \item
+      $
+      \begin{array}[t]{R{.8cm}C{3.4cm}cl@{\qquad}>{\it}R{6.8cm}}
+        Ainsi : & $(x, y)$ est un point critique de $h$ 
+        & \Leftrightarrow & 
+        \multicolumn{2}{l}{
+        \left\{
+          \begin{array}{rcl} 
+            (1+y) \ \left( \dfrac{1}{y} - \dfrac{1}{x^2} \right) & = &
+            0 
+            \\[.5cm]
+            (1+x) \ \left( \dfrac{1}{x} - \dfrac{1}{y^2} \right) & = &
+            0 
+          \end{array}
+        \right.
+        }
+        \\[1.2cm]
+        & & \Leftrightarrow & 
+        \left\{
+          \begin{array}{rcl} 
+            \left( \dfrac{1}{y} - \dfrac{1}{x^2} \right) & = & 0 
+            \\[.5cm]
+            \left( \dfrac{1}{x} - \dfrac{1}{y^2} \right) & = & 0
+          \end{array}
+        \right.
+        & (en divisant la $\ere{1}$ équation par $(1+y) \neq 0$ et la
+        $\eme{2}$ par $(1+x) \neq 0$)
+        \nl
+        \nl[-.2cm]
+        & & \Leftrightarrow & 
+        \left\{
+          \begin{array}{rcl} 
+            \dfrac{1}{y} & = & \dfrac{1}{x^2}
+            \\[.5cm]
+            \dfrac{1}{x} & = & \dfrac{1}{y^2}
+          \end{array}
+        \right.
+        \\[1.2cm]
+        & & \Leftrightarrow & 
+        \left\{
+          \begin{array}{rcl}
+            x^2 & = & y
+            \\[.1cm]
+            y^2 & = & x
+          \end{array}
+        \right.
+        & (en multipliant la $\ere{1}$ équation par $x^2 \, y \neq 0$ et la
+        $\eme{2}$ par $x \, y^2 \neq 0$)
+      \end{array}
+      $ %\]
+      \conc{On a bien : $\text{$(x,y)$ est un point critique de $h$} \
+        \Leftrightarrow \ \left\{
+          \begin{array}{l}
+            y \ = \ x^2 \\[.1cm]
+            x \ = \ y^2
+          \end{array}
+        \right.$.}
+    \end{noliste}
+    \begin{remarkL}{.98}%~%
+      \begin{noliste}{$\sbullet$}
+      \item On a démontré ci-dessus, à l'aide d'un calcul :
+        $\dfrac{1}{y} \ = \ \dfrac{1}{x^2} \ \ \Leftrightarrow \ \ y \
+        = \ x^2$.\\
+        On peut aussi démontrer cette équivalence en argumentant par
+        le caractère bijectif de la fonction $x \mapsto \frac{1}{x}$
+        sur $]0, +\infty[$.
+        
+      \item La difficulté de la recherche de points critiques réside
+        dans le fait qu'il n'existe pas de méthode générale pour
+        résoudre l'équation $\nabla(h)(x,y) = 0_{\M{2,1}}$.\\
+        On est donc confronté à une question bien plus complexe qu'une
+        résolution de système d'équations linéaires (que l'on résout
+        aisément à l'aide de la méthode du pivot de Gauss).
+
+      \item Lors de la recherche de points critiques, on doit faire
+        appel à des méthodes ad hoc. Ici, on fait apparaître une
+        équation du type :
+        \[
+        y = \psi(x)
+        \]
+        En injectant cette égalité dans la seconde équation, on
+        obtient une nouvelle équation qui ne dépend plus que d'une
+        variable et qu'il est donc plus simple de résoudre.\\
+        C'est la stratégie qu'on adopte ci-dessous.
+      \end{noliste}
+    \end{remarkL}~\\[-1.4cm]
+  \end{proof}
+
+
+  \newpage
+
+
+\item En déduire que $h$ admet un unique point critique sur $U$ dont
+  on précisera les coordonnées $(a,b)$.
+
+  \begin{proof}~\\%
+    D'après ce qui précède :
+    \[
+    \begin{array}{C{2cm}C{3.4cm}cl@{\qquad}>{\it}R{4.8cm}}
+      & $(x, y) \in U$ est un point critique de $h$ 
+      & \Leftrightarrow & 
+      \left\{
+        \begin{array}{rcl}
+          x^2 & = & y
+          \\[.1cm]
+          y^2 & = & x
+        \end{array}
+      \right.
+      \\[.8cm]
+      & & \Leftrightarrow & 
+      \left\{
+        \begin{array}{rcl}
+          x^2 & = & y
+          \\[.1cm]
+          x^4 & = & x
+        \end{array}
+      \right.
+      \\[.8cm]
+      & & \Leftrightarrow & 
+      \left\{
+        \begin{array}{rcl}
+          x^2 & = & y
+          \\[.1cm]
+          x^3 & = & 1
+        \end{array}
+      \right.
+      & (en divisant la $\eme{2}$ \\ équation par $x \neq 0$)
+      \nl
+      \nl[-.2cm]
+      & & \Leftrightarrow & 
+      \left\{
+        \begin{array}{rcl}
+          x^2 & = & y
+          \\[.1cm]
+          x^3 & = & 1^3
+        \end{array}
+      \right.
+      \\[.8cm]
+      & & \Leftrightarrow & 
+      \left\{
+        \begin{array}{rcl}
+          x^2 & = & y
+          \\[.1cm]
+          x & = & 1
+        \end{array}
+      \right.
+      & (par bijectivité de la fonction $x \mapsto x^3$)
+      \nl
+      \nl[-.2cm]
+      & & \Leftrightarrow & 
+      \left\{
+        \begin{array}{rcl}
+          1 & = & y
+          \\[.1cm]
+          x & = & 1
+        \end{array}
+      \right.
+      & (en remplaçant $x$ par $1$ \\ dans la $\ere{1}$ équation)
+    \end{array}
+    \]
+    \conc{Ainsi, $h$ admet pour unique point critique $(1, 1)$.}~\\[-1.2cm]
+  \end{proof}
+
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Vérifier : $\forall (x,y) \in U$, $h(x, y) = 2 + f(x) + f(y) +
+    f\left( \dfrac{x}{y} \right)$.
+
+    \begin{proof}~\\%
+      Soit $(x, y) \in U$.
+      \[
+      \begin{array}{R{2cm}rcl@{\qquad}>{\it}R{3cm}}
+        & h(x, y) & = & \left( \dfrac{1}{x} + \dfrac{1}{y} \right) \,
+        (1+x) \, (1+y)
+        \\[.6cm]
+        & & = & \left( \left( \dfrac{1}{x} + \dfrac{1}{y} \right) \,
+          + 1 + \dfrac{x}{y} \right) \, (1+y)
+        \\[.6cm]
+        & & = & \left( \left( \dfrac{1}{x} + \dfrac{1}{y} \right) \,
+          + 1 + \dfrac{x}{y} \right) + \left( \left( \dfrac{y}{x} +
+            1 \right) \, + y + x \right)
+        \\[.6cm]
+        & & = & 2 + \left( x + \dfrac{1}{x} \right) + \left( y +
+          \dfrac{1}{y} \right) + \left( \dfrac{x}{y} + \dfrac{y}{x}
+        \right) 
+        & (en réordonnant)
+        \nl
+        \nl[-.2cm]
+        & & = &  
+        2 + f(x) + f(y) + f\left( \dfrac{x}{y} \right)
+      \end{array}
+      \]
+      \conc{$\forall (x,y) \in U$, $h(x, y) = 2 + f(x) + f(y) +
+        f\left( \dfrac{x}{y} \right)$}~\\[-1cm]
+    \end{proof}
+    
+    
+    \newpage
+
+
+  \item En déduire que $h$ admet en $(a,b)$ un minimum global sur $U$.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord :
+        \[
+        h(1, 1) \ = \ \left( \dfrac{1}{1} + \dfrac{1}{1} \right) \,
+        (1+1) \, (1+1) \ = \ 2 \times 2 \times 2 \ = \ 8
+        \]
+        \conc{$h(1, 1) = 8$}
+
+      \item Rappelons, d'après la question \itbf{1.}, que la fonction $f$ :
+        \begin{noliste}{$\stimes$}
+        \item est décroissante sur $]0, 1[$.
+        \item croissante sur $[1, +\infty[$.          
+        \end{noliste}
+        On en déduit que $f$ admet pour minimum $f(1) = 2$.%
+        \conc{Autrement dit : $\forall t \in \ ]0, +\infty[$, $f(t)
+          \geq 2$.}
+
+      \item Soit $(x, y) \in U$. D'après la question précédente :
+        \[
+        h(x, y) \ = \ 2 + f(x) + f(y) + f\left( \dfrac{x}{y} \right)
+        \ \geq \ 2 + 2 + 2 + 2 \ = \ 8 \ = \ h(1, 1)
+        \]
+        Cette minoration est obtenue en appliquant le résultat
+        précédent successivement en $t = x > 0$, $t = y > 0$ et $t =
+        \frac{x}{y} > 0$. %
+        \conc{On en conclut : $\forall (x, y) \in U$, $h(1, 1) \ \leq
+          \ h(x, y)$.\\
+        Ainsi, $h$ admet un minimum global sur $U$ au point $(1,
+        1)$.}~\\[-1.4cm] 
+      \end{noliste}
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+
+
+\subsection*{PARTIE C : \'Etude d'une suite} %
+
+\noindent %
+On introduit la suite $(u_n)_{n \in \N^*}$ définie par :
+\[
+  u_1 = 1 \quad \text{et} \quad \forall n \in \N^*, \ u_{n+1} = u_n +
+  \dfrac{1}{n^2 \, u_n} = \dfrac{1}{n} \, f(n \, u_n)
+\]
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{7}
+\item Montrer que, pour tout $n$ de $\N^*$, $u_n$ existe et $u_n \geq
+  1$.
+  \begin{proof}~\\ %
+    Démontrons par récurrence : $\forall n \in \N^*$, $\PP{n}$ \quad
+    où \quad $\PP{n} : \left\{
+      \begin{array}{l}
+        \text{$u_n$ existe}\\[.2cm]
+        u_n \geq 1
+      \end{array}
+    \right. $.
+    \begin{noliste}{\fitem}
+    \item {\bf Initialisation} :\\ %
+      D'après l'énoncé : $u_1 = 1$. Donc : $u_1 \geq 1$.\\ %
+      D'où $\PP{1}$.
+      
+    \item {\bf Hérédité} : soit $n \in \N^*$.\\
+      Supposons $\PP{n}$ et démontrons $\PP{n+1}$ (\ie $\left\{
+        \begin{array}{l}
+          \text{$u_{n+1}$ existe}\\[.2cm]
+          u_{n+1} \geq 1
+        \end{array}
+      \right.$)\\[.1cm] %
+      Par hypothèse de récurrence, le réel $u_n$ existe et $u_n \geq
+      1$.
+      \begin{noliste}{$\sbullet$}
+      \item Comme $u_n \geq 1 >0$ et $n>0$, alors : $n \, u_n >0$.\\ %
+        Or $f$ est définie sur $]0,+\infty[$, donc le réel $f(n \,
+        u_n)$ existe.\\ %
+        On en déduit que $u_{n+1}$ existe.
+
+
+        \newpage
+        
+        
+      \item Ensuite :
+        \[
+          \begin{array}{R{1cm}c@{\quad}>{\it}R{6cm}}
+            & u_n \ \geq \ 1
+            \\[.2cm]
+            donc & n \, u_n \ \geq \ n
+            & (car $n >0$)
+            \nl
+            \nl[-.2cm]
+            d'où & f(n \, u_n) \ \geq \ f(n)
+            & (par croissance de $f$ sur $[1,+\infty[$,\\
+              et $n \, u_n \geq n \geq 1$)
+            \nl
+            \nl[-.2cm]
+            ainsi & \dfrac{1}{n} \ f(n \, u_n) \ \geq \ \dfrac{1}{n} \
+                    f(n)
+            & (car $\dfrac{1}{n} >0$)                    
+          \end{array}
+        \]
+        On en déduit : $u_{n+1} \geq \dfrac{1}{n} \ f(n)$. Or :
+        \[
+          \dfrac{1}{n} \ f(n) \ = \ \dfrac{1}{n}\left(n +
+            \dfrac{1}{n}\right) \ = \ 1 + \dfrac{1}{n^2} \ \geq \ 1
+        \]
+        Ainsi, par transitivité : $u_{n+1} \ \geq \ \dfrac{1}{n} \
+        f(n) \ \geq \ 1$.\\
+        D'où $\PP{n+1}$.
+      \end{noliste}
+    \end{noliste}
+    \conc{Par principe de récurrence, on en déduit que, pour tout $n
+      \in \N^*$, $u_n$ existe et $u_n \geq 1$.}
+    \begin{remarkL}{.8}
+      Cette question est un classique des suites
+      récurrentes. Elle se traite presque toujours par récurrence.
+    \end{remarkL}~\\[-1.4cm]
+  \end{proof}
+
+
+  % \newpage
+  
+  
+\item Recopier et compléter les lignes \ligne{3} et \ligne{4} de la
+  fonction \Scilab{} suivante afin que, prenant en argument un entier
+  $n$ de $\N^*$, elle renvoie la valeur de $u_n$.
+  \begin{scilab}
+    & \tcFun{function} \tcVar{u}=\underline{suite}(\tcVar{n}) \nl %
+    & \quad \tcVar{u} = 1 \nl %
+    & \quad \tcFor{for} k = .................. \nl %
+    & \quad \quad \tcVar{u} = .................. \nl %
+    & \quad \tcFor{end} \nl %
+    & \tcFun{endfunction}
+  \end{scilab}
+  \begin{proof}~
+    \begin{scilab}
+      & \tcFun{function} \tcVar{u}=\underline{suite}(\tcVar{n}) \nl %
+      & \quad \tcVar{u} = 1 \nl %
+      & \quad \tcFor{for} k = 1:(\tcVar{n}-1) \nl %
+      & \quad \quad \tcVar{u} = (1/\tcVar{n}) \Sfois{}
+      (\tcVar{n}\Sfois{}\tcVar{u} + 1/(\tcVar{n}\Sfois{}\tcVar{u})) \nl %
+      & \quad \tcFor{end} \nl %
+      & \tcFun{endfunction}
+    \end{scilab}
+    Détaillons l'obtention de ce programme.\\ %
+    La variable {\tt u} est crée pour contenir successivement les
+    valeurs $u_1$, $\ldots$, $u_n$.
+    \begin{noliste}{$\sbullet$}
+    \item On initialise donc cette variable à $u_1=1$ avec la ligne
+      \ligne{2}.
+      \begin{scilabC}{1}
+        & \quad \tcVar{u} = 1 
+      \end{scilabC}
+
+
+      \newpage
+      
+      
+    \item On met ensuite à jour {\tt u} à l'aide d'une
+      structure itérative (boucle \tcFor{for}) avec les lignes
+      \ligne{3} à \ligne{5}.
+      \begin{scilabC}{2}
+         & \quad \tcFor{for} k = 1:(\tcVar{n}-1) \nl %
+         & \quad \quad \tcVar{u} = (1/\tcVar{n}) \Sfois{}
+         (\tcVar{n}\Sfois{}\tcVar{u} + 1/(\tcVar{n}\Sfois{}\tcVar{u})) \nl %
+         & \quad \tcFor{end}
+      \end{scilabC}
+    \end{noliste}
+    \begin{remark}
+      \begin{noliste}{$\sbullet$}
+      \item On décrit ici de manière précise les instructions afin
+        d'aider le lecteur un peu moins habile en
+        \Scilab{}. Cependant, l'écriture du script démontre la
+        compréhension de toutes les commandes en question et permet
+        sans doute d'obtenir la totalité des points alloués à cette question.
+        
+      \item On pouvait également coder la fonction $f$ dans un script
+        à part. On aurait alors obtenu les deux programmes suivants :
+        \begin{scilab}
+          & \tcFun{function} \tcVar{y}=\underline{f}(\tcVar{t}) \nl %
+          & \quad y = t + 1/t \nl %
+          & \tcFun{endfunction}
+        \end{scilab}
+        \begin{scilab}
+           & \tcFun{function} \tcVar{u}=\underline{suite}(\tcVar{n}) \nl %
+           & \quad \tcVar{u} = 1 \nl %
+           & \quad \tcFor{for} k = 1:(\tcVar{n}-1) \nl %
+           & \quad \quad \tcVar{u} = (1/\tcVar{n}) \Sfois{}
+           f(\tcVar{n}\Sfois{}\tcVar{u}) \nl %
+           & \quad \tcFor{end} \nl %
+           & \tcFun{endfunction}
+        \end{scilab}
+      \end{noliste}
+    \end{remark}~\\[-1.4cm]
+  \end{proof}
+
+
+  % \newpage
+  
+  
+\item On pose, pour tout $n$ de $\N^*$, $v_n = u_{n+1} - u_n$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer : $\forall n \in \N^*$, $0 \leq v_n \leq
+    \dfrac{1}{n^2}$.
+    \begin{proof}~\\
+      Soit $n \in \N^*$.
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord :
+        \[
+          v_n \ = \ u_{n+1} - u_n \ = \ \bcancel{u_n} + \dfrac{1}{n^2 \,
+            u_n} - \bcancel{u_n} \ = \ \dfrac{1}{n^2 \, u_n}
+        \]
+        
+      \item D'après la question précédente : $u_n \geq 1 >0$. Donc :
+        $v_n = \dfrac{1}{n^2 \, u_n} \geq 0$.
+      
+      \item Toujours d'après la question précédente :
+        \[
+          \begin{array}{R{1cm}c@{\quad}>{\it}R{6cm}}
+            & u_n \ \geq \ 1
+            \\[.2cm]
+            donc & \dfrac{1}{u_n} \ \leq \ 1
+            & (par décroissance de la fonction inverse sur
+              $]0,+\infty[$)
+            \nl
+            \nl[-.2cm]
+            d'où & \dfrac{1}{n^2 \, u_n} \ \leq \ \dfrac{1}{n^2}
+            & (car $\dfrac{1}{n^2} >0$)
+            \nl
+            \nl[-.2cm]
+            ainsi & v_n \ \leq \ \dfrac{1}{n^2}
+          \end{array}
+        \]
+      \end{noliste}
+      \conc{Finalement : $\forall n \in \N^*$, $0 \leq v_n \leq
+        \dfrac{1}{n^2}$.}~\\[-1cm]
+    \end{proof}
+
+
+    \newpage
+    
+    
+  \item En déduire la nature de la série $\Sum{n \geq 1}{} v_n$.
+    \begin{proof}~\\
+      D'après la question précédente :
+      \begin{noliste}{$\stimes$}
+      \item $\forall n \in \N^*$, $0 \leq v_n \leq \dfrac{1}{n^2}$.
+        
+      \item la série $\Sum{n \geq 1}{} \dfrac{1}{n^2}$ est une série
+        de Riemann d'exposant $2$ ($2>1$). Elle est donc convergente.
+      \end{noliste}
+      \conc{Par critère de comparaison des séries à termes positifs,
+        la série $\Sum{n \geq 1}{} v_n$ est convergente.}
+      \begin{remark}
+        La seule difficulté de cette démonstration réside dans la
+        rédaction du critère des séries à termes positifs (les
+        arguments à utiliser ont tous été démontrés dans les questions
+        précédentes). C'est donc une question d'application directe du
+        cours qu'il convient de savoir traiter.
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+    
+  \item Calculer, pour tout $n$ supérieur ou égal à $2$,
+    $\Sum{k=1}{n-1} v_k$.\\
+    En déduire que la suite $(u_n)_{n\in \N^*}$ converge vers un réel
+    $\ell$, que l'on ne cherchera pas à déterminer.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Soit $n \geq 2$. Par sommation télescopique :
+        \[
+          \Sum{k=1}{n-1} v_k \ = \ \Sum{k=1}{n-1} (u_{k+1} - u_k) \ =
+          \ u_{(n-1)+1} - u_1 \ = \ u_n - 1
+        \]
+        \conc{$\forall n \geq 2$, $\Sum{k=1}{n-1} v_k = u_n-1$}
+        
+      \item Soit $n \geq 2$. D'après ce qui précède :
+        \[
+          u_n \ = \ 1 + \Sum{k=1}{n-1} v_k
+        \]
+        Or, d'après la question précédente, la série $\Sum{n \geq 1}{}
+        v_n$ est convergente.\\ %
+        On déduit de l'écriture précédente de $u_n$ que la suite
+        $(u_n)$ est convergente, de limite :
+        \[
+          \dlim{n \to + \infty} u_n \ = \ 1+ \Sum{k=1}{+\infty} v_k
+        \]
+        \conc{Ainsi, la suite $(u_n)$ converge vers un réel noté
+          $\ell$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+  \end{noliste}
+
+
+  \newpage
+  
+  
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que, pour tout entier $k$ supérieur ou égal à $2$, on
+    a : $\dfrac{1}{k^2} \ \leq \ \dint{k-1}{k} \dfrac{1}{t^2} \dt$.
+    \begin{proof}~\\
+      Soit $k \geq 2$.
+      \begin{noliste}{$\sbullet$}
+      \item Soit $t \in [k-1, k]$.
+        \[
+          \begin{array}{C{1cm}ccccc@{\quad}>{\it}R{5cm}}
+            Comme & k-1 & \leq & t & \leq & k
+            \\[.2cm]
+            alors & \dfrac{1}{(k-1)^2} & \geq & \dfrac{1}{t^2} & \geq
+            & \dfrac{1}{k^2}
+            & (par décroissance de la fonction $t \mapsto
+              \dfrac{1}{t^2}$ sur $]0,+\infty[$)
+          \end{array}
+        \]
+        
+      \item La fonction $t \mapsto \dfrac{1}{t^2}$ est continue sur le
+        segment $[k-1,k]$.\\
+        Par croissance de l'intégrale, les bornes étant dans l'ordre
+        croissant ($k-1 \leq k$) :
+        \[
+          \begin{array}{ccccc}
+            \dint{k-1}{k} \dfrac{1}{(k-1)^2} \dt & \geq
+            & \dint{k-1}{k} \dfrac{1}{t^2} \dt & \geq
+            & \dint{k-1}{k} \dfrac{1}{k^2} \dt
+            \\[.6cm]
+            \shortparallel & & & & \shortparallel
+            \\[.2cm]
+            \big(k-(k-1)\big) \dfrac{1}{(k-1)^2} & & &
+            & \big(k-(k-1)\big) \dfrac{1}{k^2}
+          \end{array}
+        \]
+        \conc{En particulier, pour tout $k \geq 2$ : $\dfrac{1}{k^2}
+          \leq \dint{k-1}{k} \dfrac{1}{t^2} \dt$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+    
+  \item Pour tous entiers $n$ et $p$ tels que $2 \leq p < n$, calculer
+    $\Sum{k=p}{n-1} v_k$ et en déduire :
+    \[
+      0 \ \leq \ u_n - u_p \ \leq \ \dint{p-1}{n-1} \dfrac{1}{t^2} \dt
+    \]
+    \begin{proof}~\\
+      Soit $(n,p) \in \N^2$ tel que : $2 \leq p < n$.
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord, par sommation télescopique :
+        \[
+          \Sum{k=p}{n-1} v_k \ = \ \Sum{k=p}{n-1} (u_{k+1} - u_k) \ =
+          \ u_{(n-1)+1} - u_p \ = \ u_n - u_p
+        \]
+        \conc{$\Sum{k=p}{n-1} v_k \ = \ u_n - u_p$}
+        
+      \item Soit $k \geq 2$.
+        \begin{noliste}{-}
+        \item D'après la question \itbf{10.a)} : $0 \ \leq \ v_k \
+          \leq \ \dfrac{1}{k^2}$.
+          
+        \item D'après la question précédente, on obtient par
+          transitivité :
+          \[
+            0 \ \leq \ v_k \ \leq \ \dfrac{1}{k^2} \ \leq \
+            \dint{k-1}{k} \dfrac{1}{t^2} \dt
+          \]
+        \end{noliste}
+        \conc{$\forall k \geq 2$, $0 \ \leq \ v_k \ \leq \
+          \dint{k-1}{k} \dfrac{1}{t^2} \dt$}
+
+
+        \newpage
+        
+        
+      \item On obtient, par sommation :
+        \[
+          \begin{array}{ccccc@{\quad}>{\it}R{5cm}}
+            0 & \leq & \Sum{k=p}{n-1} v_k & \leq & \Sum{k=p}{n-1}
+            \dint{k-1}{k} \dfrac{1}{t^2} \dt
+            \\[.4cm]
+            & & & & \shortparallel
+            \\[.2cm]
+            & & & & \dint{p-1}{n-1} \dfrac{1}{t^2} \dt
+            & (par relation de Chasles)
+          \end{array}
+        \]
+        \conc{Ainsi, d'après ce qui précède, pour tout $(n,p) \in
+          \N^2$ tel que $2 \leq p < n$ :\\[.2cm] $0 \ \leq \ u_n - u_p \ \leq
+          \ \dint{p-1}{n-1} \dfrac{1}{t^2} \dt$.}
+      \end{noliste}~\\[-.8cm]
+      \begin{remark}
+        Les questions \itbf{11.a)} et \itbf{11.b)} sont en fait une
+        comparaison série-intégrale dont on rappelle le résultat ci-dessous.
+        \begin{noliste}{$\sbullet$}
+        \item On considère une fonction $f: [0,+\infty[ \ \to \R$
+          continue sur $[0,+\infty[$.
+        \item On suppose de plus que $f$ est décroissante sur
+          $[0,+\infty[$. Alors :
+          \[
+            \forall k \in \N^*, \quad f(k) \ \leq \ \dint{k-1}{k} f(t)
+            \dt \ \leq \ f(k-1)
+          \]
+          On en déduit par sommation :
+          \[
+            \forall n \in \N, \quad \Sum{k=1}{n} f(k) \ \leq \
+            \dint{0}{n} f(t) \dt \ \leq \ \Sum{k=1}{n} f(k-1)
+          \]
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+    
+  \item En déduire, pour tout entier $n$ supérieur ou égal à $3$ :
+    $u_2 \leq u_n \leq 1 + u_2$.\\
+    Montrer alors que $\ell$ appartient à l'intervalle $[2,3]$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Soit $n \geq 3$. On applique le résultat de la question
+        précédente avec $p=2$ (on a bien : $2 \leq p < n$) :
+        \[
+          0 \ \leq \ u_n - u_2 \ \leq \ \dint{1}{n-1} \dfrac{1}{t^2}
+          \dt
+        \]
+        Or :
+        \[
+          \dint{1}{n-1} \dfrac{1}{t^2} \dt \ = \
+          \Prim{-\dfrac{1}{t}}{1}{n-1} \ = \ -\left(\dfrac{1}{n-1} -
+            1\right) \ = \ 1 - \dfrac{1}{n-1} \ \leq \ 1
+        \]
+        
+      \item On en déduit, par transitivité :
+        \[
+          0 \ \leq \ u_n - u_2 \ \leq \ \dint{1}{n-1} \dfrac{1}{t^2}
+          \dt \ \leq \ 1
+        \]
+        \conc{Ainsi, pour tout $n \geq 3$ : $u_2 \ \leq \ u_n \ \leq \
+          1 + u_2$.}
+        
+      \item Par définition de la suite $(u_n)$ :
+        \[
+          u_2 \ = \ u_1 + \dfrac{1}{1^2 \, u_1} \ = \ 1 + \dfrac{1}{1
+            \times 1} \ = \ 2
+        \]
+        On en déduit, avec l'encadrement précédent, pour tout $n \geq
+        3$ :
+        \[
+          2 \ \leq \ u_n \ \leq \ 3
+        \]
+        \conc{En passant à la limite quand $n$ tend vers $+\infty$
+          dans l'encadrement précédent,\\ on obtient : $\ell \in [2,3]$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+
+
+    \newpage
+    
+    
+  \item Montrer, pour tout entier $p$ supérieur ou égal à $2$ :
+    \[
+      0 \ \leq \ \ell - u_p \ \leq \ \dfrac{1}{p-1}
+    \]
+    \begin{proof}~\\
+      Soit $p \geq 2$.
+      \begin{noliste}{$\sbullet$}
+      \item Soit $n >p$. D'après la question \itbf{11.b)} :
+        \[
+          0 \ \leq \ u_n - u_p \ \leq \ \dint{p-1}{n-1} \dfrac{1}{t^2} \dt
+        \]
+        
+      \item Or :
+        \[
+          \dint{p-1}{n-1} \dfrac{1}{t^2} \dt \ = \
+          \Prim{-\dfrac{1}{t}}{p-1}{n-1} \ = \ -\left( \dfrac{1}{n-1}
+            - \dfrac{1}{p-1}\right) \ = \ \dfrac{1}{p-1} - \dfrac{1}{n-1}
+        \]
+        Ainsi :
+        \[
+          0 \ \leq \ u_n - u_p \ \leq \ \dfrac{1}{p-1} -
+          \dfrac{1}{n-1}
+        \]
+        \conc{En passant à la limite quand $n$ tend vers $+\infty$
+          dans l'encadrement précédent,\\ %
+          on obtient : $0 \ \leq \ \ell - u_p \ \leq \ \dfrac{1}{p-1}$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+    
+  \item En déduire une fonction \Scilab{} qui renvoie une valeur
+    approchée de $\ell$ à $10^{-4}$ près.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item On cherche ici à trouver un entier $N$ tel que $u_N$ est
+        une valeur approchée de $\ell$ à $10^{-4}$ près. Autrement
+        dit, on souhaite exhiber $N \in \N$ tel que :
+        \[
+          |\ell - u_N| \ \leq \ 10^{-4}
+        \]
+        
+      \item Or, d'après la question précédente : $ \forall p \geq 2,
+        \quad 0 \ \leq \ \ell - u_p \ \leq \ \dfrac{1}{p-1} $.
+        
+      \item Il suffit alors de trouver $N \in \N$ tel que :
+        $\dfrac{1}{N-1} \leq 10^{-4}$.\\[.1cm]
+        Si c'est le cas, on obtient alors par transitivité :
+        \[
+          0 \ \leq \ \ell - u_N \ \leq \ 10^{-4}
+        \]
+        
+      \item On propose alors le programme suivant :
+        \begin{scilab}
+          & \tcFun{function} \tcVar{l} =
+          \underline{valeur\_approchee}() \nl %
+          & \quad n = 2 \nl %
+          & \quad \tcFor{while} 1 / (n-1) > 10\puis{}(-4) \nl %
+          & \quad \quad n = n + 1 \nl %
+          & \quad \tcFor{end} \nl %
+          & \quad \tcVar{l} = suite(n) \nl %
+          & \tcFun{endfunction}
+        \end{scilab}
+
+
+        \newpage
+
+
+        \noindent
+        Détaillons les éléments de ce script.
+        \begin{noliste}{-}
+        \item {\bf Début du script}\\
+          La variable {\tt n} est initialisée à $2$. En effet, on
+          souhaite pouvoir effectuer le calcul : $\dfrac{1}{{\tt n}
+            -1}$.
+          \begin{scilabC}{1}
+            & \quad n = 2
+          \end{scilabC}
+          
+        \item {\bf Structure itérative}\\
+          Les lignes \ligne{3} à \ligne{5} consistent à déterminer le
+          plus petit entier $n$ tel que $\dfrac{1}{n-1} \leq
+          10^{-4}$. On doit donc comparer les valeurs successives de la
+          suite $\left(\dfrac{1}{n-1}\right)_{n \geq 2}$ au réel
+          $10^{-4}$ jusqu'à ce que $\dfrac{1}{n-1} \leq 10^{-4}$.
+          Autrement dit, on doit comparer ces valeurs successives à $10^{-4}$
+          tant que $\dfrac{1}{n-1} > 10^{-4}$. Pour cela on met en
+          place une structure itérative (boucle \tcFor{while}) :
+          \begin{scilabC}{2}
+            & \quad \tcFor{while} 1 / (n-1) > 10\puis{}(-4)
+          \end{scilabC}
+          On met alors à jour en conséquence la variable {\tt n} :
+          on ajoute $1$ pour signaler qu'on va comparer le terme
+          suivant de la suite $\left(\dfrac{1}{n-1}\right)_{n\geq
+            2}$ à $10^{-4}$.
+          \begin{scilabC}{3}
+            & \quad \quad n = n + 1
+          \end{scilabC}
+          
+        \item {\bf Fin du script}\\
+          À la fin de cette boucle, on est assuré que :
+          $\dfrac{1}{n-1} \leq 10^{-4}$ (on itère tant que ce n'est
+          pas le cas).\\
+          Il reste alors à calculer la valeur approchée de $\ell$ : on
+          l'obtient par le calcul de $u_n$ où $n$ est la valeur
+          obtenue à l'issue de cette boucle.
+          \begin{scilabC}{5}
+            & \quad \tcVar{l} = suite(n)
+          \end{scilabC}
+        \end{noliste}
+      \end{noliste}
+      \begin{remark}
+        \begin{noliste}{$\sbullet$}
+        \item Lorsqu'on écrit une boucle {\tt while}, il est
+          préférable de s'assurer en amont de sa terminaison. C'est
+          bien le cas ici. En effet, la suite
+          $\left(\dfrac{1}{n-1}\right)_{n \geq 2}$ est convergente de
+          limite $0$. Ce qui signifie :
+          \[
+            \forall \eps > 0, \ \exists n_0 \in \N, \ \forall n \geq
+            n_0, \ \left\vert \dfrac{1}{n-1} - 0 \right\vert < \eps
+          \]
+          Ainsi, quelle que soit la précision $\eps >0$ choisie au
+          départ (ici $10^{-4}$), on est toujours en mesure de trouver
+          un rang $n_0$ à partir duquel on aura : $\dfrac{1}{n-1} < 10^{-4}$.
+          
+        \item On pouvait déterminer, sans utiliser de boucle, un
+          entier $N$ tel que $u_N$ est une valeur approchée
+          à $10^{-4}$ près de $\ell$. Pour ce faire, on remarque :
+          \[
+            \dfrac{1}{n-1} \leq 10^{-4} \ \Leftrightarrow \ n-1 \geq
+            10^4 \ \Leftrightarrow \ n \geq 10^4 +1
+          \]
+          L'entier $N = \lceil 10^4 +1 \rceil$ convient.
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+
+\end{document}

@@ -1,0 +1,390 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 2012} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dint}{\int}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 2012}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\Huge ECRICOME Eco 2012}
+\end{center}
+
+\section*{EXERCICE 1}
+
+$\left( \M{3}, +,\cdot.\right) $ désigne l'espace vectoriel des
+matrices carrées d'ordre 3 à
+coefficients réels.
+
+Deux matrices $A$ et $B$ de $\M{3} $ étant données, on suppose qu'il
+existe une matrice $L$ appartenant à $\mathcal{M}_{3}\R$ telle que :
+\[
+L = AL + B.
+\]
+
+On définit la suite de matrices $\left( U_{n}\right)_{nIN}$ de $\M{3} $
+de la manière suivante :
+\[
+\left\{ 
+\begin{array}{l}
+U_{0}\in \M{3} \\
+\forall n\in \N,\ U_{n + 1} = AU_{n} + B
+\end{array}
+\right.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Démontrer par récurrence que, pour tout entier naturel $n$ :
+\[
+U_{n} = L + A^{n}\left( U_{0}-L\right).
+\]
+
+Dans la suite du problème les matrices $A$ et $B$ sont choisies de
+telle
+sorte que :
+\[
+A = \frac{1}{6}\begin{smatrix}
+0 & 3 & 3 \\
+-4 & 6 & 4 \\
+-2 & 3 & 5
+\end{smatrix},\quad B = 
+\begin{smatrix}
+3 & -1 & -2 \\
+1 & 0 & -1 \\
+2 & -1 & -1
+\end{smatrix}
+\]
+On note :
+
+\begin{noliste}{$\sbullet$}
+\item $\mathrm{Id}$ l'endomorphisme identité de $\R^{3}$ ;
+
+\item $a$ l'endomorphisme de $\R^{3}$ dont la matrice dans la base
+canonique est la matrice $A$ ;
+
+\item $b$ l'endomorphisme de $\R^{3}$ dont la matrice dans la base
+canonique est la matrice $B$ ;
+
+\item $\operatorname{Im}\left( b\right) $ l'image de l'endomorphisme
+$b$ ;
+
+\item $\operatorname{Im}\left( Id-a\right) $ l'image de l'endomorphisme
+$\mathrm{Id}-a$.
+\end{noliste}
+
+\item Prouver que le vecteur $u = \left( x,y,z\right) $ appartient à
+l'image de $b$ si et seulement si 
+\[
+-x + y + z = 0
+\]
+puis montrer que :
+\[
+\operatorname{Im}\left( b\right) = \operatorname{Im}\left(
+\mathrm{Id}-a\right)
+\]
+
+\item Montrer que la matrice $P = 
+\begin{smatrix}
+1 & 1 & 0 \\
+1 & 0 & -1 \\
+1 & 1 & 1
+\end{smatrix}
+$ peut être considérée comme la matrice de passage de la base
+canonique de $\R^{3}$ à une base de vecteurs propres de $a.$
+
+\item Écrire la matrice $D$ de l'endomorphisme $a$ ainsi que la matrice
+$B^{\prime }$ de l'endomorphisme $b$ dans cette base de vecteurs
+propres.
+
+\item Démontrer que, pour tout entier naturel $n$,
+\[
+A^{n} = PD^{n}P^{-1}
+\]
+
+\item En écrivant convenablement $D^{n}$ comme la somme de trois
+matrices diagonales judicieusement choisies, prouver l'existence de
+trois
+matrices $E$, $F$, $G$ indépendantes de $n$ telles que pour tout entier
+naturel $n$ :
+\[
+A^{n} = E + \left( \frac{1}{2}\right) ^{n}F + \left( \frac{1}{3}\right)
+^{n}G.
+\]
+Expliciter uniquement la matrice $E$ sous la forme d'un tableau de
+nombres.
+
+\item Déterminer par le calcul, une matrice $L^{\prime }$ de la forme
+$\begin{smatrix}
+0 & 0 & 0 \\
+0 & p & q \\
+0 & 0 & r
+\end{smatrix}
+$ telle que :
+\[
+L^{\prime } = DL^{\prime } + B^{\prime }
+\]
+
+\item Montrer que la matrice $L = PL^{\prime }P^{-1}$ vérifie : 
+\[
+L = AL + B.
+\]
+
+\item Établir que $EL = 0.$
+
+\item Montrer que chacun des coefficients de la matrice $U_{n}$ a pour
+limite, lorsque $n$ tend vers $ + \infty $, les coefficients de la
+matrice $EU_{0} + L$.
+\end{noliste}
+
+\section*{EXERCICE 2.}
+
+\subsection*{Partie I. Étude d'une fonction $f$.}
+
+On considère la fonction définie sur l'ensemble des réels
+positifs par :
+\[
+\left\{ 
+\begin{array}{lc}
+f\left( x\right) = \dfrac{1-e^{-x}}{x} & \text{si }x>0 \\
+f\left( 0\right) = 1 & 
+\end{array}
+\right.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Écrire le développement limité de $f\left( x\right) $ l'ordre
+2, au voisinage de $0$ En déduire que $f$ est continue sur $\left[
+0, + \infty \right[.$
+
+\item Montrer que $f$ est dérivable en $0$ et donner la valeur de
+$f^{\prime }\left( 0\right) $.
+
+\item Justifier la dérivabilité de $f$ sur l'intervalle $\left]
+0, + \infty \right[ $ puis déterminer la fonction $\varphi $ telle que
+:
+\[
+\forall x>0\quad f^{\prime }\left( x\right) = \frac{\varphi \left(
+x\right) }{x^{2}}
+\]
+
+\item Étudier les variations de $\varphi $ ;. En déduire le tableau
+de variation $f$ qui sera complété par la limite de $f$ en $ + \infty
+$.
+\end{noliste}
+
+\subsection*{Partie II. Étude d'une suite.}
+
+On introduit la suite $\left( u_{n}\right)_{n\in \N^{\ast }}$ définie
+par :
+\[
+\forall n\in \N^{\ast }\quad u_{n} =
+\dint_{0}{n}\frac{e^{-\frac{u}{n}}}{1 + u}du
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Démontrer que pour tout entier naturel $n$ non nul :
+\[
+u_{n}\geq \frac{1}{e}\ln \left( n + 1\right)
+\]
+Donner la limite de la suite $\left( u_{n}\right)_{n\in \N^{\ast }}$.
+
+\item Prouver l'existence de l'intégrale $\dint{0}{1}f\left( x\right)
+dx $'.
+
+\item Utiliser un changement de variable affine pour montrer que, pour
+tout
+entier naturel $n$ non nul :
+\[
+0\leq \dint{0}{n}\frac{1}{1 + u}du-u_{n}\leq \dint{0}{1}f\left(
+x\right\dx
+\]
+
+\item Donner alors un équivalent simple de $u_{n}$ lorsque $n$ tend
+vers 
+$ + \infty.$
+\end{noliste}
+
+\subsection*{EXERCICE 3.}
+
+Soit $n$ un entier naturel non nul. Une entreprise dispose d'un lot du
+$n$
+feuilles originales qu'elle a numérotées $l,\ 2,\ \cdots,\ n.$ Elle
+photocopie ces $n$ feuilles originales et souhaite que chaque original
+soit
+agrafé avec sa copie. L'entreprise programme le photocopieur afin que
+chaque original soit agrafé avec sa copie. Cependant. suite à un défaut
+informatique, la photocopieuse a mélangé les originaux et
+les copies. L'entreprise décide donc de placer les $n$ originaux et les
+$n$ copies dans une boite. Une personne est alors chargée du travail
+suivant : elle pioche simultanément et au hasard 2 feuilles dans la
+boite. S'il s'agit d'un original et de sa copie, elle les agrafe et les
+sort
+de la boite. Sinon, elle repose les deux feuilles dans la, boite et
+elle
+recommence.
+
+On modélise l'expérience par un espace probabilité $\left(
+\Omega,\mathcal{B},\operatorname{P}\right) $. Soit $T_{n}$ la variable
+aléatoire égale au nombre de pioches qui sont nécessaires pour vider la
+boite lorsque celle-ci contient $n$ originaux et $n$ copies (soit $2n$
+feuilles).
+
+On considère l'événement $A_{n}$ : \guillemotleft\ à l'issue
+de la première pioche, les deux feuilles piochées ne sont pas agrafées
+\guillemotright\ et $a_{n}$ sa probabilité c'est-à-dire que $a_{n} =
+\operatorname{P}\left( A_{n}\right) $.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer $a_{n}$.
+
+\item \underline{Étude de $T_{2}$}. On suppose dans cette question que
+$n = 2$, c'est-à-dire que la boite contient deux originaux et deux
+copies.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que pour tout entier $k\geq 2 :\operatorname{P}\left(
+T_{2} = k\right)
+ = \left( 1-a_{2}\right) \left( a_{2}\right) ^{k-2}.$
+
+\item Justifier que la variable $S_{2} = T_{2}-1$ suit une loi
+géométrique dont on précisera le paramètre.\\
+En déduire l'espérance et la variance de $T_{2}$ en fonction de $a_{2}$
+\end{noliste}
+
+\item \underline{Étude de $T_{3}$}. On suppose dans cette question que
+$n = 3$, c'est-à-dire que la boite, contient trois originaux et trois
+copies.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $\operatorname{P}\left( T_{3} = 2\right) $ puis
+$\operatorname{P}\left(
+T_{3} = 3\right) $ en fonction de $a_{2}$ et $a_{3}$
+
+\item À l'aide du système complet d'événements $\left(
+A_{3},\overline{A_{3}}\right) $ démontrer pour tout $k\geq 2$ que :
+\[
+\operatorname{P}\left( T_{3} = k + 1\right) = \left( 1-a_{3}\right)
+\operatorname{P}\left(
+T_{2} = k\right) + a_{3}\operatorname{P}\left( T_{3} = k\right)
+\]
+
+\item Montrer que :
+\[
+k\geq 2,\quad \operatorname{P}\left( T_{3} = k\right) = \frac{\left(
+1-a_{2}\right)
+\left( 1-a_{3}\right) }{a_{3}-a_{2}}\left[ \ \left( a_{3}\right)
+^{k-2}-\left(
+a_{2}\right) ^{k-2}\right].
+\]
+
+\item Calculer $\Sum{k = 2}{+ \infty }\operatorname{P}\left(
+T_{3} = k\right).$
+
+\item Prouver que la variable aléatoire $T_{3}-1$ admet une espérance
+et calculer $\E\left( T_{3}-1\right) $.
+
+Donner la valeur de $\E\left( T_{3}\right) $ en fonction de $a_{2}$ et
+$a_{3}$.
+
+\item Établir que la variable aléatoire $T_{3}\left( T_{3}-1\right) $
+admet une espérance et donner sa valeur en fonction de $a_{2}$ et
+$a_{3}$.
+
+En déduire que $T_{3}$ admet une variance.
+\end{noliste}
+\end{noliste}
+
+\end{document}
+

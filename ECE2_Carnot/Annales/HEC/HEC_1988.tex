@@ -1,0 +1,230 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 1988} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 1988}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\huge HEC Eco 1988}
+\end{center}
+
+\section*{EXERCIC\E\ 1}
+
+Pour tout nombre entier non nul $n,$ on pose : $I_{n} =
+\dint{0}{1}\dfrac{x^{n}}{1 + x^{n}}dx$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item À l'aide d'un encadrement convenable de $I_{n},$ déterminer la
+limite
+de la suite $(I_{n}).$
+
+\item Montrer que $\dlim{n\rightarrow + \infty }\dint{0}{1}\dfrac{dx}{1
++ x^{n}} = 1.$
+
+\item Pour tout nombre entier naturel non nul $n,$ on pose : $J_{n} =
+nI_{n}.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : $J_{n} = \ln 2-\dint{0}{1}\ln (1 + x^{n})dx.$
+
+\item Montrer que, pour tout nombre réel positif $t$ : $0\leq \ln
+(1 + t)\leq t.$\\
+En déduire la limite de la suite $(J_{n}).$
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCIC\E\ 2}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que, pour tout nombre réel $t$ : $-1\leq \dfrac{2t}{1 +
+t^{2}}\leq 1.$
+
+\item On désigne désormais par $f$ une fonction dérivable d'une
+variable réelle telle que 
+\[
+f(x + y) = \dfrac{f(x) + f(y)}{1 + f(x)f(y)}\qquad (1)
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout nombre réel $x$ : $-1\leq f(x)\leq 1.$
+
+\item Trouver toutes les fonctions constantes $f$ vérifiant la relation
+(1).\\
+Dans la suite de l'exercice, on suppose que $f$ n'est pas constante.
+
+\item Montrer que, pour tout nombre réel $x$ : $-1\leq f(x)\leq 1.$
+
+\item Calculer $f(0).$ On pose $a = f^{\prime }(0).$
+
+\item En utilisant la définition de la dérivée, exprimer $f^{\prime
+}(x)$ en
+fonction de $f(x)$ et de $a.$
+
+\item Montrer que $f$ définit une bijection de $\R$ sur l'intervalle 
+$]-1,1[$ et que la fonction $f^{-1}$ est dérivable sur cet
+intervalle.\\
+Calculer la dérivée de $f^{-1}.$
+
+\item Expliciter $f^{-1}(y)$ en fonction de $y$ et de $a.$ Trouver
+enfin
+toutes les fonctions $f$ non constantes, dérivables et vérifiant la
+relation 
+$(1).$
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE 3}
+
+Soit $X$ une variable aléatoire discrète définie sur un espace
+probabilisé $(\Omega,\mathcal{A},P)$ dont la variance $\sigma ^{2}$
+existe et est non
+nulle. On suppose que $X$ est symétrique, c'est-à-dire que $X$ et $-X$
+ont
+la même loi de probabilité.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer l'espérance de $X.$
+
+\item Soit $Z$ une variable aléatoire définie sur
+$(\Omega,\mathcal{A},P),$
+indépendante de $X,$ de loi de probabilité :
+\[
+P\left(\Ev{Z = 1}\right) = p\qquad P\left(\Ev{Z = -1}\right) = 1-p
+\]
+où $p$ est un nombre réel tel que $0<p<1.$ On pourra poser $q = 1-p.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la variable aléatoire $ZX$ a la même loi que $X.$
+
+\item Calculer la covariance des variables aléatoires $X$ et $ZX;$
+montrer
+que le coefficient de corrélation de $X$ et $ZX$ ne dépend pas de
+$\sigma
+^{2}.$
+\end{noliste}
+
+\item On définit les variables aléatoires $U,V$ et $Y$ par les
+conditions 
+\[
+U = \left\{ 
+\begin{array}{cc}
+1 & \text{si }X\geq 0 \\
+0 & \text{si }X<0
+\end{array}
+\right. \qquad V = \left\{ 
+\begin{array}{cc}
+1 & \text{si }X\leq 0 \\
+0 & \text{si }X>0
+\end{array}
+\right. \qquad Y = U-V
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la variable aléatoire $Y$ est symétrique.
+
+\item On note $\left| X\right| $ la valeur absolue de $X.$ Comparer $X$
+et $Y\left| X\right|.$ En déduire la valeur du coefficient de
+corrélation de $Y$ et $\left| X\right|.$
+
+\item Montrer que les variables aléatoires $Y$ et $\left| X\right| $
+sont indépendantes si et seulement si $P\left(\Ev{X = 0}\right) = 0$
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

@@ -1,0 +1,605 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 2004} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Epreuve Ecricome 2004}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT
+
+\noindent {\Large \textbf{ECRI%TCIMACRO{\TeXButton{TeX
+field}{\colorbox[gray]{0.95}{COME}}}%BeginExpansion
+\colorbox[gray]{0.95}{COME}%EndExpansion
+}}\vspace{0.3cm}
+
+\noindent \textbf{Banque d'épreuves communes}
+
+\noindent aux concours des Ecoles
+
+\noindent esc%TCIMACRO{\TeXButton{TeX
+field}{\colorbox[gray]{0.95}{bordeaux}} }%BeginExpansion
+\colorbox[gray]{0.95}{bordeaux}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{marseille}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{marseille}
+%EndExpansion
+/ icn%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{nancy}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{nancy}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{reims}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{reims}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{rouen}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{rouen}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX
+field}{\colorbox[gray]{0.95}{toulouse}}}%BeginExpansion
+\colorbox[gray]{0.95}{toulouse}%EndExpansion
+\vspace{1cm}
+
+\begin{center}
+{\large CONCOURS D'ADMISSION }\vspace{0.5cm}
+
+\textbf{option économique} \vspace{0.5cm}
+
+{\Large \textbf{MATHÉMATIQUES}} \vspace{0.5cm}
+
+\textbf{Année 2004}
+\end{center}
+
+\noindent \textbf{Aucun instrument de calcul n'est autorisé.}
+
+\noindent \textbf{Aucun document n'est autorisé.}
+
+\noindent L'énoncé comporte \pageref{fin} pages
+
+\begin{quotation}
+\noindent Les candidats sont invités à soigner la présentation de leur
+copie, à mettre en évidence les principaux résultats, à respecter les
+notations de l'énoncé, et à donner des démonstrations complètes (mais
+brèves) de leurs affirmations.
+\end{quotation}
+
+\vspace{13cm}
+
+\hfill \textbf{Tournez la page}
+
+\hfill \textbf{S.V.P\qquad }
+
+\newpage
+
+\section*{Exercice 1}
+
+Soient $f$ la fonction numérique de la variable réelle définie par : 
+\[
+\forall x\in \R,\mathbb{\quad }f\left( x\right) = \frac{1}{\sqrt{1 +
+x^{2}}}
+\]
+et $\left( u_{n}\right) $ la suite de nombres réels déterminée par :
+\[
+\left\{ 
+\begin{array}{cc}
+ & u_{0} = \dint{0}{1}f\left( x\right\dx \\
+\forall n\in \N^{\times }, & u_{n} = \dint{0}{1}x^{n}f\left(
+x\right\dx
+\end{array}
+\right. 
+\]
+On note $\mathcal{C}_{f}$ la représentation graphique de $f,$
+relativement à
+un repère orthonormal $\left( O,\vec{i},\vec{j}\right).$
+
+\subsection*{I. Étude de $f.$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que la fonction $f$ est paire sur $\R$.
+
+\item Étudier les variations de $f$ sur l'intervalle $\left[ 0, +
+\infty \right[ $.
+
+\item Déterminer la lmite de $f$ lorsque $x$ tend vers $ + \infty.$
+
+\item Montrer que $f$ est bornée sur $\R$.
+
+\item Donner l'allure de $\mathcal{C}_{f}$.
+
+\item Montrer que $f$ réaise une bijection de l'intervalle $\left[
+0, + \infty \right[ $ sur un intervalle $J$ à préciser.
+
+\item Pour tout $y$ de l'intervalle $\left] 0,1\right],$ déterminer
+l'unqiue réel $x$ appartenant à l'intervalle $\left[ 0, + \infty
+\right[ $ tel que : 
+\[
+f\left( x\right) = y
+\]
+
+\item Déterminer alors la bijection réciproque $f^{-1}$.
+\end{noliste}
+
+\subsection*{II. Calcul d'aire}
+
+On considère la fonction numérique $F$ de la variable réelle $x$
+définie par : 
+\[
+F\left( x\right) = \ln \left( x + \sqrt{x^{2} + 1}\right) 
+\]
+Pour tout réel $\lambda $ strictement positif, on note
+$\mathcal{A}\left(
+\lambda \right) $ l'aire (exprimée en unité d'aire) du domaine
+constitué par
+l'ensemble des points $M\left( x,y\right) $ tels que : 
+\[
+\lambda \leq x\leq 2\lambda \quad \text{et\quad }0\leq
+y\leq f\left( x\right) 
+\]
+ainsi 
+\[
+\mathcal{A}\left( \lambda \right) = \dint{\lambda }{2\lambda }f\left(
+x\right\dx
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que : 
+\[
+\forall x\in \R,\quad x + \sqrt{x^{2} + 1}>0
+\]
+
+En déduire l'ensemble de définition de $F.$
+
+\item Montrer que $F$ est une primitive de $f$ sur $\R$.
+
+\item Montrer que $F$ est impaire sur son ensemble de définition.
+
+\item Déterminer la limite de $F$ lorsque $x$ tend vers $ + \infty.$ En
+déduire la limite de $F$ quand $x$ tend vers $-\infty $.
+
+\item Exprimer $\mathcal{A}\left( \lambda \right) $ en fonction de
+$\lambda $
+et calculer la limite de $\mathcal{A}\left( \lambda \right) $ lorsque
+$\lambda $ tend vers $ + \infty.$
+\end{noliste}
+
+\subsection*{III. Étude de la suite $\left( u_{n}\right).$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer $u_{0}$ et $u_{1}.$
+
+\item Effectuer une intégration par parties et calculer $u_{3}.$
+
+(On pourra remarquer que $\dfrac{x^{3}}{\sqrt{1 + x^{2}}} =
+x^{2}\dfrac{x}{\sqrt{1 + x^{2}}}$ )
+
+\item Déterminer le sens de variations de la suite $\left(
+u_{n}\right).$
+
+\item Montrer que la suite $\left( u_{n}\right) $ est convergente. (On
+ne
+cherchera pas sa limite dans cette question)
+
+\item Justifier l'encadrement suivant : 
+\[
+\forall x\in \left[ 0,1\right],\quad \forall n\in \N,\mathbb{\quad }
+0\mathbb{\leq }\frac{x^{n}}{\sqrt{1 + x^{2}}}\leq x^{n}
+\]
+en déduire que : 
+\[
+\forall n\in \N^{\times },\quad 0\leq u_{n}\leq \frac{1}{n + 1}
+\]
+
+\item Déterminer alors la limite de la suite $\left( u_{n}\right) $
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+Dans cet exercice, on étudie l'exponentielle d'une matrice pour une
+matrice
+carrée d'ordre 3, puis d'ordre 2.
+
+\subsection*{I. Exponentielle d'une matrice carrée d'ordre 3.}
+
+Soient $A$ et $P$ les matrice définies par : 
+\[
+A = \left( 
+\begin{array}{ccc}
+1 & 1 & 1 \\
+-1 & 1 & -1 \\
+-2 & 0 & -2
+\end{array}
+\right),\quad P = \left( 
+\begin{array}{rrr}
+2 & 1 & 1 \\
+-1 & 2 & -1 \\
+1 & -1 & 1
+\end{array}
+\right) 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que la matrice $P$ est inversible et déterminer $P^{-1}$
+
+\item On pose $T = P\,A\,P^{-1}.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer la matrice $T$
+
+\item Calculer $T^{2},\;T^{3},$ puis $T^{n}$ pour tout entier naturel
+$n\geq 3.$
+\end{noliste}
+
+\item En déduire que : 
+\[
+\forall n\geq 3,\quad A^{n} = 0
+\]
+où $0$ désigne la matrice nulle d'ordre 3.
+
+\item Pour tout réel $t,$ on définit la matrice $\E\left( t\right) $
+par : 
+\[
+\E\left( t\right) = I + tA + \frac{t^{2}}{2}A^{2}
+\]
+où $I$ désigne la matrice unité d'ordre 3.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : 
+\[
+\forall \left( t,t^{\prime }\right) \in \R^{2},\quad E\left(
+t\right) E\left( t^{\prime }\right) = E\left( t + t^{\prime }\right) 
+\]
+
+\item Pour tout $t$ réel, calculer $\E\left( t\right) E\left(
+-t\right).$ En
+déduire que la matrice $\E\left( t\right) $ est inversible et
+déterminer son
+inverse en fonction de $I,\;A,\;A^{2},\;t$.
+
+\item Pour tout $t$ réel et pour tout entier naturel $n,$ déterminer
+$\left[
+\E\left( t\right) \right] ^{n}$ en fonction de $I,\;A,\;A^{2},\;t$ et
+$n.$
+\end{noliste}
+\end{noliste}
+
+\subsection*{II. Exponentielle d'une matrice carrée d'ordre 2.}
+
+Soient $B$ et $D$ les matrices définies par : 
+\[
+B = \left( 
+\begin{array}{rr}
+0 & -1 \\
+2 & 3
+\end{array}
+\right),\quad D = \left( 
+\begin{array}{rr}
+1 & 0 \\
+0 & 2
+\end{array}
+\right) 
+\]
+Pour tout entier naturel $n$ non nul, et pour tout réel $t,$ on définit
+la
+matrice $E_{n}\left( t\right) $ par : 
+\[
+E_{n}\left( t\right) = \Sum{k = 0}{n}\frac{t^{k}}{k!}B^{k}\quad
+\text{que
+l'on note }E_{n}\left( t\right) = \left( 
+\begin{array}{rr}
+a_{n}\left( t\right) & c_{n}\left( t\right) \\
+b_{n}\left( t\right) & d_{n}\left( t\right) 
+\end{array}
+\right) 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $B$ est diagonalisable.
+
+\item Déterminer une matrice $Q$ d'ordre 2, inversible telle que 
+\[
+Q^{-1}BQ = D
+\]
+
+\item Pour tout entier naturel $n,$ montrer que : 
+\[
+B^{n} = \left( 
+\begin{array}{cc}
+2-2^{n} & 1-2^{n} \\
+2^{n + 1}-2 & 2^{n + 1}-1
+\end{array}
+\right) 
+\]
+
+\item Montrer que : 
+\[
+\forall n\in \N,\quad a_{n}\left( t\right) = \Sum{k =
+0}{n}\frac{2t^{k}-\left( 2t\right) ^{k}}{k!}
+\]
+exprimer de même $b_{n}\left( t\right),$ $c_{n}\left( t\right),$
+$d_{n}\left( t\right) $ sous le forme d'une somme.
+
+\item Déterminer les limites de $a_{n}\left( t\right),$ $b_{n}\left(
+t\right),$ $c_{n}\left( t\right),$ $d_{n}\left( t\right) $ lorsque $n$
+tend vers $ + \infty.$
+
+\item Pour tout $t$ réel, on pose alors : 
+\[
+\E\left( t\right) = \left( 
+\begin{array}{cc}
+\dlim{n\rightarrow + \infty }a_{n}\left( t\right) & 
+\dlim{n\rightarrow + \infty }c_{n}\left( t\right) \\
+\dlim{n\rightarrow + \infty }b_{n}\left( t\right) & 
+\dlim{n\rightarrow + \infty }d_{n}\left( t\right) 
+\end{array}
+\right) 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que 
+\[
+\E\left( t\right) = \left( 
+\begin{array}{cc}
+2e^{t}-e^{2t} & e^{t}-e^{2t} \\
+2e^{2t}-2e^{t} & 2e^{2t}-e^{t}
+\end{array}
+\right) 
+\]
+
+\item Déterminer les matrice $E_{1}$ et $\;E_{2},$ telles que pour tout
+$t$ réel on ait : 
+\[
+\E\left( t\right) = e^{t}E_{1} + e^{2t}E_{2}
+\]
+
+\item Calculer $E_{1}{2},$ $E_{2}{2},$ $E_{1}E_{2},$ $E_{2}E_{1}.$
+
+\item En déduire que pour tout $t$ réel, $\E\left( t\right) $ est
+inversible
+et déterminer son inverse.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 3}
+
+Une personne envoie chaque jour un courrier électronique par
+l'intermédiaire
+de deux serveurs : le serveur $A$ ou le serveur $B$.\\
+On constate que le serveur $A$ est choisi dans 70\% des cas et donc que
+le
+serveur $B$ est choisi dans 30\% des cas. (Ce qui revient à dire que la
+probabilité pour que le serveur $A$ soit choisi est de $0.7$). Les
+choix des
+serveurs sont supposés indépendants les uns des autres.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Dans cette question, on suppose que la probabilité d'une erreur
+de
+transmission avec le serveur $A$ est de $0.1$, alors que la probabilité
+d'erreur de transmission avec le serveur $B$ est de $0.05$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer la probabilité pour qu'il y ait une erreur de
+transmission
+lors de l'envoi d'un courrier.
+
+\item Si le courrier a subi une erreur de transmission, quelle est la
+probabilité pour que le serveur utilisé soit le serveur $A$ ?
+\end{noliste}
+
+\item Un jour donné, appelé le jour 1, on note les différents serveurs
+utilisé par l'ordinateur par une suite de lettres. Par exemple, la
+suite $AABBBA\dots $ signifie que les deux premiers jours l'ordinateur
+a choisi le
+serveur $A,$ les jours 3. 4 et 5 il a choisi le le serveur $B$, et le
+jour 6
+le serveur $A$. Dans cet exemple, on dit que l'on a une première série
+de
+longueur 2 et une deuxième série de longueur 3 (Ce qui est également le
+cas
+de la série $BBAAAB\dots $)
+
+On note $L_{1}$ la variable aléatoire représentant la longueur de la
+premièer série et $L_{2}$ la variable aléatoire représentant la
+longueur de la deuxième série.
+
+Ainsi, pour $k\geq 1,$ dire que $L_{1} = k$ signifie que pendant les
+$k$
+premiers jours, c'est le même serveur qui a été choisi et le jour
+suivant
+l'autre serveur.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Jusitifier soigneusement la formule : 
+\[
+\forall k\geq 1\quad P\left(\Ev{ L_{1} = k}\right) = \left( 0.3\right)
+^{k}\left( 0.7\right) + \left( 0.7\right) ^{k}\left( 0.3\right) 
+\]
+
+\item Vérifier par le calcul que 
+\[
+\Sum{k = 1}{+ \infty }p\left( L_{1} = k\right) = 1
+\]
+
+\item Déterminer l'espérance mathématique de $L_{1}.$
+
+\item Déterminer la loi du couple aléatoire $\left(
+L_{1},L_{2}\right).$
+
+\item En déduire la loi de $L_{2}$
+\end{noliste}
+
+\item Soit $n\in \N^{\times }.$ A partir d'un jour donné, que l'on
+appelera le jour $1,$ on note : $N_{n}$ la variable aléatoire
+représentant
+le nombrede fois où l'ordinateur choisit le serveur $A$ pendant les $n$
+premiers jours, $T_{1}$ le numéro du jour où pour la première fois le
+serveur $A$ est choisi et $T_{2}$ le numéro du jour où pour la deuxième
+fois
+le serveur $A$ est choisi.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la loi de $N_{n}$, son espérance mathématique et sa
+variance.
+
+\item Déterminer la loi de $T_{1}$, son espérance mathématique et sa
+variance.
+
+\item Montrer que 
+\[
+\forall k\geq 2,\quad P\left(\Ev{ T_{2} = k}\right) = \left( k-1\right)
+\left(
+0.7\right) ^{2}\left( 0.3\right) ^{k-2}
+\]
+\end{noliste}
+
+\item Le temps de transmission en seconde d'un message par le serveur
+$A$
+est une variable aléatoire $Z$ qui suit une loi exponentielle de
+paramètre 1.
+
+Le prix en euros $W$ de cette trammission, est calculé de la façon
+suivante : on multiplie la durée de transmission en seconde par $0.1$
+euro, auquel on
+ajoute une somme forfaitaire de $1$ euro.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Rappeler une densité $f_{Z}$ de $Z$ ainsi que sa fonction de
+répartition $F_{Z}$.
+
+\item Quel est le temps moyen (en seconde) de la transmission d'un
+message
+par le serveur $A$ ?
+
+\item Exprimer $W$ en fonction de $Z$.
+
+\item Montrer que $W$ est une variable aléatoire à densité. En
+déterminer
+une densité $f_{W}$.
+
+\item Déterminer l'espérance de la variable $W.$
+\end{noliste}
+
+\item On suppose que le temps de transmission d'un message en seconde
+par le
+serveur $B$ est représenté par la variable aléatoire $X$ dont une
+densité de
+probabilité $f$ est donnée par : 
+\[
+\left\{ 
+\begin{array}{c}
+f\left( t\right) = te^{-t^{2}/2}\;\text{si }t\geq 0 \\
+f\left( t\right) = 0\quad \text{si }t<0
+\end{array}
+\right. 
+\]
+(On rappelle que $\dint{0}{+ \infty }e^{-\frac{t^{2}}{2}}dt =
+\sqrt{\dfrac{\pi }{2}}$ )
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $f$ est bien une densité de probabiltié.
+
+\item Déterminer la fonction de répartition $F_{X}$ de $X.$
+
+\item Calculer l'espérance de la variable $X.$
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

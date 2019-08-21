@@ -1,0 +1,307 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 1993} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 1993}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\huge HEC Eco 1993}
+\end{center}
+
+\section*{EXERCIC\E\ I}
+
+On note $E$ l'espace vectoriel des fonctions numériques définies et de
+classe $C^{2}$ sur $\R$. Soit $F$ l'ensemble des éléments $f$ de $E$
+tels que :
+\[
+f^{\prime \prime }-3f^{\prime } + 2f = 0
+\]
+Soit $F_{0}$ l'ensemble des éléments de $F$ vérifiant en outre la
+relation $f(0) = f^{\prime }(0) = 0$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $F$ et $F_{0}$ sont des sous-espaces vectoriels de
+$E$.
+
+\item Soit $f_{1}$ et $f_{2}$ les fonctions définies sur $\R$ par
+les relations :
+\[
+f_{1}(x) = e^{x}\qquad \text{et}\qquad f_{2}(x) = e^{2x}
+\]
+Montrer que $f_{1}$ et $f_{2}$ sont des éléments de $F$ linéairement
+indépendants.
+
+\item Soit $f$ un élément de $F$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer qu'il existe un couple $(a_{1},a_{2})$ et un seul de
+nombres réels tel que $f-a_{1}f_{1}-a_{2}f_{2}$ appartienne à $F_{0}$.
+
+\item Soit $g_{1}$ et $g_{1}$ les fonctions définies sur $\R$ par
+les relations :
+\[
+g_{1}(x) = e^{-x}(f^{\prime }(x)-2f(x))\qquad \text{et}\qquad
+g_{2}(x) = e^{-2x}(f^{\prime }(x)-f(x)).
+\]
+Montrer que ces fonctions sont constantes.
+
+\item En appliquant le résultat précédent, montrer que si f appartient
+à $F_{0}$, alors $f = 0$.
+\end{noliste}
+
+\item Soit $\Phi $ l'application de $F$ dans $\R^{2}$ définie par la
+relation :
+\[
+\Phi (f) = (f(0),f^{\prime }(0)).
+\]
+Montrer que $\Phi $ est un isomorphisme de l'espace vectoriel $F$ sur
+$\R^{2}$.
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+On considère la fonction f définie sur l'intervalle $[0, + \infty
+\lbrack $
+par $f(x) = \sqrt{1 + x}$ et la fonction $g$ définie sur $]1, + \infty
+\lbrack $
+par $g(x) = \dfrac{1}{x-1}$.\\
+L'objet de l'exercice est l'étude de la suite $(u_{n})_{n\geq 0}$ de
+nombres réels déterminée par la condition initiale $u_{0} = 1$ et par
+la
+relation de récurrence, valables pour tout nombre entier naturel n :
+
+\[
+\left\{ 
+\begin{array}{lll}
+u_{2n + 1} & = & f(u_{2n}) \\
+u_{2n + 2} & = & g(u_{2n + 1})
+\end{array}
+\right. 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Justifier l'existence de $(u_{n})_{n\geq 0}$ et montrer que pour
+tout nombre entier naturel $n$, $u_{2n + 1}>1$ et $u_{2n + 2}>0$.
+
+\item Montrer que les équations $f(x) = x$ et $g(x) = x$ ont une
+solution
+commune et une seule. On note $\alpha $ cette solution.
+
+\item Montrer que la fonction $\varphi = f\circ g$ est définie et
+décroissante sur $]1, + \infty \lbrack $.\\
+Montrer que la fonction $\psi = \varphi \circ \varphi $ est définie et
+croissante sur $]1, + \infty \lbrack $.Calculer $\psi (\alpha )$.
+
+\item Montrer que, pour tout élément $x$ de $]1,\alpha \lbrack $ :
+\[
+\sqrt{\dfrac{\sqrt{\dfrac{x}{x-1}}}{\sqrt{\dfrac{x}{x-1}-1}}}>x
+\]
+
+\item Pour tout nombre entier naturel $n$, on pose $v_{n} = u_{4n +
+1}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $v_{0}<\alpha $.
+
+\item Montrer que, pour tout nombre entier naturel $n$, $v_{n + 1} =
+\psi (v_{n})
+$.
+
+\item À l'aide du résultat de la question 4, montrer que la suite
+$(v_{n})_{n\geq 0}$ est croissante et que, pour tout nombre entier
+naturel $n$, 
+\[
+1<v_{n}\leq \alpha.
+\]
+
+\item En déduire que la suite $(v_{n})_{n\geq 0}$ est convergente et
+trouver sa limite.
+\end{noliste}
+
+\item On considère les trois suites $(u_{4n + 2})_{n\geq 0}$, $(u_{4n +
+3})_{n\geq 0}$ et $(u_{4n + 4})_{n\geq 0}$. Montrer que ces
+suites s'expriment simplement à l'aide de la suite $(v_{n})_{n\geq 0}$.
+En déduire qu'elles sont convergentes et trouver leurs limites.
+
+\item Montrer que la suite $(u_{n})_{n\geq 0}$ est convergente et
+trouver sa limite.
+\end{noliste}
+
+\section*{EXERCICE 3}
+
+L'objet de cet exercice est l'étude d'un exemple de discrétisation
+d'une
+variable aléatoire.\\
+Pour tout nombre réel $x$, on note $[x]$ sa partie entière,
+c'est-à-dire le
+plus grand des nombres entiers inférieurs ou égaux à $x.$ On note
+$\{x\}$ la
+partie décimale de $x$, définie par :
+\[
+\{x\} = x-[x]
+\]
+
+\subsection*{A.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Représenter graphiquement les fonctions définies sur $\R$ par 
+\[
+x\mapsto \lbrack x],\quad x\mapsto \{x\},\quad x\mapsto \lbrack
+2x]\quad 
+\text{et}\quad x\mapsto \{2x\}
+\]
+
+\item Montrer que, pour tout nombre réel $x$ :$[2x] = [x] + [x +
+\dfrac{1}{2}]$
+\end{noliste}
+
+\subsection*{B. }
+
+Soit $X$ une variable aléatoire positive admettant pour densité une
+fonction 
+$f$ continue sur $[0, + \infty \lbrack $. On note $F$ la fonction de
+répartition de $X$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour tout nombre entier naturel non nul $n$, exprimer à l'aide de
+$f$
+la densité de la variable aléatoire $nX$.
+
+\item Pour tout nombre entier naturel $k$, exprimer à l'aide de $f$ ou
+de $F$
+la probabilité que $[X] = k$ (c'est-à-dire que la partie entière de $X$
+soit égale à $k$).
+
+\item Pour tout nombre entier naturel non nul $n$, exprimer à l'aide de
+$f$
+ou de $F$ la loi de la variable aléatoire à valeurs entières $[nX]$.
+\end{noliste}
+
+\subsection*{C. }
+
+Soit $\lambda $ un nombre réel strictement positif. On suppose
+maintenant
+que la fonction f est définie par les relations :
+\[
+f(x) = \left\{ 
+\begin{array}{lll}
+\lambda e^{-\lambda x} & \text{si} & x\geq 0 \\
+0 & \text{si} & x<0
+\end{array}
+\right. 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer la fonction de répartition et l'espérance de $X$.
+
+\item Déterminer la loi de la variable aléatoire $[X]$. De quelle loi
+s'agit-il ? Calculer l'espérance de $[X]$.
+
+\item Pour tout nombre entier naturel non nul $n$, on considère la
+variable
+aléatoire réelle discrète $Y_{n} = \dfrac{1}{n}[nX]$\\
+Trouver l'espérance $m_{n}$ de $Y_{n}$. Montrer que la suite
+$(m_{n})_{n\geq 1}$ est convergente et trouver sa limite.
+
+\item Déterminer la fonction de répartition de la variable aléatoire
+réelle $\{X\}$. En déduire la densité de $[X]$ et calculer son
+espérance.
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

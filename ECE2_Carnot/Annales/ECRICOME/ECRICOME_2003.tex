@@ -1,0 +1,605 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 2003} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Epreuve Ecricome 2003}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT
+
+\noindent {\Large \textbf{ECRI%TCIMACRO{\TeXButton{TeX
+field}{\colorbox[gray]{0.95}{COME}}}%BeginExpansion
+\colorbox[gray]{0.95}{COME}%EndExpansion
+}}\vspace{0.3cm}
+
+\noindent \textbf{Banque d'épreuves communes}
+
+\noindent aux concours des Ecoles
+
+\noindent esc%TCIMACRO{\TeXButton{TeX
+field}{\colorbox[gray]{0.95}{bordeaux}} }%BeginExpansion
+\colorbox[gray]{0.95}{bordeaux}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{marseille}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{marseille}
+%EndExpansion
+/ icn%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{nancy}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{nancy}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{reims}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{reims}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{rouen}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{rouen}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX
+field}{\colorbox[gray]{0.95}{toulouse}}}%BeginExpansion
+\colorbox[gray]{0.95}{toulouse}%EndExpansion
+\vspace{1cm}
+
+\begin{center}
+{\large CONCOURS D'ADMISSION }\vspace{0.5cm}
+
+\textbf{option economique} \vspace{0.5cm}
+
+{\Large \textbf{MATHÉMATIQUES}} \vspace{0.5cm}
+
+\textbf{Année 2003}
+\end{center}
+
+\noindent \textbf{Aucun instrument de calcul n'est autorisé.}
+
+\noindent \textbf{Aucun document n'est autorisé.}
+
+\noindent L'énoncé comporte \pageref{fin} pages
+
+\begin{quotation}
+\noindent Les candidats sont invités à soigner la présentation de leur
+copie, à mettre en évidence les principaux résultats, à respecter les
+notations de l'énoncé, et à donner des démonstrations complètes (mais
+brèves) de leurs affirmations.
+\end{quotation}
+
+\vspace{13cm}
+
+\hfill \textbf{Tournez la page}
+
+\hfill \textbf{S.V.P\qquad }
+
+\newpage
+
+\section*{Exercice 1}
+
+On considère l'espace vectoriel $E = \R^{3}$ et $f$ l'endomorphisme de 
+$E$ dont la matrice dans la base canonique $\mathcal{B} = \left( 
+\overrightarrow{e_{1}},\overrightarrow{e_{2}},\overrightarrow{e_{3}}\ri
+ht) $
+est la matrice $A$ :
+
+\[
+A = \left( 
+\begin{array}{ccc}
+3 & -2 & 3 \\
+1 & 0 & 2 \\
+0 & 0 & 2
+\end{array}
+\right)
+\]
+
+\noindent \textbf{1. Calcul des puissances de }$A$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer les valeurs propres $\lambda_{1}$ et $\lambda_{2}$ de
+l'endomorphisme $f$, avec $\lambda_{1}<\lambda_{2}$.
+
+\item La matrice $A$ est-elle inversible ? (On ne demande pas la
+matrice $A^{-1}$).
+
+\item Déterminer une base et la dimension de chacun des sous-espaces
+propres
+de $f$.
+
+\item Justifier que $f$ n'est pas diagonalisable.
+
+\item Déterminer le vecteur $\overrightarrow{u_{1}}$ de $E$ vérifiant :
+
+\begin{noliste}{$\sbullet$}
+\item $\overrightarrow{u_{1}}$ est un vecteur propre de $f$ associé à
+la
+valeur propre $\lambda_{1}$.
+
+\item la première composante de $\overrightarrow{u_{1}}$ est 1.
+\end{noliste}
+
+\item Déterminer le vecteur $\overrightarrow{u_{2}}$ de $E$ vérifiant :
+
+\begin{noliste}{$\sbullet$}
+\item $\overrightarrow{u_{2}}$ est un vecteur propre de $f$ associe à
+la
+valeur propre $\lambda_{2}$.
+
+\item la deuxième composante de $\overrightarrow{u_{2}}$ est 1.
+\end{noliste}
+
+\item Soit $\overrightarrow{u_{3}} = (1,1,1)$. Montrer que $\mathcal{C}
+= \left( 
+\overrightarrow{u_{1}},\overrightarrow{u_{2}},\overrightarrow{u_{3}}\ri
+ht) $
+est une base de $E$.
+
+\item Déterminer la matrice de passage $P$ de la la base $\mathcal{B}$
+à
+la base $\mathcal{C}$ puis la matrice de passage de la base
+$\mathcal{C}$ à
+la base $\mathcal{B}$.
+
+\item Montrer que : $f\left( \overrightarrow{u_{3}}\right) =
+\overrightarrow{u_{2}} + 2\overrightarrow{u_{3}}$.
+
+\item En déduire que la matrice de $f$ dans la base $\mathcal{C}$ est
+la
+matrice : 
+\[
+T = \left( 
+\begin{array}{lll}
+1 & 0 & 0 \\
+0 & 2 & 1 \\
+0 & 0 & 2
+\end{array}
+\right)
+\]
+
+\item Rappeler la relation matricielle entre $A$ et $T$.
+
+\item Prouver que pour tout élément $n$ de $\N^{\times }$ il existe
+un réel $\alpha_{n}$ tel que : 
+\[
+T^{n} = \left( 
+\begin{array}{lll}
+1 & 0 & 0 \\
+0 & 2^{n} & \alpha_{n} \\
+0 & 0 & 2^{n}
+\end{array}
+\right)
+\]
+On donnera le réel $\alpha_{1}$ ainsi qu'une relation entre $\alpha_{n
++ 1}$
+et $\alpha_{n}$.
+
+\item Montrer que : 
+\[
+\forall n\in \N^{\times },\;\alpha_{n} = n\ 2^{n-1}
+\]
+En déduire l'écriture matricielle de $A^{n}$ en fonction de $n$.
+\end{noliste}
+
+\noindent \textbf{2. Matrices commutant avec }$A$\textbf{.}
+
+\noindent $\mathfrak{M}_{3}\left( \R\right) $ désignant l'ensemble
+des matrices carrées d'ordre 3, on considère le sous-ensemble $C\left(
+A\right) $ de $\mathfrak{M}_{3}\left( \R\right) $ des matrices $M$
+telles que : 
+\[
+AM = MA
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $C(A)$ est un sous-espace vectoriel de
+$\mathfrak{M}_{3}\left( \R\right) $.
+
+\item Pour $M$ appartenant à $\mathfrak{M}_{3}\left( \R\right) $ on
+pose $M^{\prime } = P^{-1}MP.$
+
+Montrer que : 
+\[
+AM = MA\Longleftrightarrow TM^{\prime } = M^{\prime }T
+\]
+($T$ est définie dans la question \textbf{1}.10)
+
+\item Montrer qu'une matrice $M^{\prime }$ de $\mathfrak{M}_{3}\left( 
+\R\right) $) vérifie $TM^{\prime } = M^{\prime }T$ si et seulement si
+$M^{\prime }$ est de la forme $\left( 
+\begin{array}{lll}
+a & 0 & 0 \\
+0 & b & c \\
+0 & 0 & b
+\end{array}
+\right) $ où $a,$ $b$, $c$ sont trois réels.
+
+\item En déduire que $M$ appartient à $C(A)$ si et seulement si il
+existe
+des réels $a,b,c$ tels que : 
+\[
+M = \left( 
+\begin{array}{ccc}
+-a + 2b & 2a-2b & -a + b + 2c \\
+-a + b & 2a-b & -a + b + c \\
+0 & 0 & b
+\end{array}
+\right)
+\]
+
+\item Déterminer alors une base de $C(A)$ ainsi que la dimension de
+$C(A)$.
+\end{noliste}
+
+\section*{\protect\LARGE Exercice 2}
+
+On considère les fonctions $ch$ et $sh$ définies sur $\R$ par :
+
+\[
+ch\left( x\right) = \dfrac{e^{x} + e^{-x}}{2} \text{ \quad et \quad
+}sh\left( x\right) = \dfrac{e^{x}-e^{-x}}{2}
+\]
+ainsi que la fonction $f$ définie sur $\R$ par : 
+\[
+\left\{ 
+\begin{array}{l}
+f\left( x\right) = \dfrac{x}{sh\left( x\right) }\text{ si }x\neq 0 \\
+f\left( 0\right) = 1
+\end{array}
+\right.
+\]
+On s'intéresse dans cet exercice à la convergence de la suite $\left(
+u_{n}\right)_{n\in \N}$ définie par la relation de récurrence : 
+\[
+\left\{ 
+\begin{array}{l}
+u_{0} = 1 \\
+\forall n\in \mathbb{N\;\;}u_{n + 1} = f\left( u_{n}\right)
+\end{array}
+\right.
+\]
+
+\noindent \textbf{1. Étude des fonctions }$ch$\textbf{, }$sh$\textbf{,
+et }$f $\textbf{.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Étudier la parité des fonctions $ch$ et $sh$.
+
+\item Dresser le tableau de variations de la fonction $sh$, puis en
+déduire
+le signe de $sh\left( x\right) $ pour $x$ appartenant à $\R$.
+
+\item Déterminer un équivalent en $ + \infty $ de $sh(x)$. En déduire
+l'allure
+de la courbe représentative de la fonction $sh$ en $ + \infty $.
+
+\item Montrer que la fonction $sh$ réalise une bijection de $\R$
+dans $\R$.
+
+\item Étudier les variations de la fonction $ch$.
+
+\item Montrer que : 
+\[
+\forall x\in \R,\;\;ch\left( x\right) >sh\left( x\right)
+\]
+
+\item Donner sur un même graphique l'allure des courbes représentatives
+des
+fonctions $ch$ et $sh$.
+
+\item Étudier la parité de la fonction $f$.
+
+\item Déterminer le développement limité d'ordre 3 en 0 de la fontion
+$sh.$
+
+\item En déduire que la fonction $f$ est continue en $0,$ dérivable en
+0 et déterminer $f^{\prime }\left( 0\right) $.
+
+\item Justifier que $f$ est dérivable sur $\R_{+}{\times }$ et sur
+$\R_{-}{* }$ et calculer $f^{\prime }\left( x\right) $ pour $x\in \R^{*
+}$.
+
+\item On pose : 
+\[
+\forall x\in \R^{+},\;\;h\left( x\right) = shx-xch\left( x\right)
+\]
+Étudier les variations de $h$, puis en déduire le signe de $h\left(
+x\right) $.
+
+\item Déterminer les variations de $f$ sur $\R^{+}$ et donner
+l'allure de la courbe représentative de la fonction $f$. (On ne
+cherchera
+pas les points d'inflexion).
+\end{noliste}
+
+\noindent \textbf{2. Étude de la suite }$\left( u_{n}\right)_{n\in
+\N}$\textbf{.}
+
+\noindent On donne :
+
+\begin{eqnarray*}
+f\left( 0.8\right) & \simeq & 0.9,\;\;f(1)\simeq 0.85, \\
+sh(0.6) & \simeq & 0.64,\;\;sh(0.8)\simeq 0.89,\;\;sh(1)\simeq
+1.18,\;\;sh(1.2)\simeq 1.51
+\end{eqnarray*}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Justifier que $f\left( \left[ 0.8,1\right] \right) \subset \left[
+0.8,1\right] $, puis que : 
+\[
+\forall n\in \N,\;\;u_{n}\in \left[ 0.8,1\right]
+\]
+
+\item Montrer que l'équation $f\left( x\right) = x$ admet une unique
+solution 
+$\alpha $ sur $\R$ (on pourra utiliser la question \textbf{1.4, }
+sans cherche à déterminer $\alpha $).
+
+\item Donner um encadrement de $\alpha $ et justifier que : 
+\[
+\forall x\in \left[ 0.8,1\right],\;\;\dfrac{h\left( 1\right)
+}{sh^{2}\left(
+0.8\right) }\leq f^{\prime }\left( x\right) \leq \dfrac{h\left(
+0.8\right) }{sh^{2}\left( 1\right) }
+\]
+
+\item On donne : 
+\[
+\dfrac{h\left( 1\right) }{sh^{2}\left( 0.8\right) }\simeq -0.47\text{
+et }\dfrac{h\left( 0.8\right) }{sh^{2}\left( 1\right) }\simeq -0.13
+\]
+Montrer que : 
+\[
+\forall n\in \N,\mathbb{\;\;}\left| u_{n + 1}-\alpha \right|
+\leq 0.5\left| u_{n}-\alpha \right|
+\]
+Puis que : 
+\[
+\forall n\in \N,\mathbb{\;\;}\left| u_{n}-\alpha \right|
+\leq 0.2\left( 0.5\right) ^{n}
+\]
+
+\item En déduire la limite de la suite $\left( u_{n}\right) $ quand $n$
+tend
+vers $ + \infty $.
+
+\item Écrire un programme en -\Scilab{} permettant de calculer et
+d'afficher $u_{10}$.
+\end{noliste}
+
+\section*{\protect\LARGE Exercice 3}
+
+Sous diverses hypothèses, l'exercice étudie différentes situations
+probabilistes concernant une entreprise de construction produisant des
+objets sur deux chaînes de montage $A$ et $B$ qui fonctionnent
+indépendemment l'une de l'autre.\\
+Pour une chaîne donnée, les fabrications des pièces sont indépendantes.
+
+\noindent \textbf{Partie 1.}
+
+On suppose que $A$ produit $60\%$ des objets et $B$ produit $40\%$ des
+objets. La probabilité qu'un objet construit par la chaine $A$ soit
+défectueux est $0.1$ alors que la probabilité pour qu'un objet
+construit par
+la chaine $B$ soit défectueux est $0.2$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On choisit au hasard un objet à la sortie de l'entreprise. On
+constate
+que cet objet est défectueux. Calculer la probabilité de l'évènement
+\textquotedblleft l'objet provient de la chaîne A\textquotedblleft\.
+
+\item On suppose de plus que le nombre d'objets produits en une heure
+par $A$
+est une variable aléatoire $Y$ qui suit une loi de Poisson de paramètre
+$\lambda = 20.$
+
+On considère la variable aléatoire $X$ représentant le nombre d'objets
+défectueux produits par la chaîne $A$ en une heure.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Rappeler la loi de $Y$ ainsi que la valeur de l'espérance et de
+la
+variance de $Y$.
+
+\item Soient $k$ et $n$ deux entiers naturels, déterminer la
+probabilité
+conditionnelle $P\left[ X = k/Y = n\right] $. (On distinguera les cas
+$k\leq n$ et $k>n$ ).
+
+\item En déduire, en utilisant le système complet d'évènements $\left(
+Y = i\right)_{i\in \N},$ que $X$ suit une loi de Poisson de paramètre
+2.
+\end{noliste}
+\end{noliste}
+
+\noindent \textbf{Partie 2.}
+
+\noindent Soit $f$ la fonction définie sur $\R$ par : 
+\[
+\left\{ 
+\begin{array}{ccc}
+f\left( t\right) = \dfrac{2}{\left( 1 + t\right) ^{3}}\text{ } &
+\text{si} & 
+t\geq 0 \\
+f\left( t\right) = 0 & \text{si} & t<0
+\end{array}
+\right.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $f$ est une densité d'une variable aléatoire $Z$.
+
+\item Déterminer la fonction de répartition $F_{Z}$ de $Z$.
+
+\item Justifier la convergence de l'intégrale : 
+\[
+\dint{0}{+ \infty }\dfrac{2t}{\left( 1 + t\right) ^{3}}dt
+\]
+La calculer en effectuant le changement de variable $u = t + 1$.
+
+\item Prouver que $Z$ admet une espérance et la déterminer.
+
+\item $Z$ admet-elle une variance ?
+
+\item Dans cette partie, on suppose que le temps de fabrication,
+exprimé en
+minutes d'un pièce par la chaîne $A$ (respectivement $B$) est une
+variable aléatoire $Z_{1}$ ( respectivement $Z_{2}$) où $Z_{1}$
+et$Z_{2}$ sont deux variables aléatoires indépendantes suivant la même
+loi que que $Z$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On considère les évènements :
+
+$C = $ \textquotedblleft le temps de fabrication d'une pièce sur la
+chaîne $B$
+est supérieur à 2 minutes\textquotedblleft.
+
+$D = $ \textquotedblleft le temps de fabrication d'une pièce sur la
+chaîne $B$
+est inférieur à 3 minutes\textquotedblleft.
+
+Calculer les probabilités suivante : $P\left(\Ev{ C}\right),P\left(\Ev{
+D}\right),P\left(\Ev{ D/C}\right).$
+
+\item On note $T = \max (Z_{1},Z_{2})$ et $G_{T}$ la fonction de
+répartition
+de $T$.
+
+\begin{nonoliste}{(i)}
+\item Exprimer l'évènement $\left( T\leq x\right) $ en fonction des
+évènements $\left( Z_{1}\leq x\right) $ et $\left( Z_{2}\leq x\right)
+$.
+
+\item Montrer que : 
+\[
+\forall x\in \R,\;\;G_{T}\left( x\right) = \left[ F_{Z}\left(
+x\right) \right] ^{2}
+\]
+\end{nonoliste}
+
+\item En déduire que $T$ est une variable aléatoire à densité dont on
+donnera une densité.
+\end{noliste}
+\end{noliste}
+
+\noindent \textbf{Partie 3.}
+
+\noindent On suppose maintenant que pour qu'une pièce soit terminée, il
+faut
+qu'elle passe par la chaîne $A$ puis par la chaîne $B$.\\
+Le temps de passage exprimé en minutes pour un objet sur la chaîne $A$
+est
+une variable aléatoire $M$ suivant une loi exponentielle de paramètre
+2.
+\\
+Le temps de passage exprimé en minutes pour un objet sur la chaîne $B$
+est
+une variable aléatoire $N$ suivant une loi uniforme sur $\left[
+0,1\right] $.
+\\
+Les variables $M$ et $N$ sont indépendantes.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Rappeler l'expression d'une densité de probabilité $v$ de $M$ et
+d'une
+densité $w$ de $N$.
+
+\item On note $S$ la variable aléatoire représentant le temps total de
+fabrication d'une pièce.
+
+Exprimer $S$ en fonction de $M$ et de $N$ et déterminer le temps moyen
+de
+fabrication d'une pièce.
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

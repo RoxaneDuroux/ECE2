@@ -1,0 +1,926 @@
+\subsection*{Exercices oraux HEC 2013}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 20; %
+% annee : 2013; % 
+% theme : vaDiscrete, vaBernoulli, vaBinomiale, FPT; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Le schéma binomial.
+  \item Soit $(X_n)_{ n \in \N^* }$ une suite de variables aléatoires
+    définies sur un espace probabilisé $(\Omega , \A , P )$,
+    indépendantes et de même loi de Bernoulli de paramètre
+    $\dfrac{1}{2}$.\\
+    On pose, pour tout $n \in \N^*$, $W_n = \Sum{k=1}{n} k X_k$ et
+    $s_n = \dfrac{n(n+1)}{2}$.
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Calculer l'espérance $\E(W_n)$ et la variance $\V(W_n)$ de
+      la variable aléatoire $W_n$.
+    \item Calculer les probabilités $\Prob(\Ev{W_n = 0})$ et
+      $\Prob(\Ev{W_n = s_n})$.
+    \item Calculer, selon les valeurs de $n$, la probabilité
+      $\Prob(\Ev{W_n = 3})$.
+    \end{noliste}
+
+  \item Montrer que pour tout $k \in \llb 0, s_n \rrb$, on a :
+    $\Prob(\Ev{W_n = k}) = \Prob(\Ev{W_n = s_n - k})$.
+
+  \item 
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Déterminer pour tout $j \in \llb 0, s_n \rrb$ la loi de
+      probabilité conditionnelle de $W_{n+1}$ sachant $(W_n = j)$.
+    \item En déduire les relations :
+      \[
+      \Prob(\Ev{W_{n+1} = k}) = \left\{
+        \begin{array}{ll} 
+          \frac{ 1 }{ 2 } \ \Prob(\Ev{W_n = k}) & \text{ si } k \leq n \\ 
+          \\ 
+          \frac{ 1 }{ 2 } \ \Prob(\Ev{W_n = k}) + \frac{1}{2}
+          \Prob(\Ev{W_n = k-n-1}) & \text{ si } n+1 \leq k \leq s_n \\ 
+          \\
+          \frac{1}{2} \Prob(\Ev{W_n = k-n-1}) & \text{ si } s_n + 1 \leq
+          k \leq s_{n+1} 
+        \end{array} 
+      \right.
+      \]
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 33; %
+% annee : 2013; %
+% theme : vaDiscrete, FPT, FPC, reductionMat, chaineMarkov, sciLFGN,
+% sciSimuVaDiscrete; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Formule des probabilités totales.\\
+    Soit $p$ et $q$ deux réels vérifiant $0<p<1$ et $p+2q=1$. On note
+    $\Delta$ la matrice de $\mathcal{M}_3 ( \R )$ définie par :
+    \[
+    \Delta = 
+    \begin{smatrix} 
+      p & q & q \\ 
+      q & p & q \\ 
+      q & q & p 
+    \end{smatrix}
+    \]
+
+  \item Justifier que $\Delta$ est une matrice diagonalisable.
+
+  \item Soit $D$ la matrice diagonale de $\mathcal{M}_3 ( \R )$
+    semblable à $\Delta$ dont les éléments diagonaux sont écrits dans
+    l'ordre croissant. Que peut-on dire de la limite des coefficients
+    de $D^n$ lorsque $n$ tend vers $+\infty$.\\
+
+    Un village possède trois restaurants $R_1$, $R_2$ et $R_3$. Un
+    couple se rend dans un de ces trois restaurants chaque dimanche. A
+    l'instant $n=1$ (c'est-à-dire le premier dimanche) il choisit le
+    restaurant $R_1$, puis tous les dimanches suivants (instants
+    $n=2$, $n=3$, etc.) il choisit le même restaurant que le dimanche
+    précédent avec la probabilité $p$ ou change de restaurant avec la
+    probabilité $2q$, chacun des deux autres restaurants étant choisis
+    avec la même probabilité.\\
+
+    On suppose que l'expérience est modélisée par un espace
+    probabilisé $(\Omega , \A , P)$.
+
+  \item Calculer la probabilité que le couple déjeune dans le
+    restaurant $R_1$, respectivement $R_2$, respectivement $R_3$, le
+    $n$-ième dimanche ($n \geq 2$).
+
+  \item Soit $T$ la variable aléatoire égale au rang du premier
+    dimanche où le couple retourne au restaurant $R_1$, s'il y
+    retourne, et 0 sinon. 
+
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer la loi de $T$.
+    \item Établir l'existence de l'espérance et de la variance de $T$
+      et les calculer.
+    \end{noliste}
+
+  \item Écrire une procédure scilab permettant de calculer la
+    fréquence de visite du restaurant $R_1$ par le couple en 52
+    dimanches.
+  \end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 40; %
+% annee : 2013; %
+% theme : vaDiscrete, denombrement, fct2var, reductionMat; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Soit $f$ une fonction de classe $C^2$
+    définie sur une partie de $\R^2$ à valeurs réelles. Rappeler la
+    définition d'un point critique et la condition suffisante
+    d'extremum local en un point.\\
+
+    Soit $X$ une variable aléatoire discrète finie définie sur un
+    espace probabilisé $(\Omega , \A , P)$.\\
+    On pose pour tout $n \in \N^*$ : $X ( \Omega ) = \{ x_1 , \dots ,
+    x_n \} \subset \R$ et on suppose que $\forall i \in \llb 1 ; n
+    \rrb$, $P (X=x_i) \neq 0$.\\
+
+    On définit l'entropie de $X$ par : $ H(X) = - \frac{ 1 }{ \ln 2 }
+    \Sum{i=1}{n} P (X=x_i) \ln \big( \Prob(X=x_i) \big)$.
+
+  \item Soient $x_1 , x_2 , x_3 , x_4$ quatre réels distincts. On
+    considère un jeu de 32 cartes dont on tire une carte au
+    hasard. Soit $X$ la variable aléatoire prenant les valeurs
+    suivantes : 
+    \begin{noliste}{$\stimes$}
+    \item $x_1$ si la carte tirée est rouge (coeur ou carreau),
+    \item $x_2$ si la carte tirée est un pique,
+    \item $x_3$ si la carte tirée est le valet, la dame, le roi ou
+      l'as de trèfle,
+    \item $x_4$ dans les autres cas.
+    \end{noliste}
+
+    On tire une carte notée $C$ et un enfant décide de déterminer la
+    valeur $X(C)$ en posant dans l'ordre les questions suivantes
+    auxquelles il lui est répondu par "oui" ou par "non". LA carte $C$
+    est-elle rouge? La carte $C$ est-elle un pique ? La carte $C$
+    est-elle le valet, la dame, le roi ou l'as de trèfle ? \\
+    Soit $N$ la variable aléatoire égale au nombre de questions posées
+    (l'enfant cesse de poser des questions dès qu'il a obtenu une
+    réponse "oui"). 
+
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer l'entropie $H(X)$ de $X$.
+    \item Déterminer la loi et l'espérance $E (N)$ de $N$. Comparer
+      $\E(N)$ et $H(X)$.
+    \end{noliste}
+
+  \item Soit $f$ la fonction définie sur $\R^2$ à valeurs réelles
+    telle que : $f(x,y) = x \ln x + y \ln y + (1-x-y) \ln
+    (1-x-y)$. 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Préciser le domaine de définition de $f$. Dessiner ce
+      domaine dans le plan rapporté à un repère orthonormé.
+    \item Montrer que $f$ ne possède qu'un seul point critique et
+      qu'en ce point, $f$ admet un extremum local.
+    \item Soit $X$ une variable aléatoire réelle prenant les valeurs
+      $x_1$, $x_2$ et $x_3$ avec les probabilités non nulles $p_1$,
+      $p_2$ et $p_3$ respectivement.\\
+
+      Calculer $H(X)$ et montrer que $H(X)$ est maximale lorsque
+      $p_1=p_2=p_3 = \frac{1}{3}$.
+    \end{noliste}   
+  \end{noliste}
+\end{exerciceAP} 
+
+
+\subsection*{Exercices oraux HEC 2014}
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 26; %
+% annee : 2014; %
+% theme : vaCouple, vaDiscrete, vaFctGeneratrice, vaCovariance,
+% denombrement, fct2var; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition de l'indépendance de deux
+    variables aléatoires discrètes. Lien entre indépendance et
+    covariance.\\
+    Soit $X$ et $Y$ deux variables aléatoires discrètes finies à
+    valeurs dans $\N$, définies sur un espace probabilisé
+    $(\Omega,\A,P)$. On suppose que $X(\Omega)\subset \llb0,n\rrb$ et
+    $Y(\Omega) \subset \llb 0, m \rrb$, où $n$ et $m$ sont deux
+    entiers de $\N^*$.\\
+    Pour tout couple $(i,j) \in \llb 0, n \rrb \times \llb 0, m \rrb$,
+    on pose : $p_{i,j} = \Prob(\Ev{X=i} \cap \Ev{Y=j})$.\\
+    Soit $F_X$ et $F_Y$ les deux fonctions de $\R$ dans $\R$ définies
+    par : $F_X(x)=\Sum{i=0}{n} \Prob(\Ev{X=i})x^i$ et \\
+    $F_Y(x)=\Sum{j=0}{m} \Prob(\Ev{Y=j})x^j$.\\
+    Soit $Z=(X,Y)$ et $G_Z$ la fonction de $\R^2$ dans $\R$ définie
+    par : $G_Z(x,y)=\Sum{i=0}{n}\Sum{j=0}{m} p_{i,j}x^iy^j$.
+
+  \item Donner la valeur de $G_Z(1,1)$ et exprimer les espérances de
+    $X$, $Y$ et $XY$, puis la covariance de $(X,Y)$ à l'aide des
+    dérivées partielles premières et secondes de $G_Z$ au point
+    $(1,1)$.
+
+  \item Soit $f$ une fonction polynomiale de deux variables définies
+    sur $\R^2$ par : $f(x,y) = \Sum{i=0}{n} \Sum{j=0}{m}
+    a_{i,j}x^iy^j$ avec $a_{i,j} \in \R$.\\
+    On suppose que pour tout couple $(x,y)\in\R^2$, on a $f(x,y)=0$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que pour tout $(i,j) \in \llb0, n \rrb \times \llb 0,
+    m \rrb$, on a $a_{i,j}=0$.
+    \item En déduire que $X$ et $Y$ sont indépendantes, si et
+      seulement si, pour tout $(x,y)\in\R^2$,\\
+      $G_Z(x,y)=F_X(x)F_Y(y)$. (on pourra poser : $a_{i,j}=p_{i,j} -
+      \Prob(\Ev{X=i})\Prob(\Ev{Y=j})$).
+    \end{noliste}
+
+  \item Une urne contient des jetons portant chacun une des lettres
+    $A$, $B$ ou $C$. La proportion des jetons portant la lettre $A$
+    est $p$, celle des jetons portant la lettre $B$ est $q$ et celle
+    des jetons portant la lettre $C$ est $r$, où $p$, $q$ et $r$ sont
+    trois réels strictement positifs vérifiant $p+q+r=1$.\\
+    Soit $n\in\N^*$. On effectue $n$ tirages d'un jeton avec remise
+    dans cette urne. On note $X$ (resp. $Y$) la variable aléatoire
+    égale au nombre de jetons tirés portant la lettre $A$ (resp. $B$)
+    à l'issue de ces $n$ tirages.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Quelles sont les lois de $X$ et $Y$ respectivement ?
+      Déterminer $F_X$ et $F_Y$.
+    \item Déterminer la loi de $Z$. En déduire $G_Z$.
+    \item Les variables aléatoires $X$ et $Y$ sont-elles indépendantes
+      ?
+    \item Calculer la covariance de $(X,Y)$. Le signe de cette
+      covariance était-il prévisible ?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 39; %
+% annee : 2014; %
+% theme : vaDiscrete, vaPoisson, vaCouple, vaCovariance, vaSomme, FPT; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : \\
+    Loi d'un couple de variables aléatoires discrètes. Lois
+    marginales. Lois conditionnelles.
+  \end{noliste}
+  Soit $c$ un réel strictement positif et soit $X$ et $Y$ deux
+  variables aléatoires à valeurs dans $\N$ définies sur un espace
+  probabilisé $(\Omega, \A, \Prob)$, telles que :
+  \[
+  \forall (i,j)\in\N^2, \ \Prob(\Ev{X=i}\cap\Ev{Y=j}) =
+  c\dfrac{i+j}{i!j!}
+  \]
+  \begin{noliste}{1.}
+    \setcounter{enumi}{1}
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que pour tout $i\in\N$, on a : $\Prob(\Ev{X=i}) = c
+    \dfrac{(i+1)}{i!} \ \ee$. \\
+    En déduire la valeur de $c$.
+    \item Montrer que $X$ admet une espérance et une variance et les
+      calculer.
+    \item Les variables aléatoires $X$ et $Y$ sont-elles indépendantes
+      ?
+    \end{noliste}
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer la loi de $X+Y-1$.
+    \item En déduire la variance de $X+Y$.
+    \item Calculer la covariance de $X$ et de $X+5Y$.\\
+      Les variables aléatoires $X$ et $X+5Y$ sont-elles indépendantes
+      ?
+    \end{noliste}
+
+  \item On pose : $Z=\dfrac{1}{X+1}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $Z$ admet une espérance et la calculer.
+    \item Déterminer pour $i\in\N$, la loi conditionnelle de $Y$
+      sachant $\Ev{X=i}$.
+    \item Pour $A\in\A$, on pose : $g_A(Y)=\Sum{k=0}{+\infty} k
+      P_A(\Ev{Y=k})$.\\
+      Établir l'existence d'une fonction affine $f$ telle que, pour
+      tout $\omega\in\Omega$, on a : 
+      \[
+      g_{\Ev{X=X(\omega)}}(Y) = f(Z(\omega))
+      \]
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+
+\subsection*{Exercices oraux HEC 2015}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 70; %
+% annee : 2015; % 
+% theme : vaBernoulli, vaIndep, vaCovariance, vaDiscrete, ; % 
+
+\begin{exerciceSP}~\\
+  Soit $(X_n)_{n\in\N^*}$ une suite de variables aléatoires
+  indépendantes définies sur un espace probabilisé $(\Omega,\A,P)$, de
+  même loi de Bernoulli de paramètre $\dfrac{1}{2}$. On pose pour tout
+  $n\in\N^*$ : $W_n = \Sum{k=1}{n} k X_k$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Calculer $\E(W_n)$ et $\V(W_n)$.
+  \item Les variables $W_n$ et $W_{n+1}$ sont-elles indépendantes ?
+  \end{noliste}
+\end{exerciceSP} 
+
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 71; %
+% annee : 2015; % 
+% theme : vaBernoulli, vaDiscrete, vaCovariance, inegCauchySchwarz; % 
+
+\begin{exerciceSP}~\\
+  Soit $X_1,X_2,\hdots,X_n$ $n$ variables aléatoires telles que pour
+  tout $k\in\llb 1,n\rrb$, $X_k$ suit la loi de Bernoulli de paramètre
+  $p_k$ avec $0 < p_k < 1$.\\
+  On pose : $Y = \Sum{k=1}{n} X_k$. Montrer que $\V(Y)\leq
+  \dfrac{n^2}{4}$.
+\end{exerciceSP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 73; %
+% annee : 2015; % 
+% theme : vaDiscrete, FPT; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Formule des probabilités totales.\\
+    Soit $n$ un entier naturel supérieur ou égal à $2$.\\
+    On considère $n$ urnes numérotées de $1$ à $n$ et $N$ un entier
+    naturel multiple de $2^n$.\\
+    Pour tout $k\in\llb 1,n\rrb$, la $k$-ième urne contient $N$ boules
+    dont $\dfrac{N}{2^k}$ boules blanches, les autres étant noires.\\
+    On tire dans l'urne $1$ une boule au l'on place dans l'urne $2$,
+    puis on tire dans l'urne $2$ une boule que l'on place dans l'urne
+    $3$ et ainsi de suite jusqu'à tirer dans l'urne $n-1$ une boule
+    que l'on place dans l'urne $n$, puis on tire une boule dans l'urne
+    $n$.\\
+    L'expérience est modélisée par un espace probabilisé
+    $(\Omega,\A,P)$.
+  \item Pour tout $k\in\llb 1,n\rrb$, soit $p_k$ la probabilité que la
+    boule tirée dans l'urne $k$ soit blanche.\\
+    Trouver une relation de récurrence entre $p_{k+1}$ et $p_k$
+    ($1\leq k\leq n-1$).
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer $p_n$ en fonction de $n$ et $N$.
+    \item Pour $n$ fixé, calculer $\dlim{N\to+\infty}
+      p_n$. Interpréter cette limite.
+    \end{noliste}
+  \item Soit $i\in\llb 1,n-1\rrb$. Calculer la probabilité
+    conditionnelle que la $n$-ième boule tirée soit blanche sachant
+    que la boule tirée dans l'urne $i$ est blanche.
+  \end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 79; %
+% annee : 2015; % 
+% theme : vaFDR, vaDensite, vaDiscrete, vaPartieEntiere, ; % 
+
+\begin{exerciceAP}~\\
+  {\it Toutes les variables aléatoires de cet exercice sont définies
+    sur un espace probabilisé $(\Omega,\A,P)$}.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition et propriétés de la fonction de
+    répartition d'une variable aléatoire à densité.\\
+    Soit $a$ un paramètre réel et $F$ la fonction définie sur $\R$, à
+    valeurs réelles, telle que :
+    \[
+    F(x)=\left\{
+      \begin{array}{cl}
+        1+\ln\left(\dfrac{x}{x+1}\right) & \mbox{ si $x\geq a$}\\
+        0 & \mbox{ si $x<a$}
+      \end{array}
+    \right.
+    \]
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $F$ est continue sur $\R$ si et seulement si
+      $a=\dfrac{1}{\ee -1}$.
+
+    \item Étudier les variations de $F$ et tracer l'allure de sa
+      courbe représentative dans un repère orthogonal du plan.
+    \end{noliste}
+
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $F$ est la fonction de répartition d'une
+      variable aléatoire $X$ à densité.
+    \item La variable aléatoire $X$ admet-elle une espérance ?
+    \end{noliste}
+
+  \item Soit $Y$ la variable aléatoire à valeurs dans $\N$ définie par
+    $Y=\lfloor X\rfloor$ (partie entière de $X$). On pose : $Z=X-Y$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Calculer $\Prob(Y=0)$ et montrer que pour tout $n\in\N^*$, on
+    a : $\Prob(Y=n) = \ln\left(1 + \dfrac{1}{n(n + 2)}\right)$.
+    \item Déterminer la fonction de répartition et une densité de $Z$.
+    \item Établir l'existence de l'espérance $\E(Z)$ de $Z$. Calculer
+      $\E(Z)$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+
+\subsection*{Exercices oraux HEC 2016}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 82; %
+% annee : 2016; % 
+% theme : vaDensite, vaUniformeDensite, partieEntiere, vaDiscrete, 
+% vaPartieEntiere; % 
+
+\begin{exerciceAP}~\\
+On suppose que toutes les variables aléatoires qui interviennent dans 
+l'exercice sont définies sur un même espace probabilisé $(\Omega, 
+\A,\Prob)$.
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Loi uniforme sur un intervalle $[a,b]$;
+    définition, propriétés.
+  
+  \item Pour tout $x$ réel, on note $\lfloor x \rfloor$ la partie 
+  entière de $x$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Pour $n$ entier de $\N^*$, montrer que pour tout $x$ réel, 
+    on a : $\dlim{n\to+\infty} \dfrac{\lfloor nx\rfloor}{n}=x$.
+    
+    \item Établir pour tout $(x,y)\in\R^2$ l'équivalence suivante 
+    : $\lfloor y \rfloor \leq x \ \Leftrightarrow \ y < \lfloor x 
+    \rfloor +1$.
+    
+    \item Soit $\alpha$ et $\beta$ deux réels vérifiant $0\leq 
+    \alpha\leq \beta\leq 1$ et soit $N_n(\alpha,\beta)$ le nombre 
+    d'entiers $k$ qui vérifient $\alpha <\dfrac{k}{n}\leq \beta$. 
+    Exprimer $N_n(\alpha,\beta)$ en fonction de $\lfloor n\alpha 
+    \rfloor$ et $\lfloor n\beta \rfloor$.
+  \end{noliste}
+  
+  \item Pour tout entier $n\geq 1$, on note $Y_n$ la variable aléatoire 
+  discrète dont la loi est donnée par :
+  \[
+    \forall k\in\llb 0,n-1\rrb, \ 
+    \Prob\left(\Ev{Y_n=\frac{k}{n}}\right)=\frac{1}{n}.
+  \]
+  Soit $Z$ une variable aléatoire suivant la loi uniforme sur 
+  l'intervalle $[0,1]$. Pour tout entier $n\geq 1$, on définit la 
+  variable aléatoire $Z_n$ par : $Z_n=\dfrac{\lfloor nZ\rfloor}{n}$. 
+  Soit $\alpha$ et $\beta$ deux réels vérifiant $0\leq \alpha\leq 
+  \beta\leq 1$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $\dlim{n\to+\infty} \Prob(\Ev{\alpha <Y_n\leq 
+    \beta})=\beta-\alpha$.
+    
+    \item Comparer les fonctions de répartition respectives de $Y_n$ 
+    et $Z_n$. Conclusion.
+  \end{noliste}
+\end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 83; %
+% annee : 2016; % 
+% theme : vaDensite, vaUniformeDensite, vaDiscrete, vaUniformeDiscrete,
+% vaConvergence; % 
+
+\begin{exerciceSP}~\\
+Les variables aléatoires de cet exercice sont supposées définies sur un 
+espace probabilisé $(\Omega,\A,\Prob)$.\\
+Soit $Z$ une variable aléatoire qui suit la loi uniforme sur 
+l'intervalle $[0,1]$ et pour tout entier $n\geq 1$, on note $Y_n$ une 
+variable aléatoire à valeurs dans 
+$\left\{0,\dfrac{1}{n},\dfrac{2}{n},\hdots, \dfrac{n-1}{n}\right\}$ 
+telle que : 
+\[
+  \forall k\in\llb 0,n-1\rrb, \ 
+  \Prob\left(\Ev{Y_n=\dfrac{k}{n}}\right)=\dfrac{1}{n}
+\]
+Soit $f$ une fonction définie et continue sur $[0,1]$. Montrer que 
+$\dlim{n\to+\infty} \E(f(Y_n))=\E(f(Z))$.
+\end{exerciceSP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 85; %
+% annee : 2016; % 
+% theme : vaCouple, vaCovariance, vaDiscrete, vaMoments; % 
+
+\begin{exerciceAP}~\\
+Toutes les variables aléatoires qui interviennent dans l'exercice sont 
+supposées définies sur le même espace probabilisé 
+$(\Omega,\A,\Prob)$.
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition et propriétés de la covariance 
+  de deux variables aléatoires discrètes.\\
+  Soit $p$, $q$ et $r$ des réels fixés de l'intervalle $]0,1[$ tels que 
+  $p+q+r=1$. \\
+  Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires à 
+  valeurs dans $\{-1,0,1\}$, indépendantes et de même loi donnée par :
+  \[
+    \forall n \in\N^*, \ \Prob(\Ev{X_n=1})=p, \ \Prob(\Ev{X_n=-1})=q, \ 
+    \Prob(\Ev{X_n=0})=r.
+  \]
+  On pose pour tout entier $n\geq 1$ : $Y_n=\Prod{k=1}{n} X_k$.
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Pour tout entier $n\geq 1$, préciser $Y_n(\Omega)$ et 
+    calculer $\Prob(\Ev{Y_n=0})$.
+    
+    \item Pour tout entier $n\geq 1$, calculer $\E(X_n)$ et $\E(Y_n)$.
+  \end{noliste}
+  
+  \item On pose pour tout entier $n\geq 1$, on a : 
+  $p_n=\Prob(\Ev{Y_n=1})$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer $p_1$ et $p_2$.
+    
+    \item Établir une relation de récurrence entre $p_{n+1}$ et 
+    $p_n$.
+    
+    \item En déduire que pour tout entier $n\geq 1$, on a : 
+    $p_n=\dfrac{(p+q)^n +(p-q)^n}{2}$.
+    
+    \item Pouvait-on à l'aide de la question $2$, trouver 
+    directement la loi de $Y_n$ ?
+  \end{noliste}
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Établir l'inégalité : $(p+q)^n > (p-q)^{2n}$. Calculer 
+    $\V(Y_n)$.
+    
+    \item Calculer la covariance $\cov(Y_n,Y_{n+1})$ des deux 
+    variables aléatoires $Y_n$ et $Y_{n+1}$.
+  \end{noliste}
+\end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 88; %
+% annee : 2016; % 
+% theme : vaConvergence, vaPartieEntiere, vaDensite, vaExponentielle,
+% vaDiscrete, vaGeometrique, vaUniformeDensite; % 
+
+\begin{exerciceAP}~\\
+Toutes les variables aléatoires qui interviennent dans l'exercice sont 
+supposées définies sur le même espace probabilisé $(\Omega, 
+\A,\Prob)$.
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Convergence en loi d'une suite de variables 
+  aléatoires.\\
+  Dans tout l'exercice, $X$ désigne une variable aléatoire suivant la 
+  loi exponentielle de paramètre $\lambda>0$.
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item On pose : $T=\lfloor X\rfloor$ (partie entière de $X$). 
+    Montrer que la loi de $T$ est donnée par :
+    \[
+      \forall k \in\N, \ 
+      \Prob(\Ev{T=k}) = \Big(1 - \ee^{-\lambda} \Big) \, 
+      \Big(\ee^{-\lambda}\Big)^k
+    \]
+    
+    \item Quelle est la loi de $T+1$ ? En déduire l'espérance et la 
+    variance de $T$.
+  \end{noliste}
+  
+  \item On pose : $Z=X-\lfloor X\rfloor$.\\
+  Montrer que $Z$ est une variable aléatoire à densité et déterminer 
+  une densité de $Z$.
+
+  \item Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires 
+  indépendantes telles que, pour tout $n\in\N^*$, $X_n$ suit une loi 
+  exponentielle de paramètre $\dfrac{\lambda}{n}$. On pose pour tout 
+  $n\in\N^*$ : $Z_n=X_n-\lfloor X_n\rfloor$.\\
+  Montrer que la suite de variables aléatoires $(Z_n)_{n\geq 1}$ 
+  converge en loi vers une variable aléatoire dont on précisera la loi.
+\end{noliste}
+\end{exerciceAP} 
+
+
+\subsection*{Exercices oraux HEC 2017}
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 42; %
+% annee : 2017; %
+% theme : sciSimuVaDiscrete, sciLfGN, vaDiscrete; %
+
+\begin{exerciceSP}~\\
+  On considère une urne contenant $b$ boules blanches et $r$ 
+  boules rouges.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item La fonction \Scilab{} suivante permet de simuler des 
+    tirages dans cette urne.
+    \begin{scilab}
+      & \tcFun{function} \tcVar{y} = X(\tcVar{b}, \tcVar{r}) \nl %
+      & \qquad V = \%F \commentaire{le booléen "faux"} \nl %
+      & \qquad \tcFor{for} k = 1:3 \nl %
+      & \qquad \qquad V = V|grand(1, 1, \ttq{}uin\ttq{}, 1, 
+      \tcVar{b} + \tcVar{r}) <= \tcVar{b}; \nl %
+      & \qquad \tcFor{end}; \nl %
+      & \qquad \tcIf{if} V \tcIf{then} \tcVar{y} = 1; \tcIf{else} 
+      \tcVar{y} = 2; \nl %
+      & \qquad \tcIf{end}; \nl %
+      & \tcFun{endfunction}
+    \end{scilab}
+    
+    Que retourne la fonction $X$ et quelle loi simule-t-elle ?
+    
+    \item De quelle valeur théorique la valeur affichée après 
+    l'exécution des instructions suivantes fournit-elle une 
+    approximation ?
+    \begin{scilab}
+      & R = []; \nl %
+      & \tcFor{for} k = 1:10000 \nl %
+      & \qquad R = [R, X(5,5)]; \nl %
+      & \tcFor{end}; \nl %
+      & disp(mean(R))
+    \end{scilab}
+  \end{noliste}
+\end{exerciceSP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP;
+% sujet : E 81;
+% annee : 2017;
+% theme : vaDiscrete, vaGeometrique, sciSimuVaDiscrete, denombrement,
+% vaCouple; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Question de cours
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Définition et propriétés de la loi géométrique.
+      
+      \item Compléter la ligne de code \Scilab{} contenant des points
+      d'interrogation pour que la fonction {\tt geo} suivante 
+      fournisse une simulation de la loi géométrique dont le 
+      paramètre est égal à l'argument $p$ de la fonction.
+      \begin{scilab}
+        & \tcFun{function} \tcVar{x} = geo(\tcVar{p}) \nl %
+        & \qquad \tcVar{x} = 1; \nl %
+        & \qquad \tcFor{while} rand() ??? \nl %
+        & \qquad \qquad \tcVar{x} = \tcVar{x} + 1; \nl %
+        & \qquad \tcFor{end}; \nl %
+        & \tcFun{endfunction}
+      \end{scilab}~
+    \end{noliste}
+   \end{noliste}
+    Une urne contient trois jetons numérotés $1$, $2$ et $3$. On 
+    effectue dans cette urne, une suite de tirages d'un jeton avec 
+    remise.
+    \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+      \setcounter{enumi}{1}
+      \item On note $Y$ la variable aléatoire égale au nombre de 
+      tirages nécessaires pour obtenir, pour la première fois, deux
+      numéros successifs distincts.
+      \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+	\item Reconnaître la loi de la variable aléatoire $Y-1$.
+	
+	\item Déterminer l'espérance $\E(Y)$ et la variance $\V(Y)$
+	de la variable aléatoire $Y$.
+      \end{noliste}
+      
+      \item On note $Z$ la variable aléatoire égale au nombre de 
+      tirages nécessaires pour obtenir, pour la première fois, les 
+      trois numéros.
+      \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+	\item Soit deux entiers $k \geq 2$ et $\ell \geq 3$.\\
+	Calculer $\Prob(\Ev{Y=k} \cap \Ev{Z=\ell})$ selon les 
+	valeurs de $k$ et $\ell$.
+	
+	\item En déduire que, pour tout entier $\ell \geq 3$, on a :
+	$\Prob(\Ev{Z = \ell}) = \dfrac{2}{3} \, \left( 
+	\dfrac{2^{\ell-2} -1}{3^{\ell -2}}\right)$.
+	
+	\item Calculer $\E(Z)$.
+      \end{noliste}
+      
+      \item D'une manière plus générale, calculer l'espérance de la 
+      variable aléatoire égale au nombre de tirages nécessaires 
+      pour obtenir, pour la première fois, tous les numéros, dans 
+      l'hypothèse où l'urne contient au départ $n$ jetons, numérotés
+      de $1$ à $n$.
+    \end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 91; %
+% annee : 2017; %
+% theme : vaDiscrete, vaUniformeDiscrete, vaMax, estimBiais, 
+% estimation; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Question de cours : définition d'un estimateur sans biais
+    d'un paramètre inconnu.
+  \end{noliste}
+  
+  \noindent
+  Soit $N$ un entier supérieur ou égal à $2$.\\
+  Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires 
+  indépendantes, définies sur le même espace probabilisé 
+  $(\Omega, \A, \Prob)$, et suivant chacune la loi uniforme discrète
+  sur $\llb 1,N \rrb$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \setcounter{enumi}{1}
+    \item Pour tout entier $n\geq 1$, on pose : $s_n(N) = 
+    \Sum{k=1}{N-1} \left( \dfrac{k}{N} \right)^n$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Montrer que la suite $(s_n(N))_{n\geq 1}$ est 
+      strictement monotone et convergente.
+      
+      \item Trouver sa limite.
+    \end{noliste}
+    
+    \item Pour tout entier $n\geq 1$, on pose : $T_n = \max(X_1,
+    X_2, \ldots, X_n)$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Calculer pour tout $k\in \llb 1,N \rrb$, $\Prob(
+      \Ev{T_n=k})$.
+      
+      \item Montrer que $\E(T_n) = N - s_n(N)$.
+    \end{noliste}
+    
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Justifier que $\Prob(\Ev{ \vert T_N - N \vert \geq 1})$
+      tend vers $0$ quand $n$ tend vers l'infini.
+      
+      \item En déduire, pour tout $\eps>0$, la limite de 
+      $\Prob(\Ev{\vert T_n - N \vert \geq \eps})$ quand $n$ tend 
+      vers l'infini.
+    \end{noliste}
+    
+    \item On suppose dans cette question que $N$ est un paramètre 
+    inconnu.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Expliquer pourquoi on ne peut pas dire que $T_n + s_n(N)$
+      est un estimateur sans biais de $N$.
+      
+      \item Trouver une suite convergente et asymptotiquement sans 
+      biais d'estimateurs de $N$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 106; %
+% annee : 2017; %
+% theme : vaMoments, vaDiscrete, partieEntiere; %
+
+\begin{exerciceAP}~\\
+  Dans tout l'exercice, $(\Omega, \A, \Prob)$ désigne un espace 
+  probabilisé, et toutes les variables considérées sont définies sur 
+  cet espace probabilisé et $X$ désigne une variable aléatoire 
+  \underline{à valeurs dans $\N$}.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Question de cours : rappeler la formule de Koenig-Huygens.
+    
+    \item Démontrer que, si $X$ admet un moment d'ordre deux, alors 
+    on a :
+    \[
+      \forall c \in \R, \ \V(X) \leq \E((X-c)^2)
+    \]
+  \end{noliste}
+  
+  \item Dans cette question, $n$ est un entier strictement positif et 
+  $X$ une variable aléatore telle que :
+  \[
+    X(\Omega) \subset \llb 0, 2n \rrb
+  \]
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item En utilisant une des inégalités prouvées en \itbf{1.b)}, 
+    démontrer que la variance de $X$ est inférieure ou égale à $n^2$.
+    
+    \item Démontrer que, si $\E(X) = n$, alors la variance de $X$ est 
+    égale à $n^2$ si, et seulement si, $\Prob(\Ev{X=0}) = 
+    \Prob(\Ev{X=2n}) = \dfrac{1}{2}$.
+    
+    \item Quelle est la plus petite valeur possible de $\V(X)$ 
+    lorsque $\E(X)=n$ ?
+  \end{noliste}
+  
+  \noindent
+  Dans toute la suite de l'exercice, $c$ désigne un nombre réel positif
+  qui n'est \underline{pas entier} et $\lfloor c \rfloor$ sa partie 
+  entière.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \setcounter{enumi}{2}
+    \item Soit $X_0$ une variable aléatoire vérifiant : $\left\{
+    \begin{array}{l}
+      X_0(\Omega) = \{ \lfloor c \rfloor, \ \lfloor c \rfloor 
+      +1\}\\[.1cm]
+      \E(X_0) = c
+    \end{array}
+    \right.$
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Vérifier que : $\Prob(\Ev{X_0 = \lfloor c \rfloor }) =
+      \lfloor c \rfloor +1-c$.
+      
+      \item En déduire que la variance de $X_0$ est égale à 
+      $(c- \lfloor c \rfloor )(\lfloor c \rfloor +1-c)$.
+    \end{noliste}
+    
+    \item Dans cette question et la suivante, $X$ est une variable 
+    aléatoire à valeurs dans $\N$ qui admet une espérance et une 
+    variance, et vérifie : $\E(X)=c$.\\
+    On note $A= \Ev{X \leq c}$ et $p=\Prob(A)$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Justifier que $p$ est strictement compris $0$ et $1$.
+      
+      \item Justifier la ocnvergence de la série $\Sum{k\geq 0}{} 
+      k \, \Prob_{\bar{A}}(\Ev{X=k})$, où $\bar{A}$ désigne le 
+      complémentaire de l'événement $A$.
+    \end{noliste}
+    
+    \item On note : $c_0 = \Sum{k=0}{\lfloor c \rfloor} 
+    k \, \Prob_A(\Ev{X=k})$ et $c_1 = \Sum{k= \lfloor c \rfloor +1}
+    {+\infty} k \, \Prob_{\bar{A}}(\Ev{X=k})$.\\[.1cm]
+    Soit $Y$ une variable aléatoire telle que $\Prob(\Ev{Y=c_0})
+    =p$ et $\Prob(\Ev{Y=c_1})=1-p$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Vérifier que les variables aléatoires $X$ et $Y$ ont la même
+      espérance.
+      
+      \item Prouver l'égalité : $\V(Y) = (c-c_0)(c_1-c)$.
+      
+      \item Démonter l'inégalité :
+      \[
+        \V(X) \geq \V(Y)
+      \]
+      
+      \item En déduire que $\V(X_0)$ est la plus petite valeur possible 
+      de $\V(X))$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+

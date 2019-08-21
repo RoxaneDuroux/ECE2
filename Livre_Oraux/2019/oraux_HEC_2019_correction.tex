@@ -1,0 +1,613 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2019} %
+\author{} %
+\date{} %
+\begin{document}
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+%%DEBUT
+
+\subsection*{Sujet Mathieu}
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+  \item
+    \begin{noliste}{a)}
+    \item Formule du binôme de Newton.
+
+      \begin{proof}~
+        \conc{$\forall (a,b) \in \R^2$, $(a+b)^n = \Sum{k=0}{n}
+          \dbinom{n}{k} a^{n-k} \, b^k$}~\\[-1cm]
+      \end{proof}
+      
+    \item Soit $n \in \N^*$. En utilisant l'égalité suivante :
+      \[
+        2^n \ = \ (1+1)^n + (1-1)^n
+      \]
+      prouver : $\Sum{k=0}{\lfloor \frac{n}{2} \rfloor} \dbinom{n}{2k}
+      \ = \ 2^{n-1}$.
+
+      \begin{proof}~\\
+        Soit $n \in \N$.
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+            2^n
+            & = & (1+1)^n + (1-1)^n
+            \\[.2cm]
+            & = & \Sum{k=0}{n} \dbinom{n}{k} 1^{n-k} \, 1^k +
+                  \Sum{k=0}{n} \dbinom{n}{k} 1^{n-k} \, (-1)^k
+            & (d'après la formule du binôme de Newton)
+              \nl
+              \nl[-.2cm]
+            & = & \Sum{k=0}{n} \dbinom{n}{k} + \Sum{k=0}{n}
+                  \dbinom{n}{k} (-1)^k
+            \\[.6cm]
+            & = & \multicolumn{2}{l}{\left(\Sum{
+                \scalebox{.6}{$
+                  \begin{array}{c}
+                    k=0 \\
+                    \text{$k$ pair}
+                  \end{array}$}
+              }{n}
+            \dbinom{n}{k}
+            + \Sum{
+                \scalebox{.6}{$
+                  \begin{array}{c}
+                    k=0 \\
+                    \text{$k$ impair}
+                  \end{array}$}
+              }{n}
+            \dbinom{n}{k} \right)
+            + \left(\Sum{
+                \scalebox{.6}{$
+                  \begin{array}{c}
+                    k = 0 \\
+                    \text{$k$ pair}
+                  \end{array}$}
+              }{n}
+            \dbinom{n}{k} (-1)^k
+            + \Sum{
+                \scalebox{.6}{$
+                  \begin{array}{c}
+                    k=0 \\
+                    \text{$k$ impair}
+                  \end{array}$}
+              }{n}
+            \dbinom{n}{k} (-1)^k \right)}
+            \\[1cm]
+            & = & \multicolumn{2}{l}{\Sum{j=0}{\lfloor \frac{n}{2} \rfloor}
+                  \dbinom{n}{2j} + \Sum{j=0}{\lfloor \frac{n-1}{2} \rfloor }
+                  \dbinom{n}{2j+1} + \Sum{j=0}{\lfloor \frac{n}{2} \rfloor}
+                  \dbinom{n}{2j} (-1)^{2j} + \Sum{k=0}{\lfloor \frac{n-1}{2} \rfloor}
+                  \dbinom{n}{2j+1} (-1)^{2j+1}}
+            \\[.6cm]
+            & = & \Sum{j=0}{\lfloor \frac{n}{2} \rfloor}
+                  \dbinom{n}{2j} + \bcancel{\Sum{j=0}{\lfloor \frac{n-1}{2} \rfloor}
+                  \dbinom{n}{2j+1}} + \Sum{j=0}{\lfloor \frac{n}{2} \rfloor}
+                  \dbinom{n}{2j} - \bcancel{\Sum{j=0}{\lfloor \frac{n-1}{2} \rfloor}
+                  \dbinom{n}{2j+1}}
+            \\[.6cm]
+            & = & 2 \, \Sum{j=0}{\lfloor \frac{n}{2} \rfloor} \dbinom{n}{2j}
+          \end{array}
+        \]
+        \conc{On en déduit : $2^{n-1} = \Sum{k=0}{\lfloor \frac{n}{2}
+            \rfloor} \dbinom{n}{2k}$.}~\\[-1cm]
+      \end{proof}
+    \end{noliste}
+
+
+    \newpage
+    
+    
+  \item
+    \begin{noliste}{a)}
+    \item Soit $n \in \N$. Montrer qu'il existe un unique polynôme
+      $P_n$ tel que :
+      \[
+        \forall x \in \R \setminus \ ]-1,1[, \ P_n(x) = \left(x + \sqrt{x^2-1}\right)^n +
+        \left(x - \sqrt{x^2-1}\right)^n
+      \]
+
+      \begin{proof}~\\
+        Soit $x \in \R \setminus \ ]-1,1[$.
+        \[
+          \begin{array}{cl@{\quad}>{\it}R{4cm}}
+            & \left(x + \sqrt{x^2-1}\right)^n + \left(x - \sqrt{x^2
+              -1}\right)^n
+            \\[.4cm]
+            = & \Sum{k=0}{n} \dbinom{n}{k} x^{n-k} \, \left(\sqrt{x^2-1}\right)^k +
+                  \Sum{k=0}{n} \dbinom{n}{k} x^{n-k} \, \left(- \sqrt{x^2-1} \right)^k
+            & (d'après la formule du binôme de Newton)
+              \nl
+              \nl[-.2cm]
+            = & \left(\Sum{
+                \scalebox{.6}{$
+                  \begin{array}{l}
+                    k=0 \\
+                    \text{$k$ pair}
+                  \end{array}$}
+              }{n}
+            \dbinom{n}{k} x^{n-k} \, \left(\sqrt{x^2-1}\right)^k
+            + \Sum{
+                \scalebox{.6}{$
+                  \begin{array}{l}
+                    k=0 \\
+                    \text{$k$ impair}
+                  \end{array}$}
+              }{n}
+            \dbinom{n}{k} x^{n-k} \,
+            \left(\sqrt{x^2-1}\right)^k\right)
+            \\[1cm]
+            & + \ \left(\Sum{
+                \scalebox{.6}{$
+                  \begin{array}{l}
+                    k=0 \\
+                    \text{$k$ pair}
+                  \end{array}$}
+              }{n}
+            \dbinom{n}{k} x^{n-k} \, \left(-\sqrt{x^2-1}\right)^k
+            + \Sum{
+                \scalebox{.6}{$
+                  \begin{array}{l}
+                    k=0 \\
+                    \text{$k$ impair}
+                  \end{array}$}
+              }{n}
+            \dbinom{n}{k} x^{n-k} \, \left(-\sqrt{x^2-1}\right)^k \right)
+            \\[1cm]
+            = & \multicolumn{2}{l}{\left(\Sum{j=0}{\lfloor \frac{n}{2} \rfloor}
+            \dbinom{n}{2j} x^{n-2j} \, \left(\sqrt{x^2-1}\right)^{2j}
+            + \Sum{j=0}{\lfloor \frac{n-1}{2} \rfloor}
+            \dbinom{n}{2j+1} x^{n-(2j+1)} \,
+            \left(\sqrt{x^2-1}\right)^{2j+1}\right)}
+            \\[1cm]
+            & \multicolumn{2}{l}{+ \ \left(\Sum{j=0}{\lfloor \frac{n}{2} \rfloor}
+            \dbinom{n}{2j} x^{n-2j} \, \left(-\sqrt{x^2-1}\right)^{2j}
+            + \Sum{j=0}{\lfloor \frac{n-1}{2} \rfloor}
+            \dbinom{n}{2j+1} x^{n-(2j+1)} \, \left(-\sqrt{x^2-1}\right)^{2j+1} \right)}
+            \\[1cm]
+            = & \Sum{j=0}{\lfloor \frac{n}{2} \rfloor}
+            \dbinom{n}{2j} x^{n-2j} \, \left(x^2-1\right)^{j}
+            + \bcancel{\Sum{j=0}{\lfloor \frac{n-1}{2} \rfloor}
+            \dbinom{n}{2j+1} x^{n-(2j+1)} \,
+            \left(\sqrt{x^2-1}\right)^{2j+1}}
+            \\[1cm]
+            & + \ \Sum{j=0}{\lfloor \frac{n}{2} \rfloor}
+            \dbinom{n}{2j} x^{n-2j} \, \left(x^2-1\right)^{j}
+            - \bcancel{\Sum{j=0}{\lfloor \frac{n-1}{2} \rfloor}
+            \dbinom{n}{2j+1} x^{n-(2j+1)} \, \left(\sqrt{x^2-1}\right)^{2j+1}}
+            \\[1cm]
+            = & 2 \, \Sum{j=0}{\lfloor \frac{n}{2} \rfloor}
+                \dbinom{n}{2j} x^{n-2j} \, \left(x^2-1\right)^{j}
+          \end{array}
+        \]
+        De plus :
+        \begin{noliste}{$\sbullet$}
+        \item pour tout $j \in \llb 0, \left\lfloor \dfrac{n}{2}
+          \right\rfloor \rrb$,
+          $x \mapsto x^{n-2j}$ est bien une fonction polynomiale, car
+          $n-2j \geq 0$,
+          
+        \item $x \mapsto (x^2-1)^j$ est bien une fonction polynomiale
+          en tant que produit de fonctions polynomiales.
+        \end{noliste}
+        Finalement, la fonction $x \mapsto 2 \ \Sum{j=0}{\lfloor \frac{n}{2} \rfloor}
+        \dbinom{n}{2j} x^{n-2j} \, \left(x^2-1\right)^{j}$ est
+        bien une fonction polynomiale.
+        \conc{Il existe un unique polynôme $P_n$ qui coincide\\ avec la
+          fonction $x \mapsto \left(x + \sqrt{x^2-1}\right)^n +
+          \left(x - \sqrt{x^2-1}\right)^n$ sur $\R \setminus \ ]-1,1[$
+        :\\ le polynôme défini par $P_n(X) = 2 \ \Sum{j=0}{\lfloor \frac{n}{2} \rfloor}
+                \dbinom{n}{2j} X^{n-2j} \, \left(X^2-1\right)^{j}$.}~\\[-1.4cm]
+      \end{proof}
+
+
+      \newpage
+
+      
+    \item Quel est le coefficient de $X^n$ dans l'expression de
+      $P_n(X)$ ?
+
+      \begin{proof}~\\
+        Soit $n \in \N^*$.
+        \begin{noliste}{$\sbullet$}
+        \item Soit $j \in \llb 0, \left\lfloor \dfrac{n}{2}
+          \right\rfloor \rrb$. On note $Q_j(X) = X^{n-2j} \left( X^2-1
+          \right)^j$.
+          \begin{noliste}{$\stimes$}
+          \item Le polynôme $Q_j$ est de degré $n$. En effet :
+            \[
+              \deg(Q_j) \ = \ \deg\left( X^{n-2j}
+                \left(X^2-1\right)^j\right) \ = \
+              \deg\left(X^{n-2j}\right) + j \deg\left(X^2-1\right)
+              \ = \ (n-2j) + j \times 2 \ = \ n
+            \]
+            
+          \item Son coefficient dominant (le coefficient de $X^n$) est $1$.
+          \end{noliste}
+          On a ainsi démontré que le polynôme $Q_j$ est de la forme :
+          $ Q_j(X) \ = \ X^n + \Sum{k=0}{n-1} a_{j,k} \, X^k$
+          
+        \item On en déduit :
+          \[
+            \begin{array}{rcl@{\quad}>{\it}R{3cm}}
+              P_n(X) 
+              & = & 2 \ \Sum{j=0}{\lfloor \frac{n}{2} \rfloor}
+                    \dbinom{n}{2j} \left(X^n + \Sum{k=0}{n-1} a_{j,k}
+                    X^k\right)
+              \\[.6cm]
+              & = & \left(2 \ \Sum{j=0}{\lfloor \frac{n}{2} \rfloor}
+                    \dbinom{n}{2j} \right) X^n + 2 \ \Sum{j=0}{\lfloor
+                    \frac{n}{2} \rfloor} \Sum{k=0}{n-1} a_{k,j} X^k
+              \\[.6cm]
+              & = & \left(2 \times 2^{n-1}\right) X^n + \Sum{k=0}{n-1}
+                    \left(2 \ \Sum{j=0}{\lfloor \frac{n}{2} \rfloor}
+                    a_{k,j} \right) X^k
+              & (d'après la question \itbf{1.b)}, car $n \in \N^*$)
+                \nl
+                \nl[-.2cm]
+              & = & 2^n \, X^n + R_{n-1}(X)
+            \end{array}
+          \]
+          où $R_{n-1}$ est un polynôme de degré au plus $n-1$.
+          
+        \item Soit $x \in \R \setminus \ ]-1,1[$.
+            \[
+              P_0(x) \ = \ \left(x + \sqrt{x^2-1} \right)^0 + \left(x
+                - \sqrt{x^2-1} \right)^0 \ = \ 2
+            \]
+            On obtient : $\forall x \in \R \setminus \ ]-1,1[$,
+            $P_0(x)-2 = 0$.\\
+            En particulier, le polynôme $P_0(X)-2$ admet une infinité
+            de racines.\\
+            C'est donc le polynôme nul.
+            \conc{D'où : $P_0(X) = 2$.}
+          \conc{On en déduit que, si $n \in \N^*$, le coefficient dominant de $P_n$ est
+            $2^n$,\\ et le coefficient dominant de $P_0$ est $2$.}~\\[-1.4cm]
+        \end{noliste}
+      \end{proof}
+    \end{noliste}
+    
+  \item
+    \begin{noliste}{a)}
+    \item Justifier la relation de récurrence suivante :
+      \[
+        \forall n \in \N, \quad P_{n+2}(X) \ = \ 2 \, X \, P_{n+1}(X) -
+        P_n(X)
+      \]
+
+      \begin{proof}~\\
+        Soit $n \in \N$.
+        \begin{noliste}{$\sbullet$}
+        \item Soit $x \in \R \setminus \ ]-1,1[$.
+          \[
+            \begin{array}{cl}
+              & 2x \, P_{n+1}(x) - P_n(x)
+              \\[.2cm]
+              = & 2 \, x \left(\left(x + \sqrt{x^2-1}\right)^{n+1} +
+                    \left(x - \sqrt{x^2-1}\right)^{n+1} \right) -
+                    \left( \left(x+ \sqrt{x^2-1} \right)^n + \left(x -
+                    \sqrt{x^2-1} \right)^n\right)
+              \\[.6cm]
+              = & \left(x + \sqrt{x^2-1}\right)^n \left(2x \left(x +
+                  \sqrt{x^2-1} \right) -1\right) + \left(x +
+                  \sqrt{x^2-1} \right)^n \left(2x \left(x -
+                  \sqrt{x^2-1}\right) -1 \right)
+              \\[.6cm]
+              = & \left(x + \sqrt{x^2-1}\right)^n \left(2x^2 + 2x \,
+                  \sqrt{x^2-1} -1\right) + \left(x +
+                  \sqrt{x^2-1} \right)^n \left(2x^2 - 2x \,
+                  \sqrt{x^2-1} -1 \right)
+            \end{array}
+          \]
+          Or :
+          \[
+            \begin{array}{cl}
+              & P_{n+2}(x)
+              \\[.2cm]
+              = & \left(x + \sqrt{x^2-1} \right)^{n+2} + \left(x -
+                    \sqrt{x^2-1} \right)^{n+2}
+              \\[.6cm]
+              = & \left(x + \sqrt{x^2-1} \right)^{n} \left(x + \sqrt{x^2-1}\right)^2
+                  + \left(x - \sqrt{x^2-1} \right)^{n} \left(x -
+                  \sqrt{x^2-1}\right)^2
+              \\[.6cm]
+              = & \left(x + \sqrt{x^2-1} \right)^{n} \left(x^2 + 2x \,
+                  \sqrt{x^2-1} + (x^2-1) \right)
+                  + \left(x - \sqrt{x^2-1} \right)^{n} \left(x^2 - 2x \,
+                  \sqrt{x^2-1} + (x^2-1)\right)
+              \\[.6cm]
+              = & \left(x + \sqrt{x^2-1} \right)^{n} \left(2x^2 + 2x \,
+                  \sqrt{x^2-1} -1 \right)
+                  + \left(x - \sqrt{x^2-1} \right)^{n} \left(2x^2 - 2x \,
+                  \sqrt{x^2-1} -1\right)
+            \end{array}
+          \]
+          Finalement : $\forall x \in \R \setminus \ ]-1,1[$,
+          $P_{n+2}(x) = 2x \, P_{n+1}(x) - P_n(x)$.
+          
+        \item On en déduit : $\forall x \in \R \setminus \ ]-1,1[$,
+          $P_{n+2}(x) - 2x \, P_{n+1}(x) + P_n(x) = 0$.\\
+          En particulier, le polynôme $P_{n+2}(X) - 2X \, P_{n+1}(X) +
+          P_n(X)$ admet une infinité de racines. C'est donc le
+          polynôme nul.
+          \conc{$P_{n+2}(X) \ = \ 2X \, P_{n+1}(X) - P_n(X)$}~\\[-1.4cm]
+        \end{noliste}
+      \end{proof}
+      
+    \item ???
+    \end{noliste}
+    
+  \item
+    \begin{noliste}{a)}
+    \item Proposer deux fonctions \Scilab{} :
+      \begin{noliste}{$\stimes$}
+      \item l'une prenant en entrée deux vecteurs {\tt P} et {\tt Q}
+        de tailles différentes et permettant d'en faire la somme. On supposera
+        que la taille du vecteur {\tt Q} est supérieure à celle du
+        vecteur {\tt P}.
+        
+      \item l'autre prenant en entrée un vecteur {\tt P} et permettant
+        de concaténer au vecteur {\tt P} un $0$ à sa gauche.
+      \end{noliste}
+      {\it (\'Enoncé déduit de souvenirs)}
+
+      \begin{proof}~
+        \begin{noliste}{$\sbullet$}
+        \item Pour la première fonction, on concatène au vecteur {\tt
+            P} (le plus petit des deux vecteurs) plusieurs $0$ à sa
+          droite pour qu'il soit de même taille que le vecteur {\tt Q}
+          pour rendre la somme licite. On obtient la fonction suivante
+          :
+          \begin{scilab}
+            & \tcFun{function} \tcVar{S} = Somme(\tcVar{P}, \tcVar{Q}) \nl %
+            & \quad R = [\tcVar{P}, zeros(1, length(\tcVar{Q}) -
+            length(\tcVar{P}))] \nl %
+            & \quad \tcVar{S} = R + \tcVar{Q} \nl %
+            & \tcFun{endfunction}
+          \end{scilab}
+          
+        \item On propose la fonction suivante :
+          \begin{scilab}
+            & \tcFun{function} \tcVar{T} = AjoutZero(\tcVar{P}) \nl %
+            & \quad \tcVar{T} = [0, \tcVar{P}] \nl %
+            & \tcFun{endfunction}
+          \end{scilab}
+        \end{noliste}
+      \end{proof}
+
+
+      \newpage
+      
+      
+    \item Proposer une fonction \Scilab{} prenant en entrée un
+      paramètre $n$ et permettant de calculer le
+      polynôme $P_n$. On pourra pour cela utiliser la représentation
+      matriciel des polynômes en présence dans la base
+      canonique de $\R[X]$.\\
+      {\it (\'Enoncé extrapolé)}
+
+      \begin{proof}~
+        \begin{noliste}{$\sbullet$}
+        \item La suite de polynômes $(P_n)$ est définie par la
+          relation de récurrence de la question \itbf{3.a)}.\\
+          On cherche alors d'abord à déterminer $P_0$ et $P_1$.
+          \begin{noliste}{$\stimes$}
+          \item D'après la question \itbf{2.a)}, on a : $P_0(X) = 2$.
+            
+          \item Soit $x \in \R \setminus \ ]-1,1[$.
+            \[
+              P_1(x) \ = \ \left(x + \sqrt{x^2-1} \right)^1 + \left(x
+                - \sqrt{x^2-1} \right)^1 \ = \ x + \bcancel{\sqrt{x^2
+                  -1}} +x - \bcancel{\sqrt{x^2-1}} \ = \ 2 \, x
+            \]
+            On obtient donc : $\forall x \in \R \setminus \ ]-1,1[$,
+            $P_1(x) - 2x =0$.\\
+            En particulier, le polynôme $P_1(X) -2X$ admet une
+            infinité de racines.\\
+            C'est donc le polynôme nul.
+            \conc{D'où : $P_1(X) = 2 \, X$.}
+          \end{noliste}
+          
+        \item On propose la fonction \Scilab{} suivante :
+          \begin{scilab}
+            & \tcFun{function} \tcVar{P} = Suite(\tcVar{n}) \nl %
+            & \quad Q = [2] \nl %
+            & \quad R = [0, 2] \nl %
+            & \quad \tcFor{for} k = 1:\tcVar{n} \nl %
+            & \quad \quad S = 2 \Sfois{} AjoutZero(R) \nl %
+            & \quad \quad T = Somme(-Q, S) \nl %
+            & \quad \quad Q = R \nl %
+            & \quad \quad R = T \nl %
+            & \quad \tcFor{end} \nl %
+            & \quad \tcVar{P} = Q \nl %
+            & \tcFun{endfunction}
+          \end{scilab}
+          
+          \item L'énoncé suggère en effet d'utiliser la représentation
+          matricielle des polynômes dans la base canonique de
+          $\R[X]$.\\
+          On note $\B_n$ la base canonique de $\R_n[X]$. On obtient :
+          \begin{noliste}{$\stimes$}
+          \item $\Mat_{\B_0}(P_0) = (2)$ et $\Mat_{\B_1}(P_1) =
+            \begin{smatrix}
+              0\\
+              2
+            \end{smatrix}$.\\
+            On initialise donc la suite $(P_n)$ avec les lignes
+            suivantes :
+            \begin{scilabC}{1}
+              & \quad Q = [2] \nl %
+              & \quad R = [0, 2]
+            \end{scilabC}
+          \end{noliste}
+            
+          \item On rappelle que $P_{n+1} \in \R_{n+1}[X]$. \\
+            Si $\Mat_{\B_{n+1}}(P_{n+1}) =
+            \begin{smatrix}
+              a_0\\
+              \vdots\\
+              a_{n+1}
+            \end{smatrix}$, alors, en notant $S_{n+2}(X) = X P_{n+1}(X)
+            \in \R_{n+2}[X]$,
+            on a : $\Mat_{\B_{n+2}}(S_{n+2}) =
+            \begin{smatrix}
+              0\\
+              a_0\\
+              \vdots\\
+              a_{n+1}
+            \end{smatrix}$.\\
+            Pour obtenir le polynôme $2X \, P_{n+1}(X)$, dont la
+            représentation matricielle est stockée dans la variable
+            {\tt S}, on utilise
+            donc la commande suivante :
+            \begin{scilabC}{4}
+              & \quad \quad S = 2 \Sfois{} AjoutZero(R)
+            \end{scilabC}
+            
+
+            \newpage
+
+          
+          \item On doit ensuite sommer les polynômes $2X \,
+            P_{n+1}(X)$ et $-P_n(X)$ pour obtenir $P_{n+2}$.\\
+            Dans la fonction {\tt Somme} le premier argument est le
+            polynôme de plus petit degré. Pour respecter cet ordre, on
+            détermine la représentation matricielle de $P_{n+2}$ avec
+            la commande suivante :
+            \begin{scilabC}{5}
+              & \quad \quad T = Somme(-Q, S)
+            \end{scilabC}
+          
+          \item Enfin, dans ce programme :
+            \begin{noliste}{$\stimes$}
+            \item la variable {\tt Q} contient la représentation
+              matricielle du polynôme $P_n$ dans la base $\B_n$,
+              
+            \item la variable {\tt R} contient la représentation
+              matricielle du polynôme $P_{n+1}$ dans la base
+              $B_{n+1}$,
+              
+            \item la variable {\tt S} contient la représentation
+              matricielle du polynôme $P_{n+2}$ dans la base $\B_{n+2}$.
+            \end{noliste}
+            Il faut donc renvoyer la variable {\tt Q}, ce qu'on
+            effectue avec la commande :
+            \begin{scilabC}{9}
+              & \tcVar{P} = Q
+            \end{scilabC}~\\[-1.4cm]
+        \end{noliste}
+      \end{proof}
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  On considère une \var $Z$ de loi normale centrée réduite. On note
+  $f$ une densité de $Z$.
+  \begin{noliste}{1.}
+  \item Justifier que l'intégrale $\dint{x}{+\infty} \dfrac{f(t)}{t^2}
+    \dt$ converge si $x>0$.\\
+    Est-ce toujours le cas si $x=0$ ?
+
+    \begin{proof}~\\
+      Soit $x>0$.
+      \begin{noliste}{$\sbullet$}
+      \item La fonction $t \mapsto \dfrac{f(t)}{t^2}$ est continue sur
+        $[x, +\infty[$ en tant que quotient de fonctions continues sur
+        $[x, +\infty[$ dont le dénominateur ne s'annule pas sur cet intervalle.
+        
+      \item Par définition de la fonction $f$ (on rappelle que : $f :
+        t \mapsto \dfrac{1}{\sqrt{2 \pi}} \, \ee^{-\frac{t^2}{2}}$),
+        on a : 
+        \[
+          \forall t \in \R, \ 0 \ \leq \ f(t) \ \leq \ f(0) = \dfrac{1}{\sqrt{2 \pi}}
+        \]
+        Ainsi, pour tout $t \geq x$ :
+        \[
+          0 \ \leq \ \dfrac{f(t)}{t^2} \ \leq \ \dfrac{1}{\sqrt{2 \pi}
+            \ t^2}
+        \]
+        
+      \item Ainsi : 
+        \begin{noliste}{$\stimes$}
+        \item $\forall t \in [x, +\infty[$, $0 \ \leq \
+          \dfrac{f(t)}{t^2} \ \leq \ \dfrac{1}{\sqrt{2 \pi} \ t^2}$
+          
+        \item l'intégrale $\dint{x}{+\infty} \dfrac{1}{t^2} \dt$ est
+          une intégrale de Riemann, impropre en $+\infty$, d'exposant
+          $2$ ($2>1$). C'est donc une intégrale convergente. D'où
+          l'intégrale $\dint{x}{+\infty} \dfrac{1}{\sqrt{2 \pi} \ t^2}
+          \dt$ est convergente.
+        \end{noliste}
+        \conc{Par critère de comparaison d'intégrales généralisées de
+          fonctions continues positives,\\ l'intégrale
+          $\dint{x}{+\infty} \dfrac{f(t)}{t^2} \dt$ est convergente.}
+
+
+        \newpage
+
+      
+      \item On remarque : 
+        \[
+          \dfrac{f(t)}{t^2} \ \eq{t \to 0} \ \dfrac{f(0)}{t^2} \ = \
+          \dfrac{1}{\sqrt{2 \pi} \ t^2}
+        \]
+        Ainsi : 
+        \begin{noliste}{$\stimes$}
+        \item $\dfrac{f(t)}{t^2} \ \eq{t \to 0} \ 
+          \dfrac{1}{\sqrt{2 \pi} \ t^2} \ (\geq 0)$.
+          
+        \item l'intégrale $\dint{0}{1} \dfrac{1}{t^2} \dt$ est
+          une intégrale de Riemann, impropre en $0$, d'exposant
+          $2$ ($2\bcancel{<}1$). C'est donc une intégrale divergente. D'où
+          l'intégrale $\dint{0}{+\infty} \dfrac{1}{\sqrt{2 \pi} \ t^2}
+          \dt$ est divergente.
+        \end{noliste}
+        \conc{Par critère d'équivalence d'intégrales généralisées de
+          fonctions continues positives,\\ l'intégrale
+          $\dint{0}{+\infty} \dfrac{f(t)}{t^2} \dt$ est divergente.}
+      \end{noliste}
+    \end{proof}
+    
+  \item ???
+  \end{noliste}
+\end{exerciceSP}
+
+
+%%FIN
+
+
+\end{document}

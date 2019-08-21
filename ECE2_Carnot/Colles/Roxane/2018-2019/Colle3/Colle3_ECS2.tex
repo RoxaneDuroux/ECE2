@@ -1,0 +1,163 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECS2 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 3}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Série 1}
+\subsection*{Question de cours}
+Quelle est la nature de la série $\Sum{}{} \ln\left( 
+1+\dfrac{1}{n}\right)$.
+
+\subsection*{Exercice}
+\noindent
+Si $a=(a_1,a_2,a_3,a_4)\in\R^4$, on pose $M(a)=\begin{pmatrix} 
+0&0&0&a_1\\ 0&0&0&a_2\\ 0&0&0&a_3\\a_1&a_2&a_3&a_4\end{pmatrix}$. \\
+On note $F$ le sous-espace vectoriel de $\M{4}$ constitué des 
+matrices $M(a)$ lorsque $a $ parcourt $\R^4$. \\
+On note $J=\begin{pmatrix} 1&0&0&0\\ 0&1&0&0\\ 
+0&0&1&0\\0&0&0&0\end{pmatrix}$.
+\begin{noliste}{1.}
+\item
+Soit $E$ un espace vectoriel de dimension finie égale à $n$.
+\begin{noliste}{a)}
+\item
+\textsf{Question de cours :} Rappeler la définition du sous-espace 
+vectoriel engendré par une famille $(x_1,\ldots,x_p)$ de vecteurs de 
+$E$. Dans quel cas la famille $(x_1,\ldots,x_p)$ est-elle une base de 
+$\text{Vect}(x_1,\ldots,x_p)$ ?
+\item
+Soit $E_1$ de base $(x_1,\ldots,x_p)$ et $E_2$ de base 
+$(y_1,\ldots,y_q)$ deux sous-espaces vectoriels de $E$ tels que $E_1\cap 
+E_2=\{0_E\}$. Montrer que la famille $(x_1,\ldots,x_p,y_1,\ldots,y_q)$ 
+est libre. Qu'en déduit-on sur $p+q$ ?
+\end{noliste}
+\item
+Montrer que $F$ est un sous-espace vectoriel de $\M{4}$ et en 
+donner la dimension.
+\item
+Soit $(e_1,e_2,e_3,e_4)$ la base canonique de $\R^4$. Pour 
+$i\in\llb 1,4\rrb$, on pose $M_i=M(e_i)$. Montrer que $\forall 
+i\in\llb 1,4\rrb$, la matrice $M_i+J$ est inversible et que la famille 
+$(M_i+J)_{1\le i\le 4}$ est libre.
+\item
+Soit $a\in\R^4$. Montrer que si pour tout réel $\theta$ non nul, la 
+matrice $M(a)+\theta J$ est non inversible, alors $a=(0,0,0,0)$.
+\item
+Soit $G$ un sous-espace vectoriel de $\M{4}$ qui ne contient 
+aucune matrice inversible et tel que $J\in G$.
+\begin{noliste}{a)}
+\item
+Déterminer $G\cap F$ et en déduire que la dimension de $G$ est 
+inférieure ou égale à $12.$
+\item
+Existe-t-il un sous-espace vectoriel de $\M{4}$ de dimension 
+$12$ ne contenant aucune matrice inversible et contenant $J$ ?
+\end{noliste}
+\end{noliste}
+
+
+\newpage
+
+\section*{Série 2}
+\subsection*{Question de cours}
+Calculer $\DSum{k=0}{n} \dfrac{k^2}{(-5)^k}$.
+
+\subsection*{Exercice}
+\noindent
+Un péage comporte 10 guichets numérotés de $1$ à $10$. Le nombre de 
+voitures $N$, arrivant au péage en $1$ heure, suit une loi de Poisson 
+de paramètre $\lambda > 0$. On suppose de plus que les conducteurs 
+choisissent leur file au hasard et indépendamment des autres. Soit 
+$X_1$ la variable aléatoire égale au nombre de voitures se présentant 
+au guichet n\textdegree 1 en une heure.
+\begin{noliste}{1.}
+\item Déterminer le nombre moyen de voitures arrivant au péage en une 
+heure.
+\item Quelle est la proba qu'une voiture qui arrive au péage se dirige 
+vers le guichet n°1 ? 
+\item Calculer $\Prob_{\Ev{N=n}}(\Ev{X_1 =k})$ pour tout $0 \leq k \leq 
+n$. Et pour $k>n$?
+\item Justifier que $\Prob(\Ev{X_1 =k})= \DSum{n=k}{+\infty} 
+\Prob_{\Ev{N=n}}(\Ev{X_1 =k}) \, \times \, \Prob(\Ev{N =n})$\\
+puis montrer que $ \Prob(\Ev{X_1 =k}) = \ee^{- \lambda} 
+\left(\dfrac{1}{10}\right)^k \dfrac{\lambda^k}{k!} \, \DSum{n=0}{+ 
+\infty}   \left(\dfrac{9}{10}\right)^n \dfrac{\lambda^n}{n!}$.
+\item En déduire la loi de $X_1$, son espérance et sa variance
+\end{noliste}
+
+
+\newpage
+
+\section*{Série 3}
+\subsection*{Question de cours}
+Démonstration de \og Une application linéaire est un isomorphisme si et 
+seulement si elle envoie bases sur bases \fg{}
+
+\subsection*{Exercice}
+\noindent
+On lance successivement une pièce truquée dont la probabilité de faire 
+face est de $p \in ]0,1[$. Pour $n \geq 1$, notons $F_n$ :\og Obtenir 
+Face au $n$-ième lancer \fg{}, et\\
+$P_n$ :\og Obtenir Pile au $n$-ième lancer \fg{}.\\
+On note $T_n$ : \og le premier Pile est obtenu au $n$-ième lancer \fg{}.
+ \begin{noliste}{1.}
+\item Pour $n \geq 1$, exprimer l'événement $T_n$ en fonction des $F_i$ 
+et $P_i$.
+\item Donner $\Prob(T_n)$ en fonction de $p$ et $n$.
+\item On lance la pièce une infinité de fois. \'Ecrire les événements 
+suivants :
+ \begin{noliste}{$-$}
+  \item $A_n$ :\og obtenir au moins un pile au cours des $n$ premiers 
+lancers. \fg{},
+  \item $A$ : \og obtenir au moins un pile \fg{}.
+ \end{noliste}
+ \item Parmi les suites $(F_n)$, $(P_n)$, $(T_n)$ et $(A_n)$, 
+lesquelles sont croissantes ?\\ décroissantes ?
+ \item Parmi les suites $(F_n)$, $(P_n)$, $(T_n)$ et $(A_n)$, 
+lesquelles sont constituées d'événements mutuellement indépendants?
+ \item Donner la probabilité $\Prob(A)$. Que peut-on dire de 
+l'événement $A$?
+\end{noliste}
+
+
+\section*{Exercice supplémentaire}
+\begin{noliste}{1.}
+\item Un tirage au Loto est une combinaison (l'ordre ne compte pas) de 
+6 numéros distincts compris entre 1 et 49. Quelle est la probabilité 
+(on donne : ${49\choose 6}=13 983 816$), notée $p$ dans la suite, de 
+gagner (c-à-d d'avoir les 6 bons numéros) au Loto~?
+\item On joue au loto indéfiniment et on définit un événement en 
+posant~:
+$A=\text{\og{} on gagne au moins une fois 
+\fg{}}$, et  pour tout $n\in\N^*$~:
+\begin{noliste}{$\sbullet$}
+\item $A_n=\text{\og{}on gagne pour la premi\`ere fois au $\eme{n}$ 
+tirage \fg{}}$,
+
+\item $B_n=\text{\og{} on gagne au $n$-\`eme tirage \fg{}}$.
+\end{noliste}
+Exprimer $A_n$ à l'aide des $B_k$. En déduire $\Prob(A_n)$ en fonction 
+de~$p$.
+\item En déduire $\Prob(A)$ en exprimant $A$ à l'aide des $A_n$. 
+Comment appelle-t-on un tel événement~$A$~?
+\end{noliste}
+
+\end{document}

@@ -1,0 +1,463 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 1999} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 1999}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1999}}
+
+
+
+{\large \textbf{Concepteur : Edhec}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{EXERCICE 1 :}
+
+Soit $a$ un réel positif ou nul. On considère la matrice $A\left(
+a\right) = \left( 
+\begin{array}{cccc}
+1 & a-2 & a & 1 \\
+a & -1 & 1 & a \\
+0 & 0 & -a & 1 \\
+0 & 0 & -1 & 0
+\end{array}
+\right) $
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $A\left( 0\right) $ admet 1 et -1 comme seules
+valeurs
+propres.
+
+Donner les sous-espaces propres correspondants.
+
+\hspace{-1cm}Dans la suite, on suppose $a>0.$
+
+\item Montrer que les valeurs propres de $A\left( a\right) $ sont les
+réels $\lambda $ solutions de l'une des équations : 
+\[
+\lambda ^{2} = \left( a-1\right) ^{2}\quad \text{et\quad }\lambda
+^{2} + a\lambda + 1 = 0.
+\]
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déduire de la question précédente la valeur de $a$ pour
+laquelle $A\left( a\right) $ n'est pas inversible.
+
+\item Pour cette valeur, dire si $A\left( a\right) $ est
+diagonalisable.
+\end{noliste}
+
+\item On suppose dans cette question que $a>2.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $A\left( a\right) $ possède 4 valeurs propres
+distinctes deux à deux.
+
+\item En déduire que $A\left( a\right) $ est diagonalisable.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 2}
+
+Pour tout réel $a$, on considère la fonction $f_{a}$ de
+$\mathbb{R\times R}$ dans $\R$, définie par :
+
+$\forall \left( x,y\right) \in \mathbb{R\times R},f_{a}\left(
+x,y\right)
+ = \left( 1 + y + xy + ax^{2}\right) e^{y}.$
+
+\subsection*{Partie 1 : étude des extrema de $f_{a}$}
+
+Dans cette partie, on suppose $a\neq 0$ et $a\neq -\dfrac{1}{2}$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer les dérivées partielles premières de $f_{a}.$
+
+\item En déduire que $f_{a}$ possède deux points critiques
+(c'est-à-dire des couples de $\mathbb{R\times R}$ en lesquels $f_{a}$
+est
+susceptible de présenter un extremum local) et donner leurs coordonnées
+\end{noliste}
+
+\item Calculer les dérivées partielles secondes de $f_{a}.
+$
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Examiner, pour chacun des deux points critiques, à quelle
+condition portant sur $a$, $f_{a}$ présente en ces points un extremum
+local.
+
+\item Déterminer, en distinguant trois cas, si $f_{a}$ présente sur
+$\mathbb{R\times R}$ un maximum local ou un minimum local et donner sa
+valeur
+en fonction de $a.$
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie 2 : étude d'un fonction définie à l'aide de
+$f_{a}$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout réel $x$ et pour tout réel $t$ inférieur à $x $,
+calculer $\dint \nolimits_{t}{x}e^{y}dy.$\\
+En déduire que l'intégrale $I = \dint \nolimits_{-\infty }{x}e^{y}dy$
+converge et donner sa valeur.
+
+\item Pour tout réel $x$, montrer gr\^{a}ce à une intégration
+par parties, que l'intégrale $J = \dint \nolimits_{-\infty
+}{x}ye^{y}dy$
+converge et donner sa valeur
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déduire des deux questions précédentes que l'on définit bien une
+fonction $F_{a}$, de $\R$ dans $\R$, en
+posant : $F_{a}\left( x\right) = \dint \nolimits_{-\infty
+}{x}f_{a}\left(
+x,y\right) dy.$
+
+\item Après avoir écrit $F_{a}\left( x\right) $ en fonction de $a$
+et de $x$, donner le tableau de variations de $F_{a}.$\\
+(On distinguera les trois cas : $a = -1,a<-1$ et $a>-1$)
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE 3}
+
+Soient $X,Y$ et $Z$ trois variables aléatoires mutuellement
+indépendantes et définies sur le même espace probabilisé $\left(
+\Omega,\mathcal{A},P\right).$ On suppose que $X,Y$ et $Z$ suivent la
+loi $\mathcal{U}_{\left[ \ \left| 1,n\right| \right] }$ 
+
+( c'est-à-dire que : $\forall k\in \left[ \ \left| 1,n\right|
+\right],P\left(\Ev{ X = k}\right) = P\left(\Ev{ Y = k}\right) =
+P\left(\Ev{ Z = k}\right) = \dfrac{1}{n}$
+).
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : $\forall k\in \left[ \ \left| 2,n + 1\right|
+\right],P\left(\Ev{ X + Y = k}\right) = \dfrac{k-1}{n^{2}}.$
+
+\item Montrer que : $\forall k\in \left[ \ \left| n + 2,2n\right|
+\right],P\left(\Ev{ X + Y = k}\right) = \dfrac{2n-k + 1}{n^{2}}.$
+\end{noliste}
+
+\item Utiliser la formule des probabilités totales pour déduire de
+la première question que :
+\[
+P\left(\Ev{ X + Y = Z}\right) = \dfrac{n-1}{2n^{2}}.
+\]
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la variable aléatoire $T = n + 1-Z$ suit la loi
+$\mathcal{U}_{\left[ \ \left| 1,n\right| \right] }$.
+
+\item Pourquoi $T$ est-elle indépendante de $X$ et de $Y$ ?
+
+\item En faisant intervenir la variable $T$ et en utilisant la deuxième
+question, déterminer la probabilité $P\left(\Ev{ X + Y + Z = n +
+1}\right).$
+\end{noliste}
+\end{noliste}
+
+\section*{PROBLEME}
+
+Les parties 1 et 2 sont indépendantes.
+
+\subsection*{Partie 1}
+
+On pose, pour tout $n$ élément de $\N^{*},u_{n} = \dsum\limits_{p =
+1}{n}\dfrac{1}{p}.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : $\forall p\in \N^{\ast },\dint_{p}{p +
+1}\dfrac{dt}{t}\geq \dfrac{1}{p + 1}.$
+
+\item En déduire que : $\forall n\in \N^{\ast },u_{n}\leq
+1 + \ln \left( n\right).$
+\end{noliste}
+
+\item On considère la fonction $\varphi_{1}$ définie sur $\R_{+}$ par :
+$\left\{ 
+\begin{array}{l}
+\varphi_{1}\left( 0\right) = 0 \\
+\varphi_{1}\left( x\right) = x\left( 1 + \ln \left( x\right) \right)
+\text{ si 
+}x>0
+\end{array}
+\right. $\\
+Montrer que $\varphi_{1}$ est continue sur $\R_{+}.$
+
+\item Pour tout réel $x$ positif et pour tout entier naturel $n$ non
+nul, on pose :\\
+$\varphi_{n + 1}\left( x\right) = \dint_{0}{x}\varphi_{n}\left(
+t\right\ dt$
+( On rappelle que $\varphi_{1}$ a été définie à la question
+2).
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout $n$ élément de $\N^{\ast }$, la
+fonction $\varphi_{n}$ est parfaitement définie et continue sur
+$\R_{+}$. Que vaut $\varphi_{n}\left( 0\right) $ ?
+
+\item Vérifier qu'il existe deux suites $\left( a_{n}\right)_{n\in 
+\N^{\ast }}$ et $\left( b_{n}\right)_{n\in \N^{\ast }}$
+telles que :\\
+$\forall n\in \N^{\ast },\forall x\in \R_{+}{\ast },\varphi
+_{n}\left( x\right) = x^{n}\left( a_{n} + b_{n}\ln x\right).$\\
+On montrera que : $\forall n\in \N^{\ast },a_{n + 1} = \dfrac{a_{n}}{n
++ 1}-\dfrac{b_{n}}{\left( n + 1\right) ^{2}}$ et $b_{n + 1} =
+\dfrac{b_{n}}{n + 1}$
+\end{noliste}
+
+\item Écrire un programme en \Scilab{} qui calcule et affiche les $n$
+premiers termes de chacune des suites $\left( a_{n}\right) $ et $\left(
+b_{n}\right) $ pour une valeur de $n$ entrée par l'utilisateur.
+
+\item Calculer $b_{n}.$
+
+\item Pour tout $n$ élément de $\N^{\ast }$, on pose : $c_{n} = n!$
+$a_{n}.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $c_{n} = 2-u_{n}.$
+
+\item En déduire que, pour tout entier $n$ supérieur ou égal 
+à 2 : $\left| c_{n}\right| \leq 1 + \ln \left( n\right).$
+
+\item Conclure que $\lim \limits_{n\rightarrow + \infty }a_{n} = 0.$
+
+\item Montrer enfin que la série de terme général $a_{n}$ est
+absolument convergente.
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie 2}
+
+On considère les fonctions $e_{1},e_{2},e_{3}$ et $e_{4}$ définies
+par :\\
+$\forall x\in \R_{+}{\ast },e_{1}\left( x\right) = x,e_{2}\left(
+x\right) = x^{2},e_{3}\left( x\right) = x\ln \left( x\right) $ et
+$e_{4}\left(
+x\right) = x^{2}\ln \left( x\right).$\\
+On note $E$ l'espace vectoriel engendré par $e_{1},e_{2},e_{3}$ et
+$e_{4}.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On suppose dans cette question que $a,b,c$ et $d$ sont 4 réels
+tels que :\\
+(*) $\forall x\in \R_{+}{\ast },ax + bx^{2} + cx\ln \left( x\right)
+ + dx^{2}\ln \left( x\right) = 0.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $a + b = 0.$
+
+\item Établir que : $\forall x>1,\dfrac{a}{x\ln \left( x\right) } +
+\dfrac{b}{\ln \left( x\right) } + \dfrac{c}{x} + d = 0.$ En déduire que
+$d = 0.$
+
+\item Établir ensuite que : $\forall x\in \R_{+}{\ast },\dfrac{a}{x} +
+b + c\dfrac{\ln \left( x\right) }{x} = 0.$ En déduire que $b = 0.$
+
+\item Montrer finalement que $a = b = c = d = 0.$
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déduire de la question précédente que $\left(
+e_{1},e_{2},e_{3},e_{4}\right) $ est une famille libre.
+
+\item Montrer que $\left( e_{1},e_{2},e_{3},e_{4}\right) $ est une base
+de $E.$
+\end{noliste}
+
+\item On note $u$ l'application qui à toute fonction $f$ de $E$ associe
+la fonction $g = u\left( f\right) $ définie par :\\
+$\forall x\in \R_{+}{\ast },g\left( x\right) = xf^{\prime }\left(
+x\right).$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $u$ est une application linéaire.
+
+\item Déterminer $u\left( e_{1}\right),u\left( e_{2}\right),u\left(
+e_{3}\right) $ et $u\left( e_{4}\right).$
+
+\item En déduire que $u$ est un endomorphisme de $E.$
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner la matrice $A$ de $u$ dans la base $\left(
+e_{1},e_{2},e_{3},e_{4}\right).$
+
+\item Montrer que $u$ est un automorphisme de $E.$
+\end{noliste}
+\end{noliste}
+
+\end{document}
+

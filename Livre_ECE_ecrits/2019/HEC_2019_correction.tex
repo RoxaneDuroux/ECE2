@@ -1,0 +1,5107 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+% \input{../macros_Livre.tex}
+\input{../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2019} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{-.2cm}
+
+%%DEBUT
+
+\section*{Exercice}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+\item Dans cette question, on considère les matrices $C =
+  \begin{smatrix}
+    0 \\
+    1 \\
+    2
+  \end{smatrix}
+  \in \M{3, 1}$, $L =
+  \begin{smatrix}
+    1 & 2 & -1
+  \end{smatrix}
+  \in \M{3, 1}$ et le produit matriciel $M = CL$.
+
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+  \item
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm} %
+    \item Calculer $M$ et $M^2$.
+
+      \begin{proof}~%
+        \begin{noliste}{$\sbullet$}
+        \item Tout d'abord : $M \ = \
+          \begin{smatrix}
+            0 \\
+            1 \\
+            2
+          \end{smatrix}
+          \begin{smatrix}
+            1 & 2 & -1
+          \end{smatrix}
+          \ = \ 
+          \begin{smatrix}
+            0 & 0 & 0 \\
+            1 & 2 & -1 \\
+            2 & 4 & -2 
+          \end{smatrix}
+          $. %
+          \conc{$M =
+            \begin{smatrix}
+              0 & 0 & 0 \\
+              1 & 2 & -1 \\
+              2 & 4 & -2
+            \end{smatrix}$}
+          \begin{remarkL}{.98}%
+            Si on note $C_1$, $C_2$ et $C_3$ les colonnes de $M$, on
+            remarque :
+            \[
+            C_1 = C, \quad C_2 = 2 \, C \quad \text{ et } \quad C_3 =
+            - \, C
+            \]
+            La matrice $M$ est donc obtenue par concaténation de
+            copies, à coefficients multiplicatifs près, de la colonne
+            $C$. L'objectif de l'énoncé est l'étude des propriétés de
+            telles matrices.
+          \end{remarkL}
+
+        \item $
+          \begin{array}[t]{R{1.4cm}rcl@{\qquad}>{\it}R{5cm}}
+            Ensuite : & M^2 & = & M \times M \ = \ CL \times CL 
+            \\[.2cm]
+            & & = & C \times (LC) \times L
+            & (par associativité)
+            \nl
+            % \nl[-.2cm]
+            & & = & (LC) \cdot C \times L
+            & (car comme $L \in \M{1, 3}$ et $C \in \M{3, 1}$, $LC$
+            est un réel)
+            \nl
+            %\nl[-.2cm]
+            & & = & 0 \cdot M \ = \ 0_{\M{3}}
+          \end{array}
+          $\\
+          En effet : $LC \ = \
+          \begin{smatrix}
+            1 & 2 & -1
+          \end{smatrix}
+          \begin{smatrix}
+            0 \\
+            1 \\
+            2
+          \end{smatrix}
+          \ = \ 1 \times 0 + 2 \times 1 - 1 \times 2 = 2 - 2 = 0$. %
+          \conc{Ainsi : $M^{2} = 0_{\M{3}}$.}
+        \end{noliste}
+        \begin{remarkL}{.98}%
+          Évidemment, on peut aussi effectuer le calcul de $M^2$
+          directement :
+          \[
+          M^2 \ = \             
+          \begin{smatrix}
+            0 & 0 & 0 \\
+            1 & 2 & -1 \\
+            2 & 4 & -2
+          \end{smatrix}
+          \begin{smatrix}
+            0 & 0 & 0 \\
+            1 & 2 & -1 \\
+            2 & 4 & -2
+          \end{smatrix}
+          \ = \ 
+          \begin{smatrix}
+            0 & 0 & 0 \\
+            0 & 0 & 0 \\
+            0 & 0 & 0
+          \end{smatrix}
+          \]
+          Un tel calcul permet assurément d'obtenir tous les points de
+          la question mais n'est pas dans l'esprit de la construction
+          très particulière de la matrice $M$. Il s'agit ici de faire
+          apparaître sur un exemple simple de petite taille
+          (manipulation d'une matrice ligne et d'une matrice colonne à
+          $3$ éléments), des propriétés qu'on généralisera à des
+          matrices de tailles quelconques.
+        \end{remarkL}~\\[-1.4cm]
+      \end{proof}
+
+
+      \newpage
+
+
+    \item Déterminer le rang de $M$.
+
+      \begin{proof}~%
+        \[
+        \begin{array}{rcl}
+          \rg\left( 
+            \begin{smatrix} 
+              0 & 0 & 0 \\
+              1 & 2 & -1 \\
+              2 & 4 & -2 
+            \end{smatrix}
+          \right)
+          & = & 
+          \rg\left( 
+            \begin{smatrix} 
+              0 \\ 
+              1 \\
+              2 
+            \end{smatrix}
+            ,
+            \begin{smatrix} 
+              0 \\ 
+              2 \\
+              4 
+            \end{smatrix}
+            ,
+            \begin{smatrix} 
+              0 \\ 
+              -1 \\
+              -2 
+            \end{smatrix}
+          \right)
+          \\[1cm]
+          & = &
+          \rg\left( 
+            \begin{smatrix} 
+              0 \\ 
+              1 \\
+              2 
+            \end{smatrix}
+            ,
+            2 \, 
+            \begin{smatrix} 
+              0 \\ 
+              1 \\
+              2 
+            \end{smatrix}
+            ,
+            - \,
+            \begin{smatrix} 
+              0 \\ 
+              1 \\
+              2 
+            \end{smatrix}
+          \right)
+          \ = \ 
+          \rg\left( 
+            \begin{smatrix} 
+              0 \\ 
+              1 \\
+              2 
+            \end{smatrix}
+          \right) \ = \ 1
+        \end{array}
+        \]
+        \conc{$\rg(M) = 1$}~\\[-1.2cm]
+      \end{proof}
+
+    \item La matrice $M$ est-elle diagonalisable ?
+
+      \begin{proof}~%
+        \begin{noliste}{$\sbullet$}
+        \item D'après la question \itbf{1.a)(i)}, le polynôme $Q(X) =
+          X^2$ est un polynôme annulateur de la matrice $M$. Ainsi :
+          \[
+          \spc(M) \subset \{\text{racines de $Q$}\} = \{0\}
+          \]
+          \conc{Le réel $0$ est la seule valeur propre possible de
+            $M$.}
+
+        \item D'après la question précédente : $\rg(M) = 1 \neq 3 =
+          \dim\big( \M{3,1} \big)$. %
+          \conc{Ainsi, la matrice $M$ n'est pas inversible et $0$ est
+            la seule valeur propre de $M$.}
+
+        \item Notons $\B$ la base canonique de $\R^3$. Considérons
+          l'endomorphisme $f \in \LL{\R^3}$ dont la représentation
+          dans la base $\B$ est $M$. Par le théorème du rang :
+          \[
+          \begin{array}{ccccc}
+            \dim\big( \R^3 \big) & = & \dim\big( \kr(f) \big) & + &
+            \dim\big( \im(f) \big)
+            \\[.2cm]
+            \shortparallel & & \shortparallel & & \shortparallel
+            \\[.2cm]
+            3 & & \dim\big(  E_0(f) \big) & & \rg(f)
+            \\[.2cm]
+            \shortparallel & & \shortparallel & & \shortparallel
+            \\[.2cm]
+            \dim\big( \M{3,1} \big) & = & \dim\big( E_0(M) \big) & + & 
+            \rg(M)
+          \end{array}
+          \]
+          \conc{Ainsi : $\dim\big( E_0(M) \big) = \dim\big( \M{3,1}
+            \big) - \rg(M) = 3 - 1 = 2$.} %
+        \end{noliste}
+        \conc{Comme $\dim\big( E_0(M) \big) = 2 \neq 3 = \dim\big(
+          \M{3,1} \big)$, la matrice $M$ n'est pas diagonalisable.}
+        \begin{remarkL}{.98}
+          \begin{noliste}{$\sbullet$}
+          \item On a démontré que la matrice $M$ possédait une unique
+            valeur propre. Dans ce cas, il est classique de procéder
+            par l'absurde pour démontrer que $M$ n'est pas
+            diagonalisable.
+
+          \item Supposons que $M$ est diagonalisable.\\
+            Il existe donc une matrice inversible $P \in \M{3}$ et une
+            matrice diagonale $D \in \M{3}$ dont les coefficients
+            diagonaux sont les valeurs propres de $M$ telles que $% =
+            PDP^{-1}$.\\
+            Or $0$ est la seule valeur propre de $M$. Ainsi $D =
+            0_{\M{3}}$ et :
+            \[
+            M = PDP^{-1} = P \, 0_{\M{3}} \, P^{-1} = 0_{\M{3}}
+            \]
+            Absurde !
+          \end{noliste}
+        \end{remarkL}~\\[-1.4cm]
+      \end{proof}
+    \end{nonoliste}
+
+
+    \newpage
+
+
+    \begin{remarkL}{.99}
+      \begin{noliste}{$\sbullet$}
+      \item Il était aussi possible de déterminer le sous-espace
+        propre de $M$ associé à la valeur propre $0$.\\
+        Soit $X =
+        \begin{smatrix}
+          x \\ 
+          y \\
+          z
+        \end{smatrix} 
+        \in \M{3,1}$.\\[-.1cm]
+        \[
+        \begin{array}{rcl}
+          X\in E_{0}(M)
+          & \Longleftrightarrow & M \, X = 0_{\M{3}}
+          \\[.2cm]
+          & \Longleftrightarrow & 
+          \begin{smatrix}
+            0 & 0 & 0 \\
+            1 & 2 & -1 \\
+            2 & 4 & -2
+          \end{smatrix}
+          \begin{smatrix}
+            x \\
+            y \\
+            z
+          \end{smatrix}
+          =
+          \begin{smatrix}
+            0 \\
+            0 \\
+            0
+          \end{smatrix}
+          \\[.6cm]
+          & \Longleftrightarrow & 
+          \left\{
+            \begin{array}{rcrcrcl}
+              & & & & 0 & = & 0 \\
+              x & + & 2 \, y & - & z & = & 0 \\
+              2 \, x & + & 4 \, y & - & 2 \, z & = & 0
+            \end{array}
+          \right.
+          \\[.6cm]
+          & 
+          \begin{arrayEq}
+            L_3 \leftarrow L_3 - 2 \, L_2
+          \end{arrayEq}
+          & 
+          \left\{
+            \begin{array}{rcrcrcl}
+              & & & & 0 & = & 0 \\
+              x & + & 2 \, y & - & z & = & 0 \\
+              & & & & 0 & = & 0 
+            \end{array}
+          \right.
+          \\[.6cm]
+          &
+          \Longleftrightarrow
+          &
+          \left\{
+            \begin{array}{rcrcr}
+              x & = & -2 \, y & + & z \\
+            \end{array}
+          \right.
+        \end{array}
+        \]        
+        Finalement on obtient l'expression de $E_0(M)$ suivante :\\[-.2cm]
+        \[
+        \begin{array}{rcl}
+          E_{0}(M) & = & 
+          \{ 
+          X \in \M{3,1} \ | \ MX = 0_{\M{3}} \}
+          \ = \ 
+          \{
+          \begin{smatrix}
+            x \\ 
+            y \\
+            z
+          \end{smatrix}
+          \ | \
+          x = - 2 y + z
+          \}
+          \\[.6cm]
+          & = & 
+          \{
+          \begin{smatrix}
+            - 2 y + z \\ 
+            y \\ 
+            z
+          \end{smatrix}
+          \ | \
+          (y, z) \in \R^2
+          \}
+          \ = \ 
+          \{
+          y \cdot
+          \begin{smatrix}
+            -2 \\ 
+            1 \\ 
+            0
+          \end{smatrix}
+          +
+          z \cdot
+          \begin{smatrix}
+            1 \\ 
+            0 \\ 
+            1
+          \end{smatrix}
+          \ | \ (y, z) \in \R^2
+          \}
+          \\[.6cm]
+          & = & 
+          \Vect{
+            \begin{smatrix}
+              -2 \\
+              1 \\ 
+              0
+            \end{smatrix}
+            ,
+            \begin{smatrix}
+              1 \\
+              0 \\ 
+              1
+            \end{smatrix}
+          }
+        \end{array}
+        \]
+
+      \item Il faut s'habituer à déterminer les ensembles
+        $E_{\lambda}(M)$ par lecture de la matrice $M - \lambda \, I_3$.\\
+        Ici, on a $\lambda = 0$. On cherche donc les vecteurs $X =
+        \begin{smatrix}
+          x \\
+          y \\
+          z
+        \end{smatrix}
+        $ de $E_{0}(M) $ c'est-à-dire les vecteurs tels que : $M \, X
+        = 0_{\M{3,1}}$. Or :\\[-.1cm]
+        \[
+        \begin{array}{rcl}
+          \begin{smatrix}
+            0 & 0 & 0 \\
+            1 & 2 & -1 \\
+            2 & 4 & -2
+          \end{smatrix}
+          \begin{smatrix}
+            x \\
+            y \\
+            z 
+          \end{smatrix}
+          & = & x \cdot C_1 + y \cdot C_2 + z \cdot C_3
+          \\[-.2cm]
+          & = & 
+          x \cdot
+          \begin{smatrix}
+            0 \\
+            1 \\
+            2
+          \end{smatrix}
+          + y \cdot
+          \begin{smatrix}
+            0 \\
+            2 \\
+            4 
+          \end{smatrix}
+          + z \cdot
+          \begin{smatrix}
+            0 \\
+            -1 \\
+            -2
+          \end{smatrix}
+        \end{array}
+        \]~\\[-.6cm]
+        Pour obtenir le vecteur $
+        \begin{smatrix}
+          0 \\
+          0 \\
+          0
+        \end{smatrix}
+        $ à l'aide de cette combinaison linéaire, plusieurs choix sont
+        possibles. Plus précisément :
+        \begin{noliste}{$\stimes$}
+        \item si l'on choisit $y = 0$, il suffit de prendre $x = z$
+          pour obtenir le vecteur nul.\\
+          En prenant (par exemple) $z = 1$, on obtient : $x = 1$.
+        \item si l'on choisit $z = 0$, il suffit de prendre $x = -2y$
+          pour obtenir le vecteur nul.\\
+          En prenant (par exemple) $y = 1$, on obtient : $y = -2$.
+        \end{noliste}
+        On obtient ainsi : $E_0(M) \supset \Vect{
+            \begin{smatrix}
+              -2 \\
+              1 \\ 
+              0
+            \end{smatrix}
+            ,
+            \begin{smatrix}
+              1 \\
+              0 \\ 
+              1
+            \end{smatrix}
+          }$.\\
+          Et l'égalité est vérifiée car ces deux espaces vectoriels
+          sont de même dimension.
+        \end{noliste}      
+      \end{remarkL}
+
+  \item Soit $P =
+    \begin{smatrix}
+      0 & 1 & 0 \\
+      1 & 0 & 0 \\
+      0 & -2 & 1
+    \end{smatrix}
+    $. Justifier que la matrice $P$ est inversible et calculer le
+    produit $P
+    \begin{smatrix}
+      0 \\
+      1 \\
+      2
+    \end{smatrix}
+    $.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord :
+        \[
+        \rg(P) \ = \ \rg\left(
+          \begin{smatrix}
+            0 & 1 & 0 \\
+            1 & 0 & 0 \\
+            0 & -2 & 1
+          \end{smatrix}
+        \right)
+        \begin{arrayEg}
+          L_1 \leftrightarrow L_2
+        \end{arrayEg}
+        \rg\left(
+          \begin{smatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & -2 & 1
+          \end{smatrix}
+        \right)
+        \begin{arrayEg}
+          L_3 \leftarrow L_3 + 2 \, L_2
+        \end{arrayEg}
+        \rg\left(
+          \begin{smatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1
+          \end{smatrix}
+        \right) \ = \ 3
+        \]
+        \conc{On en conclut que la matrice $P$ est inversible.}
+
+      \item Ensuite : 
+        \[
+        P
+        \begin{smatrix}
+          0 \\
+          1 \\
+          2
+        \end{smatrix}
+        \ = \ 
+        \begin{smatrix}
+          0 & 1 & 0 \\
+          1 & 0 & 0 \\
+          0 & -2 & 1
+        \end{smatrix}
+        \begin{smatrix}
+          0 \\
+          1 \\
+          2
+        \end{smatrix}
+        \ = \ 
+        \begin{smatrix}
+          1 \\
+          0 \\
+          0
+        \end{smatrix}
+        \]        
+      \end{noliste}
+      \conc{$P
+        \begin{smatrix}
+          0 \\
+          1 \\
+          2
+        \end{smatrix}
+        \ = \ 
+        \begin{smatrix}
+          1 \\
+          0 \\
+          0
+        \end{smatrix}$}~\\[-1.2cm]
+    \end{proof}
+
+  \item Trouver une matrice inversible $Q$ dont la transposée ${}^tQ$
+    vérifie : ${}^tQ
+    \begin{smatrix}
+      1 \\
+      2 \\
+      -1
+    \end{smatrix}
+    =
+    \begin{smatrix}
+      1 \\
+      0 \\
+      0
+    \end{smatrix}
+    $.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item Notons ${}^tQ =
+        \begin{smatrix}
+          x & u & a \\
+          y & v & b \\
+          z & w & c
+        \end{smatrix}
+        $ où $(x, y, z, u, v, w, a, b, c) \in \R^9$. Remarquons tout
+        d'abord :
+        \[
+        {}^tQ
+        \begin{smatrix}
+          1 \\
+          2 \\
+          -1
+        \end{smatrix}
+        \ = \ 
+        \begin{smatrix}
+          x & u & a \\
+          y & v & b \\
+          z & w & c
+        \end{smatrix}
+        \begin{smatrix}
+          1 \\
+          2 \\
+          -1
+        \end{smatrix}
+        \ = \ 1 \cdot
+        \begin{smatrix}
+          x \\
+          y \\
+          z
+        \end{smatrix}
+        + 2 \cdot 
+        \begin{smatrix}
+          u \\
+          v \\
+          w
+        \end{smatrix}
+        - 1 \cdot 
+        \begin{smatrix}
+          a \\
+          b \\
+          c
+        \end{smatrix}
+        \]
+
+      \item Pour obtenir le vecteur $
+        \begin{smatrix}
+          1 \\
+          0 \\
+          0
+        \end{smatrix}
+        $ à l'aide de cette combinaison linéaire, plusieurs choix sont
+        possibles. Plus précisément :
+        \begin{noliste}{$\stimes$}
+        \item pour obtenir : $x + 2 \, u - a = 1$, on peut prendre $x
+          = 1$ et $u = a = 0$.
+
+        \item pour obtenir : $y + 2 \, v - b = 0$, on peut prendre $y
+          = 2$ et $v = -1$ et $b = 0$.
+
+        \item pour obtenir : $z + 2 \, w - c = 0$, on peut prendre $z
+          = -1$ et $w = 1$ et $c = 1$.      
+        \end{noliste}
+        On construit ainsi la matrice ${}^tQ =
+        \begin{smatrix}
+          1 & 0 & 0 \\
+          2 & -1 & 0 \\
+          -1 & 1 & 1 
+        \end{smatrix}$ et donc $Q =         
+        \begin{smatrix}
+          1 & 2 & -1 \\
+          0 & -1 & 1 \\
+          0 & 0 & 1
+        \end{smatrix}$.\\
+        Cette matrice est triangulaire supérieure et à coefficients
+        diagonaux tous non nuls.\\
+        Elle est donc inversible.
+      \end{noliste}
+      \conc{La matrice $Q = 
+        \begin{smatrix}
+          1 & 2 & -1 \\
+          0 & -1 & 1 \\
+          0 & 0 & 1
+        \end{smatrix}$ est inversible et vérifie ${}^tQ
+        \begin{smatrix}
+          1 \\
+          2 \\
+          -1
+        \end{smatrix}
+        =
+        \begin{smatrix}
+          1 \\
+          0 \\
+          0
+        \end{smatrix}
+        $.}
+
+
+      \newpage
+
+
+      \begin{remarkL}{.98}%
+        \begin{noliste}{$\sbullet$}
+        \item Remarquons tout d'abord, par propriété de l'application
+          transposée :
+          \[
+          {}^tQ 
+          \begin{smatrix}
+            1 \\
+            2 \\
+            -1
+          \end{smatrix}
+          =
+          \begin{smatrix}
+            1 \\
+            0 \\
+            0
+          \end{smatrix}          
+          \quad \Leftrightarrow \quad
+          \begin{smatrix}
+            1 & 2 & -1
+          \end{smatrix}
+          \, Q =
+          \begin{smatrix}
+            1 & 0 & 0 
+          \end{smatrix}
+          \]
+          L'introduction de la transposée a donc pour but ici de faire
+          apparaître un calcul sur des lignes plutôt que sur des
+          colonnes. Si on travaille directement sur l'égalité de
+          droite, on obtient, avec les notations précédentes :
+          \[
+          \begin{smatrix}
+            1 & 2 & -1
+          \end{smatrix}
+          \, Q \ = \ 1 \cdot 
+          \begin{smatrix}
+            x & y & z
+          \end{smatrix}
+          + 2 \cdot 
+          \begin{smatrix}
+            u & v & w
+          \end{smatrix}
+          - 1 \cdot 
+          \begin{smatrix}
+            a & b & c
+          \end{smatrix}
+          \]
+          On obtient évidemment les mêmes équations que précdemment.
+
+        \item On retiendra qu'en multipliant $Q \in \M{3}$ à droite
+          (resp. gauche) par une matrice colonne (resp. ligne), on
+          obtient une combinaison linéaire des colonnes (resp. lignes)
+          de la matrice $Q$. On peut retenir l'idée développée dans le
+          paragraphe par la forme :
+          \[
+          L \ A \ C
+          \]
+          qui signifie qu'avec une multiplication à gauche, on
+          effectue une opération sur les (L)ignes, tandis qu'avec une
+          multiplication à droite, on effectue une multiplication sur
+          les (C)olonnes.
+
+        \item D'autres choix étaients possibles pour la matrice
+          $Q$. Par exemple, on pouvait choisir :
+          \[
+          Q =
+          \begin{smatrix}
+            1 & -1 & 1 \\
+            0 & 1 & 0 \\
+            0 & 1 & 1
+          \end{smatrix}
+          \quad \text{ ou encore } \quad 
+          Q =
+          \begin{smatrix}
+            1 & -1 & 0 \\
+            0 & 1 & 1 \\
+            0 & 1 & 2
+          \end{smatrix}
+          \]
+          Il est à noter qu'il ne suffit pas de résoudre les
+          contraintes issues des équations pour exhiber une matrice
+          $Q$ satisfaisante. Il est précisé dans l'énoncé que $Q$ est
+          une matrice inversible. Cela explique la direction prise par
+          la résolution proposée initialement : les choix effectués
+          permettent de construire une matrice qui est visiblement
+          inversible (triangulaire supérieure et à coefficients
+          diagonaux tous non nuls).
+        \end{noliste}
+      \end{remarkL}~\\[-1.4cm]
+    \end{proof}
+
+  \item Pour une telle matrice $Q$, calculer le produit $P \, M \, Q$.
+
+    \begin{proof}~%
+      \[
+      \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+        P \, M \, Q & = & P \, (CL) \, Q
+        \\[.2cm]
+        & = & (PC) \, (LQ)
+        \\[.2cm]
+        & = &
+        \begin{smatrix}
+          1 \\
+          0 \\
+          0
+        \end{smatrix}
+        \, 
+        \begin{smatrix}
+          1 & 0 & 0
+        \end{smatrix}
+        & (d'après les calculs effectués en \itbf{1.b)} et en
+        \itbf{1.c)})
+        \nl
+        \nl[-.2cm]
+        & = &
+        \begin{smatrix}
+          1 & 0 & 0 \\
+          0 & 0 & 0 \\
+          0 & 0 & 0
+        \end{smatrix}
+        \ = \ E_{1,1}
+      \end{array}      
+      \]
+      \conc{Ainsi : $P \, M \, Q = E_{1,1}$.}~\\[-1.2cm]
+    \end{proof}
+  \end{noliste}
+
+
+  \newpage
+
+
+\item La fonction \Scilab{} suivante permet de multiplier la $\eme{i}$
+  ligne $L_i$ d'une matrice $A$ par une réel sans modifier ses autres
+  lignes, c'est-à-dire de lui appliquer l'opération élémentaire $L_i
+  \leftarrow a \, L_i$ (où $a \neq 0$).
+  \begin{scilab}
+    & \tcFun{function} \tcVar{B} = \underline{multilig}(\tcVar{a},
+    \tcVar{i}, \tcVar{A}) \nl %
+    & \qquad [n, p] = size(\tcVar{A}) \nl %
+    & \qquad \tcVar{B} = \tcVar{A} \nl %
+    & \qquad \tcFor{for} j = 1:p \nl %
+    & \qquad \qquad \tcVar{B}(\tcVar{i}, j) = \tcVar{a} \Sfois{}
+    \tcVar{B}(\tcVar{i}, j) \nl %
+    & \qquad \tcFor{end} \nl %
+    & \tcFun{endfunction}
+  \end{scilab}
+  \begin{remarkL}{.98}%
+    \begin{noliste}{$\sbullet$}
+    \item Le code de ce programme est plutôt simple à comprendre : 
+      \begin{noliste}{$\stimes$}
+      \item on crée une copie de la matrice {\tt A} que l'on stocke
+        dans la variable {\tt B},
+      \item on met à jour la $\eme{\text{\tt i}}$ ligne de {\tt B} en
+        modifiant un par un les éléments de cette ligne à l'aide de la
+        boucle {\tt for}.        
+      \end{noliste}
+
+    \item Pour être plus proche de l'opération élémentaire $L_i
+      \leftarrow a \, L_i$, on pouvait opter pour une présentation ne
+      nécissitant pas l'utilisation de la boucle {\tt for} :\\[-.2cm]
+      \begin{scilab}
+        & \tcFun{function} \tcVar{B} = \underline{multilig}(\tcVar{a},
+        \tcVar{i}, \tcVar{A}) \nl %
+        & \qquad [n, p] = size(\tcVar{A}) \nl %
+        & \qquad \tcVar{B} = \tcVar{A} \nl %
+        & \qquad \tcVar{B}(\tcVar{i}, :) = \tcVar{a} .\Sfois{}
+        \tcVar{B}(i, :) \nl %
+        & \qquad \tcFor{end} \nl %
+        & \tcFun{endfunction}
+      \end{scilab}
+      L'appel {\tt B(i, :)} permet d'accéder à la $\eme{\text{\tt i}}$
+      ligne de {\tt B}. On peut modifier cette ligne en lui assignant
+      une matrice ligne de même taille, ce qu'on fait ici.
+    \end{noliste}
+  \end{remarkL}
+
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+  \item Donner le code \Scilab{} de deux fonctions {\tt adlig}
+    (d'arguments {\tt b}, {\tt i}, {\tt j}, {\tt A}) et {\tt echlig}
+    (d'arguments {\tt i}, {\tt j}, {\tt A}) permettant d'effectuer
+    respectivement les autres opérations sur les lignes d'une matrice
+    :
+    \[
+    Li \leftarrow L_i + b \, L_j \ (i \neq j) \quad \text{ et } \quad
+    L_i \leftrightarrow L_j \ (i \neq j)
+    \]
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item On s'inspire de la fonction donnée pour créer {\tt adlig} :
+        \begin{scilab}
+          & \tcFun{function} \tcVar{B} =
+          \underline{adlig}(\tcVar{b}, \tcVar{i}, \tcVar{j}, \tcVar{A}) \nl %
+          & \qquad [n, p] = size(\tcVar{A}) \nl %
+          & \qquad \tcVar{B} = \tcVar{A} \nl %
+          & \qquad \tcFor{for} k = 1:p \nl %
+          & \qquad \qquad \tcVar{B}(\tcVar{i}, k) =
+          \tcVar{B}(\tcVar{i}, k) + \tcVar{b} \Sfois{}
+          \tcVar{B}(\tcVar{j}, k) \nl %
+          & \qquad \tcFor{end} \nl %
+          & \tcFun{endfunction}
+        \end{scilab}
+        \begin{remark}%
+          On note que la variable {\tt j} est ici une variable
+          d'entrée du programme (on l'utilise pour désigner la ligne
+          ajoutée dans l'opération élémentaire $Li \leftarrow L_i + b
+          \, L_j \ (i \neq j)$). Cela oblige à renommer la variable
+          d'itération du programme {\tt multilig}.
+        \end{remark}
+
+
+        \newpage
+
+
+      \item La fonction {\tt echlig} est créée suivant le même
+        principe :
+        \begin{scilab}
+          & \tcFun{function} \tcVar{B} =
+          \underline{echlig}(\tcVar{i}, \tcVar{j}, \tcVar{A}) \nl %
+          & \qquad [n, p] = size(\tcVar{A}) \nl %
+          & \qquad \tcVar{B} = \tcVar{A} \nl %
+          & \qquad \tcVar{aux} = 0 \nl %
+          & \qquad \tcFor{for} k = 1:p \nl %
+          & \qquad \qquad \tcVar{aux} = \tcVar{B}(\tcVar{i}, k) \nl %
+          & \qquad \qquad \tcVar{B}(\tcVar{i}, k) =
+          \tcVar{B}(\tcVar{j}, k) \nl % 
+          & \qquad \qquad \tcVar{B}(\tcVar{j}, k) = aux \nl % 
+          & \qquad \tcFor{end} \nl %
+          & \tcFun{endfunction}
+        \end{scilab}
+      \end{noliste}
+      \begin{remarkL}{.98}
+        \begin{noliste}{$\sbullet$}
+        \item On a introduit ici une variable auxiliaire appelée {\tt
+            aux}. Le but de cette variable est de ne pas perdre
+          d'information lors de l'échange des valeurs des deux
+          coefficients de la même colonne. Plus précisément :
+          \begin{noliste}{$\stimes$}
+          \item l'instruction de la ligne \ligne{6} permet de stocker
+            la valeur de {\tt B(i, k)}.
+          \item en ligne \ligne{7}, on écrase la valeur du coefficient
+            $B(i, k)$ en lui affectant la valeur $B(j, k)$.
+          \item enfin, en ligne \ligne{8}, on affecte à {\tt B(i, k)}
+            la valeur de {\tt aux}, c'est-à-dire la valeur {\bf
+              initiale} (et pas la nouvelle valeur) du coefficient
+            $B(i, k)$.
+          \end{noliste}
+
+        \item On pouvait aussi tirer parti du fait que l'on travaille
+          sur une copie {\tt B} de la matrice {\tt A} d'entrée (jamais
+          modifiée) pour ne pas introduire de variable auxiliaire {\tt
+          aux}.\\[-.2cm]
+          \begin{scilab}
+            & \tcFun{function} \tcVar{B} =
+            \underline{echlig}(\tcVar{i}, \tcVar{j}, \tcVar{A}) \nl %
+            & \qquad [n, p] = size(\tcVar{A}) \nl %
+            & \qquad \tcVar{B} = \tcVar{A} \nl %
+            & \qquad \tcFor{for} k = 1:p \nl %
+            & \qquad \qquad \tcVar{B}(\tcVar{i}, k) =
+            \tcVar{A}(\tcVar{j}, k) \nl %
+            & \qquad \qquad \tcVar{B}(\tcVar{j}, k) =
+            \tcVar{A}(\tcVar{i}, k) \nl %
+            & \qquad \tcFor{end} \nl %
+            & \tcFun{endfunction}
+          \end{scilab}
+        \end{noliste}
+      \end{remarkL}~\\[-1.5cm]
+    \end{proof}
+
+  \item Expliquer pourquoi la fonction {\tt multligmat} suivante
+    retourne le même résultat {\tt B} que la fonction {\tt multlig}.
+    \begin{scilab}
+      & \tcFun{function} \tcVar{B} =
+      \underline{multiligmat}(\tcVar{a}, \tcVar{i}, \tcVar{A}) \nl %
+      & \qquad [n, p] = size(\tcVar{A}) \nl %
+      & \qquad D = eye(n, n) \nl %
+      & \qquad D(\tcVar{i}, \tcVar{i}) = a \nl %
+      & \qquad \tcVar{B} = D \Sfois{} \tcVar{A} \nl %
+      & \tcFun{endfunction}
+    \end{scilab}    
+
+
+    \newpage
+
+
+    \begin{proof}~\\%
+      Nommons $A$, $B$, $i$, $a$, $n$ et $p$ les éléments codés par
+      les variables du programme correspondantes.
+      \begin{noliste}{$\sbullet$}
+      \item L'instruction en ligne \ligne{3} : {\tt D = eye(n, n)}
+        permet de créer la matrice identité $I_{n}$.\\
+        {\it (le nom {\tt eye} provient d'un jeu sur les sonorités :
+          on crée à l'aide de cette instruction la matrice identité
+          qui en anglais se dit \og identity matrix \fg{} qu'il faut
+          lire {\tt eye}-dentity matrix)}
+
+      \item L'instruction en ligne \ligne{4} : {\tt D(i, i) = a}
+        permet de remplacer le coefficient $D_{i,i}$ par la valeur
+        $a$. On crée ainsi une matrice $D$ diagonale carrée d'ordre
+        $n$ dont :
+        \begin{noliste}{$\stimes$}
+        \item le $\eme{i}$ coefficient diagonal est la valeur $a$,
+        \item les autres coefficients diagonaux ont tous la même
+          valeur $1$.
+        \end{noliste}
+
+      \item L'instruction en ligne \ligne{5} : {\tt B = D \Sfois{} A}
+        permet de stocker, dans la variable {\tt B}, le résultat de la
+        multiplication $D \times A$. Détaillons ce calcul.\\[.2cm]
+        Soit $(i', j) \in \llb 1, n \rrb \times \llb 1, p \rrb$. Par
+        la formule de multiplication matricielle, on a :
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          B_{i', j} & = & \Sum{k = 1}{n} D_{i', k} \times A_{k, j}
+          %\\[.2cm]
+          \ = \ D_{i', i'} \times A_{i', j}
+          & (car $D_{i', k} = 0$ si $k \neq i'$)
+        \end{array}
+        \]
+        Deux cas se présentent alors :
+        \begin{noliste}{$\stimes$}
+        \item \dashuline{si $i' = i$} alors $D_{i', i'} = D_{i, i} =
+          \text{a}$ et ainsi : $B_{i, j} = a \times A_{i, j}$.%
+          \conc{La $\eme{i}$ ligne de $B$ est obtenue en multipliant
+            la $\eme{i}$ ligne de $A$ par $a$.}
+        \item \dashuline{si $i' \neq i$} alors $D_{i', i'} = 1$ et
+          ainsi : $B_{i', j} = 1 \times A_{i', j} = A_{i', j}$.%
+          \conc{Les autres lignes de $B$ sont des copies des lignes
+            correspondantes de la matrice $A$.}
+        \end{noliste}
+        \concL{On en conclut que la fonction {\tt multiligmat} permet
+          de calculer la matrice obtenue en appliquant à $A$
+          l'opération élémentaire $L_i \leftarrow a \, L_i$. Cela
+          correspond bien au calcul effectué par la fonction {\tt
+            multilig}.}{12.4}
+      \end{noliste}
+      \begin{remark}%
+        \begin{noliste}{$\sbullet$}
+        \item La matrice $D \in \M{n}$ décrite dans cette question est
+          une matrice {\bf de dilatation}. L'opération élémentaire
+          $L_i \leftarrow a \, L_i$ (resp. $C_i \leftarrow a \, C_i$)
+          se traduit par la multiplication matricielle à gauche
+          (resp. à droite) de la matrice initiale $A$ par la matrice
+          $D$.
+
+        \item Illustrons de point par un exemple simple. Considérons
+          $D =
+          \begin{smatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 3
+          \end{smatrix}
+          $. Alors :
+          \[
+          \begin{array}{C{1cm}rcl}
+            & D \, M & = & 
+            \begin{smatrix}
+              1 & 0 & 0 \\
+              0 & 1 & 0 \\
+              0 & 0 & 5
+            \end{smatrix}
+            \begin{smatrix}
+              0 & 0 & 0 \\
+              1 & 2 & -1 \\
+              2 & 4 & -2
+            \end{smatrix}
+            \ = \ 
+            \begin{smatrix}
+              0 & 0 & 0 \\
+              1 & 2 & -1 \\
+              10 & 20 & -10
+            \end{smatrix}
+            \\[.6cm]
+            & & & \text{\it (on multiplie la $\eme{3}$ ligne par $5$)}
+            \\[.2cm]
+            et & M \, D & = & 
+            \begin{smatrix}
+              0 & 0 & 0 \\
+              1 & 2 & -1 \\
+              2 & 4 & -2
+            \end{smatrix}
+            \begin{smatrix}
+              1 & 0 & 0 \\
+              0 & 1 & 0 \\
+              0 & 0 & 5
+            \end{smatrix}
+            \ = \ 
+            \begin{smatrix}
+              0 & 0 & 0 \\
+              1 & 2 & -5 \\
+              2 & 4 & -10
+            \end{smatrix}
+            \\[.6cm]
+            & & & \text{\it (on multiplie la $\eme{3}$ colonne par $5$)}
+          \end{array}
+          \]          
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+
+
+  \newpage
+
+
+\item Dans cette question, on note $n$ un entier supérieur ou égal à
+  $2$ et $M$ une matrice de $\M{n}$ de rang $1$. Pour tout couple $(i,
+  j) \in \llb 1, n \rrb^2$, on note $E_{i, j}$ la matrice de $\M{n}$
+  dont tous les coefficients sont nuls sauf celui situé à
+  l'intersection de sa $\eme{i}$ ligne et de sa $\eme{j}$ colonne, et
+  qui vaut $1$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+  \item
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm} %
+    \item Justifier l'existence d'une matrice colonne non nulle $C =
+      \begin{smatrix}
+        c_1 \\
+        \vdots \\
+        c_n
+      \end{smatrix}
+      \in \M{n, 1}$ et d'une matrice ligne non nulle $
+      L_1 = 
+      \begin{smatrix}
+        \ell_1 & \ldots & \ell_n
+      \end{smatrix}
+      \in \M{1, n}
+      $ telles que $M = C \, L$.
+
+      \begin{proof}~%
+        \begin{noliste}{$\sbullet$}
+        \item Remarquons tout d'abord :
+          \[
+          \begin{array}{rcl@{\qquad}>{\it}R{4cm}}
+            C \, L & = &
+            \begin{smatrix}
+              c_{1} \, \ell_1 & c_{1} \, \ell_2 & \ldots & c_{1} \,
+              \ell_{n-1} & c_{1} \ell_n
+              \\
+              c_{2} \, \ell_1 & c_{2} \, \ell_2 & \ldots & c_{2} \,
+              \ell_{n-1} & c_{2} \ell_n
+              \\
+              \vdots & \vdots & & \vdots & \vdots
+              \\
+              c_{n-1} \, \ell_1 & c_{n-1} \, \ell_2 & \ldots & c_{n-1}
+              \, \ell_{n-1} & c_{n-1} \, \ell_n
+              \\
+              c_{n} \, \ell_1 & c_{n} \, \ell_2 & \ldots & c_{n} \,
+              \ell_{n-1} & c_{n} \ell_n
+            \end{smatrix}
+            \\[1.2cm]
+            & = & 
+            \left( 
+              \ell_1 \, 
+              \begin{smatrix}
+                c_{1} \\
+                c_2 \\
+                \vdots \\
+                c_{n-1} \\
+                c_{n}
+              \end{smatrix}
+              \quad
+              \ell_2 \, 
+              \begin{smatrix}
+                c_{1} \\
+                c_2 \\
+                \vdots \\
+                c_{n-1} \\
+                c_{n}
+              \end{smatrix}
+              \quad \ldots \quad
+              \ell_{n-1} \, 
+              \begin{smatrix}
+                c_{1} \\
+                c_2 \\
+                \vdots \\
+                c_{n-1} \\
+                c_{n}
+              \end{smatrix}
+              \quad
+              \ell_{n} \, 
+              \begin{smatrix}
+                c_{1} \\
+                c_2 \\
+                \vdots \\
+                c_{n-1} \\
+                c_{n}
+              \end{smatrix}
+            \right)  
+            \ = \ 
+            \begin{smatrix}
+              \ell_1 \, C & \ldots & \ell_n \, C
+            \end{smatrix}
+          \end{array}      
+          \]
+          Il s'agit donc de démontrer que toute matrice de rang $1$
+          apparaît comme concaténation de colonnes colinéaires à une
+          matrice colonne $C$ non nulle.\\
+          Ce résultat se montre en deux étapes.
+
+        \item Tout d'abord, comme la matrice $M$ est de rang $1$ elle
+          est forcément non nulle (si c'était le cas, elle serait de
+          rang $0$). Ainsi, $M$ admet (au moins) une colonne non
+          nulle. On note $C$ la première colonne non nulle de $M$.
+
+        \item Démontrons maintenant que toutes les colonnes de $M$
+          sont colinéaires à $C$.\\
+          On procède par l'absurde.\\[.1cm]
+          Supposons que le matrice $M$ possède une colonne non
+          colinéaire à $C$.\\
+          Notons $k \in \llb 1, n \rrb$ l'indice de cette
+          colonne. Alors :
+          \[
+          \begin{array}{rcl@{\qquad}>{\it}R{4cm}}
+            \rg( M ) & = & \rg\big( C_1(M), \ldots, C_n(M) \big)
+            \\[.2cm]
+            & \geq & \rg\big( C_{k}(M), C \big)
+            & (car $C$ et $C_k(M)$ sont des colonnes de $M$)
+          \end{array}
+          \]
+          La famille $\big( C_{k}(M), C \big)$ est libre car
+          constituée de deux vecteurs non colinéaires.\\
+          On en déduit :
+          \[
+          \rg( M ) \geq \rg\big( C_{k}(M), C \big) = 2
+          \]
+          Absurde ! %
+          \conc{Ainsi, toute colonne de $M$ est colinéaire à $C$} %
+
+        \item Il existe donc un $n$-uplet $(\ell_1, \ldots, \ell_n)
+          \in \R^n$ tel que :
+          \[
+          M \ = \ 
+          \begin{smatrix}
+            \ell_1 \, C & \ldots & \ell_n \, C
+          \end{smatrix}
+          \]
+          Notons que ce $n$-uplet est forcément différent du $n$-uplet
+          $(0, \ldots, 0)$ (si c'était le cas, la matrice $M$ serait
+          nulle).
+        \end{noliste}~\\[-1cm]
+        \concL{Ainsi, si $M \in \M{n}$ est de rang $1$, il existe un
+          matrice colonne $C \in \M{n, 1}$ et une matrice ligne non
+          nulle $L \in \M{1, n}$ telles que : $M = C \,
+          L$.}{14.4}~\\[-1cm]
+        % \begin{remarkL}{.98}
+        %   Les énoncés de type {\tt HEC} / {\tt ESSEC} se distinguent
+        %   des énoncés {\tt EML} / {\tt EDHEC} par un découpage plus
+        %   faible des questions qui oblige à prendre plus
+        %   d'initiatives. Ici, la formulation de la question \og En
+        %   déduire que \ldots \fg{} doit aider à comprendre qu'il
+        %   s'agit de se servir du résultat précédent. En question
+        %   précédente, on exhibe $(n-1)$ vecteurs de $\im(f)$. Il
+        %   s'agit alors de tester si la famille constituée de ces
+        %   vecteurs est une base de $\im(f)$.
+        % \end{remarkL}~\\[-1.4cm]        
+      \end{proof}
+
+
+      \newpage
+
+
+    \item Calculer la matrice $M \, C$ et en déduire une valeur propre
+      de $M$.
+
+      \begin{proof}~%
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          M \times C & = & (C \, L) \times C
+          \\[.4cm]
+          & = & C \times (L \, C)
+          & (par associativité)
+          \nl
+          \nl[-.2cm]
+          & = & (LC) \cdot C 
+          & (car comme $L \in \M{1, 3}$ et $C \in \M{3, 1}$, $LC$ est
+          un réel)        
+          \nl
+          & = & \left( \Sum{i=1}{n} \ell_i \, c_i \right) \cdot C
+        \end{array}
+        \]
+        \concL{Comme $C \neq 0_{\M{n,1}}$, le vecteur $C$ est un
+          vecteur propre de $M$ associé à la valeur propre
+          $\Sum{i=1}{n} \ell_i \, c_i$.}{12.4}~\\[-1cm]
+      \end{proof}
+
+    \item Montrer que si le réel $\Sum{i=1}{n} c_i \, \ell_i$ est
+      différent de $0$, alors la matrice $M$ est diagonalisable.
+
+      \begin{proof}~%
+        \begin{noliste}{$\sbullet$}
+        \item Par définition :
+          \[
+          \rg(M) = 1 \neq n = \dim\big( \M{n, 1} \big)
+          \]
+          En effet, il est précisé dans l'énoncé : $n \geq 2$. %
+          \conc{On en déduit que $M$ n'est pas inversible. Ainsi, le
+            réel $0$ est valeur propre de $M$.}
+
+        \item Notons $\B$ la base canonique de $\R^n$. Considérons
+          l'endomorphisme $f \in \LL{\R^n}$ dont la représentation
+          dans la base $\B$ est $M$. Par le théorème du rang :
+          \[
+          \begin{array}{ccccc}
+            \dim\big( \R^n \big) & = & \dim\big( \kr(f) \big) & + &
+            \dim\big( \im(f) \big)
+            \\[.2cm]
+            \shortparallel & & \shortparallel & & \shortparallel
+            \\[.2cm]
+            n & & \dim\big(  E_0(f) \big) & & \rg(f)
+            \\[.2cm]
+            \shortparallel & & \shortparallel & & \shortparallel
+            \\[.2cm]
+            \dim\big( \M{n,1} \big) & = & \dim\big( E_0(M) \big) & + & 
+            \rg(M)
+          \end{array}
+          \]
+          \conc{Ainsi : $\dim\big( E_0(M) \big) = \dim\big( \M{n,1}
+            \big) - \rg(M) = n - 1$.} %
+
+        \item Notons $\alpha = \Sum{i=1}{n} c_i \, l_i$. On suppose
+          $\alpha$ non nul.\\
+          D'après la question précédente, $\alpha$ est valeur propre
+          de $M$. On en déduit : $\dim\big( E_{\alpha}(M) \big) \geq
+          1$. Ainsi :
+          \[
+          \dim\big( E_{0}(M) \big) + \dim\big( E_{\alpha}(M) \big)
+          \geq (n-1) + 1 \geq n
+          \]
+          Et comme on a forcément : $\dim\big( E_{0}(M) \big) +
+          \dim\big( E_{\alpha}(M) \big) \leq n = \dim\big( \M{n,1}
+          \big)$, on en conclut :
+          \[
+          \dim\big( E_{0}(M) \big) + \dim\big( E_{\alpha}(M) \big) = n
+          \]
+        \end{noliste}
+        \conc{Ainsi, si $\alpha \neq 0$, la matrice $M$ possède deux
+          valeurs propres distinctes $0$ et $\alpha$.\\
+          Comme : $\dim\big( E_{0}(M) \big) + \dim\big( E_{\alpha}(M)
+          \big) = \dim\big( \M{n,1} \big)$, la matrice $M$ est
+          diagonalisable.}~\\[-1cm]
+      \end{proof}
+    \end{nonoliste}
+
+
+    \newpage
+
+
+  \item
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm} %
+    \item À l'aide de l'égalité $M = C \, L$, établir l'existence de
+      deux matrices inversibles $P$ et $Q$ telles que $P \, M \, Q =
+      E_{1, 1}$.
+
+      \begin{proof}~%
+        \begin{noliste}{$\sbullet$}
+        \item D'après un calcul analogue à celui fait en
+          \itbf{3.a)(i)} :$
+          \begin{smatrix}
+            1 \\
+            0 \\
+            \vdots \\
+            0
+          \end{smatrix}
+          \begin{smatrix}
+            1 & 0 & \ldots & 0 
+          \end{smatrix}
+          \ = \ E_{1, 1}
+          $.
+
+        \item Pour résoudre la question, il suffit donc de trouver
+          deux matrices inversibles $P$ et $Q$ de $\M{n}$ telles que :
+          \[
+          P \, C \ = \           
+          \begin{smatrix}
+            1 \\
+            0 \\
+            \vdots \\
+            0
+          \end{smatrix}
+          \qquad \text{ et } \qquad
+          L \, Q \ = \           
+          \begin{smatrix}
+            1 & 0 & \ldots & 0 
+          \end{smatrix}
+          \]
+          En effet, si c'est le cas, on a :
+          \[
+          \begin{array}{R{2cm}rcl@{\qquad}>{\it}R{5cm}}
+            & P \, M \, Q & = & P \, (CL) \, Q
+            \\[.2cm]
+            & & = & (PC) \, (LQ)
+            & (par associativité)
+            \nl
+            \nl[-.2cm]
+            & & = & 
+            \begin{smatrix}
+              1 \\
+              0 \\
+              \vdots \\
+              0
+            \end{smatrix}
+            \begin{smatrix}
+              1 & 0 & \ldots & 0 
+            \end{smatrix}
+            \ = \ E_{1, 1}
+          \end{array}
+          \]
+
+        \item Il reste à démontrer l'existence des matrices $P$ et
+          $Q$. Remarquons dans un premier temps :
+          \[
+          \begin{array}{ccccR{8cm}}
+            PC =         
+            \begin{smatrix}
+              1 \\
+              0 \\
+              \vdots \\
+              0
+            \end{smatrix}
+            & \Leftrightarrow & 
+            P^{-1}           
+            \begin{smatrix}
+              1 \\
+              0 \\
+              \vdots \\
+              0
+            \end{smatrix}
+            = C
+            & \Leftrightarrow &
+            La première colonne de $P^{-1}$ est le vecteur $C$
+          \end{array}
+          \]
+          Il s'agit donc de construire une matrice {\bf inversible}
+          dont la première colonne est $C$. \\
+          La première colonne étant fixée, il reste à choisir les
+          suivantes.
+
+        \item Construisons une telle matrice. Deux cas se présentent :
+        \end{noliste}
+          \begin{liste}{$\stimes$}
+          \item \dashuline{si $c_1 \neq 0$}, on pose :
+            \[
+            P^{-1} \ = \
+            \begin{smatrix}
+              c_1 & 0 & \ldots & \ldots & 0 \\
+              c_2 & 1 & \ddots & & \vdots \\
+              \vdots & 0 & \ddots & \ddots & \vdots \\
+              \vdots & \vdots & \ddots & \ddots & 0 \\
+              c_2 & 0 & \ldots & 0 & 1
+            \end{smatrix}
+            \]
+            Cette matrice est bien inversible car elle est
+            trinagulaire inférieure et de coefficients diagonaux tous
+            non nuls.
+            
+          \item \dashuline{si $c_1 = 0$}, on note $i_0$ l'indice du
+            premier coefficient non nul du vecteur $C$. On pose alors
+            :
+            \[
+            P^{-1} \ = \
+            \begin{smatrix}
+              0 & 0 & \ldots & 0 & 1 & 0 & \ldots & 0 \\
+              \vdots & 1 & \ddots & \vdots & 0 & \vdots & & \vdots \\
+              \vdots & 0 & \ddots & 0 & \vdots & \vdots & & \vdots \\
+              0 & \vdots & \ddots & 1 & \vdots & \vdots & & \vdots \\ 
+              c_{i_0} & \vdots & & \ddots & 0 & 0 & & \vdots \\
+              \vdots & \vdots & & & \ddots & 1 & \ddots & \vdots \\
+              \vdots & \vdots & & & & \ddots & \ddots & 0 \\
+              c_n & 0 & \ldots & \ldots & \ldots & \ldots & 0 & 1 
+            \end{smatrix}
+            \]
+            Démontrons que cette matrice est inversible :
+            \[
+            \rg\left( P^{-1} \right)
+            \ 
+            \begin{arrayEg}
+              C_1 \leftrightarrow C_{i_0}
+            \end{arrayEg}
+            \ 
+            \rg\left( 
+              \begin{smatrix}
+                1 & 0 & \ldots & \ldots & \ldots & \ldots & & 0 \\
+                0 & \ddots & \ddots & & & & & \vdots \\
+                \vdots & \ddots & 1 & \ddots & & & & \vdots \\
+                \vdots & & 0 & c_{i_0} & \ddots & & & \vdots \\
+                \vdots & & \vdots & \vdots & 1 & \ddots & & \vdots \\
+                \vdots & & \vdots & \vdots & 0 & \ddots & \ddots & \vdots \\
+                \vdots & & \vdots & \vdots & \vdots & \ddots & \ddots & 0 \\
+                0 & \ldots & 0 & c_n & 0 & \ldots & 0 & 1 
+              \end{smatrix}
+            \right)
+            \]
+            La réduite obtenue est triangulaire inférieure et à
+            coefficients diagonaux tous non nuls.\\
+            Elle est donc inversible et il en est de même de la
+            matrice initiale $P^{-1}$.
+          \end{liste}
+          \begin{noliste}{$\sbullet$}
+          \item Il reste alors à construire $Q$. Remarquons : 
+          \[
+          \begin{array}{ccccccR{3.8cm}}
+            LQ =         
+            \begin{smatrix}
+              1 & 0 & \ldots & 0 
+            \end{smatrix}
+            & \Leftrightarrow & 
+            {}^tQ \ {}^t L = 
+            \begin{smatrix}
+              1 \\
+              0 \\
+              \vdots \\
+              0
+            \end{smatrix}
+            & \Leftrightarrow &
+            \big({}^tQ \big)^{-1}
+            \begin{smatrix}
+              1 \\
+              0 \\
+              \vdots \\
+              0
+            \end{smatrix}
+            = {}^tL
+            & \Leftrightarrow &
+            La première colonne de $\big({}^tQ \big)^{-1} = {}^t\big(Q
+            \big)^{-1}$ est le vecteur ${}^tL$ 
+          \end{array}
+          \]       
+          On construit alors ${}^t\big(Q \big)^{-1}$ par la méthode
+          ayant permis la construction de $P^{-1}$. 
+        \end{noliste}
+        \conc{On a bien démontré l'existence de deux matrices
+          inversibles $P$ et $Q$ telles que $P \, M \, Q =
+          E_{1,1}$.}~\\[-1cm] 
+      \end{proof}
+      \begin{remarkL}{1.05}%
+        Pour construire $P^{-1}$, on peut aussi faire appel au
+        théorème dit de la base incomplète qui stipule :
+        \[
+        \Boxed{
+          \begin{array}{C{12cm}}
+            Toute famille libre d'un espace vectoriel $E$ de dimension
+            finie $n$ peut être complétée en une base de $E$ 
+          \end{array}
+        }
+        \]
+        Ici, comme le vecteur $C$ est non nul, la famille $(C)$ est
+        une famille libre de $\M{n, 1}$. \\
+        On peut donc compléter cette famille en une base de $\M{n,
+          1}$. Autrement dit, il existe des vecteurs colonnes $C_2$,
+        \ldots $C_n$ tels que la famille $\big( C, C_2, \ldots, C_n
+        \big)$ est une base de $\M{n,1}$.\\
+        On peut alors construire la matrice $P^{-1}$ par concaténation
+        de ces vecteurs :
+        \[
+        P^{-1} \ = \
+        \begin{smatrix}
+          C & C_2 & \ldots & C_n
+        \end{smatrix}
+        \]
+        Cette matrice est bien inversible. En effet :
+        \[
+        \rg\left(
+          \begin{smatrix}
+            C & C_2 & \ldots & C_n
+          \end{smatrix}
+        \right) \ = \ \rg \big( C, C_2, \ldots, C_n \big) \ = \ n
+        \quad \text{\it (car $\big( C, C_2, \ldots, C_n \big)$ est
+          une famille libre)}
+        \]
+      \end{remarkL}
+
+
+      \newpage
+
+
+    \item En déduire que pour tout couple $(i, j) \in \llb 1,
+      n\rrb^2$, il existe deux matrices inversibles $P_i$ et $Q_j$
+      telles que $P_i \, M \, Q_j = E_{i, j}$.
+
+      \begin{proof}~\\%
+        Soit $(i, j) \in \llb 1, n\rrb^2$. On raisonne comme
+        précédemment.
+        \begin{noliste}{$\sbullet$}
+        \item Remarquons tout d'abord que $E_{i,j}$ peut s'obtenir
+          comme produit :
+        \end{noliste}
+        \begin{liste}{$\stimes$}
+        \item de la matrice colonne contenant uniquement des $0$
+          sauf en ligne $i$ où il contient un $1$.
+        \item de la matrice ligne contenant uniquement des $0$ sauf
+          en colonne $j$ où il contient un $1$.
+        \end{liste}
+        \begin{noliste}{$\sbullet$}
+        \item Pour résoudre la question, il suffit donc de trouver
+          deux matrices inversibles $P$ et $Q$ de $\M{n}$ telles que :
+          \[
+          P_i \, C \ = \
+          \begin{smatrix}
+            0 \\
+            \vdots \\
+            0 \\
+            1 \\
+            0 \\
+            \vdots \\
+            0
+          \end{smatrix}
+          \qquad \text{ et } \qquad L \, Q_j \ = \
+          \begin{smatrix}
+            0 & \ldots & 0 & 1 & 0 & \ldots & 0
+          \end{smatrix}
+          \]
+        
+        \item Pour un raisonnement analogue à celui de la question
+          précédente, il suffit alors de trouver :
+        \end{noliste}
+        \begin{liste}{$\stimes$}
+        \item une matrice $P_i^{-1}$ inversible dont la $\eme{i}$
+          colonne est $C$.
+
+        \item une matrice ${}^t \big( Q_j \big)^{-1}$ dont la $\eme{j}$
+          colonne est ${}^tL$.         
+        \end{liste}
+        On obtient ces deux matrices par une construction similaire à
+        la précédente. %
+        \concL{Ainsi, pour tout couple $(i, j) \in \llb 1, n\rrb^2$, il
+          existe deux matrices inversibles $P_i$ et $Q_j$ telles que
+          $P_i \, M \, Q_j = E_{i, j}$.}{15.4}~\\[-1.2cm]
+      \end{proof}
+    \end{nonoliste}
+    
+  \end{noliste}
+\end{noliste}
+
+
+\newpage
+
+
+\section*{Problème}
+
+\noindent %
+{\it Dans ce problème, on définit et on étudie les fonctions
+  génératrices des cumulants de variables aléatoires discrètes ou à
+  densité.\\
+  Les cumulants d'ordre $3$ et $4$ permettent de définir des
+  paramètres d'asymétrie et d'aplatissement qui viennent compléter la
+  description usuelle d'une loi de probabilité par son espérance
+  (paramètre de position) et sa variance (paramètre de dispersion) ;
+  ces cumulants sont notamment utilisés pour l'évaluation des risques
+  financiers.}\\[.2cm]
+{\bf Dans tout le problème} :
+\begin{noliste}{$\sbullet$}
+\item on note $(\Omega, \A, \Prob)$ un espace probabilisé et toutes
+  les variables aléatoires introduites dans l'énoncé sont des
+  variables aléatoires réelles définies sur $(\Omega, \A)$ ;
+  
+\item sous réserve d'existence, l'espérance et la variance d'une
+  variable aléatoire $X$ sont respectivement notées $\E(X)$ et $\V(X)$
+  ;
+  
+\item pour tout variable aléatoire $X$ et pour tout réel $t$ pour
+  lesquels la variable aléatoire $\ee^{t \, X}$ admet une espérance,
+  on pose :
+  \[
+    M_X(t) = \E\left(\ee^{t \, X}\right) \quad \text{et} \quad K_X(t)
+    = \ln\big(M_X(t)\big) ;
+  \]
+  (les fonctions $M_X$ et $K_X$ sont respectivement appelées la {\it
+    fonction génératrice des moments} et la {\it fonction génératrice
+    des cumulants} de $X$)
+  
+\item lorsque, pour un entier $p \in \N^*$, la fonction $K_X$ est de
+  classe $\Cont{p}$ sur un intervalle ouvert contenant l'origine, on
+  appelle {\it cumulant d'ordre $p$ de $X$}, noté $Q_p(X)$, la valeur
+  de la dérivée $\eme{p}$ de $K_X$ en $0$ :
+  \[
+    Q_p(X) \ = \ K_X^{(p)}(0).
+  \]
+\end{noliste}
+
+\begin{remark}
+  \begin{noliste}{$\sbullet$}
+  \item La fonction génératrice des moments d'une \var $X$ est un
+    objet classique en probabilités. Comme son nom l'indique, cette
+    fonction permet de retrouver les moments de $X$ (sous réserve
+    d'existence). Plus précisément, si la \var $X$ admet un moment
+    d'ordre $n$, alors :
+    \[
+      \E(X^n) \ = \ M_X^{(n)}(0)
+    \]
+    
+  \item On ne confondra pas cette fonction avec une autre fonction
+    classique en probabilités : la fonction génératrice (des
+    probabilités). Cette dernière n'est définie que pour des \var $X$
+    à valeurs entières et positives par la formule :
+    \[
+      \forall s \in [0,1], \quad G_X(s) \ = \ \E(s^X) \ = \
+      \Sum{k=0}{+\infty} s^k \, \Prob(\Ev{X = k})
+    \]
+    Cette fonction caractérise quant à elle, non pas les moments de
+    $X$, mais sa loi.\\
+    Plus précisément :
+    \[
+      \forall n \in \N, \quad \Prob(\Ev{X = n}) \ = \
+      \dfrac{G_X^{(n)}(0)}{n!}
+    \]
+    
+  \item L'énoncé propose de démontrer quelques propriétés de la
+    fonction génératrice des moments pour des \var particulières. Par
+    exemple, dans le cas d'une \var $X$ à valeurs dans $\llb -n, n \rrb$ :
+    \begin{noliste}{$\stimes$}
+    \item $\forall p \in \N^*$, $M_X^{(p)}(0) = \E(X^p)$,
+      
+    \item $\forall t \in \R$, $G_X(\ee^t) = \ee^{nt} \, M_X(t)$.\\
+      {\it (lien entre la fonction génératrice et la fonction génératrice
+      des moments)}
+    \end{noliste}
+  \end{noliste}
+\end{remark}
+
+
+\newpage
+
+
+\subsection*{Partie I. Fonction génératrice des moments de variables
+  aléatoires discrètes}
+
+\noindent
+{\it Dans toute cette partie} :
+\begin{noliste}{$\sbullet$}
+\item on note $n$ un entier supérieur ou égal à $2$ ;
+  
+\item toutes les variables aléatoires considérées sont discrètes à
+  valeurs entières ;
+  
+\item on note $S$ une variable aléatoire à valeurs dans $\{-1,1\}$
+  dont la loi est donnée par :
+  \[
+    \Prob(\Ev{S = -1}) \ = \ \Prob(\Ev{S = +1}) \ = \ \dfrac{1}{2}.
+  \]
+\end{noliste}
+
+
+% \newpage
+
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item Soit $X$ une variable aléatoire à valeurs dans $\llb -n, n\rrb$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Pour tout $t\in \R$, écrire $M_X(t)$ sous la forme d'une somme
+    et en déduire que la fonction $M_X$ est de classe $\Cont{\infty}$
+    sur $\R$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Soit $t \in \R$.\\
+        La \var $X$ est une \var finie. Ainsi, la \var $\ee^{t \,
+          X}$ est également une \var finie. Elle admet donc des
+        moments à tout ordre, en particulier une espérance.
+        \conc{On en déduit que, pour tout $t \in \R$, le réel
+          $M_X(t)$ est bien défini.}
+        \begin{remark}
+          On rappelle que, d'après l'énoncé : $X(\Omega) \subset \llb
+          -n, n \rrb = \{k \ | \ k \in \llb -n, n \rrb\}$.\\
+          On en déduit, pour tout $t \in \R$ :
+          \[
+            \left(\ee^{t \, X}\right)(\Omega) \ = \ \ee^{t \,
+              X(\Omega)} \ = \ \{\ee^{t \, k} \ | \ k \in \llb -n, n
+            \rrb \}
+          \]
+          On retrouve bien que la \var $\ee^{t \, X}$ est finie.
+        \end{remark}
+        
+      \item Soit $t\in \R$. Comme $X$ est une \var discrète, par
+        théorème de transfert :
+        \[
+          M_X(t) \ = \ \E\left(\ee^{t \, X}\right) \ = \ \Sum{k=-n}{n}
+          \ee^{t \, k} \, \Prob(\Ev{X = k})
+        \]
+        \conc{$\forall t \in \R$, $M_X(t) = \Sum{k=-n}{n} \ee^{t \, k}
+          \, \Prob(\Ev{X = k})$}
+        
+      \item La fonction $M_X$ est de classe $\Cont{\infty}$ sur $\R$
+        en tant que somme, pour tout $k \in \llb -n,n \rrb$ des
+        fonctions $t \mapsto \ee^{t \, k} \, \Prob(\Ev{X=k})$ de
+        classe $\Cont{\infty}$ sur $\R$.
+        \conc{La fonction $M_X$ est de classe $\Cont{\infty}$ sur
+          $\R$.}
+      \end{noliste}
+      \begin{remark}
+        Soit $k \in \llb -n, n \rrb$.\\
+        Il faut noter que l'expression $\Prob(\Ev{X = k})$ est une
+        constante par rapport à $t$. Ainsi, pour étudier la régularité de
+        la fonction $t \mapsto \ee^{t \, k} \, \Prob(\Ev{X = k})$
+        on peut se contenter d'étudier la régularité de la fonction $t \mapsto
+        \ee^{t \, k}$ (qui, elle, est trivialement de classe
+        $\Cont{\infty}$ sur $\R$).
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+
+
+    \newpage
+    
+    
+  \item Justifier pour tout $p \in \N^*$, l'égalité : $M_X^{(p)}(0) =
+    \E(X^p)$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item D'après la question précédente, la fonction $M_X$ est de
+        classe $\Cont{\infty}$, donc, pour tout $p \in \N^*$, la
+        fonction $M_X^{(p)}$ existe.
+        
+      \item Commençons par déterminer, pour tout $p \in \N^*$,
+        l'expression de $M_X^{(p)}$.\\
+        Démontrons par récurrence : $\forall p \in \N^*$, $\PP{p}$\\ 
+        où \quad $\PP{p}$ : $\forall t \in \R$, $M_X^{(p)}(t) =
+        \Sum{k=-n}{n} k^p \, \ee^{k \, t} \, \Prob(\Ev{X = k})$.
+        \begin{noliste}{\fitem}
+        \item {\bf Initialisation} :\\
+          D'après la question précédente :
+          \[
+            M_X : t \mapsto \Sum{k=-n}{n} \ee^{k \, t} \, \Prob(\Ev{X
+              = k})
+          \]
+          Ainsi, pour tout $t \in \R$.
+          \[
+            M_X^{(1)}(t) \ = \ M_X'(t) \ = \ \Sum{k=-n}{n} k \, \ee^{k
+              \, t} \, \Prob(\Ev{X = k})
+          \]
+          D'où $\PP{1}$.
+          
+        \item {\bf Hérédité} : soit $p \in \N^* $.\\
+          Supposons $\PP{p}$ et démontrons $\PP{p+1}$ (\ie $\forall t
+          \in \R$, $M_X^{(p+1)}(t) = \Sum{k=-n}{n} k^{p+1} \, \ee^{k
+            \, t} \, \Prob(\Ev{X = k})$).\\
+          Par hypothèse de récurrence :
+          \[
+            M_X^{(p)} : t \mapsto \Sum{k=-n}{n} k^p \, \ee^{k \, t} \,
+            \Prob(\Ev{X = k})
+          \]
+          Ainsi, pour tout $t \in \R$ :
+          \[
+            M_X^{(p+1)}(t) \ = \ \left(M_X^{(p)}\right)'(t) \ = \
+            \Sum{k=-n}{n} k^p \, \left(k \, \ee^{k \, t}\right) \,
+            \Prob(\Ev{X = k}) \ = \ \Sum{k=-n}{n} k^{p+1} \, \ee^{k \,
+              t} \, \Prob(\Ev{X = k})
+          \]
+          D'où $\PP{p+1}$.
+        \end{noliste}
+        Par principe de récurrence : $\forall t \in \R$, $M_X^{(p)}(t)
+        = \Sum{k=-n}{n} k^p \, \ee^{k \, t} \, \Prob(\Ev{X = k})$.
+        
+      \item Soit $p \in \N^*$. On en déduit :
+        \[
+          M_X^{(p)}(0) \ = \ \Sum{k=-n}{n} k^p \, \ee^{k \times 0} \,
+          \Prob(\Ev{X = k}) \ = \ \Sum{k=-n}{n} k^p \, \Prob(\Ev{X =
+            k}) \ = \ \E(X^p)
+        \]
+        où la dernière égalité est obtenue par théorème de transfert.
+        \conc{Finalement, pour tout $p \in \N^*$ : $M_X^{(p)}(0) =
+          \E(X^p)$.}
+      \end{noliste}
+
+
+      \newpage
+
+      
+      \begin{remark}
+        L'obtention de l'expression de $M_X^{(p)}$ s'effectue au
+        brouillon :
+        \begin{noliste}{\scriptsize 1)}
+        \item on commence par déterminer les premières dérivées
+          successives de la fonction $M_X$ :
+          \[
+            \begin{array}{lccl}
+              \forall t \in \R, &  M_X'(t) & = & \Sum{k=-n}{n} k \,
+              \ee^{k \, t} \, \Prob(\Ev{X = k})
+              \\[.4cm]
+              \forall t \in \R, &  M_X''(t) & = & \Sum{k=-n}{n} k \left(
+              k \, \ee^{k \, t}\right) \, \Prob(\Ev{X = k}) \ = \
+              \Sum{k=-n}{n} k^2 \ee^{k \, t} \, \Prob(\Ev{X = k})
+              \\[.4cm]
+              \forall t \in \R, &  M_X^{(3)}(t) & = & \Sum{k=-n}{n} k^2
+              \left(k \, \ee^{k \, t}\right) \, \Prob(\Ev{X = k}) \ = \
+              \Sum{k=-n}{n} k^3 \ee^{k \, t} \, \Prob(\Ev{X = k})
+            \end{array}
+          \]
+          
+        \item on en déduit une formule générale :
+          \[
+            \forall t \in \R, \quad
+            M_X^{(p)}(t) \ = \ \Sum{k=-n}{n} k^p \, \ee^{k \, t} \,
+            \Prob(\Ev{X = k})
+          \]
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+    
+  \item Soit $Y$ une variable aléatoire à valeurs dans $\llb -n,n
+    \rrb$ dont la fonction génératrice des moments $M_Y$ est la même
+    que celle de $X$.\\
+    On note $G_X$ et $G_Y$ les deux polynômes définis par :
+    \[
+      \forall x \in \R, \ \left\{
+        \begin{array}{l}
+          G_X(x) \ = \ \Sum{k=0}{2n} \Prob(\Ev{X = k-n}) \, x^k
+          \\[.4cm]
+          G_Y(x) \ = \ \Sum{k=0}{2n} \Prob(\Ev{Y = k-n}) \, x^k
+        \end{array}
+      \right.
+    \]
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Vérifier pour tout $t\in \R$, l'égalité : $G_X(\ee^t) =
+      \ee^{nt} \, M_X(t)$.
+      \begin{proof}~\\
+        Soit $t \in \R$.
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+            G_X\left(\ee^t\right)
+            & = & \Sum{k=0}{2n} \Prob(\Ev{X = k-n}) \,
+                  \left(\ee^t\right)^k
+            \\[.6cm]
+            & = & \Sum{k=0}{2n} \Prob(\Ev{X = k-n}) \, \ee^{k \, t}
+            \\[.6cm]
+            & = & \Sum{k=0-n}{2n-n} \Prob(\Ev{X = k}) \, \ee^{(k+n) \, t}
+            & (par décalage d'indice)
+            \nl
+            \nl[-.2cm]
+            & = & \Sum{k=-n}{n} \left(\Prob(\Ev{X = k}) \, \ee^{k \, t} \,
+                  \ee^{n \, t}\right)
+            \\[.6cm]
+            & = & \ee^{n \, t} \ \Sum{k=-n}{n} \Prob(\Ev{X = k}) \,
+                  \ee^{k \, t}
+            \\[.6cm]
+            & = & \ee^{n \, t} \, M_X(t)
+          \end{array}
+        \]
+        \conc{$\forall t \in \R$, $G_X\left(\ee^t\right) = \ee^{nt} \,
+          M_X(t)$}~\\[-1cm]
+      \end{proof}
+
+
+      \newpage
+      
+      
+    \item Justifier la relation : $\forall t \in \R$, $G_X(\ee^t) =
+      G_Y(\ee^t)$.
+      \begin{proof}~\\
+        Soit $t \in \R$.
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+            G_X\left(\ee^t\right)
+            & = & \ee^{n \, t} \, M_X(t)
+            & (d'après la question précédente)
+            \nl
+            \nl[-.2cm]
+            & = & \ee^{n \, t} \, M_Y(t)
+            & (car, d'après l'énoncé : $M_X = M_Y$)
+            \nl
+            \nl[-.2cm]
+            & = & G_Y\left(\ee^t\right)
+            & (avec le même raisonnement qu'en question précédente)
+          \end{array}
+        \]
+        \conc{$\forall t \in \R$, $G_X\left(\ee^t\right) = G_Y\left(
+              \ee^t\right)$}~\\[-1cm]
+      \end{proof}
+      
+    \item En déduire que la variable aléatoire $Y$ suit la même loi
+      que $X$.
+      \begin{proof}~
+        \begin{noliste}{$\sbullet$}
+        \item Tout d'abord : $X(\Omega) \subset \llb -n,n \rrb$ et
+          $Y(\Omega) \subset \llb -n,n \rrb$.
+          
+        \item Ensuite, d'après la question précédente :
+          \[
+            \forall t \in \R, \ G_X\left(\ee^t\right) =
+            G_Y\left(\ee^t\right)
+          \]
+          Ainsi, pour tout $x \in \ ]0,+\infty[$ :
+          \[
+            \begin{array}{ccc}
+              G_X\left(\ee^{\ln(x)}\right) & =
+              & G_Y\left(\ee^{\ln(x)}\right)
+              \\[.2cm]
+              \shortparallel & & \shortparallel
+              \\[.2cm]
+              G_X(x) & & G_Y(x)
+            \end{array}
+          \]
+          
+        \item Soit $x \in \ ]0,+\infty[$, on en déduit :
+          $(G_X-G_Y)(x) = 0$.\\
+          Or :
+          \[
+            \begin{array}{rcl}
+              (G_X-G_Y)(x)
+              & = &  G_X(x) - G_Y(x)
+              \\[.2cm]
+              & = & \Sum{k=0}{2n} \Prob(\Ev{X = k-n}) \,
+                    x^k - \Sum{k=0}{2n} \Prob(\Ev{Y = k-n}) \, x^k
+              \\[.6cm]
+              & = & \Sum{k=0}{2n} \left(\Prob(\Ev{X = k-n}) \, x^k -
+                    \Prob(\Ev{Y = k-n}) \, x^k \right)
+              \\[.6cm]
+              & = & \Sum{k=0}{2n} \big( \Prob(\Ev{X = k-n}) -
+                    \Prob(\Ev{Y = k-n})\big) \, x^k
+            \end{array}
+          \]
+          Ainsi, le polynôme $G_X-G_Y$ admet une infinité de
+          racines. C'est donc le polynôme nul, \ie :
+          \[
+            \forall k \in \llb 0,2n \rrb, \ \Prob(\Ev{X = k-n}) -
+            \Prob(\Ev{Y = k-n}) =0
+          \]
+          D'où :
+          \[
+            \forall k \in \llb -n,n \rrb, \ \Prob(\Ev{X = k}) -
+            \Prob(\Ev{Y = k}) =0
+          \]
+          Ainsi :
+          \[
+            \forall k \in \llb -n,n \rrb, \ \Prob(\Ev{X = k}) =
+            \Prob(\Ev{Y = k})
+          \]
+          \conc{Finalement, les \var $X$ et $Y$ suivent la même
+            loi.}~\\[-1.4cm]
+        \end{noliste}
+      \end{proof}
+    \end{nonoliste}
+  \end{noliste}
+
+
+  \newpage
+  
+  
+\item Dans cette question, on note $X_2$ une variable aléatoire qui
+  suit la loi binomiale $\Bin{2}{\dfrac{1}{2}}$.\\
+  On suppose que les variables aléatoires $X_2$ et $S$ sont
+  indépendantes et on pose $Y_2 = S \, X_2$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Préciser l'ensemble des valeurs possibles de la variable
+      aléatoire $Y_2$.
+      \begin{proof}~
+        \begin{noliste}{$\sbullet$}
+        \item Comme $X_2 \suit \Bin{2}{\dfrac{1}{2}}$, on a : $X_2(\Omega) =
+          \llb 0,2 \rrb = \{0,1,2\}$.
+          
+        \item De plus : $S(\Omega) = \{-1,1\}$.
+        \end{noliste}
+        \conc{On en déduit : $Y_2(\Omega) = (S \, X_2)(\Omega) \subset
+          \{-2,-1,0,1,2\} = \llb -2, 2\rrb$.}~\\[-1cm]
+      \end{proof}
+      
+    \item Calculer les probabilités $\Prob(\Ev{Y_2 = y})$ attachées
+      aux diverses valeurs possibles $y$ de $Y_2$.
+      \begin{proof}~
+        \begin{noliste}{$\sbullet$}
+        \item Tout d'abord, on a l'égalité entre événements :
+          \[
+            \Ev{Y_2 = -2} \ = \ \Ev{S \, X_2 = -2} \ = \ \Ev{S = -1}
+            \cap \Ev{X_2 = 2}
+          \]
+          On en déduit :
+          \[
+            \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+              \Prob(\Ev{Y_2 = -2})
+              & = & \Prob(\Ev{S = -1} \cap \Ev{X_2 = 2})
+              \\[.2cm]
+              & = & \Prob(\Ev{S = -1}) \ \Prob(\Ev{X_2 = 2})
+              & (car $S$ et $X_2$ sont indépendantes)
+              \nl
+              \nl[-.2cm]
+              & = & \dfrac{1}{2} \times \dbinom{2}{2}
+                    \left(\dfrac{1}{2}\right)^2 \
+                    \left(\dfrac{1}{2}\right)^{2-2}
+              \\[.6cm]
+              & = & \dfrac{1}{2} \times 1 \times \dfrac{1}{4}
+            \end{array}
+          \]
+          \conc{$\Prob(\Ev{Y_2 = -2}) = \dfrac{1}{8}$}
+          
+        \item Ensuite :
+          \[
+            \Ev{Y_2 = -1} \ = \ \Ev{S = -1} \cap \Ev{X_2 = 1}
+          \]
+          On obtient donc :
+          \[
+            \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+              \Prob(\Ev{Y_2 = -1})
+              & = & \Prob(\Ev{S = -1} \cap \Ev{X_2 = 1})
+              \\[.2cm]
+              & = & \Prob(\Ev{S = -1}) \ \Prob(\Ev{X_2 = 1})
+              & (car $S$ et $X_2$ sont indépendantes)
+              \nl
+              \nl[-.2cm]
+              & = & \dfrac{1}{2} \times \dbinom{2}{1}
+                    \left(\dfrac{1}{2}\right)^1 \
+                    \left(\dfrac{1}{2}\right)^{2-1}
+              \\[.6cm]
+              & = & \dfrac{1}{2} \times 2 \times \dfrac{1}{4}
+            \end{array}
+          \]
+          \conc{$\Prob(\Ev{Y_2 = -1}) = \dfrac{1}{4}$}
+
+
+          \newpage
+
+          
+        \item De même :
+          \[
+            \Ev{Y_2 = 1} = \Ev{S = 1} \cap \Ev{X_2 = 1} \quad
+            \text{et} \quad \Ev{Y_2 = 2} = \Ev{S = 1} \cap \Ev{X_2 =
+              2}
+          \]
+          \conc{Ainsi : $\Prob(\Ev{Y_2 = 1}) = \dfrac{1}{4}$ \quad et
+            \quad $\Prob(\Ev{Y_2 = 2}) = \dfrac{1}{8}$.}
+          
+        \item Enfin : $\Ev{Y_2 = 0} = \Ev{X_2 = 0}$. Ainsi :
+          \[
+            \Prob(\Ev{Y_2  = 0}) \ = \ \Prob(\Ev{X_2 = 0}) \ = \
+            \dbinom{2}{0} \left(\dfrac{1}{2}\right)^0 \,
+            \left(\dfrac{1}{2}\right)^2 \ = \ \dfrac{1}{4}
+          \]
+          \conc{$\Prob(\Ev{Y_2 = 0}) = \dfrac{1}{4}$}
+        \end{noliste}
+        \begin{remark}
+          On pouvait aussi remarquer que la famille $(\Ev{Y_2 = k})_{k
+            \in \llb -2, 2\rrb}$ est un système complet
+          d'événements. D'où :
+          \[
+            \begin{array}{rcl}
+              \Prob(\Ev{Y_2 = 0})
+              & = & 1-\Big(\Prob(\Ev{Y_2 = -2}) +
+                    \Prob(\Ev{Y_2 = -1}) + \Prob(\Ev{Y_2 = 1}) +
+                    \Prob(\Ev{Y_2  = 2})\Big)
+              \\[.4cm]
+              & = & 1 - \left(\dfrac{1}{8} + \dfrac{1}{4} +
+                    \dfrac{1}{4} + \dfrac{1}{8}\right) \ = \ \dfrac{1}{4}
+            \end{array}
+          \]
+        \end{remark}~\\[-1.4cm]
+      \end{proof}
+    \end{nonoliste}
+    
+  \item Vérifier que la variable aléatoire $X_2 - (S+1)$ suit la même
+    loi que $Y_2$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord, comme $S(\Omega) = \{-1,1\}$, on a :
+        $(S+1)(\Omega) = \{0,2\}$.\\
+        De plus $X_2(\Omega) = \{0,1,2\}$. D'où, en notant $T_2 = X_2
+        - (S+1)$ : $T_2(\Omega) \subset \{-2,-1,0,1,2\}$.
+        \conc{$T_2(\Omega) \subset \llb -2,2 \rrb$ (on rappelle :
+          $Y_2(\Omega) \subset \llb -2, 2 \rrb$ d'après \itbf{2.a)(i)})}
+        
+      \item Soit $k \in \llb -2,2 \rrb$.\\
+        La famille $(\Ev{S = -1}, \Ev{S = 1})$ forme un système
+        complet d'événements.\\
+        Ainsi, par formule des probabilités totales :
+        \[
+          \begin{array}{cl@{\quad}>{\it}R{4cm}}
+            & \Prob(\Ev{T_2 = k})
+            \\[.4cm]
+            = & \Prob(\Ev{T_2 = k} \cap \Ev{S = -1}) + \Prob(\Ev{T_2
+                  = k} \cap \Ev{S = 1})
+            \\[.4cm]
+            = & \Prob(\Ev{X_2 - (S+1) = k} \cap \Ev{S = -1}) +
+                  \Prob(\Ev{X_2 - (S+1) = k} \cap \Ev{S = 1})
+            \\[.4cm]
+            = & \Prob(\Ev{X_2 - (-1+1) = k} \cap \Ev{S = -1}) +
+                  \Prob(\Ev{X_2 - (1+1) = k} \cap \Ev{S = 1})
+            \\[.4cm]
+            = & \Prob(\Ev{X_2 = k} \cap \Ev{S = -1}) +
+                  \Prob(\Ev{X_2 = k+2} \cap \Ev{S = 1})
+            \\[.4cm]
+            = & \Prob(\Ev{X_2 = k}) \ \Prob(\Ev{S = -1}) +
+                  \Prob(\Ev{X_2 = k+2}) \ \Prob(\Ev{S = 1})
+            & (car $X_2$ et $S$ sont indépendantes)
+            \nl
+            \nl[-.2cm]
+            = & \dfrac{1}{2} \ \Prob(\Ev{X_2 = k}) + \dfrac{1}{2} \
+                \Prob(\Ev{X_2 = k+2})
+          \end{array}
+        \]
+
+
+        \newpage
+
+        
+      \item On obtient ainsi :
+        \[
+          \begin{array}{rcl}
+            \Prob(\Ev{T_2 = -2}) & = & \dfrac{1}{2} \ \Prob(\Ev{X_2 = -2})
+            + \dfrac{1}{2} \ \Prob(\Ev{X_2 = 0}) \ = \ \bcancel{\dfrac{1}{2} \
+            \Prob(\emptyset)} + \dfrac{1}{2} \times \dfrac{1}{4} \ = \
+            \dfrac{1}{8} \ = \ \Prob(\Ev{Y_2 = -2})
+            \\[.6cm]
+            \Prob(\Ev{T_2 = -1}) & = & \dfrac{1}{2} \ \Prob(\Ev{X_2 = -1})
+            + \dfrac{1}{2} \ \Prob(\Ev{X_2 = 1}) \ = \ \bcancel{\dfrac{1}{2} \
+            \Prob(\emptyset)} + \dfrac{1}{2} \times \dfrac{1}{2} \ = \
+            \dfrac{1}{4} \ = \ \Prob(\Ev{Y_2 = -1})
+            \\[.6cm]
+            \Prob(\Ev{T_2 = 0}) & = & \dfrac{1}{2} \ \Prob(\Ev{X_2 = 0})
+            + \dfrac{1}{2} \ \Prob(\Ev{X_2 = 2}) \ = \ \dfrac{1}{2} \times
+            \dfrac{1}{4} + \dfrac{1}{2} \times \dfrac{1}{4} \ = \
+            \dfrac{1}{4} \ = \ \Prob(\Ev{Y_2 = 0})
+            \\[.6cm]                          
+            \Prob(\Ev{T_2 = 1}) & = & \dfrac{1}{2} \ \Prob(\Ev{X_2 = 1})
+            + \dfrac{1}{2} \ \Prob(\Ev{X_2 = 3}) \ = \ \dfrac{1}{2} \times
+            \dfrac{1}{2} + \bcancel{\dfrac{1}{2} \ \Prob(\emptyset)} \ = \
+            \dfrac{1}{4} \ = \ \Prob(\Ev{Y_2 = 1})
+            \\[.6cm]
+            \Prob(\Ev{T_2 = 2}) & = & \dfrac{1}{2} \ \Prob(\Ev{X_2 = 2})
+            + \dfrac{1}{2} \ \Prob(\Ev{X_2 = 4}) \ = \ \dfrac{1}{2} \times
+            \dfrac{1}{4} + \bcancel{\dfrac{1}{2} \ \Prob(\emptyset)} \ = \
+            \dfrac{1}{8} \ = \ \Prob(\Ev{Y_2 = 2})
+          \end{array}
+        \]
+        \conc{On en déduit que $T_2 = X_2 - (S+1)$ et $Y_2$ suivent la
+          même loi.}
+      \end{noliste}
+      \begin{remark}
+        \begin{noliste}{$\sbullet$}
+        \item Lors d'une rédaction classique de détermination de la loi
+          d'une somme, après obtention de la relation :
+          \[
+            \Prob(\Ev{T_2 = k}) \ = \ \dfrac{1}{2} \ \Prob(\Ev{X_2 = k})
+            + \dfrac{1}{2} \ \Prob(\Ev{X_2 = k+2})
+          \]
+          On cherche à déterminer si les événements $\Ev{X_2 = k}$ et/ou
+          $\Ev{X_2 = k+2}$ sont l'événement impossible.
+          
+        \item Ici, cela varie suivant les valeurs de $k$. C'est pour
+          cela qu'on effectue le calcul direct des probabilités
+          $\Prob(\Ev{T_2 = k})$ après l'obtention de la formule précédente.
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+  
+\item Le script \Scilab{} suivant permet d'effectuer des simulations
+  de la variable aléatoire $Y_2$ définie dans la question précédente.
+  \begin{scilab}
+    & n = 10 \nl %
+    & X = grand(n,2,\ttq{}bin\ttq{},2,0.5) \nl %
+    & B = grand(n,2,\ttq{}bin\ttq{},1,0.5) \nl %
+    & S = 2 \Sfois{} B - ones(n,2) \nl %
+    & Z1 = [S(1:n,1) .\Sfois{} X(1:n,1) , X(1:n,1) - S(1:n,1) -
+    ones(n,1)] \nl %
+    & Z2 = [S(1:n,1) .\Sfois{} X(1:n,1) , X(1:n,2) - S(1:n,2) -
+    ones(n,1)]
+  \end{scilab}
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Que contiennent les variables {\tt X} et {\tt S} après
+    l'exécution des quatre premières instructions ?
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item
+        % La variable {\tt X} est définie par la commande :
+        % \begin{scilabC}{1}
+        %   & X = grand(n,2,\ttq{}bin\ttq{},2,0.5)
+        % \end{scilabC}
+        L'instruction {\tt X = grand(n,2,\ttq{}bin\ttq{},2,0.5)}
+        permet de stocker dans la variable {\tt X} une matrice
+        à {\tt n} lignes
+        et $2$ colonnes où chaque colonne contient une observation
+        d'un {\tt n}-échantillon de loi $\Bin{2}{\dfrac{1}{2}}$,
+        c'est-à-dire un {\tt n}-échantillon de la \var $X$. Plus précisément,
+        la première colonne de {\tt X} contient une observation $(c_1,
+        \ldots, c_n)$ d'un {\tt n}-échantillon $(C_1, \ldots, C_n)$ de
+        $X$, et la deuxième colonne de {\tt X} contient une
+        observation $(c_1', \ldots, c_n')$ d'un {\tt n}-échantillon
+        $(c_1', \ldots, C_n')$ de {\tt X}.\\
+        {\it (les \var $C_i$ et $C_i'$ sont indépendantes et ont même
+          loi que la \var $X$)}
+        
+
+        \newpage
+        
+        
+      \item
+        % La variable {\tt B} est définie par la commande :
+        % \begin{scilabC}{2}
+        %   & B = grand(n,2,\ttq{}bin\ttq{},1,0.5)
+        % \end{scilabC}
+        L'instruction {\tt B = grand(n,2,\ttq{}bin\ttq{},1,0.5)}
+        permet de stocker dans la variable {\tt B} une matrice à {\tt n}
+        lignes et $2$ colonnes où la première colonne contient une
+        observation $(b_1, \ldots, b_n)$ d'un {\tt n}-échantillon
+        $(B_1, \ldots, B_n)$ de loi $\Bern{\dfrac{1}{2}}$, et la
+        deuxième colonne contient une observation $(b_1', \ldots,
+        b_n')$ d'un {\tt n}-échantillon $(B_1', \ldots, B_n')$ de loi
+        $\Bern{\dfrac{1}{2}}$.\\
+        {\it (les \var $B_i$ et $B_i'$ sont indépendantes et ont même
+          loi $\Bern{\dfrac{1}{2}}$)}
+        
+      \item On commence par rappeler que l'instruction {\tt ones(n,2)}
+        permet d'obtenir une matrice à {\tt n} lignes et $2$ colonnes
+        dont tous les coefficients sont égaux à $1$.\\
+        On en déduit que l'instruction {\tt S = 2 \Sfois{} B -
+          ones(n,2)} permet de stocker dans la variable {\tt S} une
+        matrice à {\tt n} lignes et $2$ colonnes.\\
+        La première colonne contient l'observation
+        $(s_1, \ldots, s_n) = (2 \, b_1 -1, \ldots, 2 \, b_n -1)$ du
+        {\tt n}-échantillon $(2 \, B_1 - 1, \ldots, 2 \, B_n -1)$.\\
+        La deuxième colonne contient l'observation $(s_1', \ldots,
+        s_n') = (2 \, b_1' -1, \ldots, 2 \, b_n' -1)$ du {\tt
+          n}-échantillon $(2 \, B_1' -1, \ldots, 2 \, B_n' -1)$.
+        
+      \item Les \var $2 \, B_i - 1$ et $2 \, B_i' -1$ sont
+        indépendantes et de même loi. Déterminons cette loi : on note
+        $B$ une \var de loi $\Bern{\dfrac{1}{2}}$ et on cherche la loi
+        de $V = 2 \, B -1$.
+        \begin{noliste}{$\stimes$}
+        \item Tout d'abord, comme $B \suit \Bern{\dfrac{1}{2}}$, on a :
+          $B(\Omega) = \{0,1\}$.\\
+          On en déduit : $V(\Omega) = \{2 \times 0 -1, 2 \times 1 -
+          1\} = \{-1,1\}$.
+          
+        \item De plus :
+          \[
+            \Ev{V = 1} \ = \ \Ev{2 \, B -1 = 1} \ = \ \Ev{2 \, B =
+              2} \ = \ \Ev{B = 1}
+          \]
+          D'où : $\Prob(\Ev{V = 1}) = \Prob(\Ev{B = 1}) =
+          \dfrac{1}{2}$
+            
+        \item Enfin, comme la famille $(\Ev{V = -1}, \Ev{V = 1})$
+          est un système complet d'événements :
+          \[
+            \Prob(\Ev{V = -1}) \ = \ 1 - \Prob(\Ev{V = 1}) \ = \ 1 -
+            \dfrac{1}{2} \ = \ \dfrac{1}{2}
+          \]
+        \end{noliste}
+        On en déduit que la \var $V = 2 \, B -1$ suit la même loi que
+        la \var $S$.
+        
+      \item La variable {\tt S} contient donc une
+        matrice à {\tt n} lignes et $2$ colonnes, où
+        la première colonne contient une observation
+        $(s_1, \ldots, s_n)$ d'un
+        {\tt n}-échantillon $(S_1, \ldots, S_n)$ de la \var $S$, et la
+        deuxième colonne contient une observation $(s_1', \ldots,
+        s_n')$ du {\tt n}-échantillon $(S_1', \ldots, S_n')$ de la
+        \var $S$.\\
+        {\it (les \var $S_i$ et $S_i'$ sont indépendantes et ont même
+          loi que la \var $S$)}
+      \end{noliste}
+      \begin{remark}
+        \begin{noliste}{$\sbullet$}
+        \item Comme souvent dans les sujets HEC, l'une des difficultés
+          provient de la prise d'initiatives nécessaires pour répondre à
+          une question.
+          
+        \item Dans cette question par exemple, déterminer la loi de la
+          \var $V = 2 \, B-1$ n'est pas difficile. C'est prendre
+          l'initiative de déterminer cette loi qui constitue la difficulté.
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+
+
+    \newpage
+    
+    
+  \item Expliquer pourquoi, après l'exécution des six instructions,
+    chacun des coefficients des matrices {\tt Z1} et {\tt Z2} contient
+    une simulation de la variable aléatoire $Y_2$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item L'instruction {\tt  Z1 = [S(1:n,1) .\Sfois{} X(1:n,1) ,
+          X(1:n,1) - S(1:n,1) - ones(n,1)]} permet de stocker dans la
+        variable {\tt Z1} une matrice à {\tt n} lignes et $2$
+        colonnes.\\
+        Le contenu de la première colonne est donné par la commande
+        {\tt S(1:n,1) .\Sfois{} X(1:n,1)} et celui de la deuxième
+        colonne par {\tt  X(1:n,1) - S(1:n,1) - ones(n,1)}.
+
+      \item L'instruction {\tt S(1:n,1) .\Sfois{} X(1:n,1)}
+        permet d'obtenir une matrice colonne à {\tt n} lignes
+        contenant l'observation $(d_1, \ldots, d_n) =
+        (s_1 \times c_1, \ldots , s_n \times c_n)$
+        du {\tt n}-échantillon ($S_1 \, C_1, \ldots, S_n \ C_n)$.\\
+        Or, les $S_i$ suivent la même loi que $S$ et les $C_i$ suivent
+        la même loi que $X_2$. Ainsi, les $S_i \, C_i$ suivent la même
+        loi que $Y_2$.\\
+        La première colonne de {\tt Z1} contient donc une observation $(d_1,
+        \ldots, d_n)$ d'un {\tt n}-échantillon $(D_1, \ldots, D_n)$ de
+        $Y_2$.\\
+        {\it (les \var $D_i$ sont indépendantes et ont même
+          loi que la \var $Y_2$)}
+
+
+        % \newpage
+
+
+        
+      \item L'instruction {\tt X(1:n,1) - S(1:n,1) - ones(n,1)}
+        permet d'obtenir une matrice colonne à {\tt n} lignes
+        contenant l'observation $(d_1', \ldots, d_n') =
+        (c_1 - s_1 - 1, \ldots , c_n - s_n -1)$
+        du {\tt n}-échantillon ($C_1 - S_1-1, \ldots, C_n- S_n -1)$.\\
+        Or, les $S_i$ suivent la même loi que $S$ et les $C_i$ suivent
+        la même loi que $X_2$. Ainsi, les $C_i-S_i-1$ suivent la même
+        loi que $X_2 - S-1$. De plus, d'après la question \itbf{2.b)},
+        la \var $X_2-S-1$ suit la même loi que $Y_2$.\\ 
+        La deuxième colonne de {\tt Z1} contient donc une observation $(d_1',
+        \ldots, d_n')$ d'un {\tt n}-échantillon $(D_1', \ldots, D_n')$ de
+        $Y_2$.\\
+        {\it (les \var $D_i'$ sont indépendantes et ont même
+          loi que la \var $Y_2$)}
+        
+      \item De même, l'instruction {\tt  Z2 = [S(1:n,1) .\Sfois{} X(1:n,1) ,
+          X(1:n,2) - S(1:n,2) - ones(n,1)]} permet de stocker dans la
+        variable {\tt Z2} une matrice à {\tt n} lignes et $2$
+        colonnes.\\
+        Le contenu de la première colonne est donné par la commande
+        {\tt S(1:n,1) .\Sfois{} X(1:n,1)} et celui de la deuxième
+        colonne par {\tt  X(1:n,2) - S(1:n,2) - ones(n,1)}.
+        
+      \item La première colonne de {\tt Z2} est identique à celle de
+        {\tt Z1}, donc la première colonne de {\tt Z2} contient
+        l'observation $(d_1, \ldots, d_n)$ du {\tt n}-échantillon
+        $(D_1, \ldots, D_n)$ de $Y_2$.
+        
+      \item L'instruction {\tt X(1:n,2) - S(1:n,2) - ones(n,1)}
+        permet d'obtenir une matrice colonne à {\tt n} lignes
+        contenant l'observation $(d_1'', \ldots, d_n'') =
+        (c_1' - s_1' - 1, \ldots , c_n' - s_n' -1)$
+        du {\tt n}-échantillon ($C_1' - S_1'-1, \ldots, C_n'- S_n' -1)$.\\
+        Or, les $S_i'$ suivent la même loi que $S$ et les $C_i'$ suivent
+        la même loi que $X_2$. Ainsi, les $C_i'-S_i'-1$ suivent la même
+        loi que $X_2 - S-1$, donc que $Y_2$.\\ 
+        La deuxième colonne de {\tt Z2} contient donc une observation $(d_1'',
+        \ldots, d_n'')$ d'un {\tt n}-échantillon $(D_1'', \ldots, D_n'')$ de
+        $Y_2$.\\
+        {\it (les \var $D_i''$ sont indépendantes et ont même
+          loi que la \var $Y_2$)}
+      \end{noliste}
+      \conc{Finalement, chacun des coefficients des matrices {\tt Z1}
+        et {\tt Z2} contient une simulation de la \var $Y_2$.}
+      \begin{remarkL}{.95}
+        On aurait pu utiliser davantage les commandes Scilab{}. En
+        effet, l'appel classique permettant d'extraire la première
+        colonne de la matrice {\tt S} est plutôt {\tt S(:,1)}
+        (que {\tt S(1:n,1)}).
+      \end{remarkL}~\\[-1.4cm]
+    \end{proof}
+
+
+    \newpage
+    
+    
+  \item On modifie la première ligne du script précédent en affectant
+    à {\tt n} une valeur beaucoup plus grande que $10$ (par exemple,
+    $100000$) et en lui adjoignant les deux instructions \ligne{7} et
+    \ligne{8} suivantes :
+    \begin{scilabC}{6}
+      & p1 = length(find(Z1(1:n,1) == Z1(1:n,2))) / n \nl %
+      & p2 = length(find(Z2(1:n,1) == Z2(1:n,2))) / n
+    \end{scilabC}
+    Quelles valeurs numériques approchées la loi faible des grands
+    nombres permet-elle de fournir pour {\tt p1} et {\tt p2} après
+    l'exécution des huit lignes du nouveau script ?
+
+
+    % \newpage
+
+
+    \noindent
+    Dans le langage \Scilab{}, la fonction {\tt length} fournit la \og
+    longueur \fg{} d'un vecteur ou d'une matrice et la fonction {\tt
+      find} calcule les positions des coefficients d'une matrice pour
+    lesquels une propriété est vraie, comme l'illustre le script
+    suivant :
+    \[
+      \begin{console}
+        \lInv{A = [1 ; 2 ; 0 ; 4]} \nl %
+        \lInv{B = [2 ; 2 ; 4 ; 3]} \nl %
+        \lInv{length(A)} \nl %
+        \lDisp{\qquad ans = 4.} \nl %
+        \lInv{length([A , B])} \nl %
+        \lDisp{\qquad ans = 8.} \nl %
+        \lInv{find(A < B)} \nl %
+        \lDisp{\qquad ans = 1. 3. // \textit{car $1<2$ et $0<4$, alors
+            que $2 \geq 2$ et $4 \geq 3$}}
+      \end{console}
+    \]
+
+
+    % \newpage
+
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Commençons par commenter l'instruction :
+        \begin{scilabC}{6}
+          & p1 = length(find(Z1(1:n,1) == Z1(1:n,2))) / n
+        \end{scilabC}
+        \begin{noliste}{$\stimes$}
+        \item L'instruction {\tt find(Z1(1:n,1) == Z1(1:n,2))} permet
+          d'obtenir une matrice ligne contenant les positions des
+          coefficients des matrices {\tt Z1(1:n,1)} et {\tt Z1(1:n,2)}
+          égaux. Autrement dit, on obtient une matrice ligne contenant
+          les indices $i$ tels que $d_i = d_i'$.\\
+          {\it (on rappelle que $(d_1, \ldots, d_n)$ est une
+            observation d'un {\tt n}-échantillon $(D_1, \ldots, D_n)$
+            de $S \, X_2$ et $(d_1', \ldots, d_n')$ est une
+            observation d'un {\tt n}-échantillon $(D_1', \ldots, D_n')$
+            de $X_2 - S-1$)}
+          
+        \item L'instruction {\tt length(find(Z1(1:n,1) == Z1(1:n,2)))}
+          permet d'obtenir la longueur de la matrice
+          précédente. Ainsi, on obtient le nombre de fois où $d_i =
+          d_i'$, pour $i \in \llb 1,{\tt n} \rrb$.
+          
+        \item Enfin, on divise ce nombre par la taille {\tt n} de
+          l'observation.\\
+          Or, par loi faible des grands nombres (LfGN) :
+          \[
+            \dfrac{\text{nombre de fois où $d_i = d_i'$}}{\text{taille
+                de l'observation}} \ \simeq \ \Prob(\Ev{S \, X_2 = X_2
+              - S-1})
+          \]
+        \end{noliste}
+        \conc{La variable {\tt p1} contient une valeur approchée de
+          $\Prob(\Ev{S \, X_2 = X_2 -S-1})$.}
+        
+      \item Commentons ensuite l'instruction :
+        \begin{scilabC}{7}
+          & p2 = length(find(Z2(1:n,1) == Z2(1:n,2))) / n
+        \end{scilabC}
+        \begin{noliste}{$\stimes$}
+        \item L'instruction {\tt find(Z2(1:n,1) == Z2(1:n,2))} permet
+          d'obtenir une matrice ligne contenant les positions des
+          coefficients des matrices {\tt Z1(2:n,1)} et {\tt Z1(2:n,2)}
+          égaux. Autrement dit, on obtient une matrice ligne contenant
+          les indices $i$ tels que $d_i = d_i''$.\\
+          {\it (on rappelle que $(d_1, \ldots, d_n)$ est une
+            observation d'un {\tt n}-échantillon $(D_1, \ldots, D_n)$
+            de $S \, X_2$ et $(d_1'', \ldots, d_n'')$ est une
+            observation d'un {\tt n}-échantillon $(D_1'', \ldots, D_n'')$
+            de $X_2' - S-1$, où la \var $X_2'$ suit la même loi que $X_2$)}
+          
+        \item L'instruction {\tt length(find(Z2(1:n,1) == Z2(1:n,2)))}
+          permet d'obtenir la longueur de la matrice
+          précédente. Ainsi, on obtient le nombre de fois où $d_i =
+          d_i''$, pour $i \in \llb 1,{\tt n} \rrb$.
+
+          
+          \newpage
+          
+          
+        \item Enfin, on divise ce nombre par la taille {\tt n} de
+          l'observation.\\
+          Or, par loi faible des grands nombres (LfGN) :
+          \[
+            \dfrac{\text{nombre de fois où $d_i = d_i''$}}{\text{taille
+                de l'observation}} \ \simeq \ \Prob(\Ev{S \, X_2 = X_2'
+              - S-1})
+          \]
+        \end{noliste}
+        \conc{La variable {\tt p2} contient une valeur approchée de
+          $\Prob(\Ev{S \, X_2 = X_2' -S-1})$\\
+          où la \var $X_2'$ suit la même loi que $X_2$.}
+      \end{noliste}
+      \begin{remarkL}{.98}
+        \begin{noliste}{$\sbullet$}
+        \item Le programme proposé par l'énoncé n'est ici rien d'autre
+          qu'une illustration de l'idée naturelle pour obtenir une
+          approximation de $\Prob(\Ev{S \, X_2 = X_2 - S-1})$ :
+          \begin{noliste}{$\stimes$}
+          \item simuler un grand nombre de fois ({\tt n} $= 100000$)
+            les \var $S \, X_2$ et $X_2 - S-1$.\\
+            Formellement, on souhaite obtenir une observation $(d_1,
+            \ldots, d_n)$ d'un {\tt n}-échantillon
+            $(D_1, \ldots, D_n)$ de la \var $S \, X_2$, et une
+            observation $(d_1', \ldots, d_n')$ d'un {\tt
+              n}-échantillon $(D_1', \ldots, D_n')$ de la \var $X_2 -S-1$. 
+            
+          \item de compter le nombre de fois où $d_i = d_i'$, pour $i
+            \in \llb 1, {\tt n} \rrb$.
+          \end{noliste}
+          
+        \item L'objectif de cette question \Scilab{} est de revenir sur
+          un point important en probabilités :
+          \[
+            \mbox{$X$ et $Y$ ont même loi \quad
+            \bcancel{\rule[-.2cm]{0cm}{.2cm} \!\!\! $\Rightarrow$ \!\!\!
+            \rule[-.2cm]{0cm}{.2cm}} \quad $X=Y$}
+          \]
+          (mais bien sûr, si $X=Y$, alors $X$ et $Y$ ont même loi)
+          
+        \item On peut avoir la confirmation du point précédent en
+          exécutant le programme \Scilab{}.\\
+          On obtient :
+          \[
+            \begin{console}
+              \lDisp{\qquad p1 =} \nl %
+              \lDisp{\qquad \qquad 0.1261} \nl %
+              \lDisp{\qquad p2 =} \nl %
+              \lDisp{\qquad \qquad 0.2179}
+            \end{console}
+          \]
+          On constate qu'on a ${\tt p1} \neq 1$ et ${\tt p2} \neq
+          1$. Ainsi, ici :
+          \begin{noliste}{$\stimes$}
+          \item les \var $S \, X_2$ et $X_2 -S-1$ ont même loi,
+            
+          \item mais $\Prob(\Ev{S \, X_2 = X_2 -S-1}) \neq 1$. Cela
+            démontre en particulier : $S \, X_2 \neq X_2 - S-1$.
+          \end{noliste}
+        \end{noliste}
+      \end{remarkL}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+  
+\item Dans cette question, on note $X_n$ une variable aléatoire qui
+  suit la loi binomiale $\Bin{n}{\dfrac{1}{2}}$.\\
+  On suppose que les variables aléatoires $X_n$ et $S$ sont
+  indépendantes et on pose $Y_n = S \, X_n$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier que la fonction $M_{X_n}$ est définie sur $\R$ et
+    calculer $M_{X_n}(t)$ pour tout $t\in \R$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item  Soit $t \in \R$.\\
+        La \var $X_n$ est une \var finie. Ainsi, la \var $\ee^{t \,
+          X_n}$ est également une \var finie. Elle admet donc des
+        moments à tout ordre, en particulier une espérance.
+        \conc{On en déduit que la fonction $M_{X_n}$ défini sur $\R$.}
+
+
+        \newpage
+        
+        
+      \item Soit $t \in \R$.
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+            M_{X_n}(t)
+            & = & \E\left(\ee^{t \, X_n}\right)
+            \\[.2cm]
+            & = & \Sum{k=0}{n} \ee^{k \, t} \ \Prob(\Ev{X_n = k})
+            & (par théorème de transfert ($X_n(\Omega) = \llb 0,n \rrb$))
+            \nl
+            \nl[-.2cm]
+            & = & \Sum{k=0}{n} \ee^{k \, t} \dbinom{n}{k}
+                  \left(\dfrac{1}{2}\right)^k
+                  \left(\dfrac{1}{2}\right)^{n-k}
+            & (car $X_n \suit \Bin{n}{\dfrac{1}{2}}$)
+            \nl
+            \nl[-.2cm]
+            & = & \Sum{k=0}{n} \dbinom{n}{k} \ee^{k \, t}
+                  \left(\dfrac{1}{2}\right)^n
+            \\[.6cm]
+            & = & \dfrac{1}{2^n} \ \Sum{k=0}{n} \dbinom{n}{k} \left(
+                  \ee^t \right)^k \ 1^{n-k}
+            \\[.6cm]
+            & = & \dfrac{1}{2^n} \left(\ee^t +1\right)^n
+            & (d'après la formule du binôme de Newton)
+          \end{array}
+        \]
+        \conc{$\forall t \in \R$, $M_{X_n}(t) = \dfrac{1}{2^n}
+          \left(1+ \ee^t\right)^n$}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+    
+  \item Montrer que la fonction $M_{Y_n}$ est donnée par : $\forall t
+    \in \R$, $M_{Y_n}(t) = \dfrac{1}{2^{n+1}} \ \big((1+\ee^t)^n + (1+
+    \ee^{-t})^n\big)$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Soit $t \in \R$.\\
+        La \var $Y_n$ est une \var finie (car les \var $X_n$ et
+        $S$ le sont). Ainsi, la \var $\ee^{t \,
+          Y_n}$ est également une \var finie. Elle admet donc des
+        moments à tout ordre, en particulier une espérance.
+        \conc{On en déduit que la fonction $M_{Y_n}$ défini sur $\R$.}
+        
+      \item Déterminons la loi de $Y_n$.
+        \begin{noliste}{$\stimes$}
+        \item Tout d'abord, comme $X_n(\Omega) = \llb 0,n \rrb$ et
+          $S(\Omega) = \{-1,1\}$, on a : $Y_n(\Omega) \subset \llb -n,
+          n \rrb$.
+          
+        \item Soit $k \in \llb -n, n \rrb$.\\
+          La famille $(\Ev{S=-1}, \Ev{S=1})$ forme un système complet
+          d'événements.\\
+          Ainsi, par formule des probabilités totales :
+          \[
+            \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+              \Prob(\Ev{Y_n = k})
+              & = & \Prob(\Ev{S = -1} \cap \Ev{Y_n = k}) + \Prob(\Ev{S
+                    = 1} \cap \Ev{Y_n = k})
+              \\[.4cm]
+              & = & \Prob(\Ev{S = -1} \cap \Ev{S \, X_n = k}) +
+                    \Prob(\Ev{S = 1} \cap \Ev{S \, X_n = k})
+              \\[.4cm]
+              & = & \Prob(\Ev{S = -1} \cap \Ev{-X_n = k}) +
+                    \Prob(\Ev{S = 1} \cap \Ev{X_n = k})
+              \\[.4cm]
+              & = & \Prob(\Ev{S = -1}) \ \Prob(\Ev{X_n = -k}) +
+                    \Prob(\Ev{S = 1}) \ \Prob(\Ev{X_n = k})
+              & (car les \var $S$ et $X_n$ sont indépendantes)
+              \nl
+              \nl[-.2cm]
+              & = & \dfrac{1}{2} \ \Prob(\Ev{X_n = -k}) + \dfrac{1}{2}
+                    \ \Prob(\Ev{X_n = k})
+            \end{array}
+          \]
+          Trois cas se présentent alors :
+        \end{noliste}
+        \begin{liste}{-}
+        \item \dashuline{si $k \in \llb -n, 0 \llb$}, alors $\Ev{X_n = k} =
+          \emptyset$. Donc :
+          \[
+            \Prob(\Ev{Y_n = k}) \ = \ \dfrac{1}{2} \ \Prob(\Ev{X_n =
+              -k}) + \bcancel{\dfrac{1}{2} \ \Prob(\emptyset)} \ = \
+            \dfrac{1}{2} \ \Prob(\Ev{X_n = -k})
+          \]
+
+
+          \newpage
+          
+          
+        \item \dashuline{si $k=0$}, alors :
+          \[
+            \begin{array}{rcl}
+              \Prob(\Ev{Y_n = 0})
+              & = & \dfrac{1}{2} \ \Prob(\Ev{X_n = 0}) + \dfrac{1}{2}
+                    \ \Prob(\Ev{X_n = 0})
+              \\[.6cm]
+              & = & \Prob(\Ev{X_n = 0})
+              \\[.4cm]
+              & = & \dbinom{n}{0} \left(\dfrac{1}{2}\right)^0
+                    \left(\dfrac{1}{2}\right)^{n-0}
+              \\[.6cm]
+              & = & \dfrac{1}{2^n}
+            \end{array}
+          \]
+          
+        \item \dashuline{si $k \in \rrb 0, n \rrb$}, alors $\Ev{X_n = -k} =
+          \emptyset$. Donc :
+          \[
+            \Prob(\Ev{Y_n = k}) \ = \ \bcancel{\dfrac{1}{2} \ \Prob(\emptyset)}
+            + \dfrac{1}{2} \ \Prob(\Ev{X_n = k}) \ = \
+            \dfrac{1}{2} \ \Prob(\Ev{X_n = k})
+          \]
+        \end{liste}
+        
+      \item Soit $t \in \R$.
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+            M_{Y_n}(t)
+            & = & \E\left(\ee^{t \, Y_n}\right)
+            \\[.2cm]
+            & = & \Sum{k=-n}{n} \ee^{k \, t} \ \Prob(\Ev{Y_n = k})
+            \\[.6cm]
+            & = & \Sum{k=-n}{-1} \left(\ee^{k \, t} \ \Prob(\Ev{Y_n =
+                  k})\right) + \ee^{0 \, t} \ \Prob(\Ev{Y_n = 0}) +
+                  \Sum{k=1}{n} \left(\ee^{k \, t} \ \Prob(\Ev{Y_n =
+                  k})\right)
+            \\[.6cm]
+            & = & \dfrac{1}{2} \ \Sum{k=-n}{-1} \left(\ee^{k \, t} \
+                  \Prob(\Ev{X_n = -k})\right) + \dfrac{1}{2^n} +
+                  \dfrac{1}{2} \ \Sum{k=1}{n} \left(\ee^{k \, t} \
+                  \Prob(\Ev{X_n = k})\right)
+          \end{array}
+        \]
+        \begin{noliste}{$\stimes$}
+        \item Tout d'abord :
+          \[
+            \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+              \Sum{k=-n}{-1} \ee^{k \, t} \ \Prob(\Ev{X_n = -k})
+              & = & \Sum{j=1}{n} \ee^{-j \, t} \ \Prob(\Ev{X_n = j})
+              & (par changement d'indice $j=-k$)
+              \nl
+              \nl[-.2cm]
+              & = &\Sum{j=1}{n} \ee^{-j \, t} \ \dbinom{n}{j}
+                    \left(\dfrac{1}{2}\right)^j
+                    \left(\dfrac{1}{2}\right)^{n-j}
+              \\[.6cm]
+              & = & \dfrac{1}{2^n} \ \Sum{j=1}{n} \dbinom{n}{j} \
+                    \left(\ee^{-t}\right)^j \ 1^{n-j}
+              \\[.6cm]
+              & = & \dfrac{1}{2^n} \ \left(\Sum{j=0}{n} \left(\dbinom{n}{j} \
+                    \left(\ee^{-t}\right)^j \ 1^{n-j}\right) -1\right)
+              \\[.6cm]
+              & = & \dfrac{1}{2^n} \left((\ee^{-t}+1)^n -1\right)
+              & (d'après la formule du binôme de Newton)
+            \end{array}
+          \]
+
+        \item De même :
+          \[
+            \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+              \Sum{k=1}{n} \ee^{k \, t} \ \Prob(\Ev{X_n = k})
+              & = &\Sum{k=1}{n} \ee^{k \, t} \ \dbinom{n}{k}
+                    \left(\dfrac{1}{2}\right)^k
+                    \left(\dfrac{1}{2}\right)^{n-k}
+              \\[.6cm]
+              & = & \dfrac{1}{2^n} \ \Sum{k=1}{n} \dbinom{n}{k} \
+                    \left(\ee^{t}\right)^k \ 1^{n-k}
+              \\[.6cm]
+              & = & \dfrac{1}{2^n} \ \left(\Sum{k=0}{n} \left(\dbinom{n}{k} \
+                    \left(\ee^{t}\right)^k \ 1^{n-k}\right) -1\right)
+              \\[.6cm]
+              & = & \dfrac{1}{2^n} \left((\ee^{t}+1)^n -1\right)
+              & (d'après la formule du binôme de Newton)
+            \end{array}
+          \]
+        \end{noliste}
+
+
+        \newpage
+        
+        
+      \item On obtient alors :
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+            M_{Y_n}(t)
+            & = & \dfrac{1}{2} \times \dfrac{1}{2^n}
+                  \left((1+\ee^{-t})^n -1\right) + \dfrac{1}{2^n} +
+                  \dfrac{1}{2} \times \dfrac{1}{2^n} \left((1+
+                  \ee^t)^n -1\right)
+            \\[.6cm]
+            & = & \dfrac{1}{2^{n+1}} (1+ \ee^{-t})^n -
+                  \dfrac{1}{2^{n+1}} + \dfrac{1}{2^n} +
+                  \dfrac{1}{2^{n+1}} (1+ \ee^t)^n - \dfrac{1}{2^{n+1}}
+            \\[.6cm]
+            & = & \dfrac{1}{2^{n+1}} \left((1+ \ee^{-t})^n + (1+
+                  \ee^t)^n \right) - \dfrac{\bcancel{2}}{2^{n +
+                  \bcancel{1}}} + \dfrac{1}{2^n}
+            \\[.6cm]
+            & = & \dfrac{1}{2^{n+1}} \left((1+ \ee^{-t})^n + (1+
+                  \ee^t)^n \right) - \bcancel{\dfrac{1}{2^n}} +
+                  \bcancel{\dfrac{1}{2^n}}
+          \end{array}
+        \]
+        \conc{$\forall t \in \R$, $M_{Y_n}(t) = \dfrac{1}{2^{n+1}} \
+          \left((1+ \ee^t)^n + (1+ \ee^{-t})^n\right)$}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+    
+  \item En utilisant l'égalité $(1+\ee^{-t})^n = \ee^{-nt} \,
+    (1+\ee^t)^n$, montrer que $Y_n$ suit la même loi que la différence
+    $X_n - H_n$, où $H_n$ est une variable aléatoire indépendante de
+    $X_n$ dont on précisera la loi.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item  Soit $t \in \R$. Démontrons l'égalité : $(1+ \ee^{-t})^n
+        =  \ee^{-nt} (1+ \ee^t)^n$.
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+            \ee^{-n \, t} \ (1+ \ee^t)^n
+            & = & \left(\ee^{-t}\right)^n \ (1+\ee^t)^n
+            \\[.2cm]
+            & = & \big(\ee^{-t}(1+\ee^t)\big)^n
+            \\[.2cm]
+            & = & (\ee^{-t} + 1)^n
+          \end{array}
+        \]
+        \conc{$\forall t \in \R$, $(1+ \ee^{-t})^n = \ee^{-nt} (1+\ee^t)^n$}
+        
+      \item Il s'agit de démontrer que les \var $Y_n$ et $X_n - H_n$
+        ont même loi. On peut déjà remarquer : $Y(\Omega) \subset \llb
+        -n,n \rrb$. Or, en question \itbf{1.c)}, on a démontré que, si
+        deux \var $X$ et $Y$ vérifient :
+        \begin{noliste}{$\stimes$}
+        \item $X(\Omega) \subset \llb -n,n \rrb$,
+          
+        \item $Y(\Omega) \subset \llb -n,n \rrb$,
+          
+        \item $M_X \ = \ M_Y$,
+        \end{noliste}
+        alors $X$ et $Y$ ont même loi.\\
+        Pour répondre à cette question, il suffit donc de trouver une
+        \var $H_n$ indépendante de $X_n$ telle que :
+        % Comme $Y_n(\Omega) \subset \llb -n,n \rrb$, on souhaite
+        % appliquer la question \itbf{1.c)}, \ie on souhaite trouver
+        % une \var $H_n$ indépendante de $X_n$ telle que :
+        \[
+          (X_n - H_n)(\Omega) \subset \llb -n,n \rrb \quad \text{et}
+          \quad M_{Y_n} = M_{X_n - H_n}
+        \]
+        Pour déterminer une telle \var $H_n$, on commencera par
+        supposer qu'elle existe pour en déduire des propriétés sur sa loi,
+        puis on choisira une \var vérifiant ces propriétés, et enfin
+        on établira que l'on est bien dans le cadre d'application de
+        la question \itbf{1.c)}.
+        
+      \item Supposons qu'il existe une telle \var $H_n$. Alors, soit
+        $t \in \R$ :
+        \begin{noliste}{$\stimes$}
+        \item d'une part :
+          \[
+            \begin{array}{rcl@{\quad}>{\it}R{7cm}}
+              M_{X_n - H_n}(t)
+              & = & \E\left( \ee^{t \, (X_n - H_n)}\right)
+              \\[.4cm]
+              & = & \E\left(\ee^{t \, X_n} \ \ee^{-t \, H_n}\right)
+              \\[.4cm]
+              & = & \E\left(\ee^{t \, X_n}\right) \ \E\left(\ee^{-t \,
+                    H_n}\right)
+              & (car, par lemme des coalitions, les \var $\ee^{t \,
+                X_n}$ et $\ee^{-t \, H_n}$ sont indépendantes)
+              \nl
+              \nl[-.2cm]
+              & = & M_{X_n}(t) \ \E\left(\ee^{-t \, H_n}\right)
+              \\[.4cm]
+              & = & \dfrac{1}{2^n} \ (1+\ee^t)^n \ \E\left(\ee^{-t \,
+                    H_n}\right)
+              & (d'après la question \itbf{4.a)})
+            \end{array}
+          \]
+
+
+          \newpage
+          
+          
+        \item d'autre part :
+          \[
+            \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+              M_{Y_n}(t)
+              & = & \dfrac{1}{2^{n+1}} \ \big((1+ \ee^t)^n + (1+
+                    \ee^{-t})^n\big)
+              & (d'après la question précédente)
+              \nl
+              \nl[-.2cm]
+              & = & \dfrac{1}{2^{n+1}} \big((1+\ee^t)^n + \ee^{-nt}
+                    (1+ \ee^t)^n\big)
+              & (d'après l'indication de l'énoncé)
+              \nl
+              \nl[-.2cm]
+              & = & \dfrac{1}{2^{n+1}} \ (1+ \ee^t)^n \left(1 +
+                    \ee^{-nt}\right)
+              \\[.6cm]
+              & = & \dfrac{1}{2^n} \ (1+ \ee^t)^n \times \dfrac{1}{2}
+                    \ \left(1+ \ee^{-nt}\right)
+            \end{array}
+          \]
+        \end{noliste}
+        Ainsi, si $H_n$ vérifie les propriétés souhaitées :
+        \[
+          \begin{array}{rcl}
+            M_{X_n - H_n}(t) = M_{Y_n}(t)
+            & \Leftrightarrow & \bcancel{\dfrac{1}{2^n} \ (1+\ee^t)^n}
+                                \  \E\left(\ee^{-t \, H_n}\right) =
+                                \bcancel{\dfrac{1}{2^n} \ (1+ \ee^t)^n}
+                                \times \dfrac{1}{2} \ \left(1+
+                                \ee^{-nt}\right)
+            \\[.6cm]
+            & \Leftrightarrow & \E\left(\ee^{-t \, H_n}\right) =
+                                \dfrac{1}{2} \left(1+ \ee^{-nt}\right)
+            \\[.6cm]
+            & \Leftrightarrow & \E\left(\ee^{-t \, H_n}\right) =
+                                \ee^{-0 \, t} \ \dfrac{1}{2} +
+                                \ee^{-nt} \ \dfrac{1}{2}
+          \end{array}
+        \]
+
+
+        % \newpage
+        
+        
+      \item On semble faire apparaître ici le théorème de
+        transfert. On choisit donc une \var $H_n$ qui vérifie cette égalité.
+        On choisit alors une \var $H_n$, indépendante de $X_n$
+        telle que :
+        \begin{noliste}{$\stimes$}
+        \item $H_n(\Omega) = \{0,n\}$,
+          
+        \item $\Prob(\Ev{H_n = 0}) = \Prob(\Ev{H_n = n}) = \dfrac{1}{2}$.
+        \end{noliste}
+        
+      \item Vérifions qu'avec cette \var $H_n$, nous sommes dans
+        le cadre d'application de la question \itbf{1.c)}.
+        \begin{noliste}{$\stimes$}
+        \item Tout d'abord, comme $X_n(\Omega) = \llb 0,n \rrb$ et
+          $H_n(\Omega) = \{0,n \}$, alors : $(X_n - H_n)(\Omega)
+          \subset \llb -n,n \rrb$.
+          
+        \item Ensuite, la \var $\ee^{-t \, H_n}$ admet une espérance
+          en tant que \var finie (car $H_n$ est une \var finie).
+          Ainsi, par théorème de transfert, soit $t \in \R$ :
+          \[
+            \E\left( \ee^{-t \, H_n}\right)
+            \ = \ \ee^{-0 \, t} \ \Prob(\Ev{H_n = 0}) + \ee^{-nt} \
+            \Prob(\Ev{H_n = n})
+            \ = \ \dfrac{1}{2} + \ee^{-nt} \ \dfrac{1}{2}
+            \ = \ \dfrac{1}{2} \left(1+ \ee^{-nt}\right)
+          \]
+          Ainsi :
+          \[
+            \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+              M_{Y_n}(t)
+              & = & \dfrac{1}{2^n} \ (1+ \ee^t)^n \times \dfrac{1}{2} \
+                    (1+ \ee^{-t})^n
+              \\[.6cm]
+              & = & M_{X_n}(t) \times \E(\ee^{-t \, H_n})
+              \\[.4cm]
+              & = & \E(\ee^{t \, X_n}) \ \E(\ee^{-t \, H_n})
+              \\[.4cm]
+              & = & \E(\ee^{t \, X_n} \ \ee^{-t \, H_n})
+              & (car les \var $\ee^{t \, X_n}$ et $\ee^{-t \, H_n}$
+                sont indépendantes)
+              \nl
+              \nl[-.2cm]
+              & = & M_{X_n-H_n}(t)
+            \end{array}
+          \]
+          D'où : $M_{Y_n} = M_{X_n - H_n}$
+        \end{noliste}
+        \conc{D'après \itbf{1.c)}, on en déduit que les \var $Y_n$ et
+          $X_n - H_n$ suivent la même loi.}
+      \end{noliste}
+
+
+      % \newpage
+      
+
+      \begin{remark}
+       Les termes \og en utilisant ... \fg{} de cette
+       question font hésiter quant à la nécessité de démontrer
+       l'égalité énoncée. Dans le doute, on le démontre.
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+
+
+\newpage
+
+
+\subsection*{Partie II. Propriétés générales des fonctions
+  génératrices des cumulants et quelques exemples}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{4}
+\item Soit $X$ une variable aléatoire et ${\cal D}_X$ le domaine de
+  définition de la fonction $K_X$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Donner la valeur de $K_X(0)$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord, la \var $\ee^{0 \, X} = 1$ (\var constante
+        égale à $1$) est une \var finie. Elle admet donc une
+        espérance. Donc $M_X(0)$ est bien défini. De plus :
+        \[
+          M_X(0) \ = \ \E\left(\ee^{0 \, X}\right) \ = \ \E(1) \ = \ 1
+        \]
+        
+      \item Ainsi, $K_X(0)$ est bien défini et :
+        \[
+          K_X(0) \ = \ \ln\big(M_X(0)\big) \ = \ \ln(1) \ = \ 0
+        \]
+      \end{noliste}
+      \conc{$K_X(0) = 0$}~\\[-1cm]
+    \end{proof}
+    
+  \item Soit $(a,b) \in \R^2$ et $Y= a \, X +b$. Justifier pour tout
+    réel $t$ pour lequel $a \, t$ appartient à ${\cal D}_X$, l'égalité
+    :
+    \[
+      K_Y(t) \ = \ b \, t + K_X(a \, t)
+    \]
+    \begin{proof}~\\
+      Soit $t \in \R$ tel que $a \, t \in {\cal D}_X$.
+      \begin{noliste}{$\sbullet$}
+      \item Comme $a \, t \in {\cal D}_X$, alors $K_X(a \, t)$ est
+        bien défini, donc $M_X(a \, t)$ également et : $M_X(a \, t) >0$.
+        
+      \item De plus :
+        \[
+          M_X(a \, t)
+          \ = \ \E\left(\ee^{a \, t}\right) \ = \ \E\left(\ee^{t \,
+              (a \, X)}\right)
+          \ = \ \E\left(\ee^{t \, (a \, X +b) -b \, t}\right)
+          \ = \ \E\left(\ee^{t \, Y} \, \ee^{-b \, t}\right)
+          \ = \ \ee^{-b \, t} \ \E\left(\ee^{t \, Y}\right)
+        \]
+        Or, par définition de $M_Y(t)$ (si cette quantité existe) :
+        $M_Y(t) = \E\left(\ee^{t \, T}\right)$.\\
+        D'après le calcul précédent, on en déduit que le réel $M_Y(t)$
+        est bien défini et :
+        \[
+          M_Y(t) \ = \ \ee^{b \, t} \ M_X(a \, t)
+        \]
+        
+      \item Comme : $M_X(a \, t) >0$ et $\ee^{b \, t} >0$, alors :
+        $M_Y(t) = \ee^{b \, t} \ M_X(a \, t) >0$.\\
+        On en déduit que $K_Y(t)$ est bien défini. Et enfin :
+        \[
+          K_Y(t) \ = \ \ln\big(M_Y(t)\big)
+          \ = \ \ln\left(\ee^{b \, t} \ M_X(a \, t)\right)
+          \ = \ b \, t + \ln\big(M_X(a \, t)\big)
+          \ = \ b \, t + K_X(a \, t)
+        \]
+      \end{noliste}
+      \conc{Pour tout $t \in \R$ tel que $a \, t \in {\cal D}_X$ :
+        $K_Y(t) = b \, t + K_X(a \, t)$.}
+
+
+      % \newpage
+
+
+      
+      \begin{remark}
+        On notera que la difficulté de cette question ne réside pas
+        dans la démonstration de la relation entre $K_Y(t)$ et $K_X(a
+        \, t)$ mais bien dans la démonstration de l'existence de tous
+        les objets manipulés.
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+
+
+    \newpage
+    
+    
+  \item On suppose ici que les variables aléatoires $X$ et $-X$
+    suivent la même loi.\\
+    Que peut-on dire dans ce cas des cumulants d'ordre impair de la
+    variables aléatoire $X$ ?
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Soit $t \in {\cal D}_X$.\\
+        Les \var $X$ et $-X$ ont même loi. On en déduit que les
+        \var $\ee^{t \, X}$ et $\ee^{-t \, X}$ ont même loi.\\
+        Or, comme $t \in {\cal D}_X$, $K_X(t)$ existe, donc $\ee^{t \,
+          X}$ admet une espérance ($M_X(t)$) et : $M_X(t)>0$.
+        On en déduit que la \var $\ee^{-t \, X}$ admet une espérance
+        ($M_{-X}(t) = M_X(-t)$) et : $M_{X}(-t) >0$. D'où :
+        $-t \in {\cal D}_X$.
+        \conc{On en déduit que, pour tout $t \in {\cal D}_X$, on a :
+          $-t \in {\cal D}_X$.} 
+        
+      \item Soit $t \in {\cal D}_X$, alors $-t \in {\cal D}_X$.
+        \begin{noliste}{-}
+        \item Ainsi, d'après la question précédente (appliquée à $a=-1$ et
+          $b=0$) :
+          \[
+            K_{-X}(t) \ = \ 0\times t + K_X(-t) \ = \ K_X(-t)
+          \]
+          
+        \item De plus, comme $X$ et $-X$ ont même loi (on rappelle que
+          $M_X(t)$ et $M_{-X}(t)$ sont bien définis car $t \in {\cal
+            D}_X$ et $-t \in {\cal D}_X$) :
+          \[
+            M_{-X}(t) \ = \ \E\left(\ee^{t \, (-X)}\right) \ = \
+            \E\left(\ee^{t \, X}\right) \ = \ M_X(t)
+          \]
+          Ainsi : $K_{-X}(t) \ = \ \ln\big(M_{-X}(t)\big) \ = \
+          \ln\big(M_X(t)\big) \ = \ K_X(t)$.
+        \end{noliste}
+        On en déduit : $K_X(t) = K_{-X}(t) = K_X(-t)$.
+        \conc{Ainsi, si les \var $X$ et $-X$ suivent la même loi :
+          $\forall t \in {\cal D}_X$, $K_X(t) = K_X(-t)$.}
+        
+      \item Supposons maintenant que la fonction $K_X$ est de classe
+        $\Cont{\infty}$ sur ${\cal D}_X$. Soit $p \in \N$ :
+        \begin{noliste}{$\stimes$}
+        \item tout d'abord : $Q^{(2p+1)}(X) = K_X^{(2p+1)}(0)$,
+          
+        \item ensuite : $\forall t \in {\cal D}_X$,
+          $K_X(t) = K_X(-t)$.\\
+          Alors, par récurrence immédiate : $\forall n \in \N$,
+          $\forall t \in {\cal D}_X$,
+          $K_X^{(n)}(t) = (-1)^n \, K_X^{(n)}(-t)$.\\
+          En particulier, pour tout $t \in {\cal D}_X$ :
+          \[
+            K_X^{(2p+1)}(t) \ = \ (-1)^{2p+1} \, K_X^{(2p+1)}(-t) \ =
+            \ -K_X^{(2p+1)}(-t)
+          \]
+          Comme $0 \in {\cal D}_X$ (d'après \itbf{5.a)}), on en déduit :
+          \[
+            K_X^{(2p+1)}(0) = -K^{(2p+1)}(0) \ \Leftrightarrow \ 2 \,
+            K_X^{(2p+1)}(0) = 0 \ \Leftrightarrow \ K_X^{(2p+1)}(0) =
+            0
+          \]
+        \end{noliste}
+        \conc{Ainsi, si $X$ et $-X$ suivent la même loi, sous réserve
+          d'existence : $\forall p \in \N$, $Q^{(2p+1)}(X) = 0$.}
+      \end{noliste}
+  %   \end{proof}
+  % \end{noliste}
+
+
+      \newpage
+
+      
+      \begin{remarkL}{.98}
+        \begin{noliste}{$\sbullet$}
+        \item Remarquons que si $K_X$ n'est pas dérivable sur ${\cal
+            D}_X$ alors on ne peut rien dire des cumulants de $X$,
+          puisque ces derniers n'existent pas.
+          
+        \item Dans le programme ECE, on trouve la propriété :
+            \[
+              \Boxed{
+                \begin{array}{C{5.6cm}cC{5cm}}
+                  Les \var $X$ et $Y$ ont même loi & \Leftrightarrow & Les
+                  \var $X$ et $Y$ ont même fonction de répartition
+                \end{array}
+              }
+            \]
+
+        \item On peut alors démontrer que si $X$ et $Y$ sont des \var
+          discrètes (resp. à densité), on a :
+          \[
+          \Boxed{
+            \begin{array}{rcl}
+              \left.
+                \begin{array}{R{6cm}}
+                  \begin{noliste}{$\sbullet$}
+                  \item Les \var $X$ et $Y$ ont même loi
+                     \item Les \var $X$ et $Y$ admettent un moment d'ordre
+                    $n \in \N^*$\\[-.4cm]
+                  \end{noliste}             
+                \end{array}
+              \right\}
+              & \Rightarrow & \E\big( X^n \big) = \E\big( Y^n \big)
+            \end{array}
+          }
+          \]
+          Cette dernière propriété est aussi vérifiée pour les \var
+          quelconques mais n'est pas explicitement écrite dans ce cas
+          précis. Toutefois, on peut considérer qu'on y a accès
+          puisque le programme précise : \og on admettra que les
+          propriétés opératoires usuelles de l'espérance et de la
+          variance se généralisent aux variables aléatoires
+          quelconques \fg{}.
+          
+        \item Enfin, on utilise dans cette question la propriété :
+          \[
+            \text{$X$ et $Y$ ont même loi} \quad \Rightarrow \quad
+            \text{$f(X)$ et $f(Y)$ ont même loi}
+          \]
+          où $f$ est une fonction (ici $x \mapsto \ee^{t \, x}$).\\
+          Cette propriété est facile à démontrer dans le cas de \var
+          discrètes ou à densité. On l'admettra pour le cas de \var
+          quelconques.
+        \end{noliste}
+      \end{remarkL}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+
+
+  % \newpage
+  
+  
+\item Soit $X$ et $Y$ deux variables aléatoires indépendantes et
+  ${\cal D}_X$ et ${\cal D}_Y$ les domaines de définition respectifs
+  des fonctions $K_X$ et $K_Y$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Monter que pour tout réel $t$ appartenant à la fois à ${\cal
+      D}_X$ et ${\cal D}_Y$, on a : $K_{X+Y}(t) = K_X(t) + K_Y(t)$.
+    \begin{proof}~\\
+      Soit $t \in {\cal D}_X \cap {\cal D}_Y$.
+      \begin{noliste}{$\sbullet$}
+      \item Comme $t \in {\cal D}_X \cap {\cal D}_Y$, les quantités
+        $K_X(t)$ et $K_Y(t)$ sont bien définies.\\
+        En particulier, $M_X(t)$ et $M_Y(t)$ sont bien définies et :
+        $M_X(t) >0$ et $M_Y(t) >0$.\\
+        Ainsi, les \var $\ee^{t \, X}$ et $\ee^{t \, Y}$ :
+        \begin{noliste}{$\stimes$}
+        \item admettent une espérance,
+          
+        \item sont indépendantes par lemme des coalitions, car $X$ et
+          $Y$ sont indépendantes.
+        \end{noliste}
+        On en déduit que la \var $\ee^{t \, X} \times \ee^{t \, Y} =
+        \ee^{t \, (X+Y)}$ admet une espérance. %
+        \conc{Ainsi, la quantité $M_{X+Y}(t)$ est bien définie.}
+        \begin{remarkL}{.98}
+          \begin{noliste}{$\sbullet$}
+          \item On utilise ici le fait que si deux \var $U$ et $V$
+            sont indépendantes et admettent une espérance alors, la
+            \var produit $UV$ admet une espérance donnée par :
+            $\E\big( UV \big) = \E(U) \, \E(V)$.\\
+            L'hypothèse d'indépendance est ici cruciale pour démontrer
+            l'existence de l'espérance du produit et pour obtenir sa
+            valeur.
+          \end{noliste}
+        \end{remarkL}
+
+
+        \newpage
+
+
+        \begin{remarkL}{.99}
+          \begin{noliste}{$\sbullet$}
+          \item Dans le cas général, la \var produit $UV$ admet une
+            espérance si les \var $U$ et $V$ admettent {\bf un moment
+              d'ordre $2$}.
+            
+          \item On peut se demander d'où provient cette hypothèse liée
+            aux moments d'ordre $2$.\\
+            Elle est issue d'un théorème de domination. Détaillons ce
+            point.\\
+            Remarquons tout d'abord : $(U - V)^2 \geq 0$. \\[.2cm]
+            On en déduit : $U^2 - 2 \, UV + V^2 \geq 0$.\\[.2cm]
+            Et, en réordonnant : $UV \leq \dfrac{1}{2} \, U^2 +
+            \dfrac{1}{2} \, V^2$. Ou encore :
+            \[
+            0 \ \leq \ |UV| \ \leq \ \dfrac{1}{2} \, U^2 +
+            \dfrac{1}{2} \, V^2
+            \]
+            Comme $U$ et $V$ admettent un moment d'ordre $2$, la \var
+            $\frac{1}{2} \, U^2 + \frac{1}{2} \, V^2$ admet une
+            espérance comme combinaison linéaire de \var qui en
+            admettent une.\\
+            Ainsi, par théorème de domination (présenté seulement dans
+            le programme ECS), la \var $|UV|$ admet une espérance. Il
+            en est de même de la \var $UV$.
+            
+%           \item Si $X$ et $Y$ sont indépendantes et admettent une
+%             espérance, on a l'égalité :
+%             \[
+%             \E(X \, Y) \ = \ \E(X) \, \E(Y)
+%             \]
+%             L'hypothèse d'existence du moment d'ordre $2$ n'est donc
+%             pas nécessaire dans ce cas.
+          \end{noliste}
+        \end{remarkL}
+        
+      \item De plus :
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{6cm}}
+            M_{X+Y}(t)
+            & = & \E\left(\ee^{t \, (X+Y)}\right)
+            \\[.2cm]
+            & = & \E\left(\ee^{t \, X} \ \ee^{t \, Y}\right)
+            \\[.2cm]
+            & = & \E\left(\ee^{t \, X}\right) \ \E\left(\ee^{t \,
+                  Y}\right)
+            & (car les \var $\ee^{t \, X}$ et
+              $\ee^{t \, Y}$ sont indépendantes)
+            \nl
+            \nl[-.2cm]
+            & = & M_X(t) \ M_Y(t)
+          \end{array}
+        \]
+
+        
+      \item Enfin, comme $M_X(t) >0$ et $M_Y(t) >0$, alors :
+        $M_{X+Y}(t) >0$. Donc $K_{X+Y}(t)$ est bien définie. On
+        obtient :
+        \[
+          K_{X+Y}(t) \ = \ \ln\big(M_{X+Y}(t)\big) \ = \
+          \ln\big(M_X(t) \, M_Y(t)\big) \ = \ \ln\big(M_X(t)\big) +
+          \ln\big(M_Y(t)\big) \ = \ K_X(t) + K_Y(t)
+        \]
+        \conc{$\forall t \in {\cal D}_X \cap {\cal D}_Y$, $K_{X+Y}(t)
+          = K_X(t) + K_Y(t)$}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+
+
+    % \newpage
+    
+    
+  \item En déduire une relation entre les cumulants des variables
+    aléatoires $X$, $Y$ et $X+Y$.
+    \begin{proof}~\\
+      Soit $p \in \N^*$.\\
+      Si $K_X$ est de classe $\Cont{p}$ sur ${\cal D}_X$ et $K_Y$ est
+      de classe $\Cont{p}$ sur ${\cal D}_Y$, alors, d'après la
+      question précédente, $K_{X+Y}$ est de
+      classe $\Cont{p}$ sur ${\cal D}_X \cap {\cal D}_Y$ et :
+      \[
+        \forall t \in {\cal D}_X \cap {\cal D}_Y, \ \ K_{X+Y}^{(p)}(t)
+        \ = \ K_X^{(p)}(t) + K_X^{(p)}(t)
+      \]
+      Or $0 \in {\cal D}_X \cap {\cal D}_Y$. Donc :
+      \[
+        Q_p(X+Y) \ = \ K_{X+Y}^{(p)}(0) \ = \ K_X^{(p)}(0) +
+        K_Y^{(p)}(0) \ = \ Q_p(X) + Q_p(Y)
+      \]
+      \conc{Finalement, pour tout $p \in \N^*$, si $Q_p(X)$ et
+        $Q_p(Y)$ sont bien définis, alors :\\
+        $Q_p(X+Y) \ = \ Q_p(X) + Q_p(Y)$.}~\\[-1cm]
+    \end{proof}
+  \end{noliste}
+
+
+  \newpage
+  
+  
+\item Soit $U$ une variable aléatoire suivant la loi uniforme sur
+  l'intervalle $[0,1]$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que la fonction $M_U$ est définie sur $\R$ et donnée
+    par : $\forall t \in \R$, $M_U(t) = \left\{
+      \begin{array}{cR{1.5cm}}
+        \dfrac{\ee^t - 1}{t} & si $t \neq 0$
+        \nl
+        \nl[-.2cm]
+        1 & si $t=0$
+      \end{array}
+    \right.$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Soit $t \in \R$.\\
+        Le réel $M_U(t)$ existe si et seulement si la \var $\ee^{t \,
+          U}$ admet une espérance.\\
+        Par théorème de transfert, la \var $\ee^{t \, U}$ admet une
+        espérance si et seulement si l'intégrale
+        $\dint{-\infty}{+\infty} \ee^{t \, x} f_U(x) \dx$ est
+        absolument convergente.\\
+        Les fonctions $x \mapsto \ee^{t \,x}$ et $f_U$ étant à valeurs
+        positives sur $\R$ ($f_U$ est une densité de probabilité),
+        cela revient à démonter que cette intégrale est convergente.
+
+        
+      \item De plus, la fonction $f_u$ est nulle en dehors de $[0,1]$,
+        donc :
+        \[
+          \dint{-\infty}{+\infty} \ee^{t \, x} f_U(x) \dx \ = \
+          \dint{0}{1} \ee^{t \, x} f_U(x) \dx
+        \]
+        
+      \item La fonction $x \mapsto \ee^{t \, x} f_U(x)$ est continue
+        par morceaux sur le segment $[0,1]$. On en déduit que
+        l'intégrale $\dint{0}{1} \ee^{t \, x} f_U(x) \dx$ est bien
+        définie.\\
+        Ainsi, pour tout $t \in \R$, la \var $\ee^{t \, U}$ admet une
+        espérance.%
+        \conc{La fonction $M_U$ est donc définie sur $\R$.}
+
+
+        % \newpage
+        
+        
+      \item Soit $t \in \R$. Deux cas se présentent :
+        \begin{noliste}{$\stimes$}
+        \item \dashuline{si $t=0$}, alors d'après la question \itbf{5.a)}
+          : $M_U(0) = 1$.
+          
+        \item \dashuline{si $t \neq 0$}, alors :
+          \[
+            \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+              M_U(t)
+              & = & \E\left(\ee^{t \, U}\right)
+              \\[.2cm]
+              & = & \dint{0}{1} \ee^{t \, x} f_U(x) \dx
+              & (après les points précédents)
+              \nl
+              \nl[-.2cm]
+              & = & \dint{0}{1} \ee^{t \, x} \dx
+              \\[.4cm]
+              & = & \Prim{\dfrac{1}{t} \ \ee^{t \, x}}{0}{1}
+              & (car $t \neq 0$)
+              \nl
+              \nl[-.2cm]
+              & = & \dfrac{1}{t}\left(\ee^t - 1\right)
+            \end{array}
+          \]
+        \end{noliste}
+        \conc{Finalement : $M_U : t \mapsto \left\{
+            \begin{array}{cR{2cm}}
+              \dfrac{\ee^t - 1}{t} & si $t \neq 0$
+              \nl
+              \nl[-.2cm]
+              1 & si $t=0$
+            \end{array}
+          \right.$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+
+
+    \newpage
+    
+    
+  \item Calculer la dérivée de la fonction $M_U$ en tout point $t \neq
+    0$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item La fonction $M_U$ est dérivable sur $]-\infty, 0[$ et sur
+        $]0,+\infty[$ en tant que quotient $\dfrac{f_1}{f_2}$ avec :
+        \begin{noliste}{$\stimes$}
+        \item $f_1 : t \mapsto \ee^t - 1$ dérivable sur $]-\infty, 0[$
+          et sur $]0,+\infty[$,
+          
+        \item $f_2 : t \mapsto t$ dérivable sur $]-\infty,0[$ et sur
+          $]0,+\infty[$ et qui ne s'annule pas sur cet intervalle.
+        \end{noliste}
+        
+      \item Soit $t \in \ ]-\infty,0[ \ \cup \ ]0,+\infty[$.
+        \[
+          M_U'(t) \ = \ \dfrac{\ee^t \times t - (\ee^t -1) \times
+            1}{t^2}
+        \]
+        \conc{$\forall t \in \ ]-\infty, 0[ \ \cup \ ]0,+\infty[$,
+          $M_U(t) = \dfrac{t \, \ee^t - \ee^t +1}{t^2}$}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+    
+  \item Trouver la limite du quotient $\dfrac{M_U(t) -1}{t}$ lorsque
+    $t$ tend vers $0$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Soit $t \in \ \R^*$.
+        \[
+          \dfrac{M_U(t) - 1}{t} \ = \ \dfrac{\frac{\ee^t -1}{t} -1}{t}
+          \ = \ \dfrac{\frac{\ee^t - 1 -t}{t}}{t} \ = \ \dfrac{\ee^t
+            -1 -t}{t^2}
+        \]
+        
+      \item Déterminons, si elle existe, $\dlim{t\to 0} \dfrac{\ee^t
+          -1-t}{t^2}$.
+        \begin{noliste}{$\stimes$}
+        \item Tout d'abord : $\ee^t = 1+t + \dfrac{t^2}{2} + \oo{t}{0}
+            (t^2)$. Ainsi : $\ee^t - 1 -t = \dfrac{t^2}{2} +
+          \oo{t}{0}(t^2)$. D'où :
+          \[
+            \ee^t - 1 - t \eq{t}{0} \dfrac{t^2}{2}
+          \]
+          
+        \item On en déduit :
+          \[
+          \dfrac{\ee^t -1-t}{t^2} \eq{t}{0} \dfrac{\frac{t^2}{2}}{t^2}
+          = \dfrac{1}{\bcancel{t^2}} \ \dfrac{\bcancel{t^2}}{2} =
+          \dfrac{1}{2}
+          \]
+        \end{noliste}
+        \conc{On en déduit : $\dlim{t\to 0} \dfrac{M_U(t) - 1}{t} =
+            \dfrac{1}{2}$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+    
+  \item Montrer que la fonction $M_U$ est de classe $\Cont{1}$ sur
+    $\R$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item D'après la question précédente : $\dlim{t\to 0}
+        \dfrac{M_U(t) - M_U(0)}{t-0} \ = \ \dfrac{1}{2}$.
+        \conc{On en déduit que la fonction $M_U$ est dérivable en $0$
+          et $M_U'(0) = \dfrac{1}{2}$.}
+        
+      \item De plus, d'après la question \itbf{7.b)}, la fonction
+        $M_U$ est dérivable sur $]-\infty,0[$ et sur $]0,+\infty[$.%
+        \conc{On en déduit que la fonction $M_U$ est dérivable sur
+          $\R$.}
+
+
+        \newpage
+        
+        
+      \item La fonction $M_U$ est de classe $\Cont{1}$ sur
+        $]-\infty,0[$ et sur $]0,+\infty[$ avec des arguments
+        similaires à ceux de la dérivabilité sur ces intervalles
+        (question \itbf{7.b)}).
+        
+      \item On cherche enfin à montrer que la fonction $M_U$ est de classe
+        $\Cont{1}$ en $0$, c'est-à-dire que la fonction $M_U'$ est
+        continue en $0$. On rappelle :
+        \[
+          M_U' : t \mapsto \left\{
+            \begin{array}{cR{2cm}}
+              \dfrac{t \, \ee^t - \ee^t +1}{t^2} & si $t \neq 0$
+              \nl
+              \nl[-.2cm]
+              \dfrac{1}{2} & si $t=0$
+            \end{array}
+          \right.
+        \]
+        On cherche donc à montrer : $\dlim{t \to 0} \dfrac{t \, \ee^t
+          - \ee^t +1}{t^2} = \dfrac{1}{2}$.
+        \begin{noliste}{$\stimes$}
+        \item On sait déjà : $\ee^t = 1+t + \dfrac{t^2}{2} + \oo{t}{0}
+            (t^2)$. Ainsi :
+          \[
+            t \, \ee^t \ = \ t \left(1+t+ \dfrac{t^2}{2} + \oo{t}{0}
+            (t^2)\right) \ = \ t+ t^2 + \dfrac{t^3}{2} +
+            \oo{t}{0}(t^3)
+          \]
+          On en déduit :
+          \[
+            \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+              t \, \ee^t - \ee^t +1
+              & = & \bcancel{t}+t^2 + \dfrac{t^3}{2} + \oo{t}{0}(t^3) -
+                    \left(\bcancel{1}+\bcancel{t} + \dfrac{t^2}{2} +
+                    \oo{t}{0}(t^2)\right) +\bcancel{1}
+              \\[.6cm]
+              & = & \dfrac{t^2}{2} + \oo{t}{0}(t^2)
+              & (car $t^3 = \oo{t}{0}(t^2)$)
+            \end{array}
+          \]
+          Ainsi : $t \, \ee^t - \ee^t +1 \eq{t}{0} \dfrac{t^2}{2}$.
+
+        \item On obtient :
+          \[
+            M_U'(t) \ = \ \dfrac{t \, \ee^t - \ee^t +1}{t^2} \eq{t}{0}
+            \dfrac{\frac{\bcancel{t^2}}{2}}{\bcancel{t^2}} \ = \
+            \dfrac{1}{2}
+          \]
+          On en déduit : $\dlim{t\to 0} M_U'(t) \ = \ \dfrac{1}{2} \ =
+          \ M_U'(0)$.\\
+          La fonction $M_U'$ est donc continue en $0$.
+        \end{noliste}
+        \conc{Finalement, la fonction $M_U$ est de classe $\Cont{1}$
+          sur $\R$.}
+      \end{noliste}
+      \begin{remark}
+        \begin{noliste}{$\sbullet$}
+        \item On pouvait également déterminer le DL à l'ordre $2$ \og
+          $t \, \ee^t - \ee^t +1 = \dfrac{t^2}{2} + \oo{t}{0}(t^2)$
+          \fg{} en appliquant la formule de Taylor-Young à la fonction
+          $t \mapsto t \, \ee^t - \ee^t +1$ (qui est bien de classe
+          $\Cont{2}$ sur $\R$).
+          
+        \item L'utilisation de la formule de Taylor-Young serait un
+          peu plus cohérente au regard du programme d'ECE. On ne
+          privilégie cependant  pas cette méthode ici
+          puisqu'elle est bien plus chronophage que celle présentée.
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+
+
+  \newpage
+  
+  
+\item Soit $\alpha$ et $\beta$ deux réels tels que $\alpha < \beta$.\\
+  Dans cette question, on note $X$ une variable aléatoire qui suit la
+  loi uniforme sur l'intervalle $[\alpha, \beta]$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Exprimer $K_X$ en fonction de $M_U$, où la variable aléatoire
+    $U$ a été définie dans la question \itbf{7.}
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Montrons que la fonction $K_U$ est bien définie, \ie :
+        $\forall t \in \R$, $M_U(t) >0$.\\
+        Soit $t \in \R$. Trois cas se présentent :
+        \begin{noliste}{$\stimes$}
+        \item \dashuline{si $t \in \ ]-\infty, 0[$} :
+          \[
+            \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+              M_u(t) >0
+              & \Leftrightarrow & \dfrac{\ee^t - 1}{t} >0
+              \\[.6cm]
+              & \Leftrightarrow & \ee^t - 1 < 0
+              & (car $t<0$)
+              \nl
+              \nl[-.2cm]
+              & \Leftrightarrow & \ee^t < 1
+              \\[.2cm]
+              & \Leftrightarrow & t < 0
+              & (par stricte croissance de la fonction $\ln$ sur
+                $]0,+\infty[$)
+            \end{array}
+          \]
+          La dernière inégalité est vraie, donc, par équivalence, la
+          première aussi.
+          
+        \item \dashuline{si $t=0$}, alors : $M_U(0) = 1 >0$.
+          
+        \item \dashuline{si $t \in \ ]0,+\infty[$}, alors, avec un raisonnement
+          similaire au cas $t \in \ ]-\infty, 0[$, on obtient
+          également :
+          $M_U(t) >0$.
+        \end{noliste}
+        \conc{La fonction $K_U$ est bien définie sur $\R$.}
+        \begin{remarkL}{.95}
+          \begin{noliste}{$\sbullet$}
+          \item L'esprit du sujet est ici de faire l'étude des
+            fonctions $M_X$ et $K_X$ dans le cas particulier de
+            certaines lois usuelles. C'est pourquoi on exploite
+            l'expression explicite de $M_U$ pour démontrer l'existence
+            de $K_U$.
+            
+          \item On pourrait en fait démontrer dans un cadre très
+            général que si $M_X(t)$ est bien définie, alors, comme la
+            \var $\ee^{t \, X}$ est à valeurs {\bf strictement}
+            positives : $M_X(t) >0$.\\
+            On démontrera cette implication dans la partie III qui,
+            elle traite du cas général.
+          \end{noliste}
+        \end{remarkL}
+        
+      \item De plus, rappelons :
+        \[
+          U \suit \Uc{0}{1} \quad \Leftrightarrow \quad Y=(\beta -
+          \alpha) \, U + \alpha \suit \Uc{\alpha}{\beta}
+        \]
+        Ainsi, en notant $Y = (\beta - \alpha) \, U + \alpha$, on
+        obtient que les \var $Y$ et $X$ ont même loi.
+        
+      \item Soit $t \in \R$, alors $(\beta-\alpha) \, t \in \R$. On en déduit,
+        d'après la question \itbf{5.b)}, que $K_Y(t)$ existe et :
+        \[
+          K_Y(t) \ = \ \alpha \, t + K_U\big((\beta-\alpha) \, t) \ = \
+          \alpha \, t + \ln\Big(M_U\big((\beta-\alpha) \, t\big)\Big)
+        \]
+        {\it (on rappelle que, comme la fonction $K_Y$ est bien
+          définie sur $\R$, la fonction $M_Y$ aussi et : $\forall t
+          \in \R$, $M_Y(t) >0$)}
+        
+      \item Enfin, comme les \var $X$ et $Y$ ont même loi, alors les
+        \var $\ee^{t \, X}$ et $\ee^{t \, Y}$ ont même loi.\\
+        Or, comme la fonction $M_Y$ est bien définie sur
+        $\R$, la \var $\ee^{t \, Y}$ admet une espérance strictement
+        positive. Ainsi, la \var $\ee^{t \, X}$ admet la même
+        espérance strictement positive, \ie la fonction $M_X$ est
+        définie sur $\R$ et : $\forall t \in \R$, $M_X(t) = M_Y(t)
+        >0$.
+        \conc{On en déduit que la fonction $K_X$ est définie sur $\R$
+          et :\\
+          $\forall t \in \R$, \quad $K_X(t) \ = \ \alpha \, t +
+          \ln\Big(M_U\big((\beta-\alpha) \, t\big)\Big)$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+
+
+    \newpage
+    
+    
+  \item Justifier que la fonction $K_X$ est de classe $\Cont{1}$ sur
+    $\R$ et établir l'égalité : $Q_1(X) = \E(X)$.
+  \end{noliste}
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord, la fonction $\widetilde{M_U} :t \mapsto M_u\big((\beta -
+        \alpha) \, t\big)$ est de classe $\Cont{1}$ sur $\R$ en tant
+        que composée de fonctions de classe $\Cont{1}$ sur $\R$ (on rappelle que
+            $M_U$ est de classe $\Cont{1}$ sur $\R$ d'après \itbf{7.d)}).\\
+        De plus, comme $M_U(]-\infty, +\infty[)
+        \subset \ ]0,+\infty[$ (démontré dans la question précédente),
+        pour tout $t \in \R$ :
+        :
+        \[
+          \widetilde{M_U}(t) = M_U\big((\beta-\alpha) \, t\big) >0
+        \]
+        % \begin{noliste}{$\stimes$}
+        % \item $f_1 : t \mapsto (\beta - \alpha) \, t$ qui :
+        %   \begin{noliste}{-}
+        %   \item est de classe $\Cont{1}$ sur $\R$,
+            
+        %   \item vérifie : $f(\R) \subset \ \R$
+        %   \end{noliste}
+          
+        % \item $\M_U$ qui est de classe $\Cont{1}$ sur $\R$, d'après \itbf{7.d)}.
+        % \end{noliste}
+        
+      \item Ensuite, la fonction $t \mapsto \ln \Big( M_u \big((\beta
+        - \alpha) \, t\big)\Big)$ est de classe
+        $\Cont{1}$ sur $\R$ car la composée $\ln \circ \tilde{M_U}$ de :
+        \begin{noliste}{$\stimes$}
+        \item $\tilde{M_U} : t \mapsto M_U\big((\beta- \alpha) \, t\big)$ qui :
+          \begin{noliste}{-}
+          \item est de classe $\Cont{1}$ sur $\R$,
+            
+          \item vérifie : $\tilde{M_U}(]-\infty, +\infty[) \subset \
+            ]0,+\infty[$ 
+          \end{noliste}
+          
+        \item $\ln$ qui est de classe $\Cont{1}$ sur $]0,+\infty[$.
+        \end{noliste}
+        \conc{On en déduit que la fonction $K_X$ est de classe
+          $\Cont{1}$ sur $\R$\\ en tant que somme de fonctions de classe
+          $\Cont{1}$ sur $\R$.}
+        
+      \item Par définition de $Q_1(X)$, on a : $Q_1(X) = K_X'(0)$.\\
+        Or, d'après la question précédente, pour tout $t \in \R$ :
+        \[
+          K_X'(t) \ = \ \alpha + \dfrac{(\beta-\alpha) \,
+            M_U'\big((\beta- \alpha) \, t\big)}{M_U\big((\beta-\alpha)
+            \, t\big)}
+        \]
+        On en déduit :
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+            Q_1(X)
+            & = & K_X'(0) \ = \ \alpha + \dfrac{(\beta-\alpha) \, M_U'(0)}{M_U(0)}
+            \\[.6cm]
+            & = & \alpha + \dfrac{(\beta-\alpha) \ \frac{1}{2}}{1}
+            & (d'après \itbf{7.a)} et \itbf{7.d)})
+            \nl
+            \nl[-.2cm]
+            & = & \alpha + \dfrac{\beta-\alpha}{2}
+            \\[.6cm]
+            & = & \dfrac{\alpha + \beta}{2}
+          \end{array}
+        \]
+        \conc{Finalement, comme $X \suit \Uc{\alpha}{\beta}$ : $\E(X)
+          = \dfrac{\alpha + \beta}{2} = Q_1(X)$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+  
+\item Soit un réel $\lambda >0$ et soit $T$ une variable aléatoire qui
+  suit la loi de Poisson de paramètre $\lambda$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer les fonctions $M_T$ et $K_T$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Soit $t \in \R$. Tout d'abord, la quantité $M_T(t)$ est
+        bien définie si la \var $\ee^{t \, T}$ admet une espérance.\\
+        Or, par théorème de transfert, la \var $\ee^{t \, T}$ admet
+        une espérance si et seulement si la série $\Sum{n \geq 0}{}
+        \ee^{t \, n} \ \Prob(\Ev{T = n})$ est absolument
+        convergente.\\
+        Cette série étant à termes positifs, cela revient à démontrer
+        qu'elle est convergente.
+
+
+        \newpage
+
+        
+      \item Soit $N \in \N$.
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+            \Sum{k=0}{N} \ee^{k \, t} \ \Prob(\Ev{T = k})
+            & = & \Sum{k=0}{N} \ee^{k \, t} \ \dfrac{\lambda^k}{k!} \
+                  \ee^{-\lambda}
+            & (car $T \suit \Pois{\lambda}$)
+            \nl
+            \nl[-.2cm]
+            & = & \ee^{-\lambda} \ \Sum{k=0}{N}
+                  \dfrac{\left(\ee^t\right)^k \, \lambda^k}{k!}
+            \\[.6cm]
+            & = & \ee^{-\lambda} \ \Sum{k=0}{N} \dfrac{\left(\lambda
+                  \, \ee^t\right)^k}{k!}
+          \end{array}
+        \]
+        On reconnaît la somme partielle d'ordre $N$ de la série
+        exponentielle $\Sum{n \geq 0}{} \dfrac{x^n}{n!}$ en $x =
+        \lambda \, \ee^t$. Cette série est convergente et :
+        \[
+          \Sum{k=0}{N} \dfrac{\left(\lambda \, \ee^t\right)^k}{k!} \
+          \tendd{N}{+\infty} \  \Sum{k=0}{+\infty} \dfrac{\left(\lambda
+          \, \ee^t\right)^k}{k!} = \exp\left(\lambda \, \ee^t\right)
+        \]
+        On en déduit que la série $\Sum{n \geq 0}{} \ee^{t \, n} \
+        \Prob(\Ev{T = n})$ converge.
+        Ainsi, pour tout $t \in \R$, la \var $\ee^{t \, T}$ admet une espérance.
+        \conc{On en déduit que la fonction $M_T$ est définie sur
+          $\R$.}
+        
+      \item De plus, soit $t \in \R$ :
+        \[
+          M_T(t) \ = \ \E\left(\ee^{t \, T}\right) \ = \
+          \ee^{-\lambda} \ \exp\left(\lambda \, \ee^t\right) \ = \
+          \exp\left(- \lambda + \lambda \, \ee^t\right) \ = \
+          \exp\left(\lambda \, (\ee^t -1)\right)
+        \]
+        \conc{$M_T : t \mapsto \exp\left(\lambda \, (\ee^t
+            -1)\right)$}
+        
+      \item On a bien, pour tout $t \in \R$ : $M_T(t) =
+        \exp\left(\lambda \, (\ee^t-1)\right) >0$.
+        \conc{La fonction $K_T$ est donc définie sur $\R$.}
+        
+      \item Soit $t \in \R$.
+        \[
+          K_T(t) \ = \ \ln\big(M_T(t)\big) \ = \ \ln\left(
+            \exp\left(\lambda \, (\ee^t -1)\right)\right) \ = \
+          \lambda \, (\ee^t -1)
+        \]
+        \conc{$K_T : t \mapsto \lambda \, (\ee^t -1)$}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+    
+  \item En déduire les cumulants de $T$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord, la fonction $K_T$ est de classe
+        $\Cont{\infty}$ sur $\R$ en tant que transformée affine de la
+        fonction $\exp$ de classe $\Cont{\infty}$  sur $\R$.
+        \conc{Ainsi, la \var $T$ admet des cumulants à tout ordre.}
+        
+      \item Ensuite, pour tout $t \in \R$ : $K_T'(t) = \lambda \,
+        \ee^t$.\\
+        On en déduit, par récurrence immédiate, que pour tout $n \in
+        \N^*$ : $\forall t \in \R$, $K_T^{(n)}(t) = \lambda \, \ee^t$.
+        \conc{Ainsi, pour tout $n \in \N^*$ : $Q_n(X) = K_T^{(n)}(0) =
+          \lambda$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+  \end{noliste}
+
+
+  \newpage
+  
+
+
+\item Soit $Z$ une variable aléatoire qui suit la loi normale centrée
+  réduite.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier pour tout $t \in \R$, la convergence de l'intégrale
+    $\dint{-\infty}{+\infty} \exp\left(t \, x - \dfrac{x^2}{2}\right)
+    \dx$.
+    
+    \begin{proof}~\\%
+      Soit $t \in \R$.
+      \begin{noliste}{$\sbullet$}
+      \item L'intégrale impropre $\dint{-\infty}{+\infty} \exp\left(t
+          \, x - \dfrac{x^2}{2}\right) \dx$ est convergente si et
+        seulement si :
+        \begin{noliste}{$-$}
+        \item l'intégrale impropre $\dint{-\infty}{0} \exp\left(t \, x
+            - \dfrac{x^2}{2}\right) \dx$ est convergente.
+        \item et l'intégrale impropre $\dint{0}{+\infty} \exp\left(t
+            \, x - \dfrac{x^2}{2}\right) \dx$ est convergente.
+        \end{noliste}
+        
+      \item Démontrons tout d'abord la convergence de l'intégrale
+        impropre $\dint{0}{+\infty} \exp\left(t \, x -
+          \dfrac{x^2}{2}\right) \dx$.\\
+        La fonction $h_t : x \mapsto \exp\left(t \, x -
+          \dfrac{x^2}{2}\right)$ est continue sur $[0, +\infty[$.\\
+        Ainsi, l'intégrale $\dint{0}{+\infty} h_t(x) \dx$ est impropre
+        seulement en $+\infty$.
+      \end{noliste}
+      \begin{liste}{$-$}
+      \item Tout d'abord, la fonction $h_t$ est continue sur le {\bf
+          segment} $[0,1]$.\\
+        On en déduit que l'intégrale $\dint{0}{1} h_t(x) \dx$ est bien
+        définie.
+        
+      \item Par ailleurs :
+        \begin{noliste}{$\stimes$}
+        \item $\forall x \in [1, +\infty[$, \ $\exp\left(t \, x -
+            \dfrac{x^2}{2}\right) \geq 0$ \quad et \quad
+          $\dfrac{1}{x^2} \geq 0$.
+          
+        \item $\exp\left(t \, x - \dfrac{x^2}{2}\right) =
+          \oox{+\infty} \left( \dfrac{1}{x^2} \right)$          
+          
+        \item $\dint{1}{+\infty} \dfrac{1}{x^2} \dx$ est une intégrale
+          de Riemann, impropre en $+\infty$, d'exposant $2$ ($>
+          1)$.\\[.2cm]
+          Elle est donc convergente.
+        \end{noliste}
+        Par critère de négligeabilité d'intégrales généralisées de
+        fonctions continues positives, l'intégrale $\dint{1}{+\infty}
+        h_t(x) \dx$ est convergente.
+      \end{liste}
+      \conc{Ainsi, pour tout $t \in \R$, l'intégrale impropre
+        $\dint{0}{+\infty} h_t(x) \dx$ est convergente.}
+      \begin{noliste}{$\sbullet$}
+      \item Il reste à démontrer la convergence de l'intégrale
+        impropre $\dint{0}{+\infty} \exp\left(t \, x -
+          \dfrac{x^2}{2}\right) \dx$.\\
+        La fonction $h_t$ est continue sur $]-\infty, 0]$ donc cette
+        intégrale est impropre seulement en $-\infty$.\\
+        En effectuant le changement de variable affine $\Boxed{u =
+          -x}$, on obtient :
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          \dint{-\infty}{0} \exp\left( t \, x - \dfrac{x^2}{2} \right)
+          \dx & = & \dint{0}{+\infty} \exp\left( -t \, u -
+            \dfrac{(-u)^2}{2} \right) (- \ du) 
+          \\[1cm]
+          & = & - \dint{0}{+\infty} \exp\left( -t \, u - \dfrac{u^2}{2}
+          \right) \ du \ = \ - \dint{0}{+\infty} f_{-t}(u) \ du
+        \end{array}
+        \]
+        
+        
+        \newpage
+        
+          
+        \noindent
+        En appliquant le résultat précédent en $-t \in \R$, on conclut
+        que l'intégrale impropre $\dint{0}{+\infty} f_{-t}(u) \ du$
+        est convergente. %
+        \conc{Ainsi, pour tout $t \in \R$, l'intégrale impropre
+          $\dint{-\infty}{0} h_t(x) \dx$ est convergente.}~\\[-.6cm]
+      \end{noliste}
+      \conc{Pour tout $t \in \R$, l'intégrale impropre
+        $\dint{-\infty}{+\infty} h_t(x) \dx$ est bien convergente.}
+      \begin{remarkL}{.99}
+        \begin{noliste}{$\sbullet$}
+        \item Le programme officiel précise que \og les changements de
+          variables {\bf non affines} ne seront pratiqués qu'avec des
+          intégrales sur un segment \fg{}. Il est donc autorisé, sous
+          réserve de convergence, d'effectuer un changement de
+          variable affine sur une intégrale généralisée (ce qui est
+          fait dans cette question).
+          
+        \item Ici, on pose le changement de variable affine $\Boxed{u
+            = -x}$. Il faut s'habituer à effectuer ce changement de
+          variable classique à la volée. Rappelons comment le
+          présenter formellement.
+          \[
+          \left|
+            \begin{array}{P{6cm}}
+              $u = -x$ (et donc $x = -u$) \nl
+              $\hookrightarrow$ $du = -\dx$ \quad et \quad $\dx = -
+              \ du$ \nl 
+              \vspace{-.2cm}
+              \begin{noliste}{$\sbullet$}
+              \item $x = -\infty \ \Rightarrow \ u = +\infty$\\[.2cm]
+              \item $x = 0 \ \Rightarrow \ u = 0$ %
+                \vspace{-.8cm}
+              \end{noliste}
+            \end{array}
+          \right.
+          \]
+          Ce changement de variable est valide car $\psi : u \mapsto -u$
+          est de classe $\Cont{1}$ sur $[0, +\infty[$.
+          
+        \item La fonction intégrande $h_t : x \mapsto \ee^{t \, x -
+            \frac{x^2}{2}}$ :
+          \begin{noliste}{$\stimes$}
+          \item n'admet pas d'équivalent plus simple en $+\infty$,
+          \item tend très rapidement vers $0$ en $+\infty$.
+          \end{noliste}         
+          Du fait de ces deux points, on opte dans la démonstration
+          pour un critère de négligeabilité. De manière informelle, la
+          présence du terme $\ee^{-\frac{x^2}{2}}$ produit une
+          convergence extrêmement rapide de $h_t$ vers $0$ en
+          $+\infty$. L'intégrande $h_t$ apparaît donc suffisamment
+          petite en $+\infty$ pour que l'intégrale sur $[1, +\infty[$
+          associée soit convergente. Formellement, cette idée est
+          concrétisée en comparant $h_t$ à l'intégrande $x \mapsto
+          \frac{1}{x^2}$, positive et dont l'intégrale sur $[1,
+          +\infty[$ associée est convergente.
+
+        \item La démonstration de la propriété $\exp\left(t \, x -
+            \dfrac{x^2}{2}\right) = \oox{+\infty} \left(
+            \dfrac{1}{x^2} \right)$ n'est pas forcément un attendu de
+          la question. Prendre l'initiative de la comparaion à la
+          fonction $x \mapsto \frac{1}{x^2}$ démontre la bonne
+          compréhension des mécanismes en jeu. Il faut évidemment
+          savoir comment faire cette démonstration dont on donne
+          ci-dessous les détails :
+          \[
+          \dfrac{\ee^{t \, x - \frac{x^2}{2}}}{\frac{1}{x^2}} \ = \
+          x^2 \ \ee^{t \, x - \frac{x^2}{2}} \ = \
+          \dfrac{x^2}{\ee^{\frac{x^2}{4}}} \ \ee^{t \, x -
+            \frac{x^2}{4}} \tendx{+\infty} 0
+          \]
+          En effet : 
+          \begin{noliste}{$\stimes$}
+          \item en posant $u = \frac{x^2}{4}$, on obtient : $\dlim{x
+              \tend +\infty} \dfrac{x^2}{\ee^{\frac{x^2}{4}}} =
+            \dlim{u \tend +\infty} 4 \, \dfrac{u}{\ee^{u}} = 0$ {\it
+              (par croissances comparées)}.
+
+          \item $\dlim{x \tend +\infty} \ee^{t \, x - \frac{x^2}{2}} =
+            0$.            
+          \end{noliste}
+        \end{noliste}
+      \end{remarkL}~\\[-1.6cm]
+    \end{proof}
+    
+
+    \newpage
+
+
+  \item Montrer que la fonction $M_Z$ est définie sur $\R$ et donnée
+    par : $\forall t \in \R$, $M_Z(t) = \exp\left( \dfrac{t^2}{2}
+    \right)$.
+
+    \begin{proof}~\\%
+      Soit $t \in \R$.
+      \begin{noliste}{$\sbullet$}
+      \item Le réel $M_Z(t)$ existe si et seulement si la \var $\ee^{t
+          \, Z}$ admet une espérance.\\[.1cm]
+        Or, par théorème de transfert, la \var $\ee^{t \, Z}$ admet
+        une espérance si et seulement si l'intégrale
+        $\dint{-\infty}{+\infty} \ee^{t \, x} \ f_Z(x) \dx$ est
+        absolument convergente.\\
+        Les fonctions $x \mapsto \ee^{t \,x}$ \ et \ $f_Z$ étant à
+        valeurs positives sur $\R$ ($f_Z$ est une densité de
+        probabilité), cela revient à démonter que cette intégrale est
+        convergente.%
+        \concL{D'après la question précédente, cette intégrale est
+          convergente pour tout $t \in \R$.\\
+          Ainsi, $M_Z$ est définie sur $\R$.}{14}
+        
+      \item Remarquons que pour tout $x \in \ ]-\infty, +\infty[$ :
+        \[
+        \ee^{t \, x} \ f_Z(x) \ = \ \dfrac{1}{\sqrt{2 \, \pi}} \
+        \ee^{t \, x} \ \ee^{-\frac{1}{2} \, x^2} \ = \
+        \dfrac{1}{\sqrt{2 \, \pi}} \ \ee^{- \frac{1}{2} \, ( x^2 - 2
+          \, tx)} \ = \ \dfrac{1}{\sqrt{2 \, \pi}} \ \ee^{-
+          \frac{1}{2} \, ( x - t)^2 + \frac{1}{2} \, t^2} \ = \
+        \dfrac{1}{\sqrt{2 \, \pi}} \ \ee^{\frac{1}{2} \, t^2} \ \ee^{-
+          \frac{1}{2} \, ( x - t)^2}
+        \]
+
+      \item On effectue alors le changement de variable affine
+        $\Boxed{u = x - t}$.
+        \[
+        \left|
+          \begin{array}{P{6cm}}
+            $u = x-t$ (et donc $x = u - t$) \nl
+            $\hookrightarrow$ $du = \dx$ \quad et \quad $\dx = \ du$
+            \nl  
+            \vspace{-.2cm}
+            \begin{noliste}{$\sbullet$}
+            \item $x = -\infty \ \Rightarrow \ u = -\infty$\\[.2cm]
+            \item $x = +\infty \ \Rightarrow \ u = +\infty$ %
+              \vspace{-.8cm}
+            \end{noliste}
+          \end{array}
+        \right.
+        \]
+        On obtient alors : 
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          \dint{-\infty}{+\infty} \ee^{t \, x} \ f_Z(x) \dx & = & 
+          \ee^{\frac{1}{2} \, t^2} \ \dint{-\infty}{+\infty}
+          \dfrac{1}{\sqrt{2 \, \pi}} \ \ee^{-\frac{1}{2} \, ( x -
+            t)^2} \dx  
+          \\[.6cm]
+          & = & 
+          \ee^{\frac{1}{2} \, t^2} \ \dint{-\infty}{+\infty}
+          \dfrac{1}{\sqrt{2 \, \pi}} \ \ee^{-\frac{1}{2} \, u^2} \ du 
+          \\[.6cm]            
+          & = & \ee^{\frac{1}{2} \, t^2} \ \dint{-\infty}{+\infty}
+          f_Z(u) \ du
+          % \\[.4cm]
+          \ = \ \ee^{\frac{1}{2} \, t^2}
+          & (car $f_Z$ est une \\ densité de probabilité)
+        \end{array}
+        \]        
+      \end{noliste}
+      \conc{$\forall t \in \R$, $M_Z(t) = \exp\left( \dfrac{t^2}{2}
+        \right)$}~\\[-1.4cm]
+%       \begin{remarkL}{.98}%
+%         \begin{noliste}{$\sbullet$}
+%         \item Cette question est difficile car demande une prise
+%           d'initiative importante. On peut penser, dans un premier
+%           temps, à utiliser une intégration par parties pour calculer
+%           l'intégrale considérée. Cependant, cette méthode a peu de
+%           chances d'aboutir (si c'était le cas, on pourrait calculer
+%           $\dint{-\infty}{+\infty} f_Z(x) \dx$ par intrégrations par
+%           parties).
+
+%         \item L'idée est donc de se ramener, par un changement de
+%           variable, à un calcul d'intégrale de la densité $f_Z$.
+%         \end{noliste}
+%       \end{remarkL}
+    \end{proof}
+    
+  \item En déduire la valeur de tous les cumulants d'une variable
+    aléatoire qui suit une loi normale d'espérance $\mu \in \R$ et
+    d'écart-type $\sigma \in \R_+^*$.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord, remarquons que pour tout $t \in \R$ :
+        $M_Z(t) = \ee^{\frac{1}{2} \, t^2} > 0$.\\
+        Ainsi, $K_2$ est définie sur $\R$ et pour tout $t \in \R$ :
+        \[
+        K_Z(t) \ = \ \ln\left( \ee^{\frac{1}{2} \, t^2} \right) \ = \
+        \frac{1}{2} \, t^2
+        \]
+        La fonction $K_Z$ est de classe $\Cont{\infty}$ sur $\R$ en
+        tant que fonction polynomiale.%
+        \conc{Ainsi, la \var $Z$ admet des cumulants à tout ordre.}
+
+
+        \newpage
+
+
+      \item On a alors, pour tout $t \in \R$ :
+        \begin{noliste}{$\stimes$}
+        \item $K'_Z(t) = t$ et ainsi : $Q_1(Z) = K'_Z(0) = 0$.
+        \item $K''_Z(t) = 1$ et ainsi : $Q_2(Z) = K''_Z(0) = 1$.
+        \item pour tout $p \in \llb 2, +\infty \llb$, $K^{(p)}_Z(t) =
+          0$ et ainsi : $Q_p(Z) = K^{(p)}_Z(0) = 0$.
+        \end{noliste}
+        \conc{En conclusion : $Q_2(Z) = 1$ et pour tout $p \in \N^*
+          \setminus \{2\}$, $Q_p(Z) = 0$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+  \end{noliste}
+  
+\item Soit $(T_n)_{n \in \N^*}$ une suite de variables aléatoires
+  telles que, pour tout $n \in \N^*$, la variable aléatoire $T_n$ suit
+  la loi de Poisson de paramètre $n$. Pour tout $n \in \N^*$, on pose
+  : $W_n = \dfrac{T_n - n}{\sqrt{n}}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier la convergence en loi de la suite de variables
+    aléatoires $(W_n)_{n \in \N^*}$ vers une variable aléatoire $W$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Pour tout $i \in \N^*$, notons $X_i$ une \var de loi de Poisson
+        $\Pois{1}$. On suppose de plus que les \var $X_i$ sont indépendantes.\\
+        Alors, par stabilité des lois de Poisson, la \var $S_n =
+        \Sum{i=1}{n} X_i$ suit la loi de Poisson $\Pois{n}$.\\
+        On en déduit que $S_n$ et $T_n$ suivent la même loi. Ainsi,
+        les \var $\dfrac{S_n -n}{\sqrt{n}}$ et $\dfrac{T_n
+          -n}{\sqrt{n}}=W_n$ ont même loi.
+        
+      \item La suite $(X_i)_{i \in \N^*}$ est constituée de \var :
+        \begin{noliste}{$\stimes$}
+        \item indépendantes,
+          
+        \item de même loi,
+          
+        \item admettant la même espérance $1$,
+          
+        \item admettant la même variance $1 \neq 0$.
+        \end{noliste}
+        Ainsi, comme $S_n \suit \Pois{n}$, la \var centrée réduite
+        associée à $S_n$ est :
+        \[
+          S_n^* \ = \ \dfrac{S_n - \E(S_n)}{\sqrt{\V(S_n)}} \ = \
+          \dfrac{S_n - n}{\sqrt{n}}
+        \]
+        
+      \item Alors, d'après le théorème central limite :
+        \[
+          S_n^* \tendL W \quad \text{où} \quad W \suit \Norm{0}{1}
+        \]
+        On a donc : $\forall t \in \R$, $\dlim{n\to +\infty}
+        F_{S_n^*}(t) = \Phi(t)$.\\
+        {\it (la fonction $\Phi$ est la fonction de répartition de
+          $W$)}
+        
+      \item Or les \var $S_n^* = \dfrac{S_n-n}{\sqrt{n}}$ et $W_n =
+        \dfrac{T_n - n}{\sqrt{n}}$ ont
+        même loi, donc même fonction de répartition. On en déduit :
+        $\forall x \in \R$, $\dlim{n\to +\infty} F_{W_n}(t) =
+        \Phi(t)$.
+        \conc{On en conclut que la suite de \var $(W_n)_{n\in \N^*}$
+          converge en loi vers $W$ où $W \suit \Norm{0}{1}$.}
+      \end{noliste}
+
+
+      \newpage
+
+
+      \begin{remarkL}{1}
+        \begin{noliste}{$\sbullet$}
+        \item La forme de la \var $W_n = \dfrac{T_n -n}{\sqrt{n}}$ dans le
+          contexte de convergence de \var doit faire penser {\bf
+          systématiquement} au théorème central limite (TCL).
+          
+        \item De manière générale, si les $X_i$ ont pour espérance $m$
+          et variance $\sigma^2$, alors :
+          \[
+            S_n^* \ = \ \dfrac{S_n - n \, m}{\sigma \, \sqrt{n}}
+          \]
+          On voit bien apparaître la division par $\sqrt{n}$ qui est
+          très caractéristique de l'utilisation du TCL.
+          
+        \item Rappelons aussi que si on pose : $V_n = \dfrac{1}{n} \
+          \Sum{i=1}{n} X_i$, alors :
+          \[
+            V_n^* \ = \ \sqrt{n} \ \dfrac{V_n - m}{\sigma}
+          \]
+          {\it (on notera : $V_n^* = S_n^*$)}\\
+          On voit alors apparaître le produit par $\sqrt{n}$ qui est aussi
+          caractéristique du TCL.
+          
+        \item Pour pouvoir justifier de l'application de ce théorème
+          dans cette question, on introduit la \var $S_n$ qui suit la
+          même loi que $T_n$ et satisfait bien aux hypothèses du
+          TCL.\\
+          On rappelle, comme remarqué en question \itbf{3.c)}, que deux
+          \var qui suivent la même loi ne sont pas forcément égales
+          (on n'a d'ailleurs pas du tout besoin dans cette question de
+          l'égalité $S_n = T_n$).
+          Cependant on peut raisonnablement penser qu'un candidat
+          précisant \og $T_n = \Sum{i=1}{n} X_i$ \fg{} (et non : $S_n
+          = \Sum{i=1}{n} X_i$) ne serait pas sanctionné.
+        \end{noliste}
+      \end{remarkL}~\\[-1.4cm]
+    \end{proof}
+    
+  \item Déterminer la fonction $K_{W_n}$.
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Comme $T_n \suit \Pois{n}$, d'après la question
+        \itbf{9.a)} :
+        \[
+          K_{T_n} : t \mapsto n(\ee^t -1)
+        \]
+        
+      \item De plus : $W_n = \dfrac{T_n -n}{\sqrt{n}} \ = \
+        \dfrac{1}{\sqrt{n}} \ T_n - \dfrac{n}{\sqrt{n}} \ = \
+        \dfrac{1}{\sqrt{n}} \ T_n - \sqrt{n}$.\\
+        Ainsi, soit $t \in \R$, alors $\dfrac{1}{\sqrt{n}} \ t \in \R$
+        et, d'après la question \itbf{5.b)} :
+        \[
+          K_{W_n}(t) \ = \ -\sqrt{n} \, t + K_{T_n}\left(
+            \dfrac{1}{\sqrt{n}} \ t\right) \ = \ -\sqrt{n} \, t + n
+          \left(\ee^{\frac{1}{\sqrt{n}} \ t} -1\right)
+        \]
+      \end{noliste}
+      \conc{Finalement : $K_{W_n} : t \mapsto -\sqrt{n} \, t + n
+        \left(\ee^{\frac{t}{\sqrt{n}}} -1\right)$.}~\\[-1cm]
+    \end{proof}
+    
+
+    \newpage
+
+
+  \item Montrer que pour tout $t \in \R$, on a : $\dlim{n\to +\infty}
+    K_{W_n}(t) = K_W(t)$.
+    \begin{proof}~\\
+      Soit $t \in \R$.
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord : $\ee^x = 1+x+ \dfrac{x^2}{2} +
+        \oox{0}(x^2)$.\\
+        Or : $\dlim{n \to +\infty} \dfrac{t}{\sqrt{n}} = 0$. On peut
+        donc appliquer le développement limité précédent en
+        choisissant $x = \dfrac{t}{\sqrt{n}}$. On obtient :
+        \[
+          \ee^{\frac{t}{\sqrt{n}}} = 1 + \dfrac{t}{\sqrt{n}} +
+          \dfrac{\left(\frac{t}{\sqrt{n}}\right)^2}{2} +
+          \oon \left(\left(\dfrac{t}{\sqrt{n}}
+          \right)^2\right) \ = \ 1+ \dfrac{t}{\sqrt{n}} +
+          \dfrac{t^2}{2n} + \oon\left( \dfrac{1}{n}\right)
+        \]
+        
+      \item On en déduit, d'après la question précédente :
+        \[
+          \begin{array}{rcl}
+            K_{W_n}(t)
+            & = & -\sqrt{n} \, t + n \left(\bcancel{1} +
+                  \dfrac{t}{\sqrt{n}} + \dfrac{t^2}{2n} + \oon\left(
+                  \dfrac{1}{n}\right) - \bcancel{1} \right)
+            \\[.6cm]
+            & = & -\sqrt{n} \, t + n \ \dfrac{t}{\sqrt{n}} +
+                  \dfrac{t^2}{2} + \oon (1)
+            \\[.6cm]
+            & = & -\bcancel{\sqrt{n} \, t} + \bcancel{\sqrt{n} \, t} +
+                  \dfrac{t^2}{2} + \oon(1)
+            \\[.6cm]
+            & = & \dfrac{t^2}{2} + \oon(1)
+          \end{array}
+        \]
+        On en déduit : $\dlim{n \to +\infty} K_{W_n}(t) =
+        \dfrac{t^2}{2}$.
+        
+      \item Or, comme $W \suit \Norm{0}{1}$, d'après la question
+        \itbf{10.c)} : $K_W(t) = \dfrac{t^2}{2}$.
+      \end{noliste}
+      \conc{Finalement, pour tout $t\in \R$ : $\dlim{n \to +\infty}
+        K_{W_n}(t) = \dfrac{t^2}{2} = K_W(t)$.}
+      \begin{remark}
+        \begin{noliste}{$\sbullet$}
+        \item Soit $f$ une fonction et $(a,x_0) \in \R^2$.\\
+          On rappelle la propriété utilisée dans le deuxième point
+          :
+          \[
+            \dlim{x \to x_0} f(x) = a \quad \Leftrightarrow \quad f(x)
+            = a + \oox{x_0}(1)
+          \]
+          
+        \item On peut remarquer que cette question \itbf{11.} nous
+          fait démontrer, {\bf dans le cas particulier d'une loi de
+            Poisson}, l'implication suivante :
+          \[
+            W_n \tendL W \quad \Rightarrow \quad \forall t \in \R, \
+            K_{W_n}(t) \tendn K_W(t)
+          \]
+          On peut se poser la question de la généralisation de cette
+          propriété. En effet, il existe un lien entre $M_X$ et $F_X$,
+          mais cela serait hors de portée du programme ECE.
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+
+
+\newpage
+
+
+\subsection*{Partie III. Cumulant d'ordre 4}
+
+\noindent
+Dans cette partie, on considère une variable aléatoire $X$ telle que
+$M_X$ est de classe $\Cont{4}$ sur un intervalle ouvert $I$ contenant
+l'origine.\\
+{\it On admet} alors que $X$ possède des moments jusqu'à l'ordre $4$
+qui coïncident avec les dérivées successives de la fonction $M_X$ en
+$0$. Autrement dit, pour tout $k \in \llb 1,4 \rrb$, on a :
+$M_X^{(k)}(0) = \E(X^k)$.\\[.1cm]
+De plus, on pose : $\mu_4(X) = \E\left( \big(X - \E(X)\big)^4
+\right)$.
+\begin{remarkL}{.98}%
+  Dans la définition de $\mu_4$, on sous-entend que la \var $\big(X -
+  \E(X)\big)^4$ admet une espérance.\\
+  Dans le cours, on démontre les propriétés suivantes :
+  \begin{noliste}{$\stimes$}
+  \item si $X$ admet une espérance, il en est de même de $X - \E(X)$
+    (c'est la \var centrée associée à $X$).\\
+    Dans ce cas, on a : $\mu_1(X) = \E\big( X - \E(X) \big) = 0$.
+
+  \item si $X$ admet un moment d'ordre $2$, il en est de même de $X -
+    \E(X)$.\\
+    Dans ce cas, on a : $\mu_2(X) = \E\Big( \big(X - \E(X) \big)^2
+    \Big) = \V(X)$.\\
+    {\it (la variance est le moment centré d'ordre $2$)}
+  \end{noliste}
+  De manière générale si $X$ admet un moment d'ordre $n \in \N$, il en
+  est de même de $X - \E(X)$.\\
+  En effet :
+  \[
+  \begin{array}{rcl}
+    \big( X - \E(X) \big)^n & = & \Sum{k=0}{n} \dbinom{n}{k} \ \big( -
+    \E(X) \big)^{n-k} \ X^k 
+  \end{array}
+  \]
+  Ainsi, la \var $\big( X - \E(X) \big)^n$ admet une espérance en tant
+  que combinaison linéaire des \var $X^0$, $X_1$, \ldots, $X^n$, qui
+  admettent toutes une espérance. 
+\end{remarkL}
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{11}
+\item Justifier les égalités : $Q_1(X) = \E(X)$ et $Q_2(X) = \V(X)$.
+  
+  \begin{proof}~%
+    \begin{noliste}{$\sbullet$}
+    \item La fonction $K_X$ est de classe $\Cont{4}$ sur $I$ car elle
+      est la composée $K_X = \ln \circ M_X$ où :
+      \begin{noliste}{$\stimes$}
+      \item la fonction $M_X$ est :
+        \begin{noliste}{$-$}
+        \item est de classe $\Cont{4}$ sur $I$,
+        \item telle que $M_X(I) \subset \ ]0, +\infty[$.\\[.1cm]
+          En effet, comme : $\forall t \in I$, $\ee^{tX} > 0$, on a :
+          $\forall t \in I$, $M_X(t) = \E(\ee^{tX}) > 0$.          
+        \end{noliste}
+
+      \item la fonction $\ln$ est de classe $\Cont{4}$ sur $]0,
+        +\infty[$.
+      \end{noliste}
+
+    \item Déterminons les dérivées successives de $K_X$. Soit $t \in
+      I$.
+      \begin{noliste}{$\stimes$}
+      \item Tout d'abord : $K'_X(t) = \dfrac{1}{M_X(t)} \times
+        M'_X(t)$. 
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          Q_1(X) & = & K'_X(0)
+          & (par définition)
+          \nl
+          \nl[-.2cm]          
+          % \\[.2cm]
+          & = & \dfrac{1}{M_X(0)} \times M'_X(0)
+          & (d'après le résultat \\ précédent en $t = 0 \in I$)
+          \nl
+          \nl[-.2cm]          
+          & = & \dfrac{1}{M_X(0)} \times \E(X)
+          & (d'après le résultat \\ admis dans l'énoncé)
+          \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{\E\big( \ee^{0} \big)} \ \E(X) 
+          % \\[.6cm] 
+          \ = \ \E(X)
+        \end{array}
+        \]
+        \conc{$Q_1(X) = \E(X)$}
+
+
+        \newpage
+
+
+      \item Ensuite : $K''_X(t) = \left( -\dfrac{1}{\big( M_X(t)
+            \big)^2} \times M'_X(t) \right) \ M'_X(t) +
+        \dfrac{1}{M_X(t)} \times M''_X(t)$.
+        % \\[.4cm]
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          Q_1(X) & = & K''_X(0)
+          & (par définition)
+          \nl
+          \nl[-.2cm]          
+           & = & \left( -\dfrac{1}{\big( M_X(0) \big)^2} \times
+            M'_X(0) \right) \ M'_X(0) + \dfrac{1}{M_X(0)} \times
+          M''_X(0)
+          & (d'après le résultat \\ précédent en $t = 0 \in I$)
+          \nl
+          \nl[-.2cm]          
+          & = & -\dfrac{1}{(1)^2} \times \E(X) \times \E(X) +
+          \dfrac{1}{1} \times \E\big( X^2 \big)
+          & (d'après le résultat \\ admis dans l'énoncé)
+          \nl
+          \nl[-.2cm]
+          & = & \E\big( X^2 \big) - \big( \E(X) \big)^2
+          % \\[.2cm]
+          \ = \ \V(X) 
+          & (d'après la formule \\ de K\oe{}nig-Huygens)
+        \end{array}
+        \]~\\[-1cm]
+        \conc{$Q_2(X) = \V(X)$}
+      \end{noliste}
+    \end{noliste}~\\[-1.1cm]
+    \begin{remarkL}{.98}
+      \begin{noliste}{$\sbullet$}
+      \item On se sert ici du résultat stipulant que toute \var $X$
+        qui admet une espérance vérifie :
+        \[
+        \Boxed{X > 0 \quad \Rightarrow \quad \E(X) > 0} \ (*)
+        \]
+        Ce résultat n'est pas officiellement au programme des classes
+        préparatoires commerciales. \\
+        Seul le résultat plus faible suivant (nommé parfois positivité
+        de l'espérance) figure :
+        \[
+        \Boxed{X \geq 0 \quad \Rightarrow \quad \E(X) \geq 0} \ (**)
+        \]
+        On notera au passage que l'on obtient le même résultat en
+        supposant l'hypothèse plus faible : $\Prob\big( \Ev{X \geq 0}
+        \big) = 1$.
+
+      \item Pour démontrer le résultat $(*)$, on peut procéder par
+        l'absurde.\\[.1cm]
+        Supposons $X > 0$ et $\NON{\E(X) > 0}$ (autrement dit $\E(X)
+        \leq 0)$.
+        \begin{noliste}{$\stimes$}
+        \item Comme $X > 0 \geq 0$, alors, d'après $(**)$ : $\E(X)
+          \geq 0$.\\[.1cm]
+          Comme $\E(X) \leq 0$, on en déduit $\E(X) = 0$.
+
+        \item D'après l'inégalité de Markov : $\forall a > 0$,
+          \ $\Prob\big( \Ev{X > a} \big) \leq \dfrac{\E(X)}{a} = 0$.\\[.1cm]
+          Une probabilité étant toujours positive, on démontre ainsi :
+          $\forall a > 0$, \ $\Prob\big( \Ev{X > a} \big) = 0$.
+
+        \item Démontrons, à l'aide de cette dernière égalité :
+          $\Prob\big( \Ev{X > 0} \big) = 0$.\\[.1cm]
+          Pour ce faire, on remarque tout d'abord : $
+          \begin{array}{c@{\quad}>{\it}R{4cm}}
+            \Ev{X > 0} = \dcup{n = 1}{+\infty} \Ev{X > \frac{1}{n}}
+            & (démonstration par double inclusion)
+          \end{array}
+          $\\
+          On en déduit :
+          \[
+          \begin{array}{rcl@{\qquad}>{\it}R{6.5cm}}
+            \Prob\big( \Ev{X > 0} \big) & = & \Prob\big( \dcup{n =
+              1}{+\infty} \Ev{X > \frac{1}{n}} \big)
+            \\[.4cm]
+            & = & \dlim{N \tend +\infty} \Prob\big( \dcup{n =
+              1}{N} \Ev{X > \frac{1}{n}} \big)
+            & (d'après la propriété de \\ la limite monotone)
+            \nl
+            \nl[-.2cm]
+            & = & \dlim{N \tend +\infty} \Prob\big( \Ev{X >
+              \frac{1}{N}} \big)  
+            & (car $\big( \Ev{X > \frac{1}{N}} \big)_{N \in \N^*}$ est une
+            \\ suite croissante d'événements)
+            \nl
+            \nl[-.2cm]
+            & = & \dlim{N \tend +\infty} 0 \ = \ 0
+            & (car $\Prob\big( \Ev{X > \frac{1}{N}} \big) = 0$)
+          \end{array}
+          \]
+          Absurde !
+        \end{noliste}
+      \end{noliste}
+    \end{remarkL}~\\[-1.6cm]
+  \end{proof}
+
+
+  \newpage
+
+
+\item Soit $X_1$ et $X_2$ deux variables aléatoires indépendantes et
+  de même loi que $X$. On pose : $S = X_1 - X_2$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que la variable aléatoire $S$ possède un moment
+    d'ordre $4$ et établir l'égalité :
+    \[
+    \E\big( S^4 \big) \ = \ 2 \, \mu_4(X) + 6 \, \big(\V(X)\big)^2
+    \]
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item D'après l'énoncé, les \var $X_1$ et $X_2$ ont même loi que
+        $X$, \var qui admet une espérance.\\
+        Ainsi $\E(X_1) = \E(X) = \E(X_2)$ et :
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          S & = & X_1 - X_2 
+          \\[.2cm]
+          & = & X_1 - X_2 - \E(X_1) + \E(X_2)
+          \\[.2cm]
+          & = & \big( X_1 - \E(X_1) \big) - \big(X_2 - \E(X_2) \big)
+        \end{array}
+        \]
+
+      \item On en déduit, à l'aide de la formule du binôme de Newton :
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          S^4 & = & \Big( \big( X_1 - \E(X_1) \big) - \big(X_2 -
+          \E(X_2) \big) \Big)
+          \\[.4cm]
+          & = & \Sum{k=0}{4} \dbinom{4}{k} \ \big( X_1 - \E(X_1)
+          \big)^{4-k} \ \Big( - \big( X_2 - \E(X_2) \big)^{k} \Big)
+          \\[.6cm]
+          & = & \Sum{k=0}{4} \dbinom{4}{k} \ (-1)^k \ \big( X_1 - \E(X_1)
+          \big)^{4-k} \ \big( X_2 - \E(X_2) \big)^{k}
+        \end{array}        
+        \]
+        Remarquons alors que :
+        \begin{noliste}{$\stimes$}
+        \item les \var $X_1 - \E(X_1)$ et $X_2 - \E(X_2)$ admettent
+          des moments à tout ordre $r \in \llb 0, 4 \rrb$ car suivent
+          la même loi que $X - \E(X)$ qui admet un moment d'ordre $4$.
+
+        \item d'après le lemme des coalitions, pour tout entier $k \in
+          \llb 0, 4 \rrb$, les \var $\big( X_1 - \E(X_1) \big)^{4-k}$
+          et $\big( X_2 - \E(X_2) \big)^{k}$ sont indépendantes car
+          $X_1$ et $X_2$ le sont.
+        \end{noliste}        
+        On en déduit que pour tout $k \in \llb 0, 4 \rrb$, la \var
+        $\big( X_1 - \E(X_1) \big)^{4-k} \ \big( X_2 - \E(X_2)
+        \big)^{k}$ admet une espérance. Et par propriété de
+        l'espérance :
+        \[
+        \E\Big( \big( X_1 - \E(X_1) \big)^{4-k} \ \big( X_2 - \E(X_2)
+        \big)^{k} \Big) \ = \ \E\Big( \big( X_1 - \E(X_1) \big)^{4-k}
+        \Big) \ \E\Big( \big( X_2 - \E(X_2) \big)^{k} \Big)
+        \]
+        \concL{La \var $S^4$ admet une espérance comme combinaison
+          linéaire de \var qui admettent une espérance.}{14}
+
+      \item De plus, par linéarité de l'espérance :
+        \[
+        \begin{array}{rcrl@{\qquad}>{\it}R{5cm}}
+          \E \big( S^4 \big) & = & \multicolumn{3}{l}{
+            \Sum{k=0}{4} \dbinom{4}{k} \ (-1)^k
+          \ \E\Big( \big( X_1 - \E(X_1) \big)^{4-k} \Big) \ 
+          \E\Big( \big( X_2 - \E(X_2) \big)^{k} \Big)
+          }
+          \\[.6cm]
+          & = & 1 & \E\Big( \big( X_1 - \E(X_1) \big)^{4} \Big)
+          \\[.4cm]
+          & & -\, 4 & \E\Big( \big( X_1 - \E(X_1) \big)^{3} \Big) \ 
+          \bcancel{\E\Big( \big( X_2 - \E(X_2) \big)^{1} \Big)}
+          & (car $X_2-\E(X_2)$ est la \\ \var centrée associée à $X_2$)
+          \nl
+          \nl[-.2cm]
+          & & +\, 6 & \E\Big( \big( X_1 - \E(X_1) \big)^{2} \Big) \ 
+          \E\Big( \big( X_2 - \E(X_2) \big)^{2} \Big)
+          \\[.4cm]
+          & & -\, 4 & \bcancel{\E\Big( \big( X_1 - \E(X_1) \big)^{1}
+            \Big)} \ \E\Big( \big( X_2 - \E(X_2) \big)^{3} \Big)
+          & (car $X_1-\E(X_1)$ est la \\ \var centrée associée à $X_1$)
+          \nl
+          \nl[-.2cm]
+          & & +\, 1 & \E\Big( \big( X_2 - \E(X_2) \big)^{4} \Big)
+          \\[.4cm]
+          & = & \multicolumn{3}{l}{
+            \mu_4(X_1) \ + \ 6 \, \V(X_1) \ \V(X_2) \ + \ \mu_4(X_2)
+            }
+        \end{array}
+        \]
+
+
+        \newpage
+
+
+        \noindent 
+        Enfin, comme $X_1$ et $X_2$ ont même loi que $X$ :
+        \[
+        \V(X_1) \ = \ \V(X) \ = \ \V(X_2) \quad \text{ et } \quad
+        \mu_4(X_1) \ = \ \mu_4(X) \ = \ \mu_4(X_2)
+        \]
+        \conc{Et ainsi : $\E \big( S^4 \big) \ = \ 2 \, \mu_4(X_1) + 6
+          \ \big( \V(X) \big)^2$.}~\\[-1.5cm]
+      \end{noliste}
+%       \begin{remarkL}{.98}%~
+%         \begin{noliste}{$\sbullet$}
+%         \item Dans le programme ECE, on trouve la propriété :
+%           \[
+%           \Boxed{
+%             \begin{array}{C{5.6cm}cC{5cm}}
+%               Les \var $X$ et $Y$ ont même loi & \Leftrightarrow & Les
+%               \var $X$ et $Y$ ont même fonction de répartition
+%             \end{array}
+%           }
+%           \]
+
+%         \item On peut alors démontrer que si $X$ et $Y$ sont des \var
+%           discrètes (resp. à densité), on a :
+%           \[
+%           \Boxed{
+%             \begin{array}{rcl}
+%               \left.
+%                 \begin{array}{R{6cm}}
+%                   \begin{noliste}{$\sbullet$}
+%                   \item Les \var $X$ et $Y$ ont même loi
+%                   \item Les \var $X$ et $Y$ admettent un moment d'ordre
+%                     $n \in \N^*$\\[-.4cm]
+%                   \end{noliste}             
+%                 \end{array}
+%               \right\}
+%               & \Rightarrow & \E\big( X^n \big) = \E\big( Y^n \big)
+%             \end{array}
+%           }
+%           \]
+%           Cette dernière propriété est aussi vérifiée pour les \var
+%           quelconques mais n'est pas explicitement écrite dans ce cas
+%           précis. Toutefois, on peut considérer qu'on y a accès
+%           puisque le programme précise : \og on admettra que les
+%           propriétés opératoires usuelles de l'espérance et de la
+%           variance se généralisent aux variables aléatoires
+%           quelconques \fg{}.
+%         \end{noliste}        
+%       \end{remarkL}~\\[-1.5cm]
+    \end{proof}
+    
+  \item Montrer que les fonctions $M_S$ et $K_S$ sont de classe
+    $\Cont{4}$ sur $I$ et que pour tout $t \in I$, on a :
+    \[
+    M_S^{(4)}(t) \ = \ K_S^{(4)}(t) \, M_S(t) + 3 \, K_S^{(3)}(t) \,
+    M_S'(t) + 3 \, K_S''(t) \, M_S''(t) + K_S'(t) \, M_S^{(3)}(t)
+    \]
+
+    \begin{proof}~\\%
+      Soit $t \in I$ tel que $-t \in I$. 
+      \begin{noliste}{$\sbullet$}
+      \item Comme $-t \in I$, la quantité $M_X(-t)$ est bien
+        définie. On a alors :
+        \[
+        \begin{array}{R{2cm}ccccccc@{\qquad}>{\it}R{3cm}}
+          & M_X(-t) & = & \E\big( \ee^{-t \, X} \big) & = & \E\big(
+          \ee^{t \, (-X)} \big) & = & M_{-X}(t)
+          \\[.2cm]
+          & \shortparallel & & & & & & \shortparallel
+          \\ %[.2cm]
+          & M_{X_2}(-t) & & & & & & M_{-X_2}(t)
+          & (car $X$ et $X_2$ \\ ont même loi)
+        \end{array}
+        \]
+        \conc{Ainsi, pour tout $t \in I$ tel que $-t \in I$, on a :
+          $M_{-X_2}(t) = M_{X_2}(-t)$.} %{13.4}
+
+      \item D'autre part :
+        \[
+        \ee^{t \, S} \ = \ \ee^{t \, (X_1 - X_2)} \ = \ \ee^{t \, X_1}
+        \times \ee^{-t \, X_2}
+        \]
+        Les \var $\ee^{t \, X_1}$ et $\ee^{-t \, X_2}$ :
+        \begin{noliste}{$\stimes$}
+        \item admettent toutes les deux une espérance car $M_{X_1}$
+          est définie en $t$ et $M_{X_2}$ est définie en $-t$ (car on
+          a supposé $-t \in I$).
+
+        \item sont indépendantes d'après le lemme des coalitions
+          puisque $X_1$ et $X_2$ le sont.          
+        \end{noliste}
+        On en déduit que la \var $\ee^{t \, X_1} \times \ee^{-t \,
+          X_2}$ admet une espérance, donnée par : 
+        \[
+        \begin{array}{R{2cm}ccccc@{\qquad}>{\it}R{4cm}}
+          & \E\big( \ee^{t \, S} \big) & = & \E\big( \ee^{t \, X_1} \times
+          \ee^{-t \, X_2} \big) & = & \E\big( \ee^{t \, X_1} \big)
+          \times \E\big( \ee^{-t \, X_2} \big)
+          \\[.2cm]
+          & \shortparallel & & & & \shortparallel
+          \\ %[.2cm]
+          & M_S(t) & & & & M_{X_1}(t) \times M_{X_2}(-t)
+          & (d'après le \\ point précédent)
+          \nl
+          %\nl[-.2cm]
+          & & & & & \shortparallel
+          \\ %[.2cm]
+          & & & & & M_{X}(t) \times M_{X}(-t)
+          & (car les \var $X_2$ et $X_1$ ont même loi que $X$)
+        \end{array}
+        \]
+        \conc{Ainsi, pour tout intervalle $J \subset I$ symétrique par
+          rapport à l'origine, on a : \\[.1cm]
+          $\forall t \in J$, $M_S(t) \ = \ M_{X}(t) \times
+          M_{X}(-t)$.}
+      \end{noliste}
+      \concL{En particulier, la fonction $M_S$ est de classe
+        $\Cont{4}$ sur tout intervalle $J \subset I$ symétrique par
+        rapport à l'origine, comme produit de fonctions de classe
+        $\Cont{4}$ sur cet intervalle. On en déduit, comme en question
+        \itbf{12}, que la fonction $K_S$ est elle aussi de classe
+        $\Cont{4}$ sur $J$.}{15.4}%
+      Dans la suite, on note $J \subset I$ un intervalle symétrique
+      par rapport à l'origine. Soit $t \in J$.
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord : $K'_S(t) \ = \ \dfrac{1}{M_S(t)} \times
+        M'_S(t)$. %
+        \conc{On en déduit : $\forall t \in J$, $M'_S(t) \ = \ K'_S(t)
+          \times M_S(t)$.}
+
+
+        \newpage
+
+
+      \item En remarquant : $\big( M_S \big)^{(4)}(t) = \big( M'_S
+        \big)^{(3)}(t)$, on obtient :
+        \[
+        \begin{array}{cl@{\qquad}>{\it}R{5cm}}
+          & \big( M_S \big)^{(4)}(t) 
+          \\[.4cm]
+%           \ = \ \big( M'_S \big)^{(3)}(t)
+%           \\[.4cm]
+          = & \big(K'_S \times M_S \big)^{(3)}(t)
+          \\[.4cm]
+          = & \Big( \big(K'_S \times M_S \big)' \Big)^{(2)}(t)
+          \\[.4cm]
+          = & \Big( K''_S \times M_S + K'_S \times M'_S \Big)^{(2)}(t)
+          \\[.4cm]
+          = & \Big( \big( K''_S \times M_S + K'_S \times M'_S \big)'
+          \Big)^{(1)}(t)
+          \\[.4cm]
+          = & \Big( \big( K'''_S \times M_S + K''_S \times M'_S
+          \big) + \big( K''_S \times M'_S + K'_S \times M''_S \big)
+          \Big)^{(1)}(t)
+          \\[.4cm]
+          = & \Big( K'''_S \times M_S + 2 \, K''_S \times M'_S +
+          K'_S \times M''_S \Big)^{(1)}(t)
+          \\[.4cm]
+          = & \Big( \big( K''''_S \times M_S + K'''_S \times M'_S \big) + 2
+          \, \big( K'''_S \times M'_S +  K''_S \times M''_S \big) + 
+          \big( K''_S \times M''_S + K'_S \times M'''_S \big) \Big) (t)
+          \\[.4cm]
+          = & \Big( K''''_S \times M_S + 3 \, K'''_S \times M'_S + 3
+          \, K''_S \times M''_S +  K'_S \times M'''_S \Big) (t)
+          \\[.4cm]
+          = & K^{(4)}_S(t) \, M_S(t) + 3 \, K^{(3)}_S(t) \, M'_S(t) + 3
+          \, K''_S(t) \, M''_S(t) +  K'_S(t) \, M^{(3)}_S(t) 
+        \end{array}
+        \]
+        \conc{$\forall t \in J$, $M_S^{(4)}(t) = K_S^{(4)}(t) \,
+          M_S(t) + 3 \, K_S^{(3)}(t) \, M_S'(t) + 3 \, K_S''(t) \,
+          M_S''(t) + K_S'(t) \, M_S^{(3)}(t)$}~\\[-1cm]
+      \end{noliste}
+      \begin{remarkL}{.98}%
+        \begin{noliste}{$\sbullet$}
+        \item Lors de l'étude de $M_S(t)$ (pour $t \in I$) la quantité
+          $M_{X_2}(-t)$ apparaît naturellement. Or, cette quantité
+          existe seulement si $-t \in I$. C'est pourquoi on a décidé
+          dans cette question de restreindre à la démonstration à un
+          intervalle $J \subset I$ symétrique par rapport à
+          l'origine.
+          % On suit d'ailleurs l'idée présentée en question
+          % \itbf{5.b)} à savoir que pour tout $t \in I$ tel que $t
+          % \in I$ : $K_{-X}(t) = K_X(-t)$.
+
+        \item Dans la correction, on a déterminé la dérivée quatrième
+          de $M_S$ en dérivant successivement trois fois la fonction
+          $M_S'$. On aurait pu utiliser directement la formule de
+          Leibniz qui stipule que si $f, g : I \to \R$ sont deux
+          fonctions $n$ fois dérivables sur un intervalle $I$, on a :
+          \[
+          \Boxed{ %
+            \big( f \times g \big)^{(n)} \ = \ \Sum{k=0}{n}
+            \dbinom{n}{k} \ f^{(n-k)} \times g^{(k)} %
+          }
+          \]
+          Cette formule n'apparaît pas explicitement dans le programme
+          ECE (mais est bien présente dans le programme ECS de
+          première année). Il est toutefois très classique de la
+          présenter lors de la première année ECE. On pouvait
+          l'utiliser directement ici et écrire :
+          \[
+          \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+            \big( M_S \big)^{(4)}(t)             
+            & = & \big( M'_S \big)^{(3)}(t)
+            % \\[.4cm]
+            \ = \ \Sum{k=0}{3} \dbinom{3}{k} \ {K'_S}^{(3-k)} \times
+            \big( M_S \big)^{(k)}
+            \\[.3cm]
+            & = & \Sum{k=0}{3} \dbinom{3}{k} \ K_S^{(4-k)} \times
+            \big( M_S \big)^{(k)}
+            \\[.5cm]
+            & = & K^{(4)}_S(t) \, M_S(t) + 3 \, K^{(3)}_S(t) \, M'_S(t) + 3
+            \, K''_S(t) \, M''_S(t) +  K'_S(t) \, M^{(3)}_S(t) 
+          \end{array}
+          \]
+          La présence des coefficients $1$, $3$, $3$, $1$ dans la
+          formule à démontrer doit mettre sur la piste de
+          l'utilisation d'une formule utilisant les coefficients
+          binomiaux.
+        \end{noliste}
+      \end{remarkL}~\\[-1.6cm]
+    \end{proof}
+
+
+    \newpage
+    
+
+  \item En déduire l'égalité : $\E(S^4) \ = \ Q_4(S) + 3 \, \big(
+    \V(S) \big)^2$.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item Notons tout d'abord que la fonction $M_S$ est de classe
+        $\Cont{4}$ sur l'intervalle $J$ (qu'on peut choisir ouvert)
+        qui contient l'origine. On admet donc, comme dans l'énoncé :
+        \[
+        \forall k \in \llb 1, 4 \rrb, \ M_S^{(k)}(0) = \E\big( S^k
+        \big)
+        \]
+
+      \item La \var $S$ vérifiant les mêmes hypothèses que la \var $X$
+        de début de la {\bf Partie III}, on en déduit, que le résultat
+        de la question \itbf{12} est vérifié pour la \var $S$. Plus
+        précisément :
+        \[
+        Q_1(S) = \E(S) \quad \text{ et } \quad Q_2(S) = \V(S)
+        \]
+        Remarquons au passage : 
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{6cm}}
+          \E(S) & = & \E(X_1 - X_2) 
+          \\[.2cm]
+          & = & \E(X_1) - \E(X_2) 
+          & (par linéarité de l'espérance)
+          \nl
+          \nl[-.2cm]
+          & = & \E(X) - \E(X) \ = \ 0
+          & (car $X_1$ et $X_2$ ont même loi que $X$)
+        \end{array}
+        \]
+        Et ainsi :
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{6.6cm}}
+          \V(S) & = & \E\big( S^2 \big) - \bcancel{\big( \E(S) \big)^2}
+          & (d'après la formule de K\oe{}nig-Huygens)
+          \nl
+          \nl[-.2cm]
+          & = & \E\big( S^2 \big)
+        \end{array}
+        \]
+
+      \item On applique alors l'égalité précédente à $t = 0 \in J$ :
+        \[
+        \begin{array}{cccccccc@{\qquad}>{\it}R{5cm}}
+          & \multicolumn{7}{l}{
+            M_S^{(4)}(0) 
+          }
+          \\[.4cm]
+          = & K^{(4)}_S(0) \times M_S(0) & + & 3 \, K^{(3)}_S(0) \times
+          M'_S(0) & + & 3 \, K''_S(0) \times M''_S(0) & + & K'_S(0)
+          \times M^{(3)}_S(0)  
+          \\[.3cm]
+          = & Q_4(S) \times M_S(0) & + & 3 \, Q_3(S) \times M'_S(0) & +
+          & 3 \, Q_2(S) \times M''_S(0) & + & Q_1(S) 
+          \times M^{(3)}_S(0)  
+          \\[.3cm]
+          = & Q_4(S) \times \E\big( \ee^{0} \big) & + & 3 \, Q_3(S)
+          \times \E(S) & + & 3 \, Q_2(S) \times \E\big( S^2
+          \big) & + & Q_1(S) \times \E\big( S^3 \big)
+          \\[.3cm]
+          = & Q_4(S) & + & 3 \, Q_3(S) \times \bcancel{\E(S)} & + & 3
+          \, \V(S) \times \E\big( S^2 \big) & + & \bcancel{\E(S)}
+          \times \E\big( S^3 \big)  
+          \\[.3cm]
+          = & 
+          Q_4(S) & + & 3 \, \V(S) \times \V(S)
+        \end{array}
+        \]
+      \end{noliste}
+      \conc{On a bien : $\E(S^4) \ = \ M_S^{(4)}(0) \ = \ Q_4(S) + 3
+        \, \big( \V(S) \big)^2$.}~\\[-1.2cm]
+    \end{proof}
+  \end{noliste}
+  
+\item Justifier que le cumulant d'ordre $4$ de $X$ est donné par la
+  relation : $Q_4(X) \ = \ \mu_4(X) - 3 \, \big(\V(X)\big)^2$.
+  
+  \begin{proof}~%
+    \begin{noliste}{$\sbullet$}
+    \item Tout d'abord : 
+      \[
+      \begin{array}{rcl@{\qquad}>{\it}R{7cm}}
+        Q_4(S) & = & \E(S^4) - 3 \, \big( \V(S) \big)^2
+        & (d'après la question \itbf{13.c)})
+        \nl
+        \nl[-.2cm]
+        & = & \Big( 2 \, \mu_4(X) + 6 \, \big(\V(X)\big)^2 \Big) - 3
+        \, \big( \V(S) \big)^2 
+        & (d'après la question \itbf{13.a)})
+        \nl
+        \nl[-.2cm]
+        & = & \Big( 2 \, \mu_4(X) + 6 \, \big(\V(X)\big)^2 \Big) - 3
+        \, \big( \V( X_1 - X_2) \big)^2 
+        \\[.2cm]
+        & = & \Big( 2 \, \mu_4(X) + 6 \, \big(\V(X)\big)^2 \Big) - 3
+        \, \big( \V(X_1) + \V(- X_2) \big)^2 
+        & (car $X_1$ et $-X_2$ sont indépendantes d'après le
+        lemme des coalitions)
+        \nl
+        \nl[-.3cm]
+        & = & 
+        \multicolumn{2}{l}{
+          \Big( 2 \, \mu_4(X) + 6 \, \big(\V(X)\big)^2 \Big) - 3
+          \, \big( \V(X_1) + (-1)^2 \, \V(X_2) \big)^2 
+        }
+        \\[.4cm]
+        & = & \Big( 2 \, \mu_4(X) + 6 \, \big(\V(X)\big)^2 \Big) - 3
+        \, \big( \V(X) + \V(X) \big)^2 
+        & (car $X_1$ et $X_2$ ont même loi que $X$)
+        \nl
+        \nl[-.3cm]
+        & = & 
+        \multicolumn{2}{l}{
+          2 \, \mu_4(X) + 6 \, \big( \V(X) \big)^2 - 12 \, \big(
+          \V(X) \big)^2 \ = \ 2 \, \mu_4(X) - 6 \, \big( \V(X) \big)^2 
+        }
+      \end{array}
+      \]
+
+
+      \newpage
+
+
+    \item Il reste alors à exprimer $Q_4(S)$ en fonction de
+      $Q_4(X)$.\\[.1cm]
+      Rappelons tout d'abord qu'on a démontré en question \itbf{13.b)}
+      que pour tout $t \in J$ : 
+      \[
+      M_S(t) \ = \ M_X(t) \ M_{X}(-t)
+      \]
+      On en conclut :
+      \[
+      \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+        K_S(t) & = & \ln\big( M_S(t) \big) 
+        \\[.3cm]
+        & = & \ln\big( M_X(t) \times M_{X}(-t) \big)
+        \\[.3cm]
+        & = & \ln\big( M_X(t) \big) + \ln\big( M_X(-t) \big)
+        \\[.3cm]
+        & = & K_X(t) + K_X(-t)
+      \end{array}
+      \]
+      Ainsi, par dérivations successives des deux membres de cette
+      égalité :
+      \[
+      \begin{array}{R{1.4cm}rcl@{\qquad}>{\it}R{5cm}}
+        & K'_S(t) & = & K'_X(t) - K'_X(-t)
+        \\[.4cm]
+        donc & K''_S(t) & = & K''_X(t) - \big(- K''_X(-t) \big)
+        \\[.2cm]
+        & & = & K'_X(t) + K'_X(-t)
+        \\[.4cm]
+        et & K^{(3)}_S(t) & = & K^{(3)}_X(t) - K^{(3)}_X(-t)
+        \\[.4cm]
+        enfin & K^{(4)}_S(t) & = & K^{(4)}_X(t) + K^{(4)}_X(-t)
+      \end{array}
+      \]
+      En particulier, pour $t = 0 \in J$ :
+      \[
+      \begin{array}{ccccc@{\qquad}>{\it}R{5cm}}
+        K^{(4)}_S(0) & = & K^{(4)}_X(0) + K^{(4)}_X(0) & = & 2 \,
+        K^{(4)}_X(0) 
+        \\[.2cm]
+        \shortparallel & & & & \shortparallel 
+        \\[.2cm]
+        Q_4(S) & & & & 2 \, Q_4(X)
+      \end{array}
+      \]
+
+    \item On en conclut, d'après ce qui précède :
+      \[
+      2 \, Q_4(X) \ = \ 2 \, \mu_4(X) - 6 \, \big( \V(X) \big)^2 
+      \]
+    \end{noliste}
+    \conc{Finalement : $Q_4(X) \ = \ \mu_4(X) - 3 \, \big( \V(X)
+      \big)^2$.}~\\[-1.2cm]  
+  \end{proof}
+\end{noliste}
+
+
+\end{document}

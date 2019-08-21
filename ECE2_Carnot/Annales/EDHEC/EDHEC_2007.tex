@@ -1,0 +1,524 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 2007} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 2007}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2007}}
+
+
+
+{\large \textbf{Concepteur : Edhec}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{Exercice 1}
+
+Pour toute matrice $M$ élément de $\M{2},$ on note $^{t}M$ la matrice
+transposée de $M,$ définie de
+la façon suivante : si $M = 
+\begin{smatrix}
+a & b \\
+c & d
+\end{smatrix}
+$ alors $^{t}M = 
+\begin{smatrix}
+a & c \\
+b & d
+\end{smatrix}.$
+
+On pose $E_{1} = 
+\begin{smatrix}
+1 & 0 \\
+0 & 0
+\end{smatrix},\ E_{2} = 
+\begin{smatrix}
+0 & 1 \\
+0 & 0
+\end{smatrix},\ E_{3} = 
+\begin{smatrix}
+0 & 0 \\
+1 & 0
+\end{smatrix}
+$ et $E_{4} = 
+\begin{smatrix}
+0 & 0 \\
+0 & 1
+\end{smatrix}
+$
+
+On rappelle que $\mathcal{B = }\left( E_{1},E_{2},E_{3},E_{4}\right) $
+est une
+base de $\M{2}.$
+
+On note $\varphi $ l'application qui à toute matrice $M$ de $\M{2} $
+associe $\varphi \left( M\right) = M + \left.
+^{t}M\right..$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\varphi $ est un endomorphisme de $\M{2}.$
+
+\item Écrire la matrice $A$ de $\varphi $ dans $\mathcal{B}.$
+
+\item En déduire que $\varphi $ est diagonalisable et non bijectif.
+\end{noliste}
+
+\item calculer $A^{2}$ et en déduire que, pour tout $n$ de$\N^{\ast }
+:A^{n} = 2^{n-1}A$
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Monterr que $\mathrm{Im}\varphi = \mathrm{Vect}\left( E_{1},\
+E_{2} + E_{3},\ E_{4}\right),$ puis établir que $\dim \mathrm{Im}\left(
+\varphi \right) = 3.$
+
+\item En déduire la dimension de $\ker \varphi $ puis déterminer une
+base de $\ker \varphi.$
+
+\item Établir que $\mathrm{Im}\varphi $ est le sous espace propre
+associé
+à la valeur propre 2
+
+\item Donner,pour résumer, les valeurs propres de $\varphi $ ainsi
+qu'une base de chacun des sous-espaces propres associés.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 2}
+
+On admet que si $Z_{1}$ et $Z_{2}$ sont deux variables aléatoires à
+densité, définies sur le même espace probabilisé, alors leur
+covariance, si elle existe, est définie par :
+\[
+\mathrm{Cov}\left( Z_{1},Z_{2}\right) = E\left( Z_{1}Z_{2}\right)
+-\E\left(
+Z_{1}\right) E\left( Z_{2}\right)
+\]
+\\
+On admet également que si $Z_{1}$ et $Z_{2}$ sont indépendantes
+alors leur covariance est nulle.
+
+On considère deux variables aléatoires réelles $X$ et $U$ définies sur
+le même espace probabilisé $\left( \Omega,\mathcal{A},\Prob\right),$
+indépendantes, $X$ suivant la loi normale $\mathcal{N}\left( 0,1\right)
+$ et $U$ suivant la loi discrète uniforme sur $\left\{ -1,1\right\}.$
+
+On pose \ $Y = UX$ et on admet que $Y$ est une variable aléatoire à
+densité, définie elle aussi sur l'espace probabilisé $\left(
+\Omega,\mathcal{A},\Prob\right).$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En utilisant la formule des probabilités totales, montrer que :
+\[
+\Prob\left(\Ev{ Y\leq x}\right) = \mathrm{P}\left( \left[ U = 1\right]
+\cap \left[ X\leq x\right] \right) + \mathrm{P}\left( \left[ U =
+-1\right] \cap \left[ X\geq -x\right] \right)
+\]
+
+\item En déduire que $Y$ suit la même loi que $X.$
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer l'espérance de $U$ puis montrer que $\E\left( XY\right)
+= 0$
+
+\item En déduire que $\mathrm{Cov}\left( X,Y\right) = 0$.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Rappeler la valeur de $\E\left( X^{2}\right) $ et en déduire que
+$\dint{0}{+ \infty }x^{2}e^{-\frac{x^{2}}{2}} = \frac{1}{2}\sqrt{2\pi
+}$
+
+\item Montrer, grace à une intégrationpar parties que 
+\[
+\forall A\in \R_{+} :\quad \dint{0}{A}x^{4}e^{-\frac{x^{2}}{2}}dx =
+-A^{3}e^{-\frac{A^{2}}{2}} + 3\dint{0}{A}x^{2}e^{-\frac{x^{2}}{2}}dx
+\]
+
+\item En déduire que l'intégrale $\dint{0}{+ \infty
+}x^{4}e^{-\frac{x^{2}}{2}}dx$ converge et vaut $\dfrac{3}{2}\sqrt{2\pi
+}.$
+
+\item Établir finalement que $X$ possède un moment d'ordre $4$ et que
+$\E\left( X^{4}\right) = 3$
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $\E\left( X^{2}Y^{2}\right) = 3$
+
+\item Déterminer $\mathrm{Cov}\left( X^{2},Y^{2}\right) $
+
+\item En déduire que $X^{2}$ et $Y^{2}$ ne sont pas indépendantes.
+Montrer alors que $X$ et $Y$ ne le sont pas non plus.
+
+\item Cet exercice a permis de montrer qu'un résultat classique
+concernant les variables discrètes est encore valable pour les
+variabales à densité. Lequel ?
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 3}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que pour tout $x>0 :x-\ln \left( x\right) >0$
+
+\item On pose alors $\left\{ 
+\begin{array}{cc}
+f\left( x\right) = \dfrac{\ln \left( x\right) }{x-\ln \left( x\right) }
+& 
+\text{si }x>0 \\
+f\left( 0\right) = -1 & 
+\end{array}
+\right. $
+
+Déterminer l'ensemble de définition $D$ de la fonction $f.$
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f$ est continue sur $D.$
+
+\item Montrer que $f$ est dérivable (à droite ) en $0$ et que
+$f_{d}{\prime }\left( 0\right) = 0.$
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier que $f$ est dérivable sur $D\setminus \left\{ 0\right\}
+$
+et calculer $f^{\prime }\left( x\right) $ pour tout $x$ de $D\setminus
+\left\{ 0\right\}.$
+
+\item Déterminer la limite de $f$ en $ + \infty.$
+
+\item Dresser le tableau de variations de $f.$
+\end{noliste}
+
+\item Étudier le signe de $f\left( x\right).$
+
+\item Pour tout réel $x$ élément de $D,$ on pose $F\left(
+x\right) = \dint{0}{x}f\left( t\right\ dt$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $F$ est de classe $\mathcal{C}{1}$ sur $D$ puis
+étudier ses variations.
+
+\item Déterminer $\dlim{x\rightarrow + \infty }\dint{1}{x}\frac{\ln
+t}{t}dt.$
+
+\item En déduire $\dlim{x\rightarrow + \infty }\dint{1}{x}\frac{\ln
+t}{t-\ln t}dt$ puis $\dlim{x\rightarrow + \infty }F\left( x\right)..$
+\end{noliste}
+\end{noliste}
+
+\section*{Problème}
+
+On lance une pièce équilibrée. (la probabilité d'obtenir
+"pile" et celle d'obtenir "face" étant toutes deux égales à
+$\frac{1}{2}$ ) et on note $Z$\ la variable aléatoire égale au rang
+du lancer où l'on obtient le premier "pile".
+
+Après cette série de lancers, si $Z$ a pris la valeur $k$ ($k\in 
+\N^{\ast }$), on remplit une urne de $k$ boules numérotées
+1,\ 2,\ $\cdots,\ k,$ puis on extrait au hasard une boule de cette
+urne.
+
+On note $X$ la variable aléatoire égale au numéro de la boule tirée
+après la procédure décrite ci-dessus.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On décide de coder l'événement $\ll $obtenir un "pile"$\gg 
+$ par $1$ et l'événement $\ll $obtenir un "face"$\gg $\ par $0.$
+
+On rappelle que la fonction \texttt{random }renvoie, pour un argument
+$k$ de
+type \texttt{integer} (où $k$ désigne un entier supérieur ou 
+égal à $1$) un entier aléatoire compris entre $0$ et $k-1.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Compléter le programme suivant pour qu'il affiche la valeur prise
+par $Z$ lors de la première partie de l'expérience décrite
+ci-dessus.
+
+\texttt{Program edhec\_{2}007;}
+
+\texttt{Var z,hasard :integer;}
+
+\texttt{begin}
+
+\texttt{\hspace{1cm}randomize; z : = 0;}
+
+\texttt{\hspace{1cm}repeat }
+
+\texttt{\hspace{2cm}z : = \ldots \ldots \ldots ; hasard : = \ldots
+\ldots \ldots ;
+until (hasard = 1);}
+
+\texttt{\hspace{1cm}writeln(z);}
+
+\texttt{end.}
+
+\item Quelle instruction faut-il rajouter avant la dernière ligne de ce
+programme pour qu'il simule l'expérience aléatoire décrite dans
+ce problème et affiche la valeur prise par la variable aléatoire $X$
+ ?
+\end{noliste}
+
+\item Établir la convergence de la série de terme général
+$\frac{1}{k}\left( \frac{1}{2}\right) ^{k}$ ($k\in \N^{\ast }$).
+
+\item Rappeler la loi de $Z$ ainsi que son espérance et sa variance.
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout couple $\left( i,k\right) $ de $\N^{\ast }\times 
+\N^{\ast },$ déterminer la probabilité $\mathrm{P}_{\left[
+Z = k\right] }\left( X = i\right) $
+
+\item En déduire que $\forall i\in \N^{\ast }$, $\Prob\left(\Ev{ X =
+i}\right) = \Sum{k = i}{+ \infty }\frac{1}{k}\left( \frac{1}{2}\right)
+^{k}.$
+
+\item On admet dans cette question que $\Sum{i = 1}{+ \infty
+}\Sum{k = i}{+ \infty } = \Sum{k = 1}{+ \infty
+}\Sum{i = 1}{k}$. Vérifier que $\Sum{i = 1}{+ \infty }\Prob\left(\Ev{ X
+= i}\right) = 1$
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout entier naturel $i$ non nul, on a :
+$i\Prob\left(\Ev{ X = i}\right) \leq \left( \frac{1}{2}\right) ^{i-1}$
+
+\item En déduire que $X$ possède une espérance.
+
+\item Montrer, en admettant qu'il est licite de permuter les symboles
+$\sum $
+comme dans la question 4c), que 
+\[
+\E\left( X\right) = \frac{3}{2}
+\]
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Utiliser le résultat de la question 5a) pour montrer que $X$ a un
+moment d'ordre 2.
+
+\item Établir, alors, toujours en admettant qu'il est licite de
+permuter les
+symboles $\sum $ comme dans la question 4c), que
+\[
+\E\left( X^{2}\right) = \frac{1}{6}\Sum{k = 1}{+ \infty }\left( k +
+1\right)
+\left( 2k + 1\right) \left( \frac{1}{2}\right) ^{k}
+\]
+
+\item Déterminer les réels $a,b$ et $c$ tels que : $\forall k\in 
+\N^{\ast }$, $\left( k + 1\right) \left( 2k + 1\right) = ak\left(
+k-1\right) + bk + c$.
+
+\item En déduire la valeur de $\E\left( X^{2}\right) $ et vérifier
+que $\V\left( X\right) = \dfrac{11}{12}$.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Écrire l'inégalité de Bienaymé-Chebychev, pour la variable 
+$X$.
+
+\item En déduire $\Prob\left(\Ev{ X\geq 3}\right) \leq \dfrac{11}{27}$
+\end{noliste}
+
+\item On se propose de calculer $\Prob\left(\Ev{ X = 1}\right),$
+$\Prob\left(\Ev{ X = 2}\right) $ et $\Prob\left(\Ev{ X\geq 3}\right).$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Écrire explicitement en fonction de $x$ et $n$ la somme $\Sum{k =
+1}{n}x^{k-1}$ ($n$ désignant un entier naturel non nul
+et $x$ un réel différent de 1).
+
+\item En déduire que : $\forall n\in \N^{\ast
+} :\Sum{k = 1}{n}\frac{1}{k}\left( \frac{1}{2}\right) ^{k} = \ln \left(
+2\right) -\dint{0}{1/2}\frac{x^{n}}{1-x}dx$
+
+\item Montrer que $\forall n\in \N^{\ast } :0\leq
+\dint{0}{1/2}\frac{x^{n}}{1-x}dx\leq \left( \frac{1}{2}\right) ^{n}$\\
+En déduire la valeur de $\dlim{n\rightarrow + \infty
+}\dint{0}{1/2}\frac{x^{n}}{1-x}dx$
+
+\item Établir alors que $\Prob\left(\Ev{ X = 1}\right) = \ln \left(
+2\right) $
+puis donner la valeur de $\Prob\left(\Ev{ X = 2}\right) $.
+
+\item Utiliser les résultats précédents pour calculer $\Prob\left(\Ev{
+X\geq 3}\right) $, puis donner une valeur approchée de $\Prob\left(\Ev{
+X\geq 3}\right) $ en prenant $\ln 2\simeq 0,7$. Que peut-on en déduire
+en ce qui concerne le majorant trouvé à la septième
+question ?
+\end{noliste}
+\end{noliste}
+
+\end{document}
+

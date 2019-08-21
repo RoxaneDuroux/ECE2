@@ -1,0 +1,437 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 2006} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dint}{\int}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 2006}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\Huge ECRICOME Eco 2006}
+\end{center}
+
+\section*{EXERCICE 1}. On considère la fonction $f$ définie pour tout
+réel $x$ par : 
+\[.f\left( x\right) = x + 1 + 2e^{x}
+\]
+
+ainsi que la fonction $g\ $des deux variables réelles $x$ et $y$
+définie par : 
+\[
+g\left( x,y\right) = e^{x}\left( x + y^{2} + e^{x}\right)
+\]
+
+\subsection*{1. Recherche d'extremum local de $g.$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Étudier les variations de $f$ et donner les limites de $f\left(
+x\right) $ lorsque $x$ tend vers $ + \infty $ et $-\infty $.
+
+\item Justifier l'existence d'une asymptote oblique au voisinage de
+$-\infty 
+$ et donner la position de la courbe représentative de $f$ par rapport
+à
+cette asymptote.
+
+\item Déduire des variations de $f$ l'existence d'un unique réel
+$\alpha $, élément de l'intervalle $\left[ -2,-1\right] $ tel que
+$f\left( \alpha \right) = 0$. ( on rappelle que $e\simeq 2,7$ )
+
+\item Déterminer le seul point critique de $g$, c'est-à-dire le seul
+couple
+de $\R^{2}$, en lequel $g$ est susceptible de présenter un extremum.
+
+\item Vérifier que $g$ présente un extremum relatif $\beta $ en ce
+point.
+Est-ce un maximum ou un minimum ?
+
+\item Montrer que l'on a : 
+\[
+4\beta + \alpha ^{2}-1 = 0
+\]
+\end{noliste}
+
+\subsection*{2. Étude d'une suite réelle.}
+
+On s'intéresse à la suite $\left( u_{n}\right)_{n\in \N}$ définie par
+son premier terme $u_{0} = -1$ et par la relation 
+\[
+\forall n\in \mathbb{N\quad }u_{n + 1} = u_{n}-\frac{f\left(
+u_{n}\right) }{f^{\prime }\left( u_{n}\right) }
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Prouver que $f$ est convexe sur $\R$. En déduire que que pour
+tous réels $x$ et $t$ :
+
+\[
+f\left( x\right) + \left( t-x\right) f^{\prime }\left( x\right) \leq
+f\left( t\right)
+\]
+
+\item En déduire l'inégalité suivante : 
+\[
+\forall n\in \mathbb{N\quad \alpha }\leq u_{n + 1}
+\]
+Puis que pour tout entier naturel $n$. : 
+\[
+\alpha \leq u_{n + 1}\leq u_{n}\leq -1
+\]
+En déduire que la suite $\left( u_{n}\right)_{n\in \N}$ est convergente
+vers un réel à préciser.
+
+\item On admet que pour tout $x$ de l'intervalle$\left[ -2,-1\right]$ :
+\[
+0\leq \left( x-\alpha \right) f^{\prime }\left( x\right) -f\left(
+x\right) \leq \frac{\left( x-\alpha \right) ^{2}}{e}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Prouver alors que pour tout entier naturel $n$ : 
+\[
+0\leq u_{n + 1}-\alpha \leq \frac{\left( u_{n}-\alpha \right) ^{2}}{e}
+\]
+
+\item Puis démontrer par récurrence que pour tout entier naturel $n$ :
+
+\[
+0\leq u_{n}-\alpha \leq \frac{1}{e^{2^{n}-1}}
+\]
+\end{noliste}
+
+\item Écrire un programme en langage \Scilab{} permettant, lorsque
+l'entier
+naturel $p$ est donné par l'utilisateur, de calculer une valeur
+approchée de 
+$\alpha $, de telle sorte que l'on ait : 
+\[
+0\leq u_{n}-\alpha \leq 10^{-p}
+\]
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+Pour tout entier naturel $n$, on définit la fonction $f_{n}$ de la
+variable réelle $x$ par : 
+\[
+f_{n}\left( x\right) = x^{n}\exp \left( -\frac{x^{2}}{2}\right)
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Justifier que $f_{n}\left( x\right) $ est négligeable devant
+$\dfrac{1}{x^{2}}$ au voisinage de $ + \infty $.
+
+\item Prouver la convergence de l'intégrale $\dint{0}{+
+\infty}f_{n}\left( x\right\dx$.
+
+\item O pose $I_{n} = \dint{0}{+ \infty }f_{n}\left( x\right\dx$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item À l'aide d'une intégration par parties portant sur des intégrales
+définies sur le segment $\left[ 0,A\right] $ avec $A\geq 0$, prouver
+que pour tout entier naturel $n :$
+\[
+I_{n + 2} = \left( n + 1\right) I_{n}
+\]
+
+\item En utilisant la loi normale centrée réduite, justifier que : 
+\[
+I_{0} = \sqrt{\frac{\pi }{2}}
+\]
+
+\item Donner la valeur de $I_{1}$.
+
+\item Démontrer par récurrence que pour tout entier naturel $n$ :
+
+\begin{eqnarray*}
+I_{2n} & = & \sqrt{\frac{\pi }{2}}\frac{\left( 2n\right) !}{2^{n}n!} \\
+I_{2n + 1} & = & 2^{n}n!
+\end{eqnarray*}
+\end{noliste}
+
+\item Soit $f$ la fonction définie pour tout réel $x$ par : 
+\[
+\left\{ 
+\begin{array}{cc}
+f\left( x\right) = f_{1}\left( x\right) & \text{si }x\geq 0 \\
+f\left( x\right) = 0 & \text{si }x<0
+\end{array}
+\right.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Démontrer que $f$ est une densité de probabilité.
+
+\item Soit $X$ une variable aléatoire réelle qui admet $f$ pour densité
+de probabilité.
+
+\begin{nonoliste}{(i)}
+\item Justifier que $X$ admet une espérance $\E\left( X\right) $, et
+préciser sa valeur.
+
+\item Justifier que $X$ admet une variance $\V\left( X\right) $, et
+préciser sa valeur.
+\end{nonoliste}
+\end{noliste}
+
+\item On désigne par $F$ et $G$ les fonctions de répartitions
+respectives de $X$ et de $Y = X^{2}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer $G\left( x\right) $ en fonction de $F\left( x\right) $
+en distinguant les deux cas : $x<0$ et $x\geq 0$
+
+\item En déduire que $Y$ est une variable à densité. Reconnaître la loi
+de $Y $ et donner la valeur de $\E\left( Y\right) $ et $\V\left(
+Y\right) $.
+\end{noliste}
+\end{noliste}
+
+\newpage
+
+\section*{EXERCICE 3}
+
+$E$ désigne l'espace des fonctions polynômes à coefficients réels, dont
+le degré est inférieur ou égal à l'entier naturel 2.
+
+\subsection*{1. Étude d'un endomorphisme de $E$.}
+
+On considère l'application $f$ qui, à tout élément $P$ de $E, $ associe
+la fonction polynôme $Q$ telle que : 
+\[
+\text{pour tout }x\text{ réel :\qquad }Q\left( x\right) = \left(
+x-1\right)
+P^{\prime }\left( x\right) + P\left(\Ev{ x}\right)
+\]
+et $\mathcal{B = }\left( P_{0},P_{1},P_{2}\right) $ la base canonique
+de $E$ définie par : 
+\[
+\text{pour tout réel }x :\qquad P_{0}\left( x\right) = 1,\;P_{1}\left(
+x\right) = x\text{ et }P_{2}\left( x\right) = x^{2}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $f$ est un endomorphisme de $E$.
+
+\item Vérifier que la matrice $A$ de $f$ dans $\mathcal{B}$, s'écrit
+sous la
+forme : 
+\[
+A = \left( 
+\begin{array}{rrr}
+1 & -1 & 0 \\
+0 & 2 & -2 \\
+0 & 0 & 3
+\end{array}
+\right)
+\]
+
+\item Quelles sont les valeurs propres de $f$ ? $f$ est-il
+diagonalisable ? $f$ est-il un automorphisme de $E$ ?
+
+\item Déterminer l'image par $f$ des fonctions polynômes
+$R_{0},\,R_{1},\,R_{2}$ définies par : 
+\[
+\text{pour tout réel }x :\qquad R_{0}\left( x\right) = 1,\quad
+R_{1}\left(
+x\right) = x-1\text{ et }R_{2}\left( x\right) = \left( x-1\right) ^{2}
+\]
+
+\item Montrer que $\mathcal{B}{\prime } = \left(
+R_{0},R_{1},R_{2}\right) $
+est une base de vecteurs propres de $f$. \ 'Écrire la matrice de
+passage $P$ de
+la base $\mathcal{B}$ à la base $\mathcal{B}{\prime }$ ainsi que la
+matrice 
+$D$ de $f$ dans la base $\mathcal{B}{\prime }.$
+
+\item Vérifier que pour tout réel $x$ : 
+\[
+\left\{ 
+\begin{array}{c}
+R_{2}x + 2R_{1}\left( x\right) + R_{0}\left( x\right) = P_{2}\left(
+x\right) \\
+R_{1}\left( x\right) + R_{0}\left( x\right) = P_{1}\left( x\right)
+\end{array}
+\right.
+\]
+
+En déduire la matrice de passage de la base $\mathcal{B}{\prime }$ à la
+base $\mathcal{B}$.
+
+\item Écrire $A^{-1}$ en fonction de $D^{-1}.$ Démontrer par récurrence
+que pour tout entier naturel $n$ : 
+\[
+\left[ A^{-1}\right] ^{n} = P\left[ D^{-1}\right] ^{n}P^{-1}
+\]
+et expliciter la troisième colonne de la matrice $\left[ A^{-1}\right]
+^{n}$.
+\end{noliste}
+
+\subsection*{2. Suite d'épreuves aléatoires.}
+
+On dispose d'une urne qui contient trois boules numérotées de 0 à 2.
+
+On s'intéresse à une suite d'épreuves définies de la manière suivante :
+
+\begin{noliste}{$\sbullet$}
+\item La première épreuve consiste à choisir au hasard une boule dans
+cette urne.
+
+\item Si $j$ est le numéro de la boule tirée, on enlève de l'urne
+toutes les
+boules dont le numéro est strictement supérieur à $j$, le tirage
+suivant se
+faisant alors dans l'urne ne contenant plus que les boules numérotées
+de $0$ à $j$.
+\end{noliste}
+
+On considère alors la variable aléatoire réelle $X_{k}$ égale au numéro
+de
+la boule obtenue à la $k^{\grave{e}me}$ épreuve ($k\geq 0$).
+
+On note alors $U_{k}$ la matrice unicolonne définie par : 
+\[
+U_{k} = \left( 
+\begin{array}{c}
+P\left[ X_{k} = 0\right] \\
+P\left[ X_{k} = 1\right] \\
+P\left[ X_{k} = 2\right]
+\end{array}
+\right)
+\]
+où $P\left[ X_{k} = j\right] $ est la probabilité de tirer la boule
+numéro $j$ à la $k^{\grave{e}me}$ épreuve.
+
+On convient de définir la matrice $U_{0}$ par : 
+\[
+U_{0} = \left( 
+\begin{array}{c}
+0 \\
+0 \\
+1
+\end{array}
+\right)
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer la loi de $X_{2}$ (On pourra s'aider d'un arbre).
+Calculer l'espérance et la variance de $X_{2}$.
+
+\item Par utilisation de la formule des probabilités totales, prouver
+que pour tout entier naturel $k$ :
+
+\[
+U_{k + 1} = A^{-1}U_{k}
+\]
+
+\item Écrire $U_{k}$ en fonction de $A^{-1}$ et $U_{0}$.
+
+\item Pour tout $k$ de $\N$, donner la loi de $X_{k}$ et vérifier que
+l'on a : 
+\[
+\dlim{k\rightarrow + \infty }P\left[ X_{k} = 0\right] = 1,\quad
+\dlim{k\rightarrow + \infty }P\left[ X_{k} = 1\right] = 0,\quad
+\dlim{k\rightarrow + \infty }P\left[ X_{k} = 2\right] = 0
+\]
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

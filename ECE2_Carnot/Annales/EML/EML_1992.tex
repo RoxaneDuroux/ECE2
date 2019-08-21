@@ -1,0 +1,377 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EML 1992} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{EML 1992}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1992}}
+
+
+
+{\large \textbf{Concepteur : EML}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{EXERCICE 1}
+
+L'espace vectoriel $\R^{3}$ est muni de sa base canonique $\mathcal{B =
+}\left(
+\overrightarrow{e_{1}},\overrightarrow{e_{2}},\overrightarrow{e_{3}}\ri
+ht) $\\
+Soit $\left( a_{1},a_{2},a_{3}\right) \in \R^{3}$ tel que
+$a_{1}a_{2}a_{3}\neq 0$;\\
+on considère
+
+\begin{noliste}{$\sbullet$}
+\item $\overrightarrow{a} = \left( a_{1},a_{2},a_{3}\right) $
+
+\item $A$ la matrice de $\M{3} $ dont le
+terme situé à la ligne $i$ et colonne $j$ vaut $a_{i}a_{j}$ pour tout
+$\left( i,j\right) $ de$\left\{ 1,2,3\right\} $,
+
+\item $f$ l'endomorphisme de $\R^{3}$ de matrice $A$ dans
+$\mathcal{B}$.
+\end{noliste}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $\overrightarrow{a}$ est vecteur propre de $f$,
+associé à
+une valeur propre que l'on déterminera.
+
+\item Déterminer $\ker \left( f\right) $.
+
+\item Montrer qu'il existe une base de $\R^{3}$ formée de vecteurs
+propres de $f$ ; donner une telle base et écrire la matrice de $f$ dans
+cette base.
+
+\item Calculer $A^{n}$ pour tout $n\in \N$.
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+On note $f :\left] 1, + \infty \right[ \ \rightarrow \R$ l'application
+définie par : 
+\[
+\forall x\in \left] 1, + \infty \right[,\quad f\left( x\right) =
+\dfrac{1}{x\ln \left( x\right) }
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Étudier les variations de $f$ et tracer sa courbe représentative.
+
+\item Montrer, pour tout entier $k$ tel que $k\geq 3$ : 
+\[
+f\left( k\right) \leq \dint{k-1}{k}f\left( x\right\dx\leq
+f\left( k-1\right)
+\]
+
+\hspace{-1cm}Pour tout $n\in \N$ tel que $n\geq 2$n, on note $S_{n} =
+\Sum{k = 2}{n}f\left( k\right) $
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer, pour tout $n\in \N$ tel que $n\geq 2$ :
+
+\[
+S_{n}-\dfrac{1}{2\ln \left( 2\right) }\leq \dint{2}{n}f\left(
+x\right\dx\leq S_{n}-\dfrac{1}{n\ln \left( n\right) }
+\]
+
+\item En déduire, pour tout $n\in \N$ tel que $n\geq 2$ :
+
+\[
+\ln \left( \ln \left( n\right) \right) -\ln \left( \ln \left( 2\right)
+\right) \leq S_{n}\leq \ln \left( \ln \left( n\right) \right) -\ln
+\left( \ln \left( 2\right) \right) + \dfrac{1}{2\ln \left( 2\right) }
+\]
+
+\item établir : $S_{n}\underset{n\rightarrow + \infty }{\thicksim }\ln
+\left(
+\ln \left( n\right) \right) $\\
+Pour tout $n\in \N$ tel que $n\geq 2$, on note 
+\[
+u_{n} = S_{n}-\ln \left( \ln \left( n + 1\right) \right)
+\;\text{et}\;v_{n} = S_{n}-\ln \left( \ln \left( n\right) \right) 
+\]
+\end{noliste}
+
+\item En utilisant le résultat de la question 2., montrer que les
+suites $\left( u_{n}\right)_{n\geq 2}$ et $\left( v_{n}\right)_{n\geq
+2}$
+sont adjacentes. On note $\ell $ leur limite commune.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer, pour tout $n\in \N$ tel que $n\geq 2$ : 
+\[
+0\leq v_{n}-\ell \leq \dfrac{1}{n\ln \left( n\right) }
+\]
+
+\item En déduire une valeur approchée de $\ell $ à $10^{-2}$ près.
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE 3}
+
+Soit $N$ un entier naturel supérieur ou égal à 2.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer les égalités suivantes : 
+\[
+\Sum{k = 1}{N}k = \dfrac{N\left( N + 1\right) }{2},\quad
+\Sum{k = 1}{N}k^{2} = \dfrac{N\left( N + 1\right) \left( 2N + 1\right)
+}{6},
+\]
+
+\item Une urne contient une boule blanche, une boule verte et $N-2$
+boules
+rouges. Ces boules sont indiscernables au toucher.\\
+On tire successivement les $N$ boules sans remettre les boules tirées
+dans
+l'urne.\\
+On note $X_{1}$ la variable aléatoire égale au rang du tirage de la
+boule
+blanche et $X_{2}$ la variable aléatoire égale au rang du tirage de la
+boule
+verte.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soient $i$ et $j$ deux entiers compris entre 1 et $N$.\\
+Calculer la probabilité $P_{ij}$ pour que $X_{1} = i$ et $X_{2} = j$.\\
+(On distinguera le cas $i = j$ et le cas $i\neq j$).
+
+\item Déterminer les lois des variables aléatoires $X_{1}$ et
+$X_{2}$.\\
+Est-ce que les variables aléatoires $X_{1}$ et $X_{2}$ sont
+indépendantes ?\\
+Calculer les espérances et variances des variables aléatoires $X_{1}$
+et $X_{2}$.
+
+\item On note $X$ la variable aléatoire égale au rang du tirage où l'on
+obtient pour la première fois soit la boule blanche soit la boule
+verte.\\
+On note $Y$ la variable aléatoire égale au rang du tirage à partir
+duquel on
+a obtenu la boule blanche et la boule verte.\\
+Remarque : en fait $X = \inf \left( X_{1},X_{2}\right) $ et $Y = \sup
+\left(
+X_{1},X_{2}\right) $\\
+Par exemple, si on a tiré rouge, rouge, verte, rouge, blanche, alors
+$X_{1} = 5
+$ et $X_{2} = 3$ et $X = 3$ et $Y = 5$\\
+Déterminer les lois des variables aléatoires $X$ et $Y$.\\
+Calculer les espérances des variables aléatoires $X$ et $Y$.
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE 4}
+
+On considère la fonction $f$ définie sur $\R$ par $\left\{ 
+\begin{array}{ccc}
+f\left( x\right) = 0 & \text{si} & x<0 \\
+f\left( x\right) = x & \text{si} & x\geq 0
+\end{array}
+\right. $\\
+On se propose d'étudier la suite réelle $\left( u_{n}\right) $ définie
+par
+la donnée de son premier terme $u_{0}$ et la relation de récurrence 
+\[
+\forall n\in \N,\;u_{n + 1} = u_{n} + \dint{0}{1}f\left(
+t-u_{n}\right\ dt
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Étude du cas $0\leq u_{0}\leq 1$\\
+On suppose $0\leq u_{0}\leq 1$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la suite $\left( u_{n}\right) $ est croissante.
+
+\item Montrer que, si $0\leq u_{n}\leq 1,$ alors $u_{n + 1} =
+\dfrac{1}{2}\left( 1 + u_{n}{2}\right).$\\
+En déduire que, pour tout entier positif ou nul $n$, $u_{n}\leq 1$.
+
+\item Montrer que la suite $\left( u_{n}\right) $ est convergente ;
+déterminer sa limite.
+\end{noliste}
+
+\item Étude des cas $u_{0}<0$ et $u_{0}>1$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On suppose $u_{0}<0.$\\
+Calculer $u_{1}$. En déduire l'étude de la suite $\left( u_{n}\right)
+$.
+
+\item On suppose $u_{0}>1$.\\
+Calculer $u_{1}$, puis, pour tout entier positif $n$,$u_{n}$. Que dire
+de la
+suite $\left( u_{n}\right) $ ?
+\end{noliste}
+
+\item Interprétation graphique.\\
+On considère la fonction $g$ définie sur $\R$ par 
+\[
+g\left( x\right) = x + \dint{0}{1}f\left( t-x\right\ dt
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer pour tout nombre réel $x$ la valeur de $g\left( x\right)
+$.\\
+Construire le graphe de $g$ dans un repère orthonormé (unité graphique
+2 cm).
+
+\item Représenter graphiquement les quatre premiers termes de la suite
+$\left( u_{n}\right) $ dans les cas suivants : 
+\[
+u_{0} = -2;\quad u_{0} = 0;\quad u_{0} = 2
+\]
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

@@ -1,0 +1,442 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 2002} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 2002}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\Large {\textbf{ECOLE DES HAUTES ETUDES COMMERCIALES}} \vspace{0.3cm}
+}
+
+{\normalsize CONCOURS D'ADMISSION SUR CLASSES PREPARATOIRES
+\vspace{0.5cm}}
+
+{\normalsize \hskip 0.0cm\hbox to 3cm{\hrulefill}}
+
+{\normalsize \vspace{0.3cm} }
+
+{\normalsize \textbf{OPTION ECONOMIQUE} \vspace{0.5cm} }
+
+{\Large {\textbf{MATHEMATIQUES III}} \vspace{0.5cm} }
+
+{\normalsize Jeudi 16 mai 2002, de 14h à 18h.}
+
+{\normalsize \hskip 0.0cm\hbox to 3cm{\hrulefill}}
+
+{\normalsize \vspace{0.3cm} }
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité de
+la rédaction, la clarté et la précision des raisonnements entreront
+pour une part importante dans l'appréciation des copies. \hfill\break
+Les
+candidats sont invités à encadrer dans la mesure du possible les
+résultats de leurs calculs. \hfill\break Ils ne doivent faire usage
+d'aucun document ; l'utilisation de toute calcultrice et de tout
+matériel\break électronique est interdite. \hfill\break Seule
+l'utilisation d'une règle graduée est autorisée.} \vspace{0.8cm}
+
+{\LARG\E\ EXERCICE I \vspace{0.5cm}}
+
+{Le but de cet exercice est la résolution de l'équation matricielle $AM
+= MB$, d'inconnue $M$, dans l'espace vectoriel $E$ des matrices carrées
+d'ordre $2$ à coefficients réels. }\vspace{2mm} {On rappelle que si
+$U_{1},\,U_{2},\,U_{3},\,U_{4}$ sont les matrices définies par : 
+\[
+\;U_{1} = 
+\begin{smatrix}
+1 & 0 \\
+0 & 0
+\end{smatrix}
+\quad U_{2} = 
+\begin{smatrix}
+0 & 1 \\
+0 & 0
+\end{smatrix}
+\quad U_{3} = 
+\begin{smatrix}
+0 & 0 \\
+1 & 0
+\end{smatrix}
+\quad U_{4} = 
+\begin{smatrix}
+0 & 0 \\
+0 & 1
+\end{smatrix}
+\]
+la famille $(U_{1},\,U_{2},\,U_{3},\,U_{4})$ est une base de $E$, qui
+est
+donc de dimension $4$.}\vspace{2mm} {Si $A$ et $B$ sont deux matrices
+de $E$, l'ensemble des matrices $M$ de $E$ vérifiant $AM = MB$ est noté
+$V_{A,B}$.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $A$ et $B$ deux matrices de $E$ et $\varphi_{A,B}$
+l'application
+qui, à toute matrice $M$ de $E$, associe \hfill\break la matrice
+$AM-MB$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\varphi_{A,B}$ est un endomorphisme de $E$ et en
+déduire que $V_{A,B}$ est un sous-espace vectoriel de $E$.
+
+\item Dans le cas particulier où $ A = 
+\begin{smatrix}
+1 & -1 \\
+-1 & \;1
+\end{smatrix}
+\;\text{et}\;B = 
+\begin{smatrix}
+-1 & 0 \\
+2 & \;1
+\end{smatrix}
+$, construire la matrice carrée d'ordre $4$ qui représente $\varphi
+_{A,B}$ dans la base $\,U_{2},\,U_{3},\,U_{4})$.
+
+Montrer que cette matrice est inversible et en déduire l'ensemble
+$V_{A,B}$.
+\end{noliste}
+
+\item \label{d} Dans cette question, $r$ et $s$ désignent deux réels
+distincts et différents de $1$, et on pose : 
+\[
+D = 
+\begin{smatrix}
+1 & 0 \\
+0 & r
+\end{smatrix}
+\quad \text{et}\quad \Delta = 
+\begin{smatrix}
+1 & 0 \\
+0 & s
+\end{smatrix}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $ M = 
+\begin{smatrix}
+x & y \\
+z & t
+\end{smatrix}
+$ une matrice quelconque de $E$. Donner des conditions nécessaires et
+suffisantes sur $x,\,y,\,z,\,t$ pour que $M$ appartienne à $V_{D,\Delta
+} $.
+
+\item En déduire une base de $V_{D,\Delta}$.
+\end{noliste}
+
+\item \label{d2} Soit $a,b,c,d$ des réels non nuls vérifiant $a-b\neq
+c-d,\;a-b\neq 1,\;c-d\neq 1$, $A$ et $B$ les matrices définies
+par : \quad 
+\[
+A = 
+\begin{smatrix}
+a & 1-a \\
+b & 1-b
+\end{smatrix}
+\quad,\quad B = 
+\begin{smatrix}
+c & 1-c \\
+d & 1-d
+\end{smatrix}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que les valeurs propres de $A$ sont $1$ et $a-b$. En
+déduire
+qu'il existe une matrice inversible $P$ de $E$, et une matrice $D$
+égale
+à celle de la question \ref{d} pour une valeur convenable de $r$,
+telles
+que l'on ait : $D = P^{-1} A P$.
+
+\item Justifier de même l'existence d'une matrice inversible $Q$ de
+$E$,
+et d'une matrice $\Delta$ égale à celle de la question \ref{d} pour une
+valeur convenable de $s$, telles que l'on ait : $\Delta = Q^{-1} B Q$.
+
+\item Pour toute matrice $M$ de $E$, montrer qu'elle appartient à
+$V_{A,B}$
+si et seulement si la matrice $P^{-1}M Q$ appartient à $V_{D,\Delta}$.
+En
+déduire une base de $V_{A,B}$.
+\end{noliste}
+
+\item Dans cette question $r,\,s$ et $u,\,v$ désignent quatre réels
+vérifiant $r\neq s,\,r\neq v,\;u\neq s,\;u\neq v$, et on pose : 
+\[
+D = 
+\begin{smatrix}
+u & 0 \\
+0 & r
+\end{smatrix}
+\quad \text{et}\quad \Delta = 
+\begin{smatrix}
+v & 0 \\
+0 & s
+\end{smatrix}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item \vspace{-2mm} Par une méthode analogue à celle de la question
+\ref{d}, déterminer $V_{D,\Delta}$.
+
+\item En déduire, par une méthode analogue à celle de la question
+\ref{d2}, le sous-espace vectoriel $V_{A,B}$ dans le cas où $A$ et $B$
+sont
+deux matrices diagonalisables n'ayant aucune valeur propre commune.
+\end{noliste}
+\end{noliste}
+
+{\LARGE EXERCICE II \vspace{0.5cm} }
+
+{Cet exercice met en évidence le fait que l'existence d'une espérance
+finie, pour une variable aléatoire, n'est pas toujours
+intuitive.}\vspace{1mm} {Dans tout l'exercice, $I$ désigne l'intervalle
+réel $[1, + \infty \lbrack $ et on suppose que toutes les variables
+aléatoires
+envisagées sont définies sur le même espace probabilisé
+$(\Omega,\mathcal{A},\mathbf{P})$. } 
+
+{\large Première approche\label{partieA}}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que l'application $g$ définie par : \ $\left\{ 
+\begin{matrix}
+ = \frac{1}{t^{2}}} & \text{si}\;t\in I \\
+g(t) = 0 & \text{sinon}\end{matrix}\right. $ \ est une densité de
+probabilité.
+
+\item Soit $X$ une variable aléatoire à valeurs dans $I$ admettant $g$
+pour densité. Déterminer, pour tout réel $t$, la probabilité
+$\mathbf{P}([X\leq t])$ et montrer que $X$ n'admet pas d'espérance.
+
+\item Soit $X$ et $Y$ deux variables aléatoires à valeurs dans $I$
+admettant $g$ pour densité et telles que, pour tout réel $t$, les
+événements $[X\leq t]$ et $[Y\leq t]$ sont indépendants. On
+définit alors deux variables aléatoires $U$ et $V$ par :\; $U =
+\min(X,Y)$
+et $V = \max(X,Y)$, c'est-à-dire que, pour tout $\omega$ de $\Omega$,
+$U(\omega)$ est le plus petit des nombres $X(\omega)$ et $Y(\omega)$,
+tandis
+que $\V(\omega)$ est le plus grand de ces nombres.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout réel $t$, exprimer l'événement $[\V\leq t]$ à
+l'aide des variables aléatoires $X$ et $Y$; en déduire la probabilité
+$\mathbf{P}([\V\leq t])$.
+
+\item Montrer que la variable aléatoire $V$ admet pour densité
+l'application $h$ définie par : \vspace{-2mm}
+\[
+\left\{ 
+\begin{matrix}
+h(t) = & \frac{2(t-1)}{t^{3}}} & \text{si}\;t\in I \\
+h(t) = & 0 & \text{sinon}\end{matrix}\right.
+\]
+
+\item De façon analogue, calculer pour tout réel $t$ la probabilité
+$\mathbf{P}([U>t])$ et en déduire que la variable aléatoire $U$
+admet pour densité l'application $m$ définie par :\vspace{-2mm}
+\[
+\left\{ 
+\begin{matrix}
+m(t) = & \frac{2}{t^{3}}} & \text{si}\;t\in I \\
+m(t) = & 0 & \text{sinon}\end{matrix}\right.
+\]
+
+\item Montrer que $V$ n'admet pas d'espérance et que $U$ admet une
+espérance que l'on calculera.
+\end{noliste}
+\end{noliste}
+
+{\large Situation plus générale \vspace{3mm} }
+
+{Dans cette partie, $n$ désigne un entier supérieur ou égal à
+$2$ et on suppose que $n$ visiteurs, numérotés de $1$ à $n$, se
+rendent aléatoirement dans un musée et que, pour tout entier de
+l'intervalle $[1,n]$, l'heure d'arrivée du visiteur numéro $k$ est
+une variable aléatoire $X_{k}$ admettant pour densité l'application $g$
+définie dans la partie \ref{partieA}.}
+
+On suppose de plus que, pour tout réel $t$, les événements $[X_{1}\leq
+t],\; [X_{2}\leq t],\; \ldots,\;[X_{n}\leq t]$ sont
+mutuellement indépendants.
+
+Si $r$ est un entier de l'intervalle $[1,n]$, on note $T_{r}$ la
+variable aléatoire désignant l'heure d'arrivée du $r$-ième arrivant.
+
+La partie \ref{partieA} traite donc du cas $n = 2$, les variables
+aléatoires 
+$U$ et $V$ étant respectivement égales à $T_{1}$ et $T_{2}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $t$ un élément de $I$ fixé. Pour tout entier $k$ de $[1,n]$,
+on note $B_{k}$ la variable aléatoire prenant la valeur $1$
+lorsque l'événement $[X_{k}\leq t]$ est réalisé et la
+valeur $0$ sinon.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Préciser, en la justifiant soigneusement, la loi de la variable
+aléatoire $Z$ définie par : \vspace{-3mm}
+\[
+Z = B_{1} + \, \ldots \, + \, B_{n}
+\]
+
+\item Pour tout entier $r$ de l'intervalle $[1,n]$, exprimer
+l'événement $[T_{r}\leq t]$ à l'aide de la variable aléatoire $Z$ et
+en déduire l'égalité : \ $\text{P}([T_{r}\leq
+t]) = \Sum{k = r}{n}\Sum{k = r}{n}\binom{n}{k}\left(
+1-\frac{1}{t}\right)
+^{k}\left( \frac{1}{t}\right) ^{n-k}\cdotp$
+
+\item Vérifier, pour tout entier $k$ de l'intervalle $[1,n]$, l'égalité
+: \ $ k\binom{n}{k}-\left( n + 1-k\right) \binom{n}{k-1} = 0$.
+
+\item En déduire que, pour tout entier $r$ de l'intervalle $[1,n]$, la
+variable aléatoire $T_{r}$ admet pour densité l'application $f_{r}$
+définie par :\vspace{-3mm} 
+\[
+\left\{ 
+\begin{matrix}
+f_{r}(t) = \binom{n}{r}\left( \frac{1}{t}\right) ^{n + 2-r}\left(
+1-\frac{1}{t}\right) ^{r-1}} & \text{si}\;t\in I \\
+f_{r}(t) = 0 & \text{sinon}\end{matrix}\right. 
+\]
+
+\item Donner un équivalent à \ $tf_{r}(t)$ quand $t$ tend vers $ +
+\infty $ et en déduire que les variables aléatoires
+$T_{1},\,T_{2},\,\ldots \,,\,T_{n-1}$ admettent une espérance alors que
+$T_{n}$ n'en admet pas.
+\end{noliste}
+
+\item Pour tout couple $(p,q)$ d'entiers naturels, on pose :\ $ J(p,q)
+= \dint{0}{1}x^{p}\,(1-x)^{q}\,\text{d}x.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item \`{A} l'aide d'une intégration par parties, établir pour tout
+couple $(p,q)$ d'entiers naturels, la relation : \vspace{-3mm} 
+\[
+(p + 1)\,J(p,q + 1) = (q + 1)\,J(p + 1,q)
+\]
+
+\item Calculer, pour tout entier naturel $q$, l'intégrale $J(0,q)$.
+
+\item Montrer par récurrence sur $p$ que, pour tout couple d'entiers
+naturels $(p,q)$, on a :\vspace{-3mm} 
+\[
+J(p,q) = \frac{p!\,q!}{(1 + p + q)!}
+\]
+\end{noliste}
+
+\item Soit $r$ un entier de l'intervalle $[1,n-1]$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Si $a$ est un réel strictement supérieur à $1$,
+transformer en effectuant le changement de variable $ = \frac{1}{t}$ \
+l'intégrale\ $\dint{1}{a}t\,f_{r}(t)\,\text{d}t$.
+
+\item En déduire la valeur de l'espérance de la variable aléatoire
+$T_{r}$ en fonction de $n$ et de $r$.
+\end{noliste}
+\end{noliste}
+
+\end{document}
+

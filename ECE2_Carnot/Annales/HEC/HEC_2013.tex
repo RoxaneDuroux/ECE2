@@ -1,0 +1,517 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 2013} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\im}{\operatorname{Im}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+\newcommand{\lb}{\llbracket}
+\newcommand{\rb}{\rrbracket}
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 2013}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\indent \vspace{0.2cm}
+
+\Tbox{ \begin{center} \textbf{\Huge HEC 2013} \end{center} }
+
+\vspace{0.5cm}
+
+\section*{EXERCICE}
+
+\noindent On note $E = \R_{3} [X] = $ l'espace vectoriel des polynômes
+à coefficients réels de degré inférieur ou égal à 3. \\
+Soit $f$ l'application définie sur $E$ qui associe à tout polynôme $P
+\in E$, le polynôme $f(P)$ défini par : 
+\[
+ f(P) (X) = - 3 X P\left(\Ev{X}\right) + X^{2} P'\left(\Ev{X}\right),
+\text{ où } P' \text{ est la dérivée du polynôme } P. 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Rappeler la dimension de $E$. \\
+
+\item Montrer que $f$ est un endomorphisme de $E$. \\
+
+\item Déterminer la matrice $M$ de $f$ dans la base canonique de $E$.
+\\
+
+\item La matrice $M$ est-elle inversible ? Est-elle diagonalisable ?
+Calculer pour tout $n \in \N^{\ast}$, $M^{n}$. \\
+
+\item Préciser le noyau $\kerf$ de $f$ ainsi qu'une base de $\kerf$. \\
+
+\item Déterminer l'image $\imf$ de $f$. \\
+
+\end{noliste}
+
+\item On note $\id_{E}$ et $0_{E}$ respectivement, l'endomorphisme
+identité et l'endomorphisme nul de $E$, et pour tout endomorphisme $v$
+de $E$, on pose $v^{0} = \id_{E}$ et pour tout $k$ de $\N^{\ast}$,
+$v^{k} = v \circ v^{k-1}$. \\
+Soit $u$ et $g$ deux endomorphismes de $E$ tels que : $u^{4} = 0_{E}, \
+u^{3} \neq 0_{E}$ et $g = \id_{E} + u + u^{2} + u^{3}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Soit $P$ un polynôme de $E$ tel que $P \notin \ker(u^{3})$.
+Montrer que la famille $( P, u(P), u^{2}(P), u^{3}(P) )$ est un base de
+$E$. \\
+
+\item Montrer que $g$ est un automorphisme de $E$. Déterminer
+l'automorphisme réciproque $g^{-1}$ en fonction de $u$. \\
+
+\item Établir l'égalité : $\keru = \ker(g-\id_{E})$. \\
+
+\item Montrer que 1 est la seule valeur propre de $g$. \\
+
+\end{noliste}
+
+\end{noliste}
+
+\section*{PROBL\`{E}ME}
+
+\begin{noliste}{$\sbullet$}
+
+\item \textit{Le problème aborde d'une part, l'analyse mathématique de
+l'évolution du prix de vente d'un bien sous différents modes
+d'anticipation d'agents économiques et d'autre part, la mise en
+évidence de certaines propriétés de la fonction de profit d'une
+entreprise. }
+
+\item \textit{On note $\E(X)$ et $\V(X)$ respectivement, l'espérance et
+la variance d'une variable aléatoire $X$ définie sur un espace
+probabilisé $\Omega, \mathcal{A}, \Pr)$.}
+
+\item \textit{Les quatre parties du problème sont très largement
+indépendantes. Les questions 10 et 11 dont appel aux résultats de la
+partie III.} \\
+
+\end{noliste}
+
+\subsection*{Partie I. Prix d'équilibre}
+
+\noindent Sur le marché d'un certain bien, on note $D$ la fonction de
+demande globale (des consommateurs), $O$ la fonction d'offre globale
+(des entreprises) et $p$ le prix de vente du bien. \\
+On suppose habituellement que la fonction $D : p \mapsto D(p)$ définie
+sur $\R_+ $ à valeurs réelles est décroissante et que la fonction $O :
+p \mapsto O(p)$ définie sur $\R_+ $ à valeurs réelles est croissante.
+\\
+Si l'équation $O(p) = D(p)$ admet une solution $p^{\ast}$, on dit que
+$p^{\ast}$ \textit{est un prix d'équilibre du marché}. \\
+Avant d'atteindre un niveau d'équilibre, le prix $p$ peut être soumis à
+des fluctuations provoquées par des excès d'offre $\big(O(p) >
+D(p)\big)$ ou des excès de demande $\big(D(p) > O(p)\big)$ au cours du
+temps. \\
+Afin de rendre compte de cette évolution, on note pour tout $n \in \N$,
+$p_{n}$ la valeur du prix à l'instant $n$. \\
+On suppose que la demande dépend de la valeur du prix selon la relation
+$D_{n} = D(p_{n})$ valable pour tout $n \in \N$. \\
+Quant aux entreprises, elles adaptent à chaque instant $n \in \N$, la
+quantité offerte $O_{n}$ à l'instant $n$ à un \textit{prix anticipé à
+l'instant} $(n-1)$, noté $\widehat{p_{n}}$, selon la relation $O_{n} =
+O(\widehat{p_{n}}$, où $\widehat{p_{0}}$ peut être interprété comme un
+prix d'étude du marché. \\
+On suppose qu'à chaque instant, l'offre est égale à la demande,
+c'est-à-dire : pour tout $n \in \N$, $O_{n} = D_{n}$. \\
+
+\textit{Dans toute cette partie, on considère quatre paramètres réels
+strictement positifs} $a,\ b, \ c$ \textit{et} $d$, \textit{avec} $a >
+d$, \textit{et on suppose que les fonctions} $D$ \textit{et} $O$
+\textit{sont définies sur} $\R_+ $ \textit{par} : $D(p) = a - b p$
+\textit{et} $O(p) = c p + d$. \\
+\textit{Par suite, on a pour tout} $n \in \N$, $D(p_{n}) = a - b p_{n}$
+\textit{et} $O(\widehat{p_{n}}) = c \widehat{p_{n}} + d$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Dans cette question \textit{uniquement}, les réels $a,\ b,\ c$ et
+$d$ ont les valeurs suivantes : $a = 40,\ b = 8,\ c = 2$ et $d = 20$.
+\\
+On suppose que $p_{0}$ et $p_{1}$ sont donnés et que pour tout entier
+$n \geq 2$, on a $\widehat{p_{n}} = 2 p_{n-1} - p_{n-2}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Établir l'existence et l'unicité d'un prix d'équilibre
+$p^{\ast}$. Calculer $p^{\ast}$. \\
+
+\item Montrer que pour tout $n \geq 2$, on a : $p_{n} = - \frac{1}{2}
+p_{n-1} + \frac{1}{4} p_{n-2} + \frac{5}{2}$. \\
+
+\item Écrire une fonction \Scilab{} récursive, d'en-tête
+\texttt{function p (p0,p1 :real;n :integer) :real;} qui renvoie, pour
+$p_{0}$ et $p_{1}$ fixés, le terme $p_{n}$. \\
+
+\item On pose pour tout $n \in \N$ : $v_{n} = p_{n} - p^{\ast}$.
+Montrer que $(v_{n})_{n \in \N}$ est une suite récurrente linéaire
+d'ordre 2. \\
+
+\item Calculer les solutions $r_{1}$ et $r_{2}$ de l'équation
+caractéristique de la suite $(v_{n})_{n \in \N}$. \\
+
+\item Exprimer pour tout $n \in \N$, $p_{n}$ en fonction de $n,\
+r_{1},\ r_{2},\ p_{0},\ p_{1}$ et $p^{\ast}$. \\
+
+\item Montrer que la suite $(p_{n})_{n \in \N}$ est convergente. Quelle
+est sa limite ? Interpréter. \\
+
+\end{noliste}
+
+\item Soit $\beta$ un paramètre réel vérifiant $0 < \beta \leq 1$. On
+suppose que le prix $p_{0}$ est donné et que les anticipations du prix
+sont \textit{adaptatives}, c'est-à-dire que pour tout entier $n \geq
+1$, on a : \\
+\[
+\widehat{p_{n}} = \widehat{p_{n-1} } + \beta ( p_{n-1} -
+\widehat{p_{n-1} } ).
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Exprimer pour tout $n \in \N$, le prix courant $p_{n}$ en
+fonction du prix anticipé $\widehat{p_{n}}$. \\
+
+\item En déduire que pour tout $n \in \N^{\ast}$, le prix $p_{n}$
+vérifie l'équation de récurrence suivante : 
+\[
+p_{n} = \left( 1 - \beta \frac{b + c}{b} \right) p_{n-1} + \beta
+\frac{a-d}{b}. 
+\]
+
+\item Quel est le prix d'équilibre $p^{\ast}$ ? Déterminer l'expression
+de $p_{n}$ en fonction de $n,\ p_{0},\ p^{\ast},\ b,\ c$ et $\beta$. \\
+
+\item En supposant que $p_{0} \neq p^{\ast}$, montrer que la suite
+$(p_{n})_{n \in \N}$ converge si et seulement si : $\frac{c}{b} <
+\frac{2}{\beta} - 1$. \\
+Quelle est alors sa limite ? \\
+
+\item Étudier la convergence de la suite $(p_{n})_{n \in \N}$ lorsque
+$c < b$. \\
+
+\end{noliste}
+
+\end{noliste}
+
+\subsection*{Partie II. Convexité du profit et prix aléatoire}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Soit $p$ un paramètre réel positif ou nul et $h_{p}$ la fonction
+définie sur $\R_+ $ à valeurs dans $\R$ donnée par : 
+\[
+h_{p}(x) = p x - \frac{x^{3}}{3} 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Dresser le tableau de variation de $h_{p}$ sur $\R_+ $. Préciser
+les limites aux bornes de l'intervalle de définition, les racines de
+l'équation $h_{p}(x) = 0$ et la valeur maximale de $h_{p}$ sur $\R_+ $.
+\\
+
+\item Tracer la courbe représentative de $h_{1}$ dans le plan rapporté
+à un repère orthonormé. 
+
+\end{noliste}
+
+\end{noliste}
+
+\noindent On considère une entreprise présente sur le marché d'un bien
+qui adapte son volume de production $x \in \R_+ $ à un niveau de prix
+$p \in \R_+ $ donné (par l'équilibre du marché) ou administré (par
+l'État). \\
+On modélise \textit{le coût total de l'entreprise} par une fonction $F$
+définie et de classe $C^{2}$ sur $\R_+ $, strictement croissante sur
+$\R_+ $ ainsi que sa dérivée $F'$, telle que $F(0) = F'(0) = 0$ et
+$F(x)$ équivalent à $s x^{r}$ avec $s > 0$ et $r > 1$, lorsque $x$ tend
+vers $ + \infty$. On note $F''$ la dérivée seconde de $F$ et on suppose
+que pour tout $x \in \R_+ $, $F''(x) > 0$. \\
+Soit $\Pi_{p}$ la fonction défini sur $\R_+ $ à valeurs réelles telle
+que : $\Pi_{p}(x) = p x - F (x)$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Montrer que $\dlim{x \rightarrow + \infty} F'(x) = + \infty$ et
+que $F'$ admet sur $\R_+ $ une fonction réciproque, que l'on note $S$,
+dont on précisera l'ensemble de définition (\textit{la fonction} $S$
+\textit{est la fonction d'offre de l'entreprise}). \\
+
+\item Montrer que $\Pi_{p}$ est concave sur $\R_+ $ et admet sur $\R_+
+$ un maximum atteint en un seul point. \\
+
+\end{noliste}
+
+\item Soit $M$ la fonction définie sur $\R_+ $ à valeurs réelles telle
+que : $M(p) = \max\limits_{x \in \R_+} \Pi_{p}(x)$ (\textit{la
+fonction} $M$ \textit{est la fonction de profit de l'entreprise}).
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Pour tout $p \in \R_+ $, exprimer $M(p)$ à l'aide de $p$, $F$ et
+$S$. \\
+
+\item Montrer que la fonction $M$ est dérivable sur $\R_+ $ et calculer
+sa dérivée $M'$. \\
+
+\item Montrer que la fonction $M$ est convexe et croissante sur $\R_+
+$. \\
+
+\end{noliste}
+
+\item On suppose qie le prix $p$ est une variable aléatoire discrète
+définie sur un espace probabilisé $(\Omega, \mathcal{A}, \Pr)$, à
+valeurs dans l'ensemble $\{p^{(1)}, p^{(2)}, \dots, p^{(k)} \} \subset
+\R_+ $, où $k$ est un entier fixé supérieur ou égal à 2.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Montrer que pour tout $i \in \lb 1 ; k \rb$ et pour tout $y \in
+\R_+ $, on a : $M \big( p^{(i)} \big) - M(y) \geq M'(y) \big( p^{(i)} -
+y \big)$. \\
+
+\item En déduire pour tout $y \in \R_+ $, l'inégalité : $\E\big( M(p )
+\big) \geq M(y) + M'(y) \big( E(p) - y \big)$. \\
+
+\item Établir l'inégalité : $\E\big( M(p) \big) \geq M \big( E(p)
+\big)$. Quelle conclusion peut-on en tirer ? \\
+
+\end{noliste}
+
+\item On suppose que le prix $p$ est une variable aléatoire à densité
+définie sur un espace probabilisé $(\Omega, \mathcal{A}, \Pr)$, à
+valeurs dans $\R_+ $, dont une densité $f$ est nulle sur $\R_-$ et
+continue sur $\R_+ $. On suppose l'existence de l'intégrale $
+\dint{0}{+ \infty} M(x) f(x)\ dx$. Justifier que $p$ admet une
+espérance et montrer que : 
+\[
+\E\big( M(p) \big) \geq M \big( E(p) \big)
+\]
+
+\end{noliste}
+
+\newpage
+
+\subsection*{Partie III. Espérance conditionnelle}
+
+\noindent Soit $X$ et $Y$ deux variables aléatoires discrètes définies
+sur un espace probabilisé $(\Omega, \mathcal{A}, \Pr)$, à valeurs dans
+$\{ x_{1}, x_{2}, \dots, x_{q} \} \subset \R$ et $\{ y_{1}, y_{2},
+\dots y_{r} \} \subset \R$, respectivement ($q \geq 2$ et $r \geq 2$).
+\\
+On suppose que pour tout $i \in \lb 1 ; q \rb$, on a : $P\left(\Ev{X =
+x_{i}]}\right) > 0$. \\
+Soit $\varphi$ la fonction définie sur $\{ x_{1} ; x_{2} ; \dots x_{q}
+\}$ à valeurs réelles, telle que : 
+\[
+ \forall i \in \lb 1 ; q \rb, \ \ \varphi (x_{i}) = \Sum{j = 1}{r}
+y_{j} P_{[X = x_{i}]} ( [Y = y_{j}] ). 
+\]
+Ainsi, pour tout $i \in \lb 1 ; q \rb$, $\varphi(x_{i})$ est
+\textit{l'espérance conditionnelle de} $Y$ \textit{sachant l'évènement}
+$[X = x_{i}]$, notée également $\E(Y | [X = x_{i}])$. On définit alors
+une variable aléatoire $Z$ sur $\Omega$ en posant pour tout $\omega \in
+\Omega$, $Z(\omega) = E( Y | [X = X(\omega)] )$ et on note $Z = E (Y |
+X) = \varphi (X)$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item On suppose que $X$ et $Y$ sont indépendantes. Déterminer la
+variable aléatoire $\E(Y | X)$. \\
+
+\item Quelle est la variable aléatoire $\E(X | X)$ ? \\
+
+\item On suppose que les réels $\varphi (x_{1}), \varphi(x_{2}), \dots
+\varphi(x_{q})$ sont deux à deux distincts. \\
+Déterminer pour tout $i \in \lb 1 ; q \rb,\ \Prob\left(\Ev{E(Y | X) =
+\varphi(x_{i}) ] }\right)\left(\Ev{Y | X}\right) = \varphi(x_{i}) ] )$.
+\\
+
+\item Montrer que $\E\big( E(Y | X) \big) = E(Y)$ (on pourra appliquer
+le théorème du transfert). \\
+
+\item Soit les réels $\lambda,\ \rho$ et $\mu$. Exprimer $\E( \lambda Y
++ \rho X + \mu | X)$ en fonction de $\lambda,\ \rho,\ \mu,\ X$ et $\E(Y
+| X)$.
+
+\end{noliste}
+
+\end{noliste}
+
+\subsection*{Partie IV. Anticipation naïve et anticipation rationnelle}
+
+\noindent Dans cette partie, on suppose qu'à chaque instant $n$ ($n \in
+\N$), le prix $p_{n}$ d'un certain bien est une variable aléatoire
+discrète définie sur un espace probabilisé $(\Omega, \mathcal{A},
+\Pr)$, à valeurs dans $\{ p^{(1)}, p^{(2)}, \dots, p^{(k)} \} \subset
+\R_+ $, où $k$ est un entier fixé supérieur ou égal à 2. On suppose que
+la suite $(p_{n})_{n \in \N}$ est constituée de variables aléatoires de
+même loi, et que pour tout $n \in \N$ et pour tout $i \in \lb 1 ; k
+\rb$, on a : $\Prob\left(\Ev{p_{n} = p^{(i)}]}\right) > 0$. \\
+Soit $(u_{n})_{n \in \N}$ une suite de variables aléatoires discrètes
+finies indépendantes et de même loi, telles que pour tout $n \in \N$,
+on a $\E(u_{n}) = 0$ et $\V(u_{n}) = \sigma^{2} > 0$. \\
+On suppose que pour tout $n \in \N^{\ast}$, les variables aléatoires
+$u_{n}$ et $p_{n-1}$ sont indépendantes. \\
+Soit $\theta$ et $p^{\ast}$ deux paramètres réels vérifiant $-1 <
+\theta < 1$ et $p^{\ast} \geq 0$. \\
+On suppose que $p_{0}$ est de la forme $p_{0} = l u_{0} + m$, où $l$ et
+$m$ sont des constantes réelles, et que pour tout $n \in \N^{\ast}$, on
+a : $p_{n} = \theta p_{n-1} + ( 1 - \theta) p^{\ast} + u_{n}. \ \ \ \
+(1)$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Calculer pour tout $n \in \N^{\ast}$, $\E(p_{n})$ et $\V(p_{n})$.
+Déterminer les constantes $l$ et $m$ en fonction de $\theta$ et
+$p^{\ast}$. \\
+
+\item Calculer pour tout $n \in \N^{\ast}$, la covariance $\Cov (p_{n},
+p_{n-1} )$. \\
+Que représente le paramètre $\theta$ pour le couple de variables
+aléatoires $(p_{n}, p_{n-1})$ ? \\
+
+\end{noliste}
+
+\item Déterminer la variable aléatoire $\E(p_{n} | p_{n-1})$. \\
+
+\item On rappelle que l'on note $\widehat{p_{n}}$ l'anticipation de
+$p_{n}$ faite à l'instant $(n-1)$. \\
+Pour tout $n \in \N^{\ast}$, on pose : $e_{n} = p_{n} -
+\widehat{p_{n}}$ (\textit{erreur d'anticipation à l'instant} $n$).
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item On suppose dans cette question que les anticipations sont naïves,
+c'est-à-dire que pour tout $n \in \N^{\ast}$, on a : $\widehat{p_{n}} =
+p_{n-1}$. \\
+Déterminer $\E(\widehat{p_{n}} | p_{n-1})$. Calculer
+$\E(\widehat{p_{n}})$, $\V(\widehat{p_{n}})$, $\E(e_{n})$ et
+$\V(e_{n})$. \\
+
+\item On suppose dans cette question que les anticipations de prix sont
+\textit{rationnelles}, ce qui se traduit dans le cadre du modèle (1)
+par : $\widehat{p_{n}} = E(p_{n} | p_{n-1})$. \\
+Déterminer $\E(\widehat{p_{n}} | p_{n-1})$. Calculer
+$\E(\widehat{p_{n}})$, $\V(\widehat{p_{n}})$, $\E(e_{n})$ et
+$\V(e_{n})$. \\
+
+\item Comparer les deux types d'anticipation \textit{naïve} et
+\textit{rationnelle}.
+
+\end{noliste}
+
+\end{noliste}
+
+\end{document}

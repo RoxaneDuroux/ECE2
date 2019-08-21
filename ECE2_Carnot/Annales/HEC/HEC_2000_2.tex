@@ -1,0 +1,315 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../../../macros.tex}
+%\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \\
+  Mathématiques\\[.2cm]
+  \hrule} %
+\chead{} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 2000 II} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+\noindent
+Ce problème se compose de cinq parties : il étudie deux suites de 
+variables aléatoires discrètes et une simulation informatique. Si le 
+candidat ne parvient pas à établir un résultat demandé, il l'indiquera 
+clairement, et il pourra pour la suite, admettre ce résultat.\\
+Dans tout le problème, $n$ désigne un entier naturel non nul.\\
+On considère une urne $U_n$ contenant $n$ boules numérotées de $1$ à 
+$n$. On tire une boule au hasard dans $U_n$. On note $k$ le numéro de 
+cette boule. Si $k$ est égal à $1$, on arrête les tirages. Si $k$ est 
+supérieur ou égal à $2$, on enlève de l'urne $U_n$ les boules 
+numérotées de $k$ à $n$ (il reste donc les boules numérotées de $1$ à 
+$k-1$), et on effectue à nouveau un tirage dans l'urne. On répète ces 
+tirages nécessaires pour l'obtention de la boule numéro $1$. On note 
+$Y_n$ la variable aléatoire égale au nombre de tirages nécessaires pour 
+l'obtention de la boule numéro $1$. On note $Y_n$ la variable aléatoire 
+égale à la somme des numéros des boules tirées. On note $\E(X_n)$ et 
+$\V(X_n)$ (respectivement $\E(Y_n)$ et $\V(Y_n)$) l'espérance et la 
+variance de $X_n$ (respectivement $Y_n$).
+
+\section*{Partie I}
+
+\begin{noliste}{1.}
+\item On pose : $h_{n}=\DSum{k=1}{n}\dfrac{1}{k}=1+\dfrac{1}{2}%
++.....+\dfrac{1}{n}$
+
+\begin{noliste}{a)}
+\item Montrer, pour tout entier naturel $k$ non nul, les inégalités : 
+\begin{equation*}
+\dfrac{1}{k+1}\leqslant \ln (k+1)-\ln k\leqslant \dfrac{1}{k}
+\end{equation*}%
+où $\ln $ désigne le logarithme népérien.
+
+\item En déduire les inégalités : $\ln (n+1)\leqslant h_{n}\leqslant 
+1+\ln n$
+
+\item Déterminer un équivalent simple de $h_{n}$ quand $n$ tend vers
+l'infini.
+\end{noliste}
+
+\item On pose : 
+$k_{n}=\DSum{k=1}{n}\dfrac{1}{k^{2}}=1+\dfrac{1}{%
+2^{2}}+.....+\dfrac{1}{n^{2}}$
+
+\begin{noliste}{a)}
+\item Montrer, pour tout entier $k$ supérieur ou égal à $2$, 
+l'inégalité 
+\[
+\dfrac{1}{k^{2}}\leq \dfrac{1}{k-1}-\dfrac{1}{k}
+\]
+
+\item En déduire la majoration $k_{n}\leq 2$
+
+\item Déterminer un équivalent simple de $h_{n}-k_{n}$ quand n tend vers
+l'infini.
+\end{noliste}
+\end{noliste}
+
+\section*{Partie II : Étude de la variable aléatoire $X_{n}$}
+
+\noindent On note $I_{n}$ la variable aléatoire égale au numéro de la 
+premiè%
+re boule tirée dans l'urne $U_{n}$.
+
+\begin{noliste}{1.}
+\item
+
+\begin{noliste}{a)}
+\item Quelle est la loi de $I_{n}$?
+
+\item Quelle est la loi conditionnelle de $X_{n}$ sachant 
+$\Ev{I_{n}=1}$ ?
+
+\item Si $n$ est supérieur ou égal à $2$, montrer :%
+\[
+\forall j\in \mathbb{N}^*, \ \forall k\in \left\{ 1,2\ 
+,...,n\right\}
+,\quad \Prob_{\Ev{I_n=k}}\left( \Ev{X_{n}=j}\right) =\Prob\left( 
+\Ev{X_{k-1}=j-1}\right)
+\]
+\end{noliste}
+
+\item
+
+\begin{noliste}{a)}
+\item Quelle est la loi de $X_{1}$ ?
+
+\item Quel est l'événement $\Ev{X_{2}=1}$ ? Donner la loi de $X_{2}$ , 
+son espérance et sa variance.
+
+\item Calculer $\Prob_{\Ev{I_3=1}}(\Ev{X_{3}=2})$, 
+$\Prob_{\Ev{I_3=2}}(\Ev{X_{3}=2})$, $%
+\Prob_{\Ev{I_3=3}}(\Ev{X_{3}=2})$ . Déterminer la loi de 
+$X_{3}$, son espérance et sa
+variance.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+\item Montrer que $X_{n}$ prend ses valeurs dans ${\{}1,2,...,n{\}}$.
+
+\item Déterminer $\Prob(\Ev{X_{n}=1})$ et $\Prob(\Ev{X_{n}=2})$
+
+\item Si $n$ est supérieur ou égal à $2$, montrer la relation :%
+\[
+\forall j\geq 2,\quad \Prob\left(\Ev{X_{n}=j}\right) =\dfrac{1}{n}%
+\DSum{k=1}{n-1} \Prob\left( \Ev{X_{k}=j-1}\right)
+\]
+
+\item Si $n$ est supérieur ou égal à $3$ et 
+$j$
+supérieur ou égal à $2$, calculer : 
+\[
+n \ \Prob\left( \Ev{X_{n}=j}\right) 
+-(n-1) \Prob\left(
+\Ev{X_{n-1}=j}\right)
+\]
+En déduire, si $n$ est un entier supérieur ou égal à $2$ :%
+\[
+\forall j\geq 1, \quad \Prob\left( \Ev{X_{n}=j}\right) 
+=\dfrac{n-1}{n} \Prob\left(
+\Ev{X_{n-1}=j}\right) +\dfrac{1}{n} \Prob\left(\Ev{X_{n-1}=j-1}\right) 
+\]
+\end{noliste}
+
+\item
+\begin{noliste}{a)}
+\item Si $n$ est supérieur ou égal à $2$, montrer, en utilisant la 
+question \itbf{3.d)}. :%
+\[
+\E\left( X_{n}\right) =\E\left( X_{n-1}\right) +\dfrac{1}{n}
+\]
+
+\item En déduire $\E(X_{n})$ et donner un équivalent simple de 
+$\E(X_{n})$
+quand $n$ tend vers l'infini.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+\item Si $n$ est supérieur ou égal à $2$, calculer $\E(X_{n}^{2})$ en
+fonction de $\E(X_{n-1}^{2})$ et de $\E(X_{n-1})$.
+
+\item En déduire: $\V(X_{n})=h_{n}{-}k_{n}$ (en reprenant les notations
+introduites en \textbf{Partie I}).
+
+\item Donner un équivalent de $\V(X_{n})$ quand $n$ tend vers l'infini.
+\end{noliste}
+
+\item Soit $\left( T_{i}\right) _{i\geqslant 1}$une suite de variables 
+alé%
+atoires indépendantes telle que, pour tout i entier naturel non nul, 
+$T_{i}$
+suit la loi de Bernoulli de paramètre $\dfrac{1}{i}$. On pose : 
+\[
+S_{n}=\sum\limits_{i=1}^{n}T_{i}=T_{1}+.....+T_{n}
+\]
+
+\begin{noliste}{a)}
+\item Vérifier que $X_{1}$ et $T_{1}$ ont même loi.
+
+\item Si $n$ est supérieur ou égal à $2$, montrer, pour tout entier $j$ 
+non nul :%
+\[
+\Prob\left(\Ev{S_{n}=j}\right) =\dfrac{1}{n}\Prob\left( 
+\Ev{S_{n-1}=j-1}\right) +\dfrac{n-1}{n%
+} \Prob\left(\Ev{S_{n-1}=j}\right)
+\]
+En déduire que $X_{n}$ et $S_{n}$ ont même loi.
+
+\item Retrouver ainsi $\E(X_{n})$ et $\V(X_{n})$.
+\end{noliste}
+\end{noliste}
+
+\section*{Partie III : Étude de la variable aléatoire $Y_{n}$.}
+
+\begin{noliste}{1.}
+\item Donner la loi de $Y_{n}$.
+
+\begin{noliste}{a)}
+\item Quelles sont les valeurs prises par $Y_{2}$ ?
+
+\item Déterminer la loi de $Y_{2}$.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+\item Si $n$ est supérieur ou égal à $2$, montrer, pour tout entier $j$ 
+non nul et tout entier $k$ supérieur ou égal à $2$%
+\[
+\Prob_{\Ev{I_n=k}}\left(\Ev{Y_{n}=j}\right) = \Prob\left( 
+\Ev{Y_{k-1}=j-k}\right)
+\]
+
+\item Si $n$ est supérieur ou égal à $2$, en déduire, pour tout entier 
+$j$
+supérieur ou égal à $1$%
+\[
+\Prob\left(\Ev{Y_{n}=j}\right) =\dfrac{n-1}{n}\Prob\left( 
+\Ev{Y_{n-1}=j}\right) +\dfrac{1}{n}%
+\Prob\left(\Ev{Y_{n-1}=j-n}\right)
+\]
+
+\item Si $n$ est supérieur ou égal à $2$, montrer 
+$\E(Y_{n})=\E(Y_{n-1})+1$\\
+Que vaut $\E(Y_{n})$ pour tout entier $n$ supérieur ou égal à $1$ ?
+\end{noliste}
+\end{noliste}
+
+\section*{Partie IV : Simulation informatique.}
+
+\noindent Dans le langage informatique \Scilab{}, la fonction 
+\texttt{grand(1,1,\ttq{}uin\ttq{},1,n)}
+renvoie un entier aléatoire compris entre $1$ et $n$. On donne la 
+procé%
+dure suivante
+
+\begin{scilab}
+  & n = input(\ttq{}Entrer un entier naturel : \ttq{}) \nl %
+  & a = 1 \nl %
+  & b = 1 \nl %
+  & alea = grand(1,1,\ttq{}uin\ttq{},1,n) \nl %
+  & \tcFor{while} alea > 1 \nl %
+  & \qquad a = a + 1 \nl %
+  & \qquad b = b + alea \nl %
+  & \qquad alea = grand(1,1,\ttq{}uin\ttq{},1,(alea - 1)) \nl %
+  & \tcFor{end} \nl %
+  & disp(a) \nl %
+  & disp(b)
+\end{scilab}
+
+\noindent Que fait ce programme ? Que représentent a et b ?
+
+\section*{Partie V}
+\noindent
+On considère l'urne $U_{n}$ contenant $n$ boules numérotées entre $1$ et 
+$n$%
+. A partir de l'urne $U_{n}$ on effectue la suite de tirages décrite 
+dans
+l'en{\-}tête du problème. Pour $i$ entier de ${\{}1,...,n{\}}$ , on 
+définit $%
+Z_{i}^{(n)}$ la variable aléatoire égal à $1$ si, lors d'un quelconque 
+de
+ces tirages, on a obtenu la boule numéro $i$, égale à $0$ sinon.
+
+\begin{noliste}{1.}
+\item Quelle est la loi de $Z_{n}^{(n)}$ ? Que dire de la variable $%
+Z_{1}^{(n)}$ ?
+
+\item 
+\begin{noliste}{a)}
+\item Si $n$ est supérieur ou égal à $2$, et $i$ un entier de 
+${\{}1,...,n{-}1{%
+\}}$, montrer la relation%
+\[
+\Prob\left(\Ev{Z_{i}^{(n)}=1}\right) 
+=\dfrac{1}{n}+\DSum{k=i+1}{n}\dfrac{1}{n%
+}\Prob\left(\Ev{Z_{i}^{(k-1)}=1}\right)
+\]
+
+\item Montrer par récurrence que, pour tout $n$ de $\mathbb{N}^*$ 
+et
+pour tout $i$ de ${\{}1,...,n{\}}$, $Z_{i}^{(n)}$ suit la loi de 
+Bernoulli
+de paramètre $\dfrac{1}{i}$.
+\end{noliste}
+
+\item Que vaut $\DSum{i=1}{n}Z_{i}^{(n)}$ ? Retrouver ainsi $%
+\E(X_{n}) $.
+
+\item Retrouver $\E(Y_{n})$.
+\end{noliste}
+
+
+
+
+\end{document}

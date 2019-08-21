@@ -1,0 +1,459 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EML 2009} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{EML 2009}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2009}}
+
+
+
+{\large \textbf{Concepteur : EML}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{EXERCICE 1}
+
+On note $f :\R\rightarrow \R$ l'application définie, pour
+tout $x\in \R$, par : 
+\[
+f\left( x\right) = \left\{ 
+\begin{array}{cc}
+\dfrac{x}{e^{x}-1} & \text{ si }x\neq 0 \\
+1 & \text{ si }x = 0
+\end{array}
+\right. 
+\]
+
+\subsection*{Partie I : Étude d'une fonction}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f$ est continue sur $\R$.
+
+\item Justifier que $f$ est de classe $C^{1}$ sur $\left] -\infty
+;0\right[ $
+et sur $\left] 0; + \infty \right[ $ et calculer $f^{\prime }\left(
+x\right) $pour tout $x\in \left] -\infty ;0\right[ \ \cup \left] 0; +
+\infty \right[ $.
+
+\item Montrer : \texttt{\hspace*{1cm}}$f^{\prime }\left( x\right)
+\underset{x\rightarrow 0}{\rightarrow }-\dfrac{1}{2}$
+
+\item Établir que $f$ est de classe $C^{1}$ sur $\R$ et préciser
+$f^{\prime }\left( 0\right) $.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier les variations de l'application $u :\R\rightarrow 
+\R$, définie, pour tout $x\in \R$, par 
+\[
+u\left( x\right) = \left( 1-x\right) e^{x}-1
+\]
+
+\item Montrer :\texttt{\hspace*{1cm}}$\forall x\in \R,\ f^{\prime
+}\left( x\right) <0.$
+
+\item Déterminer les limites de $f$ en $-\infty $ et en $ + \infty $ 
+\\
+Dresser le tableau des variations de $f$.
+
+\item Montrer que la courbe représentative de $f$ admet une droite
+asymptote, lorsque la variable tend vers $-\infty $.
+
+\item Tracer l'allure de la courbe représentative de $f$.
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie II : Étude d'une suite récurrente associée 
+à la fonction $_{.}f$}
+
+On considère la suite $\left( u_{n}\right)_{n\in \N}$, définie par
+$u_{0} = 1$ et, pour tout $n\in \N,\ u_{n + 1} = f\left(
+u_{n}\right) $.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $f$ admet un point fixe et un seul, noté $\alpha $,
+que l'on calculera.
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir :\texttt{\hspace*{1cm}}$ \forall x\in \left[
+0; + \infty \right[,\ e^{2x}-2x~e^{x}-1\geq 0$
+
+\item Montrer :\texttt{\hspace*{1cm}}$ \forall x\in \left]
+0; + \infty \right[,\ f^{\prime }\left( x\right) + \dfrac{1}{2} =
+\dfrac{e^{2x}-2x~e^{x}-1}{2\left( e^{x}-1\right) ^{2}}$
+
+\item Montrer :\texttt{\hspace*{1cm}}$ \forall x\in \left[
+0; + \infty \right[,\ -\dfrac{1}{2}\leq f^{\prime }\left( x\right) <0.$
+
+\item Établir :\texttt{\hspace*{1cm}}$ \forall n\in \N,\ \left| u_{n +
+1}-\alpha \right| \leq \frac{1}{2}\left|
+u_{n}-\alpha \right| $
+\end{noliste}
+
+\item En déduire :\texttt{\hspace*{1cm}}$\forall n\in \N,\mathbb{\
+}\left| u_{n}-\alpha \right| \leq \dfrac{1}{2^{n}}\left( 1-\alpha
+\right) $
+
+\item Conclure que la suite $\left( u_{n}\right)_{n\in \N}$
+converge vers $\alpha $.
+
+\item Écrire un programme en -\Scilab{} qui calcule et affiche le plus
+petit entier naturel $n$ tel que$\left| u_{n}-\alpha \right| <10^{-9}
+$
+\end{noliste}
+
+\subsection*{Partie III : Étude d'une fonction définie par une
+intégrale}
+
+On note $G :\R\rightarrow \R$ l'application définie, pour
+tout $x\in \R,$ par :
+\[
+G\left( x\right) = \dint{x}{2x}f\left( t\right\ dt
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $G$ est de classe $C^{1}$ sur $\R$ et que, pour
+tout $x\in \R :$
+\[
+G^{\prime }\left( x\right) = \left\{ 
+\begin{array}{cc}
+\dfrac{x\left( 3-e^{x}\right) }{e^{2x}-1} & \text{si }x\neq 0 \\
+1 & \text{ si }x = 0
+\end{array}
+\right. 
+\]
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer :\texttt{\hspace*{1cm}}$\forall x\in \left[ 0; + \infty
+\right[,\ 0\leq G\left( x\right) \leq x~f\left( x\right) $.\\
+En déduire la limite de $G$ en $ + \infty $.
+
+\item Montrer :\texttt{\hspace*{1cm}}$\forall x\in \left] -\infty
+;0\right],\ G\left( x\right) \leq x~f\left( x\right).$\\
+En déduire la limite de $G$ en $-\infty $.
+\end{noliste}
+
+\item Dresser le tableau des variations de $G$. On n'essaiera pas de
+calculer $G\left( \ln 3\right) $.
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+On considère les matrices carrées d'ordre trois :\hspace{5mm} $A = 
+\begin{smatrix}
+0 & 1 & 3 \\
+0 & 1 & 3 \\
+0 & 0 & 4
+\end{smatrix}
+$ et $D = 
+\begin{smatrix}
+0 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 4
+\end{smatrix}
+$
+
+\subsection*{ Partie I : Réduction de A}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Est-ce que $A$ est inversible ?
+
+\item Déterminer les valeurs propres de $A$.\\
+Justifier, sans calcul, que $A$ est diagonalisable.
+
+\item Déterminer une matrice carrée $P$ d'ordre trois, inversible,
+dont tous les termes diagonaux sont égaux à 1, telle que $A =
+P~D~P^{-1}$ et calculer $P^{-1}$.
+\end{noliste}
+
+\subsection*{Partie II : Résolution de l'équation $M^{2} = A$}
+
+On se propose de résoudre l'équation $\left( 1\right) :M^{2} = A$,
+d'inconnue $M$, matrice carrée d'ordre trois.\\
+Soit $M$ une matrice carrée d'ordre trois. On note $N = P^{-1}M~P$. (La
+matrice $P$ a été définie en \textbf{I.3.})
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer :\texttt{\hspace*{1cm}}$M^{2} = A\Longleftrightarrow
+N^{2} = D$.
+
+\item Établir que, si $N^{2} = D$, alors $N~D = D~N$.
+
+\item En déduire que, si $N^{2} = D$, alors $N$ est diagonale.
+
+\item Déterminer toutes les matrices diagonales $N$ telles que $N^{2} =
+D$.
+
+\item En déduire la solution $B$ de l'équation $\left( 1\right) $
+dont toutes les valeurs propres sont positives ou nulles.
+\end{noliste}
+
+\subsection*{Partie III : Intervention d'un polyn\^{o}me}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer qu'il existe un polyn\^{o}me $Q$ de degré deux, et un
+seul, que l'on calculera, tel que :
+\[
+Q\left( 0\right) = 0,\quad Q\left( 1\right) = 1,\quad Q\left( 4\right)
+= 2.
+\]
+
+\item En déduire :\texttt{\hspace*{1cm}}$-\dfrac{1}{6}A^{2} +
+\dfrac{7}{6}A = B$. (La matrice $B$ a été définie en \textbf{II.5.})
+
+\item Montrer, pour toute matrice carrée $F$ d'ordre trois :{}
+\end{noliste}
+
+\[
+A~F = F~A\Longleftrightarrow B~F = F~B.
+\]
+
+\section*{EXERCICE 3}
+
+Une urne contient des boules blanches et des boules noires. La
+proportion de
+boules blanches est $p$ et la proportion de boules noires est $q$.
+
+Ainsi, on a : $0<p<1,$ $0<q<1$et $p + q = 1$.
+
+\subsection*{Partie I : Tirages avec arrêt dès qu'une boule noire a 
+été obtenue}
+
+Dans cette partie, on effectue des tirages successifs avec remise et on
+s'arrête dès que l'on a obtenu une boule noire.
+
+On note $T$ la variable aléatoire égale au nombre de tirages effectués
+et $U$ la variable aléatoire égale au nombre de boules
+blanches obtenues.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Reconna\^{\i}tre la loi de $T$. Pour tout entier $k\geq 1$,
+donner $\Prob\left(\Ev{ T = k}\right) $ et rappeler l'espérance et la
+variance de $T$.
+
+\item En déduire que $U$ admet une espérance et une variance.
+Déterminer $\E\left( U\right) $ et $\V\left( U\right) $.
+\end{noliste}
+
+\subsection*{Partie II : Tirages avec arrêt dès qu'une boule blanche
+et une boule noire ont été obtenues}
+
+Dans cette partie, on effectue des tirages successifs avec remise et on
+s'arrête dès que l'on a obtenu au moins une boule blanche et au moins
+une
+boule noire.
+
+On note $X$ la variable aléatoire égale au nombre de tirages effectués.
+
+On note $Y$ la variable aléatoire égale au nombre de boules blanches
+obtenues. 
+
+On note $Z$. la variable aléatoire égale au nombre de boules noires
+obtenues.
+
+Ainsi, on peut remarquer que la probabilité de l'événement $\left( Y =
+1\right) \cup \left( Z = 1\right) $ est égale à $1$. 
+
+Pour tout entier naturel non nul $i$, on note :
+
+\texttt{\hspace*{1cm}}$B_{i}$ l'événement "la $i$-ème boule tirée est
+blanche", 
+
+\texttt{\hspace*{1cm}}$N_{i}$ l'événement "la $i$-ème boule tirée est
+noire".
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer, pour tout entier $k\geq 2 :\Prob\left(\Ev{ X = k}\right)
+ = q~p^{k-1} + p~q^{k-1}$.
+
+\item Vérifier :\ $ \Sum{k = 2}{+ \infty }\Prob\left(\Ev{ X = k}\right)
+= 1$
+
+\item Montrer que la variable aléatoire $X$ admet une espérance et
+que : $\E\left( X\right) = \dfrac{1}{p} + \dfrac{1}{q}-1$.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout entier $k\geq 2$, déterminer $\Prob\left( \left(
+X = k\right) \cap \left( Y = 1\right) \right) $\\
+\emph{(On distinguera les cas }$k = 2$\emph{\ et }$k\geq 3$\emph{.)}
+
+\item En déduire $ :\Prob\left(\Ev{ Y = 1}\right) = q\left( 1 +
+p\right) $.
+
+\item Déterminer la loi de la variable aléatoire $Y$.
+\end{noliste}
+
+On admet que l'espérance de $Y$ existe et que : $\E\left( Y\right) =
+\dfrac{1}{q}\left( 1-p + p^{2}\right) $.
+
+\item Donner la loi de $Z$ et son espérance.
+
+\item Montrer que les variables aléatoires $Y~Z$ et $X-1$ sont égales.
+
+\item Montrer que le couple $\left( Y,Z\right) $ admet une covariance
+et
+exprimer $\rm{cov}\left( Y,Z\right) $ à l'aide de $\E\left( X\right),\
+\E\left( Y\right) $ et $\E\left( Z\right).$
+\end{noliste}
+
+\label{fin}
+
+
+
+\end{document}
+

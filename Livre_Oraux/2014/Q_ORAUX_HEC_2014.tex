@@ -1,0 +1,3712 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} ORAUX HEC 2014} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+\section{Annales 2014}
+
+%%% LALALA
+
+% \setcounter{exercice}{0}
+\begin{exercice}{\it (Exercice avec préparation)}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{4mm}
+  \item Deux variables aléatoires discrètes $X$ et $y$ sont
+    indépendantes si pour tut $i \in X ( \Omega)$ et tout $j \in Y (
+    \Omega )$,
+    \[
+    P [ \ \Ev{X = i} \cap \Ev{Y = j } ] = P \Ev{ X = i } P \Ev{ Y = j }.
+    \]    
+    De plus si $X$ et $Y$ sont indépendantes, leur covariance est
+    nulle, mais la réciproque est fausse. \\
+    Soit $X$ et $Y$ deux variables aléatoires discrètes finies à
+    valeurs dans $\N$, définies sur un espace probabilisé $(\Omega,
+    \mathcal{A}, P)$. On suppose que $ X ( \Omega ) \subset \llb 0 ; n
+    \rrb$ et $Y ( \Omega ) \subset \llb 0 ; m \rrb$, où $n$ et $m$
+    sont deux entiers de $\N^*$. \\
+    Pour tout couple $(i,j) \in \llb 0 ; n \rrb \times \llb 0 ; m
+    \rrb$, on pose : $p_{i,j} = P \big( \Ev{X = i} \cap \Ev{Y = j}
+    \big)$.
+    \\
+    Soit $F_{X}$ et $F_{Y}$ les deux fonctions de $\R$ dans $\R$
+    définies par : $F_{X} ( x) = \Sum{i = 0}{n} \Prob\left(\Ev{\Ev{X =
+          i}}\right) x^{i} $ et $F_{Y} (x) =
+    \Sum{j = 0}{m} \Prob\left(\Ev{\Ev{Y = l}}\right) x^{j}$. \\
+    Soit $Z = (X,Y)$ et $G_{Z}$ la fonction de $\R^{2}$ dans $\R$
+    définie par : $G_{Z} ( x, y ) = \Sum{i = 0}{n} \Sum{j = 0}{m}
+    p_{i,j} x^{i} y^{j}$.
+ 
+  \item $G_{Z} (1, 1 ) = \Sum{i = 0}{n} \Sum{j = 0}{m} p_{i,j} = 1 $
+    avec le système complet d'évènement associé au couple $(X,Y)$.\\
+    De plus les dérivées partielles de $G$ sont :    
+    \[
+    \partial_{1} (G ) (x,y) = \Sum{i = 0}{n} \Sum{j = 0}{m} i p_{i,j}
+    x^{i-1} y^{j} \ \, \ \ \partial_{2} (G ) (x,y) = \Sum{i = 0}{n}
+    \Sum{j = 0}{m} j p_{i,j} x^{i} y^{j-1}
+    \]
+    puis    
+    \[
+    \partial_{1,1}{2} (G ) (x,y) = \Sum{i = 0}{n} \Sum{j = 0}{m} i (i-1)
+    p_{i,j} x^{i-2} y^{j} \ \, \ \ \partial_{2,2}{2} (G ) (x,y) = 
+    \Sum{i = 0}{n} \Sum{j = 0}{m} j (j-1) p_{i,j} x^{i} y^{j-2}
+    \]
+    et
+    \[
+    \partial_{1,2}{2} (G ) (x,y) = \Sum{i = 0}{n} \Sum{j = 0}{m} i j
+    p_{i,j} x^{i-1} y^{j-1}
+    \]
+    et au point (1,1), en reconnaissant le théorème de transfert à
+    deux variables, on obtient :    
+    \[
+    \partial_{1} (G ) (1,1) = \Sum{i = 0}{n} \Sum{j = 0}{m} i p_{i,j}
+    = E ( X ) \ \, \ \ \partial_{2} (G ) (1,1) = \Sum{i = 0}{n} \Sum{j
+      = 0}{m} j p_{i,j} = E ( Y )
+    \]
+    et
+    \[
+    \partial_{1,2}{2} (G ) (1,1) = \Sum{i = 0}{n} \Sum{j = 0}{m} i j
+    p_{i,j} = E ( X Y )
+    \]
+    et enfin :
+    \[
+    \Cov ( X, Y ) = E ( X Y ) - E ( X ) E ( Y ) = \partial_{1,2}{2} (G )
+    (1,1) - \partial_{1} (G ) (1,1) \partial_{2} (G ) (1,1).
+    \]
+    
+  \item Soit $f$ une fonction polynômiale de deux variables définies
+    sur $\R^{2}$ par : $f(x,y) = \Sum{i = 0}{n} \Sum{j = 0}{m} a_{i,j}
+    x^{i} y^{j}$ avec $a_{i,j} \in \R$. \\
+    On suppose que pour tout couple $(x,y) \in \R^{2}$, on a $f(x,y) =
+    0$.
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Question difficile. Il faut penser à faire apparaître des
+      polynômes un une variable. \\
+      On fixe $y \in \R$, on sait que      
+      \[
+      f ( x, y) = \Sum{i = 0}{n} \left( \Sum{j = 0}{m} a_{i,j} y^{j}
+      \right) x^{i}
+      \]
+      qui est un polynôme nul en tout $x$, donc chacun de ses
+      coefficients sont nuls. Donc pour tout $i \in \llb 0 ; n \rrb $
+      et pour tout $y \in \R$, on sait que :
+      \[
+      \Sum{j = 0}{m} a_{i,j} y^{j} = 0
+      \]
+      et puisque c'est un polynôme, chaque coefficient est nul donc :      
+      \[
+      \forall i \in \llb 0 ; n \rrb, \forall j \in \llb 0 ; m \rrb, \
+      a_{i,j} = 0
+      \]
+      
+    \item Si $X$ et $Y$ sont indépendantes, $p_{i,j} = p_{i} pj$ pour
+      tout $(i,j)$ donc les deux fonctions sont égales. Si les deux
+      fonctions sont égales, la fonction
+      \[
+      f(x) = G_{Z} ( x,y) - F_{X} ( x) F_{Y} (y) = \Sum{i = 0}{n} \Sum{j =
+        0}{m} (p_{i,j} - p_{i} p_{j} ) x^{i} y^{j}
+      \]
+      est nulle pour tout $(x,y)$, donc d'après la question a, pour
+      tout $(i,j)$ on a :      
+      \[
+      p_{i,j} - p_{i} p_{j} = 0 \Longleftrightarrow p_{i,j} = p_{i} p_{j} 
+      \]
+      et les variables sont indépendantes. 
+    \end{noliste}
+ 
+  \item Une urne contient des jetons portant chacun une des lettres
+    $A$, $B$ ou $C$. La proportion des jetons portant la lettre $A$
+    est $p$, celle des jetons portant la lettre $B$ est $q$, et celle
+    des jetons portant la lettre $C$ est $r$, où $p$, $q$ et $r$ sont
+    trois réels strictement positifs vérifiant $p + q + r = 1$. \\
+    Soit $n \in \N^*$. On effectue $n$ tirages d'un jeton avec remise
+    dans cette urne. On note $X$ (resp. $Y$) la variable aléatoire
+    égale au nombre de jetons tirés portant la lettre $A$ (resp. $B$)
+    à l'issue de ces $n$ tirages.
+ 
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item $x$ et $Y$ suivent des lois binomiales de paramètre $n$ et
+      $p$ (resp. $q$). On calcule alors :      
+      \[
+      F_{X} ( x) = \Sum{i = 0}{n} \binom{n}{i} p^{i} (1-p)^{n-i} x^{i}
+      = \Sum{i = 0}{n} \binom{n}{i} (px)^{i} (1-p)^{n-i} = (px + 1 -
+      p)^{n} = (px + q + r)^{n}
+      \]
+      et par symétrie des rôles de $(X,p)$ et $(Y, q)$ :      
+      \[
+      F_{Y} (y) = ( q y + p + r )^{n}. 
+      \]
+      
+    \item Les supports de $X$ et $Y$ sont déjà connus, et $[ \ \Ev{X =
+        i} \cap \Ev{Y = j} ]$ signifie qu'on a obtenu $i$ jetons $A$,
+      avec $i$ places à choisir parmi $n$, $j$ jetons $B$ avec $j$
+      places à choisir parmi $n-i$ restantes, et enfin $(n-i-j)$
+      jetons $C$ dont les places sont les places sont imposées par les
+      choix précédents donc :
+      \[
+      p_{i,j} = \binom{n}{i} \binom{n-i}{j} p^{i} q^{j} r^{n-i-j} = \frac{
+        n! }{ i! j! (n-i-j)! } p^{i} q^{j} r^{n-i-j}.
+      \]
+      Ceci est valable tant que $i + j \leq n$, et $p_{i,j}$ est nul
+      dès que $i + j > n$ donc $j > n-i$ car l'évènement est alors
+      impossible. On obtient alors
+      \begin{eqnarray*}
+        G_{Z} ( x,y) & = & \Sum{i = 0}{n} \Sum{j = 0}{n-j} \binom{n}{i}
+        \binom{n-i}{j} p^{i} q^{j} r^{n-i-j} x^{i} y^{j} \\
+        \\
+        & = & \Sum{i = 0}{n} \left( \binom{n}{i} ( p x )^{i}
+          \Sum{j = 0}{n-i} \binom{n-i}{j} (q y )^{j} r^{n-i-j} \right)
+        \\
+        \\
+        & = & \Sum{i = 0}{n} \binom{n}{i} ( p x )^{i} ( r + q y )^{n-i} \\
+        \\
+        & = & ( p x + q y + r )^{n} 
+      \end{eqnarray*}
+      
+      %%% LALALA
+
+
+    \item On calcule le produit de $F_{X}$ et $F_{Y}$ :
+      
+      \[
+      F_{X} ( x) F_{Y} (y) = \left( \rule{0cm}{0.4cm} (px + q + r) (qy + p
+        + r ) \right)^{n} = \left( p q x y + p^{2} x + p r x + q^{2} y + p q
+        + q r + q r y + p q + r^{2} \rule{0cm}{0.4cm} \right)^{n}
+      \]
+      
+      Si $F_{X} F_{Y} = G_{Z}$ pour tout $(x,y)$ alors en composant par la
+      racine $n$-ème on obtiendrait pour tout $(x,y) \geq 0$ :
+      
+      \[
+      p q x y + p^{2} x + p r x + q^{2} y + p q + q r + q r y + p q + r^{2}
+      = p x + q y + r
+      \]
+      donc
+      
+      \[
+      p q x y + (p^{2} + pr ) x + (q^{2} + qr ) y + p q + q r + + p q + 
+      r^{2} = p x + q y + r
+      \]
+      et par question 3a, les coefficients devant $xy$, $x$, $y$ et
+      les constantes sont égales, donc avec les coefficients en $xy$ :
+      
+      \[
+      p q = 0 
+      \]
+      qui est absurde car les deux sont non nuls. Les variables $X$ et $Y$
+      ne sont donc pas indépendantes.
+      
+    \item On se sert des dérivées partielles de $G_{Z}$ : 
+      
+      \[
+      \partial_{1} (G_{Z} ) (x,y) = n p ( px + q y + r)^{n-1} \ \, \
+      \ \partial_{2} (G_{Z} ) (x,y) = n q ( px + q y + r )^{ n-1 }
+      \]
+      puis
+      
+      \[
+      \partial_{1,2} (G_{Z}) (x,y) = n (n-1) p q (px + q y + r )^{ n - 2 } 
+      \]
+      donc
+      
+      \[
+      \Cov ( X, Y ) = n (n-1) pq (p + q + r)^{n-2} - n p ( p + q + 
+      r)^{n-1} n q ( p + q + r)^{n-1} = [ n(n-1) - n^{2} ] p q = - n p
+      q
+      \]
+      car $p + q + r = 1$. Ce signe est prévisible car lorsque $X$ augmente,
+      $Y$ aura tendance à baisser car le nombre de tirages restants pouvant
+      donner des jetons B diminuent.
+    \end{noliste}
+  \end{noliste}
+\end{exercice}
+
+\addtocounter{exercice}{-1}
+\begin{exercice}{\it (Exercice sans préparation)}~\\
+ Soit $n \in \N^*$ et $A$ une matrice de $\mathcal{M}_{n} (\R)$ telle
+ que $A {}{t} A A {}{t} A A = I$, où $I$ est la matrice identité de
+ $\mathcal{M}_{n} (\R)$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item On remarque qu'on a une forme $A B = I$, donc $A$ est
+ inversible et :
+ 
+\[
+ A^{-1} = {}{t}A A {}{t}A A 
+\]
+ qui est symétrique car : 
+ 
+\[
+ {}{t}(A^{-1}) = {}{t}( {}{t}A A {}{t}A A ) = {}{t} A {}{t} ( {}{t} A )
+ {}{t} A {}{t} ({}{t} A ) = {}{t} A A {}{t} A A = A^{-1}.
+\]
+ Or on sait que l'inverse et la transposée sont commutatives donc : 
+ 
+\[
+ ( {}{t}A )^{-1} = A^{-1} 
+\]
+ et en passant à l'inverse, ${}{t}A = A$ et $A$ est symétrique. \\
+ 
+ \item On en déduit que $A^{5} = I$, et que $A$ est symétrique donc
+ diagonalisable. Il existe donc $P$ inversible et $D$ diagonale
+ telles que
+ 
+\[
+ A = P D P^{-1}
+\]
+ avec les valeurs diagonales de $D$ qui sont les valeurs propres de
+ $A$, donc racines du polynômes annulateurs. Elles vérifient donc
+ $\lambda^{5} - 1 = 0$, donc $\lambda^{5} = 1$, donc l'unique solution
+ (la fonction $f(x) = x^{5}$ est bijective) est $\lambda = 
+ 1$.\\
+ On en déduit que $D = I$, donc
+ 
+\[
+ A = P I P^{-1} = I. 
+\]
+ \end{noliste}
+\end{exercice}
+
+
+\newpage
+
+\begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item La partie entière d'un nombre réel $x$ est l'unique entier $k$
+ vérifiant :
+ 
+\[
+ k = \lfloor x \rfloor \leq x < k + 1 = \lfloor x \rfloor + 1. 
+\]
+ 
+ Sa représentation graphique est constituée de multiples segment
+ horizontaux, avec le point à gauche du segment inclus et le point
+ à droite exclus.
+ 
+ On note $E$ l'espace vectoriel des applications de $\R$ dans $\R$
+ et $F$ le sous-espace vectoriel de $E$ engendré par les quatre
+ fonctions $f_{0}$, $f_{1}$, $f_{2}$ et $f_{3}$ définies par :
+ 
+\[
+ \forall x \in \R, \ f_{0} (x) = 1, \ f_{1} (x) = x, \ f_{2} (x) =
+e^{x}, \ f_{3} (x) = x e^{x} 
+\]
+
+ \item On note : $\mathcal{B} = (f_{0}, f_{1}, f_{2}, f_{3})$.
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item La famille est génératrice de $e$ par définition, testons sa
+ liberté. On suppose que $a f_{0} + b f_{1} + c f_{2} + d f_{3} = 0$,
+ alors la limite en $ + \infty$ donne :
+ 
+\[
+ \dlim{ x \rightarrow + \infty } x e^{x} \left( d + \frac{ c }{ x }
+ + b e^{-x} + \frac{ a }{ x } e^{ - x } \right) = \dlim{ x
+ \rightarrow + \infty } 0 = 0
+\]
+ et comme le facteur entre parenthèses tend vers $d$ et l'autre
+ vers $ + \infty$, ce n'est possible que si $d = 0$. Mais on a alors
+ a $ a f_{0} + b f_{1} + c f_{2}$ et la limite donne encore :
+ 
+\[
+ \dlim{ x \rightarrow + \infty } e^{x} \left( c + b x e^{-x} + a e^{
+ - x } \right) = \dlim{ x \rightarrow + \infty } 0 = 0
+\]
+ et de la même manière, ce n'est possible que si $c = 0$. On a
+ alors $0 f_{0} + b f_{1} = 0$, puis
+ 
+\[
+ \dlim{ x \rightarrow + \infty } x \left( b + \frac{a}{x} \right)
+ = \dlim{ x \rightarrow + \infty } 0 = 0
+\]
+ possible seulement si $b = 0$, et enfin $a f_{0} = 0$, avec $f_{0} = 
+ 1$ donc $a = 0$.\\
+ La famille est donc libre, c'est une base de $F$. 
+
+ \item Toutes les fonctions de $f$ sont des combinaisons linéaires
+ des $f_{i}$ qui sont toutes de classe $C^{ \infty }$ sur $\R$,
+ donc les élément de $f$ sont tous de classe $C^{ \infty }$, et
+ en particulier continues et dérivables sur $\R$.
+
+ \end{noliste}
+
+ \item Soit $\Phi$ l'application définie par : pour tout $f \in F$,
+ $\Phi (f) = f'$, où $f'$ est la dérivée de $f$. 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item On calcule $\Phi (f)$ pour chaque élément de la base :
+ 
+\[
+ \Phi ( f_{0} ) = 0 \ \, \ \ \Phi ( f_{1} ) = f_{0} \ \, \ \ \Phi (
+ f_{2} ) = f_{2} \ \, \ \ \Phi ( f_{3} ) = f_{2} + f_{3}
+\]
+ 
+ donc ils sont tous éléments de $F$. Par stabilité de $f$ par
+ combinaison linéaire, pour tout $f = a f_{0} + b f_{1} + c f_{2} + d
+ f_{3} \in F$, on obtient :
+ 
+\[
+ \Phi (f) = a \Phi ( f_{0} ) + b \Phi ( f_{1} ) + c \Phi ( f_{2} ) + d
+ \Phi (f_{3} ) \in F
+\]
+ et $\Phi$ est à valeurs de $F$. De plus par linéarité de la
+ dérivation $\Phi$ est linéaire, c'est un endomorphisme de
+ $F$. Les images trouvées juste avant donnent alors :
+ 
+\[
+ M = 
+ \begin{smatrix}
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 0 & 0 \\
+ 0 & 0 & 1 & 1 \\
+ 0 & 0 & 0 & 1 \\
+\end{smatrix}
+\]
+ 
+ \item $M$ est triangulaire, ses valeurs propres sont sur la
+ diagonale : $\spc ( M ) = \{ 0 ; 1 \}$.
+ 
+ De plus on trouve sans problème $E_{0} (M ) = \Vect{
+ \begin{smatrix}
+ 1 \\
+ 0 \\
+ 0 \\
+ 0 
+\end{smatrix}
+}$ et $E_{1} (M) = \Vect { 
+ \begin{smatrix}
+ 0 \\
+ 0 \\
+ 1 \\
+ 0 
+\end{smatrix}
+}$ donc la somme des dimensions des sous-espaces
+ propres vaut 2 et $P$ est d'ordre 4, elle n'est pas
+ diagonalisable, et $\Phi$ ne l'est donc pas non plus.
+
+ \item On remarque que
+ 
+\[
+ \im\Phi = \Vect{ f_{0}, f_{2}, f_{2} + f_{3} } = \Vect{ f_{0}, f_{2},
+f_{3} } 
+\]
+ 
+ avec le pivot $C_{3} \leftarrow C_{3} - C_{2}$, donc $f_{3} \in \im
+ \Phi$. De plus on résout :
+ 
+\[
+ M X = 
+ \begin{smatrix}
+ 0 \\
+0 \\
+0 \\
+1 
+\end{smatrix}
+ \Longleftrightarrow 
+ \begin{smatrix}
+ y \\
+0 \\
+z + t \\
+t
+\end{smatrix}
+ = 
+ \begin{smatrix}
+ 0 \\
+0 \\
+0 \\
+1
+\end{smatrix}
+ \Longleftrightarrow X = 
+ \begin{smatrix}
+ x \\
+0 \\
+-1 \\
+1 
+\end{smatrix}
+\]
+ 
+ donc
+ 
+\[
+ \Phi (f) = f_{3} \Longleftrightarrow f = x f_{0} + f_{3} - f_{2}.
+\]
+ \end{noliste}
+
+ \item On note $G$ l'ensemble des fonctions $g$ de $E$ telles que :
+ 
+\[
+ \forall x \in \R, \ g(x + 1) - g(x) = 0. 
+\]
+ 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item $G$ est inclus dans $E$ et contient la fonction nulle
+ puisque pour tout $x \in \R$, $0(x + 1) - 0(x) = 0 - 0 = 0$ et si
+ $g_{1}$ et $g_{2}$ sont dans $G$ et $\lambda$ est un réel :
+ 
+\[
+ \forall x \in \R, \ ( \lambda g_{1} + g_{2} ) (x + 1) - (\lambda g_{1}
+ + g_{2} ) (x) = \lambda ( g_{1} (x + 1) - g(x) ) + g_{2} (x + 1) -
+g_{2} (x)
+ = \lambda 0 + 0 = 0
+\]
+ 
+ donc $(\lambda g_{1} + g_{2} ) \in G$, qui est stable par
+ combinaison linéaire : c'est un sous-espace vectoriel de $E$.
+ 
+ Les éléments de $F \cap G$ sont les fonctions $f$ combinaisons
+ linéaires des $f_{i}$ et vérifiant $f(x + 1) - f(x) = 0$ pour tout
+ $x$, donc :
+ 
+\[
+ \forall x \in \R, \ f(x) = a + b x + c e^{x} + d x e^{x} \ \
+ \text{ et } \ \ f(x + 1) - f(x) = b (x + 1-x) + c ( e^{x + 1} - e^{x}
+)
+ + d ( (x + 1) e^{x + 1} - x e^{x} ) ) = 0
+\]
+ donc : 
+ 
+\[
+ b + c (e-1) e^{x} + d ( e x e^{x} + e e^{x} - x e^{x} ) = b + [ c
+(e-1)
+ + d e ) e^{x} + d (e - 1 ) x e^{x} = 0
+\]
+ Par liberté de la famille $(f_{i})_{ 0 \leq i \leq 3} $, on
+ obtient $b = c ( e-1) + d e = d ( e-1) = 0 $ (avec $e = e^{1}$),
+ donc $b = c = d = 0$, et enfin :
+ 
+\[
+ F \cap G = \{ f = a f_{0}, a \in \R \} = \Vect{ f_{0} }. 
+\]
+ 
+ \item On cherche une fonction vérifiant $f ( x + 1 ) = f(x)$ pour
+ tout $x$, c'est-à-dire périodique de période 1. Il suffit de
+ créer une fonction sur $[0;1[$, puis de la reporter par
+ périodicité. Par exemple la fonction $f(x) = x - \lfloor x
+ \rfloor$ (pour utiliser la question de cours) fonctionne, et
+ n'est pas élément de $F$. 
+ \end{noliste}
+
+ \item On pose $u$ l'application linéaire :
+ 
+\[
+ \forall x \in \R, \ u (f) (x) = f(x + 1) - f(x) - (e-1) f'(x) 
+\]
+ 
+ et on cherche sa matrice dans la base $\mathcal{B}$. On obtient :
+ 
+\[
+ u (f_{0}) = 0 \ \, \ \ u (f_{1} ) = (2-e) f_{0} \ \, \ \ u (f_{2}) = 0
+ \ \, \ \ u (f_{3} ) = (2-e) f_{2}
+\]
+ donc
+ 
+\[
+ Mat_{ \mathcal{B} } (u) = \begin{smatrix}
+0 & 2-e & 0 & 0 \\
+0 & 
+ 0 & 0 & 0 \\
+0 & 0 & 0 & 2-e \\
+0 & 0 & 0 & 0 \\
+\end{smatrix}
+ = 
+ N
+\]
+ donc on trouve sans difficulté que $\ker N = \Vect
+ { \begin{smatrix}
+1 \\
+0 \\
+0 \\
+0 \\
+\end{smatrix}, \begin{smatrix}
+0 \\
+0 \\
+1 \\
+0 \\
+\end{smatrix}
+}$, puis
+ 
+\[
+ \ker ( u ) = \{ f \in F, \forall x \in \R, f(x + 1) - f(x) = 
+ (e-1) f'(x) \} = \Vect{ f_{0}, f_{2} }
+\]
+ \end{noliste}
+\end{exercice}
+
+\begin{exercice}{\it (Exercice sans préparation)}~\\
+ Soit $p$ un réel de $]0;1[$ et $q = 1-p$. Soit $(X_{n})_{ n \in \N^*
+}$
+ une suite de variables aléatoires indépendantes définies sur un
+ espace probabilisé $(\Omega, \mathcal{A}, P)$, de même loi de
+ Bernouilli telle que : \\
+ $ \forall k \in \N^*, \ P \left(\Ev{X_{k} = 1 ] }\right) = p$ et
+$\Prob\left(\Ev{X_{k} = 0
+ ] }\right) = q$. Pour $n$ entier de $\N^*$, on définit pour tout $k
+\in
+ \llb 1 ; n \rrb$, la variable aléatoire $Y_{k} = X_{k} + X_{k + 1}$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ 
+ \item Par bilinéarité de la covariance,
+ 
+\[
+ \Cov ( Y_{k}, Y_{k + 1} ) = \Cov ( X_{k}, X_{k + 1} ) + \Cov ( X_{k},
+X_{k + 2} ) + \Cov ( X_{k + 1}, X_{k + 1} ) + \Cov ( X_{k + 1}, X_{k +
+2} ) 
+\]
+
+ et comme les $X_{i}$ sont indépendantes, on obtient : 
+ 
+\[
+ \Cov ( Y_{k}, Y_{k + 1} ) = 0 + 0 + V (X_{k + 1} ) + 0 = p (1-p). 
+\]
+
+ \item On étudie la fonction $ f(p ) = p (1-p) = p - p^{2}$ sur $[0,1]$
+: elle est dérivable et vérifie
+ 
+\[
+ f'(p) = 1 - 2 p 
+\]
+
+ qui s'annule en $\frac{1}{2}$, est positive avant et négative avant
+donc $f$ admet un maximum en $\frac{1}{2}$ égal à $\frac{1}{4}$, et
+comme $f(0) = f(1) = 0$, elle admet un minimum égal à 0 atteint
+seulement en 0 et 1, donc est strictement supérieure ailleurs et : 
+ 
+\[
+ 0 < \Cov ( Y_{k}, Y_{k + 1} ) = p (1-p ) \leq \frac{ 1 }{ 4 }. 
+\]
+
+ \end{noliste}
+
+ \item Si $l = k + 1$, on a déjà vu que $\Cov ( Y_{k}, Y_{l} ) = 0$.
+Sinon avec la bilinéarité on fait apparaître 4 covariances nulles avec
+l'indépendance des $X_{i}$, et $\Cov ( Y_{k}, Y_{l} ) = 0$. \\
+
+ \item Par linéarité de l'espérance, $\E( Y_{k} ) = 2p$ puis $\E\left(
+\frac{1}{n} \Sum{k = 1}{n} Y_{k} \right) = 2 p $ donc l'inégalité de
+B-T donne : 
+ 
+\[
+ P \left(\Ev{ \left| \frac{1}{n} \Sum{k = 1}{n} Y_{k} - 2 p \right| >
+\varepsilon}\right) \leq \frac{ V \left( \frac{1}{n} \Sum{k = 1}{n}
+Y_{k} \right) }{ \varepsilon^{2} } = \frac{ V \left( \Sum{k = 1}{n}
+Y_{k} \right) }{ n^{2} \varepsilon^{2} }. 
+\]
+
+ On calcule cette variance par bilinéarité de la covariance : 
+ \begin{eqnarray*}
+   V \left( \Sum{k = 1}{n} Y_{k} \right) & = & \Cov \left( \Sum{k = 1}{n}
+     Y_{k}, \Sum{j = 1}{n} Y_{j} \right) = \Sum{k = 1}{n} \Sum{j = 1}{n}
+   \Cov ( Y_{k}, Y_{j} ) \\
+   \\
+   & = & \Sum{k = 1}{n} \Cov ( Y_{k}, Y_{k} ) + \Sum{k = 1}{n-1} \Cov (
+   Y_{k}, Y_{k + 1} ) + \Sum{k = 2}{n} \Cov ( Y_{k-1}, Y_{k} ) + 0 
+ \end{eqnarray*}
+
+ et avec les questions précédentes : 
+ 
+\[
+ V \left( \Sum{k = 1}{n} Y_{k} \right) = n p (1-p) + (n-1) p (1-p) +
+(n-1) p (1-p) = (3n-2) p (1-p ) 
+\]
+
+ et enfin on peut conclure que : 
+ 
+\[
+ 0 \leq P \left(\Ev{ \left| \frac{1}{n} \Sum{k = 1}{n} Y_{k} - 2 p
+\right| > \varepsilon}\right) \leq \frac{ (3n-2) p (1-p) }{ n^{2}
+\varepsilon^{2} } \xrightarrow[ n \rightarrow + \infty ]{} 0 
+\]
+
+ donc par encadrement la probabilité tend vers 0 lorsque $n$ tend vers
+$ + \infty$. \\
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Deux matrices carrées d'ordre $n$ $A$ et $B$ sont dites
+semblables s'il existe une matrice $P$ carrée d'ordre $n$, inversible,
+telle que : 
+ 
+\[
+ A = P B P^{-1} 
+\]
+
+ On sait de plus que deux matrice sont semblables si et seulement si
+elles sont deux matrices d'un même endomorphisme dans des bases
+différentes. \\
+
+ Soit $E$ un espace vectoriel sur $\R$ de dimension 2. On note
+$\mathcal{L} ( E )$ l'ensemble des endomorphismes de $E$. \\
+ Pour toute matrice $A = \begin{smatrix}
+a & b \\
+c & d \\
+\end{smatrix}
+\in \mathcal{M}_{2} (\R) $, on note $D$ et $T$ les deux applications
+suivantes : 
+ 
+\[
+ D : \mathcal{M}_{2} (\R) \rightarrow \R, \ A \mapsto a d - b c \ \ \
+\text{ et } \ \ \ T : \mathcal{M}_{2} (\R) \rightarrow \R, \ A \mapsto
+a + d. 
+\]
+
+ \item Soit $A$ et $B$ deux matrices de $\mathcal{M}_{2} (\R)$.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item On pose $A = \begin{smatrix}
+a & b \\
+c & d \\
+\end{smatrix}
+$ et $B = \begin{smatrix}
+x & y \\
+z & t \\
+\end{smatrix}
+$, on a 
+ 
+\[
+ D ( A ) = a d - b c \ \, \ \ D ( B ) = x t - y z \ \, \ \ A B =
+\begin{smatrix}
+a x + b z & a y + b t \\
+c x + d z & c y + d t \\
+\end{smatrix}
+\]
+
+ puis
+ \begin{eqnarray*}
+   D ( AB ) & = & (ax + bz ) (cy \ dt) - (ay + bt) (cx + d z ) = a c x y
+   + a d x t + b c y z + b d z t - acxy - a d y z - b c x t - b d z t \\
+   \\
+   & & a d x t + b c y z - a d y z - b c x t = ad ( xt - yz ) + bc ( yz -
+   xt ) = (xt - y z ) (ad - bc ) = D ( A ) D ( B ). 
+ \end{eqnarray*}
+
+ D'autre part on a
+ 
+\[
+ B A = \begin{smatrix}
+a x + c y & b x + d y \\
+a z + c t & b z + d t \\
+\end{smatrix}
+\]
+
+ donc
+ 
+\[
+ T ( A B ) = a x + b z + c y \ dt = (a x + c y ) + (bz \ dt) = T ( B A
+). 
+\]
+
+ \item Si $a$ et $b$ sont semblables, il existe $P$ inversible tel que
+$B = P A P^{-1}$ puis : 
+ 
+\[
+ D ( B ) = D ( P ) D ( A ) D ( P^{-1} ) = D ( A ) D ( P P^{-1} ) = D (
+A ) D ( I ) = D ( A ) (1 \times 1 - 0 \times 0 ) = D ( A ). 
+\]
+
+ D'autre part on a 
+ 
+\[
+ T ( B ) = T ( [PA]P^{-1} ) = T ( P^{-1} [PA] ) = T ( P^{-1} P A ) = T
+( A ). 
+\]
+
+ \end{noliste}
+
+ \item $D ( A ) = 0$ est vrai si et seulement si $a d = bc $, ce qui
+est vrai si les produits sont nuls ou si tous les coefficients sont non
+nuls et $ d = \frac{ b c }{ a }$ donc
+ 
+\[
+ \ker D = \left\{ \begin{smatrix}
+0 & b \\
+0 & d \\
+\end{smatrix}
+\right\} \cup \left\{ \begin{smatrix}
+a & b \\
+0 & 0 \\
+\end{smatrix}
+\right\} \cup \left\{ \begin{smatrix}
+0 & 0 \\
+c & d \\
+\end{smatrix}
+\right\} \cup \left\{ \begin{smatrix}
+a & 0 \\
+c & 0 \\
+\end{smatrix}
+\right\} \cup \left\{ \begin{smatrix}
+a & b \\
+c & \frac{ c }{ a } b \\
+\end{smatrix}
+\right\} 
+\]
+
+ et on remarque que toutes les matrices concernées ne sont pas
+inversible. Réciproquement si $A$ n'est pas inversible, soit la
+première colonne est nulle et $D (A) = 0$, soit la deuxième est
+colinéaire à la première ce qui signifie qu'il existe $\lambda$ tel que
+$ b = \lambda a$ et $d = \lambda c$, et on a alors
+ 
+\[
+ D ( A ) = a d - b c = \lambda a c - \lambda a c = 0 
+\]
+
+ donc on obtient la double-inclusion et finalement : 
+ 
+\[
+ \ker ( D ) = \{ A \in \mathcal{M}_{2} ( \R ) \text{ tq } A \text{
+n'est pas inversible } \}. 
+\]
+
+ Pour $T$ c'est plus simple, car on reconnaît une équation linéaire : 
+ 
+\[
+ A \in \ker ( T ) \Longleftrightarrow a + d = 0 \Longleftrightarrow a =
+- d \Longleftrightarrow A = \begin{smatrix}
+- d & b \\
+c & d \\
+\end{smatrix}
+\]
+
+ donc
+ 
+\[
+ \ker T = \Vect { \begin{smatrix}
+-1 & 0 \\
+0 & 1 \\
+\end{smatrix}, \begin{smatrix}
+0 & 1 \\
+0 & 0 \\
+\end{smatrix}, \begin{smatrix}
+0 & 0 \\
+1 & 0 \\
+\end{smatrix}
+} 
+\]
+
+ et la famille est libre (système facile) donc $\ker T$ est un espace
+vectoriel de dimension 3. \\
+
+ Dorénavant, si $u \in \mathcal{L} (E)$ de matrice $A$ dans une base
+$\mathcal{B}$ de $E$, on note : $D(u) = D(A)$ et $T(u) = T(A)$. \\
+
+ \item On exprime $A^{2}$ en fonction de $A$ et $I$ : 
+ 
+\[
+ A^{2} = \begin{smatrix}
+a^{2} + bc & a b + b d \\
+a c + cd & d^{2} + bc \\
+\end{smatrix}
+ = \lambda \begin{smatrix}
+a & b \\
+c & d \\
+\end{smatrix}
+ + \mu \begin{smatrix}
+1 & 0 \\
+0 & 1 \\
+\end{smatrix}
+\]
+
+ si et seulement si
+ 
+\[
+ \left\{ 
+\begin{array}{c}
+ a^{2} + bc = \lambda a + \mu \\
+b ( a + d ) = \lambda b \\
+c ( a + d) = \lambda c \\
+d^{2} + bc = \lambda d + b\mu \\
+\end{array}
+\right. 
+\]
+
+ On remarque que $\lambda = a + d = T ( A )$ résout les deux équations
+du milieu, et on obtient alors sur les deux autres : 
+ 
+\[
+ \left\{ 
+\begin{array}{c}
+ a^{2} + bc = a^{2} + ad + \mu \\
+d^{2} + bc = a d + d^{2} + \mu \\
+\end{array}
+\right. \Longleftrightarrow \left\{ 
+\begin{array}{c}
+ bc - ad = \mu \\
+bc - a d = \mu \\
+\end{array}
+\right. \Longleftrightarrow \mu = b c - ad = - D ( A ) 
+\]
+
+ donc pour toute matrice $A$ on a 
+ 
+\[
+ A^{2} = T(A) A - D ( A ) I \ \ \text{ donc } \ \ u^{2} = T ( A ) u - D
+( A ) \id = T (u) u - D ( u ) \id. 
+\]
+
+ \item $\mathcal{S}_{0}$ est inclus dans l'espace vectoriel
+$\mathcal{L} (E)$ et contient l'endomorphisme nul car $u \circ 0 = 0
+\circ u = 0$. De plus pour tous $v_{1}, v_{2}$ dans $\mathcal{S}_{0}$
+et tout réel $\lambda$ on a : 
+ 
+\[
+ u \circ ( \lambda v_{1} + v_{2} ) - ( \lambda v_{1} + v_{2} ) \circ u
+= \lambda ( u \circ v_{1} - v_{1} \circ u ) + u \circ v_{2} - v_{2}
+\circ u = \lambda 0 + 0 = 0 
+\]
+
+ donc $(\lambda v_{1} + v_{2}) \in \mathcal{S}_{0}$ qui est donc stable
+par combinaison linéaire, c'est un sous-espace vectoriel de
+$\mathcal{L} (E)$. \\
+
+ De plus tout polynôme en $u$ commute avec $u$ donc $\{
+P\left(\Ev{u}\right), P\left(\Ev{u}\right) \in \R [X] \} \subset
+\mathcal{S}_{0}$. \\
+
+ \item Soit $u \in \mathcal{L} (E)$ avec $u \neq 0$. On pose :
+$\mathcal{S} = \{ v \in \mathcal{L} (E) | u \circ v - v \circ u = u
+\}$. \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item Si l'ensemble est non vide, il existe un endomorphisme $v$ tel
+que
+ 
+\[
+ u \circ v - v \circ u = u. 
+\]
+
+ On suppose que $u$ est bijectif. Alors en passant aux matrices $A$ et
+$B$ de $u$ dans la base $\mathcal{B}$ de $E$ et en multipliant à gauche
+par $A^{-1}$ on obtient :
+ 
+\[
+ A B - B A = A \ \ \ \text{ puis } \ \ \ B - A^{-1} B A = I 
+\]
+
+ On compose par $T$ linéaire et comme $A^{-1} B A$ est semblable à $b$,
+on obtient : 
+ 
+\[
+ T ( B ) - T ( B) = T ( I ) \Longleftrightarrow 0 = 2 
+\]
+
+ qui est absurde. On en déduit que si $\mathcal{S}$ est non vide, $u$
+n'est pas bijectif. \\
+
+ On peut alors appliquer l'application linéaire $T$ à la relation de
+$\mathcal{S}$ : 
+ 
+\[
+ T ( u \circ v ) - T ( v \circ u ) = T ( u ) \ \ \text{ donc } \ \ T (
+u ) = 0 
+\]
+
+ puisque $T ( u \circ v ) = T ( A B ) = T ( B A ) = T ( v \circ u )$
+avec $A$ et $B$ les matrices de $u$ dans la base $\mathcal{B}$ de $E$.
+\\
+
+ On en déduit que $u^{2} = T ( u) - D ( u ) \id = - D(u) \id = 0 $,
+puisque $u$ n'est pas bijectif, donc $A$ pas inversible, et enfin $D
+(u) = D ( A ) = 0$. \\
+
+ On en déduit que si $\mathcal{S}$ est non vide, alors $u^{2} = 0$. \\
+
+ \item Comme $u \neq 0$, il existe $x \in E$ tel que $u ( x ) \neq 0$,
+et la famille $(x, u(x) )$ est alors libre. En effet si $a x + b u(x) =
+0$, alors
+ 
+\[
+ a u(x) + b u^{2} (x) = 0 \ \ \text{ donc } \ \ a u(x) = 0 
+\]
+
+ avec $u(x) \neq 0$, donc $a = 0$. On obtient alors $ b u(x) = 0$, avec
+$u(x) \neq 0$ donc $b = 0$. Dans la base $( u(x), x )$ de $E$, on
+obtient alors
+ 
+\[
+ M_{u} = Mat_{ (u(x), x) } (u) = \begin{smatrix}
+0 & 1 \\
+0 & 0 \\
+\end{smatrix}
+\]
+
+ Dans cette base, la matrice $B = \begin{smatrix}
+x & y \\
+z & t \\
+\end{smatrix}
+$ de $v$ vérifie : 
+ 
+\[
+ M_{u} B - B M_{u} = M_{u} \Longleftrightarrow \begin{smatrix}
+z & t \\
+0 & 0 \\
+\end{smatrix}
+- \begin{smatrix}
+0 & x \\
+0 & z \\
+\end{smatrix}
+ = \begin{smatrix}
+0 & 1 \\
+0 & 0 \\
+\end{smatrix}
+\Longleftrightarrow \begin{smatrix}
+z & t - x \\
+0 & -z \\
+\end{smatrix}
+ = \begin{smatrix}
+0 & 1 \\
+0 & 0 \\
+\end{smatrix}
+\]
+
+ donc $z = 0$ et $t = x + 1$, et enfin
+ 
+\[
+ B = \begin{smatrix}
+x & y \\
+0 & x + 1 \\
+\end{smatrix}
+ = x I + y M_{u} + \begin{smatrix}
+0 & 0 \\
+0 & 1 \\
+\end{smatrix}
+\]
+
+ \item On déduit de la forme de $B$ ci-dessus que
+ 
+\[
+ v = x \id + y u + v_{0} 
+\]
+
+ où $v_{0}$ est l'endomorphisme dont la matrice dans la base $( u(x), x
+)$ est $\begin{smatrix}
+0 & 0 \\
+0 & 1 \\
+\end{smatrix}
+$, donc vérifiant $v_{0} ( u(x) ) = 0$ et $v_{0} (x) = x$, et on
+obtient bien
+ 
+\[
+ \mathcal{S} = \{ v_{0} + \alpha \id + \beta u, \alpha, \beta \in \R
+\}. 
+\]
+
+%%% LALALA
+
+ Bilan : un exercice totalement inadapté à l'ECE(même en voie S, il
+serait très difficile...) mais l'introduction de la trace et du
+déterminant est très intéressante, notamment dans l'optique de
+l'utilisation sur des matrices Hessiennes. \\
+
+ \end{noliste}
+
+ \end{noliste}
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $k$ et $\lambda$ deux réels et soit $f$ la fonction définie sur
+$\R$ à valeurs réelles donnée par : 
+ 
+\[
+ f(t) = \left\{ 
+\begin{array}{cl}
+ k t e^{ - \lambda t } & \text{ si } t \geq 0 \\
+0 & \text{ sinon } \\
+\end{array}
+\right. 
+\]
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $f$ est continue sur $\R$ sauf peut-être en 0, et positive sur
+$\R$ à condition que $k$ soit positif. Enfin on a : 
+ 
+\[
+ \dint{ - \infty }{ + \infty } f(t) \ dt = \dint{- \infty}{0} 0 \ dt +
+\frac{ k }{ \lambda } \dint{0}{+ \infty} t \times \lambda e^{ - \lambda
+t } \ dt. 
+\]
+
+ La première intégrale converge et vau 0 (fonction nulle), la seconde
+converge et vaut $ \frac{1}{\lambda}$ (espérance de la loi
+exponentielle), donc l'intégrale de $f$ sur $\R$ converge et
+ 
+\[
+ \dint{ - \infty }{ + \infty } f(t) \ dt = \frac{ k }{ \lambda^{2} } 
+\]
+
+ qui vaut 1 si et seulement si $k = \lambda^{2}$, qui est bien positif,
+et pour cette valeur $f$ est bien une densité de probabilité. \\
+
+ On note $X$ une variable aléatoire réelle ayant $f$ pour densité. \\
+
+ \item On comparaison avec $\frac{1}{t^{2}}$ donne par croissances
+comparées :
+ 
+\[
+ t^{n} f(t) = o_{ + \infty } \left( \frac{ 1 }{ t^{2} } \right) 
+\]
+
+ avec les fonctions qui sont positives et l'intégrale de $1/t^{2}$ qui
+converge en $ + \infty$ (Riemann) donc par théorème de comparaison
+$X^{n}$ admet une espérance et $X$ admet un moment d'ordre $n$, pour
+tout $n \in \N^*$. De plus on effectue une IPP sur l'intégrale
+partielle avec
+ 
+\[
+ u = \lambda t^{n + 1} \ \ \ \text{ et } \ \ \ v = - e^{ - \lambda t } 
+\]
+
+ qui sont de classe $C^{1}$ avec
+ 
+\[
+ u' = (n + 1) \lambda t^{n} \ \ \ \text{ et } \ \ \ v' = \lambda e^{ -
+\lambda t } 
+\]
+
+ donc
+ 
+\[
+ \dint{0}{A} \lambda^{2} t^{n + 1} e^{ - \lambda t } \ dt = \left[ -
+\lambda t^{n + 1} e^{ - \lambda t } \right]_{0}{A} + \frac{ (n + 1) }{
+\lambda } \dint{0}{A} \lambda^{2} t^{n} e^{ - \lambda t } \ dt 
+\]
+
+ puis en faisant tendre $A$ vers $ + \infty$ (avec une croissance
+comparée) on obtient : 
+ 
+\[
+ E ( X^{n} ) = \frac{ n + 1 }{ \lambda } E ( X^{n-1} ) 
+\]
+
+ donc par itération de la relation ou par récurrence on obtient : 
+ 
+\[
+ E ( X^{n} ) = \frac{ (n + 1) \times \dots \times 2 }{ \lambda^{n} } E
+( X^{0} ) = \frac{ (n + 1)! }{ \lambda^{n} } \times 1 = \frac{ (n + 1)!
+}{ \lambda^{n} }. 
+\]
+
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item La loi d'un couple $(X,Y)$ de variables discrètes est
+caractérisée par la donnée des supports de $X$ et $Y$, et pour tout $i
+\in X ( \Omega)$ et tout $j \in Y ( \Omega)$, de la probabilité : 
+ 
+\[
+ P ( [X = i] \cap [Y = j] ) 
+\]
+
+ On appelle lois marginales les lois des variables $X$ et $Y$, et loi
+conditionnelle de $Y$ sachant $[X = i]$, pour $i$ fixé dans $Y ( \Omega
+)$, la donnée du support de $Y$ sachant $[X = i]$ (car cet évènement
+peut rendre impossibles certaines valeurs de $Y$) et pour tout $j \in Y
+( \Omega)$, de la probabilité : 
+ 
+\[
+ P_{ [X = i] } \Ev{ Y = j } = \frac{ P ( [X = i] \cap [Y = j] ) }{ P
+\Ev{X = i } } 
+\]
+
+ et de même pour la loi conditionnelle de $X$ sachant $[Y = j]$. \\
+
+ Soit $c$ un réel strictement positif et soit $X$ et $Y$ deux variables
+aléatoires à valeurs dans $\N$ définies sur un espace probabilisé
+$(\Omega, \mathcal{A}, P)$, telles que : 
+ 
+\[
+ \forall (i,j) \in \N^{2}, \ \Prob( [ X = i ] \cap [ Y = j ] ) = c
+\frac{ i + j }{ i! j! }. 
+\]
+
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item Avec le système complet d'évènements $[Y = j]_{ j \in \N}$, les
+probabilités totales donnent : pour tout $i \in \N$,
+\begin{eqnarray*}
+  P \Ev{ X = i } & = & \Sum{j = 0}{+ \infty} P ( [X = i ] \cap [Y = j] )
+  = \Sum{j = 0}{+ \infty} c \frac{ i + j }{ i! j! } = \frac{ c }{ i! }
+  \left( i \Sum{j = 0}{+ \infty} \frac{ 1 }{ j! } + \Sum{j = 0}{+ \infty}
+    \frac{ j }{ j! } \right) \\
+  \\
+  & = & \frac{ c }{ i! } \left( i e^{1} + 0 + \Sum{j = 1}{+ \infty}
+    \frac{ 1 }{ (j-1)! } \right) = \frac{ c }{ i! } \left( i e^{1} + 0 +
+    \Sum{j = 0}{+ \infty} \frac{ 1 }{ j! } \right) = \frac{ c }{ i! }
+  \left( i e^{1} + 0 + e^{1} \right) \\
+  \\
+  & = & c \frac{ i + 1 }{ i! } e. 
+\end{eqnarray*}
+
+
+%%% LALALA
+
+ De plus on sait que la somme des $P \Ev{X = i}$ doit faire 1 (système
+complet d'évènements) on la calcule : 
+ \begin{eqnarray*}
+ \Sum{i = 0}{+ \infty} P \Ev{X = i} & = & c e \left( \Sum{i = 0}{+
+\infty} \frac{ i }{ i! } + \Sum{i = 0}{+ \infty}\frac{ 1 }{ i! }
+\right) = c e \left( 0 + \Sum{i = 1}{+ \infty} \frac{ 1 }{ (i-1)! } +
+e^{1} \right) = c e \left( \Sum{i = 0}{+ \infty} \frac{ 1 }{ i! } + e
+\right) \\
+\\
+ & = & c e ( 2 e ) = 2 c e^{2} 
+ \end{eqnarray*}
+
+ donc on en déduit que
+ 
+\[
+ 2 c e^{2} = 1 \Longleftrightarrow c = \frac{ 1 }{ 2 e^{2} }. 
+\]
+
+ \item Pour l'espérance, on s'intéresse à la convergence absolue et à
+la valeur de 
+ 
+\[
+ \Sum{i = 0}{+ \infty} i P \Ev{x = i } = \frac{ 1 }{ 2 e } \Sum{i =
+0}{+ \infty} \frac{ i (i + 1 ) }{ i! } 
+\]
+
+ Après transformations, on reconnaît une série exponentielle, elle
+converge et elle est à terme positifs, donc elle converge absolument et
+$X$ admet une espérance, qui vaut : 
+ \begin{eqnarray*}
+ E ( X ) & = & \frac{ 1 }{ 2 e } \left( 0 + \Sum{i = 1}{+ \infty}
+\frac{ i + 1 }{ (i-1)! } \right) = \frac{ 1 }{ 2 e } \Sum{i = 1}{+
+\infty} \frac{ i - 1 + 2 }{ (i-1)! } = \frac{ 1 }{ 2 e } \left( \Sum{i
+= 1}{+ \infty} \frac{ i - 1 }{ (i-1)! } + \Sum{i = 1}{+ \infty} \frac{2
+}{ (i-1)! } \right) \\
+\\
+ & = & \frac{ 1 }{ 2 e } \left( 0 + \Sum{i = 2}{+ \infty} \frac{ 1 }{
+(i-2)! } + 2 \Sum{i = 1}{+ \infty} \frac{1 }{ (i-1)! } \right) = \frac{
+1 }{ 2 e } \left( \Sum{i = 0}{+ \infty} \frac{ 1 }{ i! } + 2 \Sum{i =
+0}{+ \infty} \frac{1 }{ i! } \right) \\
+\\
+ & = & \frac{ 1 }{ 2 e } ( e + 2e ) = \frac{ 3 e }{ 2e } = \frac{ 3 }{
+2 }.
+ \end{eqnarray*}
+
+ En faisant de même apparaitre des séries exponentielles et avec le
+théorème de transfert, on obtiendra une série absolument convergente et
+$\E( X^{2} )$ existe donc $\V( X)$ aussi. De plus : 
+ \begin{eqnarray*}
+ E ( X^{2} ) & = & \Sum{i = 0}{+ \infty} \frac{ i^{2} (i + 1 ) }{ i! }
+= \frac{ 1 }{ 2 e } \left( 0 + \Sum{i = 1}{+ \infty} \frac{ i ( i + 1 )
+}{ (i-1)! } \right) = \frac{ 1 }{ 2 e } \Sum{i = 1}{+ \infty} \frac{ (i
+- 1 + 1 ) (i + 1) }{ (i-1)! } \\
+\\
+ & = & \frac{ 1 }{ 2 e } \left( \Sum{i = 1}{+ \infty} \frac{ (i - 1) (i
++ 1) }{ (i-1)! } + \Sum{i = 1}{+ \infty} \frac{i + 1 }{ (i-1)! }
+\right) = \frac{ 1 }{ 2 e } \left( 0 + \Sum{i = 2}{+ \infty} \frac{ i +
+1 }{ (i-2)! } + \Sum{i = 1}{+ \infty} \frac{ i - 1 + 2 }{ (i-1)! }
+\right) \\
+\\
+ & = & \frac{ 1 }{ 2 e } \left( \Sum{i = 2}{+ \infty} \frac{ i - 2 + 3
+}{ (i-2)! } + \Sum{i = 1}{+ \infty} \frac{ i - 1 }{ (i-1)! } + \Sum{i =
+1}{+ \infty} \frac{ 2 }{ (i-1)! } \right) \\
+\\
+ & = & \frac{ 1 }{ 2 e } \left( \Sum{i = 2}{+ \infty} \frac{ i - 2 }{
+(i-2)! } + \Sum{i = 2}{+ \infty} \frac{ 3 }{ (i-2)! } + 0 + \Sum{i =
+2}{+ \infty} \frac{ 1 }{ (i-2)! } + 2 \Sum{i = 1}{+ \infty} \frac{ 1 }{
+(i-1)! } \right) \\
+\\
+ & = & \frac{ 1 }{ 2 e } \left( 0 + \Sum{i = 3}{+ \infty} \frac{ 1 }{
+(i-3)! } + 4 \Sum{i = 2}{+ \infty} \frac{ 1 }{ (i-2)! } + 2 \Sum{i =
+1}{+ \infty} \frac{ 1 }{ (i-1)! } \right) = \frac{ 1 }{ 2 e } \left(
+\Sum{i = 0}{+ \infty} \frac{ 1 }{ i! } + 4 \Sum{i = 0}{+ \infty} \frac{
+1 }{ i! } + 2 \Sum{i = 0}{+ \infty} \frac{ 1 }{ i! } \right) \\
+\\
+ & = & \frac{ 7 }{ 2 e } \Sum{i = 0}{+ \infty} \frac{ 1 }{ i! } =
+\frac{ 7 }{ 2 e } \times e = \frac{ 7 }{ 2 }
+ \end{eqnarray*}
+
+ et enfin
+ 
+\[
+ V ( X ) = \frac{ 7 }{ 2 } - \frac{ 9 }{ 4 } = \frac{ 14 - 9 }{ 4 } =
+\frac{ 5 }{ 4 }. 
+\]
+
+ \item On sait que pour tous $i$ et $j$ dans $\N$ on a : 
+ 
+\[
+ P ( [X = i] \cap [Y = j] ) = \frac{ 1 }{ i + j }{ 2 e^{2} i! j! } =
+\frac{ 1 }{ 2 e^{2} i! j! } \times (i + j) 
+\]
+
+ et comme les rôles de $i$ et $j$ sont symétriques dans la formule, la
+loi de $Y$ est la même que celle de $X$ donc : 
+ 
+\[
+ P \Ev{X = i } P \Ev{ Y = j } = \frac{ (i + 1) ( j + 1) }{ 4 e^{2} i!
+j! } = \frac{ 1 }{ 2 e^{2} i! j! } \times \frac{ (i + 1 ) (j + 1) }{ 2
+} 
+\]
+
+ et par exemple pour $i = j = 0$ on a : 
+ 
+\[
+ \frac{ 1 \times 1 }{ 2 } \neq (0 + 0) \ \ \text{ donc } \ \ P ( [X =
+0] \cap [Y = 0] ) \neq P \Ev{X = 0} P \Ev{ Y = 0 } 
+\]
+
+ donc $X$ et $Y$ ne sont pas indépendantes. \\
+
+ \end{noliste}
+
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item Cette variable prend pour valeur minimale $(0 + 0-1)$ mais avec
+une probabilité nulle car $P [ \ \Ev{X = 0 } \cap \Ev{Y = 0} ] = 0$,
+donc la plus petite valeur de probabilité non nulle est $(0 + 1-1 = 0)$
+et toutes les valeurs entières supérieure à 0 sont possibles donc : 
+ 
+\[
+ (X + Y - 1) ( \Omega ) = \N 
+\]
+
+ De plus pour tout $k \in \N$, avec le système complet $\Ev{X = i}_{i
+\in \N}$, on a : 
+ 
+\[
+ (X + Y - 1 = k ) = \dcup{i = 0}{+ \infty} [ \ \Ev{X = i} \cap (X + Y-1
+= k ) ] = \dcup{i = 0}{+ \infty} [ \ \Ev{X = i} \cap ( Y = k + 1 - i )
+] = \dcup{i = 0}{k + 1} [ \ \Ev{X = i} \cap ( Y = k + 1 - i ) ] 
+\]
+
+ car pour $k + 1 - i < 0 \Longleftrightarrow i > k + 1$, l'évènement
+$(Y = k + 1-i)$ est impossible. On en déduit (union incompatible) que :
+
+ \begin{eqnarray*}
+ P \left(\Ev{ X + Y - 1 = k }\right) & = & \frac{ 1 }{ 2e^{2} } \Sum{i
+= 0}{k + 1} \frac{ i + k + 1 - i }{ i! (k + 1-i)! } = \frac{ 1 }{
+2e^{2} } \Sum{i = 0}{k + 1} \frac{ k + 1 }{ i! (k + 1-i)! } \\
+\\
+ & = & \frac{ 1 }{ 2e^{2} k! } \Sum{i = 0}{k + 1} \frac{ (k + 1) k! }{
+i! (k + 1-i)! } = \frac{ 1 }{ 2e^{2} k! } \Sum{i = 0}{k + 1} \frac{ (k
++ 1)! }{ i! (k + 1-i)! } \\
+\\
+ & = & \frac{ 1 }{ 2e^{2} k! } \Sum{i = 0}{k + 1} \binom{k + 1}{i} =
+\frac{ 1 }{ 2e^{2} k! } \Sum{i = 0}{k + 1} \binom{k + 1}{i} 1^{i} 1^{k
++ 1-i} \\
+\\
+ & = & \frac{ 1 }{ 2e^{2} k! } \times (1 + 1)^{k + 1} = \frac{ 2^{ k +
+1 } }{ 2 e^{2} k! } = \frac{ 2^{k} e^{ - 2 } }{ k! } 
+ \end{eqnarray*}
+
+ donc $ X + Y - 1 \suit \mathcal{P} (2)$. \\
+
+ \item On sait par quadracité de la variance que 
+ 
+\[
+ V ( X + Y ) = V ( X + Y + 1 ) = 2. 
+\]
+
+ \item On peut alors calculer : 
+ 
+\[
+ \Cov ( X, X + 5 Y ) = \Cov ( X, X ) + 5 \Cov ( X, Y ) = V (X ) + 5
+\Cov ( X, Y ). 
+\]
+
+ Or on sait que
+ 
+\[
+ V ( X + Y ) = V ( X ) + V ( Y ) + 2 \Cov ( X, Y ) 
+\]
+
+ donc
+ 
+\[
+ \Cov ( X, Y ) = \frac{ V ( X + Y ) - V ( X ) - V ( Y ) }{ 2 } = \frac{
+2 - \frac{5}{4} - \frac{5}{4} }{ 2 } = 1 - \frac{ 5 }{ 4 } = - \frac{ 1
+}{ 4 } 
+\]
+
+ et enfin : 
+ 
+\[
+ \Cov ( X, X + 5 Y ) = \frac{ 5 }{ 4 } + 5 \times \frac{ -1 }{ 4 } = 0.
+\]
+
+ La covariance nulle n'implique pas l'indépendance, elle ne permet pas
+de conclure. Par contre on a 
+ 
+\[
+ \Ev{X = 0} \cap (X + 5 Y = 1 ) = [ \ \Ev{X = 0} \cap \Ev{ 5Y = 1 } ] =
+\emptyset \ \ \text{ donc } \ \ P ( \Ev{X = 0} \cap (X + 5 Y = 1 ) ) =
+0 \neq P \Ev{ X = 0 } P \left(\Ev{X + 5 Y = 1}\right) 
+\]
+
+ (car $\Ev{X + 5Y = 1} = \Ev{X = 1} \cap \Ev{Y = 0}$ a une probabilité
+ non nulle). On en déduit que $X$ et $X + 5Y$ ne sont pas
+ indépendantes.
+
+ \end{noliste}
+
+ \item
+
+ On pose : $ Z = \frac{ 1 }{ X + 1 }$. \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item Par théorème de transfert, on s'intéresse à la convergence
+absolue de 
+ 
+\[
+ \Sum{i = 0}{+ \infty} \frac{ 1 }{ i + 1 } \times \frac{ i + 1 }{ 2 e
+i! } = \frac{ 1 }{ 2e } \Sum{i = 0}{+ \infty} \frac{ 1 }{ i! } 
+\]
+
+ On reconnaît une série exponentielle qui converge absolument donc $Z$
+admet une espérance et
+ 
+\[
+ E ( Z ) = \frac{ 1 }{ 2e } \times e = \frac{ 1 }{ 2 }. 
+\]
+
+ \item Pour tout $i$ fixé dans $\N$, le support de $Y$ sachant $[X =
+i]$ est $\N$ et : 
+ 
+\[
+ P_{ \Ev{X = i} } \Ev{Y = j } = \frac{ P [ \ \Ev{X = i} \cap \Ev{Y = j}
+}{ P \Ev{ X = i } } = \frac{ \frac{ i + j }{ 2 e^{2} i! j! } }{ \frac{
+i + 1 }{ 2 e i! } } = \frac{ i + j }{ e (i + 1) j! }. 
+\]
+
+ \item On calcule d'abord pour tout $i \in \N$ : 
+ \begin{eqnarray*}
+ g_{ [X = i ] } (Y) & = & \Sum{k = 0}{+ \infty} k P_{ [X = i ] } \Ev{Y
+= k } = \frac{ 1 }{ e } \Sum{k = 0}{+ \infty} k \times \frac{ i + k }{
+(i + 1) k! } = \frac{ 1 }{ e (i + 1) } \left( i \Sum{k = 0}{+ \infty}
+\frac{ k }{ k! } + \Sum{k = 0}{+ \infty} \frac{ k^{2} }{ k! } \right)
+\\
+\\
+ & = & \frac{ 1 }{ e (i + 1) } \left( 0 + i \Sum{k = 1}{+ \infty}
+\frac{ 1 }{ (k-1)! } + 0 + \Sum{k = 1}{+ \infty} \frac{ k }{ (k-1)! }
+\right) = \frac{ 1 }{ e (i + 1) } \left( i \Sum{k = 0}{+ \infty} \frac{
+1 }{ k! } + \Sum{k = 1}{+ \infty} \frac{ k-1 + 1 }{ (k-1)! } \right) \\
+\\
+ & = & \frac{ 1 }{ e (i + 1) } \left( i e + \Sum{k = 1}{+ \infty}
+\frac{ k-1 }{ (k-1)! } + \Sum{k = 1}{+ \infty} \frac{ 1 }{ (k-1)! }
+\right) = \frac{ 1 }{ e (i + 1) } \left( i e + 0 + \Sum{k = 2}{+
+\infty} \frac{ 1 }{ (k-2)! } + \Sum{k = 0}{+ \infty} \frac{ 1 }{ k! }
+\right) \\
+\\
+ & = & \frac{ 1 }{ e (i + 1) } \left( i e + \Sum{k = 0}{+ \infty}
+\frac{ 1 }{ k! } + e \right) = \frac{ e ( i + 2 ) }{ e (i + 1 ) } =
+\frac{ i + 2 }{ i + 1 } 
+ \end{eqnarray*}
+
+ donc pour tout $\omega \in \Omega$ tel que $ X (\omega ) = i$ on a : 
+ 
+\[
+ g_{ [ X = X ( \omega) ] } (Y ) = g_{ [ X = i ] } (Y ) = \frac{ i + 2
+}{ i + 1 } \ \ \text{ et } \ \ Z ( \omega ) = \frac{ 1 }{ X ( \omega )
++ 1 } = \frac{ 1 }{ i + 1 } 
+\]
+
+ donc la fonction $f$ doit vérifier : pour tout $i \in \N$,
+ 
+\[
+ f \left( \frac{ 1 }{ i + 1 } \right) = \frac{ i + 2 }{ i + 1 } =
+\frac{ i + 1 + 1 }{ i + 1 } = 1 + \frac{ 1 }{ i + 1 } 
+\]
+
+ et en posant $f(x) = 1 + x$, on a bien pour tout $\omega \in \Omega$,
+ 
+\[
+ g_{ [X = X (\omega) ] } (Y ) = 1 + \frac{ 1 }{ X ( \omega) + 1 } = 1 +
+Z ( \omega ) = f ( Z (\omega ) ). 
+\]
+
+ \end{noliste}
+
+ \end{noliste}
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Pas toujours. Par exemple, en posant 
+ 
+\[
+ A = \begin{smatrix}
+1 & 1 \\
+0 & 0 \\
+\end{smatrix}
+\ \ \ \text{ et } \ \ \ B = \begin{smatrix}
+0 & 1 \\
+0 & 1 \\
+\end{smatrix}
+\ \ \ \text{ on a } \ \ \ A + B = \begin{smatrix}
+1 & 2 \\
+0 & 1 \\
+\end{smatrix}
+\]
+
+ avec $A$ et $B$ diagonalisables (deux valeurs propres distinctes) et
+$A + B$ qui ne l'est pas (seule valeur propre 1, si elle l'était on
+aurait $A + B = P I P^{-1} = I$, absurde). \\
+
+ \item Pas forcément non plus. Par exemple en posant $A$ inversible et
+$B = -A$ qui est aussi inversible (d'inverse $- A^{-1}$), leur somme
+est la matrice nulle qui n'est pas inversible. \\
+
+ \item Il faut penser à décomposer $A$ en une somme de deux matrices
+triangulaires : 
+ 
+\[
+ A = \begin{smatrix}
+0 & 0 & \dots & \dots & 0 \\
+a_{2,1} & \ddots & \ddots & \dots & \vdots \\
+\vdots & \ddots & \ddots & \ddots & \vdots \\
+\vdots & \dots & \ddots & \ddots & 0 \\
+a_{n,1} & \dots & \dots & a_{n, n-1} & 0 \\
+\end{smatrix}
+ + \begin{smatrix}
+a_{1,1} & a_{1,2} & \dots & \dots & a_{1,n} \\
+0 & \ddots & \ddots & \dots & 0 \\
+\vdots & \ddots & \ddots & \ddots & \vdots \\
+\vdots & \dots & \ddots & \ddots & a_{n-1,n} \\
+0 & \dots & \dots & 0 & a_{n,n} \\
+\end{smatrix}
+\]
+
+ L'idée est ensuite de rajouter un nombre $a > 0$ sur chaque terme de
+la diagonale de la première matrice (ce qui la rendra inversible) et de
+retirer $-a$ sur la diagonale de la seconde matrice pour compenser. Il
+faut que $ a_{i,i} - a $ soit différent de 0 pour tout $i$, mais comme
+$\{ a_{i,i} \text{ tq } 1 \leq i \leq n \}$ est fini, il existe
+forcément un nombre $a$ non nul qui vérifiera $ a_{i,i} - a \neq 0$
+pour tout $i$ (il suffit qu'il soit différent de chacun des $a_{i,i}$),
+et on obtient
+ 
+\[
+ A = \begin{smatrix}
+a & 0 & \dots & \dots & 0 \\
+a_{2,1} & \ddots & \ddots & \dots & \vdots \\
+\vdots & \ddots & \ddots & \ddots & \vdots \\
+\vdots & \dots & \ddots & \ddots & 0 \\
+a_{n,1} & \dots & \dots & a_{n, n-1} & a \\
+\end{smatrix}
+ + \begin{smatrix}
+a_{1,1} - a & a_{1,2} & \dots & \dots & a_{1,n} \\
+0 & \ddots & \ddots & \dots & 0 \\
+\vdots & \ddots & \ddots & \ddots & \vdots \\
+\vdots & \dots & \ddots & \ddots & a_{n-1,n} \\
+0 & \dots & \dots & 0 & a_{n,n} - a \\
+\end{smatrix}
+\]
+
+ qui est bien la somme de deux matrices inversibles.
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~\\
+ On note $\mathcal{M}_{3} (\R)$ l'ensemble des matrices carrées d'ordre
+3 et $\R_{2} [X]$ l'ensemble des polynômes à coefficients réels de
+degré inférieur ou égal à 2. \\
+\\
+ Dans tout l'exercice, $A$ est une matrice de $\mathcal{M}_{3} (\R)$
+ayant trois valeurs propres distinctes, notées $\lambda_{1}$,
+$\lambda_{2}$ et $\lambda_{3}$. \\
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Un polynôme $P$ est dit annulateur d'une matrice $A$ si
+$P\left(\Ev{A}\right) = 0$. On sait alors que toutes les valeurs
+propres de $A$ sont racines de $P$, ou encore : 
+ 
+\[
+ \spc ( A ) \subset \left\{ \text{ racines de } P \rule{0cm}{0.3cm}
+\right\} 
+\]
+
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item $A$ est une matrice d'ordre 3 qui admet trois valeurs propres
+distinctes, elle est donc diagonalisable et plus exactement semblable à
+la matrice
+ 
+\[
+ D = \begin{smatrix}
+\lambda_{1} & 0 & 0 \\
+0 & \lambda_{2} & 0 \\
+0 & 0 & \lambda_{3} \\
+\end{smatrix}
+\]
+
+ qui vérifie facilement que $ ( D - \lambda_{1} I ) ( D - \lambda_{2} I
+) ( D - \lambda_{3} I ) = 0$ et par similitude de $A$ et $D$, on a
+alors
+ 
+\[
+ ( A - \lambda_{1} I ) ( A - \lambda_{2} I ) ( A - \lambda_{3} I ) = 0 
+\]
+
+ donc le polynôme $P\left(\Ev{X}\right) = \left(\Ev{ X - \lambda_{1}
+}\right) ( X - \lambda_{2} ) ( X - \lambda_{3} )$, de degré 3, est
+annulateur de $A$. \\
+
+ \item Ce polynôme admettrait au plus 1 ou deux racines, ce qui est
+absurde puisque, annulateur de $A$, il devrait admettre chacune des
+valeurs propres de $A$ pour racines, donc au minimum 3 racines. Il ne
+peut donc pas exister de polynôme annulateur de $A$ de degré 1 ou 2. \\
+
+ \end{noliste}
+
+ \item Soit $\varphi$ l'application de $\R_{2} [X]$ dans $\R^{3}$ qui à
+tout polynôme $P \in \R_{2} [X]$, associe le triplet $\big( P
+\left(\Ev{\lambda_{1}{5}}\right), P \left(\Ev{\lambda_{2}{5}}\right),
+P\left(\Ev{ \lambda_{3}{5} }\right) \big)$. \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item On se donne $P$ et $Q$ deux polynômes de $\R_{2} [X]$ et
+$\lambda$ un réel, on a :
+ \begin{eqnarray*}
+ \varphi ( \lambda P + Q ) & = & \left( \rule{0cm}{0.4cm} ( \lambda P +
+Q ) (\lambda_{1}{5} ), ( \lambda P + Q ) (\lambda_{2}{5} ), ( \lambda P
++ Q ) (\lambda_{3}{5} ) \right) \\
+\\
+ & = & \left( \rule{0cm}{0.4cm} \lambda P \left(\Ev{\lambda_{1}{5}
+}\right) + Q (\lambda_{1}{5} ), \lambda P \left(\Ev{\lambda_{2}{5}
+}\right) + Q (\lambda_{2}{5} ), \lambda P \left(\Ev{\lambda_{3}{5}
+}\right) + Q (\lambda_{3}{5} ) \right) \\
+\\
+ & = & \lambda \left( \rule{0cm}{0.4cm} P \left(\Ev{\lambda_{1}{5}
+}\right), P \left(\Ev{\lambda_{2}{5} }\right), P
+\left(\Ev{\lambda_{3}{5} }\right) \right) + \left( \rule{0cm}{0.4cm} Q
+(\lambda_{1}{5} ), Q (\lambda_{2}{5} ), Q (\lambda_{3}{5} ) \right) \\
+\\
+ & = & \lambda \varphi (P) + \varphi (Q) 
+ \end{eqnarray*}
+
+ donc $\varphi$ est bien linéaire. \\
+
+ \item On résout l'équation $\varphi (P ) = 0$ : 
+ \begin{eqnarray*}
+ \varphi (P ) = 0 & \Longleftrightarrow & P \left(\Ev{ \lambda_{1}{5}
+}\right) = P \left(\Ev{ \lambda_{2}{5} }\right) = P \left(\Ev{
+\lambda_{3}{5} }\right) = 0 
+ \end{eqnarray*}
+
+ Or les $\lambda_{i}$ sont distincts et la fonction x $\mapsto x^{5}$
+est bijective, avec une dérivée $5 x^{4}$ strictement positive (sauf en
+0 où elle est nulle) donc elle est continue et strictement croissante.
+\\
+
+ On en déduit que les $\lambda_{i}{5}$ sont distincts, donc $P$ admet
+trois racines distinctes et il est de degré inférieur ou égal à 2 :
+c'est impossible à moins que $P$ soit nul donc : 
+ 
+\[
+ \varphi (P ) = 0 \Longleftrightarrow P = 0 
+\]
+
+ et $\ker ( \varphi ) = \{ 0 \}$. \\
+
+ \item Cette application est injective, et le théorème du rang assure
+que : 
+ 
+\[
+ \dim ( \im\varphi ) = \dim ( \R_{2} [X ] ) - \dim ( \ker \varphi ) = 3
+- 0 = 3 = \dim ( \R^{3} ) 
+\]
+
+ donc $\varphi$ est surjective, c'est donc une application linéaire
+bijective, soit un isomorphisme de $\R_{2} [X]$ dans $\R^{3}$. \\
+
+ \item $\varphi$ est bijective et $ (\lambda_{1}, \lambda_{2},
+\lambda_{3} ) \in \R^{3}$, ensemble d'arrivée de $\varphi$. On en
+déduit qu'il existe un unique polynôme $Q \in \R_{2} [X]$ tel que : 
+ 
+\[
+ \varphi (Q) = ( \lambda_{1}, \lambda_{2}, \lambda_{3} )
+\Longleftrightarrow \left\{ 
+\begin{array}{cl}
+ Q ( \lambda_{1}{5} ) = Q ( \lambda_{1} ) \\
+Q ( \lambda_{2}{5} ) = Q ( \lambda_{2} ) \\
+Q ( \lambda_{3}{5} ) = Q ( \lambda_{3} ) \\
+\end{array}
+\right. 
+\]
+
+ \item On sait que $A$ est semblable à $D$, donc il suffit de prouver
+que $T$ est annulateur de $D$. Or un polynôme en une matrice diagonale
+se calcule en calculant les images des chaque valeur diagonale par le
+polynôme, donc : 
+ 
+\[
+ T ( D ) = \begin{smatrix}
+T ( \lambda_{1} ) & 0 & 0 \\
+0 & T ( \lambda_{2} ) & 0 \\
+0 & 0 & T ( \lambda_{3} ) \\
+\end{smatrix}
+ = \begin{smatrix}
+Q ( \lambda_{1}{5} ) - \lambda_{1} & 0 & 0 \\
+0 & Q ( \lambda_{2}{5} ) - \lambda_{2} & 0 \\
+0 & 0 & Q ( \lambda_{3}{5} ) - \lambda_{3} \\
+\end{smatrix}
+ = 0 
+\]
+
+ d'après la définition de $Q$ dans la question 3d. \\
+
+ On en déduit que $T ( A ) = 0$, donc $T$ est annulateur de $A$. \\
+
+ \end{noliste}
+
+ \item Montrons la double-inclusion : si $N \in \mathcal{E}$, alors $A
+N = N A$ donc : 
+ 
+\[
+ A^{5} N = A A A A A N = A A A A N A = A A A N A A = \cdots ) N A A A A
+A = N A^{5} 
+\]
+
+ donc $N \in \mathcal{F}$, donc $\mathcal{E} \subset \mathcal{F}$. \\
+
+ Supposons à présente que $N \in \mathcal{F}$, donc que $ A^{5} N = N
+A^{5} $, et on veut prouver que $A N = N A$. \\
+
+ Or la question 3e montre que $T (A) = Q ( A^{5} ) - A = 0$, donc $A =
+Q ( A^{5})$. \\
+
+ Alors en posant $Q (X) = a + b X + c X^{2}$ (il est de degré inférieur
+ou égal à 2), montrons que $Q ( A^{5} ) N = N A Q (A^{5} )$ : 
+ \begin{eqnarray*}
+ Q ( A^{5} ) N & = & ( a I + b A^{5} + c ( A^{5})^{2} ) N = ( a I + b
+A^{5} + c A^{5} A^{5} ) N = a N + b A^{5} N + c A^{5} A^{5} N = a N + b
+N A^{5} + c A^{5} N A^{5} \\
+\\
+ & = & a N + b N A^{5} + c N A^{5} A^{5} = N ( a I + b A^{5} + c
+(A^{5})^{2} ) = N Q ( A^{5} ) 
+ \end{eqnarray*}
+
+ donc on obtient bien $A N = N A$, et $\mathcal{F} \subset
+\mathcal{E}$, et finalement par double-inclusion : 
+ 
+\[
+ \mathcal{E} = \mathcal{F} 
+\]
+
+ \end{noliste}
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $(X_{n})_{ n \in \N^* }$ une suite de variables aléatoires
+définies sur un espace probabilisé $(\Omega, \mathcal{A}, P)$,
+indépendantes et de même loi exponentielle de paramètre $\lambda > 0$.
+\\
+ Pour $n \in \N^*$, on pose : $M_{n} = \max ( X_{1}, \dots, X_{n})$ et
+on admet que $M_{n}$ est une variable aléatoire définie sur $(\Omega,
+\mathcal{A}, P)$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Le maximum de $n$ variables est inférieur ou égal à $x$ si et
+seulement si elles le sont toutes, donc pour tout $x \in \R$, par
+indépendance des $X_{i}$ :
+ 
+\[
+ \Ev{ M_{n} \leq x } = \bigcap\limits_{ i = 1 }{n} \Ev{X_{i} \leq x } \
+\ \ \text{ puis } \ \ \ F_{ M_{n} } (x) = [ F(x) ]^{n} 
+\]
+
+ où $F$ est la fonction de répartition commune des $X_{i}$ qui suivent
+la même loi. Cette fonction est continue sur $\R$ et de classe $C^{1}$
+sauf en 0 car $F$ l'est (les $X_{i}$ sont à densité), donc $M_{n}$
+admet une densité qu'on obtient en dérivant sa fonction de répartition
+sauf en 0, valeur arbitraire :
+ 
+\[
+ f_{ M_{n} } (x) = n f(x) [ F(x) ]^{n-1} = \left\{ 
+\begin{array}{cl}
+ 0 & \text{ si } x < 0 \\
+n \lambda e^{ - \lambda x } \left( 1 - e^{ - \lambda x } \right)^{ n-1
+} & \text{ si } x \geq 0 \\
+\end{array}
+\right. 
+\]
+
+
+%%% LALALA
+
+ \item Cette fonction est positive et continue sur $\R$ par opérations
+élémentaires, et on calcule $\dint{-\infty}{+ \infty} g(t) \ dt$ : 
+ \begin{eqnarray*}
+   \dint{a}{0} g(t) \ dt & = & \left[ e^{ - e^{ - t } } \right]_{a}{0} =
+   e^{ - e^{0} } - e^{ - e^{ - a } } = e^{ - 1 } - e^{ - e^{ - a } } \\
+   \\
+   & \xrightarrow[ a \rightarrow - \infty ]{} & e^{ - 1 } - 0 = e^{ - 1 }
+\end{eqnarray*}
+
+ d'une part, et d'autre part
+ \begin{eqnarray*}
+ \dint{0}{b} g(t) \ dt & = & \left[ e^{ - e^{ - t } } \right]_{0}{b} =
+e^{ - e^{ - b } } - e^{ - e^{0} } = e^{ - e^{ - b } } - e^{ - 1 } \\
+\\
+ & \xrightarrow[ b \rightarrow - \infty ]{} & 1 - e^{ - 1 } = 1 - e^{ -
+1 } \end{eqnarray*}
+
+ donc $\dint{-\infty}{+ \infty} g(t) \ dt$ et vaut 1, et $g$ est une
+densité de probabilité. \\
+
+ \item On cherche les fonctions de répartitions de $Y$ et $ Y_{n} =
+\lambda M_{n} - \ln n$, puis on montre que la seconde converge vers la
+première quand $n$ tend vers $ + \infty$, pour tout $x \in \R$ (car
+$F_{Y}$ est continue sur $\R$) : pour tout $x \in \R$,
+ \begin{eqnarray*}
+ \dint{a}{x} g(t) \ dt & = & \left[ e^{ - e^{ - t } } \right]_{a}{x} =
+e^{ - e^{ - x } } - e^{ - e^{ - a } } \\
+\\
+ & \xrightarrow[ a \rightarrow - \infty ]{} & e^{ - e^{ - x } } - 0 =
+e^{ - 1 } = \dint{- \infty}{x} g(t) \ dt = F_{Y} (x).\end{eqnarray*}
+
+ D'autre part, pour tout $x \in \R$, on a : 
+ 
+\[
+ \Ev{ Y_{n} \leq x } = ( \lambda M_{n} - \ln n \leq x ) = ( \lambda
+M_{n} \leq x + \ln n ) = \left( M_{n} \leq \frac{ x + \ln n }{ \lambda
+} \right) 
+\]
+
+ donc
+ 
+\[
+ F_{ Y_{n} } (x) = F_{ M_{n} } \left( \frac{ x + \ln n }{ \lambda }
+\right) = \left[ F \left( \frac{ x + \ln n }{ \lambda } \right)
+\right]^{n}. 
+\]
+
+ On cherche la limite quand $n$ tend vers $ + \infty$ de cette
+fonction, avec $x$ fixé. \\
+
+ Comme $ \frac{ x + \ln n }{ \lambda }$ tend vers $ + \infty$ lorsque
+$n$ tend vers $ + \infty$, pour $n$ assez grand, il est toujours
+positif donc on peut utiliser l'expression sur $[0 ; + \infty[$ de $F$
+: 
+ \begin{eqnarray*}
+ F_{ Y_{n} } (x) & = & \left( 1 - e^{ - \lambda \frac{ x + \ln n }{
+\lambda } } \right)^{n} = \left( 1 - e^{ - x - \ln n } \right)^{n} =
+e^{ n \ln \left( 1 - e^{ - x - \ln n } \right) } \end{eqnarray*}
+
+ et avec $- e^{ - x - \ln n }$ qui tend vers 0 en $ + \infty$, on peut
+appliquer le DL de $\ln (1 + u)$ : 
+ \begin{eqnarray*}
+ F_{ Y_{n} } (x) & = & e^{ n \ln \left( 1 - e^{ - x - \ln n } \right) }
+= e^{ n \left( - e^{ - x - \ln n } + o ( e^{ - x - \ln n } ) \right) }
+= e^{ - \frac{ n e^{ - x } }{ e^{ \ln n } } + o \left( \frac{ n e^{ - x
+} }{ e^{ \ln n } } \right) } = e^{ - e^{ - x } + o ( 1 ) } \\
+\\
+ & \xrightarrow[ n \rightarrow + \infty ]{} & e^{ - e^{ - x } } = F_{Y}
+(x) \end{eqnarray*}
+
+ et comme cette limite est vraie pour tout $x \in \R$, $(Y_{n})$
+converge en loi vers $Y$.
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Une série numérique de terme général $(u_{n})_{ n \geq n_{0}}$
+est dite convergente si la suite des sommes partielles $(S_{p})_{ p
+\geq n_{0}}$ définie par : 
+ 
+\[
+ \forall p \geq n_{0}, \ S_{p} = \Sum{n = n_{0}}{p} u_{n} 
+\]
+
+ est convergente. \\
+
+ \textit{Dans tout l'exercice}, $a$ \textit{est un réel strictement
+supérieur à 1}. \\
+
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item La fonction intégrée est continue et positive sur $[0 ; +
+\infty[$ donc l'intégrale n'est généralisée qu'en $ + \infty$, et les
+théorèmes de comparaison s'appliquent. \\
+
+ On cherche un équivalent en $ + \infty$ de la fonction intégrée : 
+ 
+\[
+ \frac{ 1 }{ (1 + t^{a} )^{n} } = \frac{ 1 }{ \left[ t^{a} \left( 1 +
+\frac{ 1 }{ t^{a} } \right) \right]^{n} } = \frac{ 1 }{ t^{ a n } }
+\times \frac{ 1 }{ \left( 1 + \frac{ 1 }{ t^{a} } \right)^{n} } 
+\]
+
+ et comme $a \geq 1$, la deuxième fraction tend vers 1 lorsque $t$ tend
+vers $ + \infty$, donc : 
+ 
+\[
+ \frac{ 1 }{ (1 + t^{a} )^{n} } \underset{ t \rightarrow + \infty }{
+\sim } \frac{ 1 }{ t^{ n a } } 
+\]
+
+ Les deux fonctions sont positives, et l'intégrale de la seconde
+converge en $ + \infty$ (Riemann, avec $n a > 1$ car $a >1$ et $n \geq
+1$) donc par théorème de comparaison, l'intégrale de la première
+converge en $ + \infty$, et $u_{n} (a) = \dint{0}{+ \infty} \frac{ 1 }{
+(1 + t^{a} )^{n} } \ dt $ existe bien. \\
+
+ \item La suite est clairement minorée par 0 (intégrale d'une fonction
+positive avec des bornes dans l'ordre croissant). On cherche le sens de
+variation de $(u_{n} (a) )_{n} \in \N^*$ : 
+ 
+\[
+ u_{n + 1} (a) - u_{n} (a) = \dint{0}{+ \infty} \frac{ 1 - (1 + t^{a} )
+}{ (1 + t^{a})^{n + 1} } \ dt = - \dint{0}{+ \infty} \frac{ t^{a} }{ (1
++ t^{a})^{n + 1} } \ dt \leq 0 
+\]
+
+ car l'intégrale est positive (fonction intégrée positive et bornes
+dans l'ordre croissant). \\
+
+ Le suite $(u_{n}(a))_{ n \geq 1 }$ est décroissante et minorée par 0
+donc elle est convergente. \\
+
+ \end{noliste}
+
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item On part du côté droit, plus compliqué : 
+ 
+\[
+ a n ( u_{n} (a) - u_{n + 1} (a) ) = a n \dint{0}{+ \infty} \frac{
+t^{a} }{ ( 1 + t^{a} )^{ n + 1 } } \ dt = n \dint{0}{+ \infty} t \times
+\frac{ a t^{ a-1 } }{ ( 1 + t^{a} )^{ n + 1 } } \ dt. 
+\]
+
+ On réalise une intégration par parties sur l'intégrale partielle en
+posant
+ 
+\[
+ u = t \ \ \ \text{ et } \ \ \ v = \frac{ 1 }{ - n ( 1 + t^{a} )^{n} } 
+\]
+
+ qui sont de classe $C^{1}$, avec
+ 
+\[
+ u' = 1 \ \ \ \text{ et } \ \ \ v' = \frac{ a t^{ a-1 } }{ ( 1 + t^{a}
+)^{ n + 1 } } 
+\]
+
+ donc on obtient : 
+ \begin{eqnarray*}
+ \dint{0}{M} t \times \frac{ a t^{ a-1 } }{ ( 1 + t^{a} )^{ n + 1 } } \
+dt & = & \left[ \ \frac{ t }{ - n ( 1 + t^{a} )^{n} } \right]_{0}{M} +
+\dint{0}{M} \frac{ 1 }{ n ( 1 + t^{a} )^{n} } \ dt \\
+\\
+ & = & - \frac{ M }{ n ( 1 + M^{a} )^{n} } + 0 + \frac{1}{n}
+\dint{0}{M} \frac{ 1 }{ ( 1 + t^{a} )^{n} } \ dt \\
+\\
+ & = & - \frac{ M }{ M^{ a n } \left( 1 + \frac{ 1 }{ M^{a} }
+\right)^{n} } + \frac{1}{n} \dint{0}{M} \frac{ 1 }{ ( 1 + t^{a} )^{n} }
+\ dt \\
+\\
+ & = & - \frac{ 1 }{ M^{ a n - 1 } \left( 1 + \frac{ 1 }{ M^{a} }
+\right)^{n} } + \frac{1}{n} \dint{0}{M} \frac{ 1 }{ ( 1 + t^{a} )^{n} }
+\ dt \\
+\\
+ & \xrightarrow[ M \rightarrow + \infty ]{} & 0 + \frac{ 1 }{ n } u_{n}
+(a) \end{eqnarray*}
+
+ donc on en déduit que : 
+ 
+\[
+ a n ( u_{n} (a) - u_{n + 1} (a) ) = n \dint{0}{+ \infty} t \times
+\frac{ a t^{ a-1 } }{ ( 1 + t^{a} )^{ n + 1 } } \ dt = n \times \frac{
+1 }{ n } u_{n} (a) = u_{n} (a). 
+\]
+
+ On isole alors $u_{n + 1} (a)$ dans cette égalité pour obtenir une
+relation de récurrence : 
+ 
+\[
+ u_{n} (a) - u_{n + 1} (a) = \frac{ u_{n} (a ) }{ a n } \ \ \text{ donc
+} \ \ u_{n + 1} (a) = \left( 1 - \frac{ 1 }{ a n } \right) u_{n} (a). 
+\]
+
+ On peut alors itérer cette relation : 
+ \begin{eqnarray*}
+ u_{n} (a) & = & \left( 1 - \frac{ 1 }{ a (n-1) } \right) u_{n-1} (a) =
+\left( 1 - \frac{ 1 }{ a (n-1) } \right) \left( 1 - \frac{ 1 }{ a (n-2)
+} \right) u_{n-2} (a) = \dots \\
+\\
+ & = & \left( 1 - \frac{ 1 }{ a (n-1) } \right) \left( 1 - \frac{ 1 }{
+a (n-2) } \right) \dots \left( 1 - \frac{ 1 }{ a \times 1 } \right)
+u_{1} (a) \\
+\\
+ & = & \left( \prod\limits_{i = 1}{n-1} \frac{ a i - 1 }{ a i } \right)
+u_{1} = \frac{ u_{1} }{ a^{n-1} (n-1)! } \prod\limits_{i = 1}{n-1} (a i
+- 1 ). \end{eqnarray*}
+
+ \item On se sert d'une égalité vue plus haut : 
+ 
+\[
+ \frac{ u_{n} (a) }{ a_{n} } = u_{n} (a) - u_{n + 1} (a) 
+\]
+
+ qu'on somme pour faire apparaître un télescopage sur la somme
+partielle : 
+ 
+\[
+ \Sum{n = 1}{p} \frac{ u_{n} (a) }{ a n } = \Sum{n = 1}{p} [ u_{n} (a)
+- u_{n + 1} (a) ] = u_{n} (1) - u_{p + 1} (a) \xrightarrow[ p
+\rightarrow + \infty ]{} u_{n} (1 ) - \dlim{ k \rightarrow + \infty }
+u_{k} (a) 
+\]
+
+ qui est une constante réelle puisque la suite $(u_{n}(a) )_{ n \geq
+1}$ est convergente. On en déduit que la série de terme général $
+\left( \frac{ u_{n} (a) }{ a n } \right) $ est convergente. \\
+
+ \item On sait que la suite $(u_{n} (a))_{ n \geq 1 }$ converge vers un
+réel positif $\ell$. Si $\ell \neq 0$, alors on en déduit que
+ 
+\[
+ \frac{ u_{n} (a) }{ a n } \underset{ + \infty }{ \sim } \frac{ \ell }{
+a } \times \frac{ 1 }{ n } 
+\]
+
+ et par théorème de comparaison, la série de terme général $\left(
+\frac{ u_{n}(a) }{ a n } \right)$ diverge. C'est absurde avec ce qu'on
+vient de montrer, donc la limite de $(u_{n} (a) )$ est forcément 0. \\
+
+ \end{noliste}
+
+ \item On pose pour tout $n \in \N^*$ : $w_{n} (a) = \ln \big( u_{n}
+(a) \big) + \frac{ \ln n }{ a }$. \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item On commence par calculer $w_{n + 1} (a) - w_{n} (a)$ : 
+ \begin{eqnarray*}
+ w_{n + 1} (a) - w_{n} (a) & = & \ln \big( u_{n + 1} (a) \big) + \frac{
+\ln (n + 1) }{ a } - \ln \big( u_{n} (a) \big) - \frac{ \ln n }{ a } =
+\ln \left( \frac{ u_{n + 1} (a) }{ u_{n} (a) } \right) + \frac{ \ln
+\left( \frac{ n + 1 }{ n } \right) }{ a } \\
+\\
+ & = & \ln \left( \frac{ \frac{ u_{1} }{ a^{n} n! } \prod\limits_{i =
+1}{n} (a i - 1 ) }{ \frac{ u_{1} }{ a^{n-1} (n-1)! } \prod\limits_{i =
+1}{n-1} (a i - 1 ) } \right) + \frac{ \ln \left( 1 + \frac{ 1 }{ n }
+\right) }{ a } \\
+\\
+ & = & \ln \left( \frac{ a n - 1 }{ a n } \right) + \frac{ \ln \left( 1
++ \frac{ 1 }{ n } \right) }{ a } = \ln \left( 1 - \frac{ 1 }{ a n }
+\right) + \frac{ \ln \left( 1 + \frac{ 1 }{ n } \right) }{ a }. \end{eqnarray*}
+
+ Il faut alors penser à réaliser un DL pour retirer le logarithme et
+faire apparaitre des séries de Riemann : 
+ \begin{eqnarray*}
+ w_{n + 1} (a) - w_{n} (a) & = & - \frac{ 1 }{ a n } + \frac{ 1 }{ 2 (a
+n)^{2} } + o \left( \frac{ 1 }{ n^{2} } \right) + \frac{ 1 }{ a }
+\left( \frac{ 1 }{ n } - \frac{ 1 }{ 2 n^{2} } + o \left( \frac{ 1 }{
+n^{2} } \right) \right) \\
+\\
+ & = & - \frac{ 1 }{ a n } + \frac{ 1 }{ 2 (a n)^{2} } + o \left(
+\frac{ 1 }{ n^{2} } \right) + \frac{ 1 }{ a n } - \frac{ 1 }{ 2 a n^{2}
+} + o \left( \frac{ 1 }{ n^{2} } \right) \\
+\\
+ & = & - \frac{ 1 }{ a n } + \frac{ 1 }{ 2 a^{2} n^{2} } + o \left(
+\frac{ 1 }{ n^{2} } \right) + \frac{ 1 }{ a n } - \frac{ 1 }{ 2 a n^{2}
+} + o \left( \frac{ 1 }{ n^{2} } \right) \\
+\\
+ & = & \frac{ 1 - a }{ 2 a^{2} n^{2} } + o \left( \frac{ 1 }{ n^{2} }
+\right) \\
+\\
+ & \sim & \frac{ 1 - a }{ 2 a^{2} n^{2} } \end{eqnarray*}
+
+ et comme l'équivalent est à termes négatifs (avec $a > 1$), au
+voisinage de l'infini, c'est aussi le cas de la suite de départ. Le
+théorème de comparaison s'applique et comme le deuxième terme général
+est celui d'une série convergente (Riemann, $2> 1$), la série de terme
+général $(w_{n + 1} (a) - w_{n} (a) )$ est convergente. \\
+
+ \item On calcule la somme partielle de la série précédente (qui est
+donc convergente) : 
+ 
+\[
+ \Sum{n = 1}{p} w_{n + 1} (a) - w_{n} (a) = w_{p + 1} (a) - w_{1} (a) 
+\]
+
+ qui converge si et seulement si la suite $(w_{p})$ converge, donc
+celle-ci converge. \\
+
+ On en déduit qu'il un réel $\ell (a)$ tel que : 
+ 
+\[
+ w_{n} (a) = \ln \big( u_{n} (a) \big) + \frac{ \ln n }{ a }
+\xrightarrow[ n \rightarrow + \infty ]{} K 
+\]
+
+ donc en isolant $u_{n}$ : 
+ 
+\[
+ \ln \big( u_{n} (a) \big) = w_{n} (a)- \frac{ \ln n }{ a } \ \ \text{
+puis } \ \ u_{n} (a) = e^{ w_{n} (a)- \frac{ \ln n }{ a } } = \frac{
+e^{ w_{n} (a) } }{ n^{ \frac{1}{a} } } 
+\]
+
+ et avec $w_{n}(a)$ qui tend vers $\ell (a)$, le numérateur tend vers
+$K (a) = e^{ \ell (a ) } \neq 0$ donc il lui est équivalent, et enfin :
+
+ 
+\[
+ u_{n} (a) \underset{ n \rightarrow + \infty }{ \sim } \frac{ K(a) }{
+n^{ \frac{1}{a} } }. 
+\]
+
+ \end{noliste}
+
+ \end{noliste}
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Les variables aléatoires sont définies sur un espace probabilisé
+$(\Omega, \mathcal{A}, P)$. \\
+ Soit $X$ une variable aléatoire qui suit la loi de Poisson de
+paramètre $\lambda > 0$ et soit $Y$ une variable aléatoire indépendante
+de $X$ telle que : $ Y ( \Omega ) = \{ 1 ; 2 \}, P \Ev{ Y = 1 } = P
+\Ev{ Y = 2 } = \frac{ 1 }{ 2 }$. On pose $Z = X Y$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+ \item Lorsque $Y = 1$, $Z = X Y$ prend toutes les valeurs de $\N$;
+lorsque $Y = 2$, $Z = X Y$ prend toutes les valeurs paires de $\N$.
+Finalement on obtient : 
+ 
+\[
+ Z ( \Omega ) = \N. 
+\]
+
+ Si $k = 2 j + 1$ est impair, il ne peut être atteint qu'avec $Y = 1$
+donc (avec $X$ et $Y$ indépendantes) : 
+ 
+\[
+ \forall j \in \N, \ ( Z = 2 j + 1 ) = (X = 2 j + 1 ) \cap \Ev{Y = 1 }
+\ \ \text{ et } \ \ P \left(\Ev{ Z = 2 j + 1 }\right) = \frac{ 1 }{ 2 }
+P \left(\Ev{ X = 2 j + 1 }\right) = \frac{ e^{ - \lambda } \lambda^{ 2j
++ 1 } }{ 2 (2j + 1)! } 
+\]
+
+ Si $k = 2j$ est pair, il peut être atteint avec $Y = 1$ ou 2, donc : 
+ 
+\[
+ \forall j \in \N, \ \Ev{ Z = 2 j } = [ \ \Ev{ X = 2j } \cap \Ev{ Y = 1
+} ] \cup [ \ \Ev{ X = j } \cap \Ev{ Y = 2 } ] 
+\]
+
+%%% LALALA
+
+ et
+ 
+\[
+ P \Ev{ Z = 2j } = \frac{ P \Ev{ X = 2j } + P \Ev{ X = j } }{ 2 } =
+\frac{ e^{ - \lambda } }{ 2 } \left( \frac{ \lambda^{ 2j } }{ (2j)! } +
+\frac{ \lambda^{j} }{ j! } \right). 
+\]
+
+ \item On décompose : 
+ 
+\[
+ (Z \text{ est paire } ) = \dcup{j = 0}{+ \infty} \Ev{Z = 2j } 
+\]
+
+ avec une union incompatible donc : 
+ \begin{eqnarray*}
+ P \left(\Ev{ Z \text{ est paire } }\right) & = & \Sum{j = 0}{+ \infty}
+\left[ \ \frac{ e^{ - \lambda } }{ 2 } \left( \frac{ \lambda^{ 2j } }{
+(2j)! } + \frac{ \lambda^{j} }{ j! } \right) \right] \\
+\\
+ & = & \frac{ e^{ - \lambda } }{ 2 } \left[ \ \Sum{j = 0}{+ \infty}
+\frac{ \lambda^{ 2j } }{ (2j)! } + \Sum{j = 0}{+ \infty} \frac{
+\lambda^{j} }{ j! } \right] \\
+\\
+ & = & \frac{ e^{ - \lambda } }{ 2 } \left[ \ \frac{ e^{ \lambda } +
+e^{ - \lambda } }{ 2 } + e^{ \lambda } \right] = \frac{ 1 + e^{ - 2
+\lambda } + 2 }{ 4 } = \frac{ 3 + e^{ - 2 \lambda } }{ 4 }. \end{eqnarray*}
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Une intégrale impropre en un point est dite convergente si
+l'intégrale partielle admet une limite finie. Si elle est impropre en
+ses deux bornes, elle est dit convergente si, en posant $c$ un point
+situé entre les deux bornes $a$ et $b$, les intégrales $\dint{a}{c} f$
+et $\dint{b}{c} f$ sont convergentes. \\
+
+ Enfin l'intégrale d'une fonction positive impropre au point $a$ est
+convergente lorsque : \begin{noliste}{$\sbullet$}
+
+ \item l'intégrale partielle est majorée (condition nécessaire et
+suffisante). \\
+
+ \item $f \leq g$ au voisinage du point $a$, et l'intégrale de $g$ est
+convergente (condition suffisante). \\
+
+ \item $ f = o(g)$ au voisinage du point $a$, où $g$ est positive et
+l'intégrale de $g$ est convergente (condition suffisante). \\
+
+ \item $ \sim g$ su voisinage du point $a$, où $g$ est positive et
+l'intégrale de $g$ est convergente (condition nécessaire et
+suffisante). \\
+
+ \end{noliste}
+
+ Enfin lorsque $f$ n'est pas de signe constant, on a un dernier critère
+: si l'intégrale est absolument convergente (avec possibilité
+d'utiliser les théorèmes de comparaison ci-dessus), elle est
+convergente (condition suffisante). \\
+
+ Soir $T$ une variable aléatoire définie sur un espace probabilisé
+$(\Omega, \mathcal{A}, P)$, suivant la loi normale centrée réduite. On
+note $\Phi$ et $\varphi$ respectivement, la fonction de répartition et
+une densité de $T$. \\
+
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item L'inégalité de Bienaymé-Chebychev donne, pour $X$ une variable
+aléatoire qui admet une variance et $a$ un nombre strictement positif :
+
+ 
+\[
+ P \left(\Ev{ | X - E ( X ) | > a }\right)\left(\Ev{ X }\right) | > a )
+\leq \frac{ V ( X ) }{ a^{2} }. 
+\]
+
+ En l'appliquant à la variable $X$, on obtient : 
+ 
+\[
+ P \left(\Ev{ | X - 0 | > a }\right) \leq \frac{ 1 }{ a^{2} } \ \
+\text{ donc } \ \ P \left(\Ev{ | X | > a }\right) \leq \frac{ 1 }{
+a^{2} }. 
+\]
+
+ On calcule alors cette probabilité en faisant apparaitre $\Phi$ : 
+ \begin{eqnarray*}
+ P \left(\Ev{ | X | > a }\right) & = & P \Ev{ X > a } + P \Ev{ X < - a
+} = 1 - P \Ev{ X \leq a } + P \Ev{ X \leq - a } = 1 - \Phi ( a) + \Phi
+( - a ) \\
+\\
+ & = & 1 - \Phi ( a ) + 1 - \Phi ( a ) = 2 [ 1 - \Phi ( a) ]. \end{eqnarray*}
+
+ On remplace $a$ par $x$ et on divise l'inégalité par $2 > 0$ : 
+ 
+\[
+ \frac{ P \left(\Ev{ | X | > a }\right) }{ 2 } = 1 - \Phi ( x) \leq
+\frac{ 1 }{ 2 x^{2} }. 
+\]
+
+ Enfin l'autre côté est immédiat, puisque : 
+ 
+\[
+ 1 - \Phi ( x) = 1 - P \Ev{ X \leq x } = P \Ev{ X > x } > 0. 
+\]
+
+ On obtient finalement : 
+ 
+\[
+ 0 < 1 - \Phi (x) < \frac{ 1 }{ x^{2} }. 
+\]
+
+ \item C'est l'intégrale d'une fonction positive, et la fonction est
+majorée par $\frac{1}{x^{2}}$. Enfin l'intégrale de $\frac{1}{x^{2}}$
+converge (Riemann avec $\alpha > 1$) en $ + \infty$, donc par théorème
+de comparaison $\dint{0}{+ \infty} (1 - \Phi (x) ) \ dx$ converge. \\
+
+ Pour calculer sa valeur, on revient à l'intégrale partielle, mais on
+ne sait pas primitiver $\Phi$ : on va donc procéder à une intégration
+par parties pour la faire disparaître : on pose
+ 
+\[
+ u = 1 - \Phi (x) \ \ \text{ et } \ \ v = x 
+\]
+
+ qui sont de classe $C^{1}$ ($\Phi$ car sa dérivée $\varphi$ est
+continue sur $\R$) avec : 
+ 
+\[
+ u' = - \varphi (x) \ \ \text{ et } \ \ v' = 1. 
+\]
+
+%%% LALALA
+
+ On obtient : 
+ 
+\[
+ \dint{0}{A} ( 1 - \Phi (x) ) \ dx = \left[ \ \rule{0cm}{0.4cm} x ( 1 -
+\Phi (x) ) \right]_{0}{A} + \dint{0}{A} x \varphi (x) \ dx = A ( 1 -
+\Phi ( A) ) + \dint{0}{A} x \varphi (x) \ dx. 
+\]
+
+ Pour la première partie, on se sert de la question a pour l'encadrer :
+
+ 
+\[
+ 0 \leq 1 - \varphi (A) \leq \frac{ 1 }{ A^{2} } \ \ \text{ donc } \ \
+0 \leq A ( 1 - \varphi (A ) ) \leq \frac{ 1 }{ A } 
+\]
+
+ et par théorème d'encadrement, avec les deux termes extrémaux qui
+tendent vers 0, 
+ 
+\[
+ \dlim{ A \rightarrow + \infty } A ( 1 - \varphi (A) ) = 0. 
+\]
+
+ L'autre terme est une intégrale qu'on sait calculer : 
+ 
+\[
+ \dint{0}{A} x \varphi (x) \ dx = \frac{ 1 }{ \sqrt{ 2 \pi } }
+\dint{0}{A} x e^{ - \frac{ x^{2} }{ 2 } } \ dx = \frac{ 1 }{ \sqrt{ 2
+\pi } } \left[ - e^{ - \frac{ x^{2} }{ 2 } } \right]_{0}{A} = \frac{ 1
+}{ \sqrt{ 2 \pi } } \left( 1 - e^{ - \frac{ A^{2} }{ 2 } } \right)
+\xrightarrow[ A \rightarrow + \infty ]{} \frac{ 1 }{ \sqrt{ 2 \pi } }. 
+\]
+
+ Enfin on en déduit que : 
+ 
+\[
+ \dint{0}{+ \infty} ( 1 - \Phi (x) ) \ dx = \frac{ 1 }{ \sqrt{ 2 \pi }
+}. 
+\]
+
+ \end{noliste}
+
+ \item On note $\varphi'$ la dérivée de $\varphi$. \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item On calcule sans difficulté : 
+ 
+\[
+ \varphi' (x) = \frac{ 1 }{ \sqrt{ 2 \pi } } \times \left( - x e^{ -
+\frac{ x^{2} }{ 2 } } \right) = - x \varphi (x). 
+\]
+
+ \item L'énoncé parle d'IPP, il faut donc faire apparaître une
+intégrale : c'est $\Phi$ qui va nous le permettre : 
+ 
+\[
+ 1 - \Phi (x) = 1 - P \Ev{ X \leq x } = P \Ev{ X > x } = \dint{x}{+
+\infty} \varphi (t) \ dt. 
+\]
+
+ Pour faire apparaitre des $\frac{ 1 }{ x }$, on pense à utiliser la
+question précédente en remplaçant $ \varphi (t) = - \frac{ 1 }{ t }
+\varphi' (t) $ : 
+ 
+\[
+ 1 - \Phi (x) = \dint{x}{ + \infty } - \frac{1}{t} \varphi' (t) \ dt. 
+\]
+
+ On intègre par parties avec : 
+ 
+\[
+ u = - \frac{ 1 }{ t } \ \ \text{ et } \ \ v = \varphi (t) 
+\]
+
+ de classe $C^{1}$, avec
+ 
+\[
+ u' = \frac{ 1 }{ t^{2} } \ \ \text{ et } \ \ v' = \varphi' (t). 
+\]
+
+ On obtient : 
+ 
+\[
+ \dint{x}{M} - \frac{1}{t} \varphi' (t) \ dt = - \frac{ \varphi (M ) }{
+M } + \frac{ \varphi (x) }{ x } - \dint{x}{M} \frac{ \varphi (t) }{
+t^{2} } \ dt. 
+\]
+
+ On fait tendre $M$ vers $ + \infty$, on obtient : 
+ 
+\[
+ 1 - \Phi (x) = 0 + \frac{ \varphi (x) }{ x } - \dint{x}{+ \infty}
+\frac{ \varphi (t) }{ t^{2} } \ dt. 
+\]
+
+ Enfin comme l'intégrale est positive (fonction positive et bornes dans
+l'ordre croissant) : 
+ 
+\[
+ 1 - \Phi ( x) \leq \frac{ \varphi (x) }{ x } \ \ \text{ donc } \ \
+\frac{ 1 - \Phi ( x ) }{ \varphi (x) } \leq \frac{ 1 }{ x }. 
+\]
+
+ Pour l'autre inégalité, on va de nouveau remplacer $\varphi (t) = -
+\frac{ 1 }{ t } \varphi' (t)$ : 
+ 
+\[
+ 1 - \Phi (x) = \frac{ \varphi (x) }{ x } + \dint{x}{+ \infty} \frac{
+\varphi' (t) }{ t^{3} } \ dt 
+\]
+
+ Une nouvelle IPP donne : 
+ 
+\[
+ u = \frac{ 1 }{ t^{3} } \ \ \text{ et } \ \ v = \varphi (t) 
+\]
+
+ de classe $C^{1}$, avec
+ 
+\[
+ u' = - \frac{ 3 }{ t^{2} } \ \ \text{ et } \ \ v' = \varphi' (t). 
+\]
+
+ On obtient : 
+ 
+\[
+ \dint{x}{M} \frac{1}{t^{3}} \varphi' (t) \ dt = \frac{ \varphi (M ) }{
+M^{3} } - \frac{ \varphi (x) }{ x^{3} } + \dint{x}{M} \frac{ 3\varphi
+(t) }{ t^{2} } \ dt. 
+\]
+
+ On passe à la limite et on obtient : 
+ 
+\[
+ 1 - \Phi (x) = \frac{ \varphi (x) }{ x } + 0 - \frac{ \varphi (x) }{
+x^{3} } + \dint{x}{+ \infty } \frac{ 3\varphi (t) }{ t^{2} } \ dt. 
+\]
+
+ De nouveau l'intégrale est positive et on obtient : 
+ 
+\[
+ 1 - \Phi (x) \geq \frac{ \varphi (x) }{ x } - \frac{ \varphi (x) }{
+x^{3} } \ \ \text{ donc } \ \ \frac{ 1 - \Phi (x) }{ \varphi (x) } \geq
+\frac{ 1 }{ x } - \frac{ 1 }{ x^{3} } 
+\]
+
+ et enfin : 
+ 
+\[
+ \frac{ 1 }{ x } - \frac{ 1 }{ x^{3} } \leq \frac{ 1 - \Phi ( x) }{
+\varphi (x) } \leq \frac{ 1 }{ x }. 
+\]
+
+ \item On multiplie par $x > 0$ et on obtient : 
+ 
+\[
+ 1 - \frac{ 1 }{ x^{2} } \leq \frac{ 1 - \Phi (x) }{ \frac{ \varphi (x)
+}{ x } } \leq 1 
+\]
+
+ et par théorème d'encadrement,
+ 
+\[
+ \dlim{ x \rightarrow + \infty } \frac{ 1 - \Phi (x) }{ \frac{ \varphi
+(x) }{ x } } = 1 \ \ \ \text{ donc } \ \ \ 1 - \Phi (x) \underset{ x
+\rightarrow + \infty }{ \sim } \frac{ \varphi (x) }{ x }. 
+\]
+
+ \end{noliste}
+
+
+%%% LALALA
+
+ \item On calcule cette probabilité à l'aide de $\Phi$ : 
+ 
+\[
+ P_{ [T > x ] } \left[ T > x + \frac{ a }{ x } \right] = \frac{ P
+\left[ \ \Ev{T > x } \cap \left( T > x + \frac{ a }{ x } \right)
+\right] }{ P \Ev{ T > x } } 
+\]
+
+ et comme $a > 0$ et $x > 0$, on a $x + \frac{ a }{ x } > x $ donc : 
+ 
+\[
+ \left( T > x + \frac{ a }{ x } \right) \subset \Ev{ T > x } \ \ \text{
+puis } \ \ \left( T > x + \frac{ a }{ x } \right) \cap \Ev{ T > x } =
+\left( T > x + \frac{ a }{ x } \right) 
+\]
+
+ et enfin : 
+ 
+\[
+ P_{ [T > x ] } \left[ T > x + \frac{ a }{ x } \right] = \frac{ P
+\left[ T > x + \frac{ a }{ x } \right] }{ P \Ev{ T > x } } = \frac{ 1 -
+\Phi \left[ x + \frac{ a }{ x } \right] }{ 1 - \Phi ( x ) }. 
+\]
+
+ Comme $x$ et $x + \frac{ a }{ x }$ tendent vers $ + \infty$, on peut
+utiliser l'équivalent de la question 3c au numérateur et au
+dénominateur : 
+ 
+\[
+ P_{ [T > x ] } \left[ T > x + \frac{ a }{ x } \right] \underset{ x
+\rightarrow + \infty }{ \sim } \frac{ \varphi \left[ x + \frac{ a }{ x
+} \right] \times x }{ \varphi (x) \times \left( x + \frac{ a }{ x }
+\right) } 
+\]
+
+ et on a de plus : 
+ 
+\[
+ \frac{ x }{ x + \frac{ a }{ x } } = \frac{ 1 }{ 1 + \frac{ a }{ x^{2}
+} } \xrightarrow[ x \rightarrow + \infty ]{} 1 
+\]
+
+ donc
+ 
+\[
+ P_{ [T > x ] } \left[ T > x + \frac{ a }{ x } \right] \underset{ x
+\rightarrow + \infty }{ \sim } \frac{ \varphi \left[ x + \frac{ a }{ x
+} \right] }{ \varphi (x) } 
+\]
+
+ Enfin on remplace $\varphi$ par son expression : 
+ 
+\[
+ P_{ [T > x ] } \left[ T > x + \frac{ a }{ x } \right] \underset{ x
+\rightarrow + \infty }{ \sim } \frac{ e^{ - \frac{ \left( x + \frac{ a
+}{ x } \right)^{2} }{2} } \times \sqrt{ 2 \pi } }{ \sqrt{ 2 \pi }
+\times e^{ - \frac{ x^{2} }{ 2 } } } = e^{ \frac{ - \left( x + \frac{ a
+}{ x } \right)^{2} + x^{2} }{2} }. 
+\]
+
+ Enfin remarque une identité remarquable : 
+ \begin{eqnarray*}
+ P_{ [T > x ] } \left[ T > x + \frac{ a }{ x } \right] & \underset{ x
+\rightarrow + \infty }{ \sim } & e^{ \frac{ \left( x + x + \frac{ a }{
+x } \right) \times \left( x - x - \frac{a }{ x } \right) }{2} } = e^{
+\frac{ - \frac{ a }{ x } \left( 2 x + \frac{ a }{ x } \right) }{2} } \\
+\\
+ & \underset{ x \rightarrow + \infty }{ \sim } & e^{ \frac{ - 2 a
+\left( 1 + \frac{ a }{ 2 x^{2} } \right) }{2} } \\
+\\
+ & \xrightarrow[ x \rightarrow + \infty ]{} & e^{ - a } = \frac{ 1 }{
+e^{a} }. \end{eqnarray*}
+
+ \end{noliste}
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $D$ la matrice définie par : $ D = \begin{smatrix}
+-1 & 0 \\
+0 & 4 \\
+\end{smatrix}
+$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item On résout sans difficulté, avec $A = \begin{smatrix}
+a & b \\
+c & d \\
+\end{smatrix}
+$ : 
+ 
+\[
+ A D = D A \Longleftrightarrow \begin{smatrix}
+- a & 4b \\
+- c & 4 d \\
+\end{smatrix}
+ = \begin{smatrix}
+- a & - b \\
+4 c & 4d \\
+\end{smatrix}
+\Longleftrightarrow \left\{ 
+\begin{array}{cc}
+ - a = - a & 4 b = - b \\
+-c = 4 c & 4 d = 4 d \\
+\end{array}
+\right. \Longleftrightarrow b = c = 0 \Longleftrightarrow A =
+\begin{smatrix}
+a & 0 \\
+0 & d \\
+\end{smatrix}
+\]
+
+ donc les solutions sont toutes les matrices diagonales. \\
+
+ \item Une telle matrice $M$ vérifie $M D = D M$, car : 
+ 
+\[
+ M D = M ( M^{3} - 2 M ) = M^{4} - 2 M^{2} = ( M^{3} - 2 M ) M = D M. 
+\]
+
+ La matrice est donc forcément solution de l'équation précédente, elle
+est diagonale. On cherche donc les solutions de l'équation posée parmi
+les matrices diagonales. Avec $M = \begin{smatrix}
+a & 0 \\
+0 & b \\
+\end{smatrix}
+$, on a : 
+ 
+\[
+ M^{3} - 2 M = D \Longleftrightarrow \begin{smatrix}
+a^{3} - 2 a & 0 \\
+0 & b^{3} - 2 b \\
+\end{smatrix}
+ = \begin{smatrix}
+-1 & 0 \\
+0 & 4 \\
+\end{smatrix}
+\Longleftrightarrow \left\{ 
+\begin{array}{c}
+ a^{3} - 2a = - 1 \\
+b^{3} - 2 b = 4 \\
+\end{array}
+\right. 
+\]
+
+ Il reste à résoudre ces deux équations du troisième degré, en trouvant
+à chaque fois une solution évidente pour factoriser : 
+ 
+\[
+ 1^{3} - 2 \times 1 + 1 = 0 
+\]
+
+ donc $a^{3} - 2 a + 1$ se factorise par $ a - 1$. Par une division
+euclidienne ou une identification, on obtient : 
+ 
+\[
+ a^{3} - 2a + 1 = ( a - 1 ) \left( a^{2} + a - 1 \right) 
+\]
+
+ et l'équation $a^{3} - 2a + 1 = 0$ a pour solution $a = 1$ et les
+solutions de $a^{2} - a + 1 = 0$, de discriminant $1 + 4 = 5 $, donc
+qui a pour solution : 
+ 
+\[
+ a = \frac{ 1 - \sqrt{ 5 } }{ 2 } \ \ \text{ et } \ \ a = \frac{ 1 +
+\sqrt{ 5 } }{ 2 }. 
+\]
+
+%%% LALALA
+
+ Enfin : 
+ 
+\[
+ a^{3} - 2 a + 1 = 0 \Longleftrightarrow a \in \left\{ 1 ; \frac{ 1 -
+\sqrt{ 5 } }{ 2 } ; \frac{ 1 + \sqrt{ 5 } }{ 2 } \right\}. 
+\]
+
+ De même
+ 
+\[
+ 2^{3} - 2 \times 2 - 4 = 8 - 4 - 4 = 0 
+\]
+
+ donc $b^{3} - 2 b - 4$ se factorise par $ b - 2$. Par une division
+euclidienne ou une identification, on obtient : 
+ 
+\[
+ b^{3} - 2b -4 = ( b - 2 ) \left( b^{2} + 2 b + 2 \right) 
+\]
+
+ et l'équation $b^{3} - 2b -4 = 0$ a pour solution $b = 2$ et les
+solutions de $b^{2} + 2 b + 2 = 0$, de discriminant $4 - 8 = -4 < 0$,
+donc qui n'a pas de solution. Enfin : 
+ 
+\[
+ b^{3} - 2 b - 4 = 0 \Longleftrightarrow b = 2. 
+\]
+
+ On en déduit que les seules matrices $M$ vérifiant $M^{3} - 2 M = D$
+sont 
+ 
+\[
+ M = \begin{smatrix}
+1 & 0 \\
+0 & 2 \\
+\end{smatrix}
+\ \, \ \ \begin{smatrix}
+\frac{ 1 - \sqrt{ 5 } }{ 2 } & 0 \\
+0 & 2 \\
+\end{smatrix}
+\ \, \ \ \begin{smatrix}
+\frac{ 1 - \sqrt{ 5 } }{ 2 } & 0 \\
+0 & 2 \\
+\end{smatrix}
+\]
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Deux matrices carrées d'ordre $n$ $A$ et $B$ sont semblables
+ s'il existe une matrice $P$ carrée d'ordre $n$ inversible telle
+ que :
+ 
+\[
+ A = P B P^{-1}. 
+\]
+ 
+ Soit $f$ un endomorphisme de $\R^{3}$ dont la matrice $A$ dans la
+ base canonique de $\R^{3}$ est donnée par :
+ 
+\[
+ A = \begin{smatrix}
+3 & 2 & -2 \\
+-1 & 0 & 1 \\
+1 & 1 & 0 \\
+\end{smatrix}
+\]
+ 
+ On note $\id$ l'endomorphisme identité de $\R^{3}$ et on pose :
+ $f^{2} = f \circ f$. \\
+
+ \item 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item On passe par les matrices dans la base canonique
+ $\mathcal{B}$, on calcule :
+ \begin{eqnarray*}
+ Mat_{ \mathcal{B} } ( 2 f - f^{2} ) & = & 2 Mat_{ \mathcal{B} } (f) -
+[ Mat_{ \mathcal{B} } (f) ]^{2} = 2 A - A^{2} = \begin{smatrix}
+6 & 4 & -4 \\
+-2 & 0 & 2 \\
+2 & 2 & 0 \\
+\end{smatrix}
+- \begin{smatrix}
+5 & 4 & -4 \\
+-2 & - 1 & 2 \\
+2 & 2 & -1 \\
+\end{smatrix}
+\\
+\\
+ & = & \begin{smatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{smatrix}
+ = I = Mat_{ \mathcal{B} } ( \id ) \end{eqnarray*} 
+ donc on obtient bien : 
+ 
+\[
+ 2 f - f^{2} = \id.
+\]
+ 
+ \item On sait que $f$ est un endormorphisme, et de plus :
+ 
+\[
+ 2 f - f^{2} = f \circ ( 2 \id - f ) = \id 
+\]
+ 
+ donc $f$ est bijective et sa réciproque est $2 f - \id$. On en
+ déduit que $f$ est un automorphisme et que son automorphisme
+ réciproque est
+ 
+\[
+ f^{-1} = 2 f - \id. 
+\]
+ 
+ \item On déduit également de la relation de la question 2a que :
+ 
+\[
+ f^{2} - 2 f + \id = 0 
+\]
+ 
+ donc le polynôme $X^{2} - 2 X + 1 = ( X - 1 )^{2} $ est annulateur
+ de $f$. Sa seule racine est 1, donc c'est la seule valeur
+ propre possible de $f$. \\
+ On vérifie que 1 est valeur propre, il faut montrer que $f -
+ \id$ n'est pas bijective. On passe par la matrice :
+ 
+\[
+ Mat_{ \mathcal{B} } ( f - \id ) = Mat_{ \mathcal{B} } (f) -
+ Mat_{ \mathcal{B} } (\id ) = A - I = \begin{smatrix}
+2 & 2 & -2
+ \\
+-1 & -1 & 1 \\
+1 & 1 & -1 \\
+\end{smatrix}
+\]
+ qui n'est pas inversible (les deux première colonnes sont
+ égales) donc $f - \id$ n'est pas bijective. On en déduit que 1
+ est bien valeur propre de $f$, et enfin :
+ 
+\[
+ \spc ( f ) = \{ 1 \}.
+\]
+ Supposons que $f$ est diagonalisable, alors $A$ l'est aussi et
+ elle est semblable à une matrice diagonale ne comportant que
+ les valeurs propres de $A$ sur la diagonale. Comme $\spc ( f )
+ = \spc ( A ) = \{ 1 \}$, on a alors :
+ 
+\[
+ A = P I P^{-1} = I
+\]
+ qui est absurde, donc $f$ n'est pas diagonalisable. 
+
+ \item On peut résoudre sans difficulté la système $(A - I ) X = 
+ 0$, ou bien procéder astucieusement par l'image : on remarque
+ que les trois colonnes de $A - I$ sont colinéaires, donc $\im
+ (A - I )$ est de dimension 1, puis $\ker ( A - I )$ et $\ker (
+ f - \id )$ sont de dimension 2. De plus on remarque que :
+ 
+\[
+ C_{1} = C_{2} = - C_{3} \ \ \text{ donc } \ \ (f - \id) ( e_{1} ) = 
+ (f-\id) (e_{2} ) = - (f-\id ) ( e_{3} )
+\]
+ 
+ et donc : 
+ 
+\[
+ (f - \id ) ( e_{1} - e_{2} ) = ( f - \id) (e_{1} + e_{3} ) = 0
+\]
+
+ donc la famille $[ (1,-1,0), (1,0,1) ]$ est une famille de
+ $E_{1} (f)$, libre (deux vecteurs non colinéaires) et dont le
+ cardinal est égal à la dimension de $E_{1} (f)$, c'en est une
+ base et :
+ 
+\[
+ E_{1} (f) = \Vect{(1,-1,0), (1,0,1)}
+\]
+
+ \end{noliste}
+
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+
+
+%%% LALALA
+
+ \item Plusieurs approches sont possibles. Comme $A$ n'est pas
+diagonalisable, on ne peut utiliser la diagonalisation. Sans autre
+indication, l'approche naturelle est de calculer les premières
+puissances pour essayer de conjecturer une formule à prouver ensuite
+par récurrence : 
+ 
+\[
+ A^{0} = I = \begin{smatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{smatrix}
+\ \, \ \ A = \begin{smatrix}
+3 & 2 & -2 \\
+-1 & 0 & 1 \\
+1 & 1 & 0 \\
+\end{smatrix}
+\ \, \ \ A^{2} = \begin{smatrix}
+5 & 4 & -4 \\
+-2 & - 1 & 2 \\
+2 & 2 & -1 \\
+\end{smatrix}
+\ \, \ \ A^{3} = \begin{smatrix}
+7 & 6 & -6 \\
+-3 & -2 & 3 \\
+3 & 3 & -2 \\
+\end{smatrix}
+\]
+
+ ce qui permet de conjecturer : 
+ 
+\[
+ A^{n} = \begin{smatrix}
+1 + 2n & 2n & - 2n \\
+-n & 1 - n & n \\
+n & n & 1 - n \\
+\end{smatrix}
+ = I + n \begin{smatrix}
+2 & 2 & -2 \\
+-1 & -1 & 1 \\
+1 & 1 & -1 \\
+\end{smatrix}
+ = I + n ( A - I ) 
+\]
+
+ qu'on prouve ensuite par récurrence sur $n$ (sans difficulté). \\
+
+ Une autre possibilité était de se servir de la relation $A^{2} = 2 A -
+I$ pour conjecturer une écriture : 
+ 
+\[
+ A^{n} = u_{n} A + v_{n} I 
+\]
+
+ qu'on prouve par récurrence sur $n$, en obtenant au passage des
+relations de récurrences sur $u_{n}$ et $v_{n}$ : 
+ 
+\[
+ A^{n + 1} = A A^{n} = A ( u_{n} A + v_{n} I ) = u_{n} A^{2} + v_{n} A
+= u_{n} ( 2 A - I ) + v_{n} A = ( 2u_{n} + v_{n} ) A - u_{n} I 
+\]
+
+ donc $u_{n + 1} = 2 u_{n} + v_{n}$ et $v_{n + 1} = -u_{n}$ qu'on
+désimbriquent en passant à des relations de récurrence double : 
+ 
+\[
+ u_{n + 2} = 2 u_{n + 1} + v_{n + 1} = 2 u_{n + 1} - u_{n} \ \ \text{
+et } \ \ v_{n + 2} = - u_{n + 1} = - 2 u_{n} - v_{n} = 2 v_{n + 1} -
+v_{n} 
+\]
+
+ puis on cherche les valeurs de $u_{n}$ et $v_{n}$ avec leurs premiers
+termes et la méthode classique sur les suites récurrentes linéaires
+doubles. \\
+
+ \item Il existe plusieurs méthodes pour obtenir les puissances
+négatives : on peut calculer $A^{-1}$ puis calculer ses puissances par
+récurrence (soit ne refaisant le travail de conjecture, soit en
+reprenant la formule précédente qui est celle qu'on est censé tester).
+Mais la méthode la plus habile est de remarquer que pour tout $n \in
+\N$,
+ 
+\[
+ A^{ - n } = ( A^{n} )^{ - 1 } 
+\]
+
+ et que les puissances négatives sont donc les inverses des puissances
+positives. Plutôt que de calculer l'inverse avec Gauss-Jordan (pénible
+avec des coefficients qui dépendent de $n$), on se sert de la
+connaissance de $A^{n}$ pour tester si la formule demandée fonctionne :
+pour tout $n \in \N$,
+ 
+\[
+ A^{n} \times \left[ \ \rule{0cm}{0.4cm} I -n ( A - I ) \right] =
+\left[ \ \rule{0cm}{0.4cm} I + n ( A - I ) \right] \times \left[ \
+\rule{0cm}{0.4cm} I -n ( A - I ) \right] = I - n ( A - I ) + n ( A - I
+) - n^{2} ( A - I )^{2} = I 
+\]
+
+ car on a vu que $(A-I)^{2} = A^{2} - 2 A + I = 0$, on en déduit que
+que pour tout $n \in \N$, 
+ 
+\[
+ A^{-n} = ( A^{n} )^{-1} = I - n ( A - I ) 
+\]
+
+ donc pour tout $n$ négatif, on obtient bien : 
+ 
+\[
+ A^{n} = A^{ - (-n) } = I - (-n) ( A - I ) = I + n ( A - I ) 
+\]
+
+ et la formule se généralise pour les entiers négatifs, donc elle est
+valable pour tout entier relatif. \\
+
+ \end{noliste}
+
+ \item Il faut donc obtenir $(u,v,w)$ tels que : 
+ 
+\[
+ f ( u ) = u \ \, \\
+f ( v ) = v \ \, \ \ f ( w ) = v + w. 
+\]
+
+ On en déduit que $u$ et $v$ sont des vecteurs propres de $f$ associés
+à la valeur propre 1, ils doivent être pris dans $E_{1} (f)$, on
+choisit donc : 
+ 
+\[
+ u = ( 1, -1, 0 ) \ \ \text{ et } \ \ v = ( 1, 0, 1 ) 
+\]
+
+ On cherche ensuite $w$ sous la forme $w = (a,b,c)$ et on résout : 
+ 
+\[
+ A W = V + W \Longleftrightarrow \left\{ 
+\begin{array}{c}
+ 3 a + 2 b - 2 c = 1 + a \\
+- a + c = b \\
+a + b = 1 + c \\
+\end{array}
+\right. \Longleftrightarrow \left\{ 
+\begin{array}{c}
+ 2 a + 2 b - 2 c = 1 \\
+- a - b + c = 0 \\
+a + b - c = 1 \\
+\end{array}
+\right. 
+\]
+
+ qu'on résout avec les pivots $L_{2} \leftarrow 2 L_{2} + L_{1}$,
+$L_{3} \leftarrow 2 L_{3} - L_{1}$ : 
+ 
+\[
+ A W = V + W \Longleftrightarrow \left\{ 
+\begin{array}{c}
+ 2 a + 2 b - 2 c = 1 \\
+0 = 1 \\
+0 = 1 \\
+\end{array}
+\right. 
+\]
+
+ qui est absurde. On peut essayer en échangeant l'ordre des vecteurs
+$u$ et $v$, mais cela échoue encore. Il faut donc remplacer $v$ par un
+autre vecteur propre associé à 1, donc sous la forme : 
+ 
+\[
+ v = x (1,-1,0) + y (1,0,1) = (x + y, -x, y ) 
+\]
+
+ et on résout de même l'équation : 
+ 
+\[
+ A W = V + W \Longleftrightarrow \left\{ 
+\begin{array}{c}
+ 3 a + 2 b - 2 c = x + y + a \\
+- a + c = -x + b \\
+a + b = y + c \\
+\end{array}
+\right. \Longleftrightarrow \left\{ 
+\begin{array}{c}
+ 2 a + 2 b - 2 c = x + y \\
+- a - b + c = -x \\
+a + b - c = y \\
+\end{array}
+\right. 
+\]
+
+ qu'on résout avec les pivots $L_{2} \leftarrow 2 L_{2} + L_{1}$,
+$L_{3} \leftarrow 2 L_{3} - L_{1}$ : 
+ 
+\[
+ A W = V + W \Longleftrightarrow \left\{ 
+\begin{array}{c}
+ 2 a + 2 b - 2 c = x + y \\
+0 = y-x \\
+0 = y-x\\
+\end{array}
+\right. 
+\]
+
+ qui a des solutions à condition que $y = x$. On prend donc par exemple
+$x = y = 1$, donc (on récapitule) : 
+ 
+\[
+ u = (1,-1,0) \ \, \ \ v = (2, -1, 1 ) 
+\]
+
+ et enfin $w = (a,b,c)$ avec 
+ 
+\[
+ 2 a + 2 b - 2c = 2 \Longleftrightarrow a + b - c = 1
+\Longleftrightarrow a = 1 + c - b 
+\]
+
+ et on peut prendre par exemple $b = c = 0$ et $a = 1$, qui donnent $w
+= (1,0,0)$. On peut alors vérifier que :
+ 
+\[
+ a u + b v + x w = 0 \Longleftrightarrow \left\{ 
+\begin{array}{c}
+ a + 2 b + c = 0 \\
+- a - b = 0 \\
+b = 0 \\
+\end{array}
+\right. \Longleftrightarrow a = b = c = 0 
+\]
+
+ donc la famille est $(u,v,w)$ est libre, et son cardinal est égal à la
+dimension de $\R^{3}$, c'est bien une base de $\R^{3}$, et on calcule
+la matrice de $f$ dans cette base : 
+ 
+\[
+ A U = \begin{smatrix}
+1 \\
+-1 \\
+0 \\
+\end{smatrix}
+ = U \ \, \ \ A V = \begin{smatrix}
+2 \\
+-1 \\
+1 \\
+\end{smatrix}
+ = V \ \, \ \ A W = \begin{smatrix}
+3 \\
+-1 \\
+1 \\
+\end{smatrix}
+ = \begin{smatrix}
+2 \\
+-1 \\
+1 \\
+\end{smatrix}
+ + \begin{smatrix}
+1 \\
+0 \\
+0 \\
+\end{smatrix}
+ = V + W 
+\]
+
+ donc on a : 
+ 
+\[
+ f ( u ) = u \ \, \ \ f ( v ) = v \ \, \ \ f w ) = v + w \ \ \text{ et
+enfin } \ \ C = Mat_{ (u,v,w) } (f) = \begin{smatrix}
+1 & 0 & 0 \\
+0 & 1 & 1 \\
+0 & 0 & 1 \\
+\end{smatrix}. 
+\]
+
+ \end{noliste}
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $(X_{n})_{ n \in \N^* }$ une suite de variables aléatoires
+réelles indépendantes définies sur le même espace probabilisé $(\Omega,
+\mathcal{A}, P)$ et suivant toutes la loi uniforme sur l'intervalle
+$[0;1]$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Le plus grand des $X_{i}$ est inférieur ou égal à $x$ si et
+seulement si ils le sont tous, donc pour tout $x \in \R$,
+ 
+\[
+ \Ev{Y_{k} \leq x } = \bigcap\limits_{i = 1}{k} \Ev{ X_{i} \leq x } 
+\]
+
+ et par indépendance des $X_{i}$, on obtient : 
+ 
+\[
+ F_{ Y_{k} } (x) = \prod\limits_{i = 1}{k} F_{ X_{i} } (x) = [ F_{
+X_{1} } (x) ]^{n} 
+\]
+
+ car les $X_{i}$ suivent toutes les même loi. \\
+
+ De plus $X_{1}$ est à densité, donc elle est continue sur $\R$, et
+elle est de classe $C^{1}$ sauf en 0 et 1, donc par opérations
+élémentaires (composition avec la puissante $n$-ème qui est
+$C^{\infty}$), c'est aussi de cas de $F_{ Y_{k} }$, et $Y_{k}$ est à
+densité. \\
+
+ Enfin on obtient une densité de $Y_{k}$ en dérivant $F_{ Y_{k} }$ sauf
+en 0 et 1, valeurs arbitraires : 
+ 
+\[
+ f_{ Y_{k} } (x) = k f_{ X_{1} } (x) [ F_{ X_{1} } (x) ]^{k-1} =
+\left\{ 
+\begin{array}{cl}
+ 0 & \text{ si } x < 0 \\
+k x^{k-1} & \text{ si } 0 \leq x \leq 1 \\
+0 & \text{ si } x > 1 \\
+\end{array}
+\right. 
+\]
+
+ \item On commence par la fonction de répartition : pour tout $x \in
+\R$, 
+ 
+\[
+ \Ev{Z_{k} \leq x } = ( - Y_{k} \leq x ) = \Ev{ Y_{k} \geq - x } 
+\]
+
+ donc (avec $Y_{k}$ à densité donc $\Prob\left(\Ev{\Ev{ Y_{k} <
+}}\right) = P \Ev{ Y_{k} \leq x }$) :
+ 
+\[
+ F_{ Z_{k} } (x ) = 1 - P \Ev{ Y_{k} < - x} = 1 - P \Ev{ Y_{k} \leq - x
+} = 1 - F_{ Y_{k} } (-x) = 1 - \left\{ 
+\begin{array}{cl}
+ 0 & \text{ si } -x < 0 \\
+(-x)^{k} & \text{ si } 0 \leq -x \leq 1 \\
+1 & \text{ si } -x > 1 \\
+\end{array}
+\right. 
+\]
+
+ et en résolvant les conditions : 
+ 
+\[
+ F_{ Z_{k} } (x) = \left\{ 
+\begin{array}{cl}
+ 1 & \text{ si } x > 0 \\
+1 - (-x)^{k} & \text{ si } -1 \leq x \leq 0 \\
+0 & \text{ si } x < - 1 \\
+\end{array}
+\right. 
+\]
+
+ Enfin cette fonction est continue sur $\R$ et de classe $C^{1}$ sauf
+en $-1$ et 0 par opérations élémentaires (avec l'expression $ 1 - F_{
+Y_{k} } (x)$), donc $Z_{k}$ est à densité et une densité est donnée par
+(avec des valeurs arbitraires en $-1$ et 0) : 
+ 
+\[
+ f_{ Z_{k} } (x) = \left\{ 
+\begin{array}{cl}
+ 0 & \text{ si } x > 0 \\
+k (-x)^{k-1} & \text{ si } -1 \leq x \leq 0 \\
+0 & \text{ si } x < - 1 \\
+\end{array}
+\right. 
+\]
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Soit $E$ un espace vectoriel de dimension finie, alors un
+endomorphisme de $E$ est diagonalisable si et seulement si la somme des
+dimensions de ses sous-espaces propres est égale à $ \dim E$.
+
+ On considère la matrice $A \in \mathcal{M}_{2} (\R)$ définie par $A =
+\begin{smatrix}
+2 & 4 \\
+1 & 2 \\
+\end{smatrix}
+$. \\
+
+ \item On note $\mathcal{M}_{2, 1} ( \R )$ l'espace vectoriel des
+matrices à 2 lignes et 1 colonne à coefficients réels. \\
+ Soit $u$ l'endomorphisme de $\mathcal{M}_{2,1} (\R)$ défini par : pour
+tout $X \in \mathcal{M}_{2,1} (\R)$, $u(X) = A X$. \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item On commence par $\im(u)$, on a : 
+ 
+\[
+\im(u) = \im(A) = \Vect { \begin{smatrix}
+    2 \\
+    1 \\
+\end{smatrix}, \begin{smatrix}
+4 \\
+2 \\
+\end{smatrix}
+} = \Vect
+ { \begin{smatrix}
+2 \\
+1 \\
+\end{smatrix}
+}
+\]
+
+ car les deux colonnes sont colinéaires, puis la famille génératrice
+obtenue est libre (1 vecteur non nul) donc c'est une base de $\im(u)$, et
+$\dim ( \im(u) ) = 1$. On en déduit par théorème du rang, avec $\dim (
+\mathcal{M}_{2,1} (\R) ) = 2$, que $\dim( \ker u ) = 1$. \\
+
+ On cherche alors un vecteur non nul de $\ker u$ : il constituera une
+famille libre (1 vecteur non nul) de $\ker u$, avec le bon cardinal,
+c'en sera donc une base, et donc une famille génératrice. Or on a vu
+que : 
+ 
+\[
+ C_{2} = 2 C_{1} \ \ \text{ donc } \ \ u ( e_{2} ) = 2 u( e_{1} ) \ \
+\text{ et enfin } \ \ u ( e_{2} - 2 e_{1} ) = 0 
+\]
+
+ Avec $e_{2} - 2 e_{1} = \begin{smatrix}
+-2 \\
+1 \\
+\end{smatrix}
+\neq 0$,
+ c'est un vecteur non nul de $\ker u$, donc libre, donc c'en est un
+ base car $\dim ( \ker u ) = 1$, et enfin on obtient :
+ 
+\[
+ \ker u = \Vect { \begin{smatrix}
+-2 \\
+1 \\
+\end{smatrix}
+}. 
+\]
+
+ \item On pourrait chercher (c'est un peu lourd mais faisable en un
+temps raisonnable avec une matrice d'ordre 2) les valeurs propres de
+$u$, puis chercher les sous-espaces propres associés. Mais on va ici
+mener une méthode plus originale et beaucoup plus efficace, qui ne
+fonctionne qu'avec les matrices de rang 1. \\
+
+ On a déjà vu que 0 est valeur propre, et que le sous-espace propre
+associé est de dimension 1. \\
+
+ Soit alors $\lambda$ une valeur propre non nulle et $ x$ un vecteur
+propre associé de $u$; montrons que $x \in \im(u)$. En effet, on a
+$\lambda \neq 0$ et : 
+ 
+\[
+ u (x) = \lambda x \ \ \text{ donc } \ \ x = \frac{ 1 }{ \lambda } u
+(x) \ \ \text{ et enfin } \ \ x = u \left( \frac{ 1 }{ \lambda } x
+\right) 
+\]
+
+ donc $x$ est l'image d'un vecteur par $u$, c'est donc un vecteur de
+$\im(u)$. On en déduit alors que : 
+ 
+\[
+ x \in \im(u) = \Vect { \begin{smatrix}
+2 \\
+1 \\
+\end{smatrix}
+} \ \ \text{ donc } \ \ \exists \mu \in \R, \text{ tq } x = \mu
+\begin{smatrix}
+2 \\
+1 \\
+\end{smatrix}. 
+\]
+
+ On calcule alors $u(x)$ : 
+ 
+\[
+ u (x) = A \mu \begin{smatrix}
+2 \\
+1 \\
+\end{smatrix}
+ = \mu \begin{smatrix}
+8 \\
+4 \\
+\end{smatrix}
+ = 4 { \mu \begin{smatrix}
+2 \\
+1 \\
+\end{smatrix}
+} = 4 x. 
+\]
+
+ On en déduit que 4 est valeur propre de $u$, et que le sous-espace
+propre associé est $ \Vect { \begin{smatrix}
+2 \\
+1 \\
+\end{smatrix}
+} = \im(u)$, de dimension 1 : la somme des dimensions des sous-espaces
+propres de $u$ vaut 2, et $u$ est diagonalisable. \\
+
+ Remarque : si l'exercice était plus théorique, on aurait pu s'en
+sortir sans calculer $u ( x )$ : en effet on prend $a$ une base de
+$\im(u)$, on a alors : 
+ 
+\[
+ u (a) \in \im(u) = \Vect{ a } \Longleftrightarrow \exists \lambda \in
+\R, \text{ tq } u (a) = \lambda a. 
+\]
+
+ On en déduit que $a$ est vecteur propre de $u$, et comme $a \notin
+\ker u$, la valeur propre associée ne peut pas être 0. On en déduit
+qu'il existe une autre valeur propre, et que la dimension du
+sous-espace propre associé est 1 (on a vu que tous les vecteurs propres
+associés sont colinéaires à $a$, donc cet espace propre est
+$\Vect{a}$), et la somme des dimensions des sous-espaces propres de $u$
+vaut 2, $u$ est diagonalisable. \\
+
+ \item On a vu que $u$, donc $A$, est diagonalisable. On obtient une
+base de vecteurs propres en concaténant les bases des sous-espaces
+propres, et ne posant : 
+ 
+\[
+ P \begin{smatrix}
+-2 & 2 \\
+1 & 1 \\
+\end{smatrix}
+\ \ \ \text{ et } \ \ \ D = \begin{smatrix}
+0 & 0 \\
+0 & 4 \\
+\end{smatrix}
+\]
+
+ on a $A = P D P^{-1}$. On en déduit immédiatement que pour tout $n \in
+\N^*$ ($n = 0$ doit être écarté car $0^{0} = 1$ donne une valeur
+différente de$0^{n} = 0$ pour $n \geq 1$), on a : 
+ 
+\[
+ A^{n} = P D^{n} P^{-1} = P \begin{smatrix}
+0 & 0 \\
+0 & 4^{n} \\
+\end{smatrix}
+P^{-1}. 
+\]
+
+ On pourrait calculer $P^{-1}$ pour conclure, mais on peut remarquer
+astucieusement que $D^{n}$ est colinéaire à $D$ et faire apparaître $D$
+: 
+ 
+\[
+ A^{n} = P \left[ 4^{n-1} \begin{smatrix}
+0 & 0 \\
+0 & 4 \\
+\end{smatrix}
+\right] P^{-1} = 4^{n-1} P D P^{-1} = 4^{n-1} A. 
+\]
+
+ \end{noliste}
+
+ \item Soit $v$ l'endomorphisme de $\mathcal{M}_{2} (\R)$ défini par :
+pour tout $M \in \mathcal{M}_{2} (\R)$, $v(M) = A M$. \\
+ On note $\mathcal{B} = (E_{1,1}, E_{1,2}, E_{2,1}, E_{2,2})$ la base
+canonique de $\mathcal{M}_{2} (\R)$ et on rappelle que : 
+ 
+\[
+ E_{ 1,1 } = \begin{smatrix}
+1 & 0 \\
+0 & 0 \\
+\end{smatrix}
+\, \ E_{ 1,2 } = \begin{smatrix}
+0 & 1 \\
+0 & 0 \\
+\end{smatrix}
+\, \ E_{ 2,1 } = \begin{smatrix}
+0 & 0 \\
+1 & 0 \\
+\end{smatrix}
+\, \ E_{ 2,2 } = \begin{smatrix}
+0 & 0 \\
+0 & 1 \\
+\end{smatrix}
+\]
+
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+ \item On calcule sans difficulté : 
+ 
+\[
+ v ( E_{1,1} ) = A E_{1,1} = \begin{smatrix}
+2 & 0 \\
+1 & 0 \\
+\end{smatrix}
+ = 2 E_{1,1} + E_{2,1} \ \, \ \ v ( E_{1,2} ) = A E_{1,2} =
+\begin{smatrix}
+0 & 2 \\
+0 & 1 \\
+\end{smatrix}
+ = 2 E_{1,2} + E_{2,2}, 
+\]
+
+ 
+\[
+ v ( E_{2,1} ) = A E_{2,1} = \begin{smatrix}
+4 & 0 \\
+2 & 0 \\
+\end{smatrix}
+ = 4 E_{1,1} + 2 E_{2,1} \ \, \ \ v ( E_{2,2} ) = A E_{2,2} =
+\begin{smatrix}
+0 & 4 \\
+0 & 2 \\
+\end{smatrix}
+ = 4 E_{1,2} + 2 E_{2,2} 
+\]
+
+ donc : 
+ 
+\[
+ V = \begin{smatrix}
+2 & 0 & 4 & 0 \\
+0 & 2 & 0 & 4 \\
+1 & 0 & 2 & 0 \\
+0 & 1 & 0 & 2 \\
+\end{smatrix}. 
+\]
+
+ \item En retirant les deux dernières colonnes égales aux deux
+premières, on obtient : 
+ 
+\[
+\im(V) = \Vect { \begin{smatrix}
+    2 \\
+    0 \\
+    1 \\
+    0
+    \\
+\end{smatrix}, \begin{smatrix}
+0 \\
+2 \\
+0 \\
+1
+ \\
+\end{smatrix}
+} \ \ \text{ donc } \ \ \im(v) = 
+ \Vect{ 2 E_{1,1} + E_{2,1}, 2 E_{1,2} + E_{2,2}} = \Vect
+ { \begin{smatrix}
+2 & 0 \\
+1 & 0 \\
+\end{smatrix}, \begin{smatrix}
+0 & 2 \\
+0 & 1 \\
+\end{smatrix}
+}
+\]
+
+ (Remarque : on est passé par $V$ car on venait de la faire trouver,
+mais c'est maladroit : il était plus rapide de conclure directement en
+écrivant  à l'aide des images de la base $\mathcal{B}$) \\
+
+ qui est de dimension 2 car les 2 vecteurs générateurs ne sont pas
+colinéaires, donc la famille génératrice est libre, c'est une base de
+. On en déduit que $\ker v$ est de dimension 2 (théorème du rang,
+avec $\dim ( \mathcal{M}_{2} (\R) ) = 4$), et puisque $C_{1} = C_{3}$
+et $C_{2} = C_{4}$, on obtient : 
+ 
+\[
+ v ( E_{1,1} ) = v ( E_{2,1} ) \ \ \text{ et } \ \ v ( E_{1,2} = v (
+E_{2,2} ) \ \ \text{ donc } \ \ v ( E_{ 1,1 } - E_{2,1} ) = v ( E_{1,2
+} - E_{ 2,2 } ) = 0 
+\]
+
+ (Remarque : à nouveau on avait directement ces relations sans la
+matrice avec les images calculées à la question a) \\
+
+ donc la famille $( E_{ 1,1 } - E_{2,1}, E_{1,2 } - E_{ 2,2 } ) = {
+\begin{smatrix}
+1 & 0 \\
+-1 & 0 \\
+\end{smatrix}, \begin{smatrix}
+0 & 1 \\
+0 & -1 \\
+\end{smatrix}
+}$ est une famille de $\ker v$, libre car constituée de deux vecteurs
+non colinéaires, et dont le cardinal est égal à la dimension de $\ker
+v$ : c'est donc une base de $\ker v$ et on obtient : 
+ 
+\[
+ \ker v = \Vect { \begin{smatrix}
+1 & 0 \\
+-1 & 0 \\
+\end{smatrix}, \begin{smatrix}
+0 & 1 \\
+0 & -1 \\
+\end{smatrix}
+}. 
+\]
+
+ \item A nouveau on peut calculer valeurs propres et sous-espaces
+propres. Mais on va généraliser la méthode précédente avec cette
+fois-ci un en endomorphisme de rang $2$ (c'est plus difficile mais
+possible, par contre au-delà du rang 2 ça reste faisable en théorie
+mais très compliqué en pratique). \\
+
+ La valeur propre 0 est déjà traitée : $\ker v = E_{0} (v)$ est de
+dimension 2, donc 0 est valeur propre. \\
+
+ Soit $\lambda \neq 0$ une valeur propre de $v$ et $x$ un vecteur
+propre associé. Pour les mêmes raisons que précédemment, $x$ est un
+vecteur de . On va alors s'intéresser à la restriction
+$\tilde{v}$ de $v$ à , et on commence par prouver que c'est un
+endomorphisme : 
+ 
+\[
+ \tilde{v} : \left\{ 
+\begin{array}{ccc}
+ \im(v) & \rightarrow & ? ? \\
+x & \mapsto & v ( x ) \\
+\end{array}
+\right. 
+\]
+
+ Cette application est immédiatement linéaire par linéarité de $v$ :
+soient $x$ et $y$ dans  et $\lambda \in \R$, $ \lambda x + y \in
+\im(v)$ par stabilité d'un espace vectoriel et :
+ 
+\[
+ \tilde{v} ( \lambda x + y ) = v ( \lambda x + y ) = \lambda v(x) +
+v(y) = \lambda \tilde{v} (x) + \tilde{v} (y) 
+\]
+
+ par linéarité de $v$, donc $\tilde{v}$ est linéaire et pour tout $x
+\in \im(v)$, on a : 
+ 
+\[
+\tilde{v} (x) = v ( x ) \in \im(v)
+\]
+
+ puisque c'est l'image d'un élément par $v$, donc $\tilde{v}$ est un
+endomorphisme. Enfin, toujours pour $\lambda \neq 0$, on a vu que les
+vecteurs propres de $v$ associés à $\lambda$ appartiennent à ,
+donc vérifient : 
+ 
+\[
+ v(x) = \tilde{v} ( x ) = \lambda x 
+\]
+
+ donc ce sont exactement les vecteurs propres de $\tilde{v}$ associés à
+$\lambda$. Pour trouver les éléments propres de $\tilde{v}$, on cherche
+sa matrice dans la base de  trouvée précédemment : 
+ 
+\[
+ \tilde{v} { \begin{smatrix}
+2 & 0 \\
+1 & 0 \\
+\end{smatrix}
+} = \begin{smatrix}
+8 & 0 \\
+4 & 0 \\
+\end{smatrix}
+ = 4 \begin{smatrix}
+2 & 0 \\
+1 & 0 \\
+\end{smatrix}
+\ \ \text{ et } \ \ \tilde{v} { \begin{smatrix}
+0 & 2 \\
+0 & 1 \\
+\end{smatrix}
+} = \begin{smatrix}
+0 & 8 \\
+0 & 4 \\
+\end{smatrix}
+ = 4 \begin{smatrix}
+0 & 2 \\
+0 & 1 \\
+\end{smatrix}
+\]
+
+ donc la matrice $\tilde{V}$ de $\tilde{v}$ dans cette base est $4 I$,
+dont la seule valeur propre est 4 avec un sous-espace propre de
+dimension 2, donc $\tilde{v}$ admet 4 pour unique valeur propre, avec
+un sous-espace propre de dimension 2 : on en déduit que 4 est valeur
+propre de $v$ avec un sous-espace propre de dimension 2. \\
+
+ Enfin la somme des dimensions des sous-espaces propres de $v$ vaut 4,
+qui est la dimension de $\mathcal{M}_{2} ( \R )$, et $v$ est
+diagonalisable. \\
+
+ \end{noliste}
+
+ \end{noliste}
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $A_{i}$ l'évènement : "la boule rouge est dans l'urne $i$" et
+$B_{1,j}$ l'évènement : "on a tiré une boule bleue dans au $j$-ème
+tirage sans remise dans l'urne 1". On demande de calculer la
+probabilité : 
+ 
+\[
+ P_{ B_{1,1} \cap B_{1,2} } ( A_{2} ). 
+\]
+
+ \noindent Mais comme l'évènement $A_{2}$ est antérieur aux tirages, on
+ne peut pas exprimer la condition. On revient alors à la définition de
+la probabilité conditionnelle, puis aux probabilités composées : 
+ 
+\[
+ P_{ B_{1,1} \cap B_{1,2} } ( A_{2} ) = \frac{ P ( A_{2} \cap B_{1,1}
+\cap B_{1,2} ) }{ P ( B_{1,1} \cap B_{1,2} ) } = \frac{ P \left(\Ev{
+A_{2} }\right) P_{A_{2}} ( B_{1,1} ) P_{ A_{2} \cap B_{1,1} } ( B_{1,2}
+) }{ P ( B_{1,1} \cap B_{1,2} ) } 
+\]
+
+ \noindent et on n'a pas appliqué les probabilités composées au
+dénominateur car il est impossible de connaître ces probabilités sans
+connaître la place de la boule rouge (urne 1 ou pas). On traite
+séparément le numérateur et le dénominateur : 
+ 
+\[
+ P \left(\Ev{ A_{2} }\right) P_{A_{2}} ( B_{1,1} ) P_{ A_{2} \cap
+B_{1,1} } ( B_{1,2} ) = P \left(\Ev{ A_{2} }\right) \times 1 \times 1 =
+P \left(\Ev{ A_{2} }\right) 
+\]
+
+ \noindent Pour le dénominateur, comme $(A_{1}, \overline{A_{1}})$ est
+un sce, on obtient : 
+ 
+\[
+ B_{1,1} \cap B_{1,2} = \left[ \ \rule{0cm}{0.4cm} A_{1} \cap B_{1,1}
+\cap B_{1,2} \right] \cup \left[ \ \rule{0cm}{0.4cm} \overline{A_{1}}
+\cap B_{1,1} \cap B_{1,2} \right] 
+\]
+
+ \noindent donc : 
+ 
+\[
+ P ( B_{1,1} \cap B_{1,2} ) = P \left(\Ev{ A_{1} }\right) \times \frac{
+2 }{ 3 } \times \frac{ 1 }{ 2 } + [ 1 - P \left(\Ev{A_{1} }\right) ]
+\times 1 \times 1 = \frac{ 1 }{ 3 } P \left(\Ev{ A_{1} }\right) + 1 - P
+\left(\Ev{ A_{1} }\right) = 1 - \frac{ 2 }{ 3 } P \left(\Ev{ A_{1}
+}\right). 
+\]
+
+ On obtient finalement : 
+ 
+\[
+ P_{ B_{1,1} \cap B_{1,2} } ( A_{2} ) = \frac{ P \left(\Ev{ A_{2}
+}\right) }{ 1 - \frac{ 2 }{ 3 } P \left(\Ev{ A_{1} }\right) }. 
+\]
+
+ \noindent Pour continuer il faut connaître les probabilités des
+évènements $A_{i}$, qui dépendent de la manière dont les urnes ont été
+remplies. On suppose que la remplissage a été fait au hasard, toutes
+les urnes jouent alors le même rôle et on en déduit par symétrie que : 
+ 
+\[
+\forall i \in \llb 1 ; n \rrb, \ P \left(\Ev{ A_{i} }\right) = \frac{
+  1 }{ n}
+\]
+
+ \noindent ce qui permet de conclure le calcul : 
+ 
+\[
+ P_{ B_{1,1} \cap B_{1,2} } ( A_{2} ) = \frac{ 1 }{ n \left( 1 - \frac{
+2 }{ 3 n } \right) } = \frac{ 1 }{ n - \frac{ 2 }{ 3 } } = \frac{ 3 }{
+3 n - 2 }. 
+\]
+
+ \end{exercice}
+
+
+
+\end{document}

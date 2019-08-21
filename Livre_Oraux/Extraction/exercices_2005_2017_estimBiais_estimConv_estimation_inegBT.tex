@@ -1,0 +1,70 @@
+\subsection*{Exercices oraux HEC 2017}
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 91; %
+% annee : 2017; %
+% theme : vaDiscrete, vaUniformeDiscrete, vaMax, estimBiais, 
+% estimation; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Question de cours : définition d'un estimateur sans biais
+    d'un paramètre inconnu.
+  \end{noliste}
+  
+  \noindent
+  Soit $N$ un entier supérieur ou égal à $2$.\\
+  Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires 
+  indépendantes, définies sur le même espace probabilisé 
+  $(\Omega, \A, \Prob)$, et suivant chacune la loi uniforme discrète
+  sur $\llb 1,N \rrb$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \setcounter{enumi}{1}
+    \item Pour tout entier $n\geq 1$, on pose : $s_n(N) = 
+    \Sum{k=1}{N-1} \left( \dfrac{k}{N} \right)^n$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Montrer que la suite $(s_n(N))_{n\geq 1}$ est 
+      strictement monotone et convergente.
+      
+      \item Trouver sa limite.
+    \end{noliste}
+    
+    \item Pour tout entier $n\geq 1$, on pose : $T_n = \max(X_1,
+    X_2, \ldots, X_n)$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Calculer pour tout $k\in \llb 1,N \rrb$, $\Prob(
+      \Ev{T_n=k})$.
+      
+      \item Montrer que $\E(T_n) = N - s_n(N)$.
+    \end{noliste}
+    
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Justifier que $\Prob(\Ev{ \vert T_N - N \vert \geq 1})$
+      tend vers $0$ quand $n$ tend vers l'infini.
+      
+      \item En déduire, pour tout $\eps>0$, la limite de 
+      $\Prob(\Ev{\vert T_n - N \vert \geq \eps})$ quand $n$ tend 
+      vers l'infini.
+    \end{noliste}
+    
+    \item On suppose dans cette question que $N$ est un paramètre 
+    inconnu.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Expliquer pourquoi on ne peut pas dire que $T_n + s_n(N)$
+      est un estimateur sans biais de $N$.
+      
+      \item Trouver une suite convergente et asymptotiquement sans 
+      biais d'estimateurs de $N$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+

@@ -1,0 +1,504 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 2005 - voie Générale} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION SCIENTIFIQUE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 2005}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\textsl{Ce problème se compose de trois parties largement
+indépendantes,
+même si certains objets introduits dans la partie II se retrouvent dans
+la
+partie III. La partie I étudie un exemple de couple aléatoire suivant
+une loi trinomiale. La partie II étudie les lois marginales d'un tel
+couple. La partie III propose une caractérisation de la loi de
+Poisson.}
+
+\section*{Partie I}
+
+On considère, dans cette partie des entiers naturels non nuls $n$, $u$,
+$d$, 
+$t$ et $b$, vérifiant $u + d + t = b$.\\
+Une urne $\mathcal{U}$ contient $b$ boules, parmi lesquelles $u$ boules
+portent le numéro $1$, $d$ le numéro $2$ et $t$ le numéro $3$.\\
+Une expérience consiste en $n$ tirages successifs d'une boule de l'urne
+$\mathcal{U}$ avec remise.\\
+{À} chaque tirage, toutes les boules de l'urne $\mathcal{U}$ ont même
+probabilité d'être tirées.\\
+Le modèle choisi pour cette expérience est l'espace probabilisé
+$(\Omega,\mathcal{T},P)$ dans lequel l'univers $\Omega $ est l'ensemble
+$\{1,2,3\}{n} $ des $n$-uplets d'éléments de l'ensemble $\{1,2,3\}$, et
+la
+tribu $\mathcal{T}$ est l'ensemble $\mathcal{P}(\Omega )$ des parties
+de $\Omega $, la probabilité $P$ se déduisant naturellement des
+hypothèses qui
+ont été ou seront formulées.\\
+Aucun tirage n'influe sur les autres en cela que, si une suite
+quelconque $(V_{k})_{1\leq k\leq n}$ de variables aléatoires définies
+sur
+l'espace probabilisé $(\Omega,\mathcal{T},P)$ est telle que, pour tout
+$k\in \lbrack \hspace{-0.15em}[1,n]\hspace{-0.13em}]$, la valeur de
+$V_{k}$
+ne dépend que du résultat du $k$-ième tirage, alors les variables
+$V_{1},V_{2},...,V_{n}$ sont mutuellement indépendantes.\\
+On note $U$ (respectivement $D$, $T$) la variable aléatoire définie sur
+l'espace probabilisé $(\Omega,\mathcal{T},P)$ dont la valeur est le
+nombre
+de boules numérotées $1$ (respectivement $2$, $3$) tirées au cours de
+l'expérience.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que la variable aléatoire $U$ suit une loi usuelle (à
+préciser), donner son espérance et sa variance. Donner, de même, les
+lois des
+variables aléatoires $D$ et $T$, respectivement.
+
+\item Les variables aléatoires $U$ et $D$ sont-elles indépendantes ?
+\textsl{Justifiez votre réponse.}
+
+\item Déterminer, sans calcul, la loi de la variable aléatoire $U + D$,
+son espérance et sa variance.
+
+\item En déduire que la covariance du couple $(U,D)$ est égale à
+$-{\dfrac{nud}{b^{2}}}$.
+
+\item \emph{Simulation informatique}\\
+En \Scilab{}, si \texttt{i} est un entier naturel non nul,
+l'instruction 
+\texttt{random(i)} retourne aléatoirement un entier choisi
+équiprobablement
+parmi les entiers $0,1,\dots,i-1$. On considère la procédure \Scilab{}
+nommée 
+\texttt{simulation} déclarée comme suit : \\
+\texttt{procedure simulation(var x,y,z : integer ; n : integer) ; }\\
+\texttt{var k, r : integer ; }\\
+\texttt{begin }\\
+\texttt{\ \ x : = 0 ; y : = x ; z : = x ; }\\
+\texttt{\ \ for k : = 1 to n do }\\
+\texttt{\ \ \ \ begin }\\
+\texttt{\ \ \ \ \ \ r : = random(6) ; }\\
+\texttt{\ \ \ \ \ \ if r = 0 then x : = x + 1 else if r\TEXTsymbol{<} =
+2 then y : = y + 1
+else z : = z + 1 }\\
+\texttt{\ \ \ \ end }\\
+\texttt{end ;} \\
+Que réalise l'instruction \texttt{simulation (a,b,c,12)}, les variables
+\Scilab{} \texttt{a}, \texttt{b} et \texttt{c} étant toutes trois de
+type
+integer ? \textsl{On demande une réponse en rapport avec l'expérience
+précédemment étudiée et, en particulier, que soient précisées les
+valeurs des
+paramètres $u$, $d$, $t$ et $n$ dans la simulation proposée.} 
+
+\item Dans toute la suite, $m$, $i$ et $j$ étant des entiers naturels,
+on
+note : 
+\[
+\begin{smatrix}
+m \\
+i,j
+\end{smatrix}
+ = \left\{ 
+\begin{array}{ccc}
+\dfrac{m!}{i!j!(m-i-j)!} & \text{si} & i + j\leq m \\
+0 & \text{si} & i + j>m
+\end{array}
+\right.
+\]
+On considère deux entiers naturels $k$ et $\ell $ vérifiant $k + \ell
+\leq n$.\\
+Soit $\omega = (x_{1},x_{2},\dots,x_{n})$ un élément donné de $\Omega $
+comportant exactement $k$ " $1$ "\ et $\ell $ " $2$ ".\\
+Quelle est la probabilité $P\left(\Ev{ \{\omega \}}\right) $ de
+l'événement élémentaire $\{\omega \}$ ?\\
+Dénombrer les $n$-uplets appartenant à l'ensemble $\Omega $ et
+comportant
+exactement $k$ " $1$ "\ et $\ell $ " $2$ ".\\
+En déduire que la probabilité de l'événement $[U = k]\cap \lbrack D =
+\ell ]$
+est égale à : 
+\[
+\begin{smatrix}
+n \\
+k,\ell
+\end{smatrix}
+{\dfrac{u^{k}d^{\ell }t^{n-k-\ell }}{b^{n}}}
+\]
+Ce résultat reste-t-il vrai si $k + \ell >n$ ?
+\end{noliste}
+
+\section*{Partie II : Lois marginales d'un couple aléatoire de loi
+trinomiale.}
+
+On considère, dans cette partie, un entier naturel $n$ et l'ensemble
+$I_{n}$
+défini par 
+\[
+I_{n} = \{(k,\ell )/\;k\in \lbrack
+\hspace{-0.15em}[0,n]\hspace{-0.13em}]\quad 
+\text{et}\quad \ell \in \lbrack
+\hspace{-0.15em}[0,n]\hspace{-0.13em}]\quad 
+\text{et}\quad k + \ell \leq n\}
+\]
+Un espace probabilisé $(\Omega,\mathcal{T},P)$ étant donné, ainsi que
+trois
+réels strictement positifs $p$, $q$ et $r$ vérifiant $p + q + r = 1$,
+on considère
+un couple aléatoire $(X_{n},Y_{n})$ défini sur
+$(\Omega,\mathcal{T},P)$, à
+valeurs dans $I_{n}$, et tel que, pour tout couple $(k,\ell )\in I_{n}$
+: 
+\[
+P\left(\Ev{ (X_{n},Y_{n}) = (k,\ell
+)}\right)\left(\Ev{X_{n},Y_{n}}\right) = (k,\ell )\right) = 
+\begin{smatrix}
+n \\
+k,\ell
+\end{smatrix}
+p^{k}q^{\ell }r^{n-k-\ell }
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Vérifier que :\quad $\Sum{(k,\ell )\in I_{n}}\begin{smatrix}
+n \\
+k,\ell
+\end{smatrix}
+p^{k}q^{\ell }r^{n-k-\ell } = 1$.
+
+\item Montrer que les variables aléatoires $X_{n}$ et $Y_{n}$ suivent
+toutes
+deux une loi binomiale (en préciser les paramètres respectifs).
+
+\item On se propose de calculer la covariance du couple
+$(X_{n},Y_{n})$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On suppose que $n\geq 2$. Prouver que, pour tout couple $(k,\ell
+)\in I_{n}$ vérifiant $k\geq 1$ et $\ell \geq 1$, on a : 
+\[
+k\ell 
+\begin{smatrix}
+n \\
+k,\ell
+\end{smatrix}
+ = n(n-1)\begin{smatrix}
+n-2 \\
+k-1,\ell -1
+\end{smatrix}
+\]
+En déduire que $\E(X_{n}Y_{n}) = n(n-1)pq$.
+
+\item Cette relation est-elle encore vraie si $n = 0$ ? si $n = 1$ ?
+
+\item En déduire la valeur de la covariance $\func{cov}(X_{n},Y_{n})$
+du
+couple $(X_{n},Y_{n})$.
+\end{noliste}
+
+\item Les variables aléatoires $X_{n}$ et $Y_{n}$ sont-elles
+indépendantes ?
+\end{noliste}
+
+\section*{Partie III : Une caractérisation de la loi de Poisson.}
+
+Dans cette partie, la lettre $n$ ne désigne plus un entier naturel fixé
+et
+on considère les suites $(X_{n})_{n\in \N}$ et $(Y_{n})_{n\in 
+\N}$ des variables aléatoires définies, dans la partie précédente,
+pour chaque entier naturel $n$ sur l'espace probabilisé
+$(\Omega,\mathcal{T},P)$.\\
+On rappelle que, pour tout entier naturel $n$, les variables aléatoires
+$X_{n}$ et $Y_{n}$ suivent des lois binomiales dont les paramètres ont
+été
+calculés en \textbf{II.2}.\\
+On considère par ailleurs, une variable aléatoire $N$ \textsl{non
+presque sûrement constante} définie sur le même espace probabilisé
+$(\Omega,\mathcal{T},P)$, à valeurs dans l'ensemble $\N$ des entiers
+naturels et indépendante de tous les couples $(X_{n},Y_{n})$, ce qui
+signifie que, pour tout 
+$n\in \N$ et tout $(i,j,k)\in \N^{3}$, 
+\[
+P\left( [\left(\Ev{X_{n},Y_{n}}\right) = (i,j)]\cap \lbrack N =
+k]\right) = P\left(\Ev{
+(X_{n},Y_{n}) = (i,j)}\right)\left(\Ev{X_{n},Y_{n}}\right) =
+(i,j)\right) P\left(\Ev{N = k}\right)
+\]
+On définit les fonctions $X :\Omega \longmapsto \N$ et $Y :\Omega
+\mapsto \N$ de la manière suivante : si $N$ prend la valeur $n$,
+alors $X$ (respectivement $Y$) prend la même valeur que $X_{n}$
+(respectivement $Y_{n}$).
+
+\subsection*{A) Remarques générales.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que, pour tout $k\in \N$, 
+\[
+\lbrack X = k] = \dcup{n = 0}{+ \infty }\left( [X_{n} = k]\cap \lbrack
+N = n]\right) = \dcup{n = k}{+ \infty }\left( [X_{n} = k]\cap \lbrack
+N = n]\right)
+\]
+En déduire que $X$ est une variable aléatoire sur l'espace probabilisé
+$(\Omega,\mathcal{T},P)$.\\
+\textsl{On prouverait de même que $Y$ est une variable aléatoire sur
+l'espace probabilisé $(\Omega,\mathcal{T},P)$.}
+
+\item Montrer que, pour tout $n\in \N$, les variables aléatoires $N$
+et $X_{n}$, sont indépendantes.\\
+\textsl{On prouverait de même que, pour tout $n\in \N$, les
+variables $\N$ et $Y_{n}$ sont indépendantes.}
+
+\item Déduire des résultats précédents que, pour tout $k\in \N$, 
+\[
+P\left(\Ev{X = k}\right) = \Sum{n = 0}{+ \infty
+}C_{n}{k}p^{k}(1-p)^{n-k}P\left(\Ev{N = n}\right) = \Sum{n = k}{+
+\infty
+}C_{n}{k}p^{k}(1-p)^{n-k}P\left(\Ev{N = n}\right)
+\]
+Exprimer de même, pour tout $\ell \in \N$, $P\left(\Ev{Y = \ell
+}\right)$ sous forme
+de somme d'une série.
+
+\item Les variables aléatoires $N$ et $X$ sont-elles indépendantes ?\\
+\textsl{On considérera deux entiers $a$, et $b$ vérifiant $0\leq a<b$,
+$P\left(\Ev{N = a}\right)\not = 0$ et $P\left(\Ev{N = b}\right)\not =
+0$, et on se préoccupera de l'événement $[N = a]\cap \lbrack X = b]$.}
+\end{noliste}
+
+\subsection*{B) Si $N$ suit une loi de Poisson, alors $X$ et $Y$ sont
+indépendantes.}
+
+On considère un réel strictement positif $\lambda$. On suppose que la
+variable aléatoire $N$ suit la loi de Poisson de paramètre $\lambda$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $X$ suit la loi de Poisson de paramètre $\lambda p$
+et que 
+$Y$ suit la loi de Poisson de paramètre $\lambda q$.
+
+\item Montrer que les variables aléatoires $X$ et $Y$ sont
+indépendantes.\\
+\textsl{On commencera par justifier que, pour tout couple $(k,\ell )\in
+
+\N^{2}$,} 
+\[
+P\left( [X = k]\cap \lbrack Y = \ell ]\right) = \Sum{n = k + \ell }{+
+\infty
+}P\left( [X_{n} = k]\cap \lbrack Y_{n} = \ell ]\right) P\left(\Ev{N =
+n}\right)
+\]
+\end{noliste}
+
+\subsection*{C) Si $X$ et $Y$ sont indépendantes, alors $N$ suit une
+loi de
+Poisson.}
+
+\textsl{On ne suppose plus} a priori \textsl{que la variable aléatoire
+$N$
+suit une loi de Poisson.} On suppose maintenant que les variables
+aléatoires $X$ et $Y$ sont indépendantes.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que, pour tout réel $z$ appartenant à $[0,1]$, la série
+$\Sum{n\in \N}z^{n}P\left(\Ev{N = n}\right)$ converge.\\
+\textsl{Dans toute la suite, si $z\in \lbrack 0,1]$, la somme de cette
+série
+est notée $\Phi (z)$.}\\
+\textsl{Un lemme de Fubini.} \\
+On \textbf{admet} le résultat suivant : soit $(r_{i,j})_{(i,j)\in
+\N\times \N}$ une famille de réels \textsl{positifs} ou nuls.\\
+On suppose que, pour tout $j\in \N$, la série $\sum r_{i,j}$
+converge ; on note $C_{j} = \Sum{i = 0}{+ \infty }r_{i,j}$. On suppose
+de plus que la série $\Sum{j\in \N}C_{j}$ converge.\\
+Alors :\\
+\quad i) Pour tout $i\in \N$, la série $\Sum{j\in \N}r_{i,j}$ converge
+; on note $L_{i} = \Sum{j = 0}{+ \infty }r_{i,j}$ sa
+somme ;\\
+{}\quad ii) La série $\Sum{i\in \N}L_{i}$ converge et $\Sum{i = 0}{+
+\infty }L_{i} = \Sum{j = 0}{+ \infty }C_{j}$.\\
+\textsl{On définit en ce cas la somme $\Sum{(i,j)\in \N\times
+\N}r_{i,j}$ comme étant le nombre $\Sum{i = 0}{+ \infty
+}\left( \Sum{j = 0}{+ \infty }r_{i,j}\right)
+ = \Sum{j = 0}{+ \infty }\left( \Sum{i = 0}{+ \infty
+}r_{i,j}\right) $.}
+
+\item On considère deux réels $\alpha $ et $\beta $ appartenant tous
+deux à $[0,1]$. On définit sur l'espace probabilisé
+$(\Omega,\mathcal{T},P)$ les
+variables aléatoires $A = \alpha ^{X}$ et $B = \beta ^{Y}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que les variables aléatoires $A$ et $B$ admettent une
+espérance (que l'on ne cherchera pas à évaluer).
+
+\item Montrer que $0\leq p\alpha + 1-p\leq 1$ puis, en utilisant le
+lemme de Fubini, que 
+\[
+\E(A) = \varphi (p\alpha + 1-p)
+\]
+\textsl{On montrerait de même que $0\leq q\beta + 1-q\leq 1$ et que 
+$\E(B) = \Phi (q\beta + 1-q)$.}
+\end{noliste}
+
+\item On définit la variable aléatoire $C = AB = \alpha ^{X}\beta
+^{Y}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier que la variable aléatoire $C$ admet une espérance (que
+l'on
+ne cherchera pas à évaluer).
+
+\item Établir que $0\leq p\alpha + q\beta + r\leq 1$, puis, en
+utilisant le théorème de transfert et le lemme de Fubini, que $\E(C) =
+\Phi
+(p\alpha + q\beta + r)$.
+\end{noliste}
+
+\item Pour quelle raison peut-on affirmer que $\E(AB) = E(A)\E(B)$ ?\\
+En déduire que, pour tout couple $(\alpha,\beta )\in \lbrack 0,1]^{2}$,
+
+\[
+\Phi \left( 1-p(1-\alpha )-q(1-\beta )\right) = \Phi \left(
+1-p(1-\alpha
+)\right) \Phi \left( 1-q(1-\beta )\right)
+\]
+
+\item Montrer que, pour tout réel $z\in \ ]0,1]$, $\Phi (z)>0$. Que
+vaut $\varphi (1)$ ?
+
+\item On définit l'application $\varphi :\left[ 0,1\right[ \ \mapsto \R
+$ par la relation $\varphi (z) = \ln \left( \Phi (1-z)\right) $.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tous réels $a\in \lbrack 0,p]$ et $b\in \lbrack
+0,q]$, $\varphi (a + b) = \varphi (a) + \varphi (b)$.\\
+On pose dans toute la suite $\mu = \min (p.q)$ et $I = [0,\mu ]$.
+
+\item Calculer $\varphi (0)$.\\
+Montrer que, pour tout couple $(n,a)\in \N\times I$ vérifiant $0\leq
+na\leq \mu $, on a : $\varphi (na) = n\varphi (a)$.
+
+\item Montrer que, pour tout triplet $(n,m,a)\in \N\times \N^{\times
+}\times I$ tel que $0\leq {\dfrac{n}{m}}\,a\leq \mu $, 
+\[
+\varphi \left( \dfrac{n}{m}\,a\right) = \dfrac{n}{m}\,\varphi (a)
+\]
+
+\item Soit un couple $(x,a)\in \R\times I$ vérifiant $0<xa<\mu $.\\
+Si r est un réel, on note $\left[ r\right] $ la partie entière de
+$r$.\\
+Montrer que, pour tout $n\in \N^{\times }$,\quad ${\dfrac{\left[
+nx\right] }{n}}\leq x<{\dfrac{\left[ nx\right] + 1}{n}}$ et que
+$\dlim{n\rightarrow + \infty }{\dfrac{\left[ nx\right] }{n}} = x$.\\
+Montrer que la fonction $\varphi $ décro{î}t sur $[0,1[$. En déduire
+que $\varphi (xa) = x\varphi (a)$.
+
+\item Montrer enfin qu'il existe un réel $\lambda >0$ tel que, pour
+tout $x\in I$, $\varphi (x) = -\lambda x$.
+\end{noliste}
+
+\item On admet le résultat suivant :\\
+\textsl{si la suite réelle $(u_{n})_{n\in \N}$ est telle que, pour
+tout $z\in \lbrack 1-\mu,1]$, la série $\Sum{n\in \N}u_{n}z^{n}$
+converge et est de somme nulle, alors, pour tout $n\in \N$, $u_{n} =
+0$. }\\
+\textsl{Montrer que la variable aléatoire $N$ suit la loi de Poisson de
+paramètre $\lambda $ }
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

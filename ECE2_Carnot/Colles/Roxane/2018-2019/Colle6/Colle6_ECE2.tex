@@ -1,0 +1,164 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 6}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+
+
+\begin{exercice}~\\
+$N$ désigne un entier naturel supérieur ou égal à 2. Un joueur lance 
+une pièce équilibrée indéfiniment. On note $X_N$ la variable aléatoire 
+réelle discrète égale au nombre de fois où, au cours des $N$ premiers 
+lancers, deux résultats successifs ont été différents. On peut appeler 
+$X_N$ le \og nombre de changements \fg{} au cours de $N$ premiers 
+lancers.\\
+Par exemple, si les $N=9$ premiers lancers ont donné successivement :\\
+Pile, Pile, Face, Pile, Face, Face, Face, Pile, Pile,\\ 
+alors la \var $X_9$ aura pris la valeur $4$ (quatre changements aux 
+$\eme{3}$, $\eme{4}$, $\eme{5}$ et 
+$\eme{8}$ lancers).
+\begin{noliste}{1.}
+\item
+Justifier que $X_N(\Omega)=\llb 0,N-1 \rrb$.
+\item
+Déterminer la loi de $X_2$, ainsi que son espérance. Déterminer la loi 
+de $X_3$.
+\item
+Montrer que $\Prob(\Ev{X_N=0})=\left(\dfrac{1}{2}\right)^{N-1}$ et $ 
+\Prob(\Ev{X_N=1})=2(N-1)\left(\dfrac{1}{2}\right)^N$
+\item
+\begin{noliste}{a)}
+\item
+Justifier que pour tout entier $k\in\llb 0,N-1 \rrb$, $ 
+\Prob_{\Ev{X_N=k}}(\Ev{X_{N+1}=k})=\dfrac{1}{2}$.
+\item
+En déduire que pour tout entier $k\in\llb 0,N-1 \rrb$, $ 
+\Prob\left(\Ev{X_{N+1}-X_N=0}\cap\Ev{X_N=k}\right)=\dfrac{1}{2}
+\Prob(\Ev{X_N=k})$.
+\item
+En sommant cette relation pour $k$ variant de $0$ à $N-1$, montrer que 
+$\Prob\left(\Ev{X_{N+1}-X_N=0}\right)=\dfrac{1}{2}$.
+\item
+Montrer que la variable $X_{N+1}-X_N$ suit une loi de Bernoulli de 
+paramètre $\dfrac{1}{2}$\\
+En déduire la relation $\E(X_{N+1})=\dfrac{1}{2}+\E(X_N)$, puis donner 
+$\E(X_N)$ en fonction de $N$.
+\end{noliste}
+\item
+\begin{noliste}{a)}
+\item
+Montrer grâce aux résultats \itbf{4.b)} et \itbf{4.c)} que les 
+variables $X_{N+1}-X_N$ et $X_N$ sont indépendantes.
+\item
+En déduire par récurrence sur $N$ que $X_N$ suit une loi binomiale $ 
+\Bin{N-1}{\frac{1}{2}}$.\\ 
+En déduire la variance $\V(X_N)$.
+\end{noliste}
+\end{noliste}
+\end{exercice}
+
+
+
+
+\begin{exercice}~\\
+Trois personnes $a_1,a_2,a_3$ entrent à l'instant $0$ dans un bureau de 
+poste qui ne comporte que deux guichets. Les personnes $a_1$ et $a_2$ 
+peuvent être servies immédiatement alors que $a_3$ doit attendre qu'un 
+guichet soit libéré pour être servie. On supposera que le temps est 
+mesuré par des nombres entiers avec une unité fixée.\\
+Soit $p \in ]0,1[$. On suppose que pour $i \in \{1,2,3\}$ le temps de 
+service de la personne $a_i$ est une variable aléatoire $X_i$ dont la 
+loi est donnée par : 
+\[
+\forall k \in \N, \ \Prob(\Ev{X_i=k})=(1-p).p^k
+\]
+On suppose que les variables aléatoires $X_1$, $X_2$ et $X_3$ sont 
+indépendantes.\\
+On désigne par $Y$ l'instant de première sortie (celle de $a_1$ ou 
+$a_2$) qui est aussi l'instant où $a_3$ commence à se faire servir. 
+Enfin, $Z$ désigne l'instant de sortie de $a_3$.
+\begin{noliste}{1.}
+\item
+Exprimer l'événement $\Ev{Y \geq k}$ à l'aide des variables aléatoires 
+$X_1$ et $X_2$.\\
+Calculer pour tout entier $k \geq 0$, le nombre $\Prob(\Ev{Y \geq 
+k})$. Déterminer alors la loi de $Y$.
+\item
+Exprimer $Z$ en fonction de $Y$ et $X_3$. Déterminer la loi de $Z$.
+\item
+Calculer le temps moyen passé par $a_3$ à la poste.
+\end{noliste}
+\end{exercice}
+
+
+\newpage
+
+
+\begin{exercice}~\\
+On considère une suite infinie de lancers d'une pièce équilibrée. Pour 
+tout entier naturel non nul $n$, on désigne par $P_n$ l'événement \og 
+Pile apparaît au $n$ème lancer \fg{} et par $F_n$ l'événement \og Face 
+apparaît au $n$ème lancer \fg{}.\\
+Soit $Y$ la v.a. désignant le rang du lancer où, pour la première fois, 
+apparaît un Face précédé d'au moins deux Pile si cette configuration 
+apparaît, et prenant la valeur $0$ si cette configuration n'apparaît 
+jamais.\\
+On suppose que l'expérience est modélisée par un espace probabilisé 
+$(\Omega, \A,\Prob)$.\\
+On pose $c_1=c_2=0$ et pour tout $n\geq 3$, $c_n=\Prob(\Ev{Y=n})$. On 
+note également :
+\[
+\forall n \geq 3, \ B_n=P_{n-2}\cap P_{n-1}\cap F_n \ \mbox{ et } \ 
+U_n=\dcup{i=3}{n} B_i
+\]
+On pose enfin $u_1=u_2=0$ et pour tout $n\geq 3$, $u_n=\Prob(U_n)$
+\begin{noliste}{1.}
+\item Montrer que la suite $(u_n)_{n\geq 3}$ est monotone et 
+convergente.
+\item \begin{noliste}{a)}
+	\item Pour tout $n\geq 3$, calculer $\Prob(B_n)$.
+	\item Montrer que, pour tout $n\geq 3$, les événements $B_n$, 
+$B_{n+1}$ et $B_{n+2}$ sont deux à deux incompatibles.
+	\item Calculer les valeurs de $u_3$, $u_4$ et $u_5$.
+	\end{noliste}
+\item Dans cette question, on suppose $n\geq 5$.
+	\begin{noliste}{a)}
+	\item Comparer les événements $U_n \cap B_{n+1}$ et $U_{n-2} 
+\cap B_{n+1}$. Préciser leurs probabilités respectives.
+	\item Montrer que pour tout $n\geq 3$, $u_{n+1} 
+=u_n+\dfrac{1}{8}(1-u_{n-2})$.
+	\item Déterminer la limite de la suite $(u_n)$.
+	\item Calculer $\Prob(\Ev{Y=0})$.
+	\end{noliste}
+\item Pour tout $n\in \N^*$, on pose $v_n=1-u_n$.
+\begin{noliste}{a)}
+\item Trouver $(\beta,\gamma)\in\R^2$ tels que pour tout $n\in\N^*$, 
+$v_n=\beta v_{n+2} +\gamma v_{n+3}$.
+\item Montrer que la série de terme général $v_n$ est convergente et 
+calculer $\Sum{n=0}{+\infty} v_n$.
+\end{noliste}
+\end{noliste}
+\end{exercice}
+
+
+
+
+\end{document}

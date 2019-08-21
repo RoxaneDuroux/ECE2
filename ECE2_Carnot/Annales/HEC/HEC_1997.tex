@@ -1,0 +1,333 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 1997} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 1997}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\huge HEC Eco 1997}
+\end{center}
+
+\section*{EXERCIC\E\ I}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $f$ l'endomorphisme de $\R^{3}$ dont la matrice dans la
+base canonique $(e_{1},e_{2},e_{3})$
+\[
+A = \left( 
+\begin{array}{ccc}
+4 & -5 & 5 \\
+3 & -4 & 5 \\
+0 & 0 & 1
+\end{array}
+\right) 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $-1$ est une valeur propre de $A$ et trouver un
+vecteur
+propre, noté $V$, associé à cette valeur propre.
+
+\item Montrer que $(V,e_{2},e_{3})$ est une base de $\R^{3}$. Donner
+la matrice de $f$ dans cette base.
+
+\item Montrer que si $X$ est un vecteur quelconque de $\R^{3}$,
+alors $f(X)$ est une combinaison linéaire de $X$ et de $V$. En déduire
+que,
+dans toute base de $\R^{3}$ de la forme $(V,V_{2},V_{3})$ où $V_{2}$
+et $V_{3}$ sont des vecteurs de $\R^{3}$, la matrice de $f$ est la
+forme :
+\[
+\left( 
+\begin{array}{ccc}
+-1 & a & b \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{array}
+\right) 
+\]
+où $a$ et $b$ sont des réels.
+\end{noliste}
+
+\item L'endomorphisme $f$ est-il diagonalisable ?
+
+\item Plus généralement, soit $U_{1}$ un vecteur non nul de $\R^{3}$
+et h un endomorphisme de $\R^{3}$ ayant la propriété suivante :\\
+$(P) :$ Pour tout vecteur X de $\R^{3}$, $h(X)$ est une combinaison
+linéaire de $X$ et de $U_{1}$.\\
+Soit $(U_{1},U_{2},U_{3})$ une base de $\R^{3}$ obtenue en
+adjoignant à $U_{1}$ deux autres vecteurs $U_{2}$ et $U_{3}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En appliquant la propriété $(P)$ à trois vecteurs particuliers,
+montrer qu'il existe des réels $\alpha $, $\beta $, $\gamma $ tels que
+:
+\[
+h(U_{2}) = \alpha U_{1} + \gamma U_{2}\quad \text{et}\quad h(U_{3}) =
+\beta
+U_{1} + \gamma U_{3}.
+\]
+
+\item En déduire que la matrice de h dans la base $(U_{1},U_{2},U_{3})$
+est
+de la forme
+\[
+\left( 
+\begin{array}{ccc}
+\lambda & \alpha & \beta \\
+0 & \gamma & 0 \\
+0 & 0 & \gamma 
+\end{array}
+\right) 
+\]
+où $\alpha $, $\beta $, $\gamma $ et $\lambda $ sont des réels.
+
+\item L'endomorphisme $h$ est-il diagonalisable ?
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE II}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que, si $g$ est une fonction réelle définie sur$[0,1]$,
+continue et positive sur cet intervalle, la fonction $h$, définie par
+$h(x) = 2\dint{0}{x}\sqrt{g(t)}dt$, est aussi une fonction continue et
+positive sur $[0,1].$
+
+\item Compte tenu du résultat précédent, on définit sur $[0,1]$ une
+suite de
+fonctions réelles $(f_{n})_{n\in \N}$ en posant, pour tout $x\in
+\lbrack 0,1]$, 
+\[
+f_{0}(x) = 1,\quad \text{et pour tout }n\geq 1,\quad
+f_{n}(x) = 2\dint{0}{x}\sqrt{f_{n-1}(t)}dt
+\]
+Calculer $f_{1}$, $f_{2}$ et $f_{3}$.
+
+\item Montrer qu'il existe deux suites de réels $(a_{n})_{n\in \N}$
+et $(b_{n})_{n\in \N}$ telles que, pour tout $n\geq 0$ et tout $x\in
+\lbrack 0,1]$, on ait : $f_{n}(x) = a_{n}x^{b_{n}}.$\\
+On calculera $b_{n}$ en fonction de $n$ et on écrira une relation de
+récurrence donnant $a_{n}$ en fonction de $a_{n-1}$.
+
+\item Démontrer que, pour tout $n\geq 1$, $2^{n}\ln
+(a_{n}) = -\Sum{k = 1}{n}2^{k}\ln (1-2^{-k}).$
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout$x\in \lbrack 0,1[$, on a : $0\leq -\ln
+(1-x)-x\leq \dfrac{1}{2}\times \dfrac{x^{2}}{1-x}$
+
+\item En déduire que, pour tout $k\geq 1$, $\left| -2^{k}\ln
+(1-2^{-k})-1\right| \leq 2^{-k}$
+
+\item Montrer que $\ln (a_{n})$ est équivalent à
+$\dfrac{n}{2^{n}}$quand $n$
+tend vers l'infini.
+\end{noliste}
+
+\item Montrer que, pour tout réel $x\in \lbrack 0,1]$, la suite
+$(f_{n}(x))_{n\in \N}$ converge et préciser sa limite en fonction de
+$x$.
+\end{noliste}
+
+\section*{EXERCICE III}
+
+\noindent Un pion est déplacé de manière aléatoire sur un damier de
+quatre
+cases numérotées de 1 à 4. On considère une suite de variables
+aléatoires, $(X_{n})_{n\geq 0}$, définies sur un espace probabilisé
+$(\Omega,A,P)$, 
+à valeurs dans l'ensemble $\{1,2,3,4\}$, représentant la position du
+pion
+aux instants successifs : pour $i\in \{1,2,3,4\}$, on a $X_{n} = i$ si
+le pion
+est sur la case $i$ à l'instant $n$.\\
+On note $\pi 
+\[
+_{ij}$ l'élément situé à la i-ème ligne et à la j-ième
+colonne de la matrice
+
+\[
+\Pi = \left( 
+\begin{array}{cccc}
+1/4 & 1/4 & 1/4 & 1/4 \\
+1/3 & 1/3 & 1/3 & 0 \\
+1/3 & 1/3 & 1/3 & 0 \\
+0 & 0 & 0 & 1
+\end{array}
+\right) 
+\]
+Pour $i$ et $j$ dans $\{1,2,3,4\}$, on suppose que, pour tout $n\geq 0$
+tel que $P\left(\Ev{X_{n} = i}\right)\neq 0$, la probabilité
+conditionnelle $P\left(\Ev{X_{n + 1} = j/X_{n} = i}\right)$
+(probabilité que le pion soit sur la case $j$ à
+l'instant $n + 1$ sachant qu'il est sur la case $i$ à l'instant $n$)
+est égale 
+à $\pi 
+\]
+_{ij}$.\\
+On note, pour tout $n\geq 0$, 
+\[
+p_{n} = P\left(\Ev{X_{n} = 1}\right),\quad q_{n} = P\left(\Ev{X_{n} =
+2}\right),\quad r_{n} = P\left(\Ev{X_{n} = 3}\right),\quad
+s_{n} = P\left(\Ev{X_{n} = 4}\right).
+\]
+Enfin on suppose que le pion est sur la case $1$ à l'instant $n = 0$ et
+donc
+que $p_{0} = 1$. Si le pion vient sur la case 4 à l'instant $n>0$, il y
+reste à
+l'instant $n + 1$, d'où la quatrième ligne de la matrice $\Pi $.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer $p_{1},q_{1},r_{l},s_{1}$ et $p_{2},q_{2},r_{2},s_{2}.$
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner, pour tout entier $n\geq 0$, l'expression de $p_{n +
+1},q_{n + 1},r_{n + 1},s_{n + 1}$ en fonction de
+$p_{n},q_{n},r_{n},s_{n}.$
+
+\item En déduire, pour $n\geq 1$, les expressions de
+$p_{n},q_{n},r_{n}$
+et $s_{n}$ en fonction de $n$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer, pour $n\geq 0$, la probabilité conditionnelle
+$P\left(\Ev{X_{n + l} = 4/X_{n}\neq 4}\right).$
+
+\item Déterminer, pour tout entier $n\geq 1$, la probabilité que le
+pion passe par la case 4, pour la première fois, à l'instant n. On
+notera $t_{n}$ cette probabilité.
+
+\item Déterminer la probabilité qu'il ne passe jamais par la case 4.
+
+\item Soit T une variable aléatoire définie sur $(\Omega,A,P)$, à
+valeurs
+dans $\N^{\times }$ et vérifiant, pour tout entier $n\geq 1$,
+$P\left(\Ev{T = n}\right) = t_{n}$. \\
+Calculer l'espérance et la variance de $T$.
+\end{noliste}
+
+\item Calculer la probabilité que le pion ne passe jamais ni par la
+case 2
+ni par la case 3.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la probabilité que le pion se soit trouvé sur la case
+1 à
+l'instant $n = 1$, sachant qu'il est sur la case 4 à l'instant $n = 2$.
+
+\item Plus généralement, soit m et n deux entiers vérifiant $0<m<n$.
+Déterminer la probabilité que le pion se soit trouvé sur la case 1 à
+l'instant 
+$m$, sachant qu'il est sur la case 4 à l'instant $n$.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

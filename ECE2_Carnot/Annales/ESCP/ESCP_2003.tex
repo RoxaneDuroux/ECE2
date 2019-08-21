@@ -1,0 +1,494 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 2003} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{ESCP 2003}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2003}}
+
+
+
+{\large \textbf{Concepteur : ESCP}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{EXERCICE}
+
+Soit $a,\;b$ deux entiers naturels non nuls et $s$ leur somme.\\
+Une urne contient initialement $a$ boules noires et $b$ boules blanches
+indiscernables au toucher.\\
+On effectue dans cette urne une suite infinie de tirages au hasard
+d'une
+boule selon le protocole suivant :
+
+\begin{noliste}{$\sbullet$}
+\item si la boule tirée est blanche, elle est remise dans l'urne ;
+
+\item si la boule tirée est noire, elle est remplacée dans l'urne par
+une boule blanche prise dans une réserve annexe.
+\end{noliste}
+
+\noindent Avant chaque tirage, l'urne contient donc toujours $s$
+boules.\\
+On désigne par $(\Omega,\mathcal{B},\mathbf{P})$ un espace probabilisé
+qui
+modélise cette expérience et, pour tout entier naturel $n$ non nul, on
+note :
+
+\begin{noliste}{$\sbullet$}
+\item $B_{n}$ l'évènement " la $n$-ième boule tirée est blanche ";
+
+\item $X_{n}$ la variable aléatoire désignant le nombre de boules
+blanches
+tirées au cours des $n$ premiers tirages;
+
+\item $u_{n}$ l'espérance de la variable aléatoire $X_{n}$,
+c'est-à-dire $u_{n} = \mathbf{E}(X_{n})$.
+\end{noliste}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \textbf{Étude d'un ensemble de suites}\label{A}\\
+Soit $A$ l'ensemble des suites $(x_{n})_{n\geq 1}$ de réels qui
+vérifient : 
+\[
+\forall n\in \N^{\times },\quad s\,x_{n + 1} = (s-1)\,x_{n} + b + n
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item \label{vn} Soit $\alpha $ et $\beta $ deux réels et
+$(v_{n})_{n\geq 1}$ la suite définie par : \quad $\forall n\in \N
+$ $^{\times },\quad v_{n} = \alpha \,n + \beta $\.\\
+Déterminer en fonction de $b$ et de $s$ les valeurs de $\alpha $ et
+$\beta $
+pour que la suite $(v_{n})_{n\geq 1}$ appartienne à $A$.
+
+\item Soit $(x_{n})_{n\geq 1}$ une suite appartenant à $A$,
+$(v_{n})_{n\geq 1}$ la suite déterminée à la question précédente et
+$(y_{n})_{n\geq 1}$ la suite définie par : \ $\forall n\in \N$
+$^{\times },\quad y_{n} = x_{n}-v_{n}$\.\\
+Montrer que la suite $(y_{n})_{n\geq 1}$ est une suite géométrique et
+expliciter, pour tout entier naturel $n$ non nul, $y_{n}$ puis $x_{n}$
+en
+fonction de $x_{1},\;b,\;s$ et $n$.
+\end{noliste}
+
+\item \textbf{Expression de la probabilité $\text{P}(B_{n + 1})$ à
+l'aide de $u_{n}$}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner, en fonction de $b$ et de $s$, les valeurs respectives de
+la
+probabilité $\mathbf{P}(B_{1})$ et du nombre $u_{1}$.
+
+\item Calculer la probabilité $\mathbf{P}(B_{2})$ et vérifier l'égalité
+: \ $\mathbf{P}(B_{2}) = \dfrac{b + 1-u_{1}}{s}\;.$
+
+\item Soit $n$ un entier naturel vérifiant $1\leq n\leq a$.
+Montrer que, pour tout entier $k$ de l'intervalle $[ \
+\hspace{-0.15em}[0,n]\hspace{-0.13em}]$, la probabilité conditionnelle
+$\mathbf{P}(B_{n + 1}/[X_{n} = k])$ est égale à $\dfrac{b + n-k}{s}\;.$
+\\
+En déduire l'égalité : \quad $\mathbf{P}(B_{n + 1}) = \dfrac{b +
+n-u_{n}}{s}\;.$
+
+\item Soit $n$ un entier naturel vérifiant $n>a$. \\
+Si $k$ est un entier de l'intervalle $[ \
+\hspace{-0.15em}[0,n-a-1]\hspace{-0.13em}]$, quel est l'évènement
+$[X_{n} = k]$ ? \\
+Si $k$ est un entier de l'intervalle $[ \
+\hspace{-0.15em}[n-a,n]\hspace{-0.13em}]$, justifier l'égalité :
+$\mathbf{P}(B_{n + 1}/[X_{n} = k]) = \dfrac{b + n-k}{s}\;. $ Montrer
+enfin que l'égalité \ $\mathbf{P}(B_{n + 1}) = \dfrac{b + n-u_{n}}{s}
+$\ est encore vérifiée.
+\end{noliste}
+
+\item \textbf{Calcul des nombres $u_{n}$ et $\text{P}(B_{n})$}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $n$ un entier naturel non nul. Établir, pour tout entier $k$
+de
+l'intervalle $[ \ \hspace{-0.15em}[n + 1-a,n]\hspace{-0.13em}]$,
+l'égalité : 
+\[
+\mathbf{P}([X_{n + 1} = k]) = \dfrac{a-n + k}{s}\,\mathbf{P}([X_{n} =
+k]) + \dfrac{b + n-k + 1}{s}\,\mathbf{P}([X_{n} = k-1])
+\]
+Vérifier cette égalité pour $k = n + 1,\;k = n-a$ et pour tout entier
+$k$ de
+l'intervalle $[ \ \hspace{-0.15em}[1,n-a-1]\hspace{-0.13em}]$\.
+
+\item Calculer, pour tout entier naturel $n$ non nul, $u_{n + 1}$ en
+fonction
+de $u_{n}$ et de $n$. En déduire que la suite \ $(u_{n})_{n\geq 1}$\
+appartient à l'ensemble $A$ étudié dans la question \ref{A}
+
+\item Donner, pour tout entier naturel $n$ non nul, les valeurs de
+$u_{n}$
+et de $\mathbf{P}(B_{n + 1})$ en fonction de $b,\;s$ \ et $n$.
+
+\item Quelles sont les limites des suites $(u_{n})_{n\geq 1}$\ et
+$(\mathbf{P}(B_{n}))_{n\geq 1}$ ?
+\end{noliste}
+\end{noliste}
+
+\section*{PROBLEME}
+
+Dans tout le problème, on désigne par $\mathcal{C}$ l'espace vectoriel
+des
+applications continues de $\R.$ dans $\R.$.\\
+à toute application $f$ de $\mathcal{C}$, on associe l'application
+$D(f)$ de 
+$\R.$ dans $\R.$ définie par : 
+\[
+\forall x\in \R.,\quad D(f)(x) = f(x + 1)-f(x)
+\]
+\textit{Les parties \textbf{A}, \textbf{B} et \textbf{C} sont
+indépendantes.}
+\\
+\textbf{Question préliminaire : } $D$ est-il un endomorphisme de
+$\mathcal{C}
+$ ?
+
+\subsection*{Partie A : Image par $D$ d'une fonction de répartition}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \label{R} Soit $F$ une application de $\mathcal{C}$. Rappeler les
+propriétés que doit posséder $F$ pour être considérée comme une
+fonction de répartition.
+
+\item Soit $F$ une application de $\mathcal{C}$ qui est une fonction de
+répartition et $g$ l'application $D(F)$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $g$ est positive.
+
+\item Prouver, pour tout réel $x$, la double inégalité : \quad\
+$F(x)\leq \dint{x}{x + 1}F(t)\,dt\leq F(x + 1)$.\\
+En déduire que les limites \ $\dlim{x\rightarrow -\infty
+}\dint{x}{x + 1}F(t)\,dt$\ et \ $\dlim{x\rightarrow + \infty
+}\dint{x}{x + 1}F(t)\,dt$\ existent et préciser leurs valeurs.
+
+\item Soit $A$ et $B$ deux réels vérifiant $A<0<B$ et $I(A,B)$
+l'intégrale : 
+$I(A,B) = \dint{A}{B}g(t)\,dt$. \\
+Justifier l'égalité : \quad\ $I(A,B) = \dint{B}{B +
+1}F(t)\,dt-\dint{A}{A + 1}F(t)\,dt$\.
+
+\item Prouver alors soigneusement que $g$ est une densité de
+probabilité.
+\end{noliste}
+
+\item \textbf{Un exemple} \\
+On suppose, dans cette question, que $F$ est la fonction de répartition
+d'une variable aléatoire qui suit la loi uniforme sur l'intervalle
+$[0,1]$
+et on pose : $g = D(F)$.\\
+Déterminer $g(x)$ pour tout réel $x$, en distinguant les cas $x<-1$,\
+$-1\leq x<0$, \ $0\leq x<1$\ et \ $1\leq x$. Représenter
+graphiquement l'application $g$.
+\end{noliste}
+
+\subsection*{Partie B : Recherche des valeurs propres de $D$}
+
+Si $\lambda $ est un réel, on dit que $\lambda $ est une \textit{valeur
+propre} de $D$ s'il existe une application $f$ de $\mathcal{C}$,
+distincte
+de l'application nulle, vérifiant : \ $D(f) = \lambda \,f$\.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $a$ un réel. On note $g_{a}$ l'application de $\mathcal{C}$
+définie par : \ $\forall x\in \R.$ $,g_{a}(x) = e^{ax}$.\\
+Déterminer l'application $D(g_{a})$.
+
+\item En déduire que tout réel $\lambda$ strictement supérieur à $-1$
+est une valeur propre de $D$.
+
+\item Soit $a$ un réel. On note $h_{a}$ l'application de $\mathcal{C}$
+définie par : \ $\forall x\in \R.$ $,h_{a}(x) = \sin (\pi x)\,e^{ax}$. 
+\\
+Déterminer l'application $D(h_{a})$.
+
+\item En déduire que tout réel $\lambda$ strictement inférieur à $-1$
+est une valeur propre de $D$.
+
+\item Le réel $-1$ est-il une valeur propre de $D$ ?
+\end{noliste}
+
+\subsection*{Partie C : Image par $D$ d'une application polynomiale}
+
+Pour tout entier naturel $p$, on désigne par $E_{p}$ le sous-espace de
+$\mathcal{C}$ dont les éléments sont les applications polynomiales de
+degré
+au plus $p$.\\
+On note $X$ l'application $x\mapsto x$ et, pour tout entier naturel non
+nul $k$, on note $X^{k}$ l'application $x\mapsto x^{k}$.\\
+Soit $(H_{i})_{i\in \N}$ la suite d'applications polynomiales définie
+par : 
+\[
+H_{0} = 1\qquad \text{et}\qquad \forall i\in \N^{\times },\quad H_{i} =
+\dfrac{1}{i!}\prod_{k = 0}{i-1}(X-k)
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Préciser $H_{1},\;H_{2},\;H_{3}$ et montrer que $\mathcal{U}_{3}
+= (H_{0},\;H_{1},\; H_{2}, \; H_{3})$ est une base de $E_{3}$.
+
+\item Soit $\mathcal{B}_{3} = (1,X,X^{2},X^{3})$ la base canonique de
+$E_{3}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Écrire la matrice de passage $P$ de la base $\mathcal{B}_{3}$ à
+la
+base $\mathcal{U}_{3}$ et calculer la matrice $P^{-1}$.
+
+\item \label{X3} Soit\ $a_{0},\;a_{1},\;a_{2},\ :\ a_{3}$ des réels et
+$Q$
+l'application polynomiale $a_{0} + a_{1}X + a_{2}X^{2} + a_{3}X^{3}$.
+\\
+Quelles sont les coordonnées de $Q$ dans la base $\mathcal{U}_{3}$ ?\\
+En particulier, vérifier l'égalité : \ $X^{3} = H_{1} + 6\,H_{2} +
+6\,H_{3}$.
+\end{noliste}
+
+\item \label{Poisson}\textbf{Application : moment d'ordre 3 d'une
+variable aléatoire de Poisson}\\
+Soit $a$ un réel strictement positif et $Z$ une variable aléatoire
+suivant
+la loi de Poisson de paramètre $a$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item \label{a} Pour tout entier naturel $n$ supérieur ou égal à $3$,
+on
+pose : \ $S_{n} = \Sum{k = 0}{n}\dfrac{k^{3}\,a^{k}}{k!}$. \\
+Transformer $S_{n}$ à l'aide de la relation : \ $\forall k\in \N$
+$,\quad k^{3} = H_{1}(k) + 6\,H_{2}(k) + 6\,H_{3}(k)$.\\
+En déduire que la série de terme général \ $\dfrac{n^{3}\,a^{n}}{n!}$ \
+est
+convergente et préciser \ $\Sum{n = 0}{\infty
+}\dfrac{n^{3}\,a^{n}}{n!}\;.$
+
+\item \label{b} En déduire que la variable aléatoire $Z$ admet un
+moment
+d'ordre $3$ donné par : 
+\[
+\mathbf{E}(Z^{3}) = a + 3a^{2} + a^{3}
+\]
+\end{noliste}
+
+\item Dans cette question, $p$ est un entier naturel non nul fixé.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, si $Q$ appartient à $E_{p}$, $D(Q)$ appartient aussi
+à $E_{p}$. \\
+On note alors $D_{p}$ l'endomorphisme de $E_{p}$ qui, à tout $Q$ de
+$E_{p}$,
+associe $D(Q)$.
+
+\item Montrer que la famille \;$\mathcal{U}_{p} = (H_{0}, H_{1},
+\ldots, H_{p})$ est
+une base de $E_{p}$.
+
+\item Déterminer $D_{p}(H_{0})$, $D_{p}(H_{1})$ et prouver, pour tout
+entier 
+$i$ vérifiant $0<i\leq p$, l'égalité :
+\[
+D_{p}(H_{i}) = H_{i-1}.
+\]
+
+\item Écrire la matrice $M_{p}$ représentative de $D_{p}$ dans la base
+$\mathcal{U}_{p}$.
+
+\item Préciser la ou les valeurs propres de $M_{p}$. Cette matrice
+est-elle
+diagonalisable ?
+\end{noliste}
+
+\item \textbf{Application : moment d'ordre $p$ d'une variable aléatoire
+de
+Poisson}\\
+Soit $p$ un entier naturel non nul fixé et $b_{0},b_{1},\ldots,b_{p}$
+les réels vérifiant 
+\[
+X^{p} = b_{0}H_{0} + b_{1}H_{1} + \cdots + b_{p}H_{p}
+\]
+Par une méthode analogue à celle de la question \ref{Poisson}, montrer
+que
+la variable aléatoire $Z$ définie dans la question \ref{Poisson} admet
+un
+moment d'ordre $p$ donné par \ $\mathbf{E}(Z^{p}) = \Sum{i =
+0}{p}\dfrac{b_{i}\,a^{i}}{i!}\;.$
+
+\item Dans cette question, $p$ est un entier naturel non nul et, pour
+tout
+entier $i$ vérifiant $0\leq i\leq p$, on considère l'application
+$\varphi_{i}$ de $E_{p}$ dans $\R.$ qui, à tout élément $Q$ de $E_{p}
+$, associe le réel : 
+\[
+\varphi_{i}(Q) = \Sum{k = 0}{i}(-1)^{i-k}\,C_{i}{k}\,Q(k)
+\]
+où $\text{C}_{i}{k}$ désigne le coefficient binomial d'indices $i$ et
+$k$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout entier $i$ vérifiant $0\leq i\leq p$,
+l'application $\varphi_{i}$ est linéaire.
+
+\item Soit $i$ et $j$ deux entiers vérifiant $0\leq i\leq p$ et $0\leq
+j\leq p$; établir les égalités : 
+\[
+\varphi_{i}(H_{i}) = 1\qquad \text{et\ si}\quad j\neq i,\quad \varphi
+_{i}(H_{j}) = 0
+\]
+
+\item En déduire, pour tout entier $i$ vérifiant $0\leq i\leq p$, la
+relation : \ $b_{i} = \Sum{k = 0}{i}(-1)^{i-k}\,C_{i}{k}\,k^{p}$\.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

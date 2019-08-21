@@ -1,0 +1,147 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+K \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 8}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Planche 1}
+
+% ESCP 2013
+
+\noindent
+Toutes les variables aléatoires de  cet exercice sont définies
+sur un même espace probabilisé $(\Omega,{\cal A},\Prob)$.
+
+\begin{noliste}{1.}
+\item
+Soit $Z$ une variable al\'{e}atoire \`{a} valeurs dans $\N$.\\ 
+Montrer
+que la variable al\'{e}atoire $2^{-Z}$ admet une esp\'{e}rance. On la
+note $r(Z)$.\\
+On suppose dans la suite de l'exercice   que pour tout $n\in \N$,
+$\Prob(\Ev{Z=n})=  \left( \dfrac{1}{2} \right)^{n+1}$.
+
+\item
+\begin{noliste}{a)}
+\item
+Montrer que l'on d\'{e}finit ainsi une  loi de probabilit\'{e} et
+calculer $r(Z)$.
+\item
+Montrer que pour tout $(n,q)\in \N^2$, $ \DSum{k=0}{n}
+\dbinom{k+q}{ q}= \dbinom{n+q+1}{ q+1}$.
+\item
+Soit $(X_i)_{i\in\N^*}$ une suite de variables al\'{e}atoires
+indépendantes de même loi que $Z$ et pour tout entier $q\geq 1$,
+on pose
+$S_q =
+\DSum{i=1}{q} X_i$.\\
+Montrer que la loi de $S_q$ est d\'{e}finie par :
+\[
+\forall\, n \in \N,  \quad \Prob(\Ev{S_q=n})= \dbinom{n+q-1}{q-1}\left(
+\dfrac12\right)^{n+q}
+\]
+\item
+Calculer $r(S_q)$. En d\'{e}duire que
+\[
+\DSum{n=0}{+\infty} \dbinom{n+q-1}{ q-1} \left(
+\dfrac{1}{4}\right)^{n} = \left( \dfrac{4}{3}\right)^q
+\]
+\end{noliste}
+\item
+On suppose dans cette question  que $Z$ représente le nombre de
+lionceaux devant naître en 2014 d'un couple de lions. Chaque
+lionceau a la probabilité $\dfrac{1}{2}$ d'être mâle ou 
+femelle,
+indépendamment des autres. On note $F$ la variable aléatoire
+représentant le nombre de femelles devant naître en 2014.\\
+Déterminer la loi de $F$.
+\end{noliste}
+
+
+\newpage
+
+
+\section*{Planche 2}
+
+ % ESCP 2003
+\noindent
+Soit $a$ un nombre r\'eel tel que $ 0 < a < 1$ et $ b$ un nombre r\'eel 
+strictement positif.\\
+On consid\`ere un couple $(X, Y)$ de variables al\'eatoires \`a valeurs 
+dans  $\N^2$,
+dont la loi de probabilit\'e est donn\'ee par:
+\[
+\Prob(\Ev{X=i}\cap \Ev{Y=j})=\begin{cases}\hfill 0\hfill &\text{ si 
+$i<j$}\cr
+\dfrac{b^i\, \ee^{-b}a^j(1-a)^{i-j}}{j!(i-j)!}&\text{ si $i\geq 
+j$}\end{cases}
+\]
+
+\begin{noliste}{1.}
+\item
+D\'eterminer la loi de probabilit\'e de $X$. D\'eterminer, si elles 
+existent, son esp\'erance et sa variance.
+\item
+D\'eterminer la loi de probabilit\'e de $ Y$.
+\item
+Les variables $X$ et $Y$ sont-elles ind\'ependantes ?
+\item
+Soit $Z$ la variable al\'eatoire  $Z = X-Y$. D\'eterminer sa loi.
+\item
+Les variables $Y$ et $Z$ sont-elles ind\'ependantes ?
+\end{noliste}
+
+
+\newpage
+
+
+\section*{Planche 3}
+
+
+\noindent
+Soit $E$ un $\R$ espace vectoriel et $u$ un endomorphisme de $E$. Si 
+$F$ est un sous-espace vectoriel de $E$, on dit qu $F$ est stable par 
+$u$ si : $\forall x \in F$, $u(x) \in F$. Pour tout entier $k \geq 1$, 
+on note $u^k$ l'application $u \circ u \circ \cdots \circ u$ où $u$ 
+apparaît $k$ fois.\\
+Soient $n \geq 1$ un entier et $p$ un projecteur. On suppose que $u^n$ 
+est l'application linéaire identité et que $\im(p)$ est stable par $u$. 
+On pose :
+\[
+  q \ = \ \dfrac{1}{n} \ \Sum{k=1}{n} u^k \circ p \circ u^{n-k}
+\]
+\begin{noliste}{1.}
+  \item Montrer que $\im(q) \subset \im(p)$ et que $p \circ q = q$.
+  
+  \item Montrer : $q \circ u = u \circ q$.
+  
+  \item Montrer : $q \circ p =p$.
+  
+  \item Montrer que $q$ est un projecteur.
+  
+  \item Montrer que $\kr(q)$ est un supplémentaire de $\im(p)$ stable 
+  par $u$.
+\end{noliste}
+
+
+
+
+
+\end{document}

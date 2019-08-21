@@ -1,0 +1,88 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE1 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 5}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section{Série 1}
+
+\subsection*{Exercice 1}
+\noindent
+Démontrer : $\forall n \in \N, \ \Sum{k=0}{n} k! \ \leq \ (n+1)!$
+
+\subsection*{Exercice 2}
+\noindent
+Soit $n \in \N^*$. On note $S_n = \Sum{k=1}{n} \dfrac{1}{k}$ et $u_n
+  = \Sum{k=1}{n} S_k$.\\[.2cm]
+  Montrer : \ $\forall n \in \N^*, \ u_n = (n+1) \times S_n - n$
+
+
+\section{Série 2}
+\subsection*{Exercice 1}
+\noindent
+  \begin{noliste}{a.}
+  \item Démontrer par récurrence : $\forall n \in \N, \
+    \Sum{k=1}{n} (2k-1) = n^2$
+  \item Retrouver ce résultat de manière directe.
+  \end{noliste}
+
+
+\subsection*{Exercice 2}
+\noindent
+  Soit $n\geq 1$. Calculer $\Sum{k=1}{n} \left( \dfrac{1}{k} -
+    \dfrac{1}{n+1-k} \right)$.
+
+\section{Série 3}
+\subsection*{Exercice 1}
+\noindent
+  Soit $(u_n)$ la suite définie par : %
+  $%
+  \left\{
+    \begin{array}{l}
+      u_0 = 0 \\
+      \forall n \in \N, \ u_{n+1} = \sqrt{4 + u_n^2}
+    \end{array}
+  \right.
+  $\\
+  Démontrer que pour tout entier naturel $n$, $u_{n+1} \ > \ u_n$.
+
+
+\subsection*{Exercice 2}
+\noindent
+Parmi les formules suivantes, lesquelles sont vraies ?\\[-.8cm]
+  \begin{noliste}{a.}
+    \begin{minipage}[t]{.45\linewidth}
+    \item $\Sum{i=1}{n} (\alpha+a_i) = \alpha + \Sum{i=1}{n} a_i$
+    \item $\Sum{i=1}{n} (a_i + b_i) = \Sum{i=1}{n} a_i + \Sum{i=1}{n}
+      b_i$
+    \item $\Sum{i=1}{n} (\alpha \, a_i) = \alpha \, \Sum{i=1}{n} a_i$
+    \end{minipage}
+    \begin{minipage}[t]{.45\linewidth}
+    \item $\Sum{i=1}{n} (a_i b_i) = \left(\Sum{i=1}{n} a_i\right)
+      \times \left(\Sum{i=1}{n} b_i\right)$
+    \item $\Sum{i=1}{n} a_i^\alpha = \left(\Sum{i=1}{n} a_i
+      \right)^\alpha$
+    \item $\Sum{j=1}{n} \Sum{i=1}{n} a_{i,j} = \Sum{i=1}{n}
+      \Sum{j=1}{n} a_{i,j}$
+    \end{minipage}
+  \end{noliste}
+
+\end{document}
+

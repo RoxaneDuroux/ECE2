@@ -1,0 +1,501 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 2005} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\NN}{\mbox{${\mathbb N}$}}
+\newcommand{\ZZ}{\mbox{${\mathbb Z}$}}
+\newcommand{\QQ}{\mbox{${\mathbb Q}$}}
+\newcommand{\RR}{\mbox{${\mathbb R}$}}
+\newcommand{\MM}{\mbox{${\mathcal{M}}$}}
+\newcommand{\CC}{\mbox{${\mathcal{C}}$}}
+\newcommand{\DD}{\mbox{${\mathcal{D}}$}}
+
+\newcommand{\vpp}{\vspace{0.1cm}}
+\newcommand{\vp}{\vspace{0.2cm}}
+\newcommand{\vg}{\vspace{0.4cm}}
+\newcommand{\dsp}{\def \tend #1{\xrightarrow[ \
+\phantom{a}#1\phantom{a}]{}}
+\def \equi #1{\mathop{\sim}_{\substack{#1}}}
+\def 
+\[
+ {[ \ \![}
+\def 
+\]
+ {]\!]}
+\newcommand{\pg}{\geq }
+\newcommand{\pp}{\leq}
+\newcommand{\dt}{\,\textrm{d}t}
+\newcommand{\dx}{\,\textrm{d}x}
+\newcommand{\du}{\,\textrm{d}u}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\bul}{\item[$\bullet$]}
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 2005}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\noindent {\Large \textbf{ECRI%TCIMACRO{\TeXButton{TeX
+field}{\colorbox[gray]{0.95}{COME}}}%BeginExpansion
+\colorbox[gray]{0.95}{COME}%EndExpansion
+}}\vspace{0.3cm}
+
+\noindent \textbf{Banque d'épreuves communes}
+
+\noindent aux concours des Ecoles
+
+\noindent esc%TCIMACRO{\TeXButton{TeX
+field}{\colorbox[gray]{0.95}{bordeaux}} }%BeginExpansion
+\colorbox[gray]{0.95}{bordeaux}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{marseille}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{marseille}
+%EndExpansion
+/ icn%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{nancy}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{nancy}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{reims}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{reims}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{rouen}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{rouen}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX
+field}{\colorbox[gray]{0.95}{toulouse}}}%BeginExpansion
+\colorbox[gray]{0.95}{toulouse}%EndExpansion
+\vspace{1cm}
+
+\begin{center}
+{\large CONCOURS D'ADMISSION}
+
+\textbf{option économique}
+
+{\Large \textbf{MATHÉMATIQUES}}
+
+\textbf{Année 2005}
+\end{center}
+
+\noindent \textbf{Aucun instrument de calcul n'est autorisé.}
+
+\noindent \textbf{Aucun document n'est autorisé.}
+
+\noindent L'énoncé comporte \pageref{fin} pages
+
+\begin{quotation}
+\noindent Les candidats sont invités à soigner la présentation de leur
+copie, à mettre en évidence les principaux résultats, à respecter les
+notations de l'énoncé, et à donner des démonstrations complètes (mais
+brèves) de leurs affirmations.
+\end{quotation}
+
+\vspace{13cm}
+
+\hfill \textbf{Tournez la page}
+
+\hfill \textbf{S.V.P\qquad }
+
+\newpage
+
+\section*{EXERCICE1}
+
+On considère, pour tout entier naturel $n$, l'application
+$\varphi_{n}$, définie sur $\R$ par :
+\[
+\forall x\in \R,\quad \varphi_{n}(x) = (1-x)^{n}e^{-2x}
+\]
+ainsi que l'intégrale : $I_{n} = \dint{0}{1}\varphi_{n}(x)dx$.\\
+On se propose de démontrer l'existence de trois réels, $a$, $b$, $c$
+tels que
+\[
+I_{n} = a + \dfrac{b}{n} + \dfrac{c}{n^{2}} + \dfrac{\varepsilon
+(n)}{n^{2}}\quad 
+\text{avec}\quad :\dlim{n\rightarrow + \infty }\varepsilon (n) = 0.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer $I_{0}$, $I_{1}$.
+
+\item Étudier la monotonie de la suite $(I_{n})_{n\in \N}$.
+
+\item Déterminer le signe de $I_{n}$ pour tout entier naturel $n$.
+
+\item Qu'en déduit-on pour la suite $(I_{n})_{n\in \N}$ ?
+
+\item Majorer la fonction $g :x\mapsto e^{-2x}$ sur $[0;1]$.
+
+\item En déduire que : $\forall n\in \N^{\times },\quad 0\leq
+I_{n}\leq \dfrac{1}{n + 1}.$
+
+\item Déterminer la limite de la suite $(I_{n})_{n\in \N}$ lorsque $
+n $ tend vers l'infini.
+
+\item À l'aide d'une intégration par parties, montrer que $\forall n\in
+
+\N,\quad 2I_{n + 1} = 1-(n + 1)I_{n}.$
+
+\item En déduire la limite de la suite $(nI_{n})_{n\in \N}$ lorsque $
+n$ tend vers l'infini.
+
+\item Déterminer la limite de la suite $(n(nI_{n}-1))_{n\in \N}$
+lorsque $n$ tend vers l'infini.
+
+\item Donner alors les valeurs de $a$, $b$, $c$.
+\end{noliste}
+
+\section*{EXERCICE 2.}
+
+On considère la fonction $f$ définie par 
+\[
+\forall x\in \R_{+}{\times },\quad f(x) = x^{2}-x\ln (x)-1\quad \text{
+et}\quad f(0) = -1.
+\]
+ainsi que les fonctions $\varphi $ et $g$ définies par :
+
+\begin{noliste}{$\sbullet$}
+\item $\forall x\in \R_{+}{\times },\quad \varphi (x) = \dfrac{2}{x}
+ + \ln (x)$
+
+\item $\forall (x;y)\in \R^{2},g(x\ ;y) = xe^{y}-ye^{x}.$
+\end{noliste}
+
+\noindent On donne le tableau de valeurs de $f$ :
+\[
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+$x = $ & $0,5$ & $1$ & $1,5$ & $2$ & $2,5$ & $3$ & $3,5$ & $4$ \\
+\hline
+$f(x)\simeq $ & $-0,4$ & $0$ & $0,6$ & $1,6$ & $3$ & $4,7$ & $6,9$ &
+$9,5$
+\\
+\hline
+\end{tabular}
+\]
+
+\subsection*{2.1 Étude de deux suites associées à $f$.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $f$ est continue sur $\R_{+}$.
+
+\item Étudier la dérivabilité de la fonction $f$ en 0. En donner une
+interprétation graphique.
+
+\item Étudier la convexité de $f$ sur $\R_{+}{\times }$, puis
+dresser son tableau de variations en précisant la limite de $f(x)$
+lorsque $x $ tend vers l'infini.
+
+\item Étudier la nature de la branche infinie.
+
+\item Montrer que $f$ réalise une bijection de $\R_{+}{\times }$
+sur un intervalle $J$ que l'on précisera.
+
+\item Quel est le sens de variation de $f^{-1}$ ? Déterminer la limite
+de $f^{-1}(x)$ lorsque $x$ tend vers l'infini.
+
+\item Justifier que pour tout entier naturel $k$, il existe un unique
+réel $x_{k}$ positif tel que $f(x_{k}) = k$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner la valeur de $x_{0}$.
+
+\item Utiliser le tableau de valeurs de $f$ pour déterminer un
+encadrement
+de $x_{1}$ et $x_{2}$.
+
+\item Exprimer $x_{k}$ à l'aide de $f^{-1}$ puis justifier que la suite
+$
+(x_{k})$ est croissante et déterminer sa limite lorsque $k$ tend vers
+l'infini.
+\end{noliste}
+
+\item On définit la suite $(u_{n})$ par : $u_{0} = \dfrac{3}{2}$ et
+$\forall
+n\in \N,\quad u_{n + 1} = \varphi (u_{n})$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier les variations de $\varphi $ sur $\R_{+}{\times }$.
+
+\item On donne $\varphi (\dfrac{3}{2})\simeq 1,73$ et $\varphi
+(2)\simeq
+1,69 $. Montrer que $\varphi \left( \left[ \ \dfrac{3}{2};2\right]
+\right)
+\subset \left[ \ \dfrac{3}{2};2\right] $.
+
+\item En étudiant les variations de $\varphi ^{\prime }$, montrer que :
+$
+\forall x\in \left[ \ \dfrac{3}{2};2\right],\quad \left| \varphi
+^{\prime
+}(x)\right| \leq \dfrac{2}{9}$.
+
+\item Montrer que les équations $x = \varphi (x)$ et $f(x) = 1$ sont
+équivalentes. En déduire que le réel $x_{1}$ est l'unique solution de
+l'équation $x = \varphi (x)$.
+
+\item Montrer successivement que pour tout entier $n$ :
+\[
+\dfrac{3}{2}\leq u_{n}\leq 2\quad ;\quad \left|
+u_{n + 1}-x_{1}\right| \leq \dfrac{2}{9}\left|
+u_{n}-x_{1}\right| \quad ;\quad \left| u_{n}-x_{1}\right|
+\leq \left( \dfrac{2}{9}\right) ^{n}.
+\]
+
+\item En déduire la limite de la suite $(u_{n})$.
+\end{noliste}
+\end{noliste}
+
+\subsection*{2.2 Recherche d'extremum éventuel de $g$.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer les dérivées partielles premières de la fonction $g$.
+
+\item Montrer que si $g$ admet un extremum local en $(a;b)$ de
+$\R^{2}$, alors : $ab = 1$ et $a = e^{a-1/a}$.\\
+En déduire que nécessairement $a>0$, $ab = 1$ et $f(a) = 0$ et donc que
+le seul
+point où $g$ peut admettre un extremum est le couple $(1;1)$.
+
+\item Calculer les réels : $r = \dfrac{\partial ^{2}g}{\partial
+x^{2}}\left(
+1;1\right) $ ; $s = \dfrac{\partial ^{2}g}{\partial x\partial y}\left(
+1;1\right) $ ; $t = \dfrac{\partial ^{2}g}{\partial y^{2}}\left(
+1;1\right) $.
+
+\item La fonction $g$ admet-elle un extremum local sur $\R^{2}$ ?
+\end{noliste}
+
+\section*{EXERCICE 3}
+
+On effectue une suite de lancers d'une pièce de monnaie. On suppose que
+les résultats des lancers sont indépendants et qu'à chaque lancer, la
+pièce donne pile avec la probabilité $p$ ($0<p<1$) et face avec la
+probabilité $q = 1-p$.
+\\
+On s'intéresse dans cet exercice à l'apparition de deux piles
+consécutifs.
+\\
+Pour tout entier naturel $n$ non nul, on note $A_{n}$ l'évènement :\\
+\textquotedblleft\ deux piles consécutifs sont réalisés pour la
+première
+fois aux lancers numéro $n$ et $n + 1$ \textquotedblright.\\
+On définit alors la suite $(a_{n})_{n\in \N}$ des probabilités des
+évènements $A_{n}$ par :\\
+Pour tout entier naturel $n$ non nul : $a_{n} =
+P\left(\Ev{A_{n}}\right)$ avec la convention $a_{0} = 0$.
+
+\subsection*{3.1. Encadrement des racines de l'équation
+caractéristique.}
+
+On considère la fonction polynomiale $f$ de la variable réelle $x$
+définie par $f(x) = x^{2}-qx-pq.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que l'équation $f(x) = 0$ possède deux racines réelles
+distinctes $r_{1}$ et $r_{2}$ avec $r_{1}<r_{2}$.\\
+Exprimer $r_{1} + r_{2}$ et $r_{1}\times r_{2}$ en fonction de $p$ et
+$q$.
+
+\item Calculer $f(1)$, $f(-1)$, $f(0)$.
+
+\item En déduire l'encadrement suivant : $\left| r_{1}\right|
+<\left| r_{2}\right| <1.$
+\end{noliste}
+
+\subsection*{3.2. Équivalent de $a_{n}$ quand $n$ tend vers l'infini.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer $a_{1}$, $a_{2}$ et $a_{3}$ en fonction de $p$ et $q$.
+
+\item En remarquant que l'évènement $A_{n + 2}$ est réalisé si et
+seulement si :
+
+\begin{noliste}{$\sbullet$}
+\item on a obtenu pile au premier tirage, face au deuxième tirage, et à
+partir de ce moment, $A_{n}$ est réalisé.
+\end{noliste}
+
+\noindent ou
+
+\begin{noliste}{$\sbullet$}
+\item on a obtenu face au premier tirage, et à partir de ce moment,
+$A_{n +}{}_{1}$ est réalisé.
+\end{noliste}
+
+\noindent Montrer que l'on a, pour tout entier naturel $n$ : $a_{n +
+2}-qa_{n + 1}-pqa_{n} = 0.$
+
+\item Écrire un programme, en langage \Scilab{}, permettant de calculer
+$a_{n}$
+; l'entier $n$, le réel $p$ étant donné par l'utilisateur.
+
+\item Montrer que pour tout entier naturel $n\ $; $a_{n} =
+\dfrac{p^{2}}{r_{2}-r_{1}}((r_{2})^{n}-(r_{1})^{n}).$
+
+\item Donner un équivalent de $a_{n}$ lorsque $n$ tend vers plus
+l'infini.
+\end{noliste}
+
+\subsection*{3.3. Expression de $a_{n}$ en fonction de $n$ par une
+méthode matricielle.}
+
+On définit les matrices $A$ et $P$ par : 
+\[
+A = 
+\begin{smatrix}
+r_{1} + r_{2} & -r_{1}r_{2} \\
+1 & 0
+\end{smatrix}
+\quad ;\quad P = {{
+\begin{smatrix}
+r_{1} & r_{2} \\
+1 & 1
+\end{smatrix}
+}}\quad ;\quad I = {{
+\begin{smatrix}
+1 & 0 \\
+0 & 1
+\end{smatrix}
+}};
+\]
+ainsi que les matrices unicolonnes $X_{n}$ tout entier naturel $n$, par
+: $
+X_{n} = {{
+\begin{smatrix}
+a_{n + 1} \\
+a_{n}
+\end{smatrix}
+}}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Vérifier que pour tout entier naturel $n$ : $X_{n + 1} = AX_{n}$.
+
+\item Montrer que les matrices $A-r_{1}I$ et $A-r_{2}I$ ne sont pas
+inversibles.
+
+\item En déduire que $A$ est diagonalisable.
+
+\item Montrer que $P$ est inversible et déterminer $P^{-1}$.
+
+\item Calculer la matrice $D = P^{-1}AP$.\\
+(Les coefficients de la matrice $D$ seront exprimés en fonction de
+$r_{1}$et $r_{2}$ seulement).
+
+\item Démontrer par récurrence, que pour tout entier naturel $n$ ;
+$X_{n} = PD^{n}P^{-1}X_{0}.$
+
+\item Retrouver ainsi l'expression de $a_{n}$ en fonction de $r_{1}$,
+$r_{2}$, $p$ et $n$.
+\end{noliste}
+
+\subsection*{3.4. Étude du temps d'attente du premier double pile.}
+
+On désigne par $T$ l'application associant à toute suite de lancers
+successifs le numéro du lancer où pour la première fois on obtient un
+double
+pile. Ainsi, pour tout entier naturel $n$ ; $P\left(\Ev{T = n +
+1}\right) = a_{n}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $T$ est une variable aléatoire, c'est-à-dire que :
+$\Sum{n = 1}{+ \infty }P\left(\Ev{T = n + 1}\right) = 1.$
+
+\item Prouver que $T$ admet une espérance $\E(T)$, et que : $\E(T) =
+\dfrac{{1 + p}}{p^{2}}$.
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

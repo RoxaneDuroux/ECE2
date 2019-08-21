@@ -1,0 +1,427 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1989 - voie Générale} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION GENERALE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 1989}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent Le but du problème est l'étude de certaines propriétés de la
+fonction de répartition de la loi normale centrée réduite $(0;1)$, ce
+qui
+fait l'objet des trois premières parties. Une application probabiliste
+est
+proposée en quatrième partie.
+
+\section*{Partie I}
+
+On étudie dans cette partie une méthode de calcul de l'intégrale
+(convergente) : 
+\[
+I = \dint{-\infty }{+ \infty }\exp \left( -\dfrac{u^{2}}{2}\right) du
+\]
+À cet effet, on considère les fonctions $f$ et $g$ définies sur $R$ par
+les
+relations : 
+\[
+f(x) = \dint{0}{1}\dfrac{\exp \left( -x(1 + t^{2})\right) }{1 +
+t^{2}}dt,\quad g(x) = \dint{0}{1}\exp \left( -x(1 + t^{2})\right\ dt.
+\]
+(On ne cherchera pas à calculer ces deux intégrales).
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $f(0)$.
+
+\item Pour tout nombre réel positif $x$, établir l'encadrement suivant
+: 
+\[
+\dfrac{\pi }{4}\exp (-2x)\leq f(x)\leq \dfrac{\pi }{4}\exp (-x)
+\]
+
+\item Établir un encadrement analogue pour $x$ négatif.
+
+\item En déduire les limites de $f(x)$ lorsque $x$ tend vers $ + \infty
+$ et
+quand $x$ tend vers $-\infty $.
+\end{noliste}
+
+\item On se propose de montrer que la fonction $f$ est dérivable et de
+calculer sa dérivée.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $a$ un nombre réel positif. En utilisant l'inégalité de
+Taylor-Lagrange, montrer que, pour tout nombre réel $h$ appartenant à
+$[-1;1] $ : 
+\[
+\left| \exp (-ah)-1 + ah\right| \leq \dfrac{a^{2}h^{2}}{2}\exp
+(a).
+\]
+
+\item En déduire que, pour tout nombre réel $x$ et pour tout nombre
+réel $h$
+appartenant à $[-1;1]$ : 
+\[
+\left| f(x + h)-f(x) + hg(x)\right| \leq \dfrac{2h^{2}}{3}\exp
+\left( 2|1-x|\right)
+\]
+
+\item Montrer que $f$ est dérivable et exprimer sa dérivée à l'aide de
+$g$.
+\end{noliste}
+
+\item On considère la fonction numérique $\varphi $ définie sur $R$ par
+la
+relation : 
+\[
+\varphi (x) = 2f\left( \dfrac{x^{2}}{2}\right) + \left( \dint{0}{x}\exp
+\left( -\dfrac{u^{2}}{2}\right) \text{d}u\right) ^{2}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Prouver que $\varphi ^{\prime }$ est nulle et déterminer l'unique
+valeur prise par $\varphi $.
+
+\item En déduire la valeur de l'intégrale $I$.
+\end{noliste}
+\end{noliste}
+
+\section*{Partie II}
+
+On étudie dans cette partie un algorithme de calcul des valeurs prises
+par
+la fonction de répartition $F$ de la loi normale centrée réduite. On
+rappelle que : 
+\[
+F(x) = \dfrac{1}{\sqrt{2\pi }}\dint{-\infty }{x}\exp \left(
+-\dfrac{u^{2}}{2}\right) \text{d}u
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $x$ un nombre réel.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item À l'aide d'une intégration par parties, prouver que : 
+\[
+\sqrt{2\pi }\left( F(x)-\dfrac{1}{2}\right) = x\exp \left(
+-\dfrac{x^{2}}{2}\right) + \dint{0}{x}u^{2}\exp \left(
+-\dfrac{u^{2}}{2}\right) \text{d}u
+\]
+
+\item Montrer par récurrence que, pour tout nombre entier naturel $n$ :
+
+\[
+\sqrt{2\pi }\left( F(x)-\dfrac{1}{2}\right) = x\exp \left(
+-\dfrac{x^{2}}{2}\right) \left( 1 + \dfrac{x^{2}}{1\times 3} +
+\dfrac{x^{4}}{1\times 3\times 5} + \ldots + \dfrac{x^{2n}}{1\times
+3\times 5\times \ldots \times (2n + 1)}\right)
+ + R_{n}(x)
+\]
+avec : $R_{n}(x) = \dfrac{1}{1\times 3\times 5\times \ldots \times (2n
++ 1)}\dint{0}{x}u^{2n + 2}\exp \left( -\dfrac{u^{2}}{2}\right) du$
+\end{noliste}
+
+\item Montrer que, pour tout nombre entier naturel $n$ et pour tout
+nombre
+réel $x$ appartenant à $[-2 ; 2]$ : 
+\[
+\left|R_{n}(x)\right|\leq
+|x|\dfrac{x^{2}}{3}\dfrac{x^{2}}{5}\dfrac{x^{2}}{7}\ldots
+\dfrac{x^{2}}{2n + 3}
+\]
+Trouver une valeur de $n$ telle que, pour tout nombre réel $x$
+appartenant
+à $[-2 ; 2]$ : 
+\[
+\left|R_{n}(x)\right|\leq 10^{-6}
+\]
+
+\item On considère l'algorithme suivant, dans lequel $s$ et $x$
+représentent des variables de type real, $n$ et $k$ des variables de
+type
+integer, les valeurs de $x$ et de $n$ étant données par ailleurs :
+
+$s : = 1$;
+
+for $k : = n$ downto $1$ do
+
+$s : = 1 + x\ast x\ast s/(2\ast k + 1);$
+
+write($s$);
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Indiquer en fonction de $x$ et de $n$ l'expression finale de $s$.
+
+\item En déduire, à l'aide des résultats obtenus dans cette partie, des
+valeurs approchées à $10^{-6}$ près de : 
+\[
+F(0,5)\quad F(0,783)\quad F(0,784)\quad F(1)\quad F(1,5)\quad F(2)
+\]
+(on donnera toutes les décimales fournies par la calculatrice).
+\end{noliste}
+
+On considère l'algorithme suivant, dans lequel $S$ et $x$ représentent
+des
+variables à valeurs réelles, $n$ et $k$ des variables à valeurs
+entières,
+les valeurs de $x$ et de $n$ étant données par ailleurs (l'instruction
+$A\leftarrow B$ signifiant que la valeur de la variable $B$ est
+affectée à la
+variable $A$) :
+
+$S\leftarrow 1$;
+
+Pour $k$ décroissant de $n$ à $1$ faire $S\leftarrow 1 +
+\dfrac{x^{2}}{2k + 1}S$;
+
+écrire $S$;
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Indiquer en fonction de $x$ et de $n$ l'expression finale de $S$.
+
+\item En déduire, à l'aide des résultats obtenus dans cette partie, des
+valeurs approchées à $10^{-6}$ près de : 
+\[
+F(0,5)\quad \quad F(0,783)\quad \quad F(0,784)\quad \quad F(1)\quad
+\quad
+F(1,5)\quad \quad F(2)
+\]
+(on donnera toutes les décimales fournies par la calculatrice).
+\end{noliste}
+\end{noliste}
+
+\section*{Partie III}
+
+On étudie dans cette partie le comportement asymptotique de la fonction
+$F$
+et de sa réciproque.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que la fonction $F$ admet une fonction réciproque $G$,
+laquelle est définie sur $]0;1[$.
+
+\item Représenter sur une même figure les courbes représentatives de $F
+$ et de $G$ (unité graphique $4$ cm).
+
+On précisera notamment les valeurs de $F(0)$ et de $G(0,5)$, les
+limites
+de $F$ en $-\infty$ et en $ + \infty$, les limites de $G$ en $0$ et en
+$1$.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer $F(-x)$ en fonction de $F(x)$. En déduire l'expression
+de $G(1-y)$ en fonction de $G(y)$ pour $0<y<1$.
+
+\item Pour tout nombre réel strictement négatif $x$, établir
+l'encadrement
+suivant : 
+\[
+-\dfrac{\exp \left( -\dfrac{x^{2}}{2}\right) }{x\sqrt{2\pi }}\left(
+1-\dfrac{1}{x^{2}}\right) \leq F(x)\leq -\dfrac{\exp \left(
+-\dfrac{x^{2}}{2}\right) }{x\sqrt{2\pi }}
+\]
+En déduire un équivalent de $F(x)$ quand $x$ tend vers $-\infty $, puis
+de $1-F(x)$ quand $x$ tend vers $ + \infty $.
+
+\item On pose $x = G(y)$, où $x<0$ et $0<y<\dfrac{1}{2}$. Montrer que :
+
+\[
+-\dfrac{G^{2}(y)}{2}-\ln \left| G(y)\right| -\dfrac{\ln (2\pi )}{2} +
+\ln \left( 1-\dfrac{1}{G^{2}(y)}\right) \leq \ln (y)\leq
+-\dfrac{G^{2}(y)}{2}-\ln \left| G(y)\right| -\dfrac{\ln (2\pi )}{2}
+\]
+En déduire un équivalent de $G(y)$ quand $y$ tend vers $0$, puis quand
+$y$
+tend vers $1$.
+\end{noliste}
+\end{noliste}
+
+\section*{Partie IV}
+
+À l'issue d'un scrutin uninominal permettant à plusieurs centaines de
+milliers d'électeurs de départager deux candidats $A$ et $B$
+d'importances
+comparables, on se propose, avant le dépouillement, de procéder à une
+estimation de la proportion $p$ des voix obtenues par le candidat
+$A$.\\
+À cet effet, on répète $n$ fois ($n\geq 1$) l'expérience suivante : on
+retire "au hasard" un bulletin des urnes ; on note s'il est ou non en
+faveur
+de $A$ et on le remet dans les urnes. On note $X_{n}$ la variable
+aléatoire
+indiquant le nombre des suffrages favorables à $A$ parmi les $n$
+bulletins dépouillés ; le quotient : 
+\[
+Y_{n} = \dfrac{X_{n}}{n}
+\]
+indique donc la proportion des suffrages favorables à $A$ parmi ces $n$
+bulletins. On pose enfin : 
+\[
+u_{n} = P\left(\Ev{ \left| Y_{n}-p\right| >0,01}\right).
+\]
+Soit $\epsilon $ un nombre réel appartenant à $]0;1[$. L'objectif est
+de déterminer le nombre $n$ de bulletins qu'il suffit de dépouiller
+ainsi pour
+que $u_{n}\leq \epsilon $, c'est à dire pour connaitre $p$ à $0,01$
+près avec un risque d'erreur inférieur à $\epsilon $.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On étudie dans cette question les lois de $X_{n}$ et de $Y_{n}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la loi de $X_{n}$. Calculer les espérances et les
+variances de $X_{n}$ et de $Y_{n}$.
+
+\item Montrer que : 
+\[
+\V(X_{n} )\leq \dfrac{n}{4}
+\]
+\end{noliste}
+
+\item \textit{Première majoration de $u_{n}$}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En appliquant à $X_{n}$ l'inégalité de Bienaymé-Tchebychev et en
+utilisant le résultat de la question 1.b., donner un majorant $M_{n}$
+de $u_{n} $ ne dépendant que de $n$.
+
+\item Comment suffit-il de choisir $n$ pour que $M_{n} \leq \epsilon$ ?
+
+\hspace{-\leftmargin}Examiner les cas où $\epsilon = 0,1$ et $\epsilon
+= 
+0,05$.
+\end{noliste}
+
+\item \textit{Seconde majoration de $u_{n}$}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En approchant $X_{n}$ par la loi normale (on justifiera la mise
+en \oe\ uvre d'une telle approximation), exprimer $u_{n}$ en fonction
+de $n$ et de $p$
+à l'aide de $F$. En utilisant le résultat de la question 1.b., donner
+un
+majorant $m_{n}$ de $u_{n}$ ne dépendant que de $n$.
+
+\item En déduire que $m_{n} \leq \epsilon$ dès que $n \geq 2500
+G^{2}\left(\dfrac{\epsilon}{2}\right)$.
+
+Examiner les cas où $\epsilon = 0,1$ et $\epsilon = 0,05$.
+
+(On rappelle les valeurs approchées suivantes : $F(1,96) \approx 0,975$
+et 
+$F(1,64) \approx 0,950$)
+
+\item Soit $n(\epsilon )$ le plus petit des nombres entiers naturels
+$n$
+tels que $m_{n}\leq \epsilon $. Déterminer un équivalent de $n(\epsilon
+)$ lorsque $\epsilon $ tend vers $0$.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

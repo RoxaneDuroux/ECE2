@@ -1,0 +1,366 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EML 2010} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{EML 2010}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+\LARGE{Lyon 2010\\
+Option économique}
+\end{center}
+
+\begin{center}
+\underline{\bf Exercice 1}
+\end{center}
+{\bf Partie I : Un endomorphisme de l'espace vectoriel des matrices
+carrées d'ordre 2}\\
+
+\begin{noliste}{$\sbullet$}
+\item On note $\M{2}$ l'espace vectoriel des matrices carrées d'ordre
+2.
+\item On note : $A = 
+\begin{smatrix}
+0 & 2\\
+2 & 3
+\end{smatrix}, \quad F = 
+\begin{smatrix}
+1 & 0\\
+0 & 0
+\end{smatrix}, \quad G = 
+\begin{smatrix}
+0 & 1\\
+1 & 0
+\end{smatrix}, \quad H = 
+\begin{smatrix}
+0 & 0\\
+0 & 1
+\end{smatrix}
+$.
+\item On note ${\bf \mathfrak{S}_{2}}$ l'ensemble des matrices carrées
+symétriques d'ordre 2.
+\end{noliste}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer $AFA$, $AGA$, $AHA$.
+\item Montrer que ${\bf \mathfrak{S}_{2}}$ est un sous-espace vectoriel
+de $\M{2}$ et que $(F,G,H)$ est une base de ${\bf \mathfrak{S}_{2}}$.
+Déterminer la dimension de ${\bf \mathfrak{S}_{2}}$.\\
+
+On note $u$ l'application qui, à chaque matrice $S$ de ${\bf
+\mathfrak{S}_{2}}$, associe la matrice $u(S) = ASA$.\\
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer : $\forall s\in {\bf \mathfrak{S}_{2}}, u(S)\in {\bf
+\mathfrak{S}_{2}}$.
+\item Montrer que $u$ est un endomorphisme de l'espace vectoriel ${\bf
+\mathfrak{S}_{2}}$.
+\item Donner la matrice de $u$ dans la base $(F,G,H)$ de ${\bf
+\mathfrak{S}_{2}}$.\\
+\end{noliste}
+\end{noliste}
+
+{\bf Partie 2 : Réduction d'une matrice carrée d'ordre 3}\\
+\\
+On note : $I = 
+\begin{smatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{smatrix}, \quad M = 
+\begin{smatrix}
+0 & 0 & 4\\
+0 & 4 & 6\\
+4 & 12 & 9
+\end{smatrix}, \quad D = 
+\begin{smatrix}
+-4 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 16
+\end{smatrix}
+$
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Vérifier que -4, 1, 16 sont valeurs propres de $M$ et déterminer,
+pour chacune de celles-ci, une base du sous-espace propre associé.
+Est-ce que $M$ est diagonalisable ?
+\item Déterminer une matrice $P$ carrée d'ordre 3, inversible, de
+première ligne égale à $\begin{smatrix}
+4 & 4 & 1
+\end{smatrix}
+$, telle que $M = PDP^{-1}$.
+\item Vérifier que $(D + 4I)(D-I)(D-16I)$ est la matrice nulle.
+\item En déduire : $\quad M^{3} = 13M^{2} + 52M-64I$.
+\item Établir : $u^{3} = 13u^{2} + 52u-64e$, où $e$ désigne
+l'application indentité de ${\bf \mathfrak{S}_{2}}$ et où $u$ a été
+définie dans la partie I.\\
+\\
+\end{noliste}
+
+\newpage
+
+\begin{center}
+\underline{\bf Exercice 2 }
+\end{center}
+
+On note $f :\R\rightarrow \R$ l'application de classe $C^{2}$, définie,
+pour tout $x\in \R$, par : 
+\[
+f(x) = x-\ln(1 + x^{2})
+\]
+et $C$ la courbe représentative de $f$ dans un repère orthonormé.\\
+On donne la valeur approchée : $\ln(2)\approx 0,69$.\\
+\\
+
+{\bf Partie I : Étude de $f$ et tracé de $C$}\\
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer, pour tout $x\in \R, f'(x)$.
+\item En déduire le sens de variation de $f$.
+\item Calculer, pour tout $x\in \R$, $f''(x)$.
+\end{noliste}
+\item Déterminer la limite de $f$ en $-\infty$ et la limite de $f$ en $
++ \infty$.
+\item Déterminer la nature des branches infinies de $C$.
+\item Montrer que $C$ admet deux points d'inflexion dont on déterminera
+les coordonnées.
+\item Tracer $C$. On utilisera un repère orthonormé d'unité graphique 2
+centimètres, et on précisera la tangente à $C$ en l'origine et en
+chacun des points d'inflexion.
+\item Calculer $\dint{0}{1}xf(x)dx$. \\
+A cet effet, on pourra utiliser le changement de variable défini par $t
+= 1 + x^{2}$.\\
+\end{noliste}
+
+{\bf Partie II : Étude d'une suite et d'une série associées à $f$}\\
+\\
+On considère la suite $(u_{n})_{n\geq 0}$ définie par $u_{0} = 1$ et 
+\[
+\forall n\in \N, \quad u_{n + 1} = f(u_{n})
+\]
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $(u_{n})_{n\geq 0}$ est décroissante.
+\item Établir que la suite $(u_{n})_{n\geq 0}$ converge et déterminer
+sa limite.
+\item Écrire un programme en -\Scilab{} qui calcule et affiche un
+entier $n$ tel que $u_{n}\leq 10^{-3}$.
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir : $\forall x\in [0;1], \quad f(x)\leq
+x-\dfrac{1}{2}x^{2}$.
+\item En déduire : $\forall n\in \N, u_{n}{2}\leq2(u_{n}-u_{n + 1})$.
+\item Démontrer que la série $\Sum{n\geq 0}u_{n}{2}$ converge.\\
+\end{noliste}
+\end{noliste}
+
+{\bf Partie III : Étude d'une fonction de deux variables réelles
+associée à $f$}\\
+
+On considère l'application $F :\R^{2}\rightarrow`\R$, définie, pour
+tout $(x,y)\in \R^{2}$, par : 
+\[
+F(x,y) = f(x + y)-f(x)-f(y)
+\]
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $F$ est de classe $C^{1}$ sur $\R^{2}$ et exprimer,
+pour tout $(x,y)\in \R^{2}$, les dérivées partielles premières de $F$
+en $(x,y)$ à l'aide de $f'$, $x$ et $y$.
+\item Résoudre dans $\R^{2}$ le système $\left\{ 
+\begin{array}{ll}
+ f'(x) = f'(y)\\
+f'(x + y) = f'(x)
+\end{array}
+\right.$ En déduire les points critiques de $F$.
+\item Est-ce que $F$ admet un minimum local ?\\
+\\
+\end{noliste}
+
+\newpage
+
+\begin{center}
+\underline{\bf Exercice 3}
+\end{center}
+
+{\bf Les deux parties sont indépendantes}\\
+\\
+{\bf Partie 1}\\
+\\
+Une gare dispose de deux guichets. Trois clients notés $C_{1}, C_{2},
+C_{3}$ arrivent en même temps. Les clients $C_{1}$ et $C_{2}$ se font
+servir tandis que le client $C_{3}$ attend puis effectue son opération
+dès que l'un des deux guichets se libère.\\
+\\
+On définit $X_{1}, X_{2}, X_{3}$ les variables aléatoires égales à la
+durée d'opération des clients $C_{1}, C_{2}, C_{3}$ respectivement. Ces
+durées sont mesurées en minutes et arrondies à l'unité supérieure ou
+égale. On suppose que les variables $X_{1}, X_{2}, X_{3}$ suivent la
+loi géométrique de paramètre $p$, $p\in \ ]0;1[$ et qu'elles sont
+indépendantes. On note $q = 1-p$.\\
+
+On note $A$ l'évènement : "$C_{3}$ termine en dernier son opération".\\
+Ainsi l'évènement $A$ est égal à l'évènement : $(\min(X_{1},X_{2}) +
+X_{3}>\max(X_{1},X_{2}))$.\\
+On se propose de calculer la probabilité de $A$.\\
+
+{\bf Partie I}\\
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Rappeler la loi de $X_{1}$ ainsi que son espérance E($X_{1}$) et
+sa variance V($X_{1}$).\\
+\\
+On définit la variable aléatoire $\Delta = |X_{1}-X_{2}|$.\\
+\item Calculer la probabilité $P\left(\Ev{\Delta = 0}\right)$.
+\item Soit $n$ un entier naturel non nul.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier : $P\left(\Ev{X_{1}-X_{2} = n}\right) = \Sum{k = 1}{+
+\infty}P\left(\Ev{X_{2} = k}\right)P\left(\Ev{X_{1} = n + k}\right)$.
+\item En déduire : $P\left(\Ev{\Delta = n}\right) = \dfrac{2pq^{n}}{1 +
+q}$.
+\end{noliste}
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\Delta$ admet une espérance E($\Delta$) et la
+calculer.
+\item Montrer : E($(X_{1}-X_{2})^{2}$) = 2\V($X_{1}$). En déduire que
+$\Delta$ admet une variance $\V(\Delta)$ et la calculer.
+\end{noliste}
+\item Montrer que l'évènement $A$ est égal à l'évènement
+$(X_{3}>\Delta)$.
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En déduire : P\left(\Ev{$A$}\right) = $\Sum{k = 0}{+
+\infty}\text{P}(\Delta = k)\text{P}(X_{3}>k)$.
+\item Exprimer $P\left(\Ev{A}\right)$ à l'aide de $p$ et $q$.\\
+\end{noliste}
+\end{noliste}
+
+{\bf Partie II}\\
+\\
+Dans cette partie, $X$ est une variable aléatoire suivant la loi
+géométrique de paramètre $p$, $p\in \ ]0;1[$ et $Y$ est une variable
+aléatoire suivant la loi exponentielle de paramètre $\lambda$,
+$\lambda\in \ ]0; + \infty[$. On note $q = 1-p$.\\
+\\
+On suppose que $X$ et $Y$ sont indépendantes, c'est à dire : 
+\[
+\forall k\in \N^*, \quad \forall t\in [0; + \infty[, \quad \text{P}((X
+= k)\cap(Y\leq t )) = \text{P}(X = k)\text{P}(Y\leq t)
+\]
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Rappeler une densité de $Y$ ainsi que son espérance et sa
+variance.
+\item On définit la variable aléatoire $Z = \dfrac{Y}{X}$.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer : $\forall t\in [0; + \infty[, \quad P\left(\Ev{Z\geq
+t}\right) = \Sum{k = 1}{+ \infty}\text{P}(X = k)\text{P}(Y\geq kt)$.
+\item En déduire : $\forall t\in [0; + \infty[, \quad P\left(\Ev{Z\geq
+t}\right) = \dfrac{pe^{-\lambda t}}{1-qe^{-\lambda t}}$.
+\item Montrer que la variable aléatoire $Z$ admet une densité et
+déterminer une densité de $Z$.
+\end{noliste}
+\end{noliste}
+
+
+
+
+
+\end{document}

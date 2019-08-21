@@ -1,0 +1,151 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+
+\vspace{0.1cm}
+
+\begin{center}
+\textbf{\Large{Programme de colle - Semaine 4}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Notation}
+
+On adoptera les principes suivants pour noter les étudiants :
+\begin{noliste}{$\stimes$}
+\item si l'étudiant sait répondre à la question de cours, il 
+aura une note $>8$.
+\item si l'étudiant ne sait pas répondre à la question de 
+cours ou s'il y a trop d'hésitations, il aura une note $\leq 8$.
+\end{noliste}
+
+\section*{Questions de cours}
+
+\begin{noliste}{$\sbullet$}
+  \item {\bf Intersection de sev}\\
+  Soit $E$ un espace vectoriel et soient $F$ et $G$ deux sous-espaces 
+  vectoriels de $E$. Alors $F \cap G$ est un sous-espace vectoriel.
+
+  \begin{proof}[Preuve]~
+  \begin{noliste}{$\sbullet$}
+  \item On a $F \cap G \subset F \subset E$. 
+  \item $0_E \in F \cap G$. En effet : $0_E \in F$ et $0_E \in G$. 
+  \item Soit $(\lambda, \mu) \in \R^2$. Soit $(u,v) \in (F \cap 
+  G)^2$.
+  \begin{noliste}{$\stimes$}
+    \item Comme $(u,v) \in (F\cap G)^2$, alors $(u,v) \in F^2$.\\ 
+    Or $F$ est un sous-espace vectoriel de $E$, on a alors : $u 
+    + \lambda v \in F$.
+    
+    \item Comme $(u,v) \in (F\cap G)^2$, alors $(u,v) \in G^2$.\\ 
+    Or $G$ est un sous-espace vectoriel de $E$, on a alors : $u 
+    + \lambda v \in G$.
+  \end{noliste}
+  On en déduit que $u+\lambda v \in F \cap G$.\\[-1cm]
+  \end{noliste}
+  \end{proof}
+  
+  \item {\bf Stabilité d'un sev engendré}\\
+  Soit $E$ un $\R$-ev. Soit $(u_1,\hdots,u_m)\in E^m$. On a :
+  \[
+   u_{m+1} \in\Vect{u_1,\hdots, u_m} \ \Rightarrow \ \Vect{u_1,
+   \hdots, u_m,u_{m+1}} = \Vect{u_1,\hdots, u_m}
+  \]
+  
+  \begin{proof}[Preuve]~\\
+  Supposons $u_{m+1}\in\Vect{u_1,\hdots, u_m}$.\\
+  Démontrons que $\Vect{u_1,\hdots, u_m,u_{m+1}}=\Vect{u_1,
+  \hdots,u_m}$.
+  \begin{noliste}{$\stimes$}
+  \item $(\supset)$ Évident.
+  
+  \item $(\subset)$ Comme $u\in \Vect{u_1,\hdots,u_m,u_{m+1}}$, alors 
+  le 
+  vecteur $u$ s'écrit $u=\Sum{i=1}{m+1} \lambda_i \cdot u_i$.\\
+  Or $u_{m+1}\in\Vect{u_1,\hdots,u_m}$, donc $u_{m+1}=\Sum{i=1}{m} 
+  \mu_i \cdot u_i$. Ainsi :
+  \[
+    \begin{array}{rclcc}
+    u &=& \left(\Sum{i=1}{m} \lambda_i \cdot u_i\right) & + & 
+    \lambda_{m+1} \cdot u_{m+1}
+    \\[.6cm]
+    &=& \left(\Sum{i=1}{m} \lambda_i \cdot u_i\right) & + & 
+    \lambda_{m+1} \cdot \left( \Sum{i=1}{m} \mu_i \cdot u_i\right)
+    \\[.6cm]
+    &=& \Sum{i=1}{m} (\lambda_i+\lambda_{m+1} \times \mu_i) \cdot u_i
+    \end{array}
+  \]
+  et donc $u\in\Vect{u_1,\hdots,u_m}$.
+  \end{noliste}~\\[-1cm]
+  \end{proof}
+  
+  
+  \newpage
+  
+  
+  \item {\bf Techniques de base}\\
+  On choisira de demander au choix à l'étudiant de :
+  \begin{noliste}{$\stimes$}
+    \item montrer qu'un espace $F$ est un sous-espace 
+    vectoriel d'un espace vectoriel $E$, sur un exemple dans $\R^n$, 
+    $\M{n,p}$, $\R[X]$, $\R_n[X]$, $\R^\N$, $\R^\R$, etc.
+    \item montrer qu'une famille de vecteurs est génératrice d'un 
+    espace vectoriel donné, sur un exemple.
+    \item montrer qu'une famille de vecteurs est libre dans un 
+    espace vectoriel donné, sur un exemple.
+  \end{noliste}
+\end{noliste}
+
+
+\section*{Connaissances exigibles}
+
+\begin{noliste}{$\sbullet$}
+\item convergence de suites numériques (théorème de convergence 
+monotone, théorème d'encadrement, etc.)
+\item suites adjacentes
+\item étude de suites récurrentes (les élèves doivent être guidés dans 
+le cheminement de ces études)
+\item équivalents
+\item négligeabilité
+\item séries numériques, à termes positifs, séries usuelles, 
+comparaison 
+série / intégrale, comparaisons de séries par négligeabilité et 
+équivalence.
+\item les séries alternées sont hors programme mais les étudiants ont 
+vu 
+en exercice comment démontrer le critère de convergence des séries 
+alternées.
+\item toutes les techniques sont à connaître (sommation télescopique, 
+calcul direct des sommes partielles - séries usuelles, comparaison 
+séries / intégrales, critères sur les SATP...)
+\item on insistera particulièrement en colle sur les rédactions 
+classiques (notamment pour tous les critères sur les SATP).
+\item espaces vectoriels, sous-espaces vectoriels
+\item famille génératrice, famille libre, base
+\item bases canoniques de $\R^n$, $\M{n,p}$ et $\R_n[X]$.
+\item la notion de dimension a été introduite en cours 
+mais aucune des propriétés y faisant référence.
+\item La notion de rang n'est pas au programme de cette semaine de 
+colle.
+\end{noliste}
+
+
+
+
+
+\end{document}

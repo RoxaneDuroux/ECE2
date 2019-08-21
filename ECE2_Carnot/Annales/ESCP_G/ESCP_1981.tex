@@ -1,0 +1,325 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1981} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION GENERALE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 1981}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\section*{PREAMBULE}
+
+Dans ce problème, on appelle " suite associée à une variable aléatoire
+réelle $X$ "\ ($X$ étant quelconque), une suite infinie $(X_{i})$ de
+variables
+aléatoires réelles $X_{i}$ $(i\in \N^{\times })$ de même loi de
+probabilité que X, telles que, pour tout $n\in \N^{\times }$ les $n$
+variables aléatoires $X_{1},X_{2},\dots,X_{i},\dots,X_{n}$ soient
+indépendantes.
+
+\section*{PARTIE PRELIMINAIRE}
+
+Soit $a>0$ un réel donné.\\
+Soit $L_{1}(a)$ l'ensemble des fonctions numériques $f$, continues sur
+$]0,a] $, à valeurs positives, telles que l'intégrale 
+\[
+\dint{0}{a}f(x)dx
+\]
+converge.\\
+Soit $L_{2}(a)$ l'ensemble des fonctions numériques $f$, continues sur
+$]0,a] $, à valeurs positives, telles que l'intégrale : 
+\[
+\dint{0}{a}f^{2}(x)dx
+\]
+converge.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que si $f_{1}$ et $f_{2}$ sont deux éléments de
+$L_{2}(a)$, ${\dfrac{(f_{1}{2} + f_{2}{2})}{2}}$ et le produit
+$f_{1}.f_{2}$ sont éléments
+de $L_{1}(a)$.
+
+\item En déduire que $L_{2}(a)$ est inclus dans $L_{1}(a)$.
+\end{noliste}
+
+\item $p$ et $q$ étant des entiers naturels donnés, on considère la
+fonction
+réelle $f_{p,q}$ de la variable réelle $x$ définie pour $x$ strictement
+positif par : 
+\[
+f_{p,q}(x) = x^{p-1}(\ln x)^{q}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item A quelle condition nécessaire et suffisante notée " $C_{0}$ "\
+$f_{p,q} $ est-elle élément de $L_{2}(1)$ ?
+
+\item La condition $C_{0}$ étant réalisée, calculer : 
+\[
+I_{p,q} = \dint{0}{1}f_{p,q}(x)dx
+\]
+\end{noliste}
+\end{noliste}
+
+\section*{Partie I}
+
+Soit $X$ une variable aléatoire réelle, ayant une espérance
+mathématique $\E(X) = \mu \not = 0$ et une variance $\V(X) = \sigma
+^{2}>0$.\\
+On considère la suite $(X_{i})$ associée à $X$ ainsi que la suite de
+variables aléatoires $(T_{n})$ dont les éléments sont définis quel que
+soit $n\in \N^{\times }$ par : 
+\[
+T_{n} = \alpha_{1,n}X_{1} + \alpha_{2,n}X_{2} + \cdots +
+\alpha_{n,n}X_{n}
+\]
+où les coefficients $\alpha_{i,n}$, $(i\in \lbrack
+\hspace{-0.15em}[1,n]\hspace{-0.13em}])$ sont des réels positifs ou
+nuls.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item A quelle condition nécessaire et suffisante notée " $C_{1}(\mu )$
+"\
+a-t-on : $\E(T_{n}) = \mu $ ?
+
+\item La condition $C_{1}(\mu )$ étant réalisée, montrer qu'une
+condition nécessaire et suffisante notée " $C_{2}(\sigma ^{2})$ "\ pour
+que $\dlim{n\rightarrow + \infty }\V(T_{n}) = 0$ est : 
+\[
+\dlim{n\rightarrow \infty }\Sum{1\leq i<j\leq
+n}\alpha_{i,n}\alpha_{j,n} = {\dfrac{1}{2}}
+\]
+
+\item Les conditions $C_{1}(\mu )$ et $C_{2}(\sigma ^{2})$ étant
+réalisées,
+vers quelle valeur $t_{0}$ la suite de variables aléatoires $(T_{n})$
+converge-t-elle en probabilité ?
+\end{noliste}
+
+\noindent Les indices $p$ et $q$, définis dans le préliminaire,
+satisfaisant 
+à la condition $C_{0}$ sont maintenant fixés. On pose $f_{p,q} = f$ et
+$I_{p,q} = I$.
+
+\section*{Partie II}
+
+Soit $X$ une variable aléatoire réelle dont la loi de probabilité est
+la loi
+uniforme sur l'intervalle $]0,1]$. On notera $g$ sa fonction densité de
+probabilité.\\
+On admettra qu'il existe une variable aléatoire réelle $Y$ dont
+l'espérance
+mathématique et le moment d'ordre $2$ sont donnés respectivement par 
+\[
+\E(Y) = \dint{0}{1}f(x)g(x)dx\quad \text{et}\quad
+\E(Y^{2}) = \dint{0}{1}f^{2}(x)g(x)dx
+\]
+Soit $(Y_{i})$ une suite associée à $Y$, on pose : 
+\[
+\forall n\in \N^{\times },\quad Z_{n} = {\dfrac{1}{n}}\Sum{i =
+1}{n}Y_{i}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, quels que soient les entiers $i$ et $n$, $Y_{i}$ et
+$Z_{n} $ satisfont à la condition $C_{1}(I)$.
+
+\item Montrer que $Z_{n}$ satisfait à la condition $C_{2}(\V(Y))$.
+
+\item Montrer que, quel que soit $i\in \lbrack
+\hspace{-0.15em}[1,n]\hspace{-0.13em}]$ :
+\[
+\V(Z_{n}) = {\dfrac{1}{n-1}}\E((Y_{i}-Z_{n})^{2}).
+\]
+\end{noliste}
+
+\item Montrer que l'inégalité : $\left| Z_{n}-I\right| \leq
+10\sqrt{\dfrac{\V(Y)}{n}}$ est satisfaite avec une probabilité au moins
+égale à 
+$0.99$.
+
+\item Lorsque n est suffisamment grand, on peut admettre vue la
+variable aléatoire centrée réduite associée à $Z_{n}$ a pour loi de
+probabilité la loi
+normale centrée réduite. \\
+Sous cette hypothèse, montrer que l'on peut améliorer l'inégalité
+précédente, c'est-à-dire trouver $a<10$ et $P>0.99$ tels que
+$P\left(\Ev{ \left|
+Z_{n}-I\right| \leq a\sqrt{\dfrac{\V(Y)}{n}}}\right) \geq P$
+\end{noliste}
+
+\section*{Partie III}
+
+Nota : dans cette partie la notation $X^{j}$ signifie "$X$ indice $j$"
+et
+NON "$X$ puissance $j$". On subdivise l'intervalle $]0,1]$ en $k$
+sous-intervalles $]a_{j},a_{j + 1}]$ non vides et disjoints tels que : 
+\[
+\dcup{j = 1}{k}]a_{j},a_{j + 1}] = \ ]0,1]
+\]
+A chaque intervalle $]a_{j},a_{j + 1}]$, on associe
+
+\begin{noliste}{$\sbullet$}
+\item le nombre $I_{j} = \dint{a_{j}}{a_{j + 1}}f(x)dx$
+
+\item la la variable aléatoire $X^{j}$ de loi de probabilité uniforme
+sur
+celui-ci (on notera $g_{j}$ sa densité de probabilité);
+
+\item une suite $(X_{i}{j})_{i\in \N^{\times }}$ associée à $X^{j}$
+
+\item une variable aléatoire $Y^{j}$ dont on admettra l'existence,
+ayant
+pour espérance mathématique et pour moment d'ordre $2$ : 
+\[
+\E(Y^{j}) = (a_{j + 1}-a_{j})\dint{a_{j}}{a_{j + 1}}f(x)g_{j}(x)dx
+\]
+\[
+\E((Y^{j})^{2}) = (a_{j + 1}-a_{j})^{2}\dint{a_{j}}{a_{j +
+1}}f^{2}(x)g_{j}(x)dx
+\]
+
+\item une suite $(Y_{i}{j})_{i\in \N^{\times }}$ associée à $Y^{j}$
+
+\item la variable aléatoire $Z_{n_{j}}{j} = {\dfrac{1}{n_{j}}}\Sum{i =
+1}{n_{j}}Y_{i}{j}$\quad où $n_{j}\in \N^{\times }$.
+\end{noliste}
+
+\noindent On pose $n = \Sum{j = 1}{k}n_{j}$ et on suppose que les
+variables aléatoires
+
+\begin{noliste}{$\sbullet$}
+\item $X_{j}$ pour $j\in \lbrack
+\hspace{-0.15em}[1,k]\hspace{-0.13em}]$
+sont indépendantes;
+
+\item $Y_{i}{j}$, pour $j\in \lbrack
+\hspace{-0.15em}[1,n_{j}]\hspace{-0.13em}]$ sont indépendantes;
+
+\item $Z_{n_{j}}{j}$, pour $j\in \lbrack
+\hspace{-0.15em}[1,k]\hspace{-0.13em}]$ sont indépendantes;
+\end{noliste}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que, quels que soient les entiers $n_{j},i,j$ :\quad
+$Y_{i}{j}
+$ et $Z_{n_{j}}{j}$ satisfont à la condition $C_{1}(I_{j})$ et que
+$Z_{n_{j}}{j}$ satisfait à la condition $C_{2}(\V(Y^{j}))$.
+
+\item On considère la variable aléatoire $Z_{n}{\star
+} = \Sum{j = 1}{k}Z_{n_{j}}{j}$. Montrer que $\E(Z_{n}{\star }) = I$.
+
+\item On suppose que pour tout $j\in \lbrack
+\hspace{-0.15em}[2,k]\hspace{-0.13em}]\ :\quad na_{j}\in \N^{\times }$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Démontrer que si $\forall j\in \lbrack
+\hspace{-0.15em}[1,k]\hspace{-0.13em}],\quad n_{j} = (a_{j +
+1}-a_{j})n$, alors $\V(Z_{n})\leq
+\V(Z_{n}{\star })$.
+
+\item En déduire que $\dlim{n\rightarrow \infty }\V(Z_{n}{\star }) =
+0$.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

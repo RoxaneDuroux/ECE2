@@ -1,0 +1,387 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 1999} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 1999}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\huge HEC Eco 1999}
+\end{center}
+
+\section*{Exercice 1}
+
+On note $\mathcal{L}(\R^{4})$ l'ensemble des endomorphismes de
+l'espace vectoriel $\R^{4}$, $\Id$ l'endomorphisme identique
+de $\R^{4}$ et $I$ la matrice identité de $\mathfrak{M}_{4}(\R)$. On
+considère les matrices :
+\[
+L = \left(
+\begin{array}{rrrr}
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{array}
+\right),\qquad \qquad M = \left(
+\begin{array}{rrrr}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{array}
+\right)
+\]
+On désigne respectivement par $\varphi $ et $\psi $ les endomorphismes
+de $\R^{4}$ représentés par $L$ et $M$ dans la base canonique
+$\mathcal{E} = (e_{1},e_{2},e_{3},e_{4})$ de $\R^{4}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\varphi $ et $\psi $ sont des automorphismes de
+$\R^{4}$ et en déterminer les automorphismes réciproques.
+
+\item Déterminer les valeurs propres et les sous espaces propres
+associés de
+l'endomorphisme $\varphi $.\\
+Déterminer de même les valeurs propres et les sous espaces propres
+associés
+de $\psi $.
+
+\item Montrer que l'on peut trouver un vecteur $f_{1}$ non nul de
+$\R^{4}$ vérifiant $\varphi (f_{1}) = f_{1}$ et $\psi (f_{1}) = f_{1}$.
+
+\item Déterminer, plus généralement, une base $\mathcal{F} =
+(f_{1},f_{2},f_{3},f_{4})$ de $\R^{4}$ dont chaque vecteur est à la
+fois un vecteur propre de $\varphi $ et un vecteur propre de $\psi $.
+Donner
+la matrice $L^{\prime }$ de $\varphi $ et la matrice $M^{\prime }$ de
+$\psi $
+dans cette base $\mathcal{F}$.
+\end{noliste}
+
+\item On se propose d'étudier l'ensemble $C$ des endomorphismes $\gamma
+$ de
+$\R^{4}$ vérifiant $\gamma \circ \varphi = \varphi \circ \gamma $ et
+$\gamma \circ \psi = \psi \circ \gamma $.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $C$ est un sous espace vectoriel de
+$\mathcal{L}(\R^{4})$ qui contient $\varphi $ et $\psi $.
+
+\item Montrer que si $\gamma \in C$ et $\gamma ^{\prime }\in C$, alors
+$\gamma \circ \gamma ^{\prime }\in C$.
+
+\item Soit $\gamma \in \mathcal{L}(\R^{4})$ un endomorphisme de
+$\R^{4}$ et soit $G$ la matrice de $\gamma $ dans la base $\mathcal{F}
+$, constituée de vecteurs propres de $\varphi $ et $\psi $, déterminée
+à la
+question 1.d). Montrer que $\gamma \in C$ si et seulement si $G$ est
+une
+matrice diagonale.
+
+\item En déduire que $C$ est un sous espace vectoriel de dimension 4 de
+$\mathcal{L}(\R^{4})$ et que les en domorphismes $Id$, $\varphi $,
+$\psi $ et $\varphi \circ \psi $ forment une base de $C$.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 2}
+
+On considère un entier naturel $N$ supérieur ou égal à 3, et on note
+$\{1,2,\ldots,N\}$ l'ensemble des entiers strictement positifs,
+inférieurs
+ou égaux à $N$.\\
+Une urne contient $N$ boules numérotées de $1$ à $N$. On y effectue des
+tirages successifs d'une boule avec remise de la boule tirée après
+chaque
+tirage, jusqu'à obtenir pour la première fois un numéro déjà tiré. On
+note
+alors $T_{N}$ le rang aléatoire de ce dernier tirage.\\
+C'est ainsi que, si on a obtenu successivement les numéros
+-1-5-4-7-3-5-, la
+variable $T_{N}$ prend la valeur 6, alors que si l'on a obtenu
+-5-4-2-2- la
+variable $T_{N}$ prend la valeur 4.\\
+On admet qu'on définit ainsi une variable aléatoire sur un espace
+probabilisé, dont la probabilité est notée $\mathbf{P}$. Toutes les
+variables aléatoires introduites dans le problème seront supposées
+définies sur cet
+espace. Si $Z$ est une telle variable, son espérance sera notée E($Z$)
+et sa
+variance V($Z$).\\
+N.B. \textit{Les parties II et III sont indépendantes.}
+
+\subsection*{I. Étude de la variable aléatoire $T_{N}$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Dans cette question, on se place dans le cas particulier où
+l'entier $N $ est égal à 3.\\
+Déterminer la loi de $T_{3}$ et calculer son espérance et sa variance.
+
+\item On revient désormais au cas général où $N$ est supérieur ou égal
+à 3.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer l'ensemble des valeurs que peut prendre $T_{N}$.
+
+\item Calculer $P\left(\Ev{T_{N} = 2}\right)$, $P\left(\Ev{T_{N} =
+3}\right)$, et $P\left(\Ev{T_{N} = N + 1}\right)$.
+
+\item Prouver, pour tout entier $k$ de $\{1,2,\ldots,N\}$, les égalités
+\[
+P\left(\Ev{T_{N}>k}\right) = \dfrac{N!}{(N-k)!N^{k}} = \prod_{i =
+0}{k-1}(1-\dfrac{i}{N})
+\]
+En déduire la loi de la variable aléatoire $T_{N}$.
+
+\item Déterminer, pour tout entier $k$ fixé, la limite
+$\dlim{N\rightarrow + \infty }P\left(\Ev{T_{n}>k}\right)$.\\
+Pouvait-on prévoir ce résultat ?
+\end{noliste}
+\end{noliste}
+
+\subsection*{II. Étude d'un algorithme}
+
+Dans le programme -\Scilab{} suivant, la fonction \texttt{RANDOM}
+renvoie,
+pour un argument $M$ de type \texttt{INTEGER}, un nombre entier
+aléatoire de
+l'intervalle $[0,M-1]$.
+
+\texttt{PROGRAM\ simulation;\ VAR\ T :ARRAY[1..20001]\ OF\ INTEGER;}
+
+\texttt{\ \ \ \ U,S,i,n :INTEGER;}
+
+\texttt{\ \ \ \ coincide :BOOLEAN;}
+
+\texttt{\ }
+
+\texttt{PROCEDUR\E\ X;}
+
+\texttt{\ \ \ \ BEGIN}
+
+\texttt{\ \ \ \ \ \ \ RANDOMIZE;\ \ \{initialisation\ de\ la\ fonction\
+RANDOM\}}
+
+\texttt{\ \ \ \ \ \ \ FOR\ i : = 1\ to\ 20001\ DO\ T[i] : = 1 +
+RANDOM(20000);}
+
+\texttt{\ \ \ \ END;}
+
+\texttt{\ }
+
+\texttt{BEGIN}
+
+\texttt{\ \ \ X;}
+
+\texttt{\ \ \ i : = 1;\ coincide : = FALSE;}
+
+\texttt{\ \ \ REPEAT}
+
+\texttt{\ \ \ \ \ i : = i + 1;}
+
+\texttt{\ \ \ \ \ S : = 0;}
+
+\texttt{\ \ \ \ \ WHIL\E\ (S < i-1)\ and\ NOT\ coincide\ DO}
+
+\texttt{\ \ \ \ \ BEGIN}
+
+\texttt{\ \ \ \ \ \ \ \ \ S : = S + 1;}
+
+\texttt{\ \ \ \ \ \ \ \ \ IF\ T[S] = T[i]\ THEN\ conicide\ : = TRUE;}
+
+\texttt{\ \ \ \ \ END;}
+
+\texttt{\ \ \ UNTIL\ coincide\ = \ TRUE;}
+
+\texttt{\ \ \ U : = i;}
+
+\texttt{\ \ \ FOR\ n : = 1\ to\ i\ DO\ WRITELN(T[n],',\ ');}
+
+\texttt{\ \ \ WRITELN;}
+
+\texttt{\ \ \ WRITELN('U = \ ',U);}
+
+\texttt{\ \ \ WRITELN('S = \ ',S);}
+
+\texttt{\ \ \ READLN;}
+
+\texttt{END.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[a)] Que fait la procédure X ?
+
+\item[b)] Que représentent les variables U et S à la fin du programme ?
+
+\item[c] Pourquoi est-il certain que le nombre de passages dans la
+boucle
+\texttt{REPEAT... UNTIL} est fini ?
+\end{noliste}
+
+\section*{III. Étude du comportement asymptotique de la suite
+$(T_{N})_{N\geq 3}$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Une formule pour l'espérance de $T_{N}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier l'égalité suivante : \quad $\E(T_{N}) = \Sum{k =
+0}{N}P\left(\Ev{T_{n}>k}\right)$.
+
+\item En déduire l'égalité : \quad $\E(T_{N}) = \dfrac{N!}{N^{N}}\Sum{h
+= 0}{N}\dfrac{N^{h}}{h!}$.
+\end{noliste}
+
+\item Un résultat utile sur les lois de Poisson.\\
+Soit $(X_{n})_{n\geq 1}$ une suite de variables aléatoires de Poisson
+indépendantes de paramètre $\lambda = 1$ et soit, pour tout entier
+$N\geq 1$, $Y_{N} = X_{1} + X_{2} + \ldots + X_{N}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer par récurrence sur $N$, que la loi de $Y_{N}$ est une loi
+de
+Poisson de paramètre $N$. Donner l'espérance et la variance de $Y_{N}$.
+
+\item Justifier l'égalité :
+\[
+\dlim{N\rightarrow + \infty }P\left(\Ev{ \dfrac{Y_{n}-N}{\sqrt{N}}\leq
+0}\right) = \dfrac{1}{\sqrt{2\pi }}\dint{-\infty }{0}e^{-t^{2}/2}\ dt
+\]
+
+\item En déduire l'égalite : \quad $\dlim{N\rightarrow
+ + \infty }P\left(\Ev{Y_{n}\leq N}\right) = \dfrac{1}{2}$
+\end{noliste}
+
+\item En appliquant ce résultat, montrer que $\E(T_{N})$ est équivalent
+à $\dfrac{1}{2}\dfrac{N!\ e^{N}}{N^{N}}$ quand $N$ tend vers l'infini.
+
+\item Une expression de la variance de $T_{N}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer l'égalité \quad $\E(T_{N}{2}) = \Sum{k = 0}{N}(2k +
+1)P\left(\Ev{T_{N}>k}\right).$
+
+\item Établir la relation $\Sum{k = 0}{N}kP\left(\Ev{T_{N}>k}\right) =
+\dfrac{N!}{N^{N}}\Sum{h = 0}{N}(N-h)\dfrac{N^{h}}{h!}$.
+
+\item Montrer l'égalité : \quad $\Sum{h = 0}{N}(N-h)\dfrac{N^{h}}{h!} =
+\dfrac{N^{N + 1}}{N!}$.
+
+\item En déduire que la variance $\V(T_{N})$ de $T_{N}$ et son
+espérance vérifient la relation :
+\[
+\V(T_{N}) = 2N + E(T_{N})-(\E(T_{N}))^{2}
+\]
+\end{noliste}
+
+\item En admettant le résultat classique : $\quad N!\sim
+N^{N}e^{-N}\sqrt{2\pi N}$ \quad quand $N$ tend vers l'infini, donner,
+en conclusion, des équivalents simples de $\E(T_{N})$ et $\V(T_{N}).$
+\end{noliste}
+
+\begin{center}
+{* FIN *}
+\end{center}
+
+\label{fin}
+
+\end{document}
+

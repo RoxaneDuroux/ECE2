@@ -1,0 +1,197 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+K \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 1}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Planche 1}
+\subsection*{Question de cours}
+
+\noindent
+Espérance d'une \var suivant une loi géométrique
+
+
+\subsection*{Exercice} % ENS 2017
+
+\noindent
+Trois personnes gourmandes mais polies se trouvent face à trois desserts. Afin de déterminer qui va 
+manger quel dessert, elles pointent simultanément le dessert qui leur ferait envie. Si un dessert n'a été 
+pointé que par une seule personne, celle-ci le mange et va faire la sieste. Si un même dessert est choisi 
+par plusieurs personnes, celles-ci répètent l'opération de choix, en pointant simultanément un nouveau 
+dessert parmi ceux qui restent. On suppose ces trois desserts excellents, donc chaque personne choisit un 
+dessert uniformément au hasard et indépendament des choix des autres et de ses choix précédentes.\\
+On note $n=1,2,\ldots$ les instants des tentatives de choix de dessert.
+\begin{noliste}{1.}
+ \item Soit $X_n$ la variable aléatoire qui indique le nombre de personnes faisant la sieste après $n$ 
+ tentatives. Donner la loi de $X_1$. Quel est le support de $X_n$ ?
+ 
+ \item Pour tous entiers $n$, $k$, $\ell \geq 0$ avec $\ell$ appartenant au support de $X_n$, calculer $
+ \Prob(X_{n+1}=k \vert X_n = \ell)$.
+ 
+ \item On pose $u_n=\Prob(\Ev{X_n=0})$ et $v_n=\Prob(\Ev{X_n =1})$. Montrer que pour tout $n\geq 1$ :
+ \[
+  \begin{smatrix}
+   u_{n+1}\\[.2cm]
+   v_{n+1}
+  \end{smatrix}
+  \ = \
+  \begin{smatrix}
+   \frac{1}{9} & 0\\[.2cm]
+   \frac{2}{3} & \frac{1}{2}
+  \end{smatrix}
+  \,
+  \begin{smatrix}
+   u_n\\[.2cm]
+   v_n
+  \end{smatrix}
+ \]
+ 
+ \item En déduire la loi de $X_n$.\\
+ {\it Indication : on pourra considérer la suite $w_n=2^n \, v_n$.}
+ 
+ \item On note $T$ la durée (aléatoire) de cet échange de politesse, c'est-à-dire le nombre de tentatives 
+ au bout desquelles tout le monde a mangé son dessert. Quelle est l'espérance de $T$ ?\\
+ {\it Indication : on pourra exprimer $\Prob(\Ev{T \geq n})$ en fonction de $u_{n-1}$ et $v_{n-1}$.}
+\end{noliste}
+
+
+
+
+\newpage
+
+
+\section*{Planche 2}
+\subsection*{Question de cours}
+
+\noindent
+Espérance d'une \var suivant une loi de Poisson
+
+
+\subsection*{Exercice} % ENS 2017
+
+\noindent
+On dispose d'une pièce truquée qui renvoie \og pile \fg{} avec une 
+probabilité $p \in \ ]0,1[$ et on souhaite s'en servir pour générer un 
+pile ou face équilibré. John von Neumann a imaginé l'algorithme suivant 
+(où les lancers successifs de la pièce truquée se font indépendamment) 
+:
+\begin{center}
+   \scalebox{.9}{
+   \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node
+     distance=4cm, thick, main node/.style={rectangle, draw}] %
+     \node[main node] (A) {
+     \begin{minipage}{1.5cm}
+      Lancer la pièce
+     \end{minipage}}; %
+     \node[main node] (B1) [above right of=A] {
+     \begin{minipage}{1.5cm}
+      Lancer la pièce
+     \end{minipage}}; %
+     \node[main node] (B2) [below right of=A] {
+     \begin{minipage}{1.5cm}
+      Lancer la pièce
+     \end{minipage}}; %
+     \node[main node] (C1) [right of=B1] {
+     \begin{minipage}{1.5cm}
+      Renvoyer Face
+     \end{minipage}}; %
+     \node[main node] (C2) [right of=B2] {
+     \begin{minipage}{1.5cm}
+      Renvoyer Pile
+     \end{minipage}}; %
+     \node[main node] (D) [left of=A] {}; %
+     \path[every node/.style={font=\sffamily\small}] %
+     (D) edge [right] node [above] {Début} (A.west) %
+     (A.east) edge node [above] {} %
+     node [anchor=south, below] {\quad pile} (B1.south) %
+     (B1.west) edge [bend right] node [above left] {pile} (A.north) %
+     (A.east) edge node [above] {\qquad face} %
+     node [anchor=south, below] {} (B2.north) %
+     (B2.west) edge [bend left] node [below left] {face} (A.south) %
+     (B1.east) edge [right] node [above] {face} (C1.west) %
+     (B2.east) edge [right] node [above] {pile} (C2.west) %
+      ;
+    \end{tikzpicture}
+    }
+  \end{center}
+
+
+\noindent
+On note $T \in \{2,4,6, \ldots\}$ la variable aléatoire donnée par le 
+nombre de lancers nécessaires pour que l'alorithme se termine, et $R\in 
+\{P,F\}$ le résultat de l'algorithme (où on note $P$ pour \og pile 
+\fg{} et $F$ pour \og face \fg{}).
+\begin{noliste}{1.}
+ \item Que valent $T$ et $R$ si on obtient comme premiers tirages 
+ $PPPPFFPPPFFP$ ?
+ 
+ \item Démontrer que pour tout $k \geq 1$ :
+ \[
+  \Prob(\Ev{T=2k}) \ = \ 
+  \big(p^2 + (1-p)^2\big)^{k-1} \, 2 \, p \, (1-p)
+ \]
+ En déduire que l'algorithme se termine presque-sûrement, c'est-à-dre : 
+ $\Prob(\Ev{T < +\infty}) = 1$.
+ 
+ \item Démontrer que l'algorithme renvoie bien \og pile \fg{} ou \og 
+ face \fg{} avec même probabilité, c'est-à-dire : $\Prob(\Ev{R=
+ \text{\og pile \fg{}}})=\dfrac{1}{2}$.
+ 
+ \item Calculer $\E(T)$.
+\end{noliste}
+
+
+
+
+\newpage
+
+
+\section*{Planche 3}
+\subsection*{Question de cours}
+
+\noindent
+Stabilité de la somme pour la loi de Poisson en cas d'indépendance
+
+
+\subsection*{Exercice} % ENS 2016
+
+\noindent
+Afin de repérer les infractions au code de la route, la police est équipée de nouveaux radars dont les performances ont pu être longuement éprouvées et validées. Il ressort de la batterie de tests effectués que :
+\begin{noliste}{$\sbullet$}
+ \item parmi les véhicules dépassant les limites autorisées, le radar détecte les contrevenants dans $90\%$ des cas.
+ 
+ \item parmi les véhicules circulant à une vitesse inférieure à la limite, le radar ne détecte rien dans $95\%$ des cas.
+\end{noliste}
+On place le radar au bord de la rue Henri Barbusse et les véhicules détectés par le radar reçoivent une contravention. On note $p$ la proportion de véhicules dépassant les limites autorisées sur la rue Henri Barbusse.
+\begin{noliste}{1.}
+ \item Déterminer en fonction de $p$ la proportion de véhicules en infraction parmi ceux ayant reçu une contravention. Pour quelles valeurs de $p$ cette proportion est-elle inférieure à $50\%$ ?
+ 
+ \item Déterminer en fonction de $p$ la proportion de véhicules en infraction parmi ceux n'ayant pas reçu de contravention. La proportion de véhicules en infraction peut-elle être plus forte parmi les véhicules ne recevant pas de contravention que parmi ceux en ayant reçu une ?
+ 
+ \item Déterminer la probabilité $f_{N,k}(p)$ que, parmi $N$ véhicules observés, $k$ reçoivent une contravention.
+ 
+ \item Déterminer la valeur $\hat{p}_N(k)$ pour laquelle $f_{N,k}$ est maximale.
+\end{noliste}
+
+
+
+
+
+\end{document}
