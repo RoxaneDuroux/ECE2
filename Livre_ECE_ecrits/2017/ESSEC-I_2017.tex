@@ -1,0 +1,616 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../macros_Livre.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} ESSEC I 2017} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+%%DEBUT
+
+\noindent
+Est-il possible que le marketing digital pose des problèmes de
+sécurité des données personnelles ? De récents travaux % \footnote{Par
+% exemple, A. Korolova. Privacy violations using microtargeted ads: A
+% case study (2010)}
+mettant en cause les outils de mesure de performance en temps réel des
+différentes campagnes de publicité sur internet, démontrent que
+certaines données très sensibles (préférences religieuses, sexuelles,
+etc.) peuvent être obtenues par des segmentations précises des
+audiences et sans aucune action de la part de l'utilisateur.\\[.2cm]
+Dans ce problème, nous nous intéressons à une méthode proposée pour
+protéger ces données, méthode baptisée {\bf confidentialité
+  différentielle}.\\[.2cm]
+Les parties I et II sont totalement indépendantes. Vous trouverez une
+aide \Scilab{} en fin de sujet.\\[.2cm]
+On considère un espace probabilisé $(\Omega, \A , \Prob)$ sur lequel
+sont définies les variables aléatoires qui apparaissent dans l'énoncé.
+
+\section*{Partie I - Lois de Laplace - propriétés et simulation}
+
+\noindent 
+Soit $\alpha\in\R$ et $\beta>0$. On dit qu'une variable aléatoire
+réelle à densité suit une loi de Laplace de paramètre
+$(\alpha,\beta)$, notée $\cal L(\alpha,\beta)$, si elle admet comme
+densité la fonction $f$ donnée par:
+\[
+\forall t \in \R, \ f(t) = \dfrac{1}{2{\beta}} \ \exp\left(-
+  \dfrac{|t-\alpha|}{\beta} \right)
+\]
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item Vérifier que $f$ est bien une densité de probabilité d'une
+  variable aléatoire réelle.
+  
+  
+
+\item Déterminer la fonction de répartition, notée $\Psi$, de la loi
+  ${\cal L}(0,1)$.
+
+  
+  
+\item On suppose que $X$ suit la loi ${\cal L} (0,1)$.
+  
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+  \item Montrer que $\beta X+\alpha$ suit la loi ${\cal
+      L}(\alpha,\beta)$.
+
+    
+  
+  
+  
+  %\newpage
+  
+  
+  
+\item En déduire la fonction de répartition de la loi ${\cal
+    L}(\alpha,\beta)$.
+  
+  
+\end{noliste}
+
+\item {\em Espérance et variance.}
+  \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm} %
+  \item On suppose que $X$ suit la loi ${\cal L}(0,1)$.\\
+    Montrer que $\E(X)$ et $\V(X)$ existent et valent respectivement
+    $0$ et $2$.
+
+    
+
+  \item En déduire l'existence et les valeurs de l'espérance et de la
+    variance d'une variable aléatoire réelle qui suit la loi ${\cal
+      L}(\alpha,\beta)$.
+
+    
+  \end{noliste}
+
+\item {\em Simulation à partir d'une loi exponentielle.}\\
+  Soit $U$ une variable aléatoire qui suit la loi exponentielle de
+  paramètre $1$ et $V$ une variable aléatoire qui suit la loi de
+  Bernoulli de paramètre $\frac{1}{2}$ et indépendante de $U$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+  \item En utilisant le système complet naturellement associé à $V$,
+    montrer que $X = (2V-1) \ U$ suit la loi ${\cal L}(0,1)$.
+
+    
+
+  \item Compléter la définition \Scilab{} ci-dessous pour que la
+    fonction ainsi définie réalise la simulation d'une variable
+    aléatoire qui suit la loi ${\cal L}(\alpha,\beta)$ :
+
+    \begin{scilab}
+      & \tcFun{function} \tcVar{r} =
+      \underline{Laplace}(\tcVar{alpha}, \tcVar{beta}) \nl %
+      & \qquad \tcIf{if} ------ <= 1/2 \nl %
+      & \qquad \qquad V = 1 \nl %
+      & \qquad \tcIf{else} \nl %
+      & \qquad \qquad V = 0 \nl %
+      & \qquad \tcIf{end} \nl %
+      & \qquad X = (2 \Sfois{} V - 1) \Sfois{} grand(1, 1,
+      \ttq{}exp\ttq{}, 1) \nl %
+      & \qquad \tcVar{r} = ------ \nl %
+      & \tcFun{endfunction}      
+    \end{scilab}
+    
+    
+  \end{noliste}
+\end{noliste}
+
+\section*{Partie II - Lois $\eps$-différentielles}
+
+\noindent
+Soit $\eps>0$. On dit que $(X,Y)$, un couple de variables aléatoires,
+est un couple $\eps$-différentiel si, pour tout intervalle $I$ de
+$\R$:
+\[
+\ee^{-\eps} \ \Prob(\Ev{X\in I}) \ \leq \ \Prob(\Ev{Y \in I}) \ \leq \
+\ee^{\eps} \ \Prob(\Ev{X\in I})
+\]
+Intuitivement, les lois de $X$ et $Y$ seront d'autant plus proches que
+le plus petit $\eps$ tel que $(X,Y)$ soit un couple
+$\eps$-différentiel est proche de $0$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{5}
+\item Soit $(X,Y,Z)$ un triplet de variables aléatoires réelles.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+  \item Montrer que si $(X,Y)$ est $\eps$-différentiel alors $(Y,X)$
+    l'est aussi.
+
+    
+    
+    
+    %\newpage
+    
+    
+
+  \item Montrer que si $(X,Y)$ est $\eps$-différentiel et $(Y,Z)$ est
+    $\eps'$-différentiel alors $(X,Z)$ est $(\eps +
+    \eps')$-différentiel.
+
+    
+  \end{noliste}
+
+\item Soit $(X,Y)$ un couple de variables aléatoires réelles
+  discrètes.\\
+  On suppose que $X(\Omega) \ \cup \ Y(\Omega) = \{z_n \ |
+  \ n\in J\}$ où $J$ est un sous-ensemble non vide de $\N$.\\[.2cm]
+  Montrer que $(X,Y)$ est $\eps$-différentiel si et seulement si
+  \[
+  \forall n\in J, \ \ee^{-\eps} \ \Prob(\Ev{X=z_n}) \ \leq \
+  \Prob(\Ev{Y=z_n}) \ \leq \ \ee^{\eps} \ \Prob(\Ev{X = z_n})
+  \]
+
+  
+
+\item {\em Premier exemple.}\\
+  Dans cette question, on suppose que $X$ suit la loi géométrique de
+  paramètre $\frac{1}{2}$, $Z$ suit la loi de Bernoulli de paramètre
+  $p \in \ ]0,1[$ et elles sont indépendantes. On pose $Y = X + Z$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+  \item Déterminer la loi de $Y$.
+
+    
+
+  \item Établir que pour tout $k\in\N^*$, $1-p \ \leq \
+    \dfrac{\Prob(\Ev{Y = k})}{\Prob(\Ev{X = k})} \ \leq \
+    \dfrac{1}{1-p}$.
+
+    
+    
+    
+    %\newpage
+    
+
+  \item En déduire que $(X,Y)$ est $-\ln(1-p)$-différentiel.
+
+    
+
+  \item Que ce passe-t-il lorsque $p$ s'approche de $0$ ou lorsqu'il
+    s'approche de $1$? Était-ce prévisible?
+
+    
+  \end{noliste}
+  
+\item On suppose que $X$ et $Y$ sont deux variables à densité de
+  densités respectives $f$ et $g$ et de fonction de répartition $F$ et
+  $G$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+  \item On suppose que pour tout $t\in\R$ : $\ee^{-\eps} f(t) \ \leq \
+    g(t) \ \leq \ \ee^{\eps}f(t)$.\\
+    Montrer que $(X,Y)$ est $\eps$-différentiel.
+
+    
+
+  \item On suppose dans la suite de cette question que $(X,Y)$ est
+    $\eps$-différentiel.\\
+    Soit $h>0$ et $t \in \R$ où $f$ et $g$ sont continues.\\[.2cm]
+    Montrer que:
+    \[
+    \ee^{-\eps} \ \dfrac{F(t+h)-F(t)}{h} \ \leq \
+    \dfrac{G(t+h)-G(t)}{h} \ \leq \ \ee^{\eps} \
+    \dfrac{F(t+h)-F(t)}{h}
+    \]
+    En conclure que: \ $\ee^{-\eps} f(t) \ \leq \ g(t) \ \leq \
+    \ee^{\eps} \ f(t)$.
+
+    
+
+  \end{noliste}
+  
+\item {\em Deuxième exemple: lois de Cauchy.}
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+  \item Montrer que $\dint{-\infty}{+\infty} \dfrac{1}{t^2+1} \dt$
+    converge. On admet que cette intégrale est égale à $\pi$.
+
+    
+    
+    
+    %\newpage
+    
+    
+
+  \item On définit, pour $a > 0$, la fonction $f_a$ sur $\R$ par, pour
+    tout $t \in \R$, $f_a(t) = \dfrac{a}{\pi \ (t^2+a^2)}$.\\
+    Montrer que $f_a$ est une densité de probabilité d'une variable
+    aléatoire à densité.
+
+    
+
+  \item On suppose que $X$ et $Y$ sont deux variables aléatoires
+    admettant comme densités respectives $f_1$ et $f_a$ avec $a>1$.\\
+    Montrer que $(X,Y)$ est $\ln(a)$-différentiel.
+
+    
+  \end{noliste}
+
+\item {\em Une première interprétation.}\\
+  On suppose que $(X,Y)$ est un couple $\eps$-différentiel et que $U$
+  est une variable de Bernoulli de paramètre $p \in \ ]0,1[$
+  indépendante de $X$ et $Y$.\\
+  On définit la variable aléatoire $Z$ par:
+  \[
+  \forall \omega\in\Omega, \ Z(\omega) = %
+  \left\{
+    \begin{array}{cR{2cm}}
+      X(\omega) & si $U(\omega) = 1$ \nl
+      Y(\omega) & sinon.
+    \end{array}
+  \right.
+  \]
+
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+  \item Soit $I$ un intervalle de $\R$ telle que $\Prob([Z\in I])\neq
+    0$.\\[.2cm]
+    Montrer que : 
+    \[
+    \Prob_{\Ev{Z\in I}}(\Ev{U = 1}) = p \ \dfrac{\Prob(\Ev{X\in I})}{p
+      \ \Prob(\Ev{X\in I}) + (1-p) \ \Prob(\Ev{Y\in I})}
+    \]
+    En déduire que:
+    \[
+    \dfrac{p}{p + (1-p) \ \ee^{\eps}} \ \leq \ \Prob_{\Ev{Z\in
+        I}}(\Ev{U = 1}) \ \leq \ \dfrac{p}{p + (1-p) \ \ee^{-\eps}}
+    \]
+
+    
+
+  \item Si $\eps$ est proche de zéro, le fait de disposer d'une
+    information sur la valeur de $Z$ change-t-il notablement le
+    paramètre de la loi de $U$ et par conséquent la probabilité d'en
+    déduire la valeur prise par $U$ ?
+
+    
+  \end{noliste}
+\end{noliste}
+
+%   \masque{
+%   \item On considère une population qui comporte une proportion $p$,
+%     inconnue, d'individus qui vérifie une certaine propriété (atteint
+%     d'une anomalie génétique, soumis à l'ISF, etc...). On demande à
+%     chaque individu de cette population de s'identifier et le lancer
+%     une pièce de monnaie jusqu'à obtenir pile. Si $y$ est le nombre de
+%     lancers effectués, l'individu saisit $y$ s'il ne vérifie pas la
+%     propriété et $y+1$ s'il la vérifie.
+%     \begin{noliste}
+%     \item Si l'on choisit un individu au hasard, soit $Y$ le nombre
+%       aléatoire de lancers qu'il effectuera et $Z$ la variable de
+%       Bernoulli qui vaut $1$ s'il vérifie la propriété et $0$
+%       sinon. On pose $Y=1+Z$ si $X=1$ et $Y=X-1+Z$ si $Z\eq 2$.
+%     \item En utilisant, éventuellement, les calculs effectués dans la
+%       question 8, montrer que:
+%  $$\Prob_{[Y=k]}([Z=1])=\begin{cases}
+%    \frac{2p}{1+p}\\
+	
+%  \end{cases}
+% $$ 
+% \end{noliste}
+% }
+	
+%\suspend{noliste}
+
+
+%\newpage
+
+
+\section*{Partie III - Confidentialité différentielle}
+
+\begin{noliste}{$\sbullet$}
+\item Soit $d\in\N^*$. On considère $D = \llb 0 ,d \rrb$ et $n$ un
+  entier naturel plus grand que $2$.
+  
+\item On dira que deux éléments de $D^n$, $a$ et $b$, sont voisins
+  s'ils ne différent que d'une composante au plus. On note $\cal V$
+  l'ensemble des couples de voisins.
+\item On considère $q$ une application de $D^n$ dans $\R$.\medskip
+\end{noliste}
+Concrètement, un élément de $D^n$ représente une table d'une base de
+données et $q$ une requête sur cette base. Étant donné $a=(a_1, \ldots
+,a_n)$, on s'intéresse au problème de la confidentialité de certains
+des $a_i$ lorsque les autres $a_i$ sont connus, ainsi que $D$, $q$ et
+$q(a)$.
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{11}
+\item Dans cette question on suppose que $a_2,\ldots,a_n$ sont connus et
+  on cherche à protéger $a_1$.
+  \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm} %
+  \item Quelle est probabilité d'obtenir la bonne valeur de $a_1$ si
+    l'on choisit une valeur au hasard dans $\llb 0, d \rrb$ ?
+
+    
+
+
+    %\newpage
+
+
+  \item Dans cette question $q(a_1,\ldots,a_n) = \Sum{i=1}{n} a_i$.\\
+    Montrer que si $q(a)$ est publique alors on sait déterminer la
+    valeur de $a_1$.
+
+    
+  \end{noliste}
+\end{noliste}
+On dit que l'on dispose d'un procédé de $\eps$-confidentialité de
+$D^n$ pour $q$ si:
+\begin{liste}{$\sbullet$}
+\item[(c1)] pour tout $a\in D^n$, on dispose d'une variable aléatoire
+  réelle $X_a$;
+\item[(c2)] pour tout $(a,b) \in {\cal V}$, $(X_a,X_b)$ est
+  $\eps$-différentiel.
+\item[(c3)] pour tout $a\in D^n$, $\E(X_a) = q(a)$.
+\end{liste}~\\[-.4cm]
+\begin{noliste}{1.}
+  \setcounter{enumi}{12} %
+  \setlength{\itemsep}{4mm}
+\item {\em Majoration de la probabilité de trouver $a_1$.}\\
+  Dans cette question, nous allons justifier en partie la
+  terminologie.\\
+  On suppose à nouveau que $a_2, \ldots ,a_n$ sont connus, que l'on
+  cherche à protéger $a_1$ et que :
+  \begin{noliste}{$\stimes$}
+  \item le public connaît des d'intervalles $I_0,\ldots,I_d$ disjoints
+    de réunion $\R$ tels qu'avec les valeurs fixées de $a_2, \ldots,
+    a_n$, si $q(a) \in I_j$ alors $a_1 = j$. Cela signifie que si
+    $q(a)$ est publique alors $a_1$ aussi.
+  \item on dispose d'un procédé de $\eps$-confidentialité de $D^n$
+    pour $q$ et que l'on rend $X_a$ publique à la place de $q(a)$.
+  \end{noliste}
+  On considère alors que l'expérience aléatoire modélisée par
+  $(\Omega, \A, \Prob)$ comporte comme première étape le choix au
+  hasard de $a_1$ dans $\llb 0, d \rrb$ et on définit:
+  \begin{noliste}{$\stimes$}
+  \item $A_1$ la variable aléatoire associée à ce choix;
+  \item pour tout $j \in \llb 0, d \rrb$, $Y_j = X_{(j, a_2, \ldots,
+      a_n)}$. \\
+    On suppose que $A_1$ et $Y_j$ sont indépendantes pour tout $j\in
+    D$.
+  \item la variable aléatoire réelle $R$ par:
+    \[
+    \forall \omega\in\Omega, \text{ si } A_1(\omega) = j \text{ alors
+      on détermine l'unique } k \text{ tel que } Y_j(\omega)\in I_k
+    \text{ et on pose } R(\omega)=k
+    \]
+  \item $\theta = \Prob(\Ev{R = A_1})$.
+  \end{noliste}
+
+
+  %\newpage
+
+
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+  \item Montrer que $\theta = \Sum{j=0}{d} \Prob(\Ev{Y_j\in I_j} \cap
+    \Ev{A_1=j})$.
+
+    
+
+  \item En déduire que $\theta = \dfrac{1}{d+1} \Sum{j=0}{d}
+    \Prob(\Ev{Y_j \in I_j})$.
+
+    
+    
+    
+    
+    %\newpage
+    
+
+  \item En conclure que:
+    \[
+    \theta \ \leq \ \dfrac{1}{d+1} \ \left(\ee^{\eps} - (\ee^{\eps}-1)
+      \ \Prob(\Ev{Y_0\in I_0}) \right) \ \leq \
+    \dfrac{\ee^{\eps}}{d+1}
+    \]
+
+    
+
+  \item On pose $\rho = \dfrac{1}{d+1}$ et $\tau = \dfrac{\theta -
+      \rho}{\rho}$.\\
+    Donner une majoration de $\tau$. Que représente cette quantité ?\\
+    Qu'en déduire concernant la méthode de confidentialité présentée
+    dans cette question lorsque $\eps$ est proche de $0$ ?
+
+    
+  \end{noliste}
+\end{noliste}
+% \suspend{noliste}
+On pose $\delta = \dmax{(a,b)\in\cal V} |q(a)-q(b)|$ et on suppose que
+$\delta > 0$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{13}
+\item Dans cette question, pour tout $a\in D^n$, on pose $X_a = q(a) +
+  Y$ où $Y$ suit la loi de Laplace de paramètre $(0, \beta)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+  \item Pour tout $a\in D^n$, déterminer $\E(X_a)$ et une densité de
+    probabilité $f_a$ de la loi de $X_a$ en fonction de $q(a)$ et de
+    $\beta$.
+    
+    
+    
+  \item Montrer que pour tout $t\in\R$ et $(a,b)\in {\cal V}$, $f_a(t)
+    \ \leq \ \exp\left(\dfrac{\delta}{\beta}\right) f_b(t)$.\\
+    En déduire que pour tout $(a,b)\in{\cal V}$, $(X_a,X_b)$ est
+    $\dfrac{\delta}{\beta}$-différentiel.
+
+    
+  
+  \item Comment choisir $\beta$ pour disposer alors d'un procédé de
+    $\eps$-confidentialité de $D^n$ pour $q$?
+
+    
+  \end{noliste}
+
+\item Dans cette question, pour tout $a = (a_1, \ldots ,a_n)$
+  appartenant à $D^n$, $q(a) = \Sum{k=1}{n} a_k$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+  \item Quelle est la valeur de $\delta$ ?
+
+    
+  \end{noliste}
+  On utilise dans la suite le procédé de $\eps$-confidentialité tel
+  qu'il a été défini dans la question \itbf{14.} mais au lieu de 
+  publier la
+  valeur $X_a$, on procède ainsi :
+  \begin{noliste}{$\stimes$}
+  \item si $X_a < \frac{1}{2}$ on publie $0$;
+  \item si $X_a\in [k-\frac{1}{2}, k + \frac{1}{2}[$ où $k \in \llb 1,
+    nd-1 \rrb$, on publie $k$;
+  \item sinon on publie $nd$.	
+  \end{noliste}
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} %
+    \setcounter{enumii}{1}
+  \item Montrer que la valeur aléatoire $Z_a$ publiée vérifie:
+    \[
+    Z_a = %
+    \left\{
+      \begin{array}{cR{3.4cm}}
+        0 & si $X_a < \frac{1}{2}$ 
+        \nl
+        \nl[-.2cm]
+        \left \lfloor X_a + \frac{1}{2} \right\rfloor & si $X_a \in
+        [\frac{1}{2}, nd - \frac{1}{2}[$
+        \nl
+        \nl[-.2cm]
+        nd & si $X_a\geq nd-\frac{1}{2}$
+      \end{array}
+    \right.
+    \]
+
+    
+
+  \item Écrire un script qui pour $d$, $n$ et $\eps$ saisis par
+    l'utilisateur, génère une valeur aléatoire de $a \in D^n$ puis
+    affiche $q(a)$ et $Z_a$.
+
+    
+
+
+    %\newpage
+
+
+  \item Pour $n = 1000$, $d = 4$ et $\eps$ choisi par l'utilisateur,
+    écrire un script qui estime la valeur moyenne de $\dfrac{|Z_a -
+      q(a)|}{q(a)}$ (on considèrera que $q(a)$ est toujours non nul).
+      
+      {\bf N.B.} À titre d'information, on obtient le tableau de valeurs
+suivant:
+\[
+\scalebox{.9}{$
+  \begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \eps & 0.1 &  0.2 &  0.3 &  0.4 &  0.5 &  0.6 &  0.7 &  0.8 &  0.9
+    &  1 &  1.1 &  1.2 \\
+    \hline
+    \text{\footnotesize Moyenne} & 1.91 \% &  1\% &  0.6 \% &  0.5 \% & 
+ 
+0.3
+    \% &  0.3 \% & 0.28 \% &  0.2 \% &  0.2 \% &  0.19 \% &  0.17 \% &
+    0.16 \% \\
+    \hline
+  \end{array}
+  $}
+\]
+% \fbox{
+%   \begin{tabular}{R{15.4cm}}
+%     {\bf Aide Scilab.}\\[.2cm]
+%     La fonction \Scilab{} {\tt grand} permet de simuler, en particulier,
+%     les lois exponentielles et uniformes discrètes. Par exemple :
+%     \begin{noliste}{$\stimes$}
+%     \item {\tt grand(3,2,\ttq{}exp\ttq{},0.5)} renvoie une matrice 
+% aléatoire
+%       $(3,2)$ dont les coefficients sont des variables indépendantes qui
+%       suivent la loi exponentielle d'espérance $0,5$.
+%     \item {\tt grand(1,2,\ttq{}uin\ttq{},-1,3)} renvoie une matrice
+%       aléatoire $(1,2)$ dont les coefficients sont des variables
+%       indépendantes qui suivent la loi uniforme discrètes sur $\llb
+%       -1, 3 \rrb$.
+%     \end{noliste}
+%   \end{tabular}
+% } 
+    
+  \end{noliste}
+\end{noliste}%
+
+\end{document}
+
+        % Le script a quant à lui un aspect plus ludique, notamment
+        % grâce à l'utilisation des instructions {\tt input} et {\tt
+        %   disp}.
+
+        % \item Nous avons de nouveau opté pour une présentation sous
+        %   forme de fonction. La raison est toujours la même :
+        %   pouvoir utiliser le résultat de cette fonction dans un
+        %   autre programme.
+
+%         \item En accord avec l'énoncé, la fonction {\tt
+%             approxEsperance} n'a qu'un paramètre d'entrée. Il semble
+%           cependant plus pertinent de placer {\tt d}, {\tt n} et {\tt
+%             N} comme paramètre de la fonction et de ne fixer les
+%           valeurs de ces variables que dans le script présenté dans le
+%           point ci-dessus.
+

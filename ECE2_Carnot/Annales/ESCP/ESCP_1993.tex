@@ -1,0 +1,357 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1993} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{ESCP 1993}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1993}}
+
+
+
+{\large \textbf{Concepteur : ESCP}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{Exercice 1.}
+
+Dans l'espace vectoriel $\R^{4}$ muni de sa base canonique $\mathcal{B}
+= (e_{1},e_{2},e_{3},e_{4})$ on considère les quatre vecteurs : 
+\[
+f_{1} = (1,1,1,1),\;\;f_{2} = (1,1,-1,-1),\;\;f_{3} =
+(1,-1,1,-1),\;\;f_{4} = (1,-1,-1,1).
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $(f_{1},f_{2},f_{3},f_{4})$ est une base de $\R^{4}$.
+On
+notera désormais cette base $\mathcal{C}$.
+
+\item On considère l'endomorphisme $u$ de $\R^{4}$ défini par les
+relations : 
+\[
+u\left( e_{1}\right) = f_{1},\quad u\left( e_{2}\right) = f_{2},\quad
+u\left(
+e_{3}\right) = f_{3},\quad u\left( e_{4}\right) = f_{4}.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $u$ est un automorphisme de $\R^{4}$. Expliciter
+sa matrice associée dans la base canonique $\mathcal{B}$.
+
+\item Montrer que l'endomorphisme $u^{2}$ est un endomorphisme simple,
+que
+l'on déterminera.
+
+\item Déterminer la matrice associée à l'endomorphisme réciproque de
+$u$
+dans la base $\mathcal{B}$.
+
+\item Déterminer la matrice associée à l'endomorphisme $u$ dans la base
+$\mathcal{C}$.
+\end{noliste}
+
+\item On considère les quatre suites $\left( x_{n}\right)_{n\geq 0}$,
+$\left( y_{n}\right)_{n\geq 0}$, $\left( z_{n}\right)_{n\geq 0}$, 
+$\left( t_{n}\right)_{n\geq 0}$ de nombres réels définies par les
+valeurs initiales $x_{0}$, $y_{0}$, $z_{0}$, $t_{0}$ et, pour tout
+entier
+naturel $n$, par les relations de récurrence : 
+\[
+\left\{
+\begin{array}{cl}
+x_{n + 1} = \dfrac{1}{4}\left( x_{n} + y_{n} + z_{n} + t_{n}\right) \\
+y_{n + 1} = \dfrac{1}{4}\left( x_{n} + y_{n}-z_{n}-t_{n}\right) \\
+z_{n + 1} = \dfrac{1}{4}\left( x_{n}-y_{n} + z_{n}-t_{n}\right) \\
+t_{n + 1} = \dfrac{1}{4}\left( x_{n}-y_{n}-z_{n} + t_{n}\right)
+\end{array}
+\right.
+\]
+A l'aide de l'endomorphisme $u$, donner une interprétation vectorielle
+de
+ces relations. \\
+En déduire que les quatre suites considérées ont pour limite $0$.
+
+\item Déterminer les valeurs propres de $u$ et une base de chacun des
+sous-espaces propres associés. \\
+L'endomorphisme $u$ est-il diagonalisable ?
+\end{noliste}
+
+\section*{Exercice 2.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour tout nombre entier naturel non nul $n$, on pose : 
+\[
+I_{n} = \dint{0}{\dfrac{\pi }{4}}\tan ^{n}x\,dx.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Sans calculer l'intégrale $I_{n}$, montrer que la suite
+$(I_{n})_{n\geq 1}$ est décroissante, puis qu'elle est convergente.
+
+\item Calculer la dérivée de la fonction $x\longmapsto \tan ^{n + 1}x$.
+
+\\
+En déduire, pour tout nombre entier naturel non nul $n$, une expression
+de $I_{n} + I_{n + 2}$.
+
+\item Montrer que, pour tout nombre entier naturel non nul $n$ : 
+\[
+\frac{1}{2(n + 1)}\leq I_{n}\leq \frac{1}{n + 1}.
+\]
+En déduire la limite de la suite $(I_{n})_{n\geq 1}$.
+\end{noliste}
+
+\item Soit $t$ un nombre réel appartenant à l'intervalle $\left]
+0,\dfrac{\pi }{4}\right[ $. \\
+Pour tout nombre entier naturel non nul $n$, on pose : 
+\[
+I_{n}(t) = \dint{0}{t}\tan ^{n}x\,dx\;\text{ et }\;S_{n}(t) = I_{1}(t)
++ I_{2}(t) + \cdots + I_{n}(t).
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout nombre entier naturel non nul $n$ et tout élément $x$
+de $[0,t]$, vérifier que :
+
+\begin{nonoliste}{(i)}
+\item $\left| \tan x + \tan ^{2}x + \cdots + \tan ^{n}x-\dfrac{\tan
+x}{1-\tan
+x}\right| = \dfrac{\tan ^{n + 1}x}{1-\tan x}$.
+
+\item $0\leq \dfrac{\tan ^{n}x}{1-\tan x}\leq \dfrac{\tan ^{n}t}{1-\tan
+t}$.
+\end{nonoliste}
+
+\item Montrer que pour tout nombre entier naturel non nul $n$ : 
+\[
+\left| S_{n}(t)-\dint{0}{t}\frac{\tan x}{1-\tan x}dx\right|
+\leq t\frac{\tan ^{n + 1}t}{1-\tan t}.
+\]
+En déduire que la suite $(S_{n}(t))_{n\geq 1}$ a une limite quand $n$
+tend vers l'infini.
+
+\item On se propose de trouver une expression de cette limite.
+
+\begin{nonoliste}{(i)}
+\item Soit $f$ la fonction définie sur l'intervalle $\left[
+0,\dfrac{\pi }{4}\right[ $ par la relation : 
+\[
+f(x) = \ln \left( \cos x-\sin x\right).
+\]
+Montrer que $f$ est dérivable et calculer sa dérivée.
+
+\item On pose : 
+\[
+J(t) = \dint{0}{t}\frac{\sin x}{\cos x-\sin x}dx\;\text{ et }\;K(t) =
+\dint{0}{t}\frac{\cos x}{\cos x-\sin x}dx.
+\]
+Calculer $J(t)$ et $K(t)$ à partir de $K(t)-J(t)$ et $K(t) + J(t)$. En
+déduire
+la limite de $(S_{n}(t))_{n\geq 1}$ quand $n$ tend vers l'infini.
+\end{nonoliste}
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 3.}
+
+Soit $f$ la fonction numérique définie sur $\R$ par les relations : 
+\[
+f(x) = \left\{
+\begin{array}{cl}
+6x(1-x) & \text{si $0\leq x\leq 1$ ;} \\
+0 & \text{sinon.}
+\end{array}
+\right.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $f$ est une densité de probabilité.
+
+\item Soit $X$ une variable aléatoire à valeurs dans $[0,1]$, de
+densité de
+probabilité $f$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la fonction de répartition $F$ de $X$.
+
+\item Calculer l'espérance et la variance de $X$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer qu'à tout élément $y$ de l'intervalle $[0,1]$ on peut
+faire
+correspondre un élément $u$ et un seul de $[0,1]$ tel que : 
+\[
+\dint{0}{u}f(x)\,dx = y.
+\]
+On définit alors l'application $\varphi $ sur $[0,1]$ en posant
+$\varphi
+(y) = u$.
+
+\item Montrer que $\varphi $ est continue sur $[0,1]$ et dérivable sur
+$]0,1[ $. \\
+Trouver les valeurs de $y$ dans $]0,1[$ telles que $\varphi ^{\prime
+}(y) = \dfrac{3}{4}$.
+
+\item Déterminer la fonction de répartition de la variable aléatoire $Z
+= 3X^{2}-2X^{3}$. \\
+Quelle est sa loi de probabilité ?
+\end{noliste}
+
+\item On considère des variables aléatoires $X_{1}$ et $X_{2}$ de même
+loi
+que $X$. On suppose que les variables $X_{1}$ et $X_{2}$ sont
+indépendantes
+et on pose $T = \sup (X_{1},X_{2})$. (Autrement dit, $T$ est la
+variable aléatoire qui prend la plus grande des valeurs prises par
+$X_{1}$ et $X_{2}$.)
+
+Trouver la fonction de répartition de $T$. En déduire une densité de
+probabilité de $T$ et l'espérance de $T$.
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

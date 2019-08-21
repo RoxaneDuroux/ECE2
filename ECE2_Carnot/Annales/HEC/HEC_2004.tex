@@ -1,0 +1,431 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 2004} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 2004}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\huge HEC Eco 2004}
+\end{center}
+
+
+\section*{EXERCICE}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \textbf{Étude d'une suite et programmation}\\
+On note $(c_{n})_{\,n\in \N^{\times }}$ la suite réelle définie pour
+tout entier $n$ strictement positif par : 
+\[
+c_{n} = \dint{0}{1}\frac{x^{n-1}}{1 + x}dx
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $(c_{n})_{\,n\in \N^{\times }}$ est une suite
+décroissante de réels positifs.
+
+\item Montrer que, pour tout entier $n$ strictement positif, l'on a
+:\quad $c_{n + 1} + c_{n} = \dfrac{1}{n}$
+
+\item Établir, pour tout entier $n$ supérieur ou égal à $2$, la double
+inégalité :
+\[
+\dfrac{1}{n}\leq 2c_{n}\leq \dfrac{1}{n-1}
+\]
+En déduire un équivalent simple de $c_{n}$ quand $n$ tend vers
+l'infini.
+
+\item Calculer $c_{1}$ et prouver, pour tout entier $n$ supérieur ou
+égal à $2$, l'égalité :
+\[
+c_{n} = (-1)^{n}\left( \Sum{k = 1}{n-1}\dfrac{(-1)^{k + 1}}{k}-\ln
+2\right)
+\]
+
+\item Écrire un programme en -\Scilab{} qui, pour une valeur d'un
+entier $n $ strictement positif entrée par l'utilisateur, calcule et
+affiche la
+valeur de $c_{n}$.
+\end{noliste}
+
+\item \textbf{Étude d'une suite de variables aléatoires à densité}\\
+Pour tout entier $n$ strictement positif, on note $f_{n}$ l'application
+de $\R$ dans $\R$ définie par : 
+\[
+f_{n}(t) = \left\{ 
+\begin{matrix}
+0 & \text{si} & t<1 \\
+\dfrac{1}{c_{n}\,t^{n}(1 + t)} & \text{si} & t\geq 1\end{matrix}\right.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item À l'aide d'un changement de variable, établir pour tout entier
+$n$
+strictement positif et pour tout réel $x$ supérieur ou égal à $1$,
+l'égalité :
+\[
+\dint{1}{x}\dfrac{1}{t^{n}(1 + t)}\,dt = \dint{1/x}{1}\dfrac{u^{n-1}}{1
++ u}\,du
+\]
+
+\item En déduire que, pour tout entier $n$ strictement positif, $f_{n}$
+est
+une densité de probabilité. Dans la suite de l'exercice, on suppose que
+$(X_{n})_{\,n\in \N^{\times }}$ est une suite de variables aléatoires
+définies sur le même espace probabilisé $\left(
+\Omega,\mathcal{A},\mathbf{P}\right) $, telle que, pour tout entier $n$
+strictement positif, $X_{n}$
+prend ses valeurs dans $[1, + \infty \lbrack $ et admet $f_{n}$ comme
+densité.
+On note $F_{n}$ la fonction de répartition de $X_{n}$.
+
+\item Pour quelles valeurs de $n$ la variable aléatoire $X_{n}$
+admet-elle
+une espérance ? Dans le cas où l'espérance de $X_{n}$ existe, calculer
+cette
+espérance en fonction de $c_{n}$ et de $c_{n-1}$.
+
+\item Dans cette question, exclusivement, on suppose que $n$ est égal à
+$1$.
+Préciser la fonction $F_{1}$.\\
+En déduire l'ensemble des réels $y$ vérifiant $\mathbf{P}([X_{1}\leq
+y])\geq \dfrac{1}{2}$ Déterminer une densité de la variable aléatoire
+$Z = \ln (X_{1})$.
+
+\item Soit $x$ un réel strictement supérieur à $1$.\\
+Justifier l'encadrement :
+\[
+0\leq \dint{1/x}{1}\dfrac{u^{n}}{(1 + u)^{2}}du\leq \dfrac{1}{n + 1}
+\]
+En déduire la limite suivante :
+\[
+\dlim{n\rightarrow + \infty }\left( \dint{1/x}{1}\dfrac{u^{n}}{(1 +
+u)^{2}}du\right).
+\]
+
+Transformer, pour tout entier naturel $n$ non nul, $F_{n}(x)$ à l'aide
+d'une
+intégration par parties et en déduire l'égalité suivante :
+\[
+\dlim{n\rightarrow + \infty }F_{n}(x) = 1.
+\]
+
+\item Que vaut $\dlim{n\rightarrow + \infty }F_{n}(x)$ si $x$ est un
+réel inférieur ou égal à $1$ ? \\
+Montrer que la suite de variables aléatoires $(X_{n})_{\,n\in
+\N^{\times }}$ converge en loi vers une variable que l'on précisera.
+\end{noliste}
+\end{noliste}
+
+\section*{PROBLEME}
+
+Dans ce problème, $n$ désigne un entier naturel non nul et $E$ désigne
+l'espace vectoriel des polynômes à coefficients réels, de degré
+inférieur ou 
+égal à $2n$. \\
+Pour tout entier naturel non nul $k$, on note $X^{k}$ le polynôme
+$x\mapsto
+x^{k}$ et on rappelle que la famille $(1,X,\ldots,X^{2n})$ est une base
+de $E$. \\
+Si $a_{0},a_{1},\ldots,a_{2n}$ sont $2n + 1$ réels et $Q$ est le
+polynôme défini sur $\R$ par : 
+\[
+\ Q(x) = \Sum{k = 0}{2n}a_{k}x^{k},
+\]
+on définit le polynôme $s(Q)$ par :
+\[
+\ s(Q)(x) = \Sum{k = 0}{2n}a_{2n-k}x^{k}.
+\]
+\textit{Autrement dit, }$s(Q)$\textit{\ est le polynôme obtenu à partir
+de }$Q$\textit{\ en "inversant l'ordre des coefficients".\\
+Par exemple, si }$n$\textit{\ est égal à }$2$\textit{\ et si }$Q(x) =
+4x^{4} + 7x^{3} + 2x^{2} + 1$\textit{, on obtient \ }$s(Q)(x) = x^{4} +
+2x^{2} + 7x + 4$.\\
+Les trois parties de ce problème sont largement indépendantes.
+
+\subsection*{PARTIE A}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \textbf{Linéarité de $s$}\\
+Montrer que l'application $s$ : $Q\mapsto s(Q)$ est une application
+linéaire
+de $E$ dans lui-même.
+
+\item \textbf{Diagonalisation dans un cas particulier}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On considère la matrice carrée d'ordre 3 : \quad $M = $ $\left( 
+\begin{array}{ccc}
+0 & 0 & 1 \\
+0 & 1 & 0 \\
+1 & 0 & 0
+\end{array}
+\right) $.\\
+Justifier sans calcul que la matrice $M$ est diagonalisable. Déterminer
+les
+valeurs propres de $M$ et, pour chacune d'entre elles, donner une base
+du
+sous-espace propre associé.
+
+\item Vérifier que, dans le cas particulier $n = 1$, $M$ est la matrice
+de
+l'application linéaire $s$ dans la base $(1,X,X^{2})$. Donner alors une
+base
+de vecteurs propres pour $s$.
+\end{noliste}
+
+\item \textbf{Étude du cas général}\\
+On définit la famille de polynômes $(A_{0},....,A_{2n})$ par : 
+\[
+\text{pour tout réel }x,\qquad \left\{ 
+\begin{matrix}
+A_{k}(x) = & x^{2n-k} + x^{k} & \text{si} & 0\leq k\leq {n-1} \\
+A_{n}(x) = & x^{n} & & \\
+A_{k}(x) = & x^{k}-x^{2n-k} & \text{si} & {n + 1}\leq k\leq
+{2n}\end{matrix}\right.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer l'endomorphisme $s\circ s$.
+
+\item Soit $P$ un polynôme non nul et $\lambda $ un réel vérifiant
+$s(P) = \lambda P$.\\
+Calculer $s\circ s(P)$ et en déduire que les valeurs propres de $s$
+appartiennent à $\{1,-1\}$.
+
+\item Déterminer $s(A_{k})$ pour tout entier $k$ vérifiant $0\leq
+k\leq {2n}$.
+
+\item Montrer que la famille $(A_{0},....,A_{2n})$ est libre.
+
+\item En déduire que l'endomorphisme $s$ est diagonalisable, préciser
+ses
+valeurs propres et la dimension de chacun de ses sous-espaces propres.
+\end{noliste}
+\end{noliste}
+
+\subsection*{PARTIE B}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \textbf{Préliminaires}\\
+On définit une suite $(R_{k})_{\,k\in \N^{\times }}$ de polynômes
+par :\\
+pour tout réel $x,$
+\[
+R_{1}(x) = x,\quad R_{2}(x) = x^{2}-2
+\]
+et pour tout entier $k$ supérieur ou égal à $2,$
+\[
+R_{k + 1}(x) = xR_{k}(x)-R_{k-1}(x)
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les polynômes $R_{3}$ et $R_{4}$.
+
+\item Montrer que, pour tout entier $k$ strictement positif, $R_{k}$
+est un
+polynôme de degré $k$ vérifiant pour tout réel $x$ non nul, l'égalité :
+\[
+R_{k}\left( x + \dfrac{1}{x}\right) = x^{k} + \dfrac{1}{x^{k}}
+\]
+
+\item Pour tout réel $a$, déterminer, s'ils existent, les réels $x$ non
+nuls
+qui vérifient la relation suivante : $x + \dfrac{1}{x} = a$.
+\end{noliste}
+
+\item \textbf{Étude des racines des polynômes vecteurs propres de $s$
+associés à la valeur propre $1$}\\
+Dans cette question, $Q$ désigne un polynôme de degré $2n$ défini par :
+$Q(x) = \Sum{k = 0}{2n}a_{k}x^{k}$, tel que $a_{2n}$ soit non nul et
+tel
+que, pour tout entier $k$ de l'intervalle $[ \
+\hspace{-0.15em}[0,n]\hspace{-0.13em}]$, l'on ait : $a_{k} = a_{2n-k}$.
+\\
+On définit alors le polynôme $\widetilde{Q}$ par : 
+\[
+\ \widetilde{Q}(x) = a_{n} + \Sum{k = 1}{n}a_{n-k}R_{k}(x).
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $0$ n'est pas racine de $Q$.
+
+\item Soit $x$ un réel non nul, on pose : $y = x + \dfrac{1}{x}$. \\
+Montrer que $\dfrac{Q(x)}{x^{n}}$ est nul si et seulement si
+$\widetilde{Q}(y)$ est nul. \\
+Quel est l'intérêt de ce résultat dans la recherche des racines de $Q$
+?
+
+\item On suppose que $n$ est égal à $3$ et que $Q$ est défini par :
+\[
+Q(x) = x^{6} + x^{5}-9x^{4} + 2x^{3}-9x^{2} + x + 1.
+\]
+Déterminer les racines de $Q$.
+\end{noliste}
+\end{noliste}
+
+\subsection*{PARTIE C}
+
+Dans cette partie, $p$ désigne un entier supérieur ou égal à $2$.\\
+On désigne par $\Omega $ l'ensemble des éléments de $E$ dont les
+coefficients sont des entiers de l'intervalle $[ \
+\hspace{-0.15em}[1,p]\hspace{-0.13em}]$, par $\mathcal{A}$ l'ensemble
+des parties de $\Omega $ et par $\mathbf{P}$ la probabilité uniforme
+sur $\mathcal{A}$, c'est à dire que,
+pour tout polynôme $Q$ de $\Omega $, l'on a :
+\[
+\mathbf{P}\left( \{Q\}\right) = \dfrac{1}{\operatorname{card}(\Omega )}
+\]
+Si $Q$ est un élément de $\Omega $ et $i$ un entier naturel non nul, on
+dit
+que $Q$ et $s(Q)$ présentent $i$ coïncidences lorsqu'il existe
+exactement $i$
+entiers $k$ qui vérifient $a_{k} = a_{2n-k}$. \\
+On définit alors la variable aléatoire $Z$ qui, à tout polynôme $Q$ de
+$\Omega $, associe le nombre de coïncidences entre $Q$ et $s(Q)$. \\
+\textit{Par exemple pour }$n = 2$\textit{, si }$Q(x) = x^{4} + 7x^{3} +
+2x^{2} + 5x + 1$\textit{, on a }$Z(Q) = 3$\textit{.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \textbf{Description d'un cas simple}\\
+Dans cette question, on suppose que $n$ est égal à $1$ et que $p$ est
+égal à 
+$2$.\\
+Écrire tous les éléments de $\Omega $ puis déterminer la loi,
+l'espérance et
+la variance de $Z$.
+
+\item \textbf{Étude générale de la variable aléatoire $Z$}\\
+On revient au cas général : $n$ est strictement positif et $p$ est
+supérieur
+ou égal à $2$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer le cardinal de $\Omega $.
+
+\item Montrer que la plus petite valeur que peut prendre $Z$ est 1 et
+justifier l'égalité suivante :
+\[
+\mathbf{P}([Z = 1]) = \left( {\dfrac{p-1}{p}}\right) ^{n}
+\]
+
+\item Montrer que la plus grande valeur que peut prendre $Z$ est $2n +
+1$ et
+justifier l'égalité suivante :
+\[
+\mathbf{P}([Z = 2n + 1]) = \dfrac{1}{p^{n}}
+\]
+
+\item Montrer que $Z$ ne peut prendre que des valeurs impaires et, pour
+un
+entier $j$ vérifiant $0\leq j\leq n$, calculer $\mathbf{P}([Z = 2j +
+1])$.
+
+\item On pose $Y = \dfrac{Z-1}{2}.$ Montrer que $Y$ suit une loi
+binomiale
+dont on précisera les paramètres. \\
+En déduire l'espérance et la variance de $Z$ en fonction de $n$ et de
+$p$.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

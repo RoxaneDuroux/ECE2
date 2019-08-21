@@ -1,0 +1,1207 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} Q_{O}RAUX_{H}EC 2007} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+\section{Annales 2007}
+
+ %\setcounter{exercice}{0}
+
+ \begin{exercice} \indent \\
+\\
+ Question de cours : un estimateur d'un paramètre $\theta$ de la loi
+$P_{X}$ d'une variable aléatoire $X$ dont on dispose d'un échantillon
+$(X_{n})$ est une suite de variables aléatoires $(T_{n})$ où pour tout
+$n$, $T_{n}$ est une fonction des variables $X_{1},\ \dots\, X_{n})$.
+\\
+ On définit alors son biais comme $\E(X - \theta)$, et son risque
+quadratique comme l'espérance des écarts à $\theta$ mis au carré : \\
+$R = E ( [X - \theta]^{2})$. \\
+\\
+ On considère $n$ ($n>2$) variables aléatoires réelles indépendantes
+ $X_{1}$,..., $X_{n}$ de même loi de densité
+ 
+\[
+ f_{0}\left( x\right) = \left\{ 
+ 
+\begin{array}{cc}
+ \dfrac{3x^{2}}{\theta ^{3}} & \text{si }x\in \left[ 0,\theta \right]
+\\
+ 0 & \text{sinon}
+\end{array}
+\right.
+ 
+\]
+ où $\theta $ est un paramètre strictement positif. On pose 
+\[
+ S = X_{1} + \cdots + X_{n}\text{\quad et\quad }T = \max \left(
+X_{1},\cdots,X_{n}\right)
+ 
+\]
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $\E(X) = \frac{1}{\theta^{3}} \dint{0}{x} 3 x^{3}\ dx =
+\frac{3}{4} \theta$ donc $\E(S) = \frac{3}{4} n \theta$. \\
+ $\E(X^{2}) = \frac{1}{\theta^{3}} \dint{0}{x} x^{4}\ dx = \frac{3}{5}
+\theta^{2}$. \\
+ Enfin $\V(X) = \theta^{2} \left( \frac{3}{5} - \frac{9}{16} \right) =
+\theta^{2} \frac{48 - 45}{80} = \frac{3}{80} \theta^{2}$ donc $\V(S) =
+n \V(X) = \frac{3}{80} n \theta^{2}$. \\
+
+ \item $\Prob\left(\Ev{\Ev{ T \leq t}}\right) = P \Ev{ X \leq t}{n} =
+0$ si $x <0$, $1$ si $x > \theta$ et $\left( \frac{x}{\theta}
+\right)^{3n}$ si $0 \leq x \leq \theta$. \\
+\\
+ On en déduit une densité $f_{T}(x) = 0$ si $x \notin [0 ; \theta]$ et
+$f_{T}(x) = \frac{3n x^{3n-1} }{ \theta^{3n} }$. \\
+\\
+ Ensuite $\E(T) = \dint{0}{\theta} t f_{T}(t)\ dt = \frac{3n \theta
+}{(3n + 1) }$. \\
+\\
+ De même $\E(T^{2}) = \frac{3 n \theta^{2} }{ (3n + 2) }$, et enfin :
+\\
+\\
+ $\V(T) = \frac{3n \theta^{2} }{ (3n + 2) } - \frac{9 n^{2} \theta^{2}
+}{ (3n + 1)^{2} }$. \\
+
+ \item On suppose maintenant que $\theta $ est un paramètre inconnu
+qu'on
+ se propose d'estimer.
+
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item Les variables $S' = \frac{4}{3n} S$ et $T' = \frac{3n + 1}{3n}
+T$ sont des estimateurs sans biais de $\theta$. \\
+ On a $\V(S') = \frac{16}{9 n^{2}} \V(S) = \frac{\theta^{2}}{15 n}$ et
+$\V(T') = \frac{(3n + 1)^{2}}{9 n^{2}} \V(T) = \frac{ (3n + 1)^{2}
+\theta^{2} }{ 3n (3n + 2) } - \theta^{2} = \theta^{2} \frac{(3n +
+1)^{2} - 3n (3n + 2) }{3n (3n + 2)}$. \\
+ $\V(T') = \frac{ \theta^{2}}{3n (3n + 2)}$. \\
+
+ \item Les deux risques quadratiques tendent vers 0 mais le premier est
+équivalent à $\frac{\theta^{2}}{15 n}$ et le deuxième à
+$\frac{\theta^{2}}{ 9 n^{2}}$, donc $\V(T_{n}')$ converge plus
+rapidement vers 0, et $T'$ est donc le meilleur des deux estimateurs.
+ \end{noliste}
+ \end{noliste}
+
+ 
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Un agriculteur souhaite améliorer le rendement de son exploitation en
+ utilisant de l'engrais. Une étude a montré que le rendement, en
+ tonnes par hectare, pour la variété de blé cultivée est donn é par 
+\[
+ f\left( B,N\right) = 120B-8B^{2} + 4BN-2N^{2}
+ 
+\]
+ $B$ désigne la, quantité de semences de blé utilisée, $N$ la
+ quantité d'engrais utilisée.
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $f$ est de classe $C^{2}$, et on a : \\
+ $f_{B}'(B,B) = 120 - 16 B + 4N$, $f_{N}'(B,N) = 4 B - 4 N$,
+$f_{B,B}''(B,N) = -16$, $f_{B,N}''(B,N) = 4$ et $f_{N,N}'' (B,N) = -4$.
+\\
+\\
+ Les points vérifient $120 - 16 B + 4 N = 0$ et $4B - 4 N = 0$, donc $B
+= N$ et $120-12B = 0$, et enfin $B = N = 10$. \\
+ Au point $(10,10)$ on a $r = -16$, $s = 4$ et $t = -4$ donc $rt -
+s^{2} = 64 - 16 = 48 > 0$ et $r = -16 < 0$, c'est donc un maximum
+local. \\
+ De plus on peut écrire $f(B,N) = 120 B - 6 B^{2} -2 ( B^{2} - 2 B N +
+N^{2}) = 120 B - 6 B^{2} - 2 ( B- N)^{2} = -6 [ (B-10)^{2} -100]- 2
+(B-N)^{2} = -6 (B-10)^{2} - 2 (B-N)^{2} + 600 = -6 (B-10)^{2} - 2
+(B-N)^{2} + f (10,10)$ donc $(10,10)$ est un maximum global de $f$. \\
+
+ \item On traduit la contrainte : on a $B = 23 - 2N$ donc le rendement
+est donné par $g(N) = f( 23 - 2N, N) = 120 (23 - 2N) - 8 (23 - 2 N)^{2}
++ 4 (23 - 2N) N - 2 N^{2} = N^{2} ( -32 -8 - 2) + N ( - 240 + 736 + 92)
++ (120 - 184) \times 23 = -42 N^{2} + 588 N - 64 \times 23$. \\
+ On dérive : $g'(N) = - 84 N + 588$, qui s'annule pour $N =
+\frac{588}{84} = \frac{294}{42} = \frac{147}{21} = \frac{21}{3} = 7$ et
+$B = 23 - 14 = 9$ donc le rendement optimum vaut $f( 9, 7) = 1080 - 648
++ 252 - 98 = 432 + 154 = 586$.
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice} \indent \\
+\\
+ Soit $E$ un $\R$-espace vectoriel de dimension finie. On note pour
+ tout endomorphisme $u$ de $E$ et pour tout $\in \N^*,$ $u^{0} =
+\mathrm{Id}_{E}$ et 
+ 
+\[
+ u^{r} = \underset{r\text{ termes}}{\underbrace{u\circ \cdots \circ u}}
+ 
+\]
+
+ \noindent On commence par considérer un endomorphisme non nul de $E$
+tel que pour
+ tout $x\in E$ il existe $r\left( x\right) \in \N^*$ tel que $
+u^{r\left( x\right) } = 0$
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Une matrice carrée d'ordre $n$ admettant $n$ valeurs propres
+distinctes est diagonalisable. Une matrice telle que la somme des
+dimensions de ses sous-espaces propres vaut $n$ est aussi
+diagonalisable. On peut encore citer la base de vecteurs propres. \\
+
+ \item On se donne une base $(e_{1},\ \dots\, e_{n})$ de $E$, et on
+pose $r_{0} = \max \{ r( e_{i})\ |\ 1 \leq i \leq n \}$. \\
+ Alors pour tout $i$, $u^{r_{0}} (e_{i}) = 0$ et pour tout $x \in E$
+s'écrivant $\Sum{i = 1}{n} x_{i} e_{i}$, on a : \\
+ $u^{r_{0}} (x) = \Sum{i = 1}{n} x_{i} u^{r_{0}} (e_{i}) = \Sum{i =
+1}{n} 0 = 0$. \\
+ Soit maintenant $A = \{ k \in \N\ | u^{k} = 0 \}$. \\
+ $A$ est un sous-ensemble de $\R$ non vide donc il admet un minimum. On
+note $r$ ce minimum, on a alors $r-1 \notin A$ donc $u^{r-1} \neq 0$ et
+$u^{r} = 0$. \\
+ Enfin comme $u \neq 0$ on sait que $r \geq 2$. \\
+
+ \item Le polynôme $P\left(\Ev{x}\right) = x^{r}$ est annulateur de $u$
+et admet pour unique racine 0 donc on a $\spc (u) \subset \{ 0 \}$. \\
+ De plus 0 est valeur propre car $u$ n'est pas inversible. \\
+ En effet, sinon en composant $r-1$ fois par $u^{-1}$ l'égalité $u^{r}
+= 0$ on aurait $u = 0$, ce qui est absurde. \\
+ Enfin comme $u$ admet pour unique valeur propre 0, on montre par
+l'absurde que si il était diagonalisable, il admettrait pour matrice la
+matrice nulle et serait nul. $u$ n'est donc pas diagonalisable. \\
+
+ \item On suppose que $v(x) = 0$, on a alors $\Sum{k = 0}{r-1}
+\frac{u^{k} (x)}{k!} = 0$. \\
+ On compose par $u^{r-1}$, cela donne $u^{0} (x) = 0$ donc $x = 0$. \\
+ L'application $v$ est donc injective, et comme c'est un endomorphisme,
+c'est bien un isomorphisme de $E$. \\
+ L'idée pour l'inverse est de remarquer l'analogie avec la série
+exponentielle, et comme $e^{x} \times e^{-x} = 1$, on va poser $w =
+\Sum{k = 0}{r-1} \frac{(-u)^{k} }{k!}$, et calculer $w \circ v$. \\
+ On a $w \circ v = \Sum{k = 0}{r-1} \Sum{i = 0}{r-1} (-1)^{i}
+\frac{u^{k + i}}{k! i!} \\
+\\ = \Sum{k = 0}{r-1} \Sum{i = 0}{r-1} \frac{1}{(i + k)!} \binom{i +
+k}{i} (-1)^{i} u^{k + i}$. \\
+\\
+ On réordonne la somme en posant $n = i + k$, on a $i \leq n$ car $k
+\geq 0$, cela donne : \\
+ $w \circ v = \Sum{n = 0}{r-1} \Sum{i = 0}{n} \frac{1}{n!} \binom{n}{i}
+(-1)^{i} u^{n} $ car $u^{n} = 0$ pour $n > r-1$. \\
+ $w \circ v = \Sum{n = 0}{r-1} \frac{u^{n}}{n!} \Sum{i = 0}{n}
+\binom{n}{i} (-1)^{i} \times 1^{n-i}$. \\
+ $w \circ v = \frac{u^{0}}{0!} + \Sum{n = 1}{r-1} \frac{u^{n}}{n!} (1 -
+1)^{n} = \id$. \\
+\\
+ On obtient alors $v^{-1} = w = \Sum{k = 0}{r-1} \frac{(-u)^{k} }{k!}$.
+\\
+
+ \item Si $u(x) = 0$, alors $v(x) = x + \Sum{k = 1}{n} u^{k} (x) = x$
+donc $( v -\id) (x) = 0$. \\
+ On obtient $\ker u \subset \ker (v - \id)$. \\
+
+ \item 0 est valeur propre de $u$ donc $\ker u \neq \{0 \}$, donc $\ker
+(v - \id) \neq 0$, et 1 est valeur propre de $v$. \\
+ Plus généralement, on se donne $\lambda \neq 1$, et on étudie : \\
+ $v(x) = \lambda x \Leftrightarrow \lambda x = \Sum{k = 0}{r-1}
+\frac{u^{k} (x)}{k!}$. \\
+ On compose par $u^{r-1}$ et on obtient : \\
+ $\lambda u^{r-1} (x) = u^{r-1} (x)$, donc $( \lambda -1) u^{r-1} (x) =
+0$. \\
+ On a $\lambda \neq 1$ donc $u^{r-1} (x) = 0$. \\
+ On a alors $(\lambda -1) x = \Sum{k = 1}{r-2} \frac{u^{k} (x)}{k!}$,
+et on compose par $u^{r-2}$, cela donne : \\
+ $(\lambda -1) u^{r-2} (x) = 0$, donc $u^{r-2} (x) = 0$ et ainsi de
+suite.... \\
+ On obtient finalement $u(x) = 0$, puis $\lambda x = x$, $(\lambda -1)
+x = 0$ et enfin $x = 0$ car $\lambda -1 \neq 0$. \\
+ Il n'y a donc pas de solutions autres que 0, et la seule valeur propre
+de $v$ est 1. \\
+ \end{noliste}
+
+ 
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soient $n$ et $N$ des entiers non nuls. \\
+ Une urne contient $n$ jetons numérotés de 1 à $n$. On effectue $ N $
+tirages avec remise dans cette urne.
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $F_{i} \suit \mathcal{B} \left(N, \frac{1}{n} \right)$.
+
+ On pose : 
+ 
+\[
+ F = \Sum{i = 1}{n}F_{i}
+ 
+\]
+ $F$ est une variable certaine égale à $N$, car elle compte le nombre
+total de jetons tirés. \\
+ On en déduit que $\E(F) = N$ et $\V(F) = 0$. \\
+
+ Les variables $F_{i}$ ne sont pas deux à deux indépendantes. \\
+ Par exemple pour $i \neq j$, $\Prob\left(\Ev{ F_{i} = N, F_{j} =
+N}\right) = 0 \neq \Prob\left(\Ev{\Ev{ F_{i} = N}}\right)
+\Prob\left(\Ev{\Ev{ F_{j} = N}}\right)$ (on ne peut pas tirer $2 N$
+jetons). \\
+
+ \item $X_{i}$ est une variable de Bernouilli de paramètre
+$\Prob\left(\Ev{\Ev{ X_{i} = 1}}\right) = 1 - \Prob\left(\Ev{\Ev{ X_{i}
+= 0}}\right) = 1 - P \Ev{ F_{i} = 0} = 1 - \left( 1 - \frac{1}{n}
+\right)^{n}$. \\
+ D'où $\E(X_{i}) = p = 1 - \left( 1 - \frac{1}{n} \right)^{n}$ et
+$\V(X_{i}) = p (1-p) = \left[1 - \left( 1 - \frac{1}{n} \right)^{n}
+\right] \times \left( 1 - \frac{1}{n} \right)^{n}$. \\
+\\
+ $P_{\Ev{X_{i} = 0}} \Ev{X_{j} = 0} = P_{F_{i} = 0} \Ev{F_{j} = 0} =
+\left( 1 - \frac{1}{N-1} \right)^{n}$ car on tire parmi $N-1$ boules
+(on sait que la boule $i$ n'est jamais tirée, on peut faire les calculs
+en considérant qu'elle n'est pas là. \\
+ on obtient $P_{\Ev{X_{i} = 0}} \Ev{X_{j} = 0} \neq \Prob\left(\Ev{\Ev{
+X_{j} = 0}}\right)$ donc $X_{i}$ et $X_{j}$ ne sont pas indépendantes.
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice} \indent \\
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Une densité de probabilité est positive, continue sauf en un
+nombre fini de points (c'est la cas ici à condition que $c \geq 0$ et
+vérifie $\dint{-\infty}{+ \infty} f(t)\ dt = 1$. \\
+ Ici on calcule $\dint{10}{x} \frac{x}{t^{2}}\ dt = \left[ \
+\frac{-c}{t} \right]_{10}{x} = \frac{-c}{x} + \frac{c}{10}
+\xrightarrow[x \rightarrow + \infty]{} \frac{c}{10}$ donc il faut $c =
+10$, et $f$ est bien positive. \\
+
+ \item Cela signifie que $F(m) = 1 - F(m)$, donc $F(m) = \frac{1}{2}$.
+\\
+ Or $F(x) = 0$ pour $x < 10$ (pas de solution dans cet intervalle) et
+$F(x) = 1 - \frac{10}{x}$ sinon. \\
+ D'où $m$ vérifie $\frac{10}{m} = \frac{1}{2}$, et enfin $m = 20$. \\
+
+ \item On définit la loi binomiale de paramètres $5$ et
+$\Prob\left(\Ev{\Ev{ X \geq 15}}\right) = \frac{10}{15} = \frac{2}{3}$.
+\\
+ On cherche $\Prob\left(\Ev{\Ev{ X \geq 3}}\right) = \binom{5}{3}
+\left( \frac{2}{3} \right)^{3} \left( \frac{1}{3} \right)^{2} +
+\binom{5}{4} \left( \frac{2}{3} \right)^{4} \left( \frac{1}{3} \right)
++ \binom{5}{5} \left( \frac{2}{3} \right)^{5} \left( \frac{1}{3}
+\right)^{0} = 10 \frac{8}{3^{5}} + 5 \frac{16}{3^{5}} +
+\frac{32}{3^{5}} = \frac{80 + 80 + 32}{3^{5}} = \frac{192}{3^{5}} =
+\frac{64}{3^{4}} = \frac{64}{81}$. \\
+ \\
+ Deux machines $A$ et $B$ sont équipées de composants du type préc
+édent. Plus précisément.
+
+ \begin{noliste}{$\sbullet$}
+ \item $A$ contient deux composants et cesse de fonctionner dès que
+l'un
+ de ces composants est défectueux,
+
+ \item $B$ contient également deux composants mais un seul de ces
+ composants suffit à la faire fonctionner
+ \end{noliste}
+
+ On note $T_{A}$, $T_{B}$ les durées de fonctionnement de ces machines.
+
+ \item $T_{A} = \min (X_{1}, X_{2})$ donc $F_{T_{A}} (x) = 1 - \left( 1
+- F_{X}(x) \right)^{2} = 1 - \frac{100}{x^{2}}$ si $x \geq 10$ et $0$
+sinon, et $f_{T_{A}} (x) = \frac{200}{x^{3}}$ si $x \geq 10$ et $0$
+sinon. \\
+\\
+ $T_{B} = \max (X_{1}, X_{2})$ donc $F_{T_{B}} (x) = ( F(x) )^{n} =
+\left( 1 - \frac{10}{x} \right)^{2}$ si $x \geq 10$ et $0$ sinon, et $
+f_{T_{B}} (x) = \frac{ 20}{x^{2}} \left( 1 - \frac{10}{x} \right)$ si
+$x \geq 10$ et $0$ sinon. \\
+
+ \item Pour $T_{A}$ comme $T_{B}$, le seul problème est en $ + \infty$.
+\\
+ Or $x t_{T_{A}} (x) = \frac{200}{x^{2}}$ est une fonction intégrable
+en $ + \infty$ (Riemann) et $x f_{T_{B}} (x) \sim \frac{20}{x}$ en $ +
+\infty$, qui n'est pas intégrable en $ + \infty$ (Riemann à nouveau)
+donc par théorème de comparaison des intégrales de fonctions positives,
+l'intégrale de $t f(t)$ diverge. \\
+ D'où $T_{A}$ admet une espérance, mais pas $T_{B}$. \\
+ Un calcul d'intégrale facile donne $\E(T_{A}) = 20$.
+ \end{noliste}
+
+ 
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Les vecteurs $(1,0)$, $(0,1)$ et $(1,1)$ remplissent cette
+condition. \\
+\\
+ 1er cas : il y a deux valeurs propres distinctes, alors les
+sous-espaces propres sont de dimension 1. Alors si $e_{1}$ est vecteur
+propre associé à $\lambda_{1}$, $E_{\lambda_{1}} = \Vect{ e_{1}}$ et
+les deux autres ne sont pas vecteurs propres associés à $\lambda_{1}$.
+Si l'un des deux autres est vecteur propre associé à $\lambda_{2}$, le
+troisième ne sera alors pas vecteur propre. \\
+ 2e cas : une seule valeur propre, et un sous-espace propre associé de
+dimension 2 ($u = \lambda \id$, alors les trois vecteurs (et tout
+vecteur non nul de $\R^{2}$) sont vecteurs propres associé à la valeur
+propre $\lambda$. \\
+
+ \item Soit $f$ un endomorphisme de $\R^{n}$ et $\mathcal{F}$ une
+ famille de $n + 1$ vecteurs propres de $f$ s'il en existe.
+
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item Non, car $\Card \mathcal{F} > \dim \R^{n}$. \\
+
+ \item Supposons qu'il existe plusieurs valeurs propres distinctes ($k$
+valeurs propres), alors il existe une valeur propre $\lambda$ telle que
+$\dim E_{\lambda} \leq n-1$. \\
+ Soit $a$ un vecteur propre de $\mathcal{F}$ associé à $\lambda$, alors
+la famille restante est une base de vecteurs propres. \\
+ Il y a donc une sous-famille de cette famille qui est une base de
+$E_{\lambda}$, et comme $a \in E_{\lambda}$, $a$ s'écrit $a = \sum
+a_{i} e_{i}$ avec les $a_{i}$ non tous nuls car $a \neq 0$. \\
+ On obtient que la famille $(a, e_{1},\ \dots\, e_{p})$ est liée, avec
+$p \leq n-1$ donc il y a moins de $n$ vecteurs. On la complète avec
+d'autres vecteurs de $\mathcal{F}$ et on obtient une sous-famille de
+$\mathcal{F}$ constituée de $n$ vecteurs et liée, ce qui contredit
+l'hypothèse de départ. \\
+ On en déduit que $f$ admet une unique valeur propre, et comme elle
+admet des bases de vecteurs propres, elle est diagonalisable et $f =
+\lambda \id$.
+ \end{noliste}
+ \end{noliste}
+
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice} \indent \\
+\\
+ \textbf{Question de cours.} Soit $(A_{i})_{i \in I}$ un système
+complet d'évènements, c'est-à-dire une famille d'évènements deux à deux
+incompatibles, dont la réunion est $\Omega$ l'univers de l'expérience
+et dont aucun n'est négligeable (ils ont des probabilités non nulles).
+\\
+ Alors pour tout évènement $B \in \Omega$, $\Prob\left(\Ev{B}\right) =
+\Sum{i \in I} \Prob( B \cap A_{i}) = \Sum{i \in I}
+\Prob\left(\Ev{A_{i}}\right) P_{A_{i}} (B)$.
+ \\
+\\
+ On lance deux pièces truquées : La pièce 1 donne pile avec une
+ probabilité $p_{1}$ et la pièce 2 donne pile avec une probabilité,
+$p_{2}$. \\
+ On effectue les lancers de la façon suivante : on choisit une pièce
+ uniformément au hasard et on lance la pièce choisie. Si on obtient
+ pile, on relance la même pièce et ainsi de suite jusqu'a ce que l'on
+ obtienne face; à ce moment on change de pièce - plus géné ralement,
+dès que l'on obtient face, on change de pièce. On suppose
+ que $p_{1}$ et $p_{2}$ sont dans $\left] 0,1\right[ $
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item On pose $A_{n}$, de probabilité $a_{n}$, l'évènement : "lancer
+la pièce 1 au $n$-ième lancer" et $B_{n}$, de probabilité $b_{n}$,
+l'évènement : "lancer la pièce 2 au $n$-ième lancer". \\
+ Comme $(A_{n}, B_{n})$ est un système complet d'évènements on a : \\
+ $a_{n + 1} = \Prob\left(\Ev{A_{n}}\right) P_{A_{n}} (A_{n + 1}) +
+\Prob\left(\Ev{B_{n}}\right) P_{B_{n}} (A_{n + 1}) = a_{n} p_{1} +
+(1-a_{n}) (1-p_{2}) = a_{n} (p_{1} + p_{2} -1) + 1 - p_{2}$. \\
+\\
+ On reconnaît une suite arithmético-géométrique, on résout $k = k
+(p_{1} + p_{2} -1) + 1 - p_{2} \Leftrightarrow k ( 2 - p_{1} - p_{2}) =
+1 - p_{2} \Leftrightarrow k = \frac{1-p_{2}}{2 - p_{1}-p_{2}}$. \\
+ La suite $u_{n} = a_{n} - k$ est alors géométrique de raison $(p_{1} +
+p_{2} -1)$, donc pour tout $n$ on a :\\
+ $a_{n} = u_{n} + \frac{1-p_{2}}{2 - p_{1}-p_{2}} = (p_{1} + p_{2}
+-1)^{n-1} u_{1} + \frac{1-p_{2}}{2 - p_{1}-p_{2}} = (p_{1} + p_{2}
+-1)^{n-1} \left(a_{1} -\frac{1-p_{2}}{2 - p_{1}-p_{2}} \right) +
+\frac{1-p_{2}}{2 - p_{1}-p_{2}} = (p_{1} + p_{2} -1)^{n-1}
+\left(\frac{1}{2}-\frac{1-p_{2}}{2 - p_{1}-p_{2}} \right) +
+\frac{1-p_{2}}{2 - p_{1}-p_{2}}$. \\
+
+ \item Avec le même système complet on a en posant $P_{n}$ : "on
+obtient pile au $n$-ième tirage" : \\
+ $r_{n} = \Prob\left(\Ev{A_{n} }\right) P_{A_{n} } (P_{n}) +
+\Prob\left(\Ev{B_{n}}\right) P_{B_{n} } (P_{n}) = a_{n} p_{1} + (1 -
+a_{n} ) p_{2} = a_{n} ( p_{1} - p_{2}) + p_{2} = (p_{1} - p_{2}) \left[
+(p_{1} + p_{2} -1)^{n-1} \left(\frac{1}{2}-\frac{1-p_{2}}{2 -
+p_{1}-p_{2}} \right) + \frac{1-p_{2}}{2 - p_{1}-p_{2}} \right] +
+p_{2}$. \\
+
+ \item On a $0 < p_{1} < 1$ et $0 < p_{2} < 1$ donc $0 < p_{1} + p_{2}
+< 2$ et enfin $-1 < 1 - p_{1} - p_{2} < 1$. \\
+ D'où $\lim\ (p_{1} + p_{2} -1)^{n-1} = 0$, et on obtient $L =
+\frac{(p_{1} - p_{2}) (1- p_{2})}{2 - p_{1} - p_{2}} + p_{2}$. \\
+
+ \item On calcule $L = \frac{ \frac{1}{6} \times \frac{5}{6} }{ {3}{2}
+} + \frac{1}{6} = \frac{5}{36} \frac{2}{3} + \frac{1}{6} = \frac{5}{54}
++ \frac{9}{54} = \frac{14}{54} = \frac{7}{27}$. \\
+ Ensuite on simplifie $r_{n} = \frac{1}{6} \left[ \ \left( -
+\frac{1}{2} \right)^{n-1} \frac{-1}{18} + \frac{5}{9} \right] +
+\frac{1}{6}$. \\
+ Petit problème avec l'énoncé : on ne peut pas calculer un rang à
+partir duquel... avec un programme! On peut par contre calculer la
+première valeur telle que..., mais sans assurance que les suivantes
+vérifieront toutes la propriété (penser au fait que la suite n'est pas
+monotone). Par contre si on veut un rang à partir duquel... il faut
+réaliser une étude mathématique pour majorer ( ou calculer) $| r_{n} -
+L | = \frac{1}{54} \left( \frac{1}{2} \right)^{n-1}$; dans ce cas
+l'intervention de l'informatique est bien inutile : un petit passage au
+logarithme permet de déterminer $n$ sans problème. \\
+ On obtient le programme suivant : \\
+ var n : integer; r : real ; \\
+ n : = 1; r : = 1/54 ;\\
+ repeat \\
+ n : = n + 1; r : = r/2 ; \\
+ until r < exp (-6 * ln ( 10) ) ; \\
+ writeln (n) ; \\
+ (programme qui sert à calculer une valeur qu'une calculatrice et un
+calcul de logarithme donnerait sans problème...) \\
+ \end{noliste}
+
+ 
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $u$ et $v$ deux endomorphismes de $\R^{2}$ dont les matrices
+ respectives dans la base canonique $\left( e_{1},e_{2}\right) $ de
+$\mathbb{R }{2}$ sont notées $A$ et $B$. On suppose que $AB =
+\begin{smatrix}
+ 0 & 0 \\
+ 0 & 0
+\end{smatrix}
+$ et $BA = \begin{smatrix}
+ 0 & 1 \\
+ 0 & 0
+\end{smatrix}
+$
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Si $v$ était bijectif, $B$ serait inversible et on aurait $A B
+B^{-1} = 0 B^{-1}$ donc $A = 0$, puis $B A = B 0 = 0$ ce qui est
+absurde. \\
+ Donc $v$ n'est pas bijectif. \\
+ On en déduit que $\imv$ est de dimension inférieure ou égale à 1. \\
+ D'autre part on a $\imv \circ u \subset \imv$ et $\imv \circ u =
+\Vect{ e_{1}}$ est de dimension 1. \\
+ On en déduit que $\dim (\imv) \geq 1$, puis $\dim (\imv) = 1$ et avec
+l'égalité des dimensions, $\imv = \imv \circ u = \Vect{ e_{1}}$. \\
+
+ \item De la même manière $u$ n'est ni bijectif ni nul donc $\dim \ker
+u = 1$. \\
+ Or $\ker (v \circ u) \subset \ker u$ est de dimension 1, donc $\ker u
+= \ker (v \circ u)$ et $e_{1} \in \ker (v \circ u)$, donc $(e_{1})$
+(famille libre car constituée d'un vecteur non nulle, et de cardinal
+égal à la dimension) est une base de $\ker (v \circ u)$, et enfin $\ker
+u = \Vect{ e_{1}} = \im(v)$. \\
+
+ \item On a $u(e_{1}) = 0$ donc $A = \begin{smatrix}
+0 & a \\
+0 & b \\
+\end{smatrix}
+$ et $\imv = \Vect{ e_{1}}$ donc $B = 
+\begin{smatrix}
+c & d \\
+0 & 0 \\
+\end{smatrix}
+$. \\
+ En calculant $AB$ et $BA$ on obtient bien $AB = 0$ et $BA =
+\begin{smatrix}
+0 & ac + bd \\
+0 & 0 \\
+\end{smatrix}
+$ donc il faut rajouter la condition $ac + bd = 1$ pour satisfaire les
+hypothèses.
+ \end{noliste}
+ \end{exercice}
+
+
+ \newpage
+
+
+ \begin{exercice} \indent \\
+\\
+ Soit $\alpha >0,$ $x_{0}>0$ et $f$ la fonction de $\R$ dans $\mathbb{
+R}$ définie par : 
+\[
+ f\left( x\right) = \frac{\alpha }{x_{0}}\left( \frac{x_{0}}{x}\right)
+ ^{\alpha + 1}\text{ si }x\geq x_{0}\text{\quad et\quad \ }f\left(
+x\right) = 0 \text{ sinon}
+ 
+\]
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item Une variable aléatoire réelle de fonction de répartition $F$ est
+dite à densité s'il existe une fonction $f$ définie sur $\R$ positive,
+continue sauf éventuellement en un nombre fini de points, et vérifiant
+$\dint{-\infty}{+ \infty} f(t)\ dt = 1$, telle que pour tout $x \in
+\R$, $F(x) = \dint{-\infty}{+ \infty} f(t)\ dt$. \\
+\\
+ Ici on a $\dint{-\infty}{+ \infty} f(t)\ dt = \dlim{x \rightarrow +
+\infty} \dint{x_{0}}{x} \frac{\alpha}{x_{0}} \left( \frac{x_{0}}{t}
+\right)^{\alpha + 1}\ dt = \dlim{x \rightarrow + \infty} x_{0}{\alpha}
+\left[ - \frac{1}{t^{\alpha}} \right]_{x_{0}}{x} = \dlim{x \rightarrow
++ \infty} \left( - \frac{x_{0}{\alpha} }{x^{\alpha} } +
+\frac{x_{0}{\alpha}}{x_{0}{\alpha}} \right) = 1$. \\
+\\
+ Ensuite on a $F(x) = 0$ si $x < x_{0}$, et $F(x) = 1 - \left(
+\frac{x_{0}}{x} \right)^{\alpha}$ si $x \geq x_{0}$. \\
+
+ \item Seule l'intégrabilité en $ + \infty$ pose problème. \\
+ De plus on a $t f(t) = \alpha x_{0}{\alpha} \frac{1}{x^{\alpha}}$ qui
+est intégrable en $ + \infty$ si et seulement si $\alpha > 1$ (Riemann)
+donc $X$ admet une espérance si et seulement si $\alpha > 1$. \\
+ De même $X$ admet un moment d'ordre 2 donc une variance si et
+seulement si $\alpha > 2$. \\
+ Enfin si $\alpha > 1$, un calcul d'intégrale facile donne $\E(X) =
+\frac{\alpha}{\alpha - 1} x_{0}$. \\
+
+ \item $M_{X}(x) = \frac{ \E(X) - \dint{-\infty}{x} t f(t)\ dt }{ 1 -
+F_{X}(x) } = \frac{\E(X) - \dint{x_{0}}{x} t f(t)\ dt}{ \left(
+\frac{x_{0}}{x} \right)^{\alpha}} = \frac{ \alpha x_{0}{\alpha} }{
+(\alpha - 1) x^{\alpha -1} } \times \frac{x^{\alpha}}{x_{0}{\alpha}} =
+\frac{ \alpha}{\alpha -1} x$. \\
+ \end{noliste}
+
+ \item On se propose d'établir une réciproque de la propriété
+ précédente. Soit $x_{0}>0$ et $Y$ une variable aléatoire à
+ valeurs dans $\left[ x_{0}, + \infty \right[ $ de densité $h$
+continue, 
+ à valeurs strictement positives, admettant une espérance et telle
+ qu'il existe un réel $k>1$ vérifiant : 
+ 
+\[
+ \forall x>x_{0},\quad M_{Y}\left( x\right) = \frac{\dint{x}{+ \infty
+ }th\left( t\right\ dt}{\dint{x}{+ \infty }h\left( t\right\ dt} = kx
+ 
+\]
+
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item On pose, pour tout $x>x_{0}$ 
+\[
+ G\left( x\right) = \dint{x}{+ \infty }h\left( t\right\ dt
+ 
+\]
+ On a $G'(x) = - h(x)$, puis en dérivant l'égalité $\dint{x}{+ \infty
+}t h\left( t\right\ dt = k x \dint{x}{+ \infty }h\left( t\right\ dt$ on
+a $- x h(x) = - k x h(x) + k G(x)$, donc $ x G'(x) - k x G'(x) = k
+G(x)$ en enfin $G(x) = \frac{1-k}{k} x G'(x)$. \\
+
+ \item $A'(x) = x^{ \frac{k}{k-1} } G'(x) + \frac{k}{k-1} x^{
+\frac{k}{k-1} - 1} G(x) = G'(x) x^{ \frac{k}{k-1} } \left( 1 +
+\frac{k}{k-1} \frac{1}{x} \frac{1-k}{k} x \right) = G'(x) x^{
+\frac{k}{k-1} } ( 1 - 1) = 0$. \\
+\\
+ On en déduit que pour tout $x \in \R$, $A(x) = K$ une constante
+réelle, puis que $G(x) = K x^{-\frac{k}{k-1}}$. \\
+ Or en la valeur $x = x_{0}$, on a $G(x_{0}) = 1$ donc $K = x_{0}{
+\frac{k}{k-1} } $, et enfin : \\
+ $F_{Y}(x) = 1 - G(x) = 1 - \left( \frac{x_{0}}{ x}
+\right)^{\frac{k}{k-1}}$, et on obtient la loi de Pareto de paramètres
+$x_{0}$ et $\frac{k}{k-1}$. \\
+\\
+ Enfin avec la valeur en $x_{0}$ de $M_{Y}$ on peut retrouver
+$\frac{\E(Y)}{1} = k x_{0}$, donc $\E(Y) = k x_{0}$ (on a bien $\frac{
+\frac{k}{k-1 } }{ \frac{k}{k-1} - 1} = k$, et on retrouve les résultats
+précédents.
+ \end{noliste}
+ \end{noliste}
+
+ 
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soient $X$ et $Y$ deux variables aléatoires binomiales de paramètres 
+ $\left( n,1/2\right) $ indépendantes. Calculer $\Prob\left(\Ev{
+ X = Y}\right).$ \\
+\\
+ On paramètre par le système complet d'évènements $\Ev{X = k}_{0 \leq k
+\leq n}$ : \\
+ $\Prob\left(\Ev{\Ev{X = Y}}\right) = \Sum{k = 0}{n} \Prob\left(\Ev{ X
+= k, Y = k}\right) = \Sum{k = 0}{n} \binom{n}{k} ^{2} \frac{1}{2^{n}}
+\frac{1}{2^{n}} = \frac{1}{4^{n}} \Sum{k = 0}{n} \binom{n}{k} ^{2}$. \\
+\\
+ On ne sait pas calculer cette somme, la méthode échoue. L'idée est en
+fait d'utiliser le fait que $\Prob\left(\Ev{\Ev{ X = k}}\right) =
+\Prob\left(\Ev{\Ev{ X = n-k}}\right)$. \\
+ On a alors $\Prob\left(\Ev{\Ev{ X = Y}}\right) = \Sum{k = 0}{n}
+\Prob\left(\Ev{\Ev{ X = k}}\right) \Prob\left(\Ev{\Ev{ Y = k}}\right) =
+\Sum{k = 0}{n} \Prob\left(\Ev{\Ev{ X = k }}\right) \Prob\left(\Ev{\Ev{
+Y = n-k}}\right) = \Prob\left(\Ev{\Ev{ X + Y = n}}\right)$. \\
+ On sait que $X + Y \suit \mathcal{B} \left( 2n, \frac{1}{2} \right)$,
+on en déduit que $\Prob\left(\Ev{\Ev{ X = Y}}\right) = \binom{2n}{n}
+\frac{1}{2^{2n}} = \binom{2n}{n} \frac{1}{4^{n}}$. \\
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice} \indent \\
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Une famille $(f_{i})_{i \in I}$ de vecteurs de $E$ est dite
+génératrice de $E$ si $\Vect ( (f_{i})_{i \in I} ) = E$, c'est-à-dire
+que tout vecteur de $E$ peut s'écrire comme combinaison linéaire de la
+famille. \\
+ Elle est dite libre si toute combinaison linéaire est unique,
+c'est-à-dire : $\Sum{i \in I} a_{i} f_{i} = 0 \Rightarrow \forall i \in
+I,\ a_{i} = 0$. \\
+
+ \hspace{-1cm}Dans l'espace vectoriel $C^{O}\left( \R\right) $ des
+ fonctions continues de $\R$ dans $\R$, on considère les
+ trois fonctions 
+\[
+ f_{1} :x\rightarrow 1\quad f_{2} :x\rightarrow x\quad \text{et}
+ \quad f_{0} :x\rightarrow \left\{ 
+ 
+\begin{array}{cc}
+ x\ln \left| x\right| & \text{si }x\neq 0 \\
+ 0 & \text{si }x = 0
+\end{array}
+\right. 
+ 
+\]
+
+ \hspace{-1cm}Soit $E$ le sous-espace vectoriel de $C^{0}\left( \R
+\right) $ engendré par $\left( f_{1},f_{2},f_{3}\right) $
+
+ \item Elle est génératrice de $E$ par définition, montrons qu'elle est
+libre. \\
+ Soient $a, b,c$ tels que $a f_{1} + b f_{2} + c f_{3} = 0$, donc $a +
+b x + c x \ln | x | = 0$ pour tout $x \neq 0$, et $a + 0 + 0 = 0$ pour
+$x = 0$. \\
+ On vient d'obtenir $a = 0$, il reste $b x + c x \ln | x | = 0$ pour
+tout $x \neq 0$. \\
+ On a alors $x ( b + c \ln | x |) = 0$, donc $b + c x \ln | x | = 0$
+pour tout $x \neq 0$. \\
+ En $x = 1$ on obtient $b + c \ln 1 = b = 0$, donc $b = 0$. \\
+ On en déduit que $c \ln | x | = 0$, pour $x \neq 0$, on prend $x = 2$
+en on obtient $c \ln 2 = 0$, donc $c = 0$. \\
+
+ \item A toute fonction $f$ de $E$ on associe la fonction $\Phi \left(
+ f\right) $ définie par $\Phi \left( f\right) = \left( xf\right)
+^{\prime
+ },$ dérivée de la fonction $x\rightarrow x~f\left( x\right) $ \\
+\\
+ On a $\Phi (f_{1}) (x) = 1$ donc $\Phi (f_{1}) = f_{1} \in E$, $\Phi
+(f_{2}) (x) = 2x$ donc $\Phi (f_{2}) = 2 f_{2} \in E$, et $\Phi (f_{3})
+(x) = 2 x \ln | x | + x^{2} \frac{1}{x} = 2 x \ln | x | + x$ pour $x
+\neq 0$ (qui est pour l'instant un abus de notation car on n'a pas
+prouvé que $x \rightarrow x f_{3} (x)$ est dérivable sur $\R$. \\
+ On vérifie alors que cette dérivée est prolongeable par continuité, on
+en déduit par prolongement de la dérivée que $x \rightarrow x f_{3}
+(x)$ est dérivable sur $\R$, de dérivée $2 f_{3}(x) + f_{2} (x)$. \\
+ D'où $\Phi (f_{3})$ est bien définie et $\Phi (f_{3}) = 2 f_{3} +
+f_{2} \in E$. \\
+ Toute combinaison linéaire de $f_{1}$, $f_{2}$ et $f_{3}$ admet donc
+une image par $\Phi$ et cette image est combinaison linéaire (car
+$\Phi$ est trivialement linéaire) de $\Phi (f_{1}), \Phi (f_{2}), \Phi
+(f_{3})$ qui sont tous dans $E$, donc elle est dans $E$. \\
+ On obtient bien que $\Phi$ est un endomorphisme de $E$, et on a : $M =
+\begin{smatrix}
+1 & 0 & 0 \\
+0 & 2 & 1 \\
+0 & 0 & 2 \\
+\end{smatrix}
+$. \\
+
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $M$ est inversible car triangulaire sans 0 sur la diagonale. \\
+ Pour son inverse, on peut réaliser : \\
+ - un pivot très rapide. \\
+ - conjecturer que $M^{-1} = \begin{smatrix}
+1 & 0 & 0 \\
+0 & \frac{1}{2} & a \\
+0 & 0 & \frac{1}{2} \\
+\end{smatrix}
+$ et montrer que $a = -\frac{1}{4}$ en calculant $M M^{-1}$. \\
+ - calculer $M^{2}$ et essayer d'en tirer un polynôme annulateur (cela
+échoue). \\
+
+ \item L'équation $\Phi (f) = g$ est équivalente à $\Phi^{-1} (g) = f$,
+donc $Mat (f) = M^{-1} Mat (g) = \begin{smatrix}
+1 & 0 & 0 \\
+0 & \frac{1}{2} & -\frac{1}{4} \\
+0 & 0 & \frac{1}{2} \\
+\end{smatrix}
+\begin{smatrix}
+a \\
+b \\
+1 \\
+\end{smatrix}
+ = \begin{smatrix}
+a \\
+\frac{1}{2} b - \frac{1}{4} \\
+\frac{1}{2} \\
+\end{smatrix}
+$. \\
+ La solution de l'équation est donc $f = a f_{1} + \left( \frac{1}{2} b
+- \frac{1}{4} \right) f_{2} + \frac{1}{2} f_{3}$. \\
+\\
+ En particulier on voit que $\Phi \left( \frac{1}{2} f_{3} -
+\frac{1}{4} f_{2} \right) = f_{3}$, donc une primitive de $f_{3}$ est :
+\\
+ $h(x) = \frac{1}{2} x \ln | x | - \frac{1}{4} x^{2}$. \\
+ \end{noliste}
+ \end{noliste}
+
+ 
+
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soient $X$ et $Y$ deux variables aléatoires binomiales de paramètres 
+ $\left( n,1/2\right) $ indépendantes. Calculer $\Prob\left(\Ev{
+ X = Y}\right).$ \\
+\\
+ On paramètre par le système complet d'évènements $\Ev{X = k}_{0 \leq k
+\leq n}$ : \\
+ $\Prob\left(\Ev{\Ev{X = Y}}\right) = \Sum{k = 0}{n} \Prob\left(\Ev{ X
+= k, Y = k}\right) = \Sum{k = 0}{n} \binom{n}{k} ^{2} \frac{1}{2^{n}}
+\frac{1}{2^{n}} = \frac{1}{4^{n}} \Sum{k = 0}{n} \binom{n}{k} ^{2}$. \\
+\\
+ On ne sait pas calculer cette somme, la méthode échoue. L'idée est en
+fait d'utiliser le fait que $\Prob\left(\Ev{\Ev{ X = k}}\right) =
+\Prob\left(\Ev{\Ev{ X = n-k}}\right)$. \\
+ On a alors $\Prob\left(\Ev{\Ev{ X = Y}}\right) = \Sum{k = 0}{n}
+\Prob\left(\Ev{\Ev{ X = k}}\right) \Prob\left(\Ev{\Ev{ Y = k}}\right) =
+\Sum{k = 0}{n} \Prob\left(\Ev{\Ev{ X = k }}\right) \Prob\left(\Ev{\Ev{
+Y = n-k}}\right) = \Prob\left(\Ev{\Ev{ X + Y = n}}\right)$. \\
+ On sait que $X + Y \suit \mathcal{B} \left( 2n, \frac{1}{2} \right)$,
+on en déduit que $\Prob\left(\Ev{\Ev{ X = Y}}\right) = \binom{2n}{n}
+\frac{1}{2^{2n}} = \binom{2n}{n} \frac{1}{4^{n}}$. \\
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice} \indent \\
+\\
+ \textbf{Question de cours :} Une variable aléatoire suit la loi
+uniforme sur $[ a ;b]$ si c'est une variable à densité dont une densité
+est une fonction constante sur $[ a ; b]$ et nulle ailleurs. \\
+ De plus pour que ce soit une densité de probabilité, un calcul
+d'intégrale trivial donne cette constante égale à $\frac{1}{b-a}$. \\
+\\
+ On obtient alors que la fonction $f(x) = \left\{
+\begin{array}{cl}
+ \frac{1}{b-a} \text{ si } x \in [a ;b ] \\
+0 \text{ sinon}
+\end{array}
+\right.$ est une densité de $X$ et la fonction de répartition de $X$
+est $F(x) = \left\{
+\begin{array}{cl}
+ 0 \text{ si } x \leq a \\
+\frac{x-a}{b-a} \text{ si } x \in [a ;b ] \\
+1 \text{ si } x \geq b
+\end{array}
+\right.$.
+ \\
+ Soit $X$ une variable aléatoire suivant une loi uniforme sur $\left[
+0,1 \right] $. On pose $Y = \min \left( X,1-X\right) $ et $Z = \left(
+X,1-X\right) $.
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item On a $Y (\Omega) = \left[ 0 ; \frac{1}{2} \right]$ car si $x
+\geq \frac{1}{2}$, alors $1- x \leq \frac{1}{2}$ donc le minimum est
+toujours plus petit que $\frac{1}{2}$. \\
+ On a donc $F_{Y}(x) = 0$ si $x < 0$ et $1$ si $x > \frac{1}{2}$, et
+pour tout $ x \in \left[ 0 ; \frac{1}{2} \right]$ on a : \\
+ $F_{Y}(x) = 1 - P\left(\Ev{ \min ( X, 1- X) \geq x }\right)\left(\Ev{
+X, 1- X}\right) \geq x ) = 1 - \Prob\left(\Ev{ X \geq x, 1- X \geq
+x}\right) = 1 - \Prob\left(\Ev{ X \geq x, X \leq 1-x}\right) = 1 -
+\Prob\left(\Ev{ x \leq X \leq 1-x}\right) = 1 - (1-x-x) = 2x$. \\
+ On en déduit que $f_{Y}(x) = 2$ si $0 \leq x \leq \frac{1}{2}$ et 0
+sinon est une densité de $Y$, donc $Y$ suit la loi uniforme sur $\left[
+0 ; \frac{1}{2} \right]$, et $\E(Y) = \frac{1}{4}$. \\
+
+ \item On peut utiliser la loi du max et refaire le même genre de
+raisonnement qu'à la question précédente. \\
+ On peut aussi remarquer que $Z = 1 - Y$ donc $Z (\Omega) = \left[ \
+\frac{1}{2} ; 1\right]$ et pour tout $x \in \left[ \ \frac{1}{2} ;
+1\right]$, $\Prob\left(\Ev{\Ev{ Z \leq x}}\right) = \Prob\left(\Ev{ 1 -
+Y \leq x}\right) = \Prob\left(\Ev{ Y \geq 1 - x}\right) = 1 -
+\Prob\left(\Ev{\Ev{ Y \leq 1-x}}\right) = 1 - 2 (1-x) = 2x - 1$, et
+$\Prob\left(\Ev{\Ev{ Z \leq x}}\right) = 0$ sinon. \\
+ On en déduit que $f_{Z}(x) = 2$ si $\frac{1}{2} \leq x \leq 1$ et 0
+sinon est une densité de $Z$, qui suit la loi uniforme sur $\left[ \
+\frac{1}{2} ; 1\right]$ et vérifie donc $\E(Z) = \frac{3}{4}$. \\
+
+ \item Comme $Y$ et $Z$ sont positives, et $Z \geq Y$, $ \frac{Y}{Z}
+(\Omega) \subset [ 0 ; 1]$. \\
+ Pour $x < 0$, $\Prob\left(\Ev{\Ev{ R \leq x}}\right) = 0$, et pour $x
+> 1$, $\Prob\left(\Ev{\Ev{ R \leq x}}\right) = 1$. \\
+ De plus on a pour tout $x \in [ 0 ; 1]$ : \\
+ $\Prob\left(\Ev{\Ev{ R \leq x}}\right) = \Prob\left(\Ev{\Ev{ Y \leq x
+Z}}\right) = \Prob\left(\Ev{ Y \leq x - x Y}\right) = P \left(\Ev{ Y
+\leq \frac{x}{1 + x}}\right) = 2 \frac{x}{1 + x}$. \\
+\\
+ On en déduit que la fonction $f_{R}(x) = \frac{2(1 + x) - 2x}{(1 +
+x)^{2}} = \frac{2}{(1 + x)^{2}}$ si $x \in [ 0 ; 1]$ et 0 sinon est une
+densité de $R$. \\
+ Enfin $\E(R) = \dint{0}{1} 2 \frac{x}{ (1 + x)^{2}}\ dx = 2
+\dint{1}{2} \frac{ x-1}{x^{2}}\ dx = 2 \left[ \ \ln x + \frac{1}{x}
+\right]_{1}{2} = 2 \ln 2 -1$. \\
+
+ \item var x, y, z : real ; \\
+ begin ; \\
+ randomize ; \\
+ x : = random; \\
+ if x < = 1-x then begin 
+ y : = x ; z : = 1-x ; end ;\\
+ else begin y : = 1-x ; z : = x ; end; \\
+ end. \\
+ \end{noliste}
+
+ 
+
+ \noindent \textbf{\underline{Exercice sans préparation}}
+ \\
+\\
+ On considère l'endomorphisme $f$ de $\R^{4}$ dont la matrice
+ dans la base canonique de $\R^{4}$ est la matrice 
+ 
+\[
+ M = \begin{smatrix}
+ -1 & -1 & -1 & 1 \\
+ -1 & -1 & 1 & -1 \\
+ -1 & 1 & -1 & -1 \\
+ 1 & -1 & -1 & -1
+\end{smatrix}
+\]
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $M$ est symétrique donc diagonalisable, et $f$ est donc
+diagonalisable. \\
+
+ \item Il reste à calculer les sous-espaces propres associés aux
+valeurs propres 2 et $-2$ (amusez-vous bien!) pour obtenir $P$ et $D$,
+puis on écrit $M^{n} = P D^{n} P^{-1}$ et on ne va au bout des calculs
+(calcul de $P^{-1}$, calcul explicite très lourd de $M^{n}$) que si
+c'est demandé par l'examinateur. \\
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice} \indent \\
+ \textbf{Question de cours.} Soit $(A_{i})_{i \in I}$ un système
+complet d'évènements, c'est-à-dire une famille d'évènements deux à deux
+incompatibles, dont la réunion est $\Omega$ l'univers de l'expérience
+et dont aucun n'est négligeable (ils ont des probabilités non nulles).
+\\
+ Alors pour tout évènement $B \in \Omega$, $\Prob\left(\Ev{B}\right) =
+\Sum{i \in I} \Prob( B \cap A_{i}) = \Sum{i \in I}
+\Prob\left(\Ev{A_{i}}\right) P_{A_{i}} (B)$.
+ \\
+\\
+ La formule de Bayes, utilisée ci-dessus, donne $P_{A}(B) = \frac{
+\Prob( A \cap B) }{\Prob\left(\Ev{A}\right)}$ pour tous évènements $A$
+et $B$ tels que $\Prob\left(\Ev{A}\right) \neq 0$. \\
+\\
+ Une coccinelle se déplace sur un tétraèdre régulier PQRS
+ (une pyramide) en longeant les arêtes. Elle est placée à
+ l'instant $n = 0$ sur le sommet $P$. On suppose que, si. elle se,
+trouve sur
+ un sommet à l'instant $n$, elle sera sur l'un des trois autres sommets
+
+ à l'instant $n + 1$ de, façon équiprobable.
+ \\
+ Pour tout $n\in \N$ on note $p_{n}$ (respectivement $q_{n},\ r_{n}$ et
+$s_{n}$) la probabilité que la coccinelle se trouve sur le sommet $P$
+ (respectivement $Q$, $R$ et $S$) à l'instant $n$.
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item On définit la matrice colonne $X_{n}$ par 
+ 
+\[
+ X_{n} = \left( 
+ 
+\begin{array}{c}
+ p_{n} \\
+ q_{n} \\
+ r_{n} \\
+ s_{n}
+\end{array}
+\right) 
+ 
+\]
+ \\
+ $A = \frac{1}{3} \begin{smatrix}
+0 & 1 & 1 & 1 \\
+1 & 0 & 1 & 1 \\
+1 & 1 & 0 & 1 \\
+1 & 1 & 1 & 0 \\
+\end{smatrix}
+$. \\
+
+ \item Elle est symétrique donc diagonalisable. \\
+
+ \item Pour simplifier le calcul des valeurs propres, on cherche un
+polynôme annulateur en calculant $A^{2}$ : \\
+ On obtient $A^{2} = \frac{1}{3} ( 2A + I)$ donc le polynôme $3 X^{2} -
+2 X - 1$, est annulateur, et les seules valeurs propres possibles sont
+ses racines $\frac{2-4}{6} = - \frac{1}{3}$ et $\frac{2 + 4}{6} = 1$.
+\\
+ On résout alors les équations $A X = X$ et $A X = \frac{1}{3} X$, on
+en tire les vecteurs propres et les valeurs propres, puis $A = P D
+P^{-1}$ et enfin $A^{n} = P D^{n} P^{-1}$ et enfin un calcul explicite
+de $A^{n}$ (qui peut attendre éventuellement, on va voir pourquoi). \\
+ On obtient ensuite par récurrence que $X_{n} = A^{n} X_{0} = A^{n}
+\begin{smatrix}
+1 \\
+0 \\
+0 \\
+0 \\
+\end{smatrix}
+$ qui est la première colonne de $A^{n}$, qu'il faut donc calculer
+(attention, si on ne veut calculer que la première colonne de la
+matrice intermédiaire, il faut faire le calcul dans le bon ordre). \\
+
+ \item $T (\Omega) = \llb 2 ; + \infty \llb$. \\
+ De plus à l'instant 0 on est en P, et à l'instant 1 on est sur un des
+trois autres sommets, donc on a visité deux sommets de manière
+certaine. \\
+ A partir de la, la coccinelle fait des allers retours entre $P$ et le
+deuxième sommet, jusqu'au moment ou elle change. \\
+ On a donc $\Prob\left(\Ev{\Ev{ T = k}}\right) = 1 \times \left(
+\frac{1}{3} \right)^{k-2} \times \frac{2}{3} = \frac{2}{3^{k-1}}$. \\
+ On a ensuite $\E(T) = \Sum{k = 2}{+ \infty} \frac{2k}{3^{k-1}} = 2
+\left( \Sum{k = 1}{+ \infty} \frac{k}{3^{k-1}} -1 \right) = 2 \left( 1
+- \frac{1}{ \left( \frac{2}{3} \right)^{2}} \right) = \frac{10}{4} =
+\frac{5}{2}$. \\
+
+ \item On a $U (\Omega) = \llb 3 ; + \infty \llb$ et : \\
+ $\Prob\left(\Ev{\Ev{ U = l }}\right) = \Sum{k = 2}{l-1}
+\Prob\left(\Ev{\Ev{ T = k}}\right) P_{\Ev{T = k}} \Ev{ U = l} = \Sum{k
+= 2}{l-1} \frac{2}{3^{k-1}} \left(\frac{2}{3} \right)^{l-k-1}
+\frac{1}{3} = \Sum{k = 2}{l-1} \frac{ 2^{l-k} }{3^{k-1 + l-k-1 + 1} } =
+\frac{2^{l}}{3^{l-1} } \Sum{k = 2}{l-1} \frac{ 1 }{2^{k}} =
+\frac{2^{l}}{3^{l-1} } \frac{1}{4} \frac{1 - \left( \frac{1}{2}
+\right)^{l-2}}{ \frac{1}{2} } = \frac{2^{l-1}}{3^{l-1} } -
+\frac{2}{3^{l-1}} = \frac{2^{l-1} - 2}{3^{l-1}}$. \\
+
+ \item $\E(U) = \Sum{l = 3}{+ \infty} l \left( \frac{2}{3}
+\right)^{l-1} - 2 \Sum{l = 3}{+ \infty} l \left( \frac{1}{3}
+\right)^{l-1} = \frac{1}{ \left( \frac{1}{3} \right)^{2}} - 1 -
+\frac{4}{3} - 2 \frac{1}{ \left( \frac{2}{3} \right)^{2}} + 2 +
+\frac{4}{3} = 9 - \frac{9}{2} + 1 = \frac{11}{2}$.
+ \end{noliste}
+
+ \newpage
+
+ \noindent \textbf{\underline{Exercice sans préparation} }
+ \\
+\\
+ Un agriculteur souhaite améliorer le rendement de son exploitation en
+ utilisant de l'engrais. Une étude a montré que le rendement, en
+ tonnes par hectare, pour la variété de blé cultivée est donn é par 
+\[
+ f\left( B,N\right) = 120B-8B^{2} + 4BN-2N^{2}
+ 
+\]
+ $B$ désigne la, quantité de semences de blé utilisée, $N$ la
+ quantité d'engrais utilisée.
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $f$ est de classe $C^{2}$, et on a : \\
+ $f_{B}'(B,B) = 120 - 16 B + 4N$, $f_{N}'(B,N) = 4 B - 4 N$,
+$f_{B,B}''(B,N) = -16$, $f_{B,N}''(B,N) = 4$ et $f_{N,N}'' (B,N) = -4$.
+\\
+\\
+ Les points vérifient $120 - 16 B + 4 N = 0$ et $4B - 4 N = 0$, donc $B
+= N$ et $120-12B = 0$, et enfin $B = N = 10$. \\
+ Au point $(10,10)$ on a $r = -16$, $s = 4$ et $t = -4$ donc $rt -
+s^{2} = 64 - 16 = 48 > 0$ et $r = -16 < 0$, c'est donc un maximum
+local. \\
+ De plus on peut écrire $f(B,N) = 120 B - 6 B^{2} -2 ( B^{2} - 2 B N +
+N^{2}) = 120 B - 6 B^{2} - 2 ( B- N)^{2} = -6 [ (B-10)^{2} -100]- 2
+(B-N)^{2} = -6 (B-10)^{2} - 2 (B-N)^{2} + 600 = -6 (B-10)^{2} - 2
+(B-N)^{2} + f (10,10)$ donc $(10,10)$ est un maximum global de $f$. \\
+
+ \item On traduit la contrainte : on a $B = 23 - 2N$ donc le rendement
+est donné par $g(N) = f( 23 - 2N, N) = 120 (23 - 2N) - 8 (23 - 2 N)^{2}
++ 4 (23 - 2N) N - 2 N^{2} = N^{2} ( -32 -8 - 2) + N ( - 240 + 736 + 92)
++ (120 - 184) \times 23 = -42 N^{2} + 588 N - 64 \times 23$. \\
+ On dérive : $g'(N) = - 84 N + 588$, qui s'annule pour $N =
+\frac{588}{84} = \frac{294}{42} = \frac{147}{21} = \frac{21}{3} = 7$ et
+$B = 23 - 14 = 9$ donc le rendement optimum vaut $f( 9, 7) = 1080 - 648
++ 252 - 98 = 432 + 154 = 586$.
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice} \indent \\
+ \textbf{Question de cours :} Une matrice carrée d'ordre $n$ est
+diagonalisable si et seulement si la somme des dimensions de ses
+sous-espaces propres vaut $n$.
+ \\
+\\
+ On considère l'endomorphisme de $\R^{4}$ dont la matrice dans la
+ base canonique de $\R^{4}$ est la matrice 
+ 
+\[
+ M = \begin{smatrix}
+ -1 & -1 & -1 & 1 \\
+ -1 & -1 & 1 & -1 \\
+ -1 & 1 & -1 & -1 \\
+ 1 & -1 & -1 & -1
+\end{smatrix}
+\]
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $M$ est symétrique donc diagonalisable, donc $f$ aussi. \\
+
+ \item $M + 2 I$ est de rang 1 (ses quatre colonnes sont colinéaires)
+donc $\ker ( f + 2 \id)$ est de dimension 3. \\
+ $-2$ est donc valeur propre et $E_{-2} (f)$ est de dimension 3. \\
+
+ \item $f\left( 1,-1,-1,1\right) = 2 ( 1, -1, -1, 1)$ donc $2$ est
+valeur propre de $M$ et de $f$. \\
+
+ \item Pour $-2$, on trouve facilement que $(e_{1} + e_{2}, e_{1} +
+e_{3}, e_{1} - e_{4})$ est une base du sous-espace propre; pour $2$ on
+prend $(1, 1, -1, 1)$ et on obtient une base de vecteurs propres, donc
+une base dans laquelle la matrice de $f$ est diagonale, égale à
+$\operatorname{diag} (-2, -2, -2, 2)$ donc $M'^{2} =
+\operatorname{diag}( 4, 4, 4,,4 ) = 4 I$. \\
+
+ \item Pour tout $n$, $M^{n} = P M'^{n} P^{-1}$. \\
+ Si $n$ est pair, égal à $2k$, cela donne $M^{2k} = P \left(\Ev{ M'^{2}
+}\right)^{k} ) P^{-1} = P \left(\Ev{ 4^{k} I }\right) P^{-1} = 4^{k} I
+= 2^{2k} I = 2^{n} I$. \\
+ Si $n$ est impair égal à $2m + 1$, $M^{2k + 1} = M^{2k} M = 4^{k} I M
+= 2^{2k} M = 2^{n-1} M$. \\
+
+ \item En posant $X_{n}$ le vecteur colonnes constitué des quatre
+suites, on a $X_{n + 1} = \frac{1}{4} M X_{n}$, donc $X_{n} =
+\frac{1}{4^{n}} M^{n} X_{0} = \frac{1}{2^{n}} X_{0}$ si $n$ est pair et
+$\frac{1}{2^{n + 1}} M X_{0}$ si $n$ est impair. \\
+ On voit que ces suites convergent toutes vers 0. \\
+ \end{noliste}
+
+ 
+
+ \noindent \textbf{\underline{Exercice sans préparation }}
+ \\
+\\
+ Soient $A$, $B$, $C$, des événements de même probabilité $p$
+ et tels que $\Prob\left( A\cap B\cap C\right) = 0$
+
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item On a $\Prob( \overline{ A \cap B \cap C} ) = \Prob( \overline{A}
+\cup \overline{B} \cup \overline{C} ) = 1$ et $ \Prob( \overline{A}
+\cup \overline{B} \cup \overline{C} ) \leq \Prob\left(\Ev{
+\overline{A}}\right) + \Prob\left(\Ev{\overline{B}}\right) +
+\Prob\left(\Ev{ \overline{C}}\right) = 3(1-p)$. \\
+ On en déduit que $1 \leq 3(1-p)$, $1-p \geq \frac{1}{3}$ et enfin $p
+\leq \frac{2}{3}$. \\
+
+ \item Il faut pour cela que les trois évènements $\overline{A},
+\overline{B}$ et $\overline{C}$ soient incompatibles et de probabilité
+$\frac{1}{3}$, formant un système complet d'évènement. \\
+ Par exemple en prenant $X \suit \mathcal{U} ( \{ 0 ; 1 ; 2 \} )$, les
+évènements $A = (X \neq 0)$, $B = (X \neq 1)$ et $C = (X \neq 2)$
+vérifient $\Prob\left(\Ev{A}\right) = \Prob\left(\Ev{B}\right) =
+\Prob\left(\Ev{C}\right) = \frac{2}{3}$ et $P ( A \cap B \cap C) = 0$.
+\\
+
+ \item On utilise la formule du crible pour faire apparaître $A \cap
+B$, $A \cap C$ et $B \cap C$ : \\
+ $\Prob(A \cup B \cup C) = P \left(\Ev{ A}\right) + \Prob\left(\Ev{
+B}\right) + \Prob\left(\Ev{C}\right) - \Prob(A \cap B) - \Prob( A \cap
+C) - \Prob( B \cap C) + \Prob(A \cap B \cap C)$. \\
+ D'où $P ( A \cup B \cup C) = 3 p - 3 p^{2} = 3p (1-p)$. \\
+ Or la fonction $f(p) = 3 p (1-p)$ atteint son maximum en $p =
+\frac{1}{2}$, où elle vaut $\frac{1}{4}$. \\
+ On en déduit que $P ( A \cup B \cup C) \leq \frac{3}{4}$. \\
+ Pour réutiliser l'hypothèse, on passe au contraire pour faire
+apparaître des intersections : \\
+\\
+ $\Prob( \overline{ A \cup B \cup C}) = P ( \overline{A} \cap
+\overline{B} \cap \overline{C} ) \geq \frac{1}{4}$. \\
+\\
+ On a de plus $( \overline{A} \cap \overline{B} \cap \overline{C} )
+\subset ( \overline{A} \cap \overline{B} )$, donc : \\
+ $\frac{1}{4} \leq P ( \overline{A} \cap \overline{B} \cap \overline{C}
+) \leq P ( \overline{A} \cap \overline{B} ) = (1-p)^{2}$. \\
+\\
+ Enfin cela donne $1-p \geq \frac{1}{2}$, et $p \leq \frac{1}{2}$. \\
+ \item Il faut avoir $\Prob\left(\Ev{ A}\right) = \Prob\left(\Ev{
+B}\right) = \Prob\left(\Ev{ C}\right)$, $\Prob( A \cap B) = \Prob( A
+\cap C) = \Prob( B \cap C) = \frac{1}{4}$, ces trois derniers étant
+deux à deux incompatibles (faire un dessin !!!!). \\
+\\
+ Il faut séparer $\Omega$ en quatre évènements de probabilité
+$\frac{1}{4}$ : le premier est $A \cap B$, le deuxième $A \cap C$ et le
+troisième $B \cap C$ : \\
+ Exemple : $X \suit \mathcal{U} ( \{ 1 ; 2 ; 3 ; 4 \} )$. \\
+ On pose $A = ( X \in \{ 1 ; 2 \} )$, $B = ( X \in \{ 1 ; 3\})$ et $C =
+( X \in \{ 2 ; 3\} )$. \\
+ On a $\Prob\left(\Ev{ A}\right) = P \left(\Ev{B}\right) =
+\Prob\left(\Ev{ C}\right) = \frac{1}{2}$, $\Prob( A \cap B \cap C) = 0$
+et $\Prob( A \cap B) = \Prob( A \cap C) = \Prob( B \cap C) =
+\frac{1}{4}$ donc les évènements $A$, $B$ et $C$ sont deux à deux
+indépendants.
+ \end{noliste}
+ \end{exercice}
+
+
+\end{document}
+
+
+\end{document}

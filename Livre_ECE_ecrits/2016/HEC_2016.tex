@@ -1,0 +1,1421 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../macros_Livre.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\pagestyle{fancy} %
+ \lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2016} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+%%DEBUT
+
+\section*{EXERCICE} % HEC 2016
+
+\noindent 
+Soit $n$ et $p$ deux entiers supérieurs ou égaux à 1.
+Si $M$ est une matrice de $\M{n,p},$ la matrice ${}^t{}M$ de 
+$\M{p,n}$ désigne la transposée de $M.$\\
+On identifie les ensembles $\M{1,1}$ et $\R$ en assimilant 
+une matrice de $\M{1,1}$ à son unique coefficient.\\
+On note $\B_n$ la base canonique de $\M{n,1}$ et 
+$\B_p$ la base canonique de $\M{p,1}.$\\
+Si $M \in \M{n,p}$ et $N \in \M{p,q}$ ($q 
+\in \N^*$), {\it on admet} que 
+${}^t{}{(MN)}={}^{t}{}{N}{}^{t}{}{M}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Soit $X$ une matrice colonne non nulle de 
+ $\M{n,1}$ de composantes $x_1,x_2,...,x_n$ dans la base 
+ $\B_n.$\\
+ On pose : $A=X{}^{t}{}{X}$ et $\alpha = {}^{t}{}{X}X.$
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Exprimer $A$ et $\alpha$ en fonction de $x_1,x_2,...,x_n$.
+  Justifier que la matrice $A$ est diagonalisable.
+  
+  
+
+
+  \item Soit $f$ l'endomorphisme de $\M{n,1}$ de matrice $A$ dans la 
+  base $\B_n.$\\
+  Déterminer $\im(f)$ et $\kr(f)$ ; donner une base de 
+  $\im(f)$ et préciser la dimension de $\kr(f)$.
+  
+  
+
+  
+  \item Calculer la matrice $AX$. \\
+  Déterminer les valeurs propres de $A$ 
+  ainsi que les sous-espaces propres associés.
+  
+  
+ \end{noliste}
+ 
+ 
+ 
+ 
+ %\newpage
+ 
+ 
+ 
+ 
+ \item On suppose que $n$ et $p$ vérifient $1 \leq p \leq n$.\\
+ Soit $(V_1,V_2,...,V_p)$ une famille libre de $p$ vecteurs de 
+ $\M{n,1}.$\\
+ On note $V$ la matrice de $\M{n,p}$ dont les colonnes sont, dans cet 
+ ordre, $V_1,V_2,...,V_p.$\\
+ Soit $g$ l'application linéaire de $\M{p,1}$ dans $\M{n,1}$ de matrice 
+ $V$ dans les bases $\B_p$ et $\B_n$.
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Justifier que le rang de $V$ est égal à $p$. Déterminer 
+  $\kr(g)$.
+  
+  
+  
+  \item Soit $Y$ une matrice colonne de $\M{p,1}.$\\
+  Montrer que l'on a $VY=0$ si et seulement si l'on a ${}^t{}VVY=0$.
+  
+  
+  
+  
+  
+  
+  %\newpage
+  
+  
+  
+  \item En déduire que la matrice ${}^t{}VV$ est inversible.
+  
+  
+ \end{noliste}
+\end{noliste}
+
+
+%\newpage
+
+
+\section*{PROBLÈME} % HEC 2016
+\noindent 
+{\it On s'intéresse dans ce problème à quelques aspects 
+mathématiques de la fonction de production d'une entreprise
+qui produit un certain bien à une époque donnée, à partir de deux 
+facteurs de production travail et capital.}\\
+\textbf{Dans tout le problème :}
+\begin{noliste}{$\sbullet$}
+ \item {\it On note respectivement $x$ et $y$ les quantités de 
+ travail et de capital requises pour produire une certaine quantité de 
+ ce bien.}
+ \item {\it On suppose que $x>0$ et $y>0.$ On pose 
+ $\mathcal{D}=(\R_+^*)^2$ et pour tout $(x,y)\in \mathcal{D},$ 
+ $z=\dfrac{x}{y}.$}
+\end{noliste}
+{\it La partie III est indépendante des parties I et II.}
+
+
+\subsection*{Partie I : Fonction de production CES (Constant Elasticity 
+of Substitution).}
+
+\noindent
+{\it Dans toute cette partie,} on note $c$ un réel vérifiant $0<c<1$ et 
+$\theta$ un réel vérifiant $\theta < 1$ avec $\theta \neq 0.$\\
+Soit $f$ la fonction définie sur $\mathcal{D},$ à valeurs dans 
+$\R_+^*$, telle que :
+\[
+\forall (x,y)\in \mathcal{D},\quad 
+f(x,y)=\left(c \, x^\theta+(1-c) \, y^\theta\right)^{\frac{1}{\theta}} 
+\quad \text{({\it fonction de production CES})}
+\]
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item {\it Exemple.} Dans cette question \textbf{uniquement,} on prend 
+ $\theta=-1$ et $c=\dfrac{1}{2}$.
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Montrer que pour tout $(x,y) \in \mathcal{D},$ on a : $f(x,y) = 
+  \dfrac{2xy}{x+y}$. Justifier que $f$ est de classe $\Cont{2}$ sur 
+  $\mathcal{D}$ et calculer pour tout $(x,y) \in \mathcal{D},$ les 
+  dérivées partielles $\dfn{f}{1}(x,y)$ et $\dfn{f}{2}(x,y)$.
+  
+  
+  
+  
+  
+  
+  
+  %\newpage
+  
+  
+
+  
+  \item Soit $w$ et $U$ les fonctions définies sur $\R_+^*$ par :
+  $\forall t > 0$, $w(t)=\dfrac{2t}{1+t}$ et $U(t)=w(t)-t \, w'(t).$\\
+  Dresser le tableau de variation de la fonction $U$ sur $\R_+^*$ et 
+  étudier la convexité de $U$ sur $\R_+^*$.
+  
+  
+  
+  \item On rappelle que $z=\dfrac{x}{y}$. Montrer que pour tout $(x,y) 
+  \in \mathcal{D}$, on a $f(x,y)=y \, w(z)$.
+  
+  
+
+  
+  \item Vérifier pour tout $(x,y) \in \mathcal{D}$, les relations : 
+  $\dfn{f}{1}(x,y)=w'(z)$ et $\dfn{f}{2}(x,y)=U(z)$.
+  
+  
+ \end{noliste}
+ 
+ 
+ 
+ 
+ 
+ %\newpage
+ 
+ 
+ 
+ 
+
+ \item 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Montrer que pour tout $(x,y) \in \mathcal{D}$ et pour tout réel 
+  $\lambda >0,$ on a : $f(\lambda x,\lambda y)=\lambda \, f(x,y)$.
+  
+  
+
+  
+  \item Justifier que $f$ est de classe $\Cont{2}$ sur $\mathcal{D}$ 
+  et, pour tout $(x,y) \in \mathcal{D}$, calculer $\dfn{f}{1}(x,y)$ et 
+  $\dfn{f}{2}(x,y)$.
+  
+  
+  
+  
+  
+  
+  %\newpage
+  
+  
+
+  
+  \item Déterminer pour tout $y>0$ fixé, le signe et la monotonie de la 
+  fonction $x \mapsto \partial_1(f)(x,y).$\\
+  Déterminer pour tout $x>0$ fixé, le signe et la monotonie de 
+  la fonction $y \mapsto \dfn{f}{2}(x,y)$.
+  
+  
+
+ \end{noliste}
+ 
+ \item Soit $G$ la fonction définie sur $\mathcal{D}$ par 
+ $G(x,y)=\dfrac{\dfn{f}{1}(x,y)}{\dfn{f}{2}(x,y)}$ 
+ ({\it taux marginal de substitution technique}) et $g$ la fonction 
+ définie sur $\R_+^*$ par : $\forall t>0$, 
+ $g(t)=\dfrac{c}{1-c}t^{-1+\theta}$.
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Pour tout $(x,y) \in \mathcal{D}$, exprimer $G(x,y)$ en 
+  fonction de $g(z)$.
+  
+  
+
+  
+  \item\label{3b} Pour tout $t>0,$ on pose $s(t)=-\dfrac{g(t)}{t 
+  \, g'(t)}$.
+  Calculer $s(z)$ ({\it élasticité de substitution}). Conclusion.
+  
+  
+ \end{noliste}
+ 
+ 
+ 
+ 
+ %\newpage
+ 
+ 
+ 
+ 
+ \item Soit $w$ et $U$ les fonctions définies sur $\R_+^*$ par :
+ $\forall t>0,$ $w(t)=f(t,1)$ et $U(t)=w(t)-t \, w'(t)$.
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Montrer que pour tout $(x,y) \in \mathcal{D},$ on a : 
+  $f(x,y)=y \, w(z)$.
+  
+  
+
+  
+  \item En distinguant les deux cas $0 < \theta < 1$ et $\theta < 0$, 
+  dresser le tableau de variation de $U$ sur $\R_+^*.$\\
+  Préciser $\dlim{t \to 0^+} U(t)$, $\dlim{t \to + \infty} U(t)$ ainsi 
+  que la convexité de $U$ sur $\R_+^*$.
+  
+  
+ \end{noliste}
+\end{noliste}
+
+
+
+
+
+%\newpage
+
+
+
+
+
+\subsection*{Partie II : Caractérisation des fonctions de production à 
+élasticité de substitution constante.}
+\noindent 
+{\it Dans toute cette partie,} on note $\Psi$ une fonction 
+définie et de classe $\Cont{2}$ sur $\mathcal{D},$ à valeurs dans 
+$\R_+^*$, vérifiant la condition $\Psi(1,1)=1$ et pour tout réel 
+$\lambda > 0,$ la relation : $\Psi(\lambda x, \lambda y)=\lambda \,
+\Psi(x,y)$.\\
+De plus, on suppose que pour tout $y>0$ fixé, la fonction $x \mapsto 
+\dfn{\Psi}{1}(x,y)$ est strictement positive et strictement 
+décroissante et que pour tout $x>0$ fixé, la fonction $y \mapsto 
+\dfn{\Psi}{2}(x,y)$ est également strictement positive et strictement 
+décroissante.
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \setcounter{enumi}{4}
+ \item Soit $v$ la fonction définie sur $\R_+^*$ par : $\forall t > 0,$ 
+ $v(t)=\Psi(t,1).$
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Justifier que la fonction $v$ est de classe $\Cont{2}$, 
+  strictement croissante et concave sur $\R_+^*$.
+  
+  
+
+  
+  
+  
+  %\newpage
+  
+  
+  
+  
+  \item Soit $\varphi$ la fonction définie sur $\R_+^*$ par : $\forall 
+  t >0$, $\varphi(t)=v(t)-t \, v'(t)$. On suppose l'existence de la 
+  limite de $\varphi(t)$ lorsque $t$ tend vers 0 par valeurs supérieures
+  et que $\dlim{t \to 0^+} \varphi(t)=\mu$, avec $\mu \geq 0$.\\
+  Déterminer pour tout $t>0,$ le signe de $\varphi(t)$ et montrer que 
+  $\mu \leq 1$.
+  
+  
+
+  
+  \item Montrer que : $\forall (x,y) \in \mathcal{D}$, 
+  $\Psi(x,y)=y \, v(z)$.
+  
+  
+ \end{noliste}
+ 
+ 
+ 
+ 
+ 
+ %\newpage
+ 
+ 
+ 
+ 
+ \item\label{6} 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Pour tout $t>0,$ on pose : $h(t)=\dfrac{v'(t)}{\varphi(t)}$.\\
+  Montrer que pour tout $(x,y) \in \mathcal{D},$ on a : 
+  $\dfrac{\dfn{\Psi}{1}(x,y)}{\dfn{\Psi}{2}(x,y)}=h(z)$.
+  
+  
+
+  
+  \item Pour tout $t>0,$ on pose : $\sigma(t)=-\dfrac{h(t)}{t \, 
+  h'(t)}$. Déterminer pour tout $t>0,$ le signe de $\sigma(t)$.
+  
+  
+ \end{noliste}
+ 
+ 
+ 
+ 
+ %\newpage
+ 
+ 
+ 
+ \item Les fonctions $\sigma$ et $h$ sont celles qui ont été définies 
+ dans la question \itbf{6}. On suppose que la fonction $\sigma$ est 
+ constante sur $\R_+^*$ ; on note $\sigma_0$ cette constante et on 
+ suppose $\sigma_0 \neq 1$. On pose : $r=1-\dfrac{1}{\sigma_0}$.
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item\label{7a} Pour tout $t>0,$ on pose $\ell(t)=t^{1-r}h(t)$.
+  Calculer $\ell'(t)$ et en déduire que : $\forall t >0$, 
+  $h(t)=h(1)t^{r-1}$.
+  
+  
+
+  
+  \item Par une méthode analogue à celle de la question \itbf{7a}, 
+  établir la relation : 
+  \[
+  \forall t >0, \  
+  v(t)=\left(\dfrac{1+h(1)t^r}{1+h(1)}\right)^{\frac{1}{r}}
+  \]
+  
+  
+
+  
+  \item\label{7c} En déduire l'existence d'une constante $a \in ]0,1[$ 
+  telle que : $\forall (x,y) \in \mathcal{D}$, 
+  $\Psi(x,y)=\left(ax^r+(1-a)y^r\right)^{\frac{1}{r}}$.
+  
+  
+  
+  
+  
+  
+  %\newpage
+  
+  
+  
+
+  
+  \item Quelle conclusion peut-on tirer des résultats des questions 
+  \itbf{3.b)} et \itbf{7.c)} ?
+  
+  
+ \end{noliste}
+ 
+ \item Soit $a \in \ ]0,1[$. Pour tout $t>0,$ soit $S_t$ la fonction 
+ définie sur $]-\infty,1[ \setminus \{0\}$ par : 
+ $S_t(r)=(at^r+1-a)^{\frac{1}{r}}$.
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item On pose $H_t(r)=\ln S_t(r)$. Calculer la limite de $S_t(r)$ 
+  lorsque $r$ tend vers 0.
+  
+  
+  
+  
+  
+  
+  %\newpage
+  
+  
+  
+
+  
+  \item Pour tout couple $(x,y) \in \mathcal{D}$ fixé, on pose : 
+  $N_{(x,y)}(r) = y \, S_z(r)$ et $F(x,y)=\dlim{r \to 0} 
+  N_{(x,y)}(r)$.\\
+  Montrer que pour tout $(x,y) \in \mathcal{D},$ on a 
+  $F(x,y)=x^a \, y^{1-a}$ ({\it fonction de production de 
+  Cobb-Douglas}).
+  
+  
+ \end{noliste}
+\end{noliste}
+
+
+
+
+\subsection*{Partie III : Estimation des paramètres d'une fonction de 
+production de Cobb-Douglas.}
+\noindent 
+Soit $a$ un réel vérifiant $0 < a < 1$ et $B$ un réel 
+strictement positif.\\
+On suppose que la production totale $Q$ présente une composante 
+déterministe et une composante aléatoire.
+\begin{noliste}{$\sbullet$}
+ \item La {\it composante déterministe} est une fonction de 
+ production de type Cobb-Douglas, c'est-à-dire telle que :
+ \[
+  \forall (x,y) \in \mathcal{D},\quad f(x,y)=Bx^ay^{1-a}
+ \]
+ 
+ \item La {\it composante aléatoire} est une variable aléatoire de la 
+ forme $\exp(R)$ où $R$ est une variable aléatoire suivant la loi 
+ normale centrée, de variance $\sigma^2>0$.
+ 
+ \item La {\it production totale} $Q$ est une variable aléatoire à 
+ valeurs strictement positives telle que :
+ \[
+  Q=Bx^ay^{1-a} \exp(R)
+ \]
+\end{noliste}
+On suppose que les variables aléatoires $Q$ et $R$ sont définies sur 
+le même espace probabilisé $(\Omega,\A,\Prob)$.
+
+
+
+\noindent
+On pose : $b=\ln(B)$, $u=\ln(x) - \ln(y)$ et $T=\ln(Q)-\ln(y)$. On a 
+donc : $T=au+b+R$.\\
+On sélectionne $n$ entreprises ($n \geq 1$) qui produisent le bien 
+considéré à l'époque donnée.\\
+On mesure pour chaque entreprise $i$ ($i \in \llb 1,n \rrb$) la 
+quantité de travail $x_i$ et la quantité de capital $y_i$ utilisées
+ainsi que la quantité produite $Q_i^*$.\\
+On suppose que pour tout $i \in \llb 1,n \rrb$, on a $x_i>0$, $y_i>0$ 
+et $Q_i^*>0$.
+
+
+
+%\newpage
+
+
+\noindent
+Pour tout $i \in \llb 1,n \rrb$, la production totale de l'entreprise 
+$i$ est alors une variable aléatoire $Q_i$ telle que 
+$Q_i=B \, x_i^a \, y_i^{1-a} \exp(R_i)$, où $R_1$, $R_2$, 
+$\ldots$, $R_n$ sont des variables aléatoires supposées indépendantes 
+et de même loi que $R$ et le réel strictement positif $Q_i^*$ est une 
+réalisation de la variable aléatoire $Q_i.$\\
+On pose pour tout $i \in \llb 1,n \rrb$ : $u_i=\ln(x_i) - \ln(y_i)$, 
+$T_i=\ln(Q_i) - \ln(y_i)$ et $t_i=\ln(Q_i^*)-\ln(y_i)$.\\
+Ainsi, pour chaque entreprise $i \in \llb 1,n \rrb$, on a 
+$T_i=au_i+b+R_i$ et le réel $t_i$ est une réalisation de la variable 
+aléatoire $T_i$.\\
+{\it On rappelle les définitions et résultats suivants} :
+\begin{noliste}{$\sbullet$}
+ \item Si $(v_i)_{1 \leq i \leq n}$ est une série statistique, la 
+ moyenne et la variance empiriques, notées respectivement 
+ $\overline{v}$ et $s_v^2$, sont données par :
+ $\overline{v}=\dfrac{1}{n}\Sum{i=1}{n} v_i$ et 
+ $s_v^2=\dfrac{1}{n}\Sum{i=1}{n} (v_i-\overline{v})^2 = 
+ \dfrac{1}{n}\Sum{i=1}{n} v_i^2-\overline{v}^2$.\\
+ 
+ \item Si $(v_i)_{1 \leq i \leq n}$ et $(w_i)_{1 \leq i \leq n}$ sont 
+ deux séries statistiques, la covariance empirique de la série double 
+ $(v_i,w_i)_{1 \leq i \leq n},$ notée $\mathrm{cov}(v,w)$, est donnée 
+ par :  
+ \[
+ \mathrm{cov}(v,w)=\dfrac{1}{n}\Sum{i=1}{n}(v_i - 
+ \overline{v})(w_i-\overline{w}) = \dfrac{1}{n}\Sum{i=1}{n} v_i \, w_i 
+ - \overline{v}\overline{w} = \dfrac{1}{n}\Sum{i=1}{n} 
+ (v_i-\overline{v})w_i
+ \]
+\end{noliste}
+
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \setcounter{enumi}{8}
+ \item 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Montrer que pour tout $i \in \llb 1,n \rrb$, la variable 
+  aléatoire $T_i$ suit la loi normale $\Norm{au_i+b}{\sigma^2}$.
+  
+  
+
+  
+  \item Les variables aléatoires $T_1,T_2,...,T_n$ sont-elles 
+  indépendantes ?
+  
+  
+ \end{noliste}
+\end{noliste}
+
+\noindent
+Pour tout $i \in \llb 1,n \rrb$, soit $\varphi_i$ la densité continue 
+sur $\R$ de $T_i$ : 
+\[
+ \forall d \in \R, \ 
+ \varphi_i(d)=\dfrac{1}{\sigma\sqrt{2\pi}}\exp\left(-\dfrac{1}{2\sigma^2
+ } (d-(au_i+b))^2\right)
+\]
+Soit $\mathcal{F}$ l'ouvert défini par $\mathcal{F}= \ ]0,1[ \times \R$ 
+et 
+$M$ la fonction de $\mathcal{F}$ dans $\R$ définie par :
+\[
+ M(a,b)=\ln\left(\Prod{i=1}{n} \varphi_i(t_i)\right)
+\]
+On suppose que : $0 < \mathrm{cov}(u,t) < s_u^2$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \setcounter{enumi}{9}
+ \item 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Calculer le gradient $\nabla(M)(a,b)$ de $M$ en tout point 
+  $(a,b) \in \mathcal{F}$.
+  
+  
+  
+  
+  
+  %\newpage
+  
+
+  
+  \item En déduire que $M$ admet sur $\mathcal{F}$ un unique point 
+  critique, noté $(\hat{a},\hat{b})$.
+  
+  
+  
+  \item Exprimer $\hat{a}$ et $\hat{b}$ en fonction de 
+  $\mathrm{cov}(u,t)$, $s_u^2$, $\overline{t}$ et $\overline{u}$.\\
+  ({\it $\hat{a}$ et $\hat{b}$ sont les estimations de $a$ et $b$ par 
+  la méthode dite du maximum de vraisemblance})
+  
+  
+
+ \end{noliste}
+ 
+ \item 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Soit $\nabla^2(M)(a,b)$ la matrice hessienne de $M$ en $(a,b) 
+  \in \mathcal{F}$. \\
+  Montrer que $\nabla^2(M)(a,b) = -\dfrac{n}{\sigma^2}
+  \begin{smatrix}
+   s_u^2+\overline{u}^2 & \overline{u} \\
+   \overline{u} & 1
+  \end{smatrix}$
+  
+  
+    
+  \item En déduire que $M$ admet en $(\hat{a},\hat{b})$ un maximum 
+  local.
+  
+  
+
+ \end{noliste}
+ 
+ 
+ 
+ %\newpage
+ 
+ 
+ 
+ %\newpage
+ 
+ 
+ 
+ \item Soit $(h,k)$ un couple de réels non nuls. Calculer 
+ $M(\hat{a}+h,\hat{b}+k)-M(\hat{a},\hat{b}).$\\
+ En déduire que $M$ admet en $(\hat{a},\hat{b})$ un maximum global.
+ 
+ 
+ 
+ \item On rappelle qu'en \Scilab{}, les commandes \texttt{variance} et 
+ \texttt{corr} permettent de calculer respectivement la variance d'une 
+ série statistique et la covariance d'une série statistique double.\\
+ Si $(v_i)_{1 \leq i \leq n}$ et $(w_i)_{1 \leq i \leq n}$ sont deux 
+ séries statistiques, alors la variance de  $(v_i)_{1 \leq i \leq n}$ 
+ est calculable par \texttt{variance(v)} et la covariance de  
+ $(v_i,w_i)_{1 \leq i \leq n}$ est calculable par 
+ \texttt{corr(v,w,1)}.\\
+ On a relevé pour $n=16$ entreprises qui produisent le bien considéré à 
+ l'époque donnée, les deux séries statistiques $(u_i)_{1 \leq i 
+ \leq n}$ et  $(t_i)_{1 \leq i \leq n}$ reproduites dans les lignes 
+ \ligne{1} à \ligne{4} du code 
+ \Scilab{} suivant dont la ligne \ligne{9} est 
+ incomplète :
+ 
+ {\small 
+ \begin{scilab}
+   & u = [1.06, 0.44, 2.25, 3.88, 0.61, 1.97, 3.43, 2.10, \nl
+   & \quad \quad 1.50, 1.68, 2.72, 1.35, 2.94, 2.78, 3.43, 3.58] \nl
+   & t = [2.58, 2.25, 2.90, 3.36, 2.41, 2.79, 3.32, 2.81, \nl
+   & \quad \quad 2.62, 2.70, 3.17, 2.65, 3.07, 3.13, 3.07, 3.34] \nl
+   & plot2d(u, t, -4) \nl
+   & \commentaire{-4 signifie que les points sont 
+   représentés par des losanges.} \nl
+   & plot2d(u, corr(u,t,1)/variance(u)\Sfois{}u + mean(t) - 
+   corr(u,t,1)/variance(u)\Sfois{}mean(u)) \nl
+   & \commentaire{équation de la 
+   droite de régression de t en u.} \nl
+   & plot2d(u,...................................................) \nl
+   & \commentaire{équation de la droite de régression de u en t.}
+ \end{scilab}
+ }
+ 
+ \noindent
+ Le code précédent complété par la ligne \ligne{9} 
+ donne alors la figure suivante :
+ \begin{center}
+ \resizebox{305pt}{230pt}{
+ \begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, 
+  xscale=1.000000, inner sep=0pt, outer sep=0pt,
+  draw=black,fill=black,line join=miter,line cap=rect,miter 
+  limit=10.00,line width=0.800pt]
+  \begin{scope}[draw=white,fill=white]
+    \path[fill,rounded corners=0.0000cm] (0.0000,0.0000) rectangle
+      (610.0000,460.0000);
+  \end{scope}
+  \begin{scope}[draw=white,fill=white,line join=bevel,line 
+cap=butt,line 
+    width=0.000pt]
+    \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) -- 
+    (76.2500,57.5000) --
+      cycle;
+    \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) -- 
+    (76.2500,57.5000) --
+      cycle;
+    \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) -- 
+    (533.7500,402.5000) --
+      cycle;
+    \path[fill] (76.2500,57.5000) -- (76.2500,402.5000) -- 
+    (76.2500,402.5000) --
+      cycle;
+    \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) -- 
+    (76.2500,57.5000) --
+      cycle;
+    \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) -- 
+    (76.2500,57.5000) --
+      cycle;
+    \path[fill] (533.7500,57.5000) -- (533.7500,57.5000) -- 
+    (533.7500,402.5000) --
+      cycle;
+    \path[fill] (76.2500,57.5000) -- (76.2500,57.5000) -- 
+    (76.2500,402.5000) --
+      cycle;
+    \path[fill] (533.7500,57.5000) -- (76.2500,57.5000) -- 
+    (533.7500,57.5000) --
+      cycle;
+    \path[fill] (76.2500,57.5000) -- (76.2500,57.5000) -- 
+    (533.7500,57.5000) --
+      cycle;
+    \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) -- 
+    (533.7500,402.5000) --
+      cycle;
+    \path[fill] (76.2500,402.5000) -- (76.2500,402.5000) -- 
+    (533.7500,402.5000) --
+      cycle;
+  \end{scope}
+  \begin{scope}[shift={(72.75,411.5)},line join=bevel,line 
+cap=butt,line 
+    width=0.000pt]
+    \path[fill] (-0.4219,10.0537) node[above right] (text3400) {0};
+  \end{scope}
+  \begin{scope}[shift={(301.5,411.5)},line join=bevel,line 
+cap=butt,line 
+    width=0.000pt]
+    \path[fill] (-0.2969,10.0537) node[above right] (text3404) {2};
+  \end{scope}
+  \begin{scope}[shift={(530.25,411.5)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-0.1250,10.0537) node[above right] (text3408) {4};
+  \end{scope}
+  \begin{scope}[shift={(188.125,411.5)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-1.0938,10.0537) node[above right] (text3412) {1};
+  \end{scope}
+  \begin{scope}[shift={(415.875,411.5)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-0.4219,10.0537) node[above right] (text3416) {3};
+  \end{scope}
+  \begin{scope}[shift={(125.4375,411.5)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-0.4219,10.0537) node[above right] (text3420) {0.5};
+  \end{scope}
+  \begin{scope}[shift={(239.8125,411.5)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-1.0938,10.0537) node[above right] (text3424) {1.5};
+  \end{scope}
+  \begin{scope}[shift={(354.1875,411.5)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-0.2969,10.0537) node[above right] (text3428) {2.5};
+  \end{scope}
+  \begin{scope}[shift={(468.5625,411.5)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-0.4219,10.0537) node[above right] (text3432) {3.5};
+  \end{scope}
+  \begin{scope}[line cap=butt]
+    \path[draw] (76.2500,402.5000) -- (76.2500,408.5000);
+    \path[draw] (133.4375,402.5000) -- (133.4375,408.5000);
+    \path[draw] (190.6250,402.5000) -- (190.6250,408.5000);
+    \path[draw] (247.8125,402.5000) -- (247.8125,408.5000);
+    \path[draw] (305.0000,402.5000) -- (305.0000,408.5000);
+    \path[draw] (362.1875,402.5000) -- (362.1875,408.5000);
+    \path[draw] (419.3750,402.5000) -- (419.3750,408.5000);
+    \path[draw] (476.5625,402.5000) -- (476.5625,408.5000);
+    \path[draw] (533.7500,402.5000) -- (533.7500,408.5000);
+    \path[draw] (76.2500,402.5000) -- (76.2500,405.5000);
+    \path[draw] (87.6875,402.5000) -- (87.6875,405.5000);
+    \path[draw] (99.1250,402.5000) -- (99.1250,405.5000);
+    \path[draw] (110.5625,402.5000) -- (110.5625,405.5000);
+    \path[draw] (122.0000,402.5000) -- (122.0000,405.5000);
+    \path[draw] (133.4375,402.5000) -- (133.4375,405.5000);
+    \path[draw] (144.8750,402.5000) -- (144.8750,405.5000);
+    \path[draw] (156.3125,402.5000) -- (156.3125,405.5000);
+    \path[draw] (167.7500,402.5000) -- (167.7500,405.5000);
+    \path[draw] (179.1875,402.5000) -- (179.1875,405.5000);
+    \path[draw] (190.6250,402.5000) -- (190.6250,405.5000);
+    \path[draw] (202.0625,402.5000) -- (202.0625,405.5000);
+    \path[draw] (213.5000,402.5000) -- (213.5000,405.5000);
+    \path[draw] (224.9375,402.5000) -- (224.9375,405.5000);
+    \path[draw] (236.3750,402.5000) -- (236.3750,405.5000);
+    \path[draw] (247.8125,402.5000) -- (247.8125,405.5000);
+    \path[draw] (259.2500,402.5000) -- (259.2500,405.5000);
+    \path[draw] (270.6875,402.5000) -- (270.6875,405.5000);
+    \path[draw] (282.1250,402.5000) -- (282.1250,405.5000);
+    \path[draw] (293.5625,402.5000) -- (293.5625,405.5000);
+    \path[draw] (305.0000,402.5000) -- (305.0000,405.5000);
+    \path[draw] (316.4375,402.5000) -- (316.4375,405.5000);
+    \path[draw] (327.8750,402.5000) -- (327.8750,405.5000);
+    \path[draw] (339.3125,402.5000) -- (339.3125,405.5000);
+    \path[draw] (350.7500,402.5000) -- (350.7500,405.5000);
+    \path[draw] (362.1875,402.5000) -- (362.1875,405.5000);
+    \path[draw] (373.6250,402.5000) -- (373.6250,405.5000);
+    \path[draw] (385.0625,402.5000) -- (385.0625,405.5000);
+    \path[draw] (396.5000,402.5000) -- (396.5000,405.5000);
+    \path[draw] (407.9375,402.5000) -- (407.9375,405.5000);
+    \path[draw] (419.3750,402.5000) -- (419.3750,405.5000);
+    \path[draw] (430.8125,402.5000) -- (430.8125,405.5000);
+    \path[draw] (442.2500,402.5000) -- (442.2500,405.5000);
+    \path[draw] (453.6875,402.5000) -- (453.6875,405.5000);
+    \path[draw] (465.1250,402.5000) -- (465.1250,405.5000);
+    \path[draw] (476.5625,402.5000) -- (476.5625,405.5000);
+    \path[draw] (488.0000,402.5000) -- (488.0000,405.5000);
+    \path[draw] (499.4375,402.5000) -- (499.4375,405.5000);
+    \path[draw] (510.8750,402.5000) -- (510.8750,405.5000);
+    \path[draw] (522.3125,402.5000) -- (522.3125,405.5000);
+    \path[draw] (533.7500,402.5000) -- (533.7500,405.5000);
+    \path[draw] (533.7500,402.5000) -- (76.2500,402.5000);
+    \path[shift={(60.25,198.3571)},fill,line join=bevel,line 
+    width=0.000pt]
+      (-0.4219,10.0537) node[above right] (text3538) {3};
+  \end{scope}
+  \begin{scope}[shift={(51.25,395.5)},line join=bevel,line 
+cap=butt,line 
+    width=0.000pt]
+    \path[fill] (-0.2969,10.0537) node[above right] (text3542) {2.2};
+  \end{scope}
+  \begin{scope}[shift={(51.25,346.2143)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-0.2969,10.0537) node[above right] (text3546) {2.4};
+  \end{scope}
+  \begin{scope}[shift={(51.25,296.9286)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-0.2969,10.0537) node[above right] (text3550) {2.6};
+  \end{scope}
+  \begin{scope}[shift={(51.25,247.6429)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-0.2969,10.0537) node[above right] (text3554) {2.8};
+  \end{scope}
+  \begin{scope}[shift={(51.25,149.0714)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-0.4219,10.0537) node[above right] (text3558) {3.2};
+  \end{scope}
+  \begin{scope}[shift={(51.25,99.7857)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-0.4219,10.0537) node[above right] (text3562) {3.4};
+  \end{scope}
+  \begin{scope}[shift={(51.25,50.5)},line join=bevel,line cap=butt,line 
+    width=0.000pt]
+    \path[fill] (-0.4219,10.0537) node[above right] (text3566) {3.6};
+  \end{scope}
+  \begin{scope}[line cap=butt]
+    \path[draw] (76.2500,402.5000) -- (70.2500,402.5000);
+    \path[draw] (76.2500,353.2143) -- (70.2500,353.2143);
+    \path[draw] (76.2500,303.9286) -- (70.2500,303.9286);
+    \path[draw] (76.2500,254.6429) -- (70.2500,254.6429);
+    \path[draw] (76.2500,205.3571) -- (70.2500,205.3571);
+    \path[draw] (76.2500,156.0714) -- (70.2500,156.0714);
+    \path[draw] (76.2500,106.7857) -- (70.2500,106.7857);
+    \path[draw] (76.2500,57.5000) -- (70.2500,57.5000);
+    \path[draw] (76.2500,402.5000) -- (73.2500,402.5000);
+    \path[draw] (76.2500,377.8571) -- (73.2500,377.8571);
+    \path[draw] (76.2500,353.2143) -- (73.2500,353.2143);
+    \path[draw] (76.2500,328.5714) -- (73.2500,328.5714);
+    \path[draw] (76.2500,303.9286) -- (73.2500,303.9286);
+    \path[draw] (76.2500,279.2857) -- (73.2500,279.2857);
+    \path[draw] (76.2500,254.6429) -- (73.2500,254.6429);
+    \path[draw] (76.2500,230.0000) -- (73.2500,230.0000);
+    \path[draw] (76.2500,205.3571) -- (73.2500,205.3571);
+    \path[draw] (76.2500,180.7143) -- (73.2500,180.7143);
+    \path[draw] (76.2500,156.0714) -- (73.2500,156.0714);
+    \path[draw] (76.2500,131.4286) -- (73.2500,131.4286);
+    \path[draw] (76.2500,106.7857) -- (73.2500,106.7857);
+    \path[draw] (76.2500,82.1429) -- (73.2500,82.1429);
+    \path[draw] (76.2500,57.5000) -- (73.2500,57.5000);
+    \path[draw] (76.2500,57.5000) -- (76.2500,402.5000);
+    \path[shift={(197.4875,308.8571)},fill,line join=bevel,line 
+    width=0.000pt]
+      (-4.0000,0.0000) -- (0.0000,-4.0000) -- (4.0000,0.0000) -- 
+      (0.0000,4.0000) --
+      cycle;
+  \end{scope}
+  \begin{scope}[shift={(126.575,390.1786)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-4.0000,0.0000) -- (0.0000,-4.0000) -- (4.0000,0.0000) 
+    -- (0.0000,4.0000) -- cycle;
+  \end{scope}
+  \begin{scope}[shift={(333.5938,230.0)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-4.0000,0.0000) -- (0.0000,-4.0000) -- (4.0000,0.0000) 
+    -- (0.0000,4.0000) -- cycle;
+  \end{scope}
+  \begin{scope}[shift={(520.025,116.6429)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-4.0000,0.0000) -- (0.0000,-4.0000) -- (4.0000,0.0000) 
+    -- (0.0000,4.0000) -- cycle;
+  \end{scope}
+  \begin{scope}[shift={(146.0188,350.75)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-4.0000,0.0000) -- (0.0000,-4.0000) -- (4.0000,0.0000) 
+    -- (0.0000,4.0000) -- cycle;
+  \end{scope}
+  \begin{scope}[shift={(301.5688,257.1071)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-4.0000,0.0000) -- (0.0000,-4.0000) -- (4.0000,0.0000) 
+    -- (0.0000,4.0000) -- cycle;
+  \end{scope}
+  \begin{scope}[shift={(468.5562,126.5)},line join=bevel,line 
+    cap=butt,line width=0.000pt]
+    \path[fill] (-4.0000,0.0000) -- (0.0000,-4.0000) -- (4.0000,0.0000) 
+    -- (0.0000,4.0000) -- cycle;
+  \end{scope}
+  \begin{scope}[shift={(316.4375,252.1786)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-4.0000,0.0000) -- (0.0000,-4.0000) -- (4.0000,0.0000) 
+--
+      (0.0000,4.0000) -- cycle;
+  \end{scope}
+  \begin{scope}[shift={(247.8125,299.0)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-4.0000,0.0000) -- (0.0000,-4.0000) -- (4.0000,0.0000) 
+--
+      (0.0000,4.0000) -- cycle;
+  \end{scope}
+  \begin{scope}[shift={(268.4,279.2857)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-4.0000,0.0000) -- (0.0000,-4.0000) -- (4.0000,0.0000) 
+--
+      (0.0000,4.0000) -- cycle;
+  \end{scope}
+  \begin{scope}[shift={(387.35,163.4643)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-4.0000,0.0000) -- (0.0000,-4.0000) -- (4.0000,0.0000) 
+--
+      (0.0000,4.0000) -- cycle;
+  \end{scope}
+  \begin{scope}[shift={(230.6563,291.6071)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-4.0000,0.0000) -- (0.0000,-4.0000) -- (4.0000,0.0000) 
+--
+      (0.0000,4.0000) -- cycle;
+  \end{scope}
+  \begin{scope}[shift={(412.5125,188.1071)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-4.0000,0.0000) -- (0.0000,-4.0000) -- (4.0000,0.0000) 
+--
+      (0.0000,4.0000) -- cycle;
+  \end{scope}
+  \begin{scope}[shift={(394.2125,173.3214)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-4.0000,0.0000) -- (0.0000,-4.0000) -- (4.0000,0.0000) 
+--
+      (0.0000,4.0000) -- cycle;
+  \end{scope}
+  \begin{scope}[shift={(468.5562,188.1071)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-4.0000,0.0000) -- (0.0000,-4.0000) -- (4.0000,0.0000) 
+--
+      (0.0000,4.0000) -- cycle;
+  \end{scope}
+  \begin{scope}[shift={(485.7125,121.5714)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-4.0000,0.0000) -- (0.0000,-4.0000) -- (4.0000,0.0000) 
+--
+      (0.0000,4.0000) -- cycle;
+  \end{scope}
+  \begin{scope}[line cap=butt]
+    \path[draw] (197.4875,316.9646) -- (126.5750,361.0770) -- 
+(333.5938,232.2973) --
+      (520.0250,116.3244) -- (146.0188,348.9817) -- (301.5688,252.2190) 
+--
+      (468.5562,148.3415) -- (316.4375,242.9697) -- (247.8125,285.6591) 
+--
+      (268.4000,272.8522) -- (387.3500,198.8573) -- (230.6562,296.3314) 
+--
+      (412.5125,183.2045) -- (394.2125,194.5883) -- (468.5562,148.3415) 
+--
+      (485.7125,137.6691);
+    \path[draw] (197.4875,333.1348) -- (126.5750,385.7977) -- 
+(333.5938,232.0560) --
+      (520.0250,93.6035) -- (146.0188,371.3578) -- (301.5688,255.8392) 
+--
+      (468.5562,131.8265) -- (316.4375,244.7970) -- (247.8125,295.7611) 
+--
+      (268.4000,280.4719) -- (387.3500,192.1341) -- (230.6562,308.5021) 
+--
+      (412.5125,173.4472) -- (394.2125,187.0377) -- (468.5562,131.8265) 
+--
+      (485.7125,119.0855);
+  \end{scope}
+ \end{tikzpicture}}
+ \end{center}
+ 
+ 
+ 
+ %\newpage
+ 
+ 
+ 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Compléter la ligne \ligne{9} du code 
+  permettant d'obtenir la figure précédente ({\it on reportera sur sa 
+  copie, uniquement la ligne \ligne{9} complétée}).
+  
+  
+  
+  
+  
+  %\newpage
+  
+  
+  
+  \item Interpréter le point d'intersection des deux droites de 
+  régression.
+  
+  
+
+  
+  \item Estimer graphiquement les moyennes empiriques $\overline{u}$ et 
+  $\overline{t}$.
+  
+  
+  
+  \item Le coefficient de corrélation empirique de la série statistique 
+  double $(u_i,t_i)_{1 \leq i \leq 16}$ est-il plus 
+  proche de $-1$, de $1$ ou de $0$ ?
+  
+  
+  
+  
+  
+  
+  %\newpage
+  
+
+  
+  \item On reprend les lignes \ligne{1} à 
+  \ligne{4} du code précédent que l'on complète par les 
+  instructions \ligne{11} à \ligne{17} 
+  qui suivent et on obtient le graphique ci-dessous :
+  
+  {\small
+  \begin{scilabC}{10}
+    & a0 = corr(u,t,1)/variance(u) \nl
+    & b0 = mean(t) - corr(u,t,1)/variance(u)\Sfois{}mean(u) \nl
+    & t0 = a0 \Sfois{} u + b0 \nl
+    & e = t0 - t \nl
+    & p = 1:16 \nl
+    & plot2d(p,e,-1) \nl
+    & \commentaire{-1 signifie que les points sont représentés par des 
+    symboles d'addition.}
+  \end{scilabC}
+  }
+
+ \begin{center}
+\resizebox{244pt}{168pt}{						
+ 
+ 
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, 
+xscale=1.000000, inner sep=0pt, outer sep=0pt,
+draw=black,fill=black,line join=miter,line cap=rect,miter 
+limit=10.00,line width=0.800pt]
+  \begin{scope}[draw=white,fill=white]
+    \path[fill,rounded corners=0.0000cm] (0.0000,0.0000) rectangle
+      (610.0000,460.0000);
+  \end{scope}
+  \begin{scope}[draw=white,fill=white,line join=bevel,line 
+cap=butt,line 
+width=0.000pt]
+    \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) -- 
+(76.2500,57.5000) --
+      cycle;
+    \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) -- 
+(76.2500,57.5000) --
+      cycle;
+    \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) -- 
+(533.7500,402.5000) --
+      cycle;
+    \path[fill] (76.2500,57.5000) -- (76.2500,402.5000) -- 
+(76.2500,402.5000) --
+      cycle;
+    \path[fill] (533.7500,57.5000) -- (533.7500,402.5000) -- 
+(76.2500,57.5000) --
+      cycle;
+    \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) -- 
+(76.2500,57.5000) --
+      cycle;
+    \path[fill] (533.7500,57.5000) -- (533.7500,57.5000) -- 
+(533.7500,402.5000) --
+      cycle;
+    \path[fill] (76.2500,57.5000) -- (76.2500,57.5000) -- 
+(76.2500,402.5000) --
+      cycle;
+    \path[fill] (533.7500,57.5000) -- (76.2500,57.5000) -- 
+(533.7500,57.5000) --
+      cycle;
+    \path[fill] (76.2500,57.5000) -- (76.2500,57.5000) -- 
+(533.7500,57.5000) --
+      cycle;
+    \path[fill] (533.7500,402.5000) -- (76.2500,402.5000) -- 
+(533.7500,402.5000) --
+      cycle;
+    \path[fill] (76.2500,402.5000) -- (76.2500,402.5000) -- 
+(533.7500,402.5000) --
+      cycle;
+  \end{scope}
+  \begin{scope}[shift={(72.75,411.5)},line join=bevel,line 
+cap=butt,line 
+width=0.000pt]
+    \path[fill] (-0.4219,10.0537) node[above right] (text4122) {0};
+  \end{scope}
+  \begin{scope}[shift={(356.1875,411.5)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-1.0938,10.0537) node[above right] (text4126) {10};
+  \end{scope}
+  \begin{scope}[shift={(129.9375,411.5)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-0.2969,10.0537) node[above right] (text4130) {2};
+  \end{scope}
+  \begin{scope}[shift={(187.125,411.5)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-0.1250,10.0537) node[above right] (text4134) {4};
+  \end{scope}
+  \begin{scope}[shift={(244.3125,411.5)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-0.3750,10.0537) node[above right] (text4138) {6};
+  \end{scope}
+  \begin{scope}[shift={(301.5,411.5)},line join=bevel,line 
+cap=butt,line 
+width=0.000pt]
+    \path[fill] (-0.4062,10.0537) node[above right] (text4142) {8};
+  \end{scope}
+  \begin{scope}[shift={(413.375,411.5)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-1.0938,10.0537) node[above right] (text4146) {12};
+  \end{scope}
+  \begin{scope}[shift={(470.5625,411.5)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-1.0938,10.0537) node[above right] (text4150) {14};
+  \end{scope}
+  \begin{scope}[shift={(527.25,411.5)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-1.0938,10.0537) node[above right] (text4154) {16};
+  \end{scope}
+  \begin{scope}[shift={(102.3438,411.5)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-1.0938,10.0537) node[above right] (text4158) {1};
+  \end{scope}
+  \begin{scope}[shift={(158.5312,411.5)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-0.4219,10.0537) node[above right] (text4162) {3};
+  \end{scope}
+  \begin{scope}[shift={(215.7188,411.5)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-0.4219,10.0537) node[above right] (text4166) {5};
+  \end{scope}
+  \begin{scope}[shift={(272.9062,411.5)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-0.4688,10.0537) node[above right] (text4170) {7};
+  \end{scope}
+  \begin{scope}[shift={(330.0938,411.5)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-0.4219,10.0537) node[above right] (text4174) {9};
+  \end{scope}
+  \begin{scope}[shift={(385.2812,411.5)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-1.0938,10.0537) node[above right] (text4178) {11};
+  \end{scope}
+  \begin{scope}[shift={(441.4688,411.5)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-1.0938,10.0537) node[above right] (text4182) {13};
+  \end{scope}
+  \begin{scope}[shift={(498.6562,411.5)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-1.0938,10.0537) node[above right] (text4186) {15};
+  \end{scope}
+  \begin{scope}[line cap=butt]
+    \path[draw] (76.2500,402.5000) -- (76.2500,408.5000);
+    \path[draw] (104.8438,402.5000) -- (104.8438,408.5000);
+    \path[draw] (133.4375,402.5000) -- (133.4375,408.5000);
+    \path[draw] (162.0312,402.5000) -- (162.0312,408.5000);
+    \path[draw] (190.6250,402.5000) -- (190.6250,408.5000);
+    \path[draw] (219.2188,402.5000) -- (219.2188,408.5000);
+    \path[draw] (247.8125,402.5000) -- (247.8125,408.5000);
+    \path[draw] (276.4062,402.5000) -- (276.4062,408.5000);
+    \path[draw] (305.0000,402.5000) -- (305.0000,408.5000);
+    \path[draw] (333.5938,402.5000) -- (333.5938,408.5000);
+    \path[draw] (362.1875,402.5000) -- (362.1875,408.5000);
+    \path[draw] (390.7812,402.5000) -- (390.7812,408.5000);
+    \path[draw] (419.3750,402.5000) -- (419.3750,408.5000);
+    \path[draw] (447.9688,402.5000) -- (447.9688,408.5000);
+    \path[draw] (476.5625,402.5000) -- (476.5625,408.5000);
+    \path[draw] (505.1562,402.5000) -- (505.1562,408.5000);
+    \path[draw] (533.7500,402.5000) -- (533.7500,408.5000);
+    \path[draw] (76.2500,402.5000) -- (76.2500,405.5000);
+    \path[draw] (90.5469,402.5000) -- (90.5469,405.5000);
+    \path[draw] (104.8438,402.5000) -- (104.8438,405.5000);
+    \path[draw] (119.1406,402.5000) -- (119.1406,405.5000);
+    \path[draw] (133.4375,402.5000) -- (133.4375,405.5000);
+    \path[draw] (147.7344,402.5000) -- (147.7344,405.5000);
+    \path[draw] (162.0312,402.5000) -- (162.0312,405.5000);
+    \path[draw] (176.3281,402.5000) -- (176.3281,405.5000);
+    \path[draw] (190.6250,402.5000) -- (190.6250,405.5000);
+    \path[draw] (204.9219,402.5000) -- (204.9219,405.5000);
+    \path[draw] (219.2188,402.5000) -- (219.2188,405.5000);
+    \path[draw] (233.5156,402.5000) -- (233.5156,405.5000);
+    \path[draw] (247.8125,402.5000) -- (247.8125,405.5000);
+    \path[draw] (262.1094,402.5000) -- (262.1094,405.5000);
+    \path[draw] (276.4062,402.5000) -- (276.4062,405.5000);
+    \path[draw] (290.7031,402.5000) -- (290.7031,405.5000);
+    \path[draw] (305.0000,402.5000) -- (305.0000,405.5000);
+    \path[draw] (319.2969,402.5000) -- (319.2969,405.5000);
+    \path[draw] (333.5938,402.5000) -- (333.5938,405.5000);
+    \path[draw] (347.8906,402.5000) -- (347.8906,405.5000);
+    \path[draw] (362.1875,402.5000) -- (362.1875,405.5000);
+    \path[draw] (376.4844,402.5000) -- (376.4844,405.5000);
+    \path[draw] (390.7812,402.5000) -- (390.7812,405.5000);
+    \path[draw] (405.0781,402.5000) -- (405.0781,405.5000);
+    \path[draw] (419.3750,402.5000) -- (419.3750,405.5000);
+    \path[draw] (433.6719,402.5000) -- (433.6719,405.5000);
+    \path[draw] (447.9688,402.5000) -- (447.9688,405.5000);
+    \path[draw] (462.2656,402.5000) -- (462.2656,405.5000);
+    \path[draw] (476.5625,402.5000) -- (476.5625,405.5000);
+    \path[draw] (490.8594,402.5000) -- (490.8594,405.5000);
+    \path[draw] (505.1562,402.5000) -- (505.1562,405.5000);
+    \path[draw] (519.4531,402.5000) -- (519.4531,405.5000);
+    \path[draw] (533.7500,402.5000) -- (533.7500,405.5000);
+    \path[draw] (533.7500,402.5000) -- (76.2500,402.5000);
+    \path[shift={(60.25,247.6429)},fill,line join=bevel,line 
+width=0.000pt]
+      (-0.4219,10.0537) node[above right] (text4292) {0};
+  \end{scope}
+  \begin{scope}[shift={(51.25,50.5)},line join=bevel,line cap=butt,line 
+width=0.000pt]
+    \path[fill] (-0.4219,10.0537) node[above right] (text4296) {0.2};
+  \end{scope}
+  \begin{scope}[shift={(49.25,346.2143)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-0.3125,10.0537) node[above right] (text4300) {-0.1};
+  \end{scope}
+  \begin{scope}[shift={(52.25,149.0714)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-0.4219,10.0537) node[above right] (text4304) {0.1};
+  \end{scope}
+  \begin{scope}[shift={(42.25,395.5)},line join=bevel,line 
+cap=butt,line 
+width=0.000pt]
+    \path[fill] (-0.3125,10.0537) node[above right] (text4308) {-0.15};
+  \end{scope}
+  \begin{scope}[shift={(42.25,296.9286)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-0.3125,10.0537) node[above right] (text4312) {-0.05};
+  \end{scope}
+  \begin{scope}[shift={(45.25,198.3571)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-0.4219,10.0537) node[above right] (text4316) {0.05};
+  \end{scope}
+  \begin{scope}[shift={(45.25,99.7857)},line join=bevel,line 
+cap=butt,line width=0.000pt]
+    \path[fill] (-0.4219,10.0537) node[above right] (text4320) {0.15};
+  \end{scope}
+  \begin{scope}[line cap=butt]
+    \path[draw] (76.2500,402.5000) -- (70.2500,402.5000);
+    \path[draw] (76.2500,353.2143) -- (70.2500,353.2143);
+    \path[draw] (76.2500,303.9286) -- (70.2500,303.9286);
+    \path[draw] (76.2500,254.6429) -- (70.2500,254.6429);
+    \path[draw] (76.2500,205.3571) -- (70.2500,205.3571);
+    \path[draw] (76.2500,156.0714) -- (70.2500,156.0714);
+    \path[draw] (76.2500,106.7857) -- (70.2500,106.7857);
+    \path[draw] (76.2500,57.5000) -- (70.2500,57.5000);
+    \path[draw] (76.2500,402.5000) -- (73.2500,402.5000);
+    \path[draw] (76.2500,392.6429) -- (73.2500,392.6429);
+    \path[draw] (76.2500,382.7857) -- (73.2500,382.7857);
+    \path[draw] (76.2500,372.9286) -- (73.2500,372.9286);
+    \path[draw] (76.2500,363.0714) -- (73.2500,363.0714);
+    \path[draw] (76.2500,353.2143) -- (73.2500,353.2143);
+    \path[draw] (76.2500,343.3571) -- (73.2500,343.3571);
+    \path[draw] (76.2500,333.5000) -- (73.2500,333.5000);
+    \path[draw] (76.2500,323.6429) -- (73.2500,323.6429);
+    \path[draw] (76.2500,313.7857) -- (73.2500,313.7857);
+    \path[draw] (76.2500,303.9286) -- (73.2500,303.9286);
+    \path[draw] (76.2500,294.0714) -- (73.2500,294.0714);
+    \path[draw] (76.2500,284.2143) -- (73.2500,284.2143);
+    \path[draw] (76.2500,274.3571) -- (73.2500,274.3571);
+    \path[draw] (76.2500,264.5000) -- (73.2500,264.5000);
+    \path[draw] (76.2500,254.6429) -- (73.2500,254.6429);
+    \path[draw] (76.2500,244.7857) -- (73.2500,244.7857);
+    \path[draw] (76.2500,234.9286) -- (73.2500,234.9286);
+    \path[draw] (76.2500,225.0714) -- (73.2500,225.0714);
+    \path[draw] (76.2500,215.2143) -- (73.2500,215.2143);
+    \path[draw] (76.2500,205.3571) -- (73.2500,205.3571);
+    \path[draw] (76.2500,195.5000) -- (73.2500,195.5000);
+    \path[draw] (76.2500,185.6429) -- (73.2500,185.6429);
+    \path[draw] (76.2500,175.7857) -- (73.2500,175.7857);
+    \path[draw] (76.2500,165.9286) -- (73.2500,165.9286);
+    \path[draw] (76.2500,156.0714) -- (73.2500,156.0714);
+    \path[draw] (76.2500,146.2143) -- (73.2500,146.2143);
+    \path[draw] (76.2500,136.3571) -- (73.2500,136.3571);
+    \path[draw] (76.2500,126.5000) -- (73.2500,126.5000);
+    \path[draw] (76.2500,116.6429) -- (73.2500,116.6429);
+    \path[draw] (76.2500,106.7857) -- (73.2500,106.7857);
+    \path[draw] (76.2500,96.9286) -- (73.2500,96.9286);
+    \path[draw] (76.2500,87.0714) -- (73.2500,87.0714);
+    \path[draw] (76.2500,77.2143) -- (73.2500,77.2143);
+    \path[draw] (76.2500,67.3571) -- (73.2500,67.3571);
+    \path[draw] (76.2500,57.5000) -- (73.2500,57.5000);
+    \path[draw] (76.2500,57.5000) -- (76.2500,402.5000);
+    \path[shift={(104.8438,287.0728)},draw] (-4.0000,0.0000) -- 
+(4.0000,0.0000);
+    \path[shift={(104.8438,287.0728)},draw] (0.0000,-4.0000) -- 
+(0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(133.4375,138.2366)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(162.0312,263.8321)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(190.625,253.3691)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(219.2188,247.5695)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(247.8125,235.0904)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(276.4062,342.0088)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(305.0,217.8072)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(333.5938,201.2791)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(362.1875,228.9089)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(390.7812,396.2148)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(419.375,273.5399)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(447.9688,235.0322)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(476.5625,339.7105)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(505.1562,95.5802)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(533.75,319.0337)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(533.75,319.0337)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+  \begin{scope}[shift={(533.75,319.0337)},line cap=butt]
+    \path[draw] (-4.0000,0.0000) -- (4.0000,0.0000);
+    \path[draw] (0.0000,-4.0000) -- (0.0000,4.0000);
+  \end{scope}
+
+\end{tikzpicture}}
+\end{center}
+
+ Que représente ce graphique ?
+ Quelle valeur peut-on conjecturer pour 
+ la moyenne des ordonnées des 16 points obtenus sur le graphique ?\\
+ Déterminer mathématiquement la valeur de cette moyenne.
+ 
+ 
+ \end{noliste}
+ 
+ \item Pour tout entier $n \geq 1,$ on pose 
+ $A_n=\dfrac{1}{n \, s_u^2} \ \Sum{i=1}{n} (u_i-\overline{u})T_i$. On 
+ suppose que le paramètre $\sigma^2$ est connu.
+ \begin{noliste}{a)}
+  \item Calculer l'espérance $\E(A_n)$ et la variance $\V(A_n)$ de la 
+  variable aléatoire $A_n$. \\
+  Préciser la loi de $A_n$.
+  
+  
+
+  
+  \item On suppose que $a$ est un paramètre inconnu. Soit $\alpha$ un 
+  réel donné vérifiant $0 < \alpha < 1.$\\
+  On note $\Phi$ la fonction de répartition de la loi normale centrée 
+  réduite et $d_\alpha$ le réel tel que $\Phi(d_\alpha) = 
+  1-\dfrac{\alpha}{2}.$\\
+  Déterminer un intervalle de confiance du paramètre $a$ au niveau de 
+  confiance $1-\alpha$.
+  
+  
+ \end{noliste}
+\end{noliste}
+
+
+
+
+
+
+
+
+\end{document}

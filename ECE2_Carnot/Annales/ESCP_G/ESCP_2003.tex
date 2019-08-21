@@ -1,0 +1,527 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 2003 - voie Générale} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION SCIENTIFIQUE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 2003}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent Dans tout le problème, on considère un entier naturel $p$
+supérieur ou égal à $2$. Pour tout entier naturel $q$, on note
+$\R_{q}[X]
+$ (resp. $\C_{q}[X]$ l'espace vectoriel réel (resp. complexe) des
+polynômes à coefficients réels (resp. complexes) de degré au plus égal
+à $q$. On pourra confondre polynôme et fonction polynomiale associée.\\
+On note $\mathcal{S}_{r}$ (resp. $\mathcal{S}_{c}$) l'espace vectoriel
+réel
+(resp. complexe) des suites réelles (resp. complexes)..\\
+\textbf{Préliminaire}\\
+On considère la fonction réelle $f$ qui à tout réel $x$ positif ou nul
+associe $f(x) = x^{p}-x^{p-1}-1$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner le tableau de variation de la fonction $f$.
+
+\item En déduire les résultats suivants :
+
+\begin{noliste}{$\sbullet$}
+\item la fonction $f$ s'annule une seule fois en un réel noté $C$ qui
+est
+strictement supérieur à $1$.
+
+\item pour tout réel $x$ positif ou nul, le réel $f(x)$ est strictement
+positif si et seulement si $x$ est strictement supérieur à $C$.
+\end{noliste}
+\end{noliste}
+
+\item Dans le cas particulier où l'entier $p$ est égal à $4$, comparer
+$C$
+et ${\dfrac{3}{2}}$.
+\end{noliste}
+
+\section*{Partie I}
+
+On rappelle que si $a$ est un nombre complexe et $Q(X)$ un polynôme à
+coefficients complexes alors le polynôme $Q(X)$ est divisible par $X-a$
+si
+et seulement si le complexe $Q(a)$ est nul.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $a$ un nombre complexe, $n$ un entier naturel au moins égal
+à $2$
+et $P\left(\Ev{X}\right)$ un polynôme à coefficients complexes de degré
+$n$ s'écrivant $P\left(\Ev{X}\right) = \Sum{k = 0}{n}\alpha_{k}X^{k}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir l'égalité : $P\left(\Ev{X}\right)-P\left(\Ev{a}\right) =
+\left(\Ev{X-a}\right)Q\left(\Ev{X}\right)$ où $Q(X) = \Sum{k =
+1}{n}\alpha_{k}(\Sum{i = 0}{k-1}a^{k-i-1}X^{i})$.
+
+\item En déduire que le polynôme
+$P\left(\Ev{X}\right)-P\left(\Ev{a}\right)$ est divisible par
+$(X-a)^{2}$
+si et seulement si le nombre complexe $\Sum{k = 1}{n}k\alpha
+_{k}a^{k-1}$ est nul.
+
+\item À quelle condition nécessaire et suffisante le nombre complexe
+$a$
+est-il racine au moins double du polynôme $P\left(\Ev{X}\right)$ ?
+\end{noliste}
+
+\item Montrer que le polynôme $X^{p}-X^{p-1}-1$ a $p$ racines simples
+dans $\C$ et qu'elles sont toutes non nulles. Ces racines seront notées
+$Z_{1},Z_{2},\dots,Z_{p}$ avec la convention que $Z_{p}$ est égal à
+$C$.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir, pour tout couple $(x,y)$ de nombres complexes,
+l'inégalité : $\left| x\right| -\left| y\right| \leq \left|
+x-y\right| $. Quand a-t-on l'égalité ?
+
+\item Établir, pour tout entier $k$ tel que $1\leq k\leq p$,
+l'inégalité : $\left| Z_{k}\right| \leq C$.
+
+\item Montrer que si $k$ est un entier tel que $1\leq k\leq p$,
+l'égalité $\left| Z_{k}\right| = C$ n'a lieu que si $k$ est égal à $p$.
+\end{noliste}
+
+\item Soit $\theta $ l'application de $\C_{p-1}[X]$ dans $\C^{p}$ qui à
+tout polynôme complexe $P\left(\Ev{X}\right)$ de degré au plus égal à
+$p-1$
+associe l'élément
+$(Z_{1}P\left(\Ev{Z_{1}}\right),Z_{2}P\left(\Ev{Z_{2}}\right),\dots,Z_{
+}P\left(\Ev{Z_{p}}\right))$ de $\C^{p}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que l'application $\theta $ est un isomorphisme.
+
+\item En déduire que, pour tout élément $(u_{1},u_{2},\dots,u_{p})$ de
+$\C^{p}$, il existe un unique élément $(\lambda_{1},\lambda
+_{2},\dots,\lambda_{p})$ de $\C^{p}$ vérifiant 
+\[
+\left\{ 
+\begin{tabular}{lllllllll}
+$\lambda_{1}Z_{1}$ & $ + $ & $\lambda_{2}Z_{2}$ & $ + $ & $\;\cdots $ &
+$ + $ & $\lambda_{p}Z_{p}$ & $\; = $ & $u_{1}$ \\
+$\lambda_{1}Z_{1}{2}$ & $ + $ & $\lambda_{2}Z_{2}{2}$ & $ + $ &
+$\;\cdots $
+ & $ + $ & $\lambda_{p}Z_{p}{2}$ & $\; = $ & $u_{2}$ \\
+$\vdots $ & & $\vdots $ & & & & $\vdots $ & & $\vdots $ \\
+$\lambda_{1}Z_{1}{p}$ & $ + $ & $\lambda_{2}Z_{2}{p}$ & $ + $ &
+$\;\cdots $
+ & $ + $ & $\lambda_{p}Z_{p}{p}$ & $\; = $ &
+$u_{p}$\end{tabular}\right.
+\]
+\end{noliste}
+
+\item On note $F$ l'espace vectoriel complexe des suites complexes $u =
+(u_{n})_{n\in \N^{\times }}$ vérifiant, pour tout entier $n$
+strictement supérieur à $p$, l'égalité $u_{n} = u_{n-1} + u_{n-p}$.
+Autrement
+dit, on a :
+\[
+F = \{(u_{n})_{n\in \N^{\times }}\in \mathcal{S}_{c};\;\forall
+n>p\quad u_{n} = u_{n-1} + u_{n-p}\}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $F$ est un sous-espace vectoriel de l'espace
+vectoriel
+complexe des suites complexes.
+
+\item Montrer que, pour tout entier $k$ vérifiant les inégalités $1\leq
+k\leq p$, la suite géométrique $(Z_{k}{n})_{n\in \N^{\times }}$
+est élément de $F$.
+
+\item Soit $u = (u_{n})_{n\in \N^{\times }}$ une suite élément de $F$
+et soit $(\lambda_{1},\lambda_{2},\dots,\lambda_{p})$ l'unique solution
+du système 
+\[
+\left\{ 
+\begin{tabular}{lllllllll}
+$\lambda_{1}Z_{1}$ & $ + $ & $\lambda_{2}Z_{2}$ & $ + $ & $\;\cdots $ &
+$ + $ & $\lambda_{p}Z_{p}$ & $\; = $ & $u_{1}$ \\
+$\lambda_{1}Z_{1}{2}$ & $ + $ & $\lambda_{2}Z_{2}{2}$ & $ + $ &
+$\;\cdots $
+ & $ + $ & $\lambda_{p}Z_{p}{2}$ & $\; = $ & $u_{2}$ \\
+$\vdots $ & & $\vdots $ & & & & $\vdots $ & & $\vdots $ \\
+$\lambda_{1}Z_{1}{p}$ & $ + $ & $\lambda_{2}Z_{2}{p}$ & $ + $ &
+$\;\cdots $
+ & $ + $ & $\lambda_{p}Z_{p}{p}$ & $\; = $ &
+$u_{p}$\end{tabular}\right.
+\]
+On note $v = (v_{n})_{n\in \N^{\times }}$ la suite complexe de terme
+général $v_{n} = \Sum{k = 1}{p}\lambda_{k}Z_{k}{n}$.\\
+Montrer que les suites $u$ et $v$ sont égales.
+
+\item Montrer que $((Z_{1}{n})_{n\in \N^{\times
+}},(Z_{2}{n})_{n\in \N^{\times }},\dots,(Z_{p}{n})_{n\in \N^{\times
+}})$ est une base de $F$.
+\end{noliste}
+\end{noliste}
+
+\section*{Partie II}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour tout entier naturel $q$, on considère l'application
+$\Phi_{q}$
+de $\R_{q}[X]$ dans lui-même qui à tout polynôme $A(X)$ de $\R_{q}[X]$
+associe le polynôme : $\Phi_{q}(A(X)) = A(X)-A(X-1)-A(X-p)$.\\
+Montrer que l'application $\Phi_{q}$ est un automorphisme de $\R_{q}X$.
+
+\item Soit $Q(X)$ un polynôme à coefficients réels. On note $E_{Q}$
+l'ensemble des suites complexes $u = (u_{n})_{n\in \N^{\times }}$
+vérifiant, pour tout entier $n$ strictement supérieur à $p$, l'égalité
+:
+\[
+u_{n} = u_{n-1} + u_{n-p} + Q(n).
+\]
+Autrement dit, on a : 
+\[
+E_{Q} = \{(u_{n})_{n\in \N^{\times }}\in \mathcal{S}_{c};\quad \forall
+n>p\quad u_{n} = u_{n-1} + u_{n-p} + Q(n)\}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer qu'il existe un unique polynôme à coefficients réels,
+noté $A_{0}(X)$, tel que la suite $(A_{0}(n))_{n\in \N^{\times }}$ est
+élément de $E_{Q}$.
+
+\item Prouver qu'une suite complexe $u = (u_{n})_{n\in \N^{\times }}$
+est élément de $E_{Q}$ si et seulement si la suite
+$(u_{n}-A_{0}(n))_{n\in 
+\N^{\times }}$ appartient à l'espace vectoriel $F$ défini dans la
+question \textbf{I-5}).
+
+\item En déduire que pour toute suite $(u_{n})_{n\in \N^{\times }}$
+élément de $E_{Q}$, il existe un élément
+$(\alpha_{1},\alpha_{2},\dots,\alpha_{p})$ de $\C^{p}$ tel que, pour
+tout entier naturel $n$ non
+nul, on a l'égalité :
+\[
+u_{n} = \alpha_{1}Z_{1}{n} + \alpha_{2}Z_{2}{n} + \cdots + \alpha
+_{p-1}Z_{p-1}{n} + \alpha_{p}C^{n} + A_{0}(n).
+\]
+
+\item Soit $(u_{n})_{n\in \N^{\times }}$ une suite \textbf{réelle}
+élément de $E_{Q}$. Déduire des questions précédentes que, soit il
+existe un réel $\alpha $ non nul tel que $u_{n}\sim \alpha C^{n}$, soit
+la suite $(u_{n})_{n\in \N^{\times }}$ est négligeable devant la suite
+$(C^{n})_{n\in \N^{\times }}$ c'est-à-dire $u_{n} = o(C^{n})$.
+\end{noliste}
+
+\item Soit $Q(X)$ un polynôme à coefficients réels. On note $I_{Q}$
+l'ensemble des suites réelles $u = (u_{n})_{n\in \N^{\times }}$
+vérifiant, pour tout entier $n$ strictement supérieur à $p$,
+l'inégalité : 
+\[
+u_{n}\leq u_{n-1} + u_{n-p} + Q(n).
+\]
+Autrement dit, on a : 
+\[
+I_{Q} = \{(u_{n})_{n\in \N^{\times }}\in \mathcal{S}_{r};\quad \forall
+n>p\quad u_{n}\leq u_{n-1} + u_{n-p} + Q(n)\}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $(w_{n})_{n\in \N^{\times }}$ une suite réelle élément de 
+$F$ et à termes \textbf{strictement positifs}. Pour tout réel $a$ et
+tout
+entier naturel $n$ non nul, on pose $v_{a,n} = aw_{n} + A_{0}(n)$ et on
+note $v_{a}$ la suite $(v_{a,n})_{n\in \N^{\times }}$.\\
+Montrer que pour toute suite $(u_{n})_{n\in \N^{\times }}$ élément
+de $I_{Q}$, il existe un réel $a$ tel que, pour tout entier naturel $n$
+non
+nul, on a l'inégalité : $u_{n}\leq v_{a,n}$.
+
+\item Justifier l'existence d'une suite réelle élément de $F$ et à
+termes 
+\textbf{strictement positifs}. En déduire que si $(u_{n})_{n\in
+\N^{\times }}$ est une suite réelle élément de $I_{Q}$ et à termes
+\textbf{positifs ou nuls} alors la suite $(u_{n})_{n\in \N^{\times }}$
+est
+dominée par la suite $(C^{n})_{n\in \N^{\times }}$ c'est-à-dire $u_{n}
+= O(C^{n})$.
+\end{noliste}
+\end{noliste}
+
+\section*{Partie III}
+
+Pour tout entier naturel $n$ au moins égal à $2$, on note $T_{n}$, ou
+plus
+simplement $T$, l'ensemble $\{1,2,\dots,n\}$ des entiers compris entre
+$1$
+et $n$. Pour toute partie $A$ de $T$ on note $\func{card}A$ le nombre
+d'éléments de $A$. On considère une matrice $M = (\alpha
+_{ij})_{l\leq i,j\leq n}$ carrée d'ordre $n$, \textbf{symétrique},
+dont les coefficients valent $0$ ou $1$, les coefficients diagonaux
+étant
+nuls (on dit que $M$ est une matrice \textbf{d'incidence} d'ordre $n$).
+On a
+donc : 
+\[
+(\forall (i,j)\in T^{2}\quad (\alpha_{ij} = 0\;\text{ou}\;\alpha_{ij} =
+1))\text{ et }(\forall i\in T\quad \alpha_{ii} = 0)
+\]
+Pour tout couple $(i,j)$ d'éléments de $T$ on dit que $i$ et $j$ sont
+voisins si $\alpha_{ij} = 1$. Pour toute partie non vide $A$ de $T$ et
+tout élément $i$ de $A$ on note $A(i)$ l'ensemble des éléments de $A$
+voisins de $i$
+et on dit que $A(i)$ est l'ensemble des voisins de $i$ dans $A$;
+autrement
+dit, on a : $A(i) = \{j\in A;\alpha_{ij} = 1\}$. \\
+Une partie non vide $S$ de $T$ est dite stable si, pour tout élément
+$i$ de $S$, $S(i)$ est vide. \textit{On remarquera que les singletons
+de }$T$\textit{\ sont stables.} \\
+Pour toute partie non vide $A$ de $T$, on appelle nombre de stabilité
+de $A$
+relativement à $M$ et on note $\omega (A,M)$, le maximum des cardinaux
+des
+parties stables incluses dans $A$, et on pose $\omega (\emptyset,M) =
+0$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Dans cette question, on suppose que $n = 4$ et que $M = 
+\begin{smatrix}
+0 & 1 & 0 & 1 \\
+1 & 0 & 1 & 1 \\
+0 & 1 & 0 & 0 \\
+1 & 1 & 0 & 0
+\end{smatrix}
+$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer $A(1)$ et $\omega (A,M)$ pour $A = \{1,3,4\}$.
+
+\item Déterminer le nombre $\omega (T,M)$.
+\end{noliste}
+
+\item Dans le cas particulier où $M = (\alpha_{ij})_{1\leq i,j\leq
+n}$ est la matrice dont les coefficients vérifient les conditions : 
+\[
+\alpha_{ij} = 1\quad \text{si}\quad \left| i-j\right| = 1\text{ et
+}\alpha_{ij} = 0\quad \text{sinon},
+\]
+déterminer le nombre $\omega (T,M)$. \\
+L'objet des questions suivantes est l'étude de la complexité de deux
+algorithmes de calcul du nombre de stabilité de $T$ relativement à $M$,
+la
+complexité d'un tel algorithme étant définie comme étant le nombre
+maximum
+de "\ lectures "\ de coefficients de la matrice $M$ que nécessite, dans
+le
+pire des cas (suivant les valeurs de $M$), l'exécution de cet
+algorithme.
+
+\item Un algorithme "\ naïf "\ consiste à examiner, une à une, les
+parties à
+au moins deux éléments de $T$, supposées rangées selon un ordre
+décroissant
+de leur cardinal (ce rangement étant indépendant de $M$), jusqu'à
+rencontrer
+une partie stable (et c'est ce test qui nécessite des lectures dans
+$M$) ;
+bien entendu, si aucune partie stable n'a été rencontrée, $\omega
+(T,M)$
+vaut $1$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer la somme $\Sum{k = 2}{n}C_{n}{k}C_{k}{2}$.
+
+\item Montrer que, pour tout entier $n$ au moins égal à $2$, la
+complexité
+de l'algorithme "\ naïf "\ est supérieure ou égale à $2^{n}-(n + 1)$ et
+inférieure ou égale à $C_{n}{2}2^{n-2}$.
+\end{noliste}
+
+\item Soit $A$ une partie non vide de $T$.\\
+Montrer que, pour tout élément $i$ de $A$, on a l'égalité : 
+\[
+\omega (A,M) = \max \left( \omega (A\backslash \{i\},M),1 + \omega
+(A\backslash
+(\{i\}\cup A(i)),M)\right)
+\]
+
+\item On suppose données, en langage \Scilab{},
+
+\begin{noliste}{$\sbullet$}
+\item une déclaration de constante permettant de stocker la valeur de
+l'entier $n$, la déclaration du type \texttt{tab} permettant de stocker
+les
+parties de $T$, et la déclaration du type \texttt{matrice} permettant
+de
+stocker les matrices d'incidence d'ordre $n$ ;
+
+\item une fonction d'en-tête
+\[
+\begin{tabular}{l}
+\texttt{function Appartient (i : integer ; A : tab) :
+boolean;}\end{tabular}
+\]
+qui renvoie la valeur \texttt{true} si l'élément $i$ est dans la partie
+$A$
+et la valeur \texttt{false} sinon.
+\end{noliste}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Écrire, en langage \Scilab{}, une fonction d'en-tête :
+\[
+\begin{tabular}{l}
+\texttt{function Recherche (A : tab; M : matrice) :
+integer;}\end{tabular}
+\]
+qui renvoie le plus petit des éléments $i$ de $A$ pour lequel
+$\func{card}A(i)$ est supérieur ou égal à $3$ si un tel plus petit
+élément existe et qui
+renvoie $0$ sinon.
+
+\item Évaluer le nombre maximum de "\ lectures "\ de coefficients de la
+matrice $M$ que nécessite cette fonction quand elle est appliquée à la
+partie $A$.
+\end{noliste}
+
+\item \textbf{On admet }qu'il est possible de concevoir une fonction,
+notée $Deux(A,M)$ renvoyant, lorsque, pour tout élément $i$ de $A$,
+$\func{card}A(i) $ est inférieur ou égal à $2$, le nombre $\omega
+(A,M)$ avec une
+complexité inférieure ou égale à $(\func{card}A)^{2}$. \\
+On considère maintenant la suite d'instructions $Omega$ dont on admet
+qu'elle permet récursivement, quand elle est appliquée à la partie $A$
+de $T$, d'obtenir la valeur de $\omega (A,M)$ :\\
+DÉBUT 
+
+\begin{noliste}{$\sbullet$}
+\item Exécuter $Recherche(A,M)$ ; 
+
+\item Si on a obtenu un élément $i$ de $A$ tel que
+$\func{card}(A(i))\geq 3$ alors 
+
+$\begin{tabular}{l}
+Exécuter $Omega$ pour la partie $A\backslash \{i\}$ afin d'obtenir $a =
+\omega
+(A\backslash \{i\},M)$ ; \\
+Exécuter $Omega$ pour la partie $A\backslash (\{i\}\cup A(i))$ afin
+d'obtenir $b = \omega (A\backslash (\{i\}\cup A(i)),M)$ \\
+Calculer $\max (a,1 + b)$ (qui est la valeur de $\omega (A,M)$
+cherchée)
+\end{tabular}$
+\end{noliste}
+
+Sinon exécuter $Deux(A,M)$ pour obtenir $\omega (A,M)$ ; \\
+FIN \\
+On note $u_{n}$ la complexité de cet algorithme lorsqu'il est appliqué
+à $A = T $.\\
+Justifier, pour tout entier $n$ au moins égal à $6$, l'inégalité :
+$u_{n}\leq u_{n-1} + u_{n-4} + 2n^{2}$.
+
+\item Comparer, pour de grandes valeurs de l'entier $n$, les
+complexités de
+l'algorithme "\ naïf "\ et de l'algorithme récursif.
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

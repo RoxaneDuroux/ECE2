@@ -1,0 +1,2391 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../macros_Livre.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\pagestyle{fancy} %
+ \lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} EML 2015} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+%%DEBUT
+
+\section*{Exercice 1}
+
+\noindent
+Dans tout l'exercice, $(\Omega, \A,\Prob)$ désigne un espace
+probabilisé et toutes les variables aléatoires considérées seront
+supposées définies sur cet espace.
+
+\subsection*{Partie I : Loi exponentielle}
+
+\noindent
+Dans toute cette partie, $\lambda$ désigne un réel strictement positif.
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Donner une densité, la fonction de répartition, l'espérance et 
+ la variance d'une variable aléatoire suivant la loi exponentielle de 
+ paramètre $\lambda$.
+ 
+ \begin{proof}~\\
+   Soit $X$ une \var de loi $\Exp{\lambda}$.%
+   \conc{Alors la fonction $f_X : x \mapsto \left\{
+       \begin{array}{cl}
+         \lambda \, \ee^{-\lambda \, x} & \mbox{ si $x\geq 0$}\\
+         0 & \mbox{ si $x<0$}
+       \end{array}
+     \right.$ est une densité de $X$.}%
+   \conc{La fonction de répartition de $X$ est la fonction $F_X : x
+     \mapsto \left\{
+       \begin{array}{cl}
+         1-\ee^{-\lambda \, x} & \mbox{ si $x\geq 0$}\\
+         0 & \mbox{ si $x<0$}
+       \end{array}
+     \right.$.}%
+   \conc{Enfin, $X$ admet une espérance et une variance données par :
+     $\E(X)=\dfrac{1}{\lambda}$ et $\V(X)=\dfrac{1}{\lambda^2}$.}
+   ~\\[-1cm]
+ \end{proof}
+ 
+ \item Justifier que les intégrales suivantes convergent et donner 
+ leurs valeurs : 
+ \[
+  \dint{0}{+\infty} \ee^{-\lambda x} \dx, \quad \dint{0}{+\infty} x \, 
+  \ee^{-\lambda x} \dx
+ \]
+ 
+ \begin{proof}~%\\
+   \begin{noliste}{$\sbullet$}
+   \item Tout d'abord : 
+     \[
+     \dint{-\infty}{+\infty} f_X(x) \dx \ = \ \dint{0}{+\infty} f_X(x)
+     \dx
+     \]
+     car $f_X$ est nulle en dehors de $[0, +\infty[$.\\
+     La fonction $f_X$ étant une densité de probabilité, l'intégrale
+     impropre $\dint{0}{+\infty} f_X(x) \dx$ est convergente. Il en
+     est de même de $\dint{0}{+\infty} \ee^{-\lambda x} \dx$ car on ne
+     change pas la nature d'une intégrale impropre en multipliant son
+     intégrande par un réel non nul.
+   \item On en déduit alors : 
+     \[
+     \begin{array}{rcl@{\quad}>{\it}R{4.5cm}}
+       \dint{0}{+\infty} \ee^{-\lambda \, x} \dx & = & \dfrac{1}{\lambda} 
+       \dint{0}{+\infty} \lambda \, \ee^{-\lambda \, x} \dx 
+       \\[.6cm]
+       & = & \dfrac{1}{\lambda} \dint{-\infty}{+\infty} f_X(x) \dx 
+       & (par définition de $f_X$)
+       \nl
+       \nl[-.2cm]
+       & = & \dfrac{1}{\lambda} \times 1
+       & (car $f_X$ est une densité)
+     \end{array}
+     \] %
+     \conc{$\dint{0}{+\infty} \ee^{-\lambda \, x} \dx =
+       \dfrac{1}{\lambda}$}
+
+
+     \newpage
+
+
+   \item En raisonnant de même, on démontre que l'intégrale impropre
+     $\dint{0}{+\infty} \ee^{- \lambda x} \dx$ est convergente car $X$
+     admet une espérance.
+   \item De plus :
+     \[
+     \begin{array}{rcl@{\quad}>{\it}R{4.5cm}}
+       \dint{0}{+\infty} x \, \ee^{-\lambda \, x} \dx 
+       & = & \dfrac{1}{\lambda} \dint{0}{+\infty} x \, \lambda \, 
+       \ee^{-\lambda \, x} \dx 
+       \\[.6cm]
+       & = & \dfrac{1}{\lambda} \dint{-\infty}{+\infty} x \, f_X(x) \dx 
+       & (par définition de $f_X$)
+       \nl
+       \nl[-.2cm]
+       & = & \dfrac{1}{\lambda} \times \E(X) \ = \ \dfrac{1}{\lambda}
+       \times \dfrac{1}{\lambda} \ = \ \dfrac{1}{\lambda^2}
+     \end{array}
+     \] %
+     \conc{$\dint{0}{+\infty} x \, \ee^{-\lambda \, x} \dx =
+       \dfrac{1}{\lambda^2}$}~\\[-1cm]
+   \end{noliste}
+ \end{proof}
+ 
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Soit $U$ une variable aléatoire suivant la loi uniforme sur
+    $[0,1[$.\\
+    Quelle est la loi de la variable aléatoire $V= - \frac{1}{\lambda}
+    \, \ln(1-U)$ ?
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Notons $g : x \mapsto - \frac{1}{\lambda} \
+        \ln(1-x)$. Tout d'abord :
+        \[
+        \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+          V(\Omega) & = & \big( g(U) \big)
+          \hspace{.1cm} (\Omega)
+          \\[.2cm]
+          & = & g \hspace{.1cm} \big(U(\Omega) \big)
+          \\[.2cm]
+          & = & g \hspace{.1cm} \big( [0, 1[ \big) 
+          % \\[.2cm]
+          % & \subset & ]0,1[ & (d'après les implications précédentes)
+        \end{array}
+        \]
+        Or, comme $g$ est continue et strictement croissante sur $[0,
+        1[$ :
+        \[
+        g \hspace{.1cm} \big( [0, 1[ \big) = \ [g(0), \dlim{x \tend 1}
+        g(x)[ \ = \ [0, +\infty[
+        \]
+        En effet : 
+        \begin{noliste}{$\stimes$}
+        \item $g(0) = - \frac{1}{\lambda} \ \ln(1) = 0$.
+        \item $\dlim{x \tend 1} g(x) = \dlim{x \tend 1} -
+          \frac{1}{\lambda} \ \ln(1-x) = +\infty$ \ car \ $\dlim{x
+            \tend 1} \ln(1-x) = -\infty$.
+        \end{noliste}
+        \conc{$V(\Omega) \ = \ [0, +\infty[$}
+
+%     \item Déterminons le support de $V=f(U)$, où $f:x\mapsto 
+%     -\dfrac{1}{\lambda} \ln(1-x)$.\\
+%     On a les équivalences suivantes :
+%     \[
+%       \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+%       x\in U(\Omega) & \Leftrightarrow & x\in[0,1]\\[.2cm] 
+%       & \Leftrightarrow & 0 \leq x \leq 1\\[.2cm]
+%       & \Leftrightarrow & 0 \leq 1-x \leq 1\\
+%       & \Leftrightarrow & - \infty < \ln(1-x) \leq 0 & (car la 
+%       fonction $\ln$ est strictement croissante sur $]0,+\infty[$)
+%       \nl[-.4cm]
+%       \nl
+%       & \Leftrightarrow & 0 \leq -\dfrac{1}{\lambda} \ln(1-x) < + 
+%     \infty & (car $-\dfrac{1}{\lambda} <0$)
+%       \nl[-.2cm]
+%       \nl
+%       & \Leftrightarrow & 0 \leq f(x) < +\infty\\[.2cm]
+%       & \Leftrightarrow & f(x)\in[0,+\infty[
+%       \end{array}
+%     \]
+%     Or on sait que : 
+%     \[
+%     \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+%       V(\Omega) &=& (f(U))(\Omega)\\[.2cm]
+%       &=& \{f(x) \ | \ x\in U(\Omega)\}\\
+%       &=& [0,+\infty[ & (d'après les équivalences précédentes)
+%     \end{array}
+%     \]
+%     Finalement $V(\Omega)=[0,+\infty[$.
+
+    \item Déterminons la fonction de répartition de $V$.\\
+    Soit $x\in\R$. Deux cas se présentent.
+    \begin{noliste}{$\stimes$}
+    \item \dashuline{Si $x<0$}, alors 
+    $\Ev{V\leq x}=\varnothing$ car $V(\Omega)=[0,+\infty[$. Donc :
+    \[
+      F_V(x) = \Prob(\Ev{V\leq X}) = \Prob(\varnothing) 
+      = 0
+    \]
+
+  \item \dashuline{Si $x \geq 0$}.
+    \[
+    \begin{array}{rcl@{\quad}>{\it}R{5.5cm}}
+      F_V(x) & = & \Prob(\Ev{V\leq x})\\[.2cm]
+      & = & \Prob\left(\Ev{ -\dfrac{1}{\lambda} \ln(1-U) 
+          \leq x}\right)
+      \\[.6cm]
+      & = & \Prob(\Ev{\ln(1-U) \geq -\lambda x}) & (car $-\lambda<0$)
+      \nl
+      \nl[-.2cm]
+      & = & \Prob\left(\Ev{1-U \geq \ee^{-\lambda x}}\right) & (car la 
+      fonction $\exp$ est strictement croissante sur $\R$)
+      \nl
+      \nl[-.4cm]
+      & = & \Prob\left(\Ev{ U \leq  1 - \ee^{-\lambda x}}\right)
+      \\[.2cm]
+      & = & F_U\left( 1-\ee^{-\lambda x} \right)
+      \\[.2cm]
+      & = & 1 - \ee^{-\lambda x} & (car $1 - \ee^{-\lambda x} \in [0,1[$)
+    \end{array}
+    \]
+
+
+    \newpage
+
+
+    \noindent
+    La dernière égalité est justifié par les équivalences suivantes :
+    \[
+    \begin{array}{rcl@{\quad}>{\it}R{5.5cm}}
+      0\leq x < +\infty & \Leftrightarrow & 0 \geq -\lambda x > 
+      -\infty & (car $-\lambda <0$)
+      \nl
+      \nl[-.2cm]
+      & \Leftrightarrow & 1=\ee^0 \geq \ee^{-\lambda x} > 0 & (car 
+      la fonction $\exp$ est strictement croissante sur $\R$)
+      \nl[-.4cm]
+      \nl
+      & \Leftrightarrow & 0 \leq 1-\ee^{-\lambda x} < 1
+    \end{array}
+    \]
+%     De plus, comme $U \suit \mathcal{U}([0,1[)$, pour tout $x\in\R$, 
+%     $F_U(x)=\left\{
+%     \begin{array}{l@{\quad}>{}R{2cm}}
+%     0 & si $x<0$\nl
+%     x & si $x\in[0,1[$\nl
+%     1 & si $x\geq 1$
+%     \end{array}
+%     \right.$,\\ 
+%     donc $F_U\left( 1-\ee^{-\lambda x} \right)=
+%     1-\ee^{-\lambda x}$.
+  \end{noliste}
+\item Finalement : 
+  \[
+  F_V : x \mapsto \left\{
+    \begin{array}{lR{1.5cm}}
+      1-\ee^{-\lambda x} & si $x\geq 0$ \nl
+      0 & si $x<0$ 
+    \end{array}
+  \right.
+  \]
+  On reconnaît la fonction de répartition de la loi exponentielle de
+  paramètre $\lambda$. %
+  \end{noliste}
+  \conc{Or la fonction de répartition caractérise la loi d'une \var,
+    donc $X\suit \Exp{\lambda}$.}
+   
+   \begin{remark}~%\\
+     \begin{noliste}{$\sbullet$}
+     \item Cette question est un cas particulier de la question
+       classique consistant à déterminer la loi de la transformée
+       d'une \var à densité. Il est essentiel de maîtriser la
+       méthodologie de résolution.
+     \item Ici, on est dans un cas encore plus classique puisque la
+       \var à densité de départ $U$ suit une loi uniforme sur
+       $[0,1[$. On illustre ici la méthode d'inversion : on obtient
+       une \var $V$ qui suit une loi particulière ($V \suit \Exp{1}$)
+       en écrivant $V$ comme transformée d'une \var $U$ qui suit la
+       loi uniforme sur $[0, 1[$. Ce type de question est fréquent
+       dans les sujets. Et est généralement suivi, comme c'est le cas
+       dans cet énoncé, d'une question de simulation informatique.\\
+       Finalement, la Partie I de cet exercice est constituée en
+       intégralité de questions de cours.
+     \end{noliste}
+
+   \end{remark}~\\[-1.2cm]
+  \end{proof}
+  
+  \item Écrire une fonction en \Scilab{} qui, étant donné un réel 
+  $\lambda$ strictement positif, simule la loi exponentielle de 
+  paramètre $\lambda$.
+  
+  \begin{proof}~
+   \begin{scilab}
+     & \tcFun{function} \tcVar{v} = simuExp(\tcVar{lambda}) \nl %
+     & \qquad u = rand() \nl %
+     & \qquad \tcVar{v} = -(1/\tcVar{lambda}) \Sfois{} log(1-u) \nl %
+     & \tcFun{endfunction}
+   \end{scilab}
+  \end{proof}
+ \end{noliste}
+ 
+ \noindent
+ On considère une suite $(X_n)_{n\in\N^*}$ de variables aléatoires 
+ indépendantes suivant toutes la loi exponentielle de paramètre 1.\\
+ Pour tout $n$ de $\N^*$, on définit la variable aléatoire 
+ $T_n=\max(X_1,...,X_n)$ qui, à tout $\omega$ de $\Omega$, associe le 
+ plus grand des réels $X_1(\omega), \ldots, X_n(\omega)$ et on note 
+ $f_n$ la fonction définie sur $\R$ par :
+ \[
+ \forall x\in\R, \ f_n(x)= \left\{
+ \begin{array}{cl}
+  n\ee^{-x}(1-\ee^{-x})^{n-1} & \text{si } x\geq 0,\\
+  0 & \text{si } x<0.
+ \end{array}
+ \right.
+ \]
+\end{noliste}
+ 
+
+\subsection*{Partie II : Loi de la variable aléatoire $T_n$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \setcounter{enumi}{3}
+ \item 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Calculer, pour tout $n$ de $\N^*$ et pour tout $x$ de $\R_+^*$, 
+  la probabilité $\Prob(\Ev{T_n\leq x})$.
+  
+  \begin{proof}~\\
+    Soit $n\in\N^*$ et soit $x\in \R_+^*$.
+    \begin{noliste}{$\sbullet$}
+    \item Tout d'abord :
+      \[
+      \Ev{T_n \leq x} = \Ev{ \max(X_1, \ldots, X_n) \leq x} = \Ev{X_1
+        \leq x} \cap \cdots \cap \Ev{X_n \leq x} = \dcap{i=1}{n}
+      \Ev{X_i \leq x}
+      \]
+   
+   
+      \newpage
+
+
+    \item On en déduit :
+      \[
+      \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+        \Prob(\Ev{T_n \leq x}) & = & \Prob\left( \dcap{i=1}{n} \Ev{X_i \leq 
+            x}\right)
+        \\[.4cm]
+        & = & \Prod{i=1}{n} \Prob(\Ev{X_i \leq x}) & (car les \var
+        $X_1$, $\ldots$, $X_n$ \\ sont indépendantes)
+        \nl
+        \nl[-.2cm]
+        & = & \Prod{i=1}{n} \Prob(\Ev{X_1 \leq x}) & (car les \var
+        $X_1$, $\ldots$, $X_n$ \\ ont même loi)
+        \nl
+        \nl[-.2cm]
+        & = & \big(\Prob(\Ev{X_1\leq x}) \big)^n
+        \\[.4cm]
+        & = & \big(1-\ee^{-x} \big)^n & (car $X_1 \suit \Exp{1}$ et $x
+        \geq 0$)
+      \end{array}
+      \] %
+    \end{noliste}
+   \conc{$\forall n\in\N^*$, $\forall x\in \R_+^*$, 
+   $\Prob(\Ev{T_n \leq x}) = \left(1-\ee^{-x}\right)^n$}~\\[-1cm]
+  \end{proof}
+  
+\item En déduire que, pour tout $n$ de $\N^*$, $T_n$ est une variable
+  aléatoire à densité, admettant pour densité la fonction $f_n$.
+  
+  \begin{proof}~
+   \begin{noliste}{$\sbullet$}
+   \item Par définition : $T_n = \max(X_1, \ldots, X_n)$. \\
+     Or, pour tout $i\in \llb 1, n \rrb$, $X_i(\Omega)=[0,+\infty[$
+     car $X_i \suit \Exp{1}$.%
+     \conc{Ainsi, $T_n(\Omega) \subset [0,+\infty[$.}
+    
+    \item Soit $x\in\R$.
+    \begin{noliste}{$\stimes$}
+      \item \dashuline{Si $x\leq 0$}, alors $\Ev{T_n \leq x} =
+      \varnothing$ car $T_n(\Omega) \subset [0,+\infty[$. Ainsi :
+      \[
+       F_{T_n}(x)=\Prob(\Ev{T_n \leq x}) = \Prob(\varnothing) = 0
+      \]
+      
+      \item \dashuline{Si $x>0$}. D'après la question \itbf{4.a)} :
+      \[
+       F_{T_n}(x) = \Prob(\Ev{T_n \leq x}) = \left(1-\ee^{-x}\right)^n
+      \]
+    \end{noliste}
+    \conc{Finalement : $F_{T_n} : x \mapsto \left\{
+    \begin{array}{cl}
+     \left(1-\ee^{-x}\right)^n & \mbox{ si $x>0$}\\
+     0 & \mbox{ si $x\leq 0$}
+    \end{array}
+    \right.$.}
+    
+    \item Montrons que $F_{T_n}$ est continue sur $\R$.
+    \begin{noliste}{-}
+      \item La fonction $F_{T_n}$ est continue sur $]0,+\infty[$ en 
+      tant que composée $g_2 \circ g_1$ de :
+    \end{noliste}
+      \begin{liste}{$\stimes$}
+      \item $g_1 : x \mapsto 1-\ee^{-x}$ continue sur $]0,+\infty[$ \\
+        et $g_1(]0,+\infty[) \subset \R$,
+      \item $g_2 : y \mapsto y^n$ continue sur $\R$.
+      \end{liste}
+    \begin{noliste}{-}
+      \item La fonction $F_{T_n}$ est continue sur $]-\infty,0[$ en 
+      tant que fonction constante.
+      
+      \item On remarque :
+      \[
+       \dlim{x\to 0^+} F_{T_n}(x)=\left(1-\ee^{-0}\right)^n = 0
+       =F_{T_n}(0)=\dlim{x\to 0^-} F_{T_n}(x)
+      \]
+      Donc $F_{T_n}$ est continue en $0$.
+    \end{noliste}
+    \conc{La fonction $F_{T_n}$ est continue sur $\R$.}
+    
+  \item Avec le même raisonnement que précédemment, on montre que
+    $F_{T_n}$ est de classe $\Cont{1}$ sur $\R$ sauf éventuellement en
+    $0$.%
+    \conc{La \var $T_n$ est une variable à densité.}
+    
+    
+    \newpage
+    
+    
+  \item Pour déteminer une densité de $T_n$, on dérive $F_{T_n}$ sur
+    des intervalles ouverts.\\
+    Soit $x \in \R$.
+    \begin{noliste}{$\stimes$}
+      \item \dashuline{Si $x\in \ ]-\infty,0[$}.
+      \[
+       f_{T_n}(x) = F_n'(x)=0=f_n(x)
+      \]
+      
+    \item \dashuline{Si $x\in \ ]0,+\infty[$}.
+      \[
+       f_{T_n}(x)= F_n'(x) = n \, \ee^{-x} (1-\ee^{-x})^{n-1}
+       =f_n(x)
+      \]
+      
+      \item On choisit $f_{T_n}(0)=0=f_n(0)$.
+      \end{noliste}
+      \conc{La fonction $f_n$ est bien une densité de $T_n$.}~\\[-1.6cm]
+   \end{noliste}
+ \end{proof}
+\end{noliste}
+ 
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que, pour tout $n$ de $\N^*$, la variable aléatoire
+    $T_n$ admet une espérance.
+    
+    \begin{proof}~\\
+      Soit $n\in\N^*$.
+      \begin{noliste}{$\sbullet$}
+      \item La \var $T_n$ admet une espérance si et seulement si 
+        l'intégrale $\dint{-\infty}{+\infty} x \, f_n(x) \dx$ converge 
+        absolument, ce qui équivaut à démontrer sa convergence pour des 
+        calculs de moments.
+        
+      \item Tout d'abord : 
+        \[
+        \dint{-\infty}{+\infty} x \, f_n(x) \dx = \dint{0}{+\infty} x
+        \, f_n(x) \dx
+        \]
+        car $f_n$ est nulle en dehors de $[0, +\infty[$.
+    
+      \item La fonction $x \mapsto x \, f_n(x)$ est $\Cont{0}$ sur
+        $[0,+\infty[$.
+        % en tant que produit de fonctions continues sur
+        % $[0,+\infty[$.
+    
+        % \item Montrons que : $x \, f_n(x) = \oox{+\infty} \left(
+        %     \dfrac{1}{x^2}\right)$.\\
+                
+      \item 
+        \begin{noliste}{$\stimes$}
+        \item Tout d'abord : $x \, f_n(x) = \oox{+\infty} \left( \dfrac{1}{x^2}
+          \right)$\\[.2cm]
+          En effet, pour tout $x>0$ :
+          \[
+          \dfrac{x \, f_n(x)}{\frac{1}{x^2}} = x^2 \, x \, n \, 
+          \ee^{-x}(1-\ee^{-x})^{n-1} = n \, x^3 \, \ee^{-x}(1-\ee^{-x})^{n-1}
+          \]
+          Or : $\dlim{x\to+\infty} \ee^{-x}=0$. Donc : $\dlim{x\to+\infty}
+          (1-\ee^{-x})^{n-1} = 1$.\\[.2cm]
+          De plus, par croissances comparées : $\dlim{x\to +\infty} x^3 
+          \ee^{-x}=0$.\\
+          Finalement : $\dlim{x\to+\infty} \dfrac{x \, f_n(x)}{\frac{1}{x^2}} 
+          = 0$, \ie : $x \, f_n(x) = \oox{+\infty} 
+          \left(\dfrac{1}{x^2}\right)$
+          
+        \item $\forall x \in [1,+\infty[$, $x\, f_n(x) \geq 0$ et 
+          $\dfrac{1}{x^2} \geq 0$
+          
+        \item L'intégrale $\dint{1}{+\infty} \dfrac{1}{x^2} \dx$ est une 
+          intégrale de Riemann, impropre en $+\infty$, d'exposant $2$ 
+          ($2>1$), donc elle converge.
+        \end{noliste}
+        D'après le critère de négligeabilité des intégrales généralisées de 
+        fonctions continues positives, l'intégrale $\dint{1}{+\infty}
+        x\, f_n(x) \dx$ converge.
+        
+      \item De plus, la fonction $x\mapsto x \, f_n(x)$ est continue
+        sur le segment $[0,1]$, donc l'intégrale $\dint{0}{1} x\,
+        f_n(x) \dx$ est bien définie.
+      \end{noliste}
+      Finalement, $\dint{0}{+\infty} x\, f_n(x) \dx$ converge pour tout 
+      $n\in\N^*$. %
+      \conc{Pour tout $n\in\N^*$, la \var $T_n$ admet une 
+        espérance.}~\\[-1cm]
+    \end{proof}
+  
+  
+  \newpage
+  
+
+\item Déterminer l'espérance $\E(T_1)$ de $T_1$ et l'espérance
+  $\E(T_2)$ de $T_2$.
+  
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item On remarque que : $T_1 = \max(X_1)=X_1$.  \conc{Donc,
+        d'après la question \itbf{1.} : $\E(T_1)=1$.}
+    
+    \item D'après la question \itbf{2.} les intégrales impropres
+      $\dint{0}{+\infty} \ee^{-x} \dx$ et $\dint{0}{+\infty} x
+      \ee^{-x} \dx$ converge.\\
+      On peut donc effectuer le calcul suivant :
+      \[
+      \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+        \E(T_2) & = & \dint{-\infty}{+\infty} x \, f_2(x) \dx \ = \
+        \dint{0}{+\infty} 2x \, \ee^{-x} (1-\ee^{-x}) \dx
+        \\[.6cm]
+        & = & 2 \dint{0}{+\infty} x\, \ee^{-x} \dx - 2 
+        \dint{0}{+\infty} x \, \ee^{-2x} \dx
+        & (par linéarité de l'intégration)
+        \nl
+        \nl[-.2cm]
+        & = & 2 \times \dfrac{1}{1^2} - 2 \times \dfrac{1}{2^2}
+        & (d'après le résultat de la question \itbf{2.})
+        \nl
+        \nl[-.2cm]
+        & = & \dfrac{3}{2}
+      \end{array}
+      \]
+      \conc{$\E(T_2)=\dfrac{3}{2}$}~\\[-1.4cm]
+    \end{noliste}
+  \end{proof}
+
+ \end{noliste}
+
+ \item 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Vérifier : $\forall n\in\N^*$, $\forall x\in\R_+$, 
+  $f_{n+1}(x)-f_n(x)=-\dfrac{1}{n+1}f'_{n+1}(x)$.
+  
+  \begin{proof}~\\
+   Soit $n\in\N^*$.
+   \begin{noliste}{$\sbullet$}
+    \item La fonction $f_n$ est dérivable sur $]0,+\infty[$ en tant 
+    que produit de fonctions dérivables sur $]0,+\infty[$.\\
+    On obtient alors, pour tout $x>0$ :
+    \[
+     \begin{array}{rcl}
+      f_{n}'(x) & = & -n\ee^{-x}(1-\ee^{-x})^{n-1} + 
+      n(n-1)\ee^{-2x}(1-\ee^{-x})^{n-2} 
+      \\[.2cm]
+      & = & n\ee^{-x} (1-\ee^{-x})^{n-2}
+      (-(1-\ee^{-x})+(n-1)\ee^{-x})
+      \\[.2cm]
+      & = & n\ee^{-x} (1-\ee^{-x})^{n-2} (n\ee^{-x} -1)
+     \end{array}
+    \]    
+    \conc{$\forall x>0, \ f_{n+1}'(x) = (n+1)\ee^{-x}
+      (1-\ee^{-x})^{n-1}((n+1)\ee^{-x}-1)$}
+    
+    \item Soit $x>0$.
+    \[
+      \begin{array}{rcl}
+       f_{n+1}(x)-f_n(x) & = & (n+1)\ee^{-x}(1-\ee^{-x})^n - 
+       n\ee^{-x}(1-\ee^{-x})^{n-1}
+       \\[.2cm]
+       & = & \ee^{-x}(1-\ee^{-x})^{n-1}((n+1)(1-\ee^{-x}) - n)
+       \\[.2cm]
+       & = & \ee^{-x}(1-\ee^{-x})^{n-1}(1-(n+1)\ee^{-x})
+       \\[.2cm]
+       & = & -\dfrac{1}{n+1} f_{n+1}'(x)
+      \end{array} 
+    \]
+   \end{noliste}
+   \conc{$\forall n\in\N^*$, $\forall x>0$ : $f_{n+1}(x) - f_n(x) =
+   -\dfrac{1}{n+1} f_{n+1}'(x)$}
+   
+ \begin{remark}~\\
+   On a ici considéré $x$ dans $\R_+^*$ et non dans $\R_+$. En effet,
+   $f_n$ n'est pas toujours dérivable en $0$.\\
+   Par exemple, $f_1$ et $f_2$ ne le sont pas.
+ \end{remark}~\\[-1.4cm]
+\end{proof}
+  
+
+\newpage
+  
+
+\item Montrer ensuite, à l'aide d'une intégration par parties :
+  \[
+  \forall n\in\N^*, \ \dint{0}{+\infty} x \, (f_{n+1}(x)-f_n(x)) \dx 
+  = \dfrac{1}{n+1} \dint{0}{+\infty} f_{n+1}(x) \dx
+  \]
+  
+  \begin{proof}~\\
+    Soit $n\in\N^*$.
+    \begin{noliste}{$\sbullet$}
+    \item La fonction $x \mapsto x(f_{n+1}(x) - f_n(x))$ est
+      $\Cont{0}$ sur $[0, +\infty[$.
+    \item Soit $A\geq 0$. D'après la question précédente :
+      \[
+      \dint{0}{A} x(f_{n+1}(x)-f_n(x))\dx = -\dfrac{1}{n+1}
+      \dint{0}{A} x \, f_{n+1}'(x)\dx
+      \]
+      On effectue alors une intégration par parties (IPP).
+      \[
+      \renewcommand{\arraystretch}{2.2}
+      \begin{array}{|rcl@{\qquad}rcl}
+        u(x) & = & x & u'(x) & = & 1\\
+        v'(x) & = & f_{n+1}'(x) & v(x) & = & f_{n+1}(x)
+      \end{array}
+      \]
+      Cette IPP est valide car les fonctions $u$ et $v$ sont de classe
+      $\Cont{1}$ sur $[0,A]$. On obtient :
+      \[
+      \begin{array}{rcl}
+        -\dfrac{1}{n+1} \dint{0}{A} x \, f_{n+1}'(x)\dx
+        & = & -\dfrac{1}{n+1} \left( \Prim{x \, f_{n+1}(x)}{0}{A} - 
+          \dint{0}{A} f_{n+1}(x) \dx \right)
+        \\[.6cm]
+        & = & -\dfrac{1}{n+1} \, A \, f_{n+1}(A) + \dfrac{1}{n+1}
+        \dint{0}{A} f_{n+1}(x) \dx
+      \end{array}
+      \]
+    \item De plus :
+      \begin{noliste}{$\stimes$}
+      \item la fonction $f_{n+1}$ est une densité de probabilité nulle
+        en dehors de $[0, +\infty[$.\\[.2cm]
+        Ainsi, l'intégrale impropre $\dint{-\infty}{+\infty}
+        f_{n+1}(x) \dx = \dint{0}{+\infty} f_{n+1}(x) \dx$ converge
+        (et vaut $1$).\\[.2cm]
+        D'où : $\dint{0}{A} f_{n+1}(x)\dx \ \tendd{A}{+\infty} \
+        \dint{0}{+\infty} f_{n+1}(x) \dx$.
+      
+      \item comme $A\geq 0$ :
+        \[
+        A \, f_{n+1}(A) = A \times n \ee^{-A}(1-\ee^{-A})^n = n \times
+        \dfrac{A}{\ee^{A}} \times (1-\ee^{-A})^n \ \tendd{A}{+\infty}
+        \ 0 \quad \mbox{\it (par croissances comparées)}
+        \]
+      \end{noliste}
+      On en déduit que l'intégrale $\dint{0}{+\infty} x \,
+      (f_{n+1}(x)-f_n(x)) \dx$ converge.
+    \end{noliste}
+    \conc{Ainsi : $\forall n \in\N^*$, 
+    $\dint{0}{+\infty} x \, (f_{n+1}(x)-f_n(x)) \dx = 
+    \dfrac{1}{n+1} \dint{0}{+\infty} f_{n+1}(x) \dx$.}~\\[-1cm]
+  \end{proof}
+
+\item En déduire, pour tout $n$ de $\N^*$, une relation entre
+  $\E(T_{n+1})$ et $\E(T_n)$, puis une expression de $\E(T_n)$ sous
+  forme d'une somme.
+  
+  \begin{proof}~\\
+    Soit $n\in\N^*$.
+    \begin{noliste}{$\sbullet$}
+    \item D'après la question \itbf{5.a)}, les \var $T_{n+1}$ et $T_n$
+      admettent une espérance.\\[.2cm]
+      On en conclut que les intégrales impropres
+      $\dint{-\infty}{+\infty} x \, f_{n+1}(x) \dx$ et
+      $\dint{-\infty}{+\infty} x \, f_n(x) \dx$ sont (absolument)
+      convergentes.
+
+    
+    \newpage
+        
+    
+    \item On calcule alors :
+    \[
+     \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+       \E(T_{n+1}) - \E(T_n) & = & \dint{-\infty}{+\infty} x\, 
+       f_{n+1}(x) \dx - \dint{-\infty}{+\infty} x\, f_n(x) \dx
+       \\[.6cm]
+       & = & \dint{0}{+\infty} x \, f_{n+1}(x) \dx - \dint{0}{+\infty}
+       x\, f_n(x) \dx & (car $f_n$ et $f_{n+1}$ sont nulles \\
+       en dehors de $[0, +\infty[$)
+       \nl
+       \nl[-.2cm]
+       & = & \dint{0}{+\infty} x\, (f_{n+1}(x)-f_n(x)) \dx
+       \\[.6cm]
+       & = & \dfrac{1}{n+1} \dint{0}{+\infty} f_{n+1}(x) \dx 
+       & (d'après la question \itbf{6.b)})
+       \nl
+       \nl[-.2cm]
+       & = & \dfrac{1}{n+1} \dint{-\infty}{+\infty} f_{n+1}(x) \dx
+       & (car $f_{n+1}$ est nulle \\
+       en dehors de $[0, +\infty[$)
+       \nl
+       \nl[-.2cm]
+       & = & \dfrac{1}{n+1} \times 1 & (car $f_{n+1}$ est une densité)
+     \end{array}
+    \]
+    \conc{$\forall n\in \N^*$, $\E(T_{n+1})-\E(T_n) = \dfrac{1}{n+1}$}
+    
+  \item On a donc : $\forall k\in \N^*$, $\E(T_{k+1}) - \E(T_k) =
+    \dfrac{1}{k+1}$.\\[.2cm]
+    En sommant ces égalités pour $k$ variant de $1$ à $n-1$, on
+    obtient :
+    \[
+     \Sum{k=1}{n-1} \left(\E(T_{k+1})-\E(T_k)\right) = 
+     \Sum{k=1}{n-1} \dfrac{1}{k+1} = \Sum{k=2}{n} \dfrac{1}{k}
+    \]
+    Or, oar télescopage :
+    \[
+     \E(T_n)-\E(T_1) = \Sum{k=2}{n} \dfrac{1}{k}
+    \]
+    Or, d'après la question \itbf{}, $\E(T_1)=1$.
+    \conc{On en déduit que : $\forall n\in \N^*$, 
+    $\E(T_n)=1+ \Sum{k=2}{n} \dfrac{1}{k} = 
+    \Sum{k=1}{n} \dfrac{1}{k}$}~\\[-1.4cm]
+   \end{noliste}
+  \end{proof}
+ \end{noliste}
+\end{noliste}
+ 
+ 
+\subsection*{Partie III : Loi du premier dépassement}
+
+\noindent
+Dans toute cette partie, $a$ désigne un réel strictement positif.\\
+On définit la variable aléatoire $N$ égale au plus petit entier $n$ de 
+$\N^*$ tel que $X_n>a$ si un tel entier existe, et égale à 0 
+sinon.~\\[-.6cm]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \setcounter{enumi}{6}
+ \item Justifier l'égalité d'événements : $\Ev{N=0} = 
+ \dcap{k=1}{+\infty} \Ev{X_k\leq a}$. En déduire la probabilité 
+ $\Prob(\Ev{N=0})$.
+ 
+ \begin{proof}~
+  \begin{noliste}{$\sbullet$}
+   \item Soit $\omega \in \Omega$.
+   $N(\omega)=0$ si et seulement s'il n'existe pas d'entier $n\in\N^*$
+   tel que $X_n(\omega)>a$.\\
+   Autrement dit, si la proposition suivante est vérifiée :
+   \[
+    \texttt{NON}\left( \exists n\in \N^*, \ X_n(\omega)>a\right)
+   \]
+   Ce qui équivaut à : $\forall n\in \N^*$, $X_n(\omega) \leq a$.
+   Puis à : $\omega \in \dcap{n=1}{+\infty} \Ev{X_n \leq a}$.
+   \conc{$\Ev{N=0}= \dcap{k=1}{+\infty} \Ev{X_k \leq a}$}
+  
+
+  \newpage
+
+  
+  \begin{remark}~\\
+    On aurait sans doute obtenu tous les points de cette question sans
+    l'introduction propre de $\omega$.\\
+    En effet, l'énoncé prend le parti de ne pas le faire lors de la
+    définition de la \var $N$.\\
+    Cela se fait cependant au prix d'une confusion d'objets entre
+    variables aléatoires / réalisations / événements. Détaillons la
+    démonstration qui semble plus proche de l'esprit du concepteur.\\[.2cm]
+    $N=0$ si et seulement s'il n'existe pas d'entier $n\in\N^*$
+    tel que $X_n>a$.\\
+    Autrement dit, si : $\NON{ \exists n\in \N^*, \ X_n>a}$.\\
+    Ce qui équivaut à : $\forall n\in \N^*$, $X_n \leq a$.\\
+    Finalement, on a : $\Ev{N=0}= \dcap{k=1}{+\infty} \Ev{X_k \leq a}$
+  \end{remark}
+  
+\item Ainsi :
+   \[
+    \Prob(\Ev{N=0}) = \Prob\left(\dcap{k=1}{+\infty} \Ev{X_k\leq 
+    a}\right)
+   \]
+   D'après le théorème de la limite monotone :
+   \[
+    \Prob\left(\dcap{k=1}{+\infty} \Ev{X_k \leq a}\right) = 
+    \dlim{n\to+\infty} \Prob\left(\dcap{k=1}{n} \Ev{X_k \leq a}\right)
+   \]
+
+ \item Soit $n\in \N^*$.
+   \[
+    \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+     \Prob\left(\dcap{k=1}{n} \Ev{X_k \leq a}\right) & = & 
+     \Prod{k=1}{n} \Prob(\Ev{X_k \leq a}) 
+     & (car les \var $X_1$, $\cdots$, $X_n$ \\ sont indépendantes)
+     \nl
+     \nl[-.2cm]
+     & = & \Prod{k=1}{n} \Prob(\Ev{X_1 \leq a}) &
+     (car les \var $X_1$, $\cdots$, $X_n$ \\ ont même loi)
+     \nl
+     \nl[-.2cm]
+     & = & \left(\Prob(\Ev{X_1 \leq a})\right)^n
+     \ = \ \left(F_{X_1}(a)\right)^n
+     \\[.4cm]
+     & = & \left(1-\ee^{-a}\right)^n & (car $X_1 \suit \Exp{1}$ et $a
+     \geq 0$)
+    \end{array}
+   \]
+   Or : $0 < 1-\ee^{-a} <1$. En effet :
+   \[
+   \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+     +\infty > a > 0 & \Leftrightarrow & -\infty < -a < 0 
+     \\[.2cm]
+     & \Leftrightarrow & 0 < \ee^{-a} <1 & (par stricte croissance \\ de
+     $\exp$ sur $\R$)
+     \nl
+     \nl[-.2cm]
+     & \Leftrightarrow & -1 < -\ee^{-a} <0
+   \end{array}
+   \]
+   On en déduit : $\dlim{n\to +\infty} \left(1-\ee^{-a}\right)^n =0$.\\[.2cm]
+   Et : $\Prob\left(\dcap{k=1}{+\infty} \Ev{X_k\leq a}\right) =0$.%
+   \conc{$\Prob(\Ev{N=0})=0$.}~\\[-1.4cm]
+  \end{noliste}
+ \end{proof}
+
+ \item Montrer : $\forall n\in\N^*$, $\Prob(\Ev{N=n}) = 
+ (1-\ee^{-a})^{n-1} \, \ee^{-a}$.
+ 
+ \begin{proof}~\\
+  Soit $n\in\N^*$.
+  \begin{noliste}{$\sbullet$}
+  \item Par définition, l'événement $\Ev{N=n}$ est réalisé si et
+    seulement si $n$ est le plus petit entier tel que $\Ev{X_n > a}$
+    est réalisé. Autrement dit, si on a à la fois :
+    \begin{noliste}{$\stimes$}
+    \item pour tout $k \in \llb 1, n-1\rrb$, l'événement $\Ev{X_k \leq
+        a}$ est réalisé,
+    \item l'événement $\Ev{X_n >a}$ est réalisé.
+    \end{noliste}
+    \conc{Ainsi : $\Ev{N=n} = \Ev{X_1 \leq a} \cap \cdots \cap
+      \Ev{X_{n-1} \leq a} \cap \Ev{X_n >a} = \left( \dcap{k=1}{n-1}
+        \Ev{X_k \leq a}\right) \cap \Ev{X_n >a}$}
+  
+  
+    \newpage
+
+    
+    \noindent
+    On en déduit :
+    \[
+    \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+      \Prob(\Ev{N=n}) & = & \Prob\left(\left( \dcap{k=1}{n-1} \Ev{X_k \leq 
+            a}\right) \cap \Ev{X_n >a}\right)
+      \\[.6cm]
+      & = & \left(\Prod{k=1}{n-1} \Prob(\Ev{X_k \leq a})\right) \times
+      \Prob(\Ev{X_n >a})
+      & (car les \var $X_1$, $\cdots$, $X_n$ \\ sont indépendantes)
+      \nl
+      \nl[-.2cm]
+      & = & \left(\Prob(\Ev{X_1\leq a})\right)^n \times 
+      \Prob(\Ev{X_1 >a}) & (car les \var $X_1$, $\cdots$, $X_n$ \\ ont même loi)
+      \nl
+      \nl[-.2cm]
+      & = & \left(F_{X_1}(a)\right)^{n-1} \times (1-F_{X_1}(a))
+      \\[.4cm]
+      & = & \left(1-\ee^{-a}\right)^{n-1} \times \ee^{-a}
+      & (car $X_1 \suit \Exp{1}$ et $a \geq 0$)
+    \end{array}
+    \]
+  \end{noliste}
+  \conc{$\forall n\in\N^*$, \ $\Prob(\Ev{N=n}) =
+    \left(1-\ee^{-a}\right)^{n-1} \, \ee^{-a}$}~\\[-1cm]
+\end{proof}
+ 
+\item Déterminer l'espérance $\E(N)$ et la variance $\V(N)$ de $N$.
+ 
+ \begin{proof}~
+  \begin{noliste}{$\sbullet$}
+  \item D'après l'énoncé : $N(\Omega) = \N$.
+  \item De plus, on a démontré :
+    \begin{noliste}{$\stimes$}
+    \item $\Prob(\Ev{N = 0}) = 0$.
+    \item $\forall n \in\N^*$, \ $\Prob(\Ev{N=n}) = \left(1-\ee^{-a}
+      \right)^{n-1} \, \ee^{-a}$.
+    \end{noliste}
+    \conc{On en déduit : $N \suit \G{\ee^{-a}}$.}
+    
+  \item Ainsi $N$ admet une espérance et une variance. %
+    \conc{De plus : $\E(N) = \dfrac{1}{\ee^{-a}}=\ee^a$ \quad et \quad
+      $\V(N) = \dfrac{1-\ee^{-a}}{(\ee^{-a})^2} = \ee^{2a}(1-\ee^{-a})
+      = \ee^a \, (\ee^a-1)$.}
+  \end{noliste}
+  \begin{remark}~
+    \begin{noliste}{$\sbullet$}
+    \item Dans le cours, il est précisé qu'une \var $X$ qui suit une
+      loi géométrique (de paramètre $\ee^{-a}$) admet pour support
+      $\N^*$. Ici, $N$ a pour support $\N$ mais prend la valeur $0$
+      avec probabilité nulle.\\
+      On a alors :
+      \[
+      \forall x \in \R, \ \Prob(\Ev{X = x}) = \Prob(\Ev{N = x})
+      \]
+      {\it (et ces probabilités sont nulles si $x \notin \N^*$)}\\
+      Dans ce cas, on considère que $X$ et $N$ ont même loi (qui est
+      $\G{\ee^{-a}}$).
+
+    \item Évidemment, il est tout à fait possible d'effectuer un
+      calcul direct avec les probabilités calculées en questions
+      \itbf{7.} et \itbf{8.}. Cependant, cela démontre une manque de
+      prise de recul et finit par coûter des points car demande
+      beaucoup plus de temps.
+    \end{noliste}
+  \end{remark}~\\[-1.4cm]
+ \end{proof}
+\noindent 
+ On s'intéresse maintenant à la variable aléatoire $Z$, définie pour 
+ tout $\omega$ de $\Omega$ par :\\ 
+ \[
+  Z(\omega)=\left\{
+  \begin{array}{cl}
+   X_{N(\omega)}(\omega) & \text{si } N(\omega)\neq 0\\[.2cm]
+   0 & \text{si } N(\omega)=0
+  \end{array}
+  \right.
+ \]
+
+
+\newpage
+
+ 
+\item Justifier : $\Prob(\Ev{Z\leq a})=0$.
+ 
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item La famille $(\Ev{N=0}, \Ev{N\neq 0})$ est un système complet
+      d'événements.\\
+      D'après la formule des probabilités totales :
+      \[
+      % \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+      \Prob(\Ev{Z\leq a}) \ = \ \Prob(\Ev{Z\leq a} \cap \Ev{N=0}) +
+      \Prob(\Ev{Z \leq a} \cap \Ev{N \neq 0})
+      % \\[.2cm]
+      % & = & \Prob(\Ev{0\leq a} \cap \Ev{N=0}) + 
+      % \Prob(\Ev{X_N \leq a} \cap \Ev{N \neq 0})
+      % & (par définition de $Z$)
+      % \end{array}
+      \]
+
+    \item Or, par définition de $Z$ :
+      \[
+      \Ev{Z\leq a} \cap \Ev{N=0} = \Ev{0\leq a} \cap \Ev{N=0} = \Omega
+      \cap \Ev{N=0} = \Omega \cap \Ev{N=0} = \Ev{N = 0}
+      \]
+      (on rappelle que d'après l'énoncé : $a > 0 \geq 0$)
+
+    \item D'autre part, par définition de $N$ :
+      \[
+      \Ev{Z \leq a} \cap \Ev{N \neq 0} = \emptyset
+      \]
+      Démontrons-le en supposant par l'absurde qu'il existe $\omega$
+      qui réalise $\Ev{Z \leq a} \cap \Ev{N \neq 0}$.\\
+      Cela signifie que $N(\omega) \neq 0$ et $Z(\omega) \leq a$.\\
+      Comme $N(\omega) \neq 0$ alors $Z(\omega) =
+      X_{N(\omega)}(\omega)$. On en déduit :
+      \[
+      Z(\omega) = X_{N(\omega)}(\omega) \leq a
+      \]
+      Or, comme $N(\omega) \neq 0$, alors $N(\omega)$ est par
+      définition le plus petit entier $n \in \N^*$ tel que
+      $X_{n}(\omega) > a$.\\
+      On a alors : $X_{N(\omega)}(\omega) > a$ ce qui contredit
+      $X_{N(\omega)}(\omega) \leq a$.
+      
+    \item On revient à la première égalité :
+      \[
+      \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+        \Prob(\Ev{Z\leq a}) 
+        & = & \Prob(\Ev{N=0}) + \Prob(\varnothing)
+        \\[.2cm]
+        & = & 0 + 0 & (d'après la question \itbf{7.}) 
+      \end{array}
+      \]
+    \end{noliste}
+    \conc{Finalement, on a bien : $\Prob(\Ev{Z \leq a})=0$}
+    \begin{remark}~\\
+      L'utilisation de la formule des probabilités totales devrait
+      relever ici de l'automatisme. En effet, on traite d'une \var qui
+      est définie par cas. Pour le calcul de $\Prob(\Ev{Z \leq a})$,
+      on est donc naturellement amené à vouloir traiter à part le cas
+      où $N = 0$ et celui où $N \neq 0$. La formule des probabilités
+      totales n'est autre qu'une formalisation correcte de cette idée.
+    \end{remark}~\\[-1.2cm]
+ \end{proof}
+ 
+ \item Soit $x\in \ ]a,+\infty[$.
+ \begin{noliste}{a)}
+  \item Soit $n\in\N^*$, justifier l'égalité d'événements : 
+  \[
+   \Ev{N=n}\cap \Ev{Z\leq x}=\left\{
+   \begin{array}{cl}
+    \Ev{a<X_1\leq x} & \text{si } n=1\\[.2cm]
+    \Ev{T_{n-1}\leq a}\cap \Ev{a<X_n\leq x} & \text{si } n\geq 2
+   \end{array}
+   \right.
+  \]
+  En déduire la probabilité $\Prob(\Ev{N=n}\cap \Ev{Z\leq x})$.
+  
+  \begin{proof}~\\
+    Deux cas se présentent.
+    \begin{noliste}{$\sbullet$}
+    \item \dashuline{Si $n=1$}.
+      \[
+       \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+         \Ev{N=1} \cap \Ev{Z \leq x} & = & \Ev{N=1} \cap \Ev{X_N \leq
+           x} 
+         & (par définition de $Z$)
+         \nl
+         \nl[-.2cm]
+         & = & \Ev{N=1} \cap \Ev{X_1 \leq x}
+         & (par définition de $Z$)
+         \nl
+         \nl[-.2cm]
+         & = & \Ev{X_1 >a} \cap \Ev{X_1 \leq x}
+         & (par définition de $N$)
+         \nl
+         \nl[-.2cm]
+         & = & \Ev{a< X_1 \leq x}
+       \end{array}
+      \]
+      \conc{On a bien : $\Ev{N=1}\cap \Ev{Z\leq x} = \Ev{a<X_1\leq x}$.}
+
+
+      \newpage
+
+
+      \noindent
+      On en déduit alors : 
+      \[
+       \begin{array}{rcl}
+        \Prob(\Ev{N=1}\cap \Ev{Z\leq x}) & = & \Prob(\Ev{a < X_1 \leq x})
+        \ = \ F_{X_1}(x)-F_{X_1}(a) 
+        \\[.2cm]
+        & = & (\bcancel{1}-\ee^{-x}) 
+        - (\bcancel{1}-\ee^{-a}) \ = \ \ee^{-a} - \ee^{-x}
+%         \\[.2cm]
+%         & = & \ee^{-a} \ (1-\ee^{a-x})
+       \end{array}
+      \]
+      \conc{$\Prob(\Ev{N=1}\cap \Ev{Z\leq x}) = \ee^{-a} - \ee^{-x}$}
+      
+    \item \dashuline{Si $n\geq 2$}.
+      \[
+       \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+         \Ev{N=n} \cap \Ev{Z \leq x} & = & \Ev{N=n} \cap \Ev{X_N \leq x}
+         & (par définition de $Z$)
+         \nl
+         \nl[-.2cm]
+         & = & \Ev{N=n} \cap \Ev{X_n \leq x}
+         & (par définition de $Z$)
+         \nl
+         \nl[-.2cm]
+         & = & \left(\dcap{k=1}{n-1} \Ev{X_k \leq a}\right) \cap 
+         \Ev{X_n >a} \ \cap \ \Ev{X_n \leq x}
+         & (d'après la question \itbf{8.})
+         \nl
+         \nl[-.2cm]
+         & = & \left(\dcap{k=1}{n-1} \Ev{X_k \leq a}\right) \cap
+         \Ev{a< X_n \leq x}
+         \\[.6cm]
+         & = & \Ev{\max(X_1, \ldots, X_n) \leq a} \cap 
+         \Ev{a < X_n \leq x}
+         \\[.4cm]
+         & = & \Ev{T_{n-1} \leq a} \cap \Ev{a < X_n \leq x}
+         & (par définition de $T_{n-1}$)
+       \end{array}
+      \]
+      \conc{Si $n \geq 2$, on a bien : $\Ev{N=n} \cap \Ev{Z\leq x} =
+        \Ev{T_{n-1}\leq a}\cap \Ev{a<X_n\leq x}$.}%
+      On en déduit alors :
+      \[
+      \begin{array}{rcl@{\quad}>{\it}R{6cm}}
+        \Prob(\Ev{N=n} \cap \Ev{T \leq x}) & = & 
+        \Prob(\Ev{T_{n-1} \leq a} \cap \Ev{a< X_n \leq x})
+        \\[.2cm]
+        & = & \Prob(\Ev{T_{n-1} \leq a}) \, \Prob(\Ev{a < X_n \leq x})
+        & (car $T_{n-1}$ et $X_n$ sont indépendantes d'après le lemme
+        des coalitions)
+        \nl
+        \nl[-.2cm]
+        & = & \left(1-\ee^{-a}\right)^{n-1} \, \Prob(\Ev{a < X_n \leq x})
+        & (d'après la question \itbf{4.a)})
+      \end{array}
+      \]
+      De plus $X_n$ suit la même loi que $X_1$, donc :
+      \[
+      \Prob(\Ev{a< X_n \leq x}) = \Prob(\Ev{a< X_1 \leq x}) =
+      \ee^{-a} - \ee^{-x} % \ee^{-a}(1 - \ee^{a-x})
+      \]
+      \conc{Si $n \geq 2$, $\Prob(\Ev{N=n}\cap \Ev{Z\leq x}) =
+        \left(1-\ee^{-a}\right)^{n-1} \ (\ee^{-a} - \ee^{-x})$.}
+      %\ee^{-a}(1 - \ee^{a-x})$.}
+      % \end{noliste}
+   \end{noliste}
+   On remarque que l'expression trouvée dans le cas $n\geq 2$ est
+   valide pour $n=1$.%
+   \conc{On en déduit : $\forall n\in \N^*$, $\Prob(\Ev{N=n} \cap
+     \Ev{Z \leq x}) = (\ee^{-a} - \ee^{-x}) \
+     \left(1-\ee^{-a}\right)^{n-1}$}%~\\[-1cm]
+   \begin{remark}~\\
+     On fait remarquer que la formule obtenue est valide dans le cas
+     $n =1$ et $n \geq 2$.\\
+     Ce n'est pas un objectif annoncé de la question. L'avantage est
+     que cela rend la question suivante plus simple à rédiger : on
+     n'est pas obligé de distinguer les cas $n =1$ et $n \geq 2$
+     puisque l'expression est valide dans ces deux cas.
+   \end{remark}~\\[-1cm]
+  \end{proof}
+
+
+  \newpage
+ 
+
+  \item Montrer alors : $\Prob(\Ev{Z\leq x})=1-\ee^{a-x}$.
+  
+    \begin{proof}~\\
+      La famille $\big( \Ev{N=n} \big)_{n\geq 1}$ est un système
+      complet d'événements.\\
+      Ainsi, d'après la formule des probabilités totales :
+      \[
+      \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+        \Prob(\Ev{Z\leq x}) & = & \Sum{n=1}{+\infty} 
+        \Prob(\Ev{N=n} \cap \Ev{Z\leq x})
+        \\[.4cm]
+        & = & \Sum{n=1}{+\infty} (\ee^{-a} - \ee^{-x}) \ 
+        \left(1-\ee^{-a}\right)^{n-1}
+        & (d'après la question \itbf{11.a)})
+        \nl
+        \nl[-.2cm]
+        & = & (\ee^{-a} - \ee^{-x}) \ \Sum{n=1}{+\infty} (1-\ee^{-a})^{n-1}
+        \\[.4cm]
+        & = & (\ee^{-a} - \ee^{-x}) \ \Sum{n=0}{+\infty} (1-\ee^{-a})^n
+        & (par décalage d'indice)
+        \nl
+        \nl[-.2cm]
+        & = & (\ee^{-a} - \ee^{-x}) \ \dfrac{1}{\bcancel{1} - (
+          \bcancel{1} - \ee^{-a})}
+        \\[.6cm]
+        & = & \bcancel{\ee^{-a}} \ (1-\ee^{a-x}) \ \dfrac{1}{\bcancel{\ee^{-a}}}
+        \\[.6cm]
+        & = & 1 - \ee^{a-x}
+      \end{array}
+      \]
+      \conc{Ainsi : $\Prob(\Ev{Z\leq x}) = 1-\ee^{a-x}$}~\\[-1cm]
+    \end{proof}
+ \end{noliste}
+  
+ \item 
+ \begin{noliste}{a)}
+  \item Montrer que la variable aléatoire $Z-a$ suit une loi 
+  exponentielle dont on précisera le paramètre.
+  
+  \begin{proof}~
+   \begin{noliste}{$\sbullet$}
+    \item Soit $x\in \R$.
+    \begin{noliste}{$\stimes$}
+      \item \dashuline{si $x< 0$}, alors : 
+      \[
+       \Ev{Z-a \leq x} = \Ev{Z \leq x+a} \subset \Ev{Z \leq a}
+      \]
+      Donc, par croissance de $\Prob$ et d'après la question
+      \itbf{10.} :
+      \[
+       0 \leq \Prob(\Ev{Z-a\leq x}) \leq \Prob(\Ev{Z\leq a}) = 0
+      \]
+      D'où : $F_{Z-a}(x) = \Prob(\Ev{Z-a\leq x}) = 0$.
+      
+      \item \dashuline{si $x \geq 0$} :
+      \[
+       \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+        F_{Z-a}(x) & = & \Prob(\Ev{Z-a \leq x}) \ = \ 
+        \Prob(\Ev{Z \leq x+a})
+        \\[.2cm]
+        & = & 1-\ee^{\bcancel{a}-(x+\bcancel{a})} & 
+        (d'après la question \itbf{11.b)}, car $x+a \geq a$)
+        \nl
+        \nl[-.2cm]
+        & = & 1-\ee^{-x}
+       \end{array}
+      \]
+    \end{noliste}
+    Finalement : 
+    \[
+     \forall x\in \R, \ F_{Z-a}(x) = \left\{
+     \begin{array}{cl}
+      1-\ee^{-x} & \mbox{ si $x\geq 0$}\\
+      0 & \mbox{ si $x<0$}
+     \end{array}
+     \right.
+    \]
+    On reconnaît la fonction de répartition de la loi
+    exponentielle de paramètre $1$.\\
+    Or, la fonction de répartition caractérise la loi.
+    \conc{Donc la \var $Z-a$ suit une loi exponentielle de 
+    paramètre $1$.}
+   \end{noliste}
+   
+   \begin{remark}~
+    \begin{noliste}{$\sbullet$}
+     \item On reconnaît ici une question du type \og déterminer la 
+     transformée affine d'une \var $Z$ \fg{}.\\
+     Ce type de question est à savoir faire sans hésitation.
+     
+   \item L'énoncé nous guide ici dans la disjonction de cas à
+     considérer : il précise que $Z-a$ suit une loi exponentielle. Or
+     le support d'une \var suivant une loi exponentielle est
+     $[0,+\infty[$.\\
+     La disjonction de cas attendue pour déterminer la fonction de
+     répartition de $Z-a$ est donc :
+     \begin{noliste}{$\stimes$}
+      \item le cas $x \geq 0$,
+      \item le cas $x<0$.
+     \end{noliste}
+    \end{noliste}
+   \end{remark}~\\[-1.4cm]
+  \end{proof}
+
+  
+  \item En déduire l'existence et la valeur de $\E(Z)$, ainsi que 
+  l'existence et la valeur de $\V(Z)$.
+  
+  \begin{proof}~
+   \begin{noliste}{$\sbullet$}
+    \item On remarque que : $Z = (Z-a) +a$.
+    \conc{La \var $Z$ admet une espérance et une variance en tant que\\ 
+    somme de \var qui en admettent.}
+    
+    \item Par linéarité de l'espérance :
+    \[
+     \E(Z) = \E(Z-a) + \E(a) = \dfrac{1}{1} + a = 1+a
+    \]
+    \item Par propriété de la variance :
+    \[
+     \V(Z) = \V(Z-a)=\dfrac{1}{1^2} = 1
+    \]
+   \end{noliste}
+   \conc{Finalement : $\E(Z)=1+a$ et $\V(Z)=1$.}~\\[-1.2cm]
+  \end{proof}
+
+ \end{noliste}
+\end{noliste}
+
+\section*{Exercice 2}
+
+\noindent
+Dans cet exercice on pourra utiliser l'encadrement suivant : $2 < \ee
+< 3$.
+
+\subsection*{Partie I : Etude d'une fonction}
+
+\noindent
+On considère l'application $\varphi : \R \rightarrow \R, x \mapsto
+\varphi(x) = x^2 \, \ee^x - 1$.
+\begin{enumerate}[\bfseries 1.]
+\item Dresser le tableau de variations de $\varphi$, en précisant la
+  limite de $\varphi$ en $-\infty$, sa valeur en 0 et sa limite en
+  $+\infty$.
+
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item La fonction $\varphi$ est $C^\infty$ sur $\R$ comme somme et
+      produit de fonctions $C^\infty$ sur $\R$.
+
+    \item Soit $x \in \R$. 
+      \[
+      \varphi'(x) = 2x \, \ee^x + x^2 \, \ee^x = x \, (2 + x) \, \ee^x
+      \]
+      Comme $\ee^x > 0$, $\varphi'(x)$ est du signe de $x \, (2+x)$
+      {\it (polynôme de degré $2$)}.
+
+    \item On obtient le tableau de variations suivant.\\
+      \begin{center}
+        \begin{tikzpicture}[scale=.8, transform shape] %
+          \tkzTabInit[lgt=4,espcl=4] %
+          {$x$ /1, %
+            Signe de $f'(x)$ /1, %
+            Variations de $f$ /3} %
+          { $-\infty$, $-2$, $0$, $+\infty$ } %
+          \tkzTabLine{ , + , z, - , z, + , }%
+          \tkzTabVar{-/$-1$, +/$4 \, \ee^{-2} - 1$, -/$-1$, +/$+\infty$}%
+        \end{tikzpicture}
+      \end{center}
+
+    \item Détaillons les différents éléments de ce tableau.
+
+      \begin{noliste}{$\stimes$}
+      \item En posant $X = -x$, on obtient :
+        \[
+        \dlim{x \tend -\infty} x^2 \, \ee^x - 1 = \dlim{X \tend
+          +\infty} (-X)^2 \, \ee^{-X} - 1 = \dlim{X \tend +\infty}
+        \dfrac{X^2}{\ee^{X}} - 1 = -1
+        \]
+        par croissances comparées.
+      \item $\varphi(0) = -1$
+      \item $\dlim{x \tend +\infty} x^2 \, \ee^x - 1 = +\infty$ \\[-1cm]
+      \end{noliste}
+    \end{noliste}
+  \end{proof}
+
+\item Établir que l'équation $\ee^x = \dfrac{1}{x^2}$, d'inconnue $x
+  \in \ ]0;+\infty[$, admet une solution et une seule, notée $\alpha$,
+  et que $\alpha$ appartient à l'intervalle $\left] \dfrac{1}{2}, 1
+  \right[$.
+
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item Soit $x > 0$. Remarquons que :
+      \[
+      \ee^x = \dfrac{1}{x^2} \ \Leftrightarrow \ x^2 \, \ee^x = 1 \
+      \Leftrightarrow \ x^2 \, \ee^x - 1 = 0 \ \Leftrightarrow \
+      \varphi(x) = 0
+      \]
+
+    \item La fonction $\varphi$ est :
+      \begin{noliste}{$\stimes$}
+      \item continue sur l'intervalle $]0,+\infty[$,
+      \item strictement croissante sur $]0,+\infty[$.
+      \end{noliste}
+      Ainsi, $\varphi$ réalise une bijection de $]0,+\infty[$ dans
+      $\varphi(]0,+\infty[) \ = \ ]\varphi(0), \dlim{x \tend +\infty}
+      \varphi(x)[ \ = \ ]-1, +\infty[$.\\[.2cm]
+      Comme $0 \in \ ]-1, +\infty[$, on en déduit que $0$ admet un
+      unique antécédent $\alpha \in \ ]0, +\infty[$ par la fonction
+      $\varphi$ {\it (ou encore que l'équation $\varphi(x) = 0$ admet
+        une unique solution $\alpha \in \ ]0, +\infty[$)}.%
+      \conc{L'équation $\ee^x = \dfrac{1}{x^2}$ admet une unique
+        solution $\alpha \in \ ]0, +\infty[$.}
+
+
+      \newpage
+
+
+    \item De plus :
+      \begin{noliste}{$\stimes$}
+      \item $\varphi(\frac{1}{2}) = \dfrac{1}{4} \, \ee^{\frac{1}{2}}
+        - 1 < \dfrac{1}{4} \, \ee - 1 < \dfrac{3}{4} - 1 =
+        -\dfrac{1}{4} < 0$.
+      \item $\varphi(\alpha) = 0$.
+      \item $\varphi(1) = \ee^1-1 > 0$ car $\ee > 2$.        
+      \end{noliste}
+      Ainsi : $\varphi(\frac{1}{2}) < 0 < \varphi(1)$.\\
+      Or, d'après le théorème de la bijection, $f^{-1} : \ ]0, +\infty[
+      \ \to \ ]0, +\infty[$ est strictement croissante.%
+      \conc{En appliquant $f^{-1}$ à l'inégalité précédente, on
+        obtient : $\dfrac{1}{2} < \alpha < 1$.}~\\[-1.3cm]
+    \end{noliste}
+  \end{proof}
+\end{enumerate}
+
+\subsection*{Partie II : Étude d'une suite}
+
+\noindent
+On considère l'application $f:\R\rightarrow \R, x\mapsto
+f(x) = x^3 \, \ee^x$,\\
+et la suite réelle $(u_n)_{n\in\N}$ définie par : $u_0=1$ et $\forall
+n\in\N$, $u_{n+1}=f(u_n)$.
+
+\begin{enumerate}[\bfseries 1.]
+  \setcounter{enumi}{2}
+\item Montrer : $\forall n\in\N$, $u_n\geq 1$.
+
+  \begin{proof}~\\
+    Démontrons par récurrence que : $\forall n \in \N, \ \PP{n}$ \quad
+    où \quad $\PP{n}$ : $u_n \geq 1$.
+    \begin{noliste}{1)}
+    \item {\bf Initialisation} :\\
+      $u_0 = 1 \geq 1$ donc $\PP{0}$ est vérifiée.
+
+    \item {\bf Hérédité} : soit $n \in \N$.\\
+      Supposons $\PP{n}$ et démontrons $\PP{n+1}$ (\ie $u_{n+1} \geq
+      1$).\\
+      Par hypothèse de récurrence : $u_n \geq 1$.\\
+      Par croissance des fonctions élévation au cube et exponentielle
+      : $u_n^3 \geq 1$ et $\ee^{u_n} \geq \ee^{1} \geq 1$.\\
+      On en déduit que : $u_{n+1} = u_n^3 \, \ee^{u_n} \geq 1$.\\
+      D'où $\PP{n+1}$.
+    \end{noliste}
+    \conc{Par principe de récurrence : $\forall n \in \N, \ u_n \geq
+      1$.}~\\[-1cm]
+  \end{proof}
+
+\item Établir que la suite $(u_n)_{n\in\N}$ est croissante.
+
+  \begin{proof}~\\
+    Soit $n \in \N$.
+    \begin{noliste}{$\sbullet$}
+    \item Tout d'abord : % On raisonnne par équivalence :
+      \[
+      u_{n+1} - u_n = u_n^3 \, \ee^{u_n} - u_n = (u_n^2 \, \ee^{u_n} -
+      1) \ u_n 
+      \]
+
+    \item Or, comme $u_n \geq 1$ (d'après la question précédente),
+      $u_n^2 \geq 1$ et $\ee^{u_n} \geq \ee^1 \geq 1$.\\
+      Ainsi : $u_n^2 \, \ee^{u_n} \geq 1$ et donc $u_n^2 \, \ee^{u_n}
+      - 1 \geq 0$. 
+    \end{noliste}
+    \conc{Comme $u_n \geq 1$, on en déduit que : $\forall n \in \N, \
+      u_{n+1} \geq u_n$. La suite $(u_n)$ est donc croissante.}
+    \begin{remark}~
+      \begin{noliste}{$\sbullet$}
+      \item On pouvait aussi démontrer par récurrence que : $\forall n
+        \in \N, \ u_{n+1} \geq u_n$ :
+        \begin{noliste}{$\stimes$}
+        \item {\bf Initialisation} : $u_1 \geq u_0$.
+        \item {\bf Hérédité} : si $u_{n+1} \geq u_n$ alors $f(u_{n+1})
+          \geq f(u_n)$ par croissance de la fonction $f$ (à
+          démontrer).  
+        \end{noliste}
+        Il faut faire attention : le caractère croissant de $f$ ne
+        suffit pas à démontrer que $(u_n)$ est croissant ! (si $u_0
+        \geq u_1$, la suite obtenue est décroissante).
+
+
+        \newpage
+
+
+      \item On pouvait aussi démontrer que : $\forall x \geq 1, \ f(x)
+        \geq x$ puis en déduire, en remplaçant $x$ par $u_n \geq 1$
+        que : $f(u_n) \geq u_n$. Attention cependant : 
+        \[
+        \mbox{$f$ croissante} \ \not \Rightarrow \ f(x) \geq x
+        \]
+        On peut penser à la fonction racine qui est croissante sur
+        $\R^+$ et vérifie : $\forall x \geq 1, \ f(x) \leq x$.
+      \end{noliste}
+    \end{remark}
+    ~\\[-1cm]
+  \end{proof}
+
+\item Quelle est la limite de $u_n$ lorsque l'entier $n$ tend vers
+  l'infini ?
+
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item D'après la question précédente, la suite $(u_n)$ est
+      croissante.
+    \item Supposons par l'absurde que $(u_n)$ est majorée.\\
+      Étant croissante, $(u_n)$ est convergente vers un réel $\ell$.\\
+      D'après la question \itbf{3.}, on sait que : $\forall n \in \N,
+      \ u_n \geq 1$. Ainsi, par passage à la limite : $\ell \geq 1$.
+
+    \item D'autre part, par définition : $\forall n \in \N, \ u_{n+1}
+      = f(u_n)$.\\
+      Par passage à la limite, on obtient : $\ell = f(\ell)$. Or,
+      comme $\ell \neq 0$ :
+      \[
+      \ell = f(\ell) \ \Leftrightarrow \ \ell = \ell^3 \, \ee^\ell \
+      \Leftrightarrow \ 1 = \ell^2 \, \ee^\ell \ \Leftrightarrow \
+      \ell^2 \, \ee^\ell - 1 = 0
+      \]
+      Or, d'après la question \itbf{2.}, cette équation admet $\alpha$
+      pour unique solution sur $]0, +\infty[$.\\
+      On en déduit que $\ell = \alpha$. Enfin, comme $\alpha < 1$, on
+      en déduit que $\ell < 1$.%
+      \concL{Impossible car $\alpha \geq 1$. Ainsi, la suite $(u_n)$
+        n'est pas majorée. Étant croissante, elle divrege vers
+        $+\infty$.}{15}
+    \end{noliste}
+    \begin{remark}~
+      \begin{noliste}{$\sbullet$}
+      \item La suite $(u_n)$ étant croissante, soit elle est majorée
+        et dans ce cas elle converge; soit elles n'est pas majorée et
+        dans ce cas elle diverge vers $+\infty$.
+      \item Dans cette question, on ne demande rien d'autre que
+        d'établir cette disjonction de cas.       
+      \end{noliste}
+    \end{remark}
+    ~\\[-1.2cm]
+  \end{proof}
+
+\end{enumerate}
+
+\subsection*{Partie III : Étude d'une série}
+
+\begin{enumerate}[\bfseries 1.]
+  \setcounter{enumi}{5}
+\item Montrer que la série $\Sum{n\geq 1}{} \dfrac{1}{f(n)}$
+  converge. On note $S = \Sum{n=1}{+\infty} \dfrac{1}{f(n)}$.
+
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item La série $\Sum{n\geq 1}{} \dfrac{1}{f(n)}$ est à termes
+      positifs.
+
+    \item De plus : $\dfrac{1}{f(n)} = \dfrac{1}{n^3 \, \ee^{n}} =
+      \oon\left(\dfrac{1}{n^2}\right)$. En effet, $\dfrac{\frac{1}{n^3
+          \, \ee^{n}}}{\frac{1}{n^2}} = \dfrac{n^2}{n^3 \, \ee^{n}} =
+      \dfrac{1}{n \, \ee^{n}} \tendn 0$.\\[.2cm]
+      Or, d'après le critère de Riemann ($2 > 1$), la série
+      $\Sum{n\geq 1}{} \dfrac{1}{n^2}$ est convergente.%
+      \concL{Ainsi, d'après le théorème de négligeabilité des séries à
+        termes positifs, la série $\Sum{n\geq 1}{} \dfrac{1}{f(n)}$
+        est convergente.}{15}~\\[-1cm]
+    \end{noliste}
+  \end{proof}
+
+
+  \newpage
+
+
+\item Montrer : $\forall n\in\N^*$, $\left| \ S - \Sum{k=1}{n}
+    \dfrac{1}{f(k)} \ \right| \leq \dfrac{1}{(\ee-1) \, \ee^n}$.
+
+  \begin{proof}~\\
+    Soit $n \in \N^*$.
+    \begin{noliste}{$\sbullet$}
+    \item Notons tout d'abord que : 
+      \[
+      S - \Sum{k=1}{n} \dfrac{1}{f(k)} \ = \ \Sum{k=1}{+\infty}
+      \dfrac{1}{f(k)} - \Sum{k=1}{n} \dfrac{1}{f(k)} \ = \
+      \Sum{k=n+1}{+\infty} \dfrac{1}{f(k)} \ = \ \dlim{m \tend
+        +\infty} \Sum{k=n+1}{m} \dfrac{1}{f(k)}
+      \]
+    \item Or, comme pour tout $k \geq 1, \ k^3 \, \ee^k \geq \ee^k$ :
+      \[
+      \Sum{k=n+1}{m} \dfrac{1}{f(k)} \ = \ \Sum{k=n+1}{m}
+      \dfrac{1}{k^3 \, \ee^{k}} \ \leq \ \Sum{k=n+1}{m}
+      \dfrac{1}{\ee^{k}}
+      \]
+    \item Enfin :
+      \[
+      \begin{array}{rcl}
+        \Sum{k=n+1}{m} \left(\dfrac{1}{\ee}\right)^k & = &
+        \dfrac{(\frac{1}{\ee})^{n+1} - (\frac{1}{\ee})^{m+1}}{1-
+          \frac{1}{\ee}} \ = \ \dfrac{(\frac{1}{\ee})^{n+1} -
+          (\frac{1}{\ee})^{m+1}}{\frac{\ee-1}{\ee}} \ = \ \dfrac{\ee \,
+          (\frac{1}{\ee})^{n+1} - \ee \,
+          (\frac{1}{\ee})^{m+1}}{\ee-1} \\[.6cm]
+        & = & \dfrac{\frac{1}{\ee^n} - \frac{1}{\ee^m}}{\ee-1} \ 
+        \tendd{m}{+\infty} \ \dfrac{\frac{1}{\ee^n}}{\ee-1} \ = \ 
+        \dfrac{1}{(\ee-1) \, \ee^n}
+      \end{array}
+      \]      
+    \end{noliste}
+    \conc{$\forall n\in\N^*$, $\left| \ S - \Sum{k=1}{n}
+        \dfrac{1}{f(k)} \ \right| \leq \dfrac{1}{(\ee-1) \, \ee^n}$}~\\[-1cm]
+  \end{proof}
+
+\item En déduire une fonction en {\bf Scilab} qui calcule une valeur
+  approchée de $S$ à $10^{-4}$ près.
+
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item Afin de calculer une valeur approchée de $S$ à $10^{-4}$
+      près, il suffit de trouver $n \in \N^*$ tel que :
+      \[
+      \dfrac{1}{(\ee-1) \, \ee^n} \ \leq \  10^{-4}
+      \]
+    \item En effet, d'après la question précédente, on a alors :
+      \[
+      \left| \ S - \Sum{k=1}{n} \dfrac{1}{f(k)} \ \right| \ \leq \
+      \dfrac{1}{(\ee-1) \, \ee^n} \ \leq \ 10^{-4}
+      \]
+      et $\Sum{k=1}{n} \dfrac{1}{f(k)}$ constitue dans ce cas
+      l'approximation recherchée.
+    \item On en déduit le programme suivant.
+
+      \begin{scilab}
+        & n = 1 \nl %
+        & S = 1 / exp(1) \nl %
+        & \tcFor{while} 1 / ((exp(1)-1) \Sfois{} exp(n)) >
+        10\puis{}(-4) \nl %
+        & \qquad n = n + 1 \nl %
+        & \qquad S = S + 1 / (n\puis{}3 \Sfois{} exp(n)) \nl %
+        & \tcFor{end} \nl %
+      \end{scilab}      
+    \end{noliste}
+
+
+    \newpage
+
+
+    \begin{remark}~\\
+      Le programme précédent propose de déterminer la valeur de $n$ et
+      de $S_n$ en procédant par itération. On peut aussi remarquer que :
+      \[
+      \dfrac{1}{(\ee-1) \, \ee^n} \ \leq \ 10^{-4} \ \Leftrightarrow \
+      \ee^n \ \geq \ \dfrac{10^{4}}{(\ee-1)} \ \Leftrightarrow \ n \
+      \geq \ 4 \, \ln(10) - \ln(\ee-1)
+      \]
+      {\it (par stricte croissance de la fonction $\ln$)}\\[.2cm]
+      Ainsi, $S_n$ est une approximation de $S$ pour tout $n \geq m =
+      \lceil 4 \, \ln(10) - \ln(\ee-1) \rceil$.\\
+      On en déduit le programme \Scilab{} suivant.
+
+      \begin{scilab}
+        & m = ceil(4 \Sfois{} log(10) - log(exp(1)-1)) \nl %
+        & S = 0 \nl %
+        & \tcFor{for} i = 1:m \nl %
+        & \qquad S = S + 1 / (i\puis{}3 \Sfois{} exp(i)) \nl %
+        & \tcFor{end} \nl %
+      \end{scilab}
+    \end{remark}
+  \end{proof}
+
+  % \subsection*{Partie IV : Etude d'une fonction de deux variables}
+  % On considère l'ouvert $U=]0,+\infty[\times \R$ de $\R^2$ et
+  % l'application de classe $\Cont{2}$ suivante : \\
+  % \[
+  % g=U\rightarrow \R, (x,y)\mapsto g(x,y)=\frac{1}{x}+\ee^x-y^2\ee^y
+  % \]
+  % \item Représenter graphiquement l'ensemble $U$.
+  % \item Calculer, pour tout $(x,y)$ de $U$, les dérivées partielles
+  %   premières de $g$ en $(x,y)$.
+  % \item Montrer que $g$ admet deux points critiques et deux
+  %   seulement, et que ceux-ci sont $(\alpha, 0)$ et $(\alpha, -2)$,
+  %   où $\alpha$ est le réel défini à la question 2.
+  % \item Est-ce que $g$ admet un extremum local en $(\alpha, 0)$?
+  % \item Est-ce que $g$ admet un extremum local en $(\alpha, -2)$?
+  % \item Est-ce que $g$ admet un extremum global sur $U$?
+\end{enumerate}
+
+\section*{Exercice 3}
+
+\noindent
+Soit $E$ un espace vectoriel de dimension 3. On note $0_E$ le vecteur
+nul de $E$.\\
+On note $i$ l'application identité de $E$, et $\theta$ l'application
+constante nulle de $E$ dans $E$ :
+\[
+ i : \left\{
+ \begin{array}{rcl}
+  E & \to & E\\
+  x & \mapsto & x
+ \end{array}
+ \right.
+ \quad \mbox{ et } \quad 
+ \theta : \left\{
+ \begin{array}{rcl}
+  E & \to & E\\
+  x & \mapsto & 0_E
+ \end{array}
+ \right.
+\]
+On considère un endomorphisme $f$ de $E$ tel que : 
+\[
+ f \neq \theta, \quad f^2 + i \neq \theta, \quad f \circ (f^2+i)=\theta
+\]
+où $f^2$ désigne $f \circ f$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item 
+ \begin{noliste}{a)}
+  \item Montrer que $f$ n'est pas bijectif.
+  
+    \begin{proof}~\\
+      Supposons par l'absurde que l'endomorphisme $f$ est bijectif.\\
+      Alors l'endomorphisme $f$ admet une bijection réciproque $f^{-1}
+      : E \to E$. Or, d'après l'énoncé :
+      \[
+      f \circ (f^2 +i) = \theta
+      \]
+      On en déduit, en composant de part et d'autre à gauche par
+      $f^{-1}$ :
+      \[
+      \begin{array}{ccl}
+        f^{-1} \circ \big( f \circ (f^2 +i) \big) & = & f^{-1} \circ
+        \theta \ = \ \theta 
+        \\[.2cm]
+        \shortparallel & 
+        \\[.2cm]
+        \multicolumn{3}{l}{( f^{-1} \circ f ) \circ (f^2 +i) \ = \ 
+          i \circ (f^2+i) = f^2+i}
+    \end{array} 
+   \]
+   Ce qui est absurde, puisque d'après l'énoncé : $f^2+i \neq \theta$.%
+   \conc{On en déduit que $f$ n'est pas bijectif.}%~\\[-1cm]
+   \begin{remark}~\\
+     On peut aussi raisonner de manière directe. Comme :
+     \[
+     f \circ (f^2 + i) = \theta
+     \]
+     alors, pour tout $x \in E$ : $\big( f \circ (f^2 + i) \big)(x) =
+     f \big (f^2 + i) (x) \big) = 0_E$.\\[.1cm]
+     Autrement dit : $\forall x \in E$, $(f^2 + i) (x) \in \kr(f)$.\\
+     Or, d'après l'énoncé : $f^2 + i \neq 0_{\LL{E}}$. Ainsi, il
+     existe $x \in E$ tel que : $(f^2 + i)(x) \neq 0_E$.\\
+     On en déduit :
+     \[
+     \kr(f) \supset \{0_E, (f^2 + i)(x)\} \neq \{ 0_E \}
+     \]
+     Ainsi, $f$ n'est pas injective. Elle n'est donc pas bijective.
+   \end{remark}~\\[-1.4cm]
+  \end{proof}
+  
+\item En déduire que $0$ est valeur propre de $f$, puis montrer qu'il
+  existe $u$ appartenant à $E$ tel que : $u\neq 0_E$ et $f(u)=0_E$.
+  
+  \begin{proof}~
+   \begin{noliste}{$\sbullet$}
+   \item D'après la question précédente, $f$ n'est pas bijectif,
+     c'est-à-dire $f- 0 \cdot i$ n'est pas bijectif.\\ %
+     Comme $E$ est de dimension finie, ceci équivaut à $f$ non injectif.%
+     \conc{Donc $0$ est valeur propre de $f$.}
+    
+  \item $0$ est valeur propre de $f$, donc : $\kr(f) = \kr(f - 0 \cdot
+    i) \neq \{0_E\}$.\\[.1cm]
+    Il existe donc $u \neq 0_E$ tel que $u \in \kr(f)$.%
+    \conc{Autrement dit, il existe $u\in E$ tel que : $u \neq 0_E$ et
+      $f(u) = 0_E$.}~\\[-1.4cm]
+   \end{noliste}
+  \end{proof}
+ \end{noliste}
+
+
+\newpage
+
+
+ \noindent
+ Soit $v_1$ appartenant à $E$ tel que : $v_1\neq 0_E$ et $f(v_1)=0_E$.\\[-.8cm]
+ \item Montrer : $\spc(f)=\{0\}$.
+ 
+ \begin{proof}~
+  \begin{noliste}{$\sbullet$}
+  \item D'après l'énoncé : $f \circ (f^2+i) = \theta$.\\[.1cm]
+    On en déduit que le polynôme $Q(X)=X(X^2+1)$ est un polynôme
+    annulateur de $f$.\\
+    De plus l'unique racine de $Q$ est $0$ (le polynôme $X^2+1$
+    n'admet pas de racine réelle).%
+    \conc{D'où : $\spc(f) \subset \{ \text{racines de $Q$} \} =
+      \{0 \}$.}
+   
+  \item De plus, d'après la question \itbf{1.b)}, $0 \in \spc(f)$.
+  \end{noliste}
+  \conc{On en déduit : $\spc(f) = \{0\}$.}~\\[-1cm]
+ \end{proof}
+ 
+\item Est-ce que $f$ est diagonalisable ?
+ 
+  \begin{proof}~\\
+    D'après l'énoncé, $E$ est un espace vectoriel de dimension $3$. On
+    note $\B$ l'une de ses bases.\\[.2cm]
+    Supposons par l'absurde que $f$ est diagonalisable. \\
+    Il existe alors une base $\B' = (e_1', e_2', e_3')$ constituée de
+    vecteurs propres de $f$ dans laquelle la matrice représentative de
+    $f$ est la matrice diagonale :
+    \[
+    D = 
+    \begin{smatrix}
+      0 & 0 & 0 \\
+      0 & 0 & 0 \\
+      0 & 0 & 0
+    \end{smatrix} = 0_{\M{3,1}}
+    \]
+    D'après la formule de changement de base :
+    \[
+    \begin{array}{ccccc}
+      \Mat_{\B}(f) & = & P_{\B, \B'} & \Mat_{\B'}(f) & P_{\B', \B}
+      \\[.2cm]
+      & & \shortparallel & \shortparallel &
+      \shortparallel
+      \\[.2cm]
+      & & P & D & P^{-1}
+    \end{array}
+    \]
+    Ainsi :
+    \[
+    \Mat_{\B}(f) = P \ 0_{\M{3,1}} \ P^{-1} = 0_{\M{3,1}} =
+    \Mat_{\B}(\theta)
+    \]
+    L'application $\Mat_{\B}(.)$ étant bijective, on en déduit : $f =
+    \theta$.\\
+    Absurde ! ~\\[-.6cm]%
+    \conc{Ainsi, $f$ n'est pas diagonalisable.}
+    \begin{remark}~
+      \begin{noliste}{$\sbullet$}
+      \item Il était possible de rédiger différemment en prenant le
+        parti de diagonaliser la matrice représentative de
+        $f$. Détaillons cette rédaction.
+      \item On commence par noter $M = \Mat_{\B}(f)$ la matrice
+        représentative de $f$ dans une base $\B$ de $E$.\\
+        Supposons par l'abusrde que $f$ est diagonalisable. Alors $M$
+        est diagonalisable. \\
+        Il existe alors une matrice $P \in \M{n}$ inversible telle que
+        :
+        \[
+        M = P D P^{-1}
+        \]
+        où $D$ est une matrice diagonale dont les c\oe{}fficients
+        diagonaux sont les valeurs propres de $M$. \\
+        Or $\spc(M) = \spc(f) = \{0\}$. Donc : $D = 0_{\M{3,1}}$.\\
+        Et ainsi :
+        \[
+        \Mat_{\B}(f) = P \ 0_{\M{3,1}} \ P^{-1} = 0_{\M{3,1}} =
+        \Mat_{\B}(\theta)
+        \]
+        Et on peut donc conclure comme ci-dessus.
+      \item Cette question est un grand classique des sujets.\\
+        Il faut donc savoir la traiter correctement, en adoptant l'un
+        ou l'autre des rédactions ci-dessus.
+      \end{noliste}
+    \end{remark}~\\[-1.2cm]
+ \end{proof}
+ 
+
+\newpage
+
+
+\item Montrer que $f^2+i$ n'est pas bijectif, puis en déduire qu'il
+  existe $v$ appartenant à $E$ tel que : \\
+  $v\neq 0_E$ et $f^2(v)=-v$.
+ 
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item Supposons par l'absurde que l'endomorphisme $f^2 + i$ est
+      bijectif.\\
+      Alors l'endomorphisme $g = f^2 + i$ admet une bijection
+      réciproque $g^{-1} : E \to E$. Or, d'après l'énoncé :
+      \[
+      f \circ (f^2 +i) = \theta
+      \]
+      On en déduit, en composant de part et d'autre à droite par $g$ :
+      \[
+      \begin{array}{ccl}
+        \big(f \circ (f^2 +i) \big) \circ g^{-1} & = & \theta \circ g^{-1} \ = \
+        \theta
+        \\[.2cm]
+        \shortparallel & 
+        \\[.2cm]
+        \multicolumn{3}{l}{ \big(f \circ (f^2 +i) \big) \circ g^{-1} \ = \
+          f \circ \big( (f^2 +i) \circ g^{-1} \big) = f \circ i = f}
+      \end{array} 
+      \]
+      Ce qui est absurde, puisque d'après l'énoncé : $f \neq \theta$.%
+      \conc{On en déduit que $f^2 + i$ n'est pas bijectif.}~\\[-1cm]
+   
+    \item L'endomorphisme $f^2+i$ n'est pas bijectif. Donc :
+      $\kr(f^2+i) \neq \{0_E\}$.\\[.1cm]
+      Il existe donc $v \neq 0_E$ tel que $v \in \kr(f^2+i)$. Or :
+   \[
+    v\in \kr(f^2+i) \ \Leftrightarrow \ (f^2+i)(v)=0_E \ 
+    \Leftrightarrow \ f^2(v) +v=0_E \ \Leftrightarrow \
+    f^2(v)=-v
+   \]
+   \conc{Ainsi, il existe $v\in E$ tel que : $v \neq 0_E$ et
+     $f^2(v)=-v$.}~\\[-1.4cm]
+  \end{noliste}
+ \end{proof}
+
+\noindent 
+Soit $v_2$ appartenant à $E$ tel que : $v_2\neq 0_E$ et
+$f^2(v_2)=-v_2$. On note $v_3=f(v_2)$.
+ 
+\item Montrer : $f(v_3)=-v_2$.
+ 
+  \begin{proof}~\\
+    On calcule :
+    \[
+    f(v_3) = f(f(v_2)) = f^2(v_2) = -v_2
+    \]
+    \conc{On a bien : $f(v_3) = -v_2$.}~\\[-1cm]
+  \end{proof}
+ 
+ \item 
+ \begin{noliste}{a)}
+  \item Montrer que la famille $\B=(v_1,v_2,v_3)$ est une base 
+  de $E$.
+  
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item Montrons que la famille $\B$ est libre.\\
+      Soit $(\lambda_1, \lambda_2, \lambda_3) \in \R^3$. Supposons que
+      :
+      \[
+      \lambda_1 \cdot v_1 + \lambda_2 \cdot v_2 + \lambda_3 \cdot v_3
+      = 0_E
+      \]
+      \begin{noliste}{-}
+      \item On applique $f$ de part et d'autre. On obtient, par
+        linéarité de $f$ :
+	\[
+        \lambda_1 \cdot f(v_1) + \lambda_2 \cdot f(v_2) + 
+        \lambda_3 \cdot f(v_3) = f(0_E) = 0_E
+	\]
+	Or, on a les relations suivantes :
+	\[
+        f(v_1)=0_E, \quad f(v_2)=v_3 \quad \mbox{et} \quad 
+        f(v_3)=-v_2
+	\]
+	On obtient alors :
+	\[
+        \lambda_2 \cdot v_3 - \lambda_3 \cdot v_2 = 0_E \quad (L_1)
+	\]
+
+
+        \newpage
+
+	
+      \item On applique de nouveau $f$ de part et d'autre. On obtient
+        alors :
+	\[
+        \lambda_2 \cdot f(v_3) - \lambda_3 \cdot f(v_2) = f(0_E) = 0_E
+	\]
+	Ainsi, par les mêmes relations que précédemment :
+	\[
+        -\lambda_2 \cdot v_2 - \lambda_3 \cdot v_3 = 0_E \quad (L_2)
+	\]
+	
+      \item Par combinaison linéaire des égalités précédentes
+        ($\lambda_3 \, L_1 + \lambda_2 \, L_2$), on obtient :
+	\[
+        -\lambda_3^2 \cdot v_2 - \lambda_2^2 \cdot v_2 = 0_E
+	\]
+	Autrement dit : $(\lambda_2^2 + \lambda_3^2) \cdot 
+	v_2=0_E$.\\[.1cm]
+	Or : $v_2 \neq 0_E$. Donc : $\lambda_2^2 + \lambda_3^2 = 
+	0_{\R}$. D'où : $\lambda_2=0$ et $\lambda_3=0$.
+	
+      \item L'équation initiale devient alors :
+	\[
+        \lambda_1 \cdot v_1 = 0_E
+	\]
+	Or : $v_1 \neq 0_E$. Donc : $\lambda_1 = 0_{\R}$.
+      \end{noliste}
+      Finalement : $\lambda_1 = \lambda_2 = \lambda_3 = 0$. %
+      \conc{La famille $\B$ est donc libre.}
+      
+    \item De plus : $\Card(\B)=\Card((v_1,v_2,v_3))=3=\dim(E)$.
+    \end{noliste}
+    \conc{Donc $\B$ est une base de $E$.}~\\[-1cm]
+  \end{proof}
+  
+  \item Déterminer la matrice $C$ de $f$ dans la base $\B$.
+  
+  \begin{proof}~
+   \begin{noliste}{$\sbullet$}
+    \item On a : $f(v_1) = 0_E = 0 \cdot v_1 + 0 \cdot v_2 + 0 \cdot 
+    v_3$.\\[.2cm]
+    On en déduit que : $\Mat_{\B}(f(v_1))=
+    \begin{smatrix}
+     0\\
+     0\\
+     0
+    \end{smatrix}$.
+    
+    \item On a : $f(v_2) = v_3 = 0 \cdot v_1 + 0 \cdot v_2 + 1 \cdot 
+    v_3$.\\[.2cm]
+    On en déduit que : $\Mat_{\B}(f(v_2))=
+    \begin{smatrix}
+     0\\
+     0\\
+     1
+    \end{smatrix}$.
+    
+    \item On a : $f(v_3) = -v_2 = 0 \cdot v_1 - 1 \cdot v_2 + 0 \cdot 
+    v_3$.\\[.2cm]
+    On en déduit que : $\Mat_{\B}(f(v_3))=
+    \begin{smatrix}
+     0\\
+     -1\\
+     0
+    \end{smatrix}$.
+   \end{noliste}
+   \conc{Ainsi : $C=\Mat_{\B}(f) = 
+   \begin{smatrix}
+    0 & 0 & 0\\
+    0 & 0 & -1\\
+    0 & 1 & 0
+   \end{smatrix}$.}~\\[-1cm]
+  \end{proof}
+
+ \end{noliste}
+ 
+ \noindent
+ On considère les matrices suivantes : $A=
+ \begin{smatrix}
+  1 & 0 & 0\\
+  0 & 0 & 0\\
+  0 & 0 & 0
+ \end{smatrix}$ et $B= 
+ \begin{smatrix}
+  0 & 0 & 0\\
+  0 & 1 & 0\\
+  0 & 0 & 1
+ \end{smatrix}$,\\[.2cm]
+ et le sous-espace vectoriel ${\cal F}$ de $\M{3}$ engendré par 
+ $(A,B,C)$, c'est-à-dire :
+ \[
+  {\cal F} = \{ a \, A + b \, B + c \, C \ | \ (a,b,c)\in\R^3\}
+ \]
+ 
+
+ \newpage
+
+
+ \item Déterminer la dimension de ${\cal F}$.
+ 
+ \begin{proof}~
+  \begin{noliste}{$\sbullet$}
+  \item Montrons que $(A,B,C)$ est une famille libre de ${\cal F}$.\\
+    Soit $(\lambda_1, \lambda_2, \lambda_3) \in \R^3$. Supposons que :
+   \[
+    \lambda_1 \cdot A + \lambda_2 \cdot B + \lambda_3 \cdot C = 0_{\M{3}}
+   \]
+   Ceci équivaut à : 
+   \[
+    \begin{smatrix}
+     \lambda_1 & 0 & 0\\
+     0 & \lambda_2 & -\lambda_3\\
+     0 & \lambda_3 & \lambda_2
+    \end{smatrix}
+    =
+    \begin{smatrix}
+     0 & 0 & 0\\
+     0 & 0 & 0\\
+     0 & 0 & 0
+    \end{smatrix}
+   \]
+   Par identification, on en déduit : $\lambda_1 = \lambda_2 =
+   \lambda_3 = 0$.%
+   \conc{La famille $(A,B,C)$ est libre.}
+   
+ \item De plus, par définition de ${\cal F}$, %($= \Vect{A, B, C}$)
+   la famille $(A,B,C)$ engendre ${\cal F}$.%
+   \conc{Ainsi, $(A,B,C)$ est une base de ${\cal F}$.}
+ \end{noliste}
+ \conc{On en déduit : $\dim({\cal F})=\Card((A,B,C))=3$.}~\\[-1.2cm]
+ \end{proof}
+
+\item Montrer : $\{M\in \M{3} \ | \ CM=MC\} = {\cal F}$
+ 
+ \begin{proof}~\\
+  Soit $M\in \M{3}$. Alors il existe $(a_{1,1},a_{1,2}, a_{1,3},
+  a_{2,1}, a_{2,2}, a_{2,3}, a_{3,1}, a_{3,2}, a_{3,3}) \in \R^9$ 
+  tels que : 
+  \[
+   M=
+   \begin{smatrix}
+    a_{1,1} & a_{1,2} & a_{1,3}\\
+    a_{2,1} & a_{2,2} & a_{3,2}\\
+    a_{3,1} & a_{3,2} & a_{3,3}
+   \end{smatrix}
+  \]
+  On calcule :
+  \[
+   CM = 
+   \begin{smatrix}
+    0 & 0 & 0\\
+    0 & 0 & -1\\
+    0 & 1 & 0
+   \end{smatrix}
+   \begin{smatrix}
+    a_{1,1} & a_{1,2} & a_{1,3}\\
+    a_{2,1} & a_{2,2} & a_{3,2}\\
+    a_{3,1} & a_{3,2} & a_{3,3}
+   \end{smatrix}
+   =
+   \begin{smatrix}
+    0 & 0 & 0\\
+    -a_{3,1} & -a_{3,2} & -a_{3,3}\\
+    a_{2,1} & a_{2,2} & a_{2,3}
+   \end{smatrix}
+  \]
+  et :
+  \[
+   MC =
+   \begin{smatrix}
+    a_{1,1} & a_{1,2} & a_{1,3}\\
+    a_{2,1} & a_{2,2} & a_{3,2}\\
+    a_{3,1} & a_{3,2} & a_{3,3}
+   \end{smatrix}
+   \begin{smatrix}
+    0 & 0 & 0\\
+    0 & 0 & -1\\
+    0 & 1 & 0
+   \end{smatrix}
+   =
+   \begin{smatrix}
+    0 & a_{1,3} & -a_{1,2}\\
+    0 & a_{2,3} & -a_{2,2}\\
+    0 & a_{3,3} & -a_{3,2}
+   \end{smatrix}
+  \]  
+  On obtient alors les équivalences suivantes :
+  \[
+   \begin{array}{rcl}
+    CM=MC & \Leftrightarrow & 
+    \begin{smatrix}
+    0 & 0 & 0\\
+    -a_{3,1} & -a_{3,2} & -a_{3,3}\\
+    a_{2,1} & a_{2,2} & a_{2,3}
+   \end{smatrix}
+   =
+   \begin{smatrix}
+    0 & a_{1,3} & -a_{1,2}\\
+    0 & a_{2,3} & -a_{2,2}\\
+    0 & a_{3,3} & -a_{3,2}
+   \end{smatrix}
+   \\[.8cm]
+   & \Leftrightarrow & \left\{
+   \begin{array}{rcl}
+    a_{1,3} & = & 0\\
+    -a_{1,2} & = & 0\\
+    -a_{3,1} & = & 0\\
+    -a_{3,2} & = & a_{2,3}\\
+    -a_{3,3} & = & -a_{2,2}\\
+    a_{2,1} & = & 0\\
+    a_{2,2} & = & a_{3,3}\\
+    a_{2,3} & = & -a_{3,2}
+   \end{array}
+   \right.
+   \ \Leftrightarrow \ 
+   M=
+   \begin{smatrix}
+    a_{1,1} & 0 & 0\\
+    0 & a_{2,2} & -a_{3,2}\\
+    0 & a_{3,2} & a_{2,2}
+   \end{smatrix}
+   \\[2cm]
+   & \Leftrightarrow & M = a_{1,1} \, A + a_{2,2} \, B + a_{3,2} \, C
+   \\[.2cm]
+   & \Leftrightarrow & M \in {\cal F}
+   \end{array}
+  \]
+  \conc{On en déduit : $\{M\in\M{3} \ | \ CM=MC\} = {\cal F}$}~\\[-1.2cm]
+ \end{proof}
+
+ 
+ \newpage
+
+
+ \item 
+ \begin{noliste}{a)}
+  \item Pour tout $(a,b,c)\in\R^3$, calculer la matrice $(a 
+  \, A+b \, B+c \, C)^2$.
+  
+  \begin{proof}~\\
+   Soit $(a,b,c)\in \R^3$.
+   \[
+    (a\, A + b\, B + c\, C)^2 = 
+    \begin{smatrix}
+     a & 0 & 0\\
+     0 & b & -c\\
+     0 & c & b
+    \end{smatrix}
+    \begin{smatrix}
+     a & 0 & 0\\
+     0 & b & -c\\
+     0 & c & b
+    \end{smatrix}
+    =
+    \begin{smatrix}
+     a^2 & 0 & 0\\
+     0 & b^2-c^2 & -2bc\\
+     0 & 2bc & b^2-c^2
+    \end{smatrix}
+    = a^2 \, A + (b^2-c^2)\, B + 2bc \, C
+   \]
+   \conc{$(a\, A + b\, B + c\, C)^2 = 
+   a^2 \, A + (b^2-c^2)\, B + 2bc \, C$}~\\[-1.2cm]
+  \end{proof}
+  
+\item En déduire une matrice $M$ de $\M{3}$ telle que : $M^2=
+  \begin{smatrix}
+   4 & 0 & 0\\
+   0 & 5 & -12\\
+   0 & 12 & 5
+  \end{smatrix}$.
+  
+  \begin{proof}~
+   \begin{noliste}{$\sbullet$}
+    \item On remarque que :
+    \[
+     \begin{smatrix}
+      4 & 0 & 0\\
+      0 & 5 & -12\\
+      0 & 12 & 5
+     \end{smatrix}
+     = 4 \, A + 5 \, B + 12 \, C
+    \]
+    
+    \item D'après la question \itbf{9.a)}, si on trouve $(a,b,c)\in 
+    \R^3$ tels que :
+    \[
+     4 \, A + 5 \, B + 12 \, C = 
+     a^2 \, A + (b^2-c^2)\, B + 2bc \, C
+    \]
+     alors, en posant
+    $M = a \, A + b\, B + c \, C$, on a : 
+    \[
+     M^2 = a^2 \, A + (b^2-c^2)\, B + 2bc \, C = 4 \, A + 5 \, B + 12 
+     \, C =
+     \begin{smatrix}
+      4 & 0 & 0\\
+      0 & 5 & -12\\
+      0 & 12 & 5
+     \end{smatrix}
+    \]    
+    
+    \item Cherchons donc $(a,b,c)\in\R^3$ tels que :
+    \[
+     a^2 \, A + (b^2-c^2)\, B + 2bc \, C = 4 \, A + 5 \, B + 12\, C
+    \]
+    On obtient le système d'équations suivant :
+    \[
+     \left\{
+     \begin{array}{rcl}
+      a^2 & = & 4\\
+      b^2-c^2 & = & 5\\
+      2bc & = & 12
+     \end{array}
+     \right. 
+     \quad \Leftrightarrow \quad
+     \left\{
+     \begin{array}{rcl}
+      a & = & 2\\
+      b^2-c^2 & = & 5\\
+      bc & = & 6
+     \end{array}
+     \right. 
+     \quad \OU{} \quad
+     \left\{
+     \begin{array}{rcl}
+      a & = & -2\\
+      b^2 - c^2 & = & 5\\
+      bc & = & 6
+     \end{array}
+     \right.
+    \]
+    Remarquons alors que $b = 0$ ne peut convenir (si $b = 0$ alors
+    $bc = 0 \neq 6$). On suppose donc : $b \neq 0$. L'égalité $bc = 6$
+    permet d'écrire : $c = \dfrac{6}{b}$.\\
+    En réinjectant dans la deuxième ligne, on obtient :
+    \[
+    \begin{array}{rcl}
+      b^2 - c^2 = 5 \ \Leftrightarrow \ b^2 - \frac{36}{b^2} = 5 \
+      \Leftrightarrow \ b^4 - 36 = 5 \ b^2 & \Leftrightarrow & b^4 - 5
+      b^2 - 36 = 0
+      \\[.2cm]
+      & \Leftrightarrow & (b^2 + 4) \ (b^2 - 9) \ = \ 0
+      \\[.2cm]
+      & \Leftrightarrow & b^2 = -4 \ \OU{} \ b^2 = 9
+      \\[.2cm]
+      & \Leftrightarrow & b^2 = 9
+      \\[.2cm]
+      & \Leftrightarrow & b = -3 \ \OU{} \ b = 3
+    \end{array}
+    \]
+    On obtient alors : $c^2 = b^2 - 5 = 9 - 5 = 4$. Ainsi : $c = -2 \
+    \OU{} \ c = 2$.\\
+    Le triplet $(a,b,c)$ suivant convient : $\left\{
+     \begin{array}{rcl}
+      a & = & 2\\
+      b & = & 3\\
+      c & = & 2
+     \end{array}
+     \right.$.
+     
+
+     \newpage
+
+ 
+     \item On a alors :
+     \[
+      \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+       \begin{smatrix}
+	4 & 0 & 0 \\
+	0 & 5 & -12 \\
+	0 & 12 & 5
+       \end{smatrix}
+       & = & 2^2 \, A + (3^2-2^2)\, B + 2\times 3 \times 2 \, C
+       \\[.2cm]
+       & = & (2 \, A + 3 \, B + 2 \, C)^2
+       & (d'après la question \itbf{9.a)})
+      \end{array}
+     \]
+   \end{noliste}
+   \conc{Donc, en posant $M=2\, A + 3\, B + 2\, C$, on obtient : $M^2
+     =
+     \begin{smatrix}
+       4 & 0 & 0\\
+       0 & 5 & -12\\
+       0 & 12 & 5
+     \end{smatrix}$.}~\\[-1cm]
+ \end{proof}
+\end{noliste}
+
+\item On note $g=f^2-i$.\\
+  Montrer que $g$ est bijectif et exprimer $g^{-1}$ à l'aide de $f$ et
+  de $i$.
+ 
+ \begin{proof}~
+  \begin{noliste}{$\sbullet$}
+    \item Tout d'abord :
+    \[
+    \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+      \Mat_{\B}(g) & = & \Mat_{\B}(f^2-i) 
+      \\[.2cm]
+      & = & \Mat_{\B}(f^2) - \Mat_{\B}(i) 
+      & (par linéarité de $\Mat_{\B}(.)$)
+      \nl
+      \nl[-.2cm]
+      & = & \left(\Mat_{\B}(f)\right)^2 - I_3 
+      \\[.2cm]
+      & = & C^2-I_3 
+      \\[.2cm]
+      & = & 
+     \begin{smatrix}
+      0 & 0 & 0\\
+      0 & -1 & 0\\
+      0 & 0 & -1
+     \end{smatrix}
+     -
+     \begin{smatrix}
+      1 & 0 & 0\\
+      0 & 1 & 0\\
+      0 & 0 & 1
+     \end{smatrix}
+     \\[.6cm]
+     & = & 
+     \begin{smatrix}
+      -1 & 0 & 0\\
+      0 & -2 & 0\\
+      0 & 0 & -2
+     \end{smatrix}
+    \end{array}
+    \]
+    La matrice représentative de $g$ dans la base $\B$ est une matrice
+    diagonale à c\oe{}fficients tous non nuls. Elle est donc
+    inversible.%
+    \conc{On en déduit que l'endomorphisme $g$ est bijectif.}
+    
+  \item Par propriété de l'application $\Mat_\B(.)$ :
+    \[
+    \begin{array}{rcl}
+      \Mat_{\B}(g^{-1}) & = & \left(\Mat_{\B}(g)\right)^{-1} 
+      \\[.4cm]
+      & = & 
+      \begin{smatrix}
+        -1 & 0 & 0 \\
+        0 & -\frac{1}{2} & 0\\
+        0 & 0 & -\frac{1}{2}
+      \end{smatrix}
+      \\[.8cm]
+      & = & -I_3 - \dfrac{1}{2} \, C^2
+      \\[.4cm]
+      & = & \Mat_{\B}\left( -i-\dfrac{1}{2}\, f^2 \right)
+    \end{array}
+    \]
+    \conc{L'application $\Mat_\B(f)$ étant bijective, on en déduit :
+      $g^{-1} = -i-\dfrac{1}{2}\, f^2$.}~\\[-1.2cm]
+  \end{noliste}
+ \end{proof}
+\end{noliste}
+
+\end{document}

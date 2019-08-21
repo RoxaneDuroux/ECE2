@@ -1,0 +1,995 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} ORAUX HEC 2011} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+\section{Annales 2011}
+ %\setcounter{exercice}{0}
+
+\begin{exercice}{\it (Exercice avec préparation)}~\\
+  Soit $f$ la fonction définie sur $\R$ par :
+  \[
+  \forall x \in \R,\ \ f(x) = \frac{e^{- | x |} }{2}.
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{4mm}
+  \item C'est une fonction positive, continue sauf en un nombre fini
+    de points et telle que $\dint{-\infty}{+ \infty} f$ converge et
+    vaut 1.
+  \item $f$ est positive par positivité de l'exponentielle, continue
+    comme composée de fonctions continues (la valeur absolue est bien
+    continue!) et paire donc $\dint{-\infty}{+ \infty} f$ converge
+    absolument et vaut 1 si et seulement si $\dint{0}{+ \infty} f$
+    converge et vaut $\frac{1}{2}$. \\
+    Or pour $x > 0$, (à préciser pour pouvoir remplacer la valeur
+    absolue!), $\dint{0}{x} f(t)\ dt = \frac{1}{2} \dint{0}{x} e^{-t}
+    = \frac{1}{2}$ en primitivant ou en utilisant la loi exponentielle
+    de paramètre $\lambda = 1$.\\
+    Soit $X$ une variable aléatoire définie sur un espace probabilisé
+    $(\Omega, \mathcal{A}, P)$ dont $f$ est une densité de probabilité. \\
+  \item 
+    \begin{noliste}{a)} 
+      \setlength{\itemsep}{2mm}
+    \item L'absolue convergence est équivalente à la convergence sur
+      $[0 ; + \infty[$ par positivité de $t \rightarrow t f(t)$ et sur
+      $]-\infty ; 0]$ par négativité de $t \rightarrow t f(t)$ donc
+      sur $]-\infty ; + \infty[$.\\
+      De plus la fonction $t \rightarrow t f(t)$ est impaire donc si
+      $\dint{0}{+ \infty} t f(t)\ dt$ converge, alors
+      $\dint{-\infty}{+ \infty} t f(t)\ dt$ converge et vaut 0. \\
+      Or on a $ t^{2} \times t e^{-t} = t^{3} e^{-t} \xrightarrow[t
+      \rightarrow + \infty]{} 0$ donc $ t e^{-t} = o \left(
+        \frac{1}{t^{2}} \right)$ et par théorème de comparaison des
+      intégrales de fonctions positives (on compare ici à une
+      intégrale de Riemann convergente), $\dint{0}{+ \infty} t f(t)\
+      dt$ converge, donc $X$ admet une espérance et $\E(X) = 0$.
+    \item Un peu de calcul ici : il faut calculer la fonction de
+      répartition de $f$ pour faire des calculs : \\
+      En traitant bien à part les cas $x < 0$ et $x >0$ on trouve :
+      \[
+      F(x) = \left\{
+        \begin{array}{cl}
+          \frac{1}{2} e^{x} \text{ si } x <0 \\
+          1 - \frac{1}{2} e^{-x} \text{ si } x \geq 0 \\
+        \end{array}
+      \right.
+      \]
+      On peut alors calculer $ = \Prob\left(\Ev{X > t - s} \right) =
+      \frac{1}{2} \ee^{s - t}$ et $P_{[X > s]} \Ev{X > t} = \frac{
+        \Prob( [X > s] \cap [X > t] )}{P \left(\Ev{X > s}\right)} =
+      \frac{\Prob\left(\Ev{X > t} \right) }{\Prob\left( \Ev{ X > s}
+        \right)} = \frac{ \frac{1}{2} e^{-t} }{ \frac{1}{2} e^{ -s} }
+      = e^{s-t} $ si $s \geq 0$ (car alors $t \geq 0$), ce qui
+      contredit le résultat.
+    \end{noliste}
+
+  \item Il faut prouver que $H_{n}$ est croissante, continue à
+    droite et tend vers 0 en $-\infty$ et $1$ en $ + \infty$.\\
+    Cependant comme cela ressemble à une variable à densité, on
+    considère plutôt $h_{n} (t) = f(t) ( 1 + t e^{- n | t |})$ et on
+    prouver que c'est une densité de probabilité : $H_{n}$, fonction
+    de répartition
+    associée, sera bien une fonction de répartition. \\
+    La fonction est continue sur $\R$ par théorèmes généraux sur les
+    fonctions continues. \\
+    Pour tout $t \in \R$, $f(t) \geq 0$ donc il faut prouver que $ 1 +
+    t e^{- n | t |}$ sur $\R$; sur $\R_+ $, c'est évident comme somme
+    de deux quantités positives; sur $\R_-$, étudions la fonction
+    $g_{n}(t) = 1 + t e^{n t}$ : elle est dérivable et on a $g_{n}'(t)
+    = n t e^{n t } + e^{nt} = ( 1 + nt) e^{nt} $ qui s'annule en $t =
+    - \frac{1}{n }$ qui est le minimum de la fonction (vérifier les
+    signes éventuellement mais cela paraît évident). Enfin on a $g_{n}
+    \left( - \frac{1}{n} \right) =
+    1 - \frac{1}{n} e^{-1} = 1 - \frac{1}{n e} \geq 0$ car $ ne \geq 1$. \\
+    La fonction $g_{n}$ est donc positive sur $\R_-$, et $h_{n}$ est
+    positive sur $\R$.  \\
+    Ensuite on a $h_{n} (t) = f(t) + t f(t) e^{-n | t |}$. \\
+    La première fonction vérifie $\dint{-\infty}{+ \infty} f(t)\ dt $
+    converge absolument et vaut 1. \\
+    La deuxième est impaire donc comme tout à l'heure si on obtient la
+    convergence sur $[ 0 ; + \infty[$, $\dint{-\infty}{+ \infty} t
+    f(t)
+    e^{-n | t |}$ convergera absolument et vaudra 0. \\
+    Or on a $t f(t) = o \left( \frac{ 1}{t^{2}} \right)$ en $ +
+    \infty$ et $e^{-n | t |} \xrightarrow[ t \rightarrow + \infty]{}
+    0$ donc est négligeable devant 1 donc le produit vérifie $t f(t)
+    e^{-n | t |} = o \left( \frac{ 1}{t^{2}} \right)$ et par théorème
+    de comparaison des
+    intégrales de fonctions positives, l'intégrale est convergente. \\
+    finalement on obtient bien par somme que $\dint{-\infty}{+ \infty}
+    h_{n} (t)\ dt$ converge absolument et vaut 1. \\
+  \item Ce sont des variables aléatoires à densité donc la fonction
+    de répartition de $X$ est continue sur $\R$; \\
+    il faut donc prouver que pour tout $x \in \R$, $\dint{-\infty}{x}
+    f(t) \left( 1 + t e^{ - n | t |} \right)\ dt$ converge vers
+    $\dint{-\infty}{x} f(t)\ dt$, donc que $\dint{-\infty}{x} t f(t)
+    e^{- n | t |}\ dt \rightarrow0$, et enfin cela équivaut à
+    $\dint{-\infty}{x} t
+    e^{ - (n + 1) | t |} \rightarrow 0.$ \\
+    \\
+    Ici il faut être précis dans les calculs : on le prouve pour $x
+    \leq
+    0$ par intégration par parties et calcul de l'intégrale. \\
+    Ensuite pour $x \geq 0$ on a $\dint{-\infty}{0} t e^{ - (n + 1) |
+      t |} \rightarrow 0$ donc il suffit de prouver $\dint{0}{x} t e^{
+      - (n + 1) | t |} \rightarrow 0$, qu'on prouve également avec une
+    intégration par parties (pas la même, la fonction n'a pas la même
+    expression!) et
+    calcul de l'intégrale. \\
+  \end{noliste}
+  \noindent \textbf{\underline{Exercice sans préparation}} \\
+  \\
+  Soit $n$ un entier supérieur ou égal à 2 et $(a_{1}, a_{2},\ \dots\,
+  a_{n}) \in \R^{n} - \{ 0,\ \dots\,0) \}$. \\
+  On considère la matrice colonne $X = \begin{smatrix}
+    a_{1} \\
+    a_{2} \\
+    \vdots \\
+    a_{n} \\
+  \end{smatrix}
+  \in \mathcal{M}_{n,1} (\R)$. \\
+  On pose $B = X\ {}{t}X $ et $A = \ {}{t}X\ X$. \\
+  On désigne par $u$ l'endomorphisme de $\R^{n}$ canoniquement associé
+  à $B$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{4mm}
+  \item $A = \Sum{i = 1}{n} a_{i}{2}$ est un réel et $B = ( b_{i,j}
+    )_{ 1 \leq i,j \leq n}$ est une matrice de $\mathcal{M}_{n} (\R)$
+    avec $b_{i,j} = a_{i} a_{j}$.
+  \item $u$ est de rang 1 car les colonnes de $B$ sont toutes
+    multiples de $X$ et au moins une est non nulle (car un au moins
+    des $a_{i}$ est non nul et le terme $a_{i}{2}$ correspondant est
+    alors non nul donc la colonne correspondante est non nulle).
+  \item $B$ est diagonalisable car elle est symétrique ($b_{i,j} =
+    b_{j,i} = a_{i} a_{j}$). \\
+  \item $B^{k} = (X {}{t} X ) (X {}{t} X ) \dots (X {}{t} X ) = X ({}{t}
+    X X) \dots ({}{t} X X) {}{t} X = \left( \Sum{i = 1}{n} a_{i}{2}
+    \right)^{k-1} X {}{t} X = \left( \Sum{i = 1}{n} a_{i}{2} \right)^{k-1}
+    B$.
+  \end{noliste}
+\end{exercice}
+
+
+\newpage
+
+
+\begin{exercice}{\it (Exercice avec préparation)}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{4mm}
+  \item Toute suite croissante converge si et seulement si elle est
+    majorée. Sinon elle diverge vers $ + \infty$. \\
+    Toute suite décroissante converge si et seulement si elle est
+    minorée.  Sinon elle diverge vers $-\infty$.
+
+  \item Dans cette question seulement, on suppose $\alpha = 1$ et
+    $\beta = 2$.
+ \begin{noliste}{a)}
+   \setlength{\itemsep}{2mm}
+ \item $f'(x) = \frac{1 + x}{1 + 2x} + x \frac{1 + 2x - 2(1 + x) }{(1
+     + 2x)^{2}} = \frac{(1 + x) (1 + 2x) -x}{(1 + 2x)^{2}} =
+   \frac{2x^{2} + 2x + 1}{(1 + 2x)^{2}} >0$ (Au numérateur le
+   discriminant est égal à $-4$ donc le trinôme est du signe de son
+   coefficient dominant, donc positif
+   et le dénominateur est un carré donc toujours positif.) \\
+   On ne déduit que $f$ est strictement croissante sur $\R_+ $, avec
+   $f(0) = 0$ et $\dlim{+ \infty} f = + \infty$. \\
+ \item L'intervalle $\R_+ $ est stable par $f$ et $u_{0} \in \R_+ $
+donc $u_{n} \in \R_+ $ pour tout $n$. \\
+ Avec la croissance de $f$ on peut regarder le signe de $u_{0} -
+u_{1}$; mais comme $u_{0}$ est quelconque, autant regarder directement
+le signe de $f(x) - x$ : \\
+ $f(x) - x = x \left( \frac{1 + x}{1 + 2x} - \frac{1 + 2x}{1 + 2x}
+\right) = x \frac{-x}{1 + 2x} = \frac{-x^{2}}{1 + 2x} < 0$ donc la
+suite est décroissante ($u_{n + 1} - u_{n} = f(u_{n}) - u_{n} < 0$) et
+minorée par 0 donc converge. \\
+ De plus elle ne peut converger que vers un point fixe de $f$,
+vérifiant donc $f(x) = x \Leftrightarrow \frac{-x^{2}}{1 + 2x} = 0
+\Leftrightarrow x = 0$ donc $(u_{n})$ converge vers 0. \\
+ \item Question toute simple : je vous laisse faire ce programme
+vous-même. \\
+ \end{noliste}
+ \item On peut reprendre la structure des questions précédentes.
+Essayons de varier un peu : \\
+ Pour montrer que $u_{n} >0$, on fait une récurrence immédiate avec en
+hérédité : \\
+ $u_{n} >0$ donc $ 1 + \alpha u_{n} > 0$ et $1 + \beta u_{n} > 0$ donc
+$\frac{1 + \alpha u_{n}}{1 + \beta u_{n}} > 0$ et enfin $u_{n + 1} =
+u_{n} \frac{1 + \alpha u_{n}}{1 + \beta u_{n}} > 0$. \\
+ Ensuite on étudie $u_{n + 1} - u_{n} = u_{n} \frac{1 + \alpha u_{n} -
+1 - \beta u_{n}}{1 + \beta u_{n}} = \frac{ (\alpha - \beta )
+u_{n}{2}}{1 + \beta u_{n}} < 0$ car $\alpha - \beta <0$, $u_{n}{2} >0$
+et $1 + \beta u_{n} >0$ donc $(u_{n})$ est strictement décroissante, et
+minorée par 0 donc convergente vers un point fixe donc $l$ vérifie
+$\frac{(\alpha - \beta) l^{2}}{1 + \beta l} = 0$ et enfin $l = 0$, donc
+$(u_{n})$ converge vers 0. \\
+
+ \item $v_{n + 1} - v_{n} = \frac{1}{u_{n + 1} } - \frac{1}{u_{n}} =
+\frac{1}{u_{n}} \left( \frac{ 1 + \beta u_{n}}{1 + \alpha u_{n}} -
+\frac{1 + \alpha u_{n}}{1 + \alpha u_{n}} \right) = \frac{ (\beta -
+\alpha) u_{n} }{ (1 + \alpha u_{n}) u_{n}} = \frac{ \beta - \alpha }{
+(1 + \alpha u_{n})} \xrightarrow[n \rightarrow + \infty]{} \frac{ \beta
+- \alpha}{ 1 + \alpha \times 0} = \beta - \alpha$. \\
+
+ \item On en déduit (on pose $w_{n} = v_{n + 1} - v_{n}$) que la suite
+$W_{n} = \frac{1}{n} \left( w_{0} + w_{1} + \dots + u_{n-1} \right)$
+converge vers $\beta - \alpha$. \\
+ Or $W_{n} = \frac{1}{n} \left( v_{n} - v_{0} \right) = \frac{1}{n}
+\left( \frac{1}{u_{n}} - \frac{1}{u_{0}} \right)$. \\
+ Or on a $\frac{1}{u_{n}} \rightarrow + \infty$ et $\frac{1}{u_{0}}$
+est une constante donc $ \left( \frac{1}{u_{n}} - \frac{1}{u_{0}}
+\right) \sim \frac{1}{u_{n}}$ et enfin $W_{n} \sim \frac{1}{ n u_{n}}
+\sim (\beta - \alpha)$ et enfin $u_{n} \sim \frac{1}{n (\beta -
+\alpha)}$. \\
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ $n$ souris (minimum 3) sont lâchées en direction de 3 cages, chaque
+cage pouvant contenir les $n$ souris et chaque souris allant dans une
+cage au hasard. 
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item On pose $Y_{i}$ le nombre de souris dans la cage $i$, on a
+$Y_{i} \suit \mathcal{B} \left( n, \frac{1}{3} \right)$ donc
+$\Prob\left(\Ev{\Ev{Y_{i} = 0}}\right) = \left( \frac{2}{3}
+\right)^{n}$. \\
+ La probabilité cherchée vaut $\Prob( [ Y_{1} = 0] \cup [Y_{2} = 0]
+\cup [Y_{3} = 0] ) = \Prob\left(\Ev{\Ev{Y_{1} = 0}}\right) +
+\Prob\left(\Ev{\Ev{ Y_{2} = 0}}\right) + \Prob\left(\Ev{\Ev{ Y_{3} =
+0}}\right) - \Prob( [Y_{1} = 0] \cap [Y_{2} = 0]) - \Prob([ Y_{1} = 0]
+\cap [ Y_{3} = 0]) - \Prob( [ Y_{2} = 0] \cap [Y_{3} = 0]) + \Prob(
+[Y_{1} = 0] \cap [Y_{2} = 0] \cap [Y_{3} = 0])$. \\
+ Or on a $\Prob( [Y_{1} = 0] \cap [Y_{2} = 0] \cap [Y_{3} = 0]) = 0$
+(les trois cages ne peuvent être vides en même temps, où seraient passé
+les souris ?) \\
+ D'autre part pour calculer $P ([Y_ i = 0] \cap [Y_{j} = 0])$ on pose
+$Z_{i,j}$ le nombre de souris dans les cages $i$ et $j$, $Z_{i,j} \suit
+\mathcal{B} \left( n, \frac{2}{3} \right)$ donc $P ( [Y_ i = 0] \cap
+[Y_{j} = 0]) = \Prob\left(\Ev{ Z_{i,j} = 0}\right) = \left( \frac{1}{3}
+\right)^{n}$. \\
+ Enfin on obtient $\Prob( [ Y_{1} = 0] \cup [Y_{2} = 0] \cup [Y_{3} =
+0] ) = 3 \frac{2^{n} - 1}{3^{n}} = \frac{2^{n} - 1}{3^{n-1}}$. \\
+
+ \item On pose $X_{i}$ la variable aléatoire égale à 1 si la cage $i$
+reste vide, et 0 sinon, on a $X_{i} \suit \mathcal{B} \left( \left(
+\frac{2}{3} \right)^{n} \right)$ et on a $X = X_{1} + X_{2} + X_{3} $
+donc $\E(X) = 3 \E(X_{1})$ (les trois variables suivent la même loi et
+ont donc la même espérance). \\
+ Enfin $\E(X) = \frac{2^{n}}{3^{n-1}}$.
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Une variable aléatoire $X$ est à densité s'il existe une
+fonction $f$ positive, continue sauf en un nombre finie de points,
+telle que pour tout $x \in \R$, $F_{X} ( x) = \dint{-\infty}{x} f(t)\
+dt$. \\
+ Toute fonction de répartition est croissante, continue à droite en
+tout point et de limites $0$ en $-\infty$ et $1$ en $ + \infty$. \\
+ La variable est à densité si et seulement si $F_{X}$ est de plus
+continue sur $\R$, de classe $C^{1}$ sauf en un nombre fini de points.
+\\
+ \item $F$ continue sur $\R$ donc admet des primitives, et donc une
+unique primitive sur $\R$ s'annulant en 0, notée $H_{f}$. \\
+ De plus $H_{f}$ est dérivable sur $\R$, de dérivée $F$ continue donc
+$H_{f}$ est de classe $C^{1}$ sur $\R$. \\
+ \item Donner $H_{f}$ dans les cas suivants : 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item On a alors $F(x) = 0$ si $x \leq 0$ et $F(x) = 1 - e^{-x}$ si $x
+>0$, puis $H_{f}(x) = 0$ si $x \leq 0$ et $H_{f}(x) = x + e^{-x} - 1$
+si $x > 0$, d'asymptote oblique $y = x -1$ en $ + \infty$. \\
+ \item On a alors $F(x) = 0$ si $x \leq 0$ et $F(x) = 1 - \frac{1}{1 +
+x}$ si $x >0$, puis $H_{f}(x) = 0$ si $x \leq 0$ et $H_{f}(x) = x - \ln
+(1 + x)$ si $x > 0$, de direction asymptotique $y = x$ en $ + \infty$,
+mais qui n'a pas d'asymptote en $ + \infty$. \\
+ \item On a alors $F(x) = 0$ si $x \leq 0$ et $F(x) = 1 -
+\frac{1}{\sqrt{1 + x} }$ si $x > 0$ puis $H_{f}(x) = 0$ si $x \leq 0$
+et $H_{f}(x) = x - 2 \sqrt{1 + x} + 2$ si $x > 0$, de direction
+asymptotique $y = x$, mais qui n'a pas d'asymptote en$ + \infty$. \\
+ \end{noliste}
+ \item On suppose que $X$ admet une espérance $l$. \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item On intègre par parties avec $u = t$ et $v = F(t)$ de classe
+$C^{1}$ sur $[ 0 ; x]$ et on a : \\
+ $\dint{0}{x} t f(t)\ dt = [ t F(t) ]_{0}{x} - \dint{0}{x} F(t)\ dt = x
+F(x) - H_{f} (x) + H_{f}(0) = x F(x) - H_{f} (x)$. \\
+ Comme $X$ admet une espérance, on a $\dint{0}{x} t f(t)\ dt
+\rightarrow \E(X)$ donc $H_{f} (x) = x F(x) - \dint{0}{x} t f(t)\ dt =
+x \left( F(x) - \frac{\dint{0}{x} t f(t)\ dt }{x} \right) \sim x F(x)
+\sim x $ car $\dlim{+ \infty} F(x) = 1$.
+ \\
+\\
+ On en déduit que $\frac{H_{f}(x) }{x } \sim 1 \xrightarrow[ x
+\rightarrow + \infty]{} 1$ donc on a une direction asymptotique $y =
+x$. \\
+ \item Difficile de répondre : les cas de la question 3 ne sont pas
+concluants (les deux cas où il n'y a pas d'asymptote proviennent de
+variables sans espérance). Il est probable qu'avec une rédaction
+similaire, on montrer que si $X$ admet une variance, il y a bien une
+asymptote (en intégrant par parties l'intégrale menant au moment
+d'ordre 2). \\
+ Je ne vois pas comment répondre à la question posée intégralement (ce
+n'est peut-être pas le but recherché) : il faudrait arriver à obtenir
+un développement asymptotique de $x (F(x) - 1)$. \\
+ \end{noliste}
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $E$ l'ensemble des matrices $M_{a,b} = \begin{smatrix}
+a & b & b \\
+b & a & b \\
+b & b & a \\
+\end{smatrix}
+$ où $(a,b)$ prend toute valeur de $\R^{2}$. \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Evident. \\
+
+ \item On peut calculer les premières puissances pour essayer de voir
+une relation simple : cela échoue. \\
+ La matrice est symétrique donc diagonalisable, on va la diagonaliser.
+\\
+ Pour simplifier on utilise le fait que $M(a,b) = a I + b A$ et comme
+$I = P I P^{-1}$ pour tout $P$, si on diagonalise $A$ on aura $A = P D
+P^{-1}$ puis $M(a,b) = a P I P^{-1} + b P D P^{-1} = P \left(\Ev{ a I +
+b D}\right) P^{-1}$ et on aura la diagonalisation de $M(a,b)$. \\
+ Enfin l'étude des valeurs propres et des sous-espaces propres de $A$
+donne $A = P D P^{-1}$ avec \\
+$P = \begin{smatrix}
+1 & 1 & 1 \\
+-1 & 0 & 1 \\
+0 & -1 & 1 \\
+\end{smatrix}
+$ et $D = \begin{smatrix}
+-1 & 0 & 0 \\
+0 & -1 & 0 \\
+0 & 0 & 2 \\
+\end{smatrix}
+$ donc $M(a,b) = P \begin{smatrix}
+a -b & 0 & 0 \\
+0 & a-b & 0 \\
+0 & 0 & a + 2b \\
+\end{smatrix}
+$ donc $M(a,b)^{n} = P \begin{smatrix}
+(a -b)^{n} & 0 & 0 \\
+0 & (a-b)^{n} & 0 \\
+0 & 0 & (a + 2b)^{n} \\
+\end{smatrix}
+P^{-1}$.
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+
+ \begin{exercice}{\it (Exercice avec préparation)}~\\
+ Toutes les variables aléatoires de cet exercice sont définies sur
+ un espace probabilisé $(\Omega, \mathcal{A}, P)$. Soit $p \in \ ]0
+ ; 1[$ et $q = 1-p$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $n$ variables discrètes $(X_{1},\ \dots\, X_{n}$ sont
+mutuellement indépendantes ou indépendantes dans leur ensemble si pour
+tout $(x_{1},\ \dots\, x_{n}) \in \R^{n}$, $P \left(\Ev{
+\bigcap\limits_{i = 1}{n} X_{i} = x_{i}}\right) = \prod\limits_{i =
+1}{n} \Prob\left(\Ev{\Ev{ X = x_{i}}}\right)$. \\
+ Bien évidemment il suffit de le vérifier pour des $x_{i}$ toujours
+dans $X_{i} (\Omega)$ pour tout $i$. \\
+
+ \item 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item $X_{1}$ et $X_{2}$ suivent des lois géométriques de paramètre
+$p$ donc on a $\Prob\left(\Ev{\Ev{X_{1} = 0}}\right) =
+\Prob\left(\Ev{\Ev{ X_{2} = 0}}\right) = 0$. \\
+ \item Déjà fait; l'indépendance des deux lois est obtenue par
+indépendance des lancers pairs et des lancers impairs. \\
+ \item $Y(\Omega) = \N$, $\Prob\left(\Ev{\Ev{ Y = 0}}\right) = 0$ et
+pour tout $k \geq 0$ : \\
+ $\Prob\left(\Ev{\Ev{ Y > k}}\right) = \Prob( [X_{1} > k] \cap [X_{2} >
+k] ) = \Prob\left(\Ev{\Ev{ X_{1} > k}}\right)^{2}$ par indépendance et
+même loi. \\
+ D'où $\Prob\left(\Ev{\Ev{Y > k}}\right) = ( q^{k})^{2}$ et
+$\Prob\left(\Ev{\Ev{ Y \leq k}}\right) = 1 - (q^{2})^{k}$. \\
+ Enfin pour $k \geq 1$, $\Prob\left(\Ev{\Ev{Y = k}}\right) =
+\Prob\left(\Ev{\Ev{ Y \leq k}}\right) - \Prob\left(\Ev{\Ev{ Y \leq
+k-1}}\right) = (q^{2})^{k-1} - (q^{2})^{k} = (q^{2})^{k-1} ( 1 -
+q^{2})$ et $Y$ suit la loi géométrique de paramètre $1 - q^{2}$. \\
+ \end{noliste}
+ \item Soit $X$ une variable aléatoire suivant une loi géométrique de
+paramètre $p$. 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item On a $Y (\Omega) = \N^*$ : $Y \subset \N^*$ est évident et pour
+$k \neq 0$, $Y = k$ est atteint pour $X = 2k$ donc on a bien $\N^*
+\subset Y(\Omega)$. \\
+ Ensuite on a plus précisément $\Ev{ Y = k} = \Ev{ X = 2k} \cup (X = 2k
+- 1)$ qui sont incompatibles donc $\Prob\left(\Ev{\Ev{ Y = k}}\right) =
+P \Ev{X = 2k} + \Prob\left(\Ev{\Ev{ X = 2k-1}}\right) = p \left(
+q^{2k-1} + q^{2k-2} \right) = p q^{2k-2} ( q + 1) = [ (1 + q) (1-q) ]
+(q^{2})^{k-1} = (1-q^{2}) (q^{2})^{k-1}$
+ donc $Y \suit \mathcal{G} ( 1 - q^{2})$. \\
+\item L'étude de la partie entière montre que $ (2Y - X) (\Omega) = \{
+  0 ; 1 \}$ et on a :\\
+  $\Prob\left(\Ev{ 2Y - X = 0} \right) = P \left(\Ev{X \mbox{pair}
+    }\right) = \Sum{k = 1}{+ \infty} \Prob\left(\Ev{\Ev{ X =
+        2k}}\right) = p q^{-1} \Sum{k = 1}{+ \infty} (q^{2})^{k} =
+  \frac{ p q^{2}}{q ( 1 -q^{2}) } = \frac{ q}{1 + q}$.\\
+  $\Prob\left(\Ev{ 2Y - X = 1}\right) = P \left(\Ev{X
+      \mbox{impair}}\right) = \Sum{k = 0}{+ \infty}
+  \Prob\left(\Ev{\Ev{ X = 2k + 1}}\right) = p \Sum{k = 0}{+ \infty}
+  (q^{2})^{k} = \frac{p}{1-q^{2}} = \frac{ 1}{ 1 + q }$.\\
+  Enfin on a $ P( \Ev{Y = k } \cap (2 Y - X = 0) ) =
+  \Prob\left(\Ev{\Ev{ X = 2k}}\right) = p q^{2k-1}$ et
+  $\Prob\left(\Ev{\Ev{ Y = k}}\right) \Prob\left(\Ev{ 2 Y - X =
+      0}\right) = (1-q^{2}) (q^{2})^{k-1} \frac{q}{1 + q} = (1-q)
+  q^{2k-1} = p q^{2k-1}$.\\
+  De même on a $ P( \Ev{Y = k } \cap (2 Y - X = 1) ) =
+  \Prob\left(\Ev{\Ev{ X = 2k-1}}\right) = p q^{2k-2}$ et
+  $\Prob\left(\Ev{\Ev{ Y = k}}\right) \Prob\left(\Ev{ 2 Y - X =
+      1}\right) = (1-q^{2}) (q^{2})^{k-1} \frac{1}{1 + q} = (1-q)
+  q^{2k-2} = p q^{2k-2}$, et les variables sont indépendantes.
+\end{noliste}
+\end{noliste}
+\noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+On note $E_{4}$ l'espace vectoriel des fonctions polynomiales de degré
+inférieur ou égal à 4 et on considère l'application $\Delta$ qui à un
+polynôme $P$ de $E_{4}$ associe le polynôme $Q = \Delta (P)$ défini
+par : $Q(x) = P\left(\Ev{x + 2}\right) - P\left(\Ev{x}\right)$.
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item La linéarité est évidente. \\
+ De plus on a $\deg P\left(\Ev{x + 2}\right) = \deg P \times \deg (X +
+2) = \deg P$ donc $\deg \Delta (P) \leq \min (\deg P, \deg P) = \deg P
+\leq 4$ donc $\Delta (P) \in E_{4}$ et $\Delta$ est un endomorphisme.
+\\
+\\
+ Avec le binôme de Newton on trouve : $Mat_{\mathcal{B} } ( \Delta) =
+\begin{smatrix}
+0 & 2 & 4 & 8 & 16 \\
+0 & 0 & 4 & 12 & 32 \\
+0 & 0 & 0 & 6 & 24 \\
+0 & 0 & 0 & 0 & 8 \\
+0 & 0 & 0 & 0 & 0 \\
+\end{smatrix}
+$.
+ \item Il est beaucoup plus simple d'utiliser la matrice : on trouve
+$\ker \Delta = \Vect{ e_{0}} = \R_{0} [X]$. \\
+ Sinon avec l'indication on suppose que $P\left(\Ev{x + 2}\right) =
+P\left(\Ev{x}\right)$, alors on a $P\left(\Ev{2}\right) =
+P\left(\Ev{0}\right)$, puis $P\left(\Ev{4}\right) =
+P\left(\Ev{2}\right) = P\left(\Ev{0}\right)$ et par une récurrence
+simple, pour tout $n$, $P\left(\Ev{2n}\right) = 0$ donc
+$P\left(\Ev{x}\right) - P\left(\Ev{0}\right)$ a une infinité de
+racines, donc $P\left(\Ev{x}\right) - P\left(\Ev{0}\right) = 0$ et
+enfin $P\left(\Ev{x}\right) = P\left(\Ev{0}\right)$ est une constante.
+D'où $\ker \Delta \subset \R_{0} [X]$. \\
+ Enfin on trouve facilement que $\R_{0}[X] \subset \ker \Delta$ en
+prenant un polynôme constant, qui vérifie trivialement $P\left(\Ev{x +
+2}\right) = P\left(\Ev{x}\right)$ et on obtient le résultat. \\
+ \item La matrice de $\Delta$ est triangulaire, on obtient que 0 est
+l'unique valeur propre. \\
+ Si $\Delta$ était diagonalisable, il existerait $P$ inversible telle
+que $M = P 0 P^{-1} = 0$, ce qui est absurde. \\
+ \item Soit $Q$ un polynôme admettant un antécédent, on a $\Delta (P) =
+Q$. \\
+ Alors l'équation $\Delta (R) = Q$ est équivalente à $\Delta (R) -
+\Delta (P) = \Delta (R - P) = 0$ donc tout polynôme de la forme $R = P
++ cste$ est solution, et la réponse à la question est non.
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~\\
+ Dans tout l'exercice, $n$ désigne un entier naturel non nul et
+$\R_{n}[X]$ l'espace vectoriel des polynômes à coefficients réels, de
+degré inférieur ou égal à $n$. On note $M (m_{i,j})_{1 \leq i,j \leq n
++ 1}$ la matrice de $\mathcal{M}_{n + 1} (\R)$ de terme général : 
+ 
+\[
+ m_{i,j} = \left\{ 
+\begin{array}{cc}
+ i & \text{ si } j = i + 1 \\
+n + 1 - j & \text{ si } i = j + 1 \\
+0 & \text{ dans tous les autres cas } \\
+\end{array}
+\right.
+\]
+ et $u$ l'endomorphisme de $\R_{n}[X]$ dont la matrice dans la base
+canonique $(1, X,\ \dots\, X^{n})$ est égale à $M$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Soit $u$ un endomorphisme d'un espace vectoriel $E$, on appelle
+vecteur propre de $u$ tout vecteur $X$ non nul tel qu'il existe un réel
+$\lambda$ vérifiant $u(X) = \lambda X$. On dit alors que $\lambda$ est
+une valeur propre de $u$ et $X$ un vecteur propre de $u$ associé à la
+valeur propre $\lambda$. \\
+ Une famille de vecteurs propres associés à des valeurs propres
+distinctes est libre. \\
+ \item 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item D'après la matrice, $u(X^{k}) = k X^{k-1} + (n + 1 - (k + 1))
+X^{k + 1} = k X^{k-1} + (n-k) X^{k + 1}$ si $n-1 \geq k \geq 1$, $u(1)
+= n X$ et $u(X^{n}) = n X^{n-1}$. \\
+ \item On voit qu'en posant $e_{k} = X^{k}$, on a $u (e_{k}) = (1 -
+X^{2}) e_{k}' + n X e_{k}$. \\
+ Comme c'est vrai sur une base de $\R_{n} [x]$ on a pour tout $P \in
+\R_{n} [X]$, $u(P) = (1 - X^{2}) P' + n X P$. \\
+ \end{noliste}
+ \item Pour $k \in \llb 0 ; n \rrb$, on pose $P_{k} (X) = (X-1)^{k} (X
++ 1)^{n-k}$.
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} \item $u(P_{k}) = (1-X^{2}) \left[ k
+(X-1)^{k-1} (X + 1)^{n-k} + (n-k) (X-1)^{k} (X + 1)^{n-k-1} \right] + n
+X (X-1)^{k} (X + 1)^{n-k} = (X-1)^{k-1} (X + 1)^{n-k-1} \left[
+(1-X^{2}) [ k (X + 1) + (n-k) (X-1) ] + n X (X-1) (X + 1) \right] \\
+\\ = (X-1)^{k-1} (X + 1)^{n-k-1} \left[ (1-X^{2}) [ n X + 2k - n ] + n
+X (X-1) (X + 1) \right] \\
+\\ = (X-1)^{k-1} (X + 1)^{n-k-1} \left[ n X + 2k -n - n X^{3} + (n -
+2k) X^{2} + n X^{3} - n X \right] \\
+\\ = (n - 2k) (X-1)^{k-1} (X + 1)^{n-k-1} (X^{2} - 1) = (n-2k)
+(X-1)^{k} (X + 1)^{n-k} = (n - 2k) P_{k}$. \\
+ \item C'est une famille de vecteurs propres de $u$ associés à des
+valeurs propres distinctes donc elle est libre; de plus elle est de
+cardinal $n + 1$ donc c'est une base. \\
+ \item Il existe une base de vecteurs propres de $u$ donc $u$ est
+diagonalisable. \\
+ \end{noliste}
+ \item Dans cette question, on suppose que $n = 3$.
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} \item $M = \begin{smatrix}
+0 & 1 & 0 & 0 \\
+3 & 0 & 2 & 0 \\
+0 & 2 & 0 & 3 \\
+0 & 0 & 1 & 0 \\
+\end{smatrix}
+$ et la base de vecteur propres est : \\
+ $(X + 1)^{3} = X^{3} + 3 X^{2} + 3 X + 1$ associé à la valeur propre
+$3$, \\
+ $(X-1)(X + 1)^{2} = X^{3} + X^{2} - X - 1$ associé à la valeur propre
+$1$, \\
+ $(X-1)^{2} (X + 1) = X^{3} - X^{2} - X + 1$ associé à la valeur propre
+$-1$, \\
+ $(X-1)^{3} = X^{3} - 3 X^{2} + 3 X - 1$ associé à la valeur propre
+$-3$, \\
+ donc $P = \begin{smatrix}
+1 & -1 & 1 & -1 \\
+3 & -1 & -1 & 3 \\
+3 & 1 & -1 & -3 \\
+1 & 1 & 1 & 1 \\
+\end{smatrix}
+$ et $D = \begin{smatrix}
+3 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -3 \\
+\end{smatrix}
+$.
+ \item $ \begin{smatrix}
+a & b & c & d \\
+e & f & g & h \\
+i & j & k & l \\
+m & n & o & p \\
+\end{smatrix}
+D = D \begin{smatrix}
+a & b & c & d \\
+e & f & g & h \\
+i & j & k & l \\
+m & n & o & p \\
+\end{smatrix}
+\Leftrightarrow \begin{smatrix}
+3a & b & -c & -3d \\
+3e & f & -g & -3h \\
+3i & j & -k & -3l \\
+3m & n & -o & -3p \\
+\end{smatrix}
+ = \begin{smatrix}
+3a & 3b & 3c & 3d \\
+e & f & g & h \\
+- i & -j & -k & - l \\
+-3 m & -3n & -3o & -3p \\
+\end{smatrix}
+\Leftrightarrow b = c = d = z = g = h = i = j = l = m = n = o = 0$ donc
+les matrices commutant avec $D$ sont les matrices diagonales. \\
+ \item On se place dans la base de vecteurs propres, on appelle $N$ la
+matrice de $v$. \\
+ Alors $v \circ v = u \Leftrightarrow N^{2} = D$. On a alors $N D = N
+N^{2} = N^{3} = N^{2} N = D N$ donc $N$ commute avec $D$, et elle est
+diagonale. \\
+ De plus $\begin{smatrix}
+a & 0 & 0 & 0 \\
+0 & b & 0 & 0 \\
+0 & 0 & c & 0 \\
+0 & 0 & 0 & d \\
+\end{smatrix}
+^{2} = \begin{smatrix}
+3 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -3 \\
+\end{smatrix}
+\Leftrightarrow a^{2} = 3,\ b^{2} = 1,\ c^{2} = -1$ et $d^{2} = -3$ et
+les deux dernières équations sont impossibles donc il n'y a pas de
+solution. \\
+ \end{noliste} 
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soient $X$ et $Y$ deux variables aléatoires définies sur un espace
+probabilisé $(\Omega, \mathcal{A}, P)$ à valeurs dans $\N^*$,
+indépendantes et telles que : 
+ 
+\[
+ \forall i \in \N^*,\ \Prob\left(\Ev{\Ev{X = i}}\right) =
+\Prob\left(\Ev{\Ev{Y = i}}\right) = \frac{1}{2^{i}}
+\]
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item On reconnaît la loi géométrique de paramètre $\frac{1}{2}$. \\
+ \item $Z(\Omega) = \llb 2 ; + \infty \llb $ et avec la formule des
+probabilités totales (système complet d'évènements $\Ev{X = i}_{i \in
+\N^*}$ ) on a pour tout $k \geq 2$ : \\
+ $\Prob\left(\Ev{\Ev{ Z = k}}\right) = \Sum{i = 1}{+ \infty} P ( [X =
+i] \cap [Z = k] ) = \Sum{i = 1}{+ \infty} P ( [X = i] \cap [X + Y = k]
+) = \Sum{i = 1}{+ \infty} P ( [X = i] \cap [Y = k-i] ) = \Sum{i = 1}{+
+\infty} P \Ev{ [X = i] } \Prob\left(\Ev{\Ev{ [Y = k-i] }}\right) =
+\Sum{i = 1}{k-1} \frac{1}{2^{i}} \times \frac{1}{2^{k-i}} = \Sum{i =
+1}{k-1} \frac{1}{2^{k} } = (k-1) \left( \frac{1}{2} \right)^{k}$. \\
+\\
+ D'autre part pour tout $i \geq k$ on a $P_{\Ev{X + Y = k}} \Ev{X = i}
+= 0$ et pour $1 < i < k-1$ on a : \\
+ $P_{\Ev{X + Y = k}} \Ev{X = i} = \frac{ \Prob( [X + Y = k] \cap [X =
+i] ) }{P \Ev{X + Y = k}} = \frac{ \Prob( [ X = i] \cap [Y = k-i] )
+}{(k-1) \left( \frac{1}{2} \right)^{k}} = \frac{1}{k-1}$. \\
+ \item $\Prob\left(\Ev{\Ev{ X = Y}}\right) = \Sum{i = 1}{+ \infty}
+\Prob( [X = i] \cap [Y = i] ) = \Sum{i = 1}{+ \infty} \left(
+\frac{1}{4} \right)^{i} = \frac{1}{4} \times \frac{1}{ 1 -\frac{1}{4} }
+= \frac{1}{3}$. \\
+\\
+ Par symétrie $\Prob\left(\Ev{\Ev{X< Y}}\right) = P \Ev{X > Y}$ et
+$\Prob\left(\Ev{\Ev{X<Y}}\right) + \Prob\left(\Ev{\Ev{X > Y}}\right) +
+\Prob\left(\Ev{\Ev{X = Y}}\right) = 1$ (somme des probabilités sur un
+système complet) donc $\Prob\left(\Ev{\Ev{X < Y}}\right) =
+\Prob\left(\Ev{\Ev{X > Y}}\right) = \frac{1 - \frac{1}{3} }{2} =
+\frac{1}{3}$. \\
+ \item $\Prob\left(\Ev{\Ev{ X \geq 2 Y}}\right) = \Sum{i = 1}{+ \infty}
+\Prob( [Y = i] \cap [X > 2i - 1] ) = \Sum{i = 1}{+ \infty}
+\frac{1}{2^{i}} \frac{1}{2^{2i - 1}} = \Sum{i = 1}{+ \infty}
+\frac{1}{2^{3i -1} } = 2 \Sum{i = 1}{+ \infty} \left( \frac{1}{8}
+\right)^{i} = 2 \frac{1}{8} \frac{1 }{1 - \frac{1}{8} } = \frac{2}{7}$.
+\\
+\\
+ Enfin $P_{[X \geq Y]} \Ev{ X \geq 2 Y} = \frac{ P ([X \geq Y] \cap [X
+\geq 2 Y])}{\Prob\left(\Ev{\Ev{ X \geq Y}}\right)} = \frac{
+\Prob\left(\Ev{\Ev{ X \geq 2 Y}}\right)}{P \Ev{X \geq Y}} = \frac{
+\frac{2}{7} }{ \frac{2}{3} } = \frac{3}{7}$.
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~\\
+ Soit $(X_{n})_{n \in \N}$ une suite de variables aléatoires
+indépendantes définie sur un espace probabilisé $(\Omega, \mathcal{A},
+P)$ telles que, pour tout $n \in \N^*$, $X_{n}$ suit la loi
+exponentielle de paramètre $\frac{1}{n}$ (d'espérance $n$). \\
+ Pour tout $x$ réel on note $\lfloor x \rfloor$ sa partie entière. \\
+ Pour $n \in \N^*$ soient :
+ 
+\[
+ Y_{n} = \lfloor X_{n} \rfloor \ \ \ \text{ et } \ \ \ Z_{n} = X_{n} -
+\lfloor X_{n} \rfloor 
+\]
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Une suite $(X_{n})$ de variables aléatoires converge en loi vers
+$X$ si pour tout $x$ telle que $F_{X}$ est continue en $x$, $\dlim{n
+\rightarrow + \infty} F_{X_{n}} (x) = F_{X}(x)$. \\
+ \item $Y_{n} (\Omega) = \lfloor \R_+ \rfloor = \N$. \\
+ Pour tout $k \in \N$, $\Prob\left(\Ev{\Ev{Y_{n} = k}}\right) =
+\Prob\left(\Ev{ k \leq X_{n} < k + 1}\right) = F_{X_{n}} (k + 1) -
+F_{X_{n}} (k) = 1 - e^{ - \frac{k + 1}{n} } - 1 + e^{ - \frac{k}{n} } =
+\left( e^{- \frac{1}{n} } \right)^{k} ( 1 - e^{ - \frac{1}{n} })$. \\
+\\
+ On remarque que pour $k \in \N^*$, $\Prob\left(\Ev{\Ev{ Y + 1 =
+k}}\right) = \Prob\left(\Ev{\Ev{ Y = k-1}}\right) = \left( e^{-
+\frac{1}{n} } \right)^{k-1} ( 1 - e^{ - \frac{1}{n} })$ et $Y + 1$ suit
+la loi géométrique de paramètre $ 1 - e^{ - \frac{1}{n} }$, d'espérance
+$ \frac{1}{ 1 - e^{ - \frac{1}{n} }}$ et enfin $\E(Y) = \E(Y + 1-1) =
+\E(Y + 1) - 1 = \frac{1}{ 1 - e^{ - \frac{1}{n} }} - 1 = \frac{1 - ( 1
+- e^{ - \frac{1}{n} }) }{ 1 - e^{ - \frac{1}{n} }} = \frac{ e^{ -
+\frac{1}{n} } }{ 1 - e^{ - \frac{1}{n} }}$. \\
+ \item On $Y_{n} \leq X_{n} < Y_{n} + 1$ donc $0 \leq Z_{n} < 1$ et
+$Z_{n} (\Omega) = [ 0 ; 1[$. \\
+ Avec le système complet $\Ev{Y_{n} = k}_{k \in \N}$ on a
+$\Prob\left(\Ev{\Ev{Z_{n} \leq t}}\right) = \Sum{k = 0}{+ \infty} P (
+\Ev{Y_{n} = k} \cap \Ev{Z_{n} \leq t} ) = \Sum{k = 0}{+ \infty} P
+\left(\Ev{k \leq X_{n} \leq k + t}\right) = \Sum{k = 0}{+ \infty}
+F_{X_{n}} (k + t) - F_{X_{n}} (k) = \Sum{k = 0}{+ \infty} e^{-
+\frac{k}{n} } - e^{ - \frac{ k + t}{n} } = (1 - e^{- \frac{t}{n} })
+\Sum{k = 0}{+ \infty} \left( e^{ - \frac{1}{n} } \right)^{k} = \frac{1
+- e^{- \frac{t}{n} } }{1 - e^{- \frac{1}{n} }} $. \\
+ \item Pour tout $t \in [ 0 ; 1]$, on obtient $F_{Z_{n}} (t) \sim
+\frac{ \frac{-t}{n} }{ \frac{-1}{n} } = t \xrightarrow[ n \rightarrow +
+\infty]{} t$. \\
+ De plus on a pour $t \leq 0$, $F_{Z_{n}} (t) = 0 \xrightarrow[ n
+\rightarrow + \infty]{} 0$ et pour $t \geq 1$, $F_{Z_{n}} (t) = 1
+\xrightarrow[ n \rightarrow + \infty]{} 1$; donc $(Z_{n})$ converge en
+loi vers une variable aléatoire $Z$ suivant la loi uniforme sur $[ 0 ;
+1]$. \\
+ \item Soit $n \in \N^*$ et $N_{n}$ la variable aléatoire définie par :
+ 
+\[
+ N_{n} = \Card \left\{ k \in \llb 1 ; n \rrb \text{ tel que } X_{k}
+\leq \frac{k}{n} \right\}
+\]
+ où $\Card (A)$ désigne le nombre d'éléments de l'ensemble fini $A$.
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item On a $N_{n} (\Omega) = \llb 0 ; n \rrb$ et $N_{n}$ compte le
+nombre de succès dans une succession de $n$ épreuves de Bernouilli
+indépendantes de même paramètre $P \left(\Ev{ X_{n} \leq
+\frac{k}{n}}\right) = 1 - e^{ - \frac{ \frac{k}{n} }{k} } = 1 - e^{ -
+\frac{1}{n} }$ (qui est bien indépendant de $k$) donc $N_{n} \suit
+\mathcal{B} \left( n, 1 - e^{ - \frac{1}{n} } \right)$. \\
+ \item Pour tout $i \in \N$, dès que $n \geq i$ on a : \\
+ $\Prob\left(\Ev{\Ev{ N_{n} = i}}\right) = \binom{n}{i} \left( 1 - e^{-
+\frac{1}{n} } \right)^{i} \left( e^{ - \frac{1}{n} } \right)^{n-i} \sim
+\binom{n}{i} \left( \frac{1}{n} \right)^{i} \left( e^{ - \frac{1}{n} }
+\right)^{n-i} = \frac{n}{n} \times \dots \times \frac{n-i + 1}{n}
+\times \frac{1}{i!} \times e^{- \frac{n-i}{n} } \\
+\Prob\left(\Ev{\Ev{ N_{n} = i}}\right) \sim \frac{e^{ -1}}{i!} =
+\frac{1^{i} e^{-1} }{i!}$ et on reconnaît une loi de Poisson de
+paramètre 1. \\
+ D'où $(N_{n})$ converge en loi vers une variable aléatoire $N$ qui
+suit la loi de Poisson de paramètre 1. \\
+ \end{noliste} 
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $E$ l'ensemble des matrices $M_{a,b} = \begin{smatrix}
+a & b & b \\
+b & a & b \\
+b & b & a \\
+\end{smatrix}
+$ où $(a,b)$ prend toute valeur de $\R^{2}$. \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Evident. \\
+ \item Si $a = b$, $M_{a,b}$ a trois colonnes égales donc n'est pas
+inversible. \\
+ Si $a = -2b$ on a $C_{1} + C_{2} + C_{3} = 0$ donc $M$ n'est pas
+inversible. \\
+ Sinon on a avec la méthode du pivot complet $M_{a,b}$ est inversible
+et : \\
+ $M_{a,b}{-1} = \frac{1}{(b-a) (a + 2b) } \begin{smatrix}
+- (a + b) & b & b \\
+b & -(a + b) & b \\
+b & b & -(a + b) \\
+\end{smatrix}
+\in E$. \\
+ \item On peut essayer les premières puissances; on n'obtient rien de
+probant. \\
+ Il faut alors diagonaliser; les valeurs propres peuvent être déduites
+de la deuxième question : \\
+ En effet $M_{a,b} - \lambda I = M_{a -\lambda, b}$ n'est pas
+inversible si et seulement si $a - \lambda = b \Leftrightarrow \lambda
+= a-b$ ou $a - \lambda = -2b \Leftrightarrow \lambda = a + 2b$. \\
+ Pour chacune de ces valeurs on cherche les sous-espaces propres : \\
+ $(M_{a,b} - (a-b) I)X = 0 \Leftrightarrow \begin{smatrix}
+b & b & b \\
+b & b & b \\
+b & b & b \\
+\end{smatrix}
+\begin{smatrix}
+x \\
+y \\
+z \\
+\end{smatrix}
+ = 0 \Leftrightarrow b (x + y + z) = 0 \Leftrightarrow b = 0$ ou $x =
+-y-z$. \\
+\\
+ 1er cas : $b = 0$, alors on a en fait $M_{a,b} = aI$ donc $M_{a,b}{n}
+= a^{n} I$. \\
+ 2er cas : $b \neq 0$, on obtient alors un sous-espace propre de
+dimension 2, engendré par $[ ( -1, 1, 0), (-1, 0, 1) ]$. \\
+\\
+ $(M_{a,b} - (a + 2b) I)X = 0 \Leftrightarrow \begin{smatrix}
+-2b & b & b \\
+b & -2b & b \\
+b & b & -2b \\
+\end{smatrix}
+\begin{smatrix}
+x \\
+y \\
+z \\
+\end{smatrix}
+ = 0 \Leftrightarrow \left\{ 
+\begin{array}{l}
+ - 2 x + y + z = 0 \\
+x - 2y + z = 0 \\
+x + y -2z = 0 \\
+\end{array}
+\right.$ (car $b \neq 0$) $\Leftrightarrow \left\{ 
+\begin{array}{l}
+ x + y -2z = 0 \\
+- 3y + 3z = 0 \\
+-2x + y + z = 0 \\
+\end{array}
+\right. \Leftrightarrow \left\{ 
+\begin{array}{l}
+ x = y \\
+y = z \\
+2y = 2x \\
+\end{array}
+\right. \Leftrightarrow (x,y,z) = x (1,1,1) $ ce qui donne une base du
+sous-espace propre. \\
+\\
+ On obtient avec $P = \begin{smatrix}
+-1 & -1 & 1 \\
+1 & 0 & 1 \\
+0 & 1 & 1 \\
+\end{smatrix}
+$ et $D = \begin{smatrix}
+a-b & 0 & 0 \\
+0 & a-b & 0 \\
+0 & 0 & a + 2b \\
+\end{smatrix}
+$ que $M_{a,b} = P D P^{-1}$ puis $M_{a,b} = P D^{n} P^{-1}$ avec
+$D^{n} = \begin{smatrix}
+(a-b)^{n} & 0 & 0 \\
+0 & (a-b)^{n} & 0 \\
+0 & 0 & (a + 2b)^{n} \\
+\end{smatrix}
+$.
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Un estimateur d'un paramètre $\theta$ de la loi $P_{X}$ d'une
+variable aléatoire $X$ dont on dispose d'un échantillon $(X_{n})$ est
+une suite de variables aléatoires $(T_{n})$ où pour tout $n$, $T_{n}$
+est une fonction des variables $X_{1},\ \dots\, X_{n})$. \\
+\\
+ Soient $a,\ b$ et $c$ trois réels strictement positifs et soit $f$ la
+fonction définie sur $\R$ par : 
+ 
+\[
+ f(x) = 0 \text{ si } x < 0,\ \ \ f(x) = c \text{ si } x \in [ 0 ; a[,\
+\ \ f(x) = \frac{b}{x^{4}} \text{ si } x \in [ a ; + \infty[.
+\]
+ \item La fonction est continue sauf éventuellement en $0$ et en $a$ et
+positive, il reste à vérifier $\dint{-\infty}{+ \infty} f = 1$. \\
+ Or $\dint{-\infty}{+ \infty} f = \dint{-\infty}{0} 0\ dx + \dint{0}{a}
+c\ dx + \dint{a}{+ \infty} \frac{b}{x^{4}}\ dx = a c + b \dint{a}{+
+\infty} \frac{1}{x^{4}}\ dx$. \\
+ Cette dernière intégrale est convergente (intégrale de Riemann) et
+$\dint{a}{y} \frac{1}{x^{4}}\ dx = \left[ \ \frac{-1}{3x^{3}}
+\right]_{a}{y} \xrightarrow[y \rightarrow + \infty]{}
+\frac{1}{3a^{3}}$. \\
+ Il faut donc avoir $ a c + \frac{ b}{3 a^{3}} = 1$. \\
+ De plus pour la continuité sur $\R_+ $ il faut la continuité en $a$,
+qui donne $c = \frac{b}{a^{4}}$. \\
+ On injecte dans la première égalité : $ \frac{b}{a^{3}} + \frac{b}{3
+a^{3}} = 1$ donc $\frac{4b }{3a^{3}} = 1$, $b = \frac{3a^{3}}{4}$ et $c
+= \frac{3}{4a}$. \\
+\\
+ On prend $a = 1$, la courbe est constante égale à 0 jusqu'à $x = 0$,
+constante égale à $\frac{3}{4}$ sur $[0;1[$ et décroissante et convexe
+de $\frac{3}{4}$ à 0 sur $[ 1 ; + \infty[$. \\
+ \item Toutes les autres intégrales étant clairement absolument
+convergentes (intégrale de 0 ou intégrale sur un segment), il reste à
+vérifier que $ \frac{x^{k}}{x^{4}}$ est intégrable en $ + \infty$, ce
+qui est vrai si et seulement si $4-k >1$, donc si et seulement si $k <
+3$, c'est-à-dire $k \leq 2$. \\
+ \item $\E(X) = c \frac{a^{2}}{2} + \frac{b}{2a^{2}} = \frac{3a}{8} +
+\frac{3a}{8} = \frac{3a}{4}$. \\
+ De même $\E(X^{2}) = c \frac{a^{3}}{3} + \frac{b}{a} = \frac{a^{2}}{4}
++ \frac{3 a^{2}}{4} = a^{2}$. \\
+ Enfin $\V(X) = a^{2} - \frac{9}{16} a^{2} = \frac{7}{16} a^{2}$. \\
+ \item Soit $(X_{n})$ une suite de variables aléatoires indépendantes
+de même loi que $X$. On pose 
+ 
+\[
+ T_{n} = \frac{1}{n} \Sum{i = 1}{n} X_{i} 
+\]
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} \item $(X_{i})$ est un échantillon de la loi
+de $X$ dont $a$ est un paramètre et pour tout $n$, $T_{n}$ est une
+fonction de $X_{1},\ \dots\, X_{n}$ donc $(T_{n})$ est un estimateur de
+$a$. \\
+ \item On a $\E(T_{n}) = \E(X) = \frac{3}{4} a$ par linéarité de
+l'espérance donc en posant $S_{n} = \frac{4}{3} T_{n}$, la suite
+$(S_{n})$ est un estimateur sans biais de $a$. \\
+ \item $R_{a} (S_{n}) = \V(S_{n})$ car $(S_{n})$ est sans biais, donc
+$R_{a} (S_{n}) = \frac{16}{9} \V(T_{n}) = \frac{16}{9 n^{2}} V \left(
+\Sum{i = 1}{n} X_{i} \right) = \frac{16}{9n^{2}} \Sum{i = 1}{n}
+\V(X_{i})$ par indépendance des $X_{i}$, en enfin : \\
+ $R_{a} (S_{n}) = \frac{16}{9 n^{2}} \times n \V(X) = \frac{16}{9 n}
+\times \frac{7}{16} a^{2} = \frac{7 a^{2}}{9n}$. \\
+ \end{noliste}
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $A = \begin{smatrix}
+1 & 2 & -2 \\
+2 & 1 & -2 \\
+2 & 2 & -3 \\
+\end{smatrix}
+$. \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $A^{2} - I = 0$.
+ \item $X^{2} - 1 = (X-1) (X + 1)$ est annulateur de $A$ donc $\spc A
+\subset \{ -1 ; 1\}$. \\
+ $(A - I) X = 0 \Leftrightarrow X \in \Vect [ ( 1, 1, 1) ]$ et $(A + I)
+X = 0 \Leftrightarrow X \in \Vect [ (1, 0, 1), ( 1, -1, 0) ]$ donc la
+somme des dimensions des sous-espaces propres vaut 3, et $A$ est
+diagonalisable. \\
+ De plus on a $A = P D P^{-1}$ avec $P = \begin{smatrix}
+1 & 1 & 1 \\
+1 & 0 & -1 \\
+1 & 1 & 0 \\
+\end{smatrix}
+$ et $D = \begin{smatrix}
+1 & 0 & 0 \\
+0 & -1 & 0 \\
+0 & 0 & -1 \\
+\end{smatrix}
+$.
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ 
+
+\end{document}

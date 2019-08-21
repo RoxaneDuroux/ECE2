@@ -1,0 +1,260 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+
+\vspace{0.1cm}
+
+\begin{center}
+\textbf{\Large{Programme de colle - Semaine 6}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Notation}
+
+\noindent
+On adoptera les principes suivants pour noter les étudiants :
+\begin{noliste}{$\stimes$}
+\item si l'étudiant sait répondre à la question de cours, il 
+aura une note $>8$.
+\item si l'étudiant ne sait pas répondre à la question de 
+cours ou s'il y a trop d'hésitations, il aura une note $\leq 8$.
+\end{noliste}
+
+\section*{Questions de cours}
+
+\begin{noliste}{$\sbullet$}
+  \item {\bf Propriétés d'une probabilité} 
+  \underline{On choisira $3$ propriétés à démontrer parmi les 
+  suivantes} :\\
+  Soit $(\Omega,\A,\Prob)$ un espace probabilisé. Alors
+  \begin{noliste}{1.}
+    \item Pour tous événements $A$ et $B$ tel que $A \subset B$, 
+    alors $\Prob(A) \leq \Prob(B)$.
+    \item Pour tout événement $A \in \A$, $\Prob(\overline{A}) = 1 - 
+    \Prob(A)$. En particulier, $\Prob(\varnothing) = 0$.
+    \item $\Prob (B \setminus A) = \Prob (B) - \Prob (A \cap B)$
+    \item $\Prob (A \cup B) = \Prob (A) + \Prob (B) - \Prob (A \cap 
+    B)$
+    \item $
+      \begin{array}{rccl}
+        \Prob (A \cup B \cup C) & = & & \Prob(A) \ + \ \Prob(B) \ + 
+        \ \Prob(C) \\
+        & & - & \Prob(A \cap B) \ - \ \Prob(A \cap C) \ - \ \Prob(B 
+        \cap C) \\ 
+        & & + & \Prob(A \cap B \cap C) \\ 
+      \end{array}
+      $\\[.1cm]
+    {\em (formule du crible)}
+\end{noliste}
+
+\begin{proof}[Preuve]~
+\begin{noliste}{1.}
+\item Pour tous événements $A$ et $B$, les événements $A\cap B$ et 
+$\overline{A} \cap B$ sont incompatibles. Si $A \subset B$ alors $A 
+\cap B = A$. Ainsi
+\[
+\Prob(B) = \Prob\big((A \cap B) \cup (\overline{A} \cap B)\big) = 
+\Prob(A \cap B) + \Prob(\overline{A} \cap B) = \Prob(A) + 
+\underbrace{\Prob(\overline{A} \cap B)}_{\geq 0}.
+\]  
+Donc $\Prob(B) \geq \Prob(A)$.
+
+\item $A$ et $\overline{A}$ forment un système complet d'événements 
+donc 
+$\Prob(\Omega) = \Prob(A \cup \overline{A}) = \Prob(A) + 
+\Prob(\overline{A})$. Donc $\Prob(A) = 1 - \Prob(A)$.
+
+\item On a : $(A \setminus B) \ \cup \ (A \cap B) = A$ (réunion
+    disjointe).\\
+    Ainsi, par $\sigma$-additivité :
+    \[
+    \Prob((A \setminus B) \ \cup \ (A \cap B)) = \Prob(A \setminus B)
+    + \Prob(A \cap B) = \Prob(A)
+    \]
+\item On a : $A \cup B = A \cup (B \setminus A)$ (la deuxième
+    réunion est disjointe).\\
+    On en déduit, à l'aide du point \itbf{2)} que :
+    \[
+    \begin{array}{rcl}
+      \Prob(A \cup B) & = & \Prob(A \cup (B \setminus A)) \\[.2cm]
+      & = & \Prob(A) + \Prob(B \setminus A) \\[.2cm]
+      & = & \Prob(A) + \Prob(B) - \Prob(A \cap B)
+    \end{array}
+    \]    
+
+  \item Généralisation de la formule précédente :
+    \[
+    \begin{array}{rcl}
+      \multicolumn{3}{l}{\Prob(A \cup B \cup C)} \\[.2cm]
+      & = & \Prob(A \cup (B \cup C)) \\[.2cm]
+      & = & \Prob(A) + \Prob(B \cup C) - \Prob(A \cap (B \cup C)) 
+\\[.2cm]
+      & = & \Prob(A) + \Prob(B) + \Prob(C) - \Prob(B \cap C) - 
+      \Prob(A \cap (B \cup C)) \\[.2cm]
+      & = & \Prob(A) + \Prob(B) + \Prob(C) - \Prob(B \cap C) - 
+      \Prob((A \cap B) \cup (A \cap C)) \\[.2cm]
+      & = & \Prob(A) + \Prob(B) + \Prob(C) - \Prob(B \cap C) \\[.1cm]
+      & & - \left( \ \Prob(A \cap B) + \Prob(A \cap C) - \Prob((A \cap 
+B) \cap 
+        (A \cap C)) \ \right)\\[.2cm]
+      & = & \Prob(A) + \Prob(B) + \Prob(C) \\[.1cm]
+      & & - \Prob(B \cap C) - \Prob(A \cap B) - \Prob(A \cap C) \\[.1cm]
+      & & + \Prob(A \cap B \cap C)
+    \end{array}
+    \]
+\end{noliste}
+\end{proof}
+
+\item {\bf Probabilité conditionnelle}\\
+Soit $(\Omega,\A,\Prob)$ un espace probabilisé fini. Soit $B$ un 
+événement tel que $\Prob(B) \neq 0$. Alors l'application $\Prob_B: A 
+\mapsto \Prob_B(A)$ est une probabilité sur $\Omega$.
+
+\begin{proof}[Preuve]~\\
+  Il s'agit de vérifier que $\Prob_A$ vérifie les axiomes d'une
+  probabilité.
+  \begin{noliste}{1.}
+  \item Soit $B \in \A$.
+    \begin{noliste}{$\sbullet$}
+    \item Comme $\Prob(A \cap B) \geq 0$ et $\Prob(A) > 0$ (car
+      $\Prob(A) \neq 0$), on a : $\dfrac{\Prob(A \cap B)}
+      {\Prob(A)} \geq 0$
+
+    \item Comme $A \cap B \subset A$, on a $\Prob(A \cap B) \leq
+      \Prob(A)$ et donc : $\dfrac{\Prob(A \cap B)} {\Prob(A)} \leq 1$
+      
+    \end{noliste}
+
+  \item $\Prob_A(\Omega) \ = \ \dfrac{\Prob(A \cap \Omega)}{\Prob(A)}
+    \ = \ \dfrac{\Prob(A)}{\Prob(A)} \ = \ 1$
+
+  \item Soit $(B_n)_{n\in \N}$ une suite d'événements deux à deux
+    incompatibles. Alors :
+    \[
+    \Prob_A\left(\dcup{n = 0}{+\infty} B_n\right) \ = \ 
+\dfrac{\Prob\left(A \cap
+      \dcup{n = 0}{+\infty} B_n\right)}{\Prob(A)} \ = \ 
+\dfrac{\Prob\left(\dcup{n
+        = 0}{+\infty} (A \cap B_n)\right)}{\Prob(A)}
+    \]    
+    Notons alors $C_n = A \cap B_n$.     
+
+    \noindent
+    Les événements de la suite $(C_n)$ sont deux à deux
+    incompatibles.\\
+    En effet, si $i \neq j$ :
+    \[
+    C_i \cap C_j \ = \ (A \cap B_i) \ \cap \ (A \cap B_j) \ = \ A \cap
+    (B_i \cap B_j) \ = \ A \cap \emptyset \ = \ \emptyset
+    \]
+    Par $\sigma$-additivité de $\Prob$, on a alors : \ $ 
+\Prob\left(\dcup{n
+      = 0}{+\infty} (A \cap B_n)\right) \ = \ \Sum{n = 0}{+\infty} 
+\Prob(A
+    \cap B_n)$.\\
+    Et ainsi :
+    \[
+    \Prob_A\left(\dcup{n = 0}{+\infty} B_n\right) \ = \ \dfrac{\Sum{n =
+        0}{+\infty} \Prob(A \cap B_n)}{\Prob(A)} \ = \ \Sum{n =
+      0}{+\infty} \dfrac{\Prob(A \cap B_n)}{\Prob(A)} \ = \ 
+    \Sum{n = 0}{+\infty} \Prob_A(B_n) %
+    \]
+  \end{noliste}
+\end{proof}
+
+
+\newpage
+
+
+\item {\bf Variance d'une $\G{p}$}\\
+Soit $p \in ]0,1[$ et soit $X \suit \G{p}$. Alors 
+\begin{noliste}{1.}
+\item $X$ admet une 
+espérance et une variance
+\item De plus : $\E(X) = \dfrac{1}{p}$ \qquad et \qquad $\V(x) = 
+\dfrac{1 -  p}{p^2}$.
+\end{noliste}
+
+\begin{proof}[Preuve]~\\
+Calculons $\E(X^2)$ :\\ 
+On rappelle que $k^2 
+= k(k-1)+k$. Soit $n\in\N$.
+\[
+ \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+  \Sum{k=1}{n} k^2 \Prob(\Ev{X=k}) & = & \Sum{k=1}{n} k(k-1) 
+p(1-p)^{k-1} + \Sum{k=1}{n} k p(1-p)^{k-1} & (car $k^2 = k(k-1)+k$)
+\nl[-.4cm]
+\nl
+&=& p(1-p)\Sum{k=1}{n} k(k-1) (1-p)^{k-2} + p \Sum{k=1}{n} k 
+(1-p)^{k-1}\\[.6cm]
+&=& p(1-p)\Sum{k=\textcolor{red}{2}}{n} k(k-1) (1-p)^{k-2} + p 
+\Sum{k=1}{n} k(1-p)^{k-1} & (car $1(1-1)(1-p)^{1-2}=0$)
+ \end{array}
+\]
+On reconnaît la série géométrique dérivée $\Sum{k\geq 1}{} k(1-p)^{k-1}$ 
+et la série géométrique dérivée deux fois $\Sum{k\geq 2}{} k(k-1) 
+(1-p)^{k-2}$ toutes deux de raison $(1-p)\in]0,1[$ qui sont des séries 
+convergentes.\\ 
+Donc $X$ admet un moment d'ordre $2$, donc une variance. 
+Et on a :
+\[
+ \begin{array}{rcl}
+  \E(X^2) &=& p(1-p)\Sum{k=2}{+\infty} k(k-1) (1-p)^{k-2} + p 
+\Sum{k=1}{+\infty} k(1-p)^{k-1}\\[.6cm]
+ &=&  p(1-p) \dfrac{2}{(1-(1-p))^3} + p 
+\dfrac{1}{(1-(1-p))^2}\\[.6cm]
+ &=& 2 \ \dfrac{1-p}{p^2} + \dfrac{1}{p}\\[.6cm] 
+ &=& \dfrac{2}{p^2} - \dfrac{1}{p}
+ \end{array}
+\]
+D'après la formule de Koenig-Huyghens, on en déduit que
+\[
+\V(X) \ = \ \E(X^2) - \E(X)^2 \ = \ \dfrac{2}{p^2} - \dfrac{1}{p} - 
+\dfrac{1}{p^2} \ = \ \dfrac{1}{p^2} - \dfrac{1}{p} \ = \ 
+\dfrac{1 -  p}{p^2}
+\]
+\end{proof}
+\end{noliste}
+
+
+\section*{Connaissances exigibles}
+
+\begin{noliste}{$\sbullet$}
+\item définition de tribu, probabilité
+\item événements incompatibles, système complet d'événements, 
+indépendance
+\item probabilités conditionnelles, formule de Bayes
+\item formule du crible, formule des probabilités totales, formule des 
+probabilités composées
+\item \var discrètes finies et infinies, leurs lois (usuelles ou non)
+\item espérance, théorème de transfert, moments, variance, formule de 
+Koenig-Huygens
+\item variables aléatoires discrètes finies et infinies, leurs lois
+\item variables aléatoires discrètes usuelles (finies et infinies), 
+leurs espérances et variances.
+\item Les colleurs sanctionneront {\bf très sévèrement} les confusions 
+entre objets mathématiques : probabilité / événement, variable aléatoire 
+/ événement, etc.
+\item l'indépendance entre \var n'a pas encore été abordée.
+\end{noliste}
+
+
+
+
+
+\end{document}

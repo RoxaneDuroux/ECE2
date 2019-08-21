@@ -1,0 +1,838 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} Q_{O}RAUX_{H}EC 2010} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+\section{Annales 2010}
+
+ %\setcounter{exercice}{0}
+
+ \begin{exercice} \indent \\
+ \textbf{\underline{Exercice avec préparation}} \\
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item La loi géométrique est la loi d'attente du premier succès dans
+une succession illimitée d'épreuves de Bernouilli identiques et
+indépendantes, de paramètre $p$. \\
+ Si $X \suit \mathcal{G} (p)$, on a $X(\Omega) = \N^*$ et pour tout $k
+\in \N^*$, $\Prob\left(\Ev{\Ev{X = k}}\right) = (1-p)^{k-1} p$. \\
+ De plus $X$ admet une espérance et une variance, et $\E(X) =
+\frac{1}{p}$ et $\V(X) = \frac{1-p}{p^{2}}$. \\
+ \item Pour tout $h \in \llb 1 ; n \rrb$, on définit la variable
+aléatoire $T_{h}$ égale au nombre d'années nécessaires pour que le
+$h$-ième bulbe fleurisse. \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item $T_{h} \suit \mathcal{G} (p)$. \\
+ \item $T = \max (T_{1}, T_{2},\ \dots\, T_{n})$ donc $T(\Omega) =
+\N^*$ et pour tout $k \geq 1$ : \\
+ $\Prob\left(\Ev{\Ev{ T \leq k}}\right) = P \left(\Ev{
+\bigcap\limits_{h = 1}{n} [T_{h} \leq k]}\right) = \prod\limits_{h =
+1}{n} \Prob\left(\Ev{\Ev{ T_{h} \leq k}}\right) = \left( 1 - q^{k}
+\right)^{n}$, qui est valable aussi pour $k = 0$ (cela donne bien 0).
+\\
+ On en déduit que $\Prob\left(\Ev{\Ev{ T = k}}\right) =
+\Prob\left(\Ev{\Ev{ T \leq k}}\right) - \Prob\left(\Ev{\Ev{ T \leq
+k-1}}\right) = \left( 1 - q^{k} \right)^{n} - \left( 1 - q^{k-1}
+\right)^{n}$. \\
+ \end{noliste}
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item $\dlim{N \rightarrow + \infty} \Sum{k = 1}{n} \binom{n}{k}
+(-1)^{k} N (q^{k})^{N} = 0$ car c'est une somme finie de termes tendant
+vers 0 par croissances comparées de la suite $u_{N} = N$ et de la suite
+géométrique $v_{N} = (q^{k})^{N}$. \\
+ \item $ \Sum{k = 1}{n} (-1)^{k} \binom{n}{k} \Sum{j = 1}{N}
+(q^{k})^{j-1} = \Sum{k = 1}{n} (-1)^{k} \binom{n}{k} \times \frac{1 -
+q^{k N} }{1 - q^{k}} \xrightarrow[ N \rightarrow + \infty]{} \Sum{k =
+1}{n} (-1)^{k} \binom{n}{k} \times \frac{1 }{1 - q^{k}}$.
+ \\
+ \item On étudie $ \Sum{j = 1}{N} j \Prob\left(\Ev{\Ev{ T = j}}\right)
+= \Sum{j = 1}{N} j \left[ \ \Sum{k = 0}{n} \binom{n}{k} (-1)^{k}
+(q^{j})^{k} - \Sum{k = 0}{n} \binom{n}{k} (-1)^{k} (q^{j-1})^{k}
+\right] \\
+\\ = \Sum{k = 0}{n} \binom{n}{k} (-1)^{k} \Sum{j = 1}{N} j (q^{k})^{j}
+- \Sum{k = 0}{n} \binom{n}{k} (-1)^{k} \Sum{j = 1}{N} j (q^{k})^{j-1}
+\\
+\\ = \binom{n}{0} (-1)^{0} \Sum{j = 1}{N} j (1)^{j} + \Sum{k = 1}{n}
+\binom{n}{k} (-1)^{k} \Sum{j = 1}{N} j (q^{k})^{j} - \binom{n}{0}
+(-1)^{0} \Sum{j = 1}{N} j (1)^{j-1} - \Sum{k = 1}{n} \binom{n}{k}
+(-1)^{k} \Sum{j = 1}{N} j (q^{k})^{j-1} \\
+\\ = \frac{N (N + 1)}{2} + \Sum{k = 1}{n} \binom{n}{k} (-1)^{k} q^{k}
+\Sum{j = 1}{N} j (q^{k})^{j-1} - \frac{N (N + 1)}{2} - \Sum{k = 1}{n}
+\binom{n}{k} (-1)^{k} \Sum{j = 1}{N} j (q^{k})^{j-1} \\
+\\\
+xrightarrow[ N \rightarrow + \infty]{} \Sum{k = 1}{n} \binom{n}{k}
+(-1)^{k} q^{k} \frac{1}{(1-q^{k})^{2}} - \Sum{k = 1}{n} \binom{n}{k}
+(-1)^{k} \frac{1}{(1-q^{k})^{2}} = \Sum{k = 1}{n} \binom{n}{k} (-1)^{k}
+\frac{q^{k} + 1 }{(1-q^{k}) (1 + q^{k})} = \Sum{k = 1}{n} \binom{n}{k}
+(-1)^{k} \frac{ 1 }{1-q^{k}} $ \\
+\\\
+\
+ On retrouve le même résultat qu'à partir de la question b, mais je ne
+m'en suis pas du tout servi. On doit probablement pouvoir l'utiliser
+d'une manière ou d'une autre, peut-être en regroupant les deux sommes
+en $k$ tout de suite au lieu de le faire à la fin. \\
+ \end{noliste}
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ $f$ est diagonalisable, on étudier la question dans une base
+$\mathcal{B}$ où la matrice de $f$ est diagonale, égale à $D =
+\begin{smatrix}
+a_{1} & 0 & \dots & 0 \\
+0 & a_{2} & & 0 \\
+\vdots & & \ddots & 0 \\
+0 & 0 & \dots & a_{n} \\
+\end{smatrix}
+$. \\
+ Pour avoir $\imf \subset \ker f$ il faut avoir $f^{2} = 0$, donc
+$D^{2} = 0$, donc $a_{i}{2} = \Leftrightarrow a_{i} = 0$ pour tout $i$,
+et $D = 0$. \\
+ La seule solution est donc l'endomorphisme nul, $f = 0_{\mathcal{L}
+(E)}$. \\
+\\\
+\
+ Autre solution : $f^{2} = 0$ donc 0 est la seule valeur propre
+possible, et $f$ diagonalisable donc la matrice diagonale contenant 0
+uniquement sur la diagonale, donc nulle, est une matrice de $f$, et $f
+= 0$.
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice} \indent \\
+ \textbf{\underline{Exercice avec préparation}} \\
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $f = o(g)$ si et seulement si $ f = g \times \epsilon$ avec
+$\epsilon (x) \xrightarrow[x \rightarrow + \infty] 0$ puis on définit
+$f \sim g$ si et seulement si $f = g + o(g)$, ou $g = f + o(f)$, ou
+encore $f = g \times u$, avec $u(x) \xrightarrow[x \rightarrow +
+\infty]{} 1$. \\
+\\
+ Croissances comparées des fonctions usuelles : \\
+ Pour tout $\alpha \in \R$, pour tout $\lambda > 0$, $x^{\alpha} = o
+(e^{\lambda x} ) $ donc $e^{-\lambda x} = o ( x^{\alpha})$ en $ +
+\infty$. \\
+ D'autre part pour tout $\alpha \in \R$, pour tout $\lambda > 0$,
+$x^{\alpha} = o (e^{-\lambda x} ) $ et $e^{\lambda x} = o (
+x^{\alpha})$ en $-\infty$. \\
+ Pour tous $\alpha >0$ et $\beta >0$, $( \ln x)^{\beta} = o (
+x^{\alpha})$ en $ + \infty$. \\
+ \item Soit $g$ la fonction définie sur $\R_+^*$ à valeurs réelles,
+telle que :
+ 
+\[
+ \forall x \in \ ] 0 ; + \infty[,\ \ \ g(x) = x \ln^{2} (x). 
+ 
+\]
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item $g$ est dérivable sur $]1 ; + \infty[$ et $g'(x) = \ln^{2} (x) +
+x \times \frac{1}{x} \times 2 \ln (x) = \ln (x) ( \ln x + 2) >0$ sur $]
+1 ; + \infty[$ donc $g$ est strictement croissante et continue donc
+réalise une bijection de $]1 ; + \infty[$ dans $]\dlim{1} g ; \dlim{+
+\infty} g [$. \\
+\\
+ Or par continuité de $g$, $\dlim{1} g = g(1) = 0$ et par produit de
+limites, $\dlim{+ \infty} g = + \infty$, donc $g$ réalise une bijection
+de $] 1 ; + \infty [$ dans $] 0 ; + \infty[$. \\
+\\
+ Soit $h$ la bijection réciproque de la restriction de $g$ à
+l'intervalle $]1 ; + \infty[$. 
+ \item \begin{nonoliste}{(i)}
+ \item On écrit $g( h(x) ) = h(x) \ln^{2} (h(x) ) = x$ et on compose
+par $\ln$ : \\
+ On obtient $\ln (h(x) ) + 2 \ln ( \ln (h(x) ) ) = \ln (x)$. \\
+ \item On a $\ln x = \ln (h(x) ) \left( 1 + 2 \frac{ \ln ( \ln (h (x) )
+) }{ \ln ( h(x) )} \right)$. \\
+ On pose $X = \ln (h(x)) \xrightarrow[ x \rightarrow + \infty]{} +
+\infty$ par composée de limites, on a alors par croissances comparées,
+$ \frac{ \ln X }{X} \xrightarrow[X \rightarrow + \infty]{} 0$ donc par
+composition, $\dlim{x \rightarrow + \infty} 1 + 2 \frac{ \ln ( \ln (h
+(x) ) ) }{ \ln ( h(x) )} = 1$, et enfin $\ln x \sim \ln (h(x) )$ en $ +
+\infty$. \\
+\\
+ ATTENTION : cela ne donne pas $h(x) \sim x$ !!!! \\
+\\
+ On écrit alors $[ \ \ln (h (x) ) ]^{2} = \ln ( h(x) ) \times \ln (
+h(x) ) \sim \ln (x) \times \ln (x) = \ln^{2} (x)$ et on réutilise $h(x)
+\ln^{2} (h(x)) = x \sim h(x) \ln^{2} (x)$ donc $h(x) \sim
+\frac{x}{\ln^{2} (x)}$. \\
+ \end{nonoliste}
+ \end{noliste}
+ \item Soit $X$ une variable aléatoire de densité $f$ définie par :
+ 
+\[
+ f(x) = \left\{ 
+\begin{array}{ll}
+ \frac{1}{2 g (| x |)} & \text{ si } | x | < \frac{1}{e} \text{ et } x
+\neq 0 \\
+0 & \text{sinon} \\
+\end{array}
+\right. 
+ 
+\]
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $f$ est continue sauf éventuellement en 0, $\frac{1}{e}$ et
+$\frac{-1}{e}$ et positive par positivité de $g$, il reste à prouver
+que $\dint{-\infty}{+ \infty} f $ est convergente et vaut 1. \\
+ Par parité il suffit de prouver que $\dint{0}{+ \infty} f $ converge
+vers $\frac{1}{2}$. \\
+ On a $\dint{\frac{1}{e} }{+ \infty} f$ converge et vaut 0 comme
+intégrale de la fonction nulle. \\
+ Enfin on étudie $\dint{x}{\frac{1}{e} } \frac{1}{2 t \ln^{2} t}\ dt$
+car l'intégrale n'est généralisée qu'en 0. \\
+ $\dint{x}{\frac{1}{e} } \frac{1}{2t \ln^{2} t}\ dt = \left[ -
+\frac{1}{2\ln t} \right]_{x}{\frac{1}{e} } = - \frac{1}{-2 \ln e } +
+\frac{1}{ 2 \ln x} \xrightarrow[ x \rightarrow 0]{} \frac{1}{2}$ donc
+l'intégrale converge et vaut $\frac{1}{2}$ et $f$ est bien une densité
+de probabilité. \\
+ \item L'imparité puis la positivité permette de se restreindre à
+l'étude de la convergence de \\
+$\dint{0}{\frac{1}{e} } t \times \frac{1}{2 t \ln^{2} t}\ dt =
+\dint{0}{ \frac{1}{e} } \frac{dt}{2 \ln^{2} t}$. \\
+ Pour la convergence on peut écrire $ \frac{1}{2 \ln^{2} t} = o \left(
+\frac{1}{t \ln^{2} (t)} \right)$ et on a prouvé la convergence de
+l'intégrale de cette fonction : on utilise alors le théorème de
+comparaison des intégrales de fonctions positives. \\
+ Ensuite l'imparité permet de donner $\E(X) = 0$ (sans réaliser le
+calcul d'intégrale, qui est impossible!) \\
+ \item Sur le même principe on écrit $ \frac{t}{ 2 \ln^{2} t} = o
+\left( \frac{1}{t \ln^{2} (t)} \right)$ pour prouver l'existence du
+moment d'ordre deux et donc de la variance. \\
+ Par contre le calcul du moment d'ordre deux est celui de l'intégrale
+d'une fonction paire, et il faudrait réaliser le calcul de l'intégrale,
+qu'on ne sait pas faire. \\
+ \end{noliste}
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ On note $\mathcal{B} = (e_{1}, e_{2}, e_{3})$ la base canonique de
+$\R^{3}$. \\
+ Soit $f$ l'endomorphisme de $\R^{3}$ dont la matrice dans la base
+$\mathcal{B}$ est $M = \begin{smatrix}
+1 & -1 & 1 \\
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+\end{smatrix}
+$. \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $f(e_{1} + e_{2} + e_{3}) = M \begin{smatrix}
+1 \\
+1 \\
+1
+\end{smatrix}
+ = \begin{smatrix}
+1 \\
+1 \\
+1
+\end{smatrix}
+$, $f( e_{2} ) = M \begin{smatrix}
+0 \\
+1 \\
+0
+\end{smatrix}
+ = \begin{smatrix}
+0 \\
+0 \\
+1
+\end{smatrix}
+$ et $f(- e_{1} + e_{3}) = M \begin{smatrix}
+-1 \\
+0 \\
+1
+\end{smatrix}
+ = \begin{smatrix}
+0 \\
+-1 \\
+0
+\end{smatrix}
+$. \\
+ \item On prouve que la famille au-dessus est une base, et on a $M' =
+Mat_{\mathcal{B'}} (f)$ est semblable à $M = Mat_{\mathcal{B} } (f)$.
+\\
+ \item $M$ est diagonalisable si et seulement si $M'$ l'est. \\
+ L'étude des valeurs propres de $M'$ donne $\spc M' = \{ 1 \}$; si $M'$
+était diagonalisable, on aurait $M' = P I P^{-1} = I$ qui est absurde,
+donc $M'$ et $M$ ne sont pas diagonalisables.
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~\\
+ Soit $X$ une variable aléatoire définie sur un espace probabilisé
+$(\Omega, \mathcal{A}, P)$, qui suit la loi binomiale $\mathcal{B} (n,
+p)$, avec $n \geq 2$ et $0 < p < 1$. \\
+\\
+ On définit sur $(\Omega, \mathcal{A}, P)$ une variable aléatoire $Y$
+de la façon suivante : \\
+ \begin{noliste}{$\sbullet$}
+ \item pour tout $k \in \llb 1 ; n \rrb$, la réalisation de l'évènement
+$[X = k]$ entraîne celle de l'évènement $[Y = k]$;
+ \item la loi conditionnelle de $Y$ sachant $[X = 0]$ est la loi
+uniforme sur $\llb 1 ; n \rrb$.
+ \end{noliste}
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item On réalise une succession de $n$ épreuves de Bernouilli
+indépendantes et identiques de paramètre $p$, et on compte le nombre de
+succès. \\
+ La variable $X$ associée vérifie alors $X(\Omega) = \llb 0 ; b \rrb$.
+\\
+ Pour calculer $\Prob\left(\Ev{\Ev{X = k}}\right)$, on compte le nombre
+de possibilités amenant à ce résultat et la probabilité de chacune. \\
+ Il faut obtenir $k$ succès et $n-k$ échecs : on place les $k$ succès
+parmi les $n$ épreuves pour obtenir toutes les possibilités : il y en a
+donc $\binom{n}{k}$. \\
+ Dans chacun de ces cas, on obtient de manière indépendante $k$ succès
+et $n$ échecs avec une probabilité $p^{k} q^{n-k}$. \\
+ On obtient alors $\Prob\left(\Ev{\Ev{X = k}}\right) = \binom{n}{k}
+p^{k} q^{n-k}$. \\
+ L'espérance s'obtient en écrivant les $n$ $X_{i}$ variables de
+Bernouilli, avec la linéarité de l'espérance : $\E(X) = n p$. \\
+ De même grâce à l'indépendance on calcule facilement la variance de la
+somme : $\V(X) = n p (1-p)$. \\
+ \item On a $Y (\Omega ) = \llb 1 ; n \rrb$ et pour tout $k \in \N$, en
+utilisant le système complet $\Ev{X = i}_{0 \leq i \leq n}$ on a : \\
+ $\Prob\left(\Ev{\Ev{ Y = k}}\right) = \Sum{i = 0}{n}
+\Prob\left(\Ev{\Ev{ X = i}}\right) P_{\Ev{X = i} } \Ev{Y = k} =
+\Prob\left(\Ev{\Ev{ X = k}}\right) \times 1 + \Prob\left(\Ev{\Ev{X =
+0}}\right) \times \frac{1}{n} = \binom{n}{k} p^{k} q^{n-k} +
+\frac{q^{n}}{n}$. \\
+ \item $\E(Y) = \Sum{k = 1}{n} k \binom{n}{k} p^{k} q^{n-k} + \Sum{k =
+1}{n} \frac{q^{n}}{n} = \Sum{k = 0}{n} k \binom{n}{k} p^{k} q^{n-k} - 0
++ \frac{q^{n}}{n} \Sum{k = 1}{n} 1 = \E(X) + \frac{q^{n}}{n} \times n =
+n p + q^{n}$. \\
+ \item 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item Pour tout $k \in \llb 1 ; n \rrb$ on a $P_{X \neq 0} \Ev{ Y = k}
+= \frac{ \Prob( [Y = k] \cap [X \neq 0])}{\Prob\left(\Ev{ X \neq
+0}\right)} = \frac{P \Ev{X = k}}{1 - \Prob\left(\Ev{\Ev{X = 0}}\right)
+} = \binom{n}{k} \frac{ p^{k} q^{n-k}}{1 - q^{n}}$. \\
+ \item $\E(Y \slash X \neq 0) = \Sum{k = 1}{n} k \binom{n}{k} \frac{
+p^{k} q^{n-k}}{1 - q^{n}} = \frac{1}{1 - q^{n}} \Sum{k = 1}{n} k
+\binom{n}{k} p^{k} q^{n-k} = \frac{1}{1 - q^{n}} \left( \Sum{k = 0}{n}
+k \binom{n}{k} p^{k} q^{n-k} - 0 \right) = \frac{\E(X)}{1 - q^{n}} =
+\frac{n p}{1 - q^{n}}$. \\
+ \end{noliste}
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $A$ une matrice symétrique réelle d'ordre $n$ ($n \in \N^*$) et
+vérifiant $A^{k} = I_{n}$. \\
+ Que peut-on dire dans les cas suivants : \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $A$ est symétrique donc diagonalisable, et le polynôme
+$P\left(\Ev{x}\right) = x^{k} -1$ est annulateur de $A$. \\
+ 1 est une racine évidente de ce polynôme, étudions l'existence
+d'autres racines. \\
+ $P'(x) = k x^{k-1} > 0$ sur $\R^*$ et nul en 0 car $k-1$ est pair,
+donc $P$ est strictement croissante et l'équation $P\left(\Ev{x}\right)
+= 1$ admet une unique solution, qui est donc $x = 1$. \\
+ On en déduit que $\spc A \subset \{ 1 \}$ et comme $A$ est
+diagonalisable elle admet au moins une valeur propre : d'où 1 est la
+seule valeur propre de $A$, il existe $P$ inversible tel que $A = P I
+P^{-1} = I$, donc $A$ est forcément la matrice identité. \\
+ \item Ici l'étude de $P'(x)$ donne $P'(x) < 0$ sur $\R_-^*$, nul en 0
+et strictement positif en 0. \\
+ De plus $P\left(\Ev{0}\right) = -1 <0$ et $\dlim{+ \infty} f =
+\dlim{-\infty} f = + \infty$ donc le théorème de la bijection donne
+exactement deux solutions, et celles-ci sont évidentes : 1 et $-1$. \\
+ Il y a donc 3 possibilités : \\
+ - $\spc A = \{ 1 \}$ qui donne $A = I$. \\
+ - $\spc A = \{ -1 \}$ qui donne $A = -I$. \\
+ - $\spc A = \{ -1 ; 1 \}$ qui donne $A = P D P^{-1}$ avec $D$
+contenant 1 et $-1$ sur sa diagonale.
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+
+ \begin{exercice}{\it (Exercice avec préparation)}~\\
+ Toutes les variables aléatoires de cet exercice sont définies sur un
+espace probabilisé $(\Omega, \mathcal{A}, P)$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Soit $X$ une variable discrète finie telle que $ X(\Omega) = \{
+x_{i}\ \big |\ 1 \leq i \leq n \}$. \\
+ On pose alors $\E(X) = \Sum{i = 1}{n} x_{i} \Prob\left(\Ev{\Ev{X =
+x_{i}}}\right)$ qui est la valeur moyenne obtenue lorsqu'on réalise un
+grand nombre de fois l'expérience. \\
+ $\V(X) = \Sum{i = 1}{n} ( x_{i} - \E(X) )^{2} \Prob\left(\Ev{\Ev{ X =
+x_{i}}}\right)$ qui est la moyenne des écarts au carré, et qui permet
+de mesurer la dispersion des valeurs de $X$ (pondérées par leurs
+probabilités) autour de son espérance (qui est la valeur moyenne). \\
+ \item Soient $a$ et $b$ deux réels tels que $a < b$. On considère une
+variable aléatoire $X$ (discrète ou possédant une densité) prenant
+toutes ses valeurs dans l'intervalle $[a ; b]$ et ayant un moment
+d'ordre 2.
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item On a $\V(X) = E ( [X - \E(X)]^{2} ) = E ( [ (X - \lambda ) +
+(\lambda - \E(X) )^{2} ) \\
+ = E( [X - \lambda]^{2} + 2 [ \ \lambda - \E(X) ] [X - \lambda] + [ \
+\lambda - \E(X) ]^{2} ) \\
+ = E ( [X - \lambda]^{2} ) + 2 (\lambda - \E(X) ) [ \ \E(X - \lambda) ]
++ [ \ \lambda - \E(X) ]^{2} \\
+ = \E( [X - \lambda]^{2}) - [ \ \lambda - \E(X) ]^{2} \leq \E( [X -
+\lambda]^{2})$ car un carré est toujours positif. \\
+ \item On se place en $\lambda = \frac{a + b}{2}$ la moyenne de $a$ et
+$b$ et on obtient : \\
+ $ 0 \leq \left( X - \frac{a + b}{2} \right)^{2} \leq \left( \frac{
+b-a}{2} \right)^{2}$ donc $0 \leq E \left[ \left( X - \frac{a + b}{2}
+\right)^{2} \right] \leq \left( \frac{ b-a}{2} \right)^{2}$ et donc
+$\V(X) \leq E \left[ \left( X - \frac{a + b}{2} \right)^{2} \right]
+\leq \frac{ (b-a)^{2}}{4} $. \\
+ \end{noliste}
+ \item 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item On a alors $ \E(X) = \frac{1}{2} a + \frac{1}{2} b = \frac{a +
+b}{2}$ puis $\V(X) = \frac{1}{2} \left[ \ \left( a - \frac{a + b}{2}
+\right)^{2} + \left( b - \frac{a + b}{2} \right)^{2} \right] =
+\frac{1}{2} \times 2 \times \left( \frac{b-a}{2} \right)^{2} = \frac{
+(b-a)^{2}}{4}$. \\
+ \item Étude d'une réciproque : on suppose que $\V(X) =
+\frac{(b-a)^{2}}{4}$. \\
+ On a alors $\V(X) = E \left[ \left( X - \frac{a + b}{2} \right)^{2}
+\right] = \frac{ (b-a)^{2}}{4} $
+ En reprenant la question 2.a., on voit que pour avoir $\V(X) = E
+\left[ \left( X - \frac{a + b}{2} \right)^{2} \right] $, il faut avoir
+$\left( \frac{a + b}{2} - \E(X) \right)^{2} = 0$ donc $\E(X) = \frac{a
++ b}{2}$. \\
+ Ensuite on reprend la question 2.b. : si il existe $c \in \ ] a ;b [$
+tel que $\Prob\left(\Ev{\Ev{ X = c}}\right) \neq 0$ on a : \\
+ $ E \left[ \left( X - \frac{a + b}{2} \right)^{2} \right] = \left( c -
+\frac{a + b}{2} \right)^{2} \Prob\left(\Ev{\Ev{X = c}}\right) + \Sum{x
+\neq c} \left( x - \frac{a + b}{2} \right)^{2} \Prob\left(\Ev{\Ev{ X =
+x}}\right) \leq \left( c - \frac{a + b}{2} \right)^{2}
+\Prob\left(\Ev{\Ev{X = c}}\right) + \frac{ (b-a)^{2}}{4} \Sum{x \neq c}
+\Prob\left(\Ev{\Ev{ X = x}}\right) = \left( c - \frac{a + b}{2}
+\right)^{2} \Prob\left(\Ev{\Ev{X = c}}\right) + \frac{ (b-a)^{2}}{4} (
+1 - P \Ev{X = c} ) = \frac{ (b-a)^{2}}{4} + \Prob\left(\Ev{\Ev{ X =
+c}}\right) \left( \left( c - \frac{a + b}{2} \right)^{2} - \frac{
+(b-a)^{2}}{4} \right) < \frac{ (b-a)^{2}}{4}$. \\
+\\
+ On en déduit que $X (\Omega) = \{ a ; b \}$, puis que $\E(X) = \frac{a
++ b}{2} = a \Prob\left(\Ev{\Ev{ X = a}}\right) + b ( 1 -
+\Prob\left(\Ev{\Ev{ X = a}}\right) )$ donc $\Prob\left(\Ev{\Ev{X = a
+}}\right) = \frac{ \frac{a + b}{2} - b }{a - b} = \frac{ \frac{ a-b}{2}
+}{a-b} = \frac{1}{2}$ et $\Prob\left(\Ev{\Ev{ X = b}}\right) = 1 -
+\Prob\left(\Ev{\Ev{ X = a }}\right) = \frac{1}{2}$. \\
+ \end{noliste}
+ \item Cela signifie que la variance est maximale lorsque la dispersion
+est maximale et symétrique : il faut que les deux seules valeurs prises
+soient symétriques autour de l'espérance, et aient la même probabilité
+d'être atteintes. \\
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $M$ est triangulaire donc elle est inversible si et seulement si
+$X $ et $Y$ sont non nuls. \\
+ D'où $P \left(\Ev{ M \text{ inversible } }\right) = P ( [ X \neq 0]
+\cap [ Y \neq 0] ) = 1$ car $ 0 \notin X(\Omega) = Y (\Omega)$. \\
+ \item On a $\spc M = \{ X ; Y \}$ et comme $M$ n'est pas diagonale on
+a : si il y a une unique valeur propre, $M$ n'est pas diagonalisable et
+si il y a deux valeurs propres distinctes, elle l'est. \\
+ D'où $\Prob\left(\Ev{ M \text{ diagonalisable } }\right) = P
+\left(\Ev{X \neq Y}\right) = 1 - P \Ev{ X = Y} = 1 - \Sum{k = 1}{+
+\infty} p^{2} (q^{2})^{k-1} = 1 - \frac{p^{2}}{1 - q^{2}} = 1 -
+\frac{p}{1 + q} = \frac{1 + q-p}{1 + q} = \frac{2q}{1 + q}$.
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~\\
+ Soit $n$ un entier supérieur ou égal à 2, et $p$ et $q$ deux réels de
+$]0;1[$ tels que $p + q = 1$. On considère deux variables aléatoires
+discrètes $X$ et $Y$ définies sur une espace probabilisé $(\Omega,
+\mathcal{A}, P)$. \\
+ La loi du couple $(X, Y)$ est donnée par : \\
+ pour tout $(j,k)$ tels que $0 \leq j \leq n$ et $1 \leq k \leq n$,
+ 
+\[
+ \Prob( [X = j] \cap [Y = k] ) = \left\{ 
+\begin{array}{cc}
+ \binom{n}{k} p^{k} q^{n-k} & \text{ si } k = j,\ j \neq 0 \\
+\\\
+frac{q^{n}}{n} & \text{ si } j = 0 \\
+\\0 & \text{ si } k \neq j \text{ et } j \neq 0 \\
+\end{array}
+\right.
+ 
+\]
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item La loi d'un couple $(X,Y)$ de variables aléatoires discrètes est
+la donnée de $(X,Y) (\Omega)$, ensemble des couples $(i,j)$ de valeurs
+telles que l'évènement $\Ev{X = i} \cap \Ev{Y = j}$ est possible. \\
+ Les lois marginales sont les lois des variables $X$ et $Y$, obtenues à
+partir du couple et de la formule des probabilités totales. \\
+ Les lois conditionnelles sont les lois d'une variable sachant que
+l'autre a donné un résultat précis, c'est-à-dire les lois du type
+$P_{\Ev{X = i_{0}}} \Ev{Y = j}$ ou $P_{\Ev{Y = j_{0}}} \Ev{X = i}$. \\
+ \item 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item On a $X(\Omega) = \llb 0 ; n \rrb$ et pour tout $j \in \llb 1 ;
+n \rrb$, avec le système complet $\Ev{Y = k}_{1 \leq k \leq n}$ on a :
+\\
+ $\Prob\left(\Ev{\Ev{X = j}}\right) = \binom{n}{j} p^{j} q^{n-j}$. \\
+ Enfin pour $j = 0$ on a $\Prob\left(\Ev{\Ev{X = 0}}\right) = \Sum{k =
+1}{n} \frac{q^{n}}{n} = q^{n}$. \\
+ Finalement on voit que $X \suit \mathcal{B} (n, p)$. \\
+\\
+ D'autre part on a $Y (\Omega) = \llb 1 ; n \rrb$ et avec le système
+complet $\Ev{X = j}_{0 \leq k \leq n}$ on a : \\
+ $\Prob\left(\Ev{\Ev{Y = k}}\right) = \binom{n}{k} p^{k} q^{n-k} +
+\frac{q^{n}}{n}$. \\
+ \item $\E(Y) = \Sum{k = 1}{n} k \binom{n}{k} p^{k} q^{n-k} + \Sum{k =
+1}{n} \frac{q^{n}}{n} = \Sum{k = 0}{n} k \binom{n}{k} p^{k} q^{n-k} - 0
++ \frac{q^{n}}{n} \Sum{k = 1}{n} 1 = \E(X) + \frac{q^{n}}{n} \times n =
+n p + q^{n}$. \\
+ \end{noliste}
+ \item Soit $j$ un entier tel que $0 \leq j \leq n$.
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item Pour tout $ j \geq 1$, pour tout $1 \leq k \leq n$ on a
+$P_{\Ev{X = j}} \Ev{Y = k} = \frac{ P ( [ X = j] \cap [Y = k] )}{P
+\Ev{X = j}} = 0$ si $j \neq k$ et $1$ si $j = k$. \\
+ Pour $j = 0$, on a pour tout $1 \leq k \leq n$, $P_{\Ev{X = 0}} \Ev{Y
+= k} = \frac{ \frac{q^{n}}{n} }{ q^{n}} = \frac{1}{n}$. \\
+ \item Si $j > 0$, on a $\E( Y \slash X = j) = j$ (c'est une variable
+certaine). \\
+ Pour $j = 0$, on a $\E( Y \slash X = 0) = \Sum{k = 1}{n} k \times
+\frac{1}{n} = \frac{1}{n} \times \frac{n (n + 1)}{2} = \frac{n +
+1}{2}$. \\
+ \end{noliste}
+ \item
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item $\Prob( [X = 1] \cap [Y = 1] ) = n p q^{n-1}$ et
+$\Prob\left(\Ev{\Ev{X = 1}}\right) \Prob\left(\Ev{\Ev{Y = 1}}\right) =
+n p q^{n-1} \times \left( n p q^{n-1} + \frac{q^{n}}{n} \right)$. \\
+ Il faut donc prouver que $ \left( n p q^{n-1} + \frac{q^{n}}{n}
+\right) = n q^{n-1} - n q^{n} + \frac{q^{n}}{n} \neq 1$. \\
+ On étudie la fonction $f(q) = n q^{n-1} - n q^{n} + \frac{q^{n}}{n}$
+qui est dérivable : \\
+ $f'(q) = n (n-1) q^{n-2} - n^{2} q^{n-1} + q^{n-1} = q^{n-2} \big[ n
+(n-1) - (n^{2} - 1) q \big] = q^{n-2} \big[ n ( n-1) - (n-1) (n + 1) q
+\big] = (n-1) q^{n-2} ( n - (n + 1) q )$ qui s'annule en $q =
+\frac{n}{n + 1}$ en étant positive avant et négative après; en
+rajoutant $f(0) = 0$ et $f(1) = \frac{1}{n}$ et $ f \left( \frac{n}{n +
+1} \right) = \frac{n^{n}}{(n + 1)^{n}} + \frac{n^{n-1} }{(n + 1)^{n}} =
+\frac{ n^{n} + n^{n-1} }{(n + 1)^{n}} $. \\
+\\
+ De plus on a $(n + 1)^{n} = \Sum{k = 0}{n} \binom{n}{k} n^{k} \geq
+n^{n} + n n^{n-1} > n^{n} + n^{n-1}$ et on obtient que $f(q) < 1$ sur
+$]0 ; 1[$. \\
+ On ne déduit que les variables $X$ et $Y$ ne sont pas indépendantes.
+\\
+ \item On utilise le théorème de transfert : \\
+ $\E(XY) = \Sum{j = 0}{n} \Sum{k = 1}{n} j k \Prob([ X = j] \cap [Y =
+k] ) = \Sum{j = 1}{n} j^{2} \Prob([ X = j] \cap [Y = j] ) = \Sum{j =
+1}{n} j^{2} \binom{n}{j} p^{j} q^{n-j} = \Sum{j = 0}{n} j^{2}
+\binom{n}{j} p^{j} q^{n-j} = \E(X^{2}) = \V(X) + [ \ \E(X)]^{2} = n p
+(1-p) + n^{2} p^{2} = n p ( 1 - p + np) = n p [(n-1) p + 1 ]$. \\
+ Enfin on a $\Cov (X,Y) = \E(XY) - \E(X) \E(Y) = n p [(n-1) p + 1 ] - n
+p ( n p + q^{n}) = np [ (n-1) p + 1 - np - q^{n}] = n p [ 1 - p -
+q^{n}] = n p q ( 1 - q^{n-1} ) \neq 0$ sauf si $q^{n-1} = 1$ qui donne
+$q = 1$. \\
+ \item On retrouve que $X$ et $Y$ ne sont pas indépendantes, quelle que
+soit la valeur de $q$. \\
+ \end{noliste} 
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Étudier la convergence de la suite $(u_{n})_{n \in \N^* }$ définie par
+:
+ 
+\[
+ \forall n \in \N^*,\ \ \ u_{n} = \frac{1}{n^{\alpha}} \Sum{k = 1}{n} k
+\ln \left( 1 + \frac{k}{n} \right)
+ 
+\]
+ où $\alpha$ est un nombre réel, \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Si $\alpha = 2$ on a $u_{n} = \frac{1}{n} \Sum{k = 1}{n}
+\frac{k}{n} \ln \left( 1 + \frac{k}{n} \right) \xrightarrow[ n
+\rightarrow + \infty]{} \dint{0}{1} x \ln ( 1 + x )\ dx = \dint{1}{2}
+(x-1) \ln x\ dx = \frac{ \ln 2 }{2} + \frac{1}{4} $ avec une
+intégration par parties (somme de Riemann). \\
+ \item Si $\alpha < 2$ on a $u_{n} = \frac{1}{n} \Sum{k = 1}{n}
+\frac{k}{n} \ln \left( 1 + \frac{k}{n} \right) \times n^{2- \alpha}
+\xrightarrow[ n \rightarrow + \infty]{} + \infty$. \\
+ Si $\alpha > 2$ on a $u_{n} = \frac{1}{n} \Sum{k = 1}{n} \frac{k}{n}
+\ln \left( 1 + \frac{k}{n} \right) \times n^{2- \alpha} \xrightarrow[ n
+\rightarrow + \infty]{} 0$.
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Soit $X$ une variable à densité, de densité $f$. On dit que
+ $X$ admet un moment d'ordre $r$ si $X^{r}$ admet une espérance et
+ on pose $\E(X^{r})$ le moment d'ordre $r$ de $X$. \\
+ Avec le théorème de transfert, $X$ admet un moment d'ordre $r$ si
+ et seulement si l'intégrale $\dint{-\infty}{+ \infty} t^{r} f(t)\ \ dt
+$ converge absolument (équivalent à la convergence grâce à la
+ décomposition en une fonction de signe constant sur $[ 0 ;
+ + \infty[$ et sur $] - \infty ; 0]$). \\
+ Enfin si $X$ admet un moment d'ordre $r$, elle admet un moment
+ d'ordre $k$ pour tout $1 \leq k \leq r$. \\
+ \item On met au même dénominateur, on identifie et on obtient
+ $\frac{1}{x (x + 1)} = \frac{ 1}{x} - \frac{1}{x + 1}$. 
+ \item On pose :
+ 
+\[
+ f(x) = \left\{ 
+\begin{array}{cc}
+ \frac{k}{x(x + 1)} & \text{ si } x \geq 1 \\
+0 & \text{ sinon } \\
+\end{array}
+\right.
+ 
+\]
+ où $k$ est un paramètre réel. 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $f$ est positive et continue sauf en 1, vérifions
+$\dint{-\infty}{+ \infty} f = \dint{1}{+ \infty}\left( \frac{k}{x} -
+\frac{k}{x + 1} \right)\ dx = 1$. \\
+ On a $\dint{1}{t} \left( \frac{k}{x} - \frac{k}{x + 1} \right)\ dx = k
+\left[ \ \ln x - \ln (x + 1) \right]_{1}{t} = k \ln \left( \frac{t}{t +
+1} \right) + k \ln 2 \xrightarrow[ t \rightarrow + \infty]{} k \ln 2$
+donc l'intégrale converge et vaut $k \ln 2$. \\
+ D'où $f$ est une densité de probabilité si et seulement si $k =
+\frac{1}{\ln 2}$. \\
+ \item L'intégrale $\dint{1}{+ \infty} x f(x)\ dx = \dint{1}{+ \infty}
+\frac{1}{(x + 1) \ln 2}\ dx$ diverge comme intégrale de Riemann avec
+$\alpha = 1$ donc $X$ n'admet pas d'espérance. \\
+ \end{noliste}
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item On a $T (\Omega) = \N^*$ puis $\Prob\left(\Ev{\Ev{T = k}}\right)
+= \Prob\left(\Ev{ k \leq X < k + 1}\right) = \dint{k}{k + 1} f(t)\ dt =
+\left[ \ \ln \left( \frac{x}{x + 1} \right) \right]_{k}{k + 1} = \ln
+\left( \frac{ (k + 1)^{2}}{k (k + 2)} \right) = \ln \left( \frac{ k^{2}
++ 2k + 1}{k (k + 2)} \right) = \ln \left( \frac{ k( k + 2) + 1}{k (k +
+2)} \right) = \ln \left( 1 + \frac{ 1}{k (k + 2)} \right) $. \\
+ \item On en déduit que $\Sum{n = 1}{+ \infty} \ln \left( 1 +
+\frac{1}{n(n + 2) } \right) = 1$ (c'est la somme des probabilités sur
+un système complet d'évènements). \\
+ \end{noliste}
+ \item $Z(\Omega) = \ ] 0 ; 1]$ et on a pour tout $x \leq 0$, $F_{Z}(x)
+= 0$;\\
+ Pour $0 < x \leq 1$, $F_{Z}(x) = \Prob\left(\Ev{ 0 <Z \leq x}\right) =
+P \left(\Ev{ X \geq \frac{1}{x}}\right) = 1 - F_{X} \left( \frac{1}{x}
+\right) = \frac{1}{\ln 2} \ln \left( \frac{ \frac{1}{x} + 1 }{
+\frac{1}{x} } \right) = \frac{1}{\ln 2} \ln ( 1 + x )$; \\
+ Enfin pour $x \geq 1$, $F_{Z}(x) = 1$. \\
+ Enfin on obtient $f_{Z}(x) = 0$ si $x \leq 0$ ou $x \geq 1$ et
+$f_{Z}(x) = \frac{1}{(1 + x) \ln 2}$ si $x \in \ ]0 ; 1[$. \\
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item On a $Y (\Omega) = [ 0 ; 1[$ donc $F_{Y}(x) = 0$ si $x \leq 0$
+et 1 si $x \geq 1$. \\
+ Enfin si $0 < x < 1$ on a $F_{Y}(x) = \Sum{k = 1}{+ \infty}
+\Prob\left(\Ev{ k \leq X \leq k + x}\right) = \frac{1}{\ln 2} \Sum{k =
+1}{+ \infty} \ln \left( \frac{ (k + x) (k + 1)}{k (k + x + 1)} \right)
+= \frac{1}{\ln 2} \Sum{k = 1}{+ \infty} \ln \left( \frac{ (k + x)}{k }
+- \frac{k + x + 1}{k + 1} \right) = \dlim{n \rightarrow + \infty}
+\frac{1}{\ln 2} \ln( 1 + x) - \frac{1}{\ln 2} \ln \left( \frac{ n + x +
+1}{n + 1} \right) = \frac{1}{\ln 2} \ln (1 + x) $ (télescopage). \\
+ On reconnaît la même loi que $Z$. \\
+ \item Les deux autres intégrales étant trivialement convergentes vers
+0, il faut prouver que $\dint{0}{1} \frac{ x^{r} }{(1 + x)\ln 2}$
+converge, ce qui ne pose aucun problème puisque la fonction est
+continue sur $[ 0 ; 1]$ et l'intégrale n'estg pas généralisée. \\
+ \item $\E(Y) = \frac{1}{\ln 2} \dint{0}{1} \frac{x}{(1 + x)}\ dx =
+\frac{1}{\ln 2} \dint{1}{2} \frac{x-1}{(x)}\ dx = \frac{1}{\ln 2}
+\dint{1}^ \dx - \frac{1}{\ln 2} \dint{1}{2} \frac{1}{x}\ dx =
+\frac{1}{\ln 2} - \frac{1}{\ln 2} \ln 2 = \frac{1}{\ln 2} - 1$. \\
+ \end{noliste} 
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $n \geq 2$ et $A = \begin{smatrix}
+0 & 1 & \dots & 1 \\
+1 & 0 & \dots & 1 \\
+\vdots & & \ddots & \vdots \\
+1 & 1 & \dots & 0 \\
+\end{smatrix}
+\in \mathcal{M}_{n} (\R)$. \\
+\\
+ Avec des pivots habiles et des calculs très rigoureux, on trouve
+$A^{-1} = \frac{1}{n-1} ( A + (2-n) I)$. \\
+ Méthode beaucoup plus simple : chercher un polynôme annulateur en
+calculant $A^{2}$ : \\
+ On trouve $A^{2} = (n-2) A + (n-1) I$ donc $A ( A + (2-n) I ) = (n-1)
+I$ et enfin $A^{-1} = \frac{1}{n-1} ( A + (2-n) I )$.
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Un estimateur d'un paramètre $\theta$ de la loi $P_{X}$ d'une
+ variable aléatoire $X$ dont on dispose d'un échantillon $(X_{n})$
+ est une suite de variables aléatoires $(T_{n})$ où pour tout $n$,
+ $T_{n}$ est une fonction des variables $X_{1},\ \dots\, X_{n})$. On
+ dit qu'il est sans biais si pour tout $n$, $\E(T_{n}) = \theta$. \\
+ \\
+ Soit $Z$ une variable aléatoire discrète d'espérance $\E(Z) = 
+ \theta$ ($\theta \in \R^*$) et de variance $\V(Z) = 1$. \\
+\\
+ Pour $n$ entier de $\N^*$, on dispose d'un $n$-échantillon $(Z_{1},
+Z_{2},\ \dots\, Z_{n})$ de variables aléatoires indépendantes et
+ de même loi que $Z$, définies sur un espace probabilisé $(\Omega,
+\mathcal{A}, P)$. \\
+\\
+ On pose $\overline{Z_{n}} = \frac{1}{n} \Sum{j = 1}{n} Z_{j}$. On
+ suppose que $\theta$ est inconnu.
+ \item 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item Oui. Le calcul est évident. \\
+ \item $R_{\theta} = \V(\overline{Z_{n}}) = \frac{1}{n^{2}} \times n
+ \V(Z) = \frac{1}{n}$. \\
+ \end{noliste}
+
+ \item Soient $\beta_{1}, \beta_{2},\ \dots\, \beta_{n}$ des réels non
+ nuls et $Y_{n} = \Sum{j = 1}{n} \beta_{j} Z_{j}$. 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item Il faut $\Sum{j = 1}{n} \beta_{j} = 1$. \\
+\\
+ On suppose que cette condition est vérifiée. \\
+ \item On a vu $\V( \overline{Z_{n}} ) = \frac{1}{n}$. \\
+ On a $\V( \overline{Z_{n}} + Y_{n} ) = V \left( \Sum{j = 1}{n} \left(
+ \beta_{j} - \frac{1}{n} \right) Z_{j} \right) = \Sum{j = 1}{n}
+ \left( \beta_{j} - \frac{1}{n} \right)^{2} \V(Z_{j}) = \Sum{j = 1}{n}
+ \left( \beta_{j} - \frac{1}{n} \right)^{2}$. \\
+ On en déduit que $\V(\overline{Z_{n}} ) + \V(Y_{n}) + 2 \Cov (
+ \overline{Z_{n}}, Y_{n}) = \Sum{j = 1}{n} \left( \beta_{j} -
+ \frac{1}{n} \right)^{2}$. \\
+ D'où $\Cov ( \overline{Z_{n}}, Y_{n}) = \frac{1}{2} \left(
+ \Sum{j = 1}{n} \left( \beta_{j} - \frac{1}{n} \right)^{2} -
+ \beta_{j}{2} - \frac{1}{n^{2}} \right) = \Sum{j = 1}{n}
+ \frac{\beta_{j}}{n} = \frac{ \Sum{j = 1}{n} \beta_{j} }{n} = 
+ \frac{1}{n}$. \\
+ On a alors $0 \leq \V(Y_{n} - \overline{Z_{n}} ) = \V(Y_{n}) + 
+ V(\overline{Z_{n}} - 2 \Cov ( U_{n}, \overline{Z_{n}} ) = \V(Y_{n}) + 
+ \frac{1}{n} - \frac{2}{n} = \V(Y_{n}) - \frac{1}{n} = \V(Y_{n}) - \V(
+ \overline{Z_{n}} )$ donc $\V(Y_{n}) \geq \V( \overline{Z_{n}})$. \\
+ Interprétation : 
+ \end{noliste}
+ \item Soient $\alpha_{1}, \alpha_{2},\ \dots\, \alpha_{n}$ des réels
+non
+ nuls. \\
+ On définit la variable aléatoire $U_{n}$ par : $U_{n} = \Sum{j = 1}{n}
+ \alpha_{j} Z_{j}$, \\
+ et on suppose que $\E(U_{n}) = \theta$ et $\V(U_{n}) = \frac{1}{n}$.
+\\
+ On a alors $\V( U_{n} - \overline{Z_{n}} ) = \V( U_{n}) + \V(
+ \overline{Z_{n}}) - 2 \Cov (U_{n}, \overline{Z_{n}}) = \frac{2}{n} -
+ \frac{2}{n} = 0$. \\
+ On en déduit que la variable $U_{n} - \overline{Z_{n}}$ est
+ quasi-certaine : si elle pouvait prendre deux valeurs distinctes
+ avec une probabilité non nulle, l'une des deux au moins serait
+ différente de son espérance et la variance serait donc
+ strictement positive. \\
+ On en déduit qu'il existe $a$ tel que $\Prob\left(\Ev{ U_{n} -
+\overline{Z_{n}} = 
+ a }\right) = 1$. \\
+ On a alors $\E( U_{n} - \overline{Z_{n}} ) = a$; or on sait que
+ $\E(U_{n} - \overline{Z_{n}} ) = \theta - \theta = 0$, donc $a = 0$ et
+ $U_{n} = \overline{Z_{n}}$ avec une probabilité égale à 1 (presque
+ sûrement). 
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+ Soit $f$ la fonction définie sur $\R_+^* \times \R_+^*$, à valeurs
+ réelles, par : 
+ 
+\[
+ f(x,y) = \frac{x^{2} + xy + \sqrt{y} }{x \sqrt{y} }. 
+ 
+\]
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item On a des produits, sommes et quotient dont le dénominateur ne
+ s'annule pas des fonctions $(x,y) \rightarrow x$, $(,y)
+ \rightarrow y$ et $(x,y) \rightarrow \sqrt{y}$ qui sont de classe
+ $C^{2}$ sur $\R_+^* \times \R_+^*$. 
+ \item $f_{x}'(x,y) = \frac{(2x + y ) x \sqrt{y} - \sqrt{y} (x^{2} + xy
+ + \sqrt{y} ) }{x^{2} y} = \frac{x^{2} - \sqrt{y} }{x^{2}
+ \sqrt{y}}$ après simplifications. \\
+ $f_{y}'(x,y) = \frac{\left(x + \frac{1}{2 \sqrt{y} } \right) x
+ \sqrt{y} - \frac{x}{2 \sqrt{y} } ( x^{2} + xy + \sqrt{y} ) }{x^{2}
+ y} = \frac{ y - x }{2 y \sqrt{y}}$ après simplifications. \\
+ On en déduit que $f_{x}'(x,y) = f_{y}'(x,y)$ si et seulement si $x = 
+ y$ et $x^{2} = \sqrt{y}$, qui donne $x^{2} = \sqrt{x}$, $x^{4} = x$,
+ $x^{3} = 1$ car $x \neq 0$, et enfin $x = y = 1$. \\
+ \item On a $f_{x,x}'' (x,y) = \frac{ 2x^{3} \sqrt{y} - 2 x \sqrt{y}
+ (x^{2} - \sqrt{y}) }{ x^{4} y} = \frac{ 2 }{ x^{3}}$ donc $r = 
+ 2$. \\
+ $f_{x,y}'' (x,y) = -\frac{ 1}{2 y \sqrt{y} }$ donc $s = -
+\frac{1}{2}$. \\
+ $f_{y,y}'' = \frac{ 2 y \sqrt{y} - (y-x) 3 \sqrt{y} }{4 y^{3}} = 
+ \frac{3x - y}{4 y^{2} \sqrt{y}} $ donc $t = \frac{2}{4} = 
+ \frac{1}{2}$. \\
+ On a alors $rt - s^{2} = 1 - \frac{1}{4} = \frac{3}{4} > 0$ donc
+ $f$ admet un extremum local en $(1,1)$, et $r = 2 > 0$ donc c'est
+ un minimum local.
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ 
+
+\end{document}

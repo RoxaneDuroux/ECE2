@@ -1,0 +1,180 @@
+\subsection*{Exercices oraux HEC 2016}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 86; %
+% annee : 2016; % 
+% theme : equivalent, intSegment, fctContinuite, suiteFct, suiteInt, 
+% fctInt; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Fonctions équivalentes au voisinage de
+    $+\infty$.\\
+    Pour tout entier naturel $n$, soit $f_n$ la fonction définie sur
+    $\R_+$ par : $\forall x \geq 0$, $f_n(x)=\dint{0}{1} t^n \ee^{-tx}
+    \dt$.
+  
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que pour tout entier naturel $n$, la fonction 
+      $f_n$ est décroissante sur $\R_+$.
+      
+    \item Étudier la suite $(f_n(0))_{n\geq 0}$. En déduire pour 
+      tout réel $x\geq 0$ fixé, la limite de la suite $(f_n(x))_{n\geq 
+        0}$.
+    \end{noliste}
+    
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Soit $x$ un réel strictement positif. Établir pour tout
+      entier $n\geq 1$, la relation :
+      \[
+      f_{n+1}(x)=\dfrac{n+1}{x} \, f_n(x)-\dfrac{\ee^{-x}}{x}
+      \]
+      
+    \item Expliciter les fonctions $f_0$ et $f_1$.
+      
+    \item Montrer que pour tout entier naturel $n$, $f_n(x)$ est 
+      équivalent à $\dfrac{n!}{x^{n+1}}$ lorsque $x$ tend vers $+\infty$.
+    \end{noliste}
+    
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que pour tout entier naturel $n$ et tout réel $x>0$,
+      on a : $f_n(x)=\dfrac{1}{x^{n+1}}\dint{0}{x} u^n \ee^{-u} \ du$.
+    
+    \item En déduire que la fonction $f_n$ est dérivable sur $\R_+$ et
+      déterminer sa dérivée $f_n'$.
+    
+    \item Comparer pour tout réel $y\geq 0$, leq deux réels $y$ et
+      $1-\ee^{-y}$.\\
+      En déduire que pour tout entier naturel $n$, la fonction $f_n$
+      est continue en $0$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 90; %
+% annee : 2016; % 
+% theme : fctInt, suiteFct, etudeFct, thBijection, suiteImp; % 
+
+\begin{exerciceSP}~\\
+Pour tout $n\in\N$, soit $f_n$ la fonction définie sur l'intervalle 
+$[0,1]$ par :
+\[
+\forall x\in[0,1], \ f_n(x)=\dint{0}{x} \ee^{nt^2}\dt - \dint{x}{1} 
+\ee^{-nt^2}\dt.
+\]
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+\item Montrer que la fonction $f_n$ est strictement monotone sur 
+$[0,1]$.
+\item Établir l'existence d'un unique réel de $[0,1]$, noté $c_n$, tel 
+que $\dint{0}{c_n} \ee^{nt^2}\dt = \dint{c_n}{1} \ee^{-nt^2}\dt$.
+\item Montrer que la suite $(c_n)_{n\in\N}$ est convergente.
+\end{noliste}
+\end{exerciceSP} 
+
+
+\subsection*{Exercices oraux HEC 2017}
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 102; %
+% annee : 2017; %
+% theme : fctContinuite, intImpropre, series, sciSomme; %
+
+\begin{exerciceAP}~\\
+  Soit $f$ la fonction définie sur $\R_+^*$ par : $\forall x>0$, 
+  $f(x) = \dfrac{x^2}{\ee^x -1}$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Question de cours\\
+      Rappeler la définition de la continuité en un point d'une fonction
+      réelle d'une variable réelle.
+      
+      \item Montrer que $f$ se prolonge de manière unique en une 
+      fonction continue sur $\R_+$.
+    \end{noliste}
+    
+  \item Justifier, pour tout entier $n\in \N^*$, l'égalité :
+    $\dint{0}{+\infty} t^2 \, \ee^{-nt} \dt \ = \ \dfrac{2}{n^3}$.
+    
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Établir, pour tout $t>0$, l'inégalité : $\dfrac{t^2}
+      {\ee^t -1} \leq t$.
+      
+      \item Justifier, pour tout $n\in \N$, la convergence de 
+      l'intégrale $\dint{0}{+\infty} f(t) \, \ee^{-nt} \dt$.
+      
+      \item Montrer que $\dlim{n\to +\infty} \dint{0}{+\infty}
+      f(t) \, \ee^{-nt} \dt = 0$.
+    \end{noliste}
+    
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Établir, pour tout $t>0$, l'égalité : $f(t) = t^2 \, 
+      \Sum{k=1}{n} \ee^{-kt} + f(t) \ee^{-nt}$.
+      
+      \item En déduire l'égalité : $\dint{0}{+\infty} f(t) \dt = 
+      2 \, \Sum{k=1}{+\infty} \dfrac{1}{k^3}$.
+    \end{noliste}
+    
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Justifier, pour tout $n\in \N^*$, l'inégalité 
+      $\Sum{k=n+1}{+\infty} \dfrac{2}{k^3} \leq \dfrac{1}{n^2}$.
+      
+      \item Compléter les lignes $3$ et $5$ du script \Scilab{} 
+      suivant, pour que la fonction {\tt approx} affiche une 
+      valeur approchée de l'intégrale $I= \dint{0}{+\infty} f(t) \dt$,
+      avec une précision {\tt epsilon} entrée en argument.
+      \begin{scilab}
+        & \tcFun{function} \tcVar{I} = approx(\tcVar{epsilon}) \nl %
+        & \qquad \tcVar{I} = 0; \nl %
+        & \qquad n = ??? ; \nl %
+        & \qquad \tcFor{for} i = 1:n \nl %
+        & \qquad \qquad \tcVar{I} = \tcVar{I} + ??? ; \nl %
+        & \qquad \tcFor{end} ; \nl %
+        & \qquad disp(\tcVar{I}, \ttq{}integrale = \ttq{}) ; \nl %
+        & \tcFun{endfunction}
+      \end{scilab}
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 106; %
+% annee : 2017; %
+% theme : intImpropre; %
+
+\begin{exerciceSP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Quelle est la limite quand $t$ tend vers $0$ de 
+    $\dfrac{\ee^t -1}{t}$ ?
+    
+    \item Justifier la convergence de l'intégrale impropre 
+    $\dint{0}{+\infty} \left( \dfrac{\ee^t -1}{\sqrt{t^3}} \right)
+    \, \ee^{-2t} \dt$.
+  \end{noliste}
+\end{exerciceSP} 
+
+

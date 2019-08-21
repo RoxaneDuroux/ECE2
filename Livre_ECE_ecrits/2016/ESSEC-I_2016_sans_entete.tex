@@ -1,0 +1,614 @@
+\chapter*{ESSEC-I 2016 : le sujet}
+  
+%
+
+\noindent
+On s'intéresse dans ce problème à deux mesures du risque utilisées 
+par les marchés financiers.\\
+Pour cela, on considère des variables aléatoires sur un espace 
+probabilisé $(\Omega,\A,\Prob)$, qui modélisent des pertes 
+financières subies par des acteurs économiques sur une période donnée.\\
+{\bf Toutes les variables aléatoires définies dans ce problème 
+sont des variables aléatoires sur cet espace probabilisé.}\\
+Soit ${\cal D}$ l'ensemble des variables aléatoires réelles à 
+densité $X$ vérifiant :
+\begin{noliste}{$\sbullet$}
+  \item $X$ admet une espérance notée $\E(X)$.
+  \item il existe un intervalle $I_X$ (dont on admet 
+  l'unicité) sur lequel la fonction de répartition de $X$, notée 
+  $F_X$, réalise une bijection de classe $\Cont{1}$ strictement 
+  croissante de $I_X$ sur $]0,1[$.\\
+  On note $G_X$ la bijection réciproque, définie de $]0,1[$ sur 
+  $I_X$. Les notations $F_X$ et $G_X$ seront utilisées dans tout 
+  le sujet.
+\end{noliste}
+Dans tout le problème $\beta$ est un réel appartenant à $]0,1[$ et 
+représentant un niveau de confiance.
+
+\section*{Partie I - Définition et propriétés de la \og Value at 
+Risk \fg}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \item Soit $X \in {\cal D}$. Montrer qu'il existe un unique réel 
+  $v$ tel que $\Prob(\Ev{X \leq v})=\beta$, et que l'on a 
+  $v=G_X(\beta)$.
+  
+  
+
+\end{noliste}
+
+\begin{noliste}{$\sbullet$}
+  \item On définit alors $r_\beta(X)$ appelé la \og Value at 
+  Risk \fg au niveau de confiance $\beta$ de $X$, par 
+  $r_\beta(X)=G_X(\beta)$. C'est une grandeur qui permet d'évaluer 
+  le risque pris par l'acteur qui détient l'actif dont les pertes 
+  sont modélisées par $X$.
+  
+  \item {\bf On remarque que $r_\beta(X)$ est égal au 
+  capital minimal qu'il faut détenir pour être en mesure de 
+  couvrir les pertes de l'actif associé à $X$ avec une probabilité 
+  égale à $\beta$.}
+\end{noliste}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{1}
+  \item On suppose que, dans cette question, $X$ est une variable 
+  aléatoire suivant la loi exponentielle de paramètre $\lambda \in 
+  \ ]0,+\infty[$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Rappeler la valeur de $F_X(x)$ pour tout réel $x$.
+    
+    
+
+    
+    \item En déduire que $X \in {\cal D}$ et que l'on a 
+    $r_\beta(X)=-\dfrac1\lambda \ln(1-\beta)$.
+    
+    
+
+  \end{noliste}
+
+  \item On suppose dans cette question que $X$ et $Y$ sont deux 
+  variables aléatoires indépendantes suivant la loi normale de 
+  paramètres $m$ et $\sigma^2$ pour $X$ et de paramètres $\mu$ et 
+  $s^2$ pour $Y$.\\
+  On note $\Phi$ la fonction de répartition de la loi normale 
+  centrée réduite et $\varphi$ sa densité usuelle.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item 
+    \begin{nonoliste}{(i)}
+      \item Justifier que $\Phi$ réalise une bijection de $\R$ sur 
+      $]0,1[$. On note $\Phi^{-1}$ la bijection réciproque.
+      
+      
+      
+      
+      
+      %\newpage
+      
+
+      
+      \item Pour tout $x \in\R$, exprimer $F_X(x)$ en fonction de 
+      $\Phi$, $m$, $\sigma$ et $x$.
+      
+      
+
+      
+      \item En déduire que $X \in {\cal D}$ et que 
+      $r_\beta(X)=m+\sigma \Phi^{-1}(\beta)$.
+      
+      
+    \end{nonoliste}
+    
+    \item Quelle est la loi de $X+Y$ ?\\
+    En déduire $r_\beta(X+Y)$ en fonction de $m$, $\mu$, $\sigma$, 
+    $s$ et $\beta$.
+    
+    
+
+    
+    \item Pour quels $\beta \in \ ]0,1[$ a-t-on $r_{\beta}(X+Y) \leq
+    r_\beta(X)+r_\beta(Y)$ ?
+    
+    
+  \end{noliste}
+  
+  \item Soit $X$ une variable aléatoire appartenant à ${\cal D}$, 
+  $c$ un réel et $\lambda$ un réel strictement positif.\\
+  On pose $Y=X+c$ et $Z=\lambda X$ et on admet que $Y$ et $Z$ 
+  appartiennent à ${\cal D}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $r_\beta(Y)=r_\beta(X)+c$.
+    
+    
+
+    
+    \item Montrer que $r_\beta(Z)=\lambda \, r_\beta(X)$.
+    
+    
+  \end{noliste}
+  
+  \item Soit $X$ et $Y$ deux variables aléatoires appartenant à
+  ${\cal D}$ et telles que pour tout $\omega \in \Omega$, 
+  $X(\omega) \leq Y(\omega)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Comparer, pour tout réel $x$, $F_X(x)$ et $F_Y(x)$.
+    
+    
+
+    
+    \item En déduire que $r_\beta(X) \leq r_\beta(Y)$. 
+    
+    
+  \end{noliste}
+\end{noliste}
+
+
+\newpage
+
+
+\section*{Partie II - Estimation de la valeur de $r_\beta(X)$}
+\noindent
+Dans la pratique la loi de $X$ n'est pas totalement connue et on a 
+besoin d'avoir une idée assez précise de la \og Value at Risk \fg{} 
+ne connaissant qu'un certain nombre de valeurs de cette variable.\\
+On modélise cette situation en supposant, dans cette partie, que 
+la loi de $X$ dépend d'un paramètre $\theta$ inconnu appartenant à 
+un sous ensemble $\Theta$ de $\R$ ou $\R^2$, que 
+$r_\beta(X)=g(\theta)$ où $g$ est une fonction définie sur 
+$\Theta$ et que pour tout $\theta \in \Theta$, $X \in {\cal D}$.\\
+On utilise aussi les hypothèses et notations suivantes :
+\begin{noliste}{$\sbullet$}
+  \item $(X_k)_{k\geq 1}$ est une suite de variables 
+  aléatoires réelles appartenant à ${\cal D}$, mutuellement 
+  indépendantes, de même loi que $X$.
+  
+  \item pour tout $\omega \in \Omega$ et $n \in \N^*$, on 
+  ordonne $X_1(\omega), \ldots, X_n(\omega)$ dans l'ordre
+  croissant et on note alors $X_{1,n}(\omega), \ldots, 
+  X_{n,n}(\omega)$ les valeurs obtenues.\\
+  En particulier, $X_{1,n}(\omega)$ est la plus petite des valeurs   
+  $X_1(\omega), \ldots, X_n(\omega)$ et $X_{n,n}(\omega)$ la plus 
+  grande.
+  
+  \item on admet que pour tout $n \in \N^*$ et $k \in \llb 
+  1,n \rrb$, les $X_{k,n}$ sont des variables aléatoires.
+  
+  \item pour tout réel $x$ et tout entier naturel non nul 
+  $n$, on définit la variable aléatoire $N_{x,n}$ ainsi :\\
+  pour tout $\omega \in \Omega$, $N_{x,n}(\omega)$ est le nombre 
+  d'indices $k$ compris entre $1$ et $n$ tels que l'on ait 
+  $X_k(\omega) \leq x$.
+\end{noliste}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{5}
+  \item Montrer que pour tout $x \in \R$ et tout $n \in \N^*$, 
+  $N_{x,n}$ suit une loi binomiale dont on précisera les 
+  paramètres. En déduire l'espérance et la variance de $N_{x,n}$.
+  
+  
+  
+  
+  
+  %\newpage
+  
+
+
+  \item Montrer que pour tout $x \in \R$ et $\eps > 0$ :
+  \[
+    \dlim{n \to +\infty} \Prob\left(\Ev{ \left\vert 
+    \dfrac{N_{x,n}}{n} - F_X(x)\right\vert \geq \eps} 
+    \right)=0
+  \]
+  
+  
+
+  
+  \item Soit $x \in \R$ et $n \in \N^*$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que pour tout $k \in\llb 1,n \rrb$, il y a 
+    égalité entre les événements $\Ev{X_{k,n} \leq x}$ et 
+    $\Ev{N_{x,n} \geq k}$.
+    
+    
+% \addcontentsline{toc}{chapter}{ESSEC I}
+
+% \include{2016/ESSEC-I_2016_sans_entete}
+
+% \include{2016/ESSEC-I_2016_correction_sans_entete}
+
+
+    
+    
+    
+    %\newpage
+    
+
+    
+    \item En déduire que pour tout $k \in \llb 1,n \rrb$ :
+    \[
+      \Prob(\Ev{X_{k,n} \leq x}) = \Sum{r=k}{n} \dbinom{n}{r} 
+      \left(F_X(x) \right)^r\left(1-F_X(x)\right)^{n-r}
+    \]
+    et que $X_{k,n}$ est une variable aléatoire à densité.
+    
+    
+  \end{noliste}
+
+  
+  
+  %\newpage
+  
+  
+  
+  \item Soit $(U_n)_{n \in \N^*}$ une suite de variables 
+  aléatoires et $c$ un réel. On suppose que pour tout $\eps >0$ :
+  \[
+    \dlim{n \to +\infty} \Prob\left(\Ev{ \left\vert U_n-c 
+    \right\vert \geq \eps} \right)=0
+  \]
+  On considère $(u_n)_{n \geq 1}$ une suite convergente de réels 
+  et on pose $\ell = \dlim{n \to +\infty} u_n$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Établir que : $\dlim{n \to +\infty} 
+    \Prob(\Ev{U_n \geq t})=\left\{
+    \begin{array}{cR{1.5cm}}
+      0 & si $t>c$
+      \nl
+      1 & si $t<c$ 
+    \end{array} 
+    \right.$.
+    
+    
+
+    
+    \item On suppose $\ell >c$ et on pose $\eps = 
+    \dfrac{\ell-c}{2}$.\\
+    En remarquant que $\ell-\eps=c+\eps$, montrer qu'à 
+    partir d'un certain rang, $u_n \geq c+\eps$.\\
+    En déduire que $\dlim{n \to +\infty}\Prob(\Ev{U_n \geq 
+    u_n})=0$. 
+    
+    
+    
+    
+    %\newpage
+
+    
+    \item Montrer de même que si $\ell <c$, $\dlim{n 
+    \to +\infty} \Prob(\Ev{U_n \geq u_n})=1$. 
+    
+    
+  \end{noliste}
+  
+  
+  \newpage
+  
+
+  \item On définit pour tout $n \in \N^*$ tel que $n \beta \geq 1$, 
+  la variable aléatoire $Y_n$ sur $(\Omega,\A,\Prob)$ par 
+  $Y_n=X_{\lfloor n\beta \rfloor, n}$ où $\lfloor n\beta \rfloor$ 
+  désigne la partie entière de $n\beta$ et on pose 
+  $\theta'=r_{\beta}(X)$.\\
+  Soit $\eps >0$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que : $\Prob(\Ev{|Y_n-\theta'| \leq
+    \eps})=\Prob(\Ev{Y_n \leq \theta'+\eps}) - \Prob(\Ev{Y_n \leq
+    \theta'-\eps})$. 
+    
+    
+    
+    
+    
+    %\newpage
+
+    
+    \item En déduire que :
+    \[
+     \Prob( \Ev{ |Y_n- \theta' | \leq\eps} )=\Prob\left( \Ev{ 
+     \dfrac{N_{\theta'+\eps,n}}{n} \geq \dfrac{\lfloor n\beta 
+     \rfloor}{n}} \right)-\Prob\left( \Ev{ 
+     \dfrac{N_{\theta'-\eps,n}}{n} \geq \dfrac{\lfloor n\beta 
+     \rfloor}{n}} \right)
+    \]
+    
+    
+    
+    \item En déduire : $\dlim{n \to +\infty} 
+    \Prob(\Ev{|Y_n - \theta'| \leq \eps})=1$.\\
+    Que peut-on en déduire concernant l'estimateur $Y_n$ de 
+    $r_\beta(X)$ ?
+    
+    
+  \end{noliste}
+  
+  \item On suppose que l'on a défini un fonction d'en-tête {\tt 
+  function R = triCroissant(T)} qui renvoie le tableau des valeurs 
+  se trouvant dans {\tt T} rangées dans l'ordre croissant.\\ 
+  Par exemple, si {\tt T=[0 -1 0 2 4 2 3]} alors {\tt 
+  disp(triCroissant(T))} affiche :
+  \[
+  \begin{console}
+    \lDisp{\qquad ans \ =} \nl %
+    \lDisp{\qquad \qquad -1. \quad 0. \quad 0. \quad 2. \quad 2. \quad 
+    3. \quad 4.} \nle %
+  \end{console}
+  \]
+  Écrire une fonction \Scilab{} d'en-tête {\tt function r = 
+  VaR(X,beta)} qui renvoie la valeur de l'estimation obtenue avec 
+  l'estimateur $Y_n$ pour $r_\beta(X)$ si le tableau {\tt X} 
+  contient la réalisation de l'échantillon $(X_1, \ldots, X_n)$ et 
+  {\tt beta} la valeur de $\beta$. 
+  
+  
+\end{noliste}
+
+
+
+
+
+
+\section*{Partie III - L'\og Expected Shortfall\fg (ES)}
+\noindent
+On conserve les notations de la partie I.\\
+Pour qu'une mesure de risque soit acceptable, on souhaite qu'elle 
+vérifie un certaines propriétés.\\
+On dit qu'une fonction $\rho$ définie sur ${\cal D}$ à valeurs 
+réelles est une {\bf mesure de risque cohérente} sur ${\cal D}$ 
+si elle vérifie les quatre propriétés :
+\begin{noliste}{}
+  \item $(R_1) \quad \forall X \in {\cal D}, \forall c \in \R, \
+  \rho(X+c)=\rho(X)+c$ ;
+  
+  \item $(R_2) \quad \forall X \in {\cal D}, \forall \lambda \in 
+  \R, \ \rho(\lambda X)=\lambda \rho(X)$ ;
+  
+  \item $(R_3) \quad \forall(X,Y) \in {\cal D}^2$, si pour tout 
+  $\omega \in \Omega$, $X(\omega) \leq Y(\omega)$ alors $\rho(X) 
+  \leq \rho(Y)$ ;
+  
+  \item $(R_4) \quad \forall(X,Y) \in {\cal D}^2$, telles que $X+Y 
+  \in {\cal D}, \ \rho(X+Y) \leq \rho(X)+\rho(Y)$.
+\end{noliste}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{11}
+  \item Montrer que l'espérance est une mesure de risque cohérente 
+  sur ${\cal D}$.
+  
+  
+  
+  
+  %\newpage
+
+  
+  \item La \og Value at Risk \fg{} $r_\beta$ est-elle une mesure de 
+  risque cohérente sur ${\cal D}$ pour toute valeur de $\beta \in \
+  ]0,1[$ ?\\
+  On détaillera si chacune des propriétés de $(R_1)$ à $(R_4)$ est 
+  satisfaite ou non.
+  
+  
+
+  Soit $X$ une variable aléatoire appartenant à ${\cal D}$, 
+  admettant une densité $f_X$. On définit l' \og Expected 
+  Shortfall\fg{} de $X$ de niveau de confiance $\beta$ par :
+  \[
+    ES_\beta(X)=\dfrac1{1-\beta} \int_{r_\beta(X)}^{+\infty} x 
+    f_X(x) \dx \quad(1)
+  \]
+  {\bf Le but de cette partie est de démontrer que, pour tout 
+  $\beta \in \ ]0,1[$, $ES_\beta$ est une mesure de risque cohérente 
+  sur ${\cal D}$, assez \og proche \fg{} de $r_\beta$.}
+  
+  
+  \newpage
+  
+  
+  \item Soit $X$ une variable aléatoire appartenant à ${\cal D}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $ES_\beta(X)$ est bien définie, et que 
+    $ES_\beta(X) \geq r_\beta(X)$.
+    
+    
+    
+    \item À l'aide du changement de variable $t=F_X(x)$, établir :
+    \[
+      ES_\beta(X)=\dfrac{1}{1-\beta} \dint{\beta}{1} G_X(t) \dt 
+      \quad (2)
+    \]
+    
+    
+  \end{noliste}
+  
+  
+  %\newpage
+  
+  
+  On pourra utiliser $(1)$ ou $(2)$ au choix dans la suite pour 
+  définir $ES_\beta(X)$.
+  
+  \item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $ES_\beta$ vérifie la propriété $(R_1)$.
+    
+    
+
+    
+    \item Montrer que $ES_\beta$ vérifie la propriété $(R_2)$.
+    
+    
+  \end{noliste}
+  
+  \item On suppose dans cette question que $X$ suit la loi 
+  exponentielle de paramètre $\lambda>0$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $ES_\beta(X)=r_\beta(X)+\dfrac{1}{\lambda}$.
+    
+    
+
+    
+    \item En déduire que $ES_\beta(X) \eq{\beta}{1} r_\beta(X)$.
+    
+    
+  \end{noliste}
+  
+  
+  
+  %\newpage
+  
+  
+  
+  \item On suppose dans cette question que $X$ suit la loi normale 
+  centrée réduite.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer $ES_\beta(X) = 
+    \dfrac{\varphi(r_\beta(X))}{1-\Phi(r_\beta(X))}$.
+    
+    
+    
+    \item Pour tout $x >0$, établir l'égalité : $1-\Phi(x)=
+    \dfrac{\varphi(x)}{x}-\dint{x}{+\infty} \dfrac{\varphi(t)}{t^2} 
+    \dt$.
+    
+    
+
+    \item Montrer que, pour tout $x>0$ : $0 \ \leq \ \dint{x}{+\infty}  
+    \dfrac{\varphi(t)}{t^2} \dt \ \leq \ \dfrac{1}{x^2}\, 
+    (1-\Phi(x))$.\\
+    En déduire que : $1-\Phi(x) \eq{x}{+\infty} 
+    \dfrac{\varphi(x)}{x}$.
+    
+    
+
+    
+    \item En conclure que l'on a aussi dans ce cas : $ES_\beta(X) 
+    \eq{\beta}{1} r_\beta(X)$.
+    
+    
+  \end{noliste}
+  Dans les questions qui suivent, $X$ est une variable aléatoire 
+  appartenant à ${\cal D}$.
+  \begin{noliste}{$\sbullet$}
+    \item On note $h$ la fonction définie par : $\forall x 
+    \in \R$, $h(x)=\max(x,0)$.
+    
+    \item On admet que si $U$ et $V$ sont deux variables 
+    aléatoires telles que, $0 \leq U \leq V$ et $\E(V)$ existe 
+    alors $\E(U)$ existe et $0 \leq \E(U) \leq \E(V)$.
+    
+    \item On note pour tout événement $A$, 
+    $\unq_A$ la variable aléatoire indicatrice de 
+    l'événement $A$. Rappelons qu'il s'agit de la variable 
+    aléatoire prenant la valeur $1$ si $A$ est réalisé, et la 
+    valeur $0$ sinon.
+  \end{noliste}
+  
+  \item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $h(X-r_\beta(X))$ admet une espérance, et 
+    que l'on a :
+    \[
+      \E\left(h(X-r_\beta(X))\right)=\dint{r_\beta(X)}{+\infty} t 
+      f_X(t) \dt - (1-\beta)r_\beta(X)
+    \]
+    où $f_X$ désigne une densité de $X$.
+    
+    
+
+    
+    \item En déduire : 
+    \[
+      ES_\beta(X)=r_\beta(X)+\dfrac{1}{1-\beta} 
+      \E\left(h(X-r_\beta(X))\right)
+    \]
+    
+    
+  \end{noliste}
+  
+  
+  
+  %\newpage
+  
+  
+  
+  \item En utilisant la méthode de Monte-Carlo, dont on supposera 
+  la validité, et la fonction {\tt VaR} définie dans la question 
+  \itbf{11.}, écrire une fonction \Scilab{} qui calcule une valeur 
+  approchée de $ES_\beta(X)$ à partir de la réalisation d'un 
+  échantillon de taille $n$ de la loi de $X$ dont les valeurs se 
+  trouvent dans le tableau \Scilab{} {\tt X} et de la valeur de 
+  $\beta$ se trouvant dans la variable \Scilab{} {\tt beta}.
+  
+  
+  \newpage
+  
+  
+  
+  \item Soit $Z$ une variable aléatoire telle que : 
+  $\E(Z)=1$ et $0\leq Z \leq \dfrac1{1-\beta}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Justifier l'égalité entre variables aléatoires : 
+    $h(X-r_\beta(X))=(X-r_\beta(X)) \times \unq_{\Ev{X > 
+    r_\beta(X)}}$.
+    
+    
+
+    
+    \item Montrer que $\E(XZ)$ existe et établir l'égalité :
+    \[
+    ES_\beta(X) -\E(XZ) = \dfrac{1}{1-\beta} \E\left[(X-r_\beta(X))
+      (\unq_{\Ev{X > r_\beta(X)}}-(1-\beta)Z)\right]
+    \]
+    
+    
+    
+    
+    %\newpage
+    
+    
+    \item En déduire que $ES_\beta(X)-\E(XZ) \geq 0$.\\
+    Comment choisir $Z$ pour que $ES_\beta(X)=\E(XZ)$ ?
+    
+    
+  \end{noliste}
+  
+  
+  
+  %\newpage
+  
+  
+
+  \item On note ${\cal K}$ l'ensemble des variables aléatoires $Z$ 
+  sur $(\Omega,\A,\Prob)$ telles que $\E(Z)=1$ et \\
+  $0\leq Z \leq \dfrac{1}{1-\beta}$.\\[.1cm]
+  Justifier l'égalité : $ES_\beta(X)= \dmax{Z \in {\cal K}} 
+  \E(XZ).$
+  
+  
+  
+  
+  \item Démontrer que, pour tout $\beta \in \ ]0,1[$, la fonction 
+  $ES_\beta$ est une mesure de risque cohérente sur ${\cal D}$.
+  
+  
+\end{noliste}
+

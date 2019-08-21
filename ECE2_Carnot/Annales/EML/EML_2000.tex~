@@ -1,0 +1,381 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EML 2000} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{EML 2000}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2000}}
+
+
+
+{\large \textbf{Concepteur : EML}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+
+\begin{center}
+\underline{{\Large Exercice 1 :}}
+\end{center}
+
+On considère une matrice carrée d'ordre 3 :
+
+\begin{center}
+$J = \left( 
+\begin{array}{rrr}
+0 & 2 & 1 \\
+0 & -1 & 2 \\
+0 & 1 & 0
+\end{array}
+\right) $
+\end{center}
+
+et l'endomorphisme $f$ de $\R^{3}$ de matrice $J$ dans la base
+canonique de $\R^{3}.$On considère, pour tout nombre réel $a, $ la
+matrice carrée réelle d'ordre 3 :
+
+\begin{center}
+$M_{a} = \left( 
+\begin{array}{rrr}
+a & 2 & 1 \\
+0 & a-1 & 2 \\
+0 & 1 & a
+\end{array}
+\right).$
+\end{center}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les valeurs propres et les sous-espaces propres de
+$f.$
+
+\item Montrer que $J$ est diagonalisable. Déterminer une matrice réelle
+diagonale $D$ d'ordre trois et une matrice réelle inversible $P$
+d'ordre trois telles que $J = PDP^{-1}$
+
+\item En déduire que, pour tout nombre réel $a$, il existe une
+matrice réelle diagonale $D_{a}$ d'ordre trois, que l'on calculera,
+telle que $M_{a} = PD_{a}P^{-1}.$
+
+\item Quel est l'ensemble des nombres réels $a$ tels que $M_{a}$ soit
+inversible ?
+\end{noliste}
+
+\item On se propose, dans cette question, de déterminer l'ensemble des
+nombres réels $a$ tels qu'il existe une matrice carrée réelle
+d'ordre trois vérifiant $X^{2} = M_{a}.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soient $a$ un nombre réel et $X$ une matrice carrée réelle
+d'ordre trois tels que $X^{2} = M_{a}$
+
+\begin{nonoliste}{(i)}
+\item Montrer que $X$ commute avec $M_{a},$ puis que $X$ commute avec
+$J.$
+
+\item On note $h$ l'endomorphisme de $\R^{3}$ de matrice $X$ dans la
+base canonique de $\R^{3}.$ Déduire de la question précédente que tout
+vecteur propre de $f$ est vecteur propre de $h.$
+
+\item Établir qu'il existe une matrice réelle diagonale $\Delta $
+d'ordre trois telle que $X = P\Delta P^{-1}$\ et montrer : $\Delta ^{2}
+= D_{a}.$
+
+\item En déduire : $a\geq 2.$
+\end{nonoliste}
+
+\item Réciproquement, montrer que, pour tout nombre réel $a$ supérieur
+ou égal à 2, il existe une matrice carrée réelle $X$
+d'ordre trois telle que $X^{2} = M_{a}.$
+
+\item Conclure.
+\end{noliste}
+\end{noliste}
+
+\begin{center}
+\underline{{\Large Exercice 2 :}}
+\end{center}
+
+On considère la fonction $f :\left] -1; + \infty \right[ \ \rightarrow 
+\R $ définie, pour tout $x$ de $\left] -1; + \infty \right[ $, par :
+
+\begin{center}
+$f\left( x\right) = \left\{ 
+\begin{array}{ll}
+1 & \text{si }x = 0 \\
+\dfrac{\ln \left( 1 + x\right) }{x} & \text{si }x\in \left] -1;0\right[
+\ \cup \left] 0; + \infty \right[
+\end{array}
+\right..$
+\end{center}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f$ est continue sur $\left] -1; + \infty \right[.$
+
+\item Montrer que $f$ est de classe $C^{1}$ sur $\left] -1;0\right[ $
+et sur 
+$\left] 0; + \infty \right[ $Pour tout réel $x$ de $\left] -1;0\right[
+\cup \left] 0; + \infty \right[ $, calculer $f^{\prime }\left( x\right)
+$
+
+\item Montrer que $f^{\prime }\left( x\right) $ tend vers
+$-\dfrac{1}{2}$
+lorsque $x$ tend vers $0$.
+
+\item En déduire que $f$ est de classe $C^{1}$ sur $\left] -1; + \infty
+\right[.$
+\end{noliste}
+
+\item Montrer : $\forall x\in \left] -1; + \infty \right[,\dfrac{x}{x +
+1}-\ln
+\left( 1 + x\right) \leq 0$ En déduire les variations de $f$. On
+précisera les limites de $f$ en $-1$ et $ + \infty.$
+
+\item Montrer que, pour tout $x\in \left] -\dfrac{1}{2}; + \infty
+\right[,$
+l'intégrale $\dint\nolimits_{x}{2x}f\left( t\right\ dt$ existe.
+
+\item On considère la fonction $F :\left] -\dfrac{1}{2}; + \infty
+\right[
+\rightarrow \R$ définie, pour tout $x$ de $\left] -\dfrac{1}{2}; +
+\infty \right[ $, par : $F\left( x\right) = $
+$\dint\nolimits_{x}{2x}f\left( t\right\ dt.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $F$ est dérivable sur $\left] -\dfrac{1}{2}; + \infty
+\right[ $ et que $F$ est croissante.
+
+\item Montrer que $\forall x\in \left] 0; + \infty \right[,F\left(
+x\right)
+\geq xf\left( 2x\right).$
+
+\item En déduire que $F\left( x\right) $ tend vers $ + \infty $ quand
+$x$
+tend vers $ + \infty.$
+
+\item Montrer que l'intégrale
+$\dint\nolimits_{-1}{-\tfrac{1}{2}}f\left( t\right\ dt.$ est
+convergente. En déduire que la fonction $F$
+admet une limite finie de $-\dfrac{1}{2}.$ On ne cherchera pas à
+calculer cette limite.
+\end{noliste}
+\end{noliste}
+
+\begin{center}
+\underline{{\Large Exercice 3 :}}
+
+
+\end{center}
+
+Soit $a$ un entier strictement positif. On dispose d'un jeu usuel
+de $2n$ cartes ($n = 16$ ou $26$) qui contient donc deux rois rouges,
+et on
+envisage deux jeux d'argent régis par les protocoles suivants.
+
+\begin{center}
+\textbf{I Premier protocole}
+\end{center}
+
+Les cartes du jeu sont alignés sur une table de façon alétoire.
+Le joueur découvre les cartes, de gauche à droite jusqu'à
+obtenir le premier roi rouge. On note $X$ la variable aléatoire égale
+au rang d'apparition du premier roi rouge et $\E\left( X\right) $ son
+espérance.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer : $\forall k\in \left\{ 1,...,2n-1\right\},P\left(\Ev{ X
+= k}\right)
+ = \dfrac{2n-k}{n\left( 2n-1\right) }$
+
+\item Montrer : $\E\left( X\right) = \dfrac{2n + 1}{3}$ On rappelle que
+pour
+tout entier naturel $p\geq 1$, on a : $\dsum\limits_{k = 1}{p}k^{2} =
+\dfrac{p\left( p + 1\right) \left( 2p + 1\right) }{6}.$
+
+\item Le joueur paie un franc chaque fois qu'il découvre une carte et
+gagne $a$ francs losqu'il obtient le premier roi rouge. On note $G_{1}$
+la
+variable aléatoire égale au gain algébrique du joueur. Ainsi, si
+le premier roi rouge appara\^{\i}t à la $k^{i\grave{e}me}$ carte
+découverte, $G_{1}$ est égale à $a-k.$ Déterminer l'espérance
+de la variable aléatoire $G_{1}.$
+\end{noliste}
+
+\begin{center}
+\textbf{II Deuxième protocole}
+\end{center}
+
+Les $2n$ cartes du même jeu sont alignés sur une table de façon
+aléatoire, mais cette fois-ci, le joueur peut découvrir au maximum $n $
+cartes. Le joueur paie un franc chaque fois qu'il découvre une carte
+et gagne $a$ francs losqu'il obtient le premier roi rouge.On note
+$G_{2}$ la
+variable aléatoire égale au gain algébrique du joueur. Ainsi, si
+le premier roi rouge appara\^{\i}t à la $k^{i\grave{e}me}$ carte
+découverte $\left( k\leq n\right) $, $G_{2}$ est égale à $a-k,$
+et si le joueur n'obtient pas de roi rouge à l'issue des $n$ premiers
+tirages, alors $G_{2}$ est égale à $-n.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour tout entier $k\in \left\{ 1,...,n\right\},$ déterminer
+$P\left(\Ev{ G_{2} = a-k}\right).$
+
+\item Vérifier : $P\left(\Ev{ G_{2} = -n}\right) = \dfrac{n-1}{2\left(
+2n-1\right) }.$
+
+\item Montrer : $\E\left( G_{2}\right) = \dfrac{3\left( 3n-1\right)
+a-\left(
+7n^{2}-1\right) }{6\left( 2n-1\right) }.$
+\end{noliste}
+
+\begin{center}
+\textbf{III Comparaison des deux protocoles}
+\end{center}
+
+On suppose le jeu constitué de 32 cartes ($n = 16$). Déterminer, selon
+les valeurs de $a$, le protocole le plus favorable au joueur. Justifier
+la réponse.
+
+\end{document}
+

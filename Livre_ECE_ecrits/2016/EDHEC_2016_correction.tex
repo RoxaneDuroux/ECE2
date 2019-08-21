@@ -1,0 +1,3587 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../macros_Livre.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+%%% Pour ce corrigé uniquement
+\renewcommand{\id}{Id}
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 2016} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+%%DEBUT
+
+\section*{Exercice 1}
+\noindent
+On désigne par $Id$ l'endomorphisme identité de $\R^3$ et par $I$ la
+matrice identité de $\M{3}$. \\
+On note $\B = (e_{1},e_{2},e_{3})$ la base canonique de $\R^3$ et on
+considère l'endomorphisme $f$ de $\R^3$ dont la matrice dans la base
+$\B$ est : $A =
+\begin{smatrix}
+  3 & -1 & 1\\
+  2 & 0 & 2\\
+  1 & -1 & 3
+\end{smatrix}
+$. 
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item Calculer $A^{2}-4A$ puis déterminer un polynôme annulateur de
+  $A$ de degré $2$.
+
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item Tout d'abord : $A^2=
+      \begin{smatrix} 
+        3 & -1 & 1\\
+        2 & 0 & 2\\
+        1 & -1 & 3
+      \end{smatrix}
+      \times
+      \begin{smatrix} 
+        3 & -1 & 1\\
+        2 & 0 & 2\\
+        1 & -1 & 3
+      \end{smatrix}      
+      =
+      \begin{smatrix} 
+        8 & -4 & 4\\
+        8 & -4 & 8\\
+        4 & -4 & 8
+      \end{smatrix}
+      $.\\[.2cm]
+
+    \item Ainsi : $A^2 - 4A =
+      \begin{smatrix} 
+        8 & -4 & 4\\
+        8 & -4 & 8\\
+        4 & -4 & 8
+      \end{smatrix}
+      -
+      \begin{smatrix}
+        12 & -4 & 4\\
+        8 & 0 & 8\\
+        4 & -4 & 12
+      \end{smatrix}
+      = 
+      \begin{smatrix}
+        -4 & 0 & 0 \\
+        0 & -4 & 0 \\
+        0 & 0 & -4
+      \end{smatrix}
+      -4I$.%
+      \conc{$A^2 - 4A = -4I$}  %
+    \end{noliste}
+    \conc{Donc $P(X) = X^2 - 4X + 4$ est {\bf un} polynôme annulateur
+      de degré $2$ de $A$.}
+    \begin{remark}%~
+      \begin{noliste}{$\sbullet$}
+      \item Une matrice $A \in \M{n}$ possède {\tt TOUJOURS} un
+        polynôme annulateur non nul $P$.\\
+        On peut même démontrer (ce n'est pas au programme en ECE)
+        qu'il existe toujours un tel polynôme de degré (au plus) $n$.
+
+      \item Si $P$ est un polynôme annulateur de $A$ alors, pour tout
+        $\alpha \in \R$, le polynôme $\alpha \, P$ est toujours un
+        polynôme annulateur puisque :
+        \[
+        (\alpha \, P)(A) = \alpha \, P(A) = 0
+        \]
+        Cela suffit à démontrer que $A$ possède une infinité de
+        polynômes annulateurs. \\
+        On peut en obtenir d'autres. Par exemple $Q(X) = (X-5) \ P(X)$
+        est un polynôme annulateur de $A$ puisque :
+        \[
+        Q(A) = (A - 5 \, I) \ P(A) = 0
+        \]
+      \item Il faut donc parler {\tt D'UN} polynôme annulateur d'une
+        matrice.
+      \end{noliste}
+    \end{remark}    
+    ~\\[-1.2cm]
+  \end{proof}
+
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item En déduire la seule valeur propre de $A$ (donc aussi de $f$ ).
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item On remarque que $P(X) = X^2 -4X +4 = (X-2)^2$. Ainsi,
+        l'unique racine de $P$ est $2$.\\
+        Or le spectre de $A$ est inclus dans l'ensemble des racines
+        d'un polynôme annulateur de $A$.%
+        \conc{Autrement dit : $\spc(A) \subset \{2\}$.}
+
+
+        \newpage
+
+
+        \begin{remark}%~
+          \begin{noliste}{$\sbullet$}
+          \item Les racines d'un polynôme annulateur ne sont pas
+            forcément toutes valeurs propres de $A$. Si c'était le
+            cas, $A$ aurait une infinité de valeurs propres (elle en
+            possède au plus $3$ !). Par exemple, comme $Q(X) = (X-5) \
+            P(X)$ est un polynôme annulateur, un tel raisonnement
+            permettrait de démontrer que $5$ est aussi valeur propre.
+
+          \item On dit généralement que les racines d'un polynôme
+            annulateur sont des valeurs propres {\bf possibles} de $A$
+            (comprendre qu'elles sont potentiellement des valeurs
+            propres). Il faut alors démontrer qu'elles sont
+            réellement des valeurs propres.
+          \end{noliste}
+        \end{remark}
+
+      \item Montrons maintenant que $2$ est une valeur propre de $A$
+        (\ie $\{2\} \subset \spc(A)$).
+	\[
+        \begin{array}{rcl}
+          \rg(A-2I) & = & \rg %
+          \left(
+            \begin{smatrix}
+              1 & -1 & 1 \\
+              2 & -2 & 2 \\
+              1 & -1 & 1
+            \end{smatrix}
+          \right) %
+          = %
+          \rg %
+          \left(
+            \begin{smatrix}
+              1 \\ 
+              2 \\
+              1
+            \end{smatrix}, %
+            \begin{smatrix}
+              - 1 \\ 
+              - 2 \\
+              - 1
+            \end{smatrix}, %
+            \begin{smatrix}
+              1 \\ 
+              2 \\
+              1
+            \end{smatrix}          
+          \right)
+          \\[.8cm]
+          & = &
+          \dim( %
+          \ \Vect{%
+            \begin{smatrix}
+              1 \\ 
+              2 \\
+              1
+            \end{smatrix}, %
+            \begin{smatrix}
+              - 1 \\ 
+              - 2 \\
+              - 1
+            \end{smatrix}, %
+            \begin{smatrix}
+              1 \\ 
+              2 \\
+              1
+            \end{smatrix}          
+          } \ ) %
+          \\[.8cm]
+          & = &
+          \dim( \ %
+          \Vect{%
+            \begin{smatrix}
+              1 \\ 
+              2 \\
+              1
+            \end{smatrix} %
+          } \ ) %
+          \ = \ 1 <3
+        \end{array}        
+        \]
+	La matrice $A-2I$ n'est pas inversible, ce qui signifie que
+        $2$ est valeur propre de $A$.
+      \end{noliste}
+      \conc{$\spc(A) = \spc(f) = \{2\}$}
+      \begin{remark}%~
+        \begin{noliste}{$\sbullet$}
+          % FAUX !
+          % \item On détermine ici le rang de la matrice en revenant à
+          %   la définition. On peut aussi appliquer l'algorithme du
+          %   pivot de Gauss : le rang d'une matrice est le nombre de
+          %   coefficients diagonaux que possède sa réduite
+          %   triangulaire supérieure.
+        \item On peut aussi affimer que $A - 2 \, I$ est non
+          inversible en remarquant que cette matrice possède deux
+          vecteurs colonnes (ou lignes) égaux (colinéaires suffirait).
+        \end{noliste}
+      \end{remark}
+      ~\\[-1.2cm]
+    \end{proof}		
+
+  \item La matrice $A$ est-elle diagonalisable ? Est-elle inversible ?
+  \end{noliste}
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item D'après la question précédente, $A$ possède $2$ comme
+        unique valeur propre. % $\spc(A) = \{2\}$.
+      \item Supposons par l'absurde que $A$ est diagonalisable.\\
+        Il existe alors $P \in \M{3}$ inversible telle que : 
+        \[
+        A = P
+        \begin{smatrix}
+          2 & 0 & 0 \\
+          0 & 2 & 0 \\
+          0 & 0 & 2           
+        \end{smatrix}
+        P^{-1} %
+        = %
+        P \, (2 \, I_3) \, P^{-1} %
+        = %
+        2 \, PP^{-1} %
+        = %
+        2 \, I_3
+        \]
+        ce qui est impossible puisque $A \neq 2 \, I_3$.%
+	\conc{$A$ n'est pas diagonalisable.}
+	
+      \item Montrons que $A$ est inversible.\\
+	On sait que $\spc(A) = \{2\}$. Donc en particulier, $0$ n'est
+        pas valeur propre de $A$. %
+        \conc{Ainsi $A$ est inversible.}
+      \end{noliste}
+    \begin{remark}%~
+      \begin{noliste}{$\sbullet$}
+      \item Il est aussi possible de démontrer que $A$ n'est pas
+        diagonalisable en déterminant la dimension de $E_2(A)$,
+        espace propre associé à l'unique valeur propre $2$.\\
+        On démontre alors que $\dim(E_2(A)) = 2 \neq 3$ (\cf question
+        suivante).
+      \item Concernant l'inversibilité de $A$ on utilise :
+        \[
+        \mbox{$A$ non inversible} \ \Leftrightarrow \ \mbox{$0$ est
+          valeur propre de $A$}
+        \]
+        On peut aussi démontrer l'inversibilité de $A$ en déterminant
+        son inverse par la méthode proposée en \itbf{5.b)}.
+      \item Toutes les méthodes donnant le bon résultat sont
+        acceptées. Évidemment, les méthodes les plus longues
+        produisent une perte de temps et sont pénalisantes à terme.
+      \end{noliste}
+    \end{remark}~\\[-1.2cm]
+  \end{proof}		
+
+\item Déterminer une base $(u_{1},u_{2})$ du sous-espace propre de $f$
+  associé à la valeur propre de $f$.
+
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item Soit $u = (x, y, z) \in \R^3$. Notons $U = \Mat_{\B}(u) =
+      \begin{smatrix}
+        x \\
+        y \\
+        z
+      \end{smatrix}
+      $.
+      \[
+      \begin{array}{rcl}
+        u \in E_2(f) & \Longleftrightarrow & f(u) = 2 \ u 
+        \\[.2cm]
+        & \Longleftrightarrow & (f - 2 \ Id) (u) = 0
+        \\[.2cm]
+        & \Longleftrightarrow & (A - 2 \ I_3) \ U = 0 
+        \\[.2cm]
+        & \Longleftrightarrow & 
+        \left\{
+          \begin{array}{rcrcrcl}
+            x & - & y & + & z & = & 0 \\
+            2 \ x & - & 2 \ y & + & 2 \ z & = & 0 \\
+            x & - & y & + & z & = & 0 
+          \end{array}
+        \right.
+        \\[.2cm]
+        &
+        \begin{arrayEq}
+          L_2 \leftarrow L_2 - 2 L_1 \\
+          L_3 \leftarrow L_3 - L_1 
+        \end{arrayEq}
+        & 
+        \left\{
+          \begin{array}{rcrcrcl}
+            \ x & - & y & + & z & = & 0 
+          \end{array}
+        \right.
+        \\[.2cm]
+        & \Longleftrightarrow & 
+        \left\{
+          \begin{array}{lclcl}
+            \ x & = & y & - & z
+          \end{array}
+        \right.
+      \end{array}
+      \]
+      % {\it (on utilise $2$ variables auxiliaires - $x$ et $y$ ici -
+      %   pour faire apparaître le système sous forme échelonnée)}\\
+      On en déduit : %~\\[-.6cm]
+      \[
+      \begin{array}{rcl}
+        E_{2}(f) & = & 
+        \left\{%
+          u = (x, y, z) \in \R^3
+          \ \ | \ \ 
+          f(u) = 2u
+        \right\} \\[.4cm]
+        & = & 
+        \left\{%
+          u = (x, y, z) \in \R^3
+          \ \ | \ \ 
+          x = y - z 
+        \right\} \\[.4cm]
+        & = & 
+        \left\{%
+          (y - z, y, z) \in \R^3
+          \ \ | \ \ 
+          y \in \R, \ z \in \R
+        \right\} \\[.4cm]
+        & = & 
+        \left\{%
+          y \cdot (1, 1, 0) + z \cdot (-1, 0, 1) \in \R^3
+          \ \ | \ \ 
+          y \in \R, \ z \in \R
+        \right\} \\[.4cm]
+        & = & 
+        \Vect{ %
+          (1, 1, 0), (-1, 0, 1) %
+        }
+      \end{array} 
+      \]
+
+    \item Notons $u_1 = (1,1,0)$ et $u_2 = (-1,0,1)$. La famille
+      $(u_1, u_2)$ est :
+      \begin{noliste}{$\stimes$}
+      \item génératrice de $E_2(f)$.
+      \item libre car constituée de {\bf deux} vecteurs non
+        colinéaires.
+      \end{noliste}
+      C'est donc une base de $E_2(f)$.
+    \end{noliste}
+    \conc{Ainsi $(u_1,u_2)$ est une base de $E_2(f)$.}
+
+
+    \newpage
+
+
+    \begin{remark}%~
+      \begin{noliste}{$\sbullet$}
+      \item Comme $A$ est la matrice représentative de $f$ dans la
+        base $\B$, alors : $\spc(A) = \spc(f)$.
+      \item Par contre, comme on le voit ici : $E_2(A) \neq
+        E_2(f)$. En effet :
+        \begin{noliste}{$\stimes$}
+        \item le sous espace-propre $E_2(A)$ est un sous-ensemble de
+          $\M{3,1}$, espace vectoriel dont les vecteurs sont des
+          matrices de taille $3 \times 1$.
+        \item le sous-espace propre $E_2(f)$ est un sous-ensemble de
+          $\R^3$, espace vectoriel dont les vecteurs sont des triplets
+          de réels.
+        \end{noliste}
+        Ce qu'on peut résumer par : $(x, y, z) \neq
+        \begin{smatrix}
+          x \\
+          y \\
+          z
+        \end{smatrix}
+        $.
+        % \item Il y a d'autres choix pour $(u_1, u_2)$. Par exemple :
+        %   $u_1 = (1, -2, 0)$ et $u_2 = (0, 2, 1)$. Ce choix a peu
+        %   d'importance : il influence les calculs qui suivent mais
+        %   n'en modifie pas la complexité.
+      \end{noliste}
+    \end{remark}~\\[-1.4cm]
+  \end{proof}
+
+\item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item On pose $u_{3} = e_{1} + e_{2} + e_{3}$. Montrer que la
+    famille $(u_{1},u_{2},u_{3})$ est une base de $\R^{3}$.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord : $u_3 = e_1+e_2+e_3 = (1,0,0) + (0,1,0) +
+        (0,0,1) = (1,1,1)$.
+      \item Montrons que la famille $\big((1,1,0), (-1,0,1),
+        (1,1,1)\big)$ est libre.\\
+        Soit $(\lambda_1, \lambda_2, \lambda_3) \in \R^3$. Supposons :
+        \[
+        \lambda_1 \cdot (1,1,0) + \lambda_2 \cdot (-1,0,1) + \lambda_3
+        \cdot (1,1,1) = (0,0,0)
+        \]
+        Ceci équivaut au système :\\[-.5cm]
+	\[
+        \begin{array}{cl}
+          & 
+          \left\{
+            \begin{array}{rcrcrcl}
+              \ \lambda_1 & - & \lambda_2 & + & \lambda_3 & = & 0 \\
+              \ \lambda_1 & & & + & \lambda_3 & = & 0 \\
+              & &\lambda_2 & + & \lambda_3 & = & 0
+            \end{array}
+          \right.
+          \\[.8cm]
+          \begin{arrayEq}
+            L_2 \leftarrow L_2 - L_1
+          \end{arrayEq}
+          & 
+          \left\{
+            \begin{array}{rcrcrcl}
+              \ \lambda_1 & - & \lambda_2 & + & \lambda_3 & = & 0 \\
+              & & \lambda_2 & & & = & 0 \\
+              & &\lambda_2 & + & \lambda_3 & = & 0
+            \end{array}
+          \right.
+          \\[.8cm]
+          \begin{arrayEq}
+            L_3 \leftarrow L_3 - L_2
+          \end{arrayEq}
+          &	
+          \left\{
+            \begin{array}{rcrcrcl}
+              \ \lambda_1 & - & \lambda_2 & + & \lambda_3 & = & 0 \\
+              & & \lambda_2 & & & = & 0 \\
+              & & & & \lambda_3 & = & 0
+            \end{array}
+          \right.
+          \\[.8cm]
+          \Longleftrightarrow 
+          &
+          \left\{
+            \begin{array}{l}
+              \lambda_1 = \lambda_2 = \lambda_3 = 0
+            \end{array}
+          \right.\\%[.2cm]
+          & \multicolumn{1}{R{5cm}}{\it (par remontées successives)}
+        \end{array}
+        \]
+        La famille $(u_1,u_2,u_3)$ est donc libre.
+	
+      \item De plus, $\Card((u_1, u_2, u_3)) = 3 = \dim(\R^3)$. %
+        \conc{$(u_1,u_2,u_3)$ est donc une base de $\R^3$.}~\\[-1.2cm]
+      \end{noliste}
+      \begin{remark}%~
+        \begin{noliste}{$\sbullet$}
+        \item Le terme {\bf cardinal} est réservé aux ensembles
+          finis. La famille $(u_1, u_2, u_3)$ est un ensemble qui
+          contient $3$ vecteurs. Elle est donc finie, de cardinal $3$
+          (ce qu'on note $\Card((u_1, u_2, u_3)) = 3$).
+
+        \item $\Vect{u_1, u_2, u_3}$ est l'espace vectoriel constitué
+          de toutes les combinaisons linéaires des vecteurs $(u_1,
+          u_2, u_3)$. C'est un ensemble {\bf infini} de vecteurs, on
+          ne peut parler de son cardinal. Par contre, si l'on dispose
+          d'une base $(u_1, u_2, u_3)$ d'un espace vectoriel, tout
+          vecteur se décompose de manière unique sur cette base. Ceci
+          permet de donner une représentation finie de cet ensemble
+          infini.
+
+        \item Les notations : $\bcancel{\Card(\Vect{u_1, u_2, u_3})}$
+          et $\bcancel{\dim((u_1, u_2, u_3))}$ n'ont aucun sens !
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}		
+
+
+    \newpage
+
+
+  \item Vérifier que la matrice $T$ de $f$ dans la base
+    $(u_{1},u_{2},u_{3})$ est triangulaire et que ses éléments
+    diagonaux sont tous égaux à 2.
+
+    \begin{proof}~\\
+      Notons $U_1 = \Mat_{\B}(u_1) =
+        \begin{smatrix}
+          1 \\
+          1 \\
+          0
+        \end{smatrix}$, $U_2 = \Mat_{\B}(u_2) =
+        \begin{smatrix}
+          -1 \\
+          0 \\
+          1
+        \end{smatrix}$, $U_3 = \Mat_{\B}(u_3) = 
+        \begin{smatrix}
+          1 \\
+          1 \\
+          1
+        \end{smatrix}$.
+      \begin{noliste}{$\sbullet$}
+      \item On a démontré précédemment que $u_1 \in E_2(f)$. Ainsi : $
+        f(u_1) = 2 \cdot u_1 + 0 \cdot u_2+0\cdot u_3 $.\\[.2cm]
+        On en déduit que $\Mat_{(u_1, u_2, u_3)}(f(u_1)) =
+        \begin{smatrix}
+          2 \\
+          0 \\
+          0
+        \end{smatrix}
+        $.
+        % $\Mat_{\B}(f(u_1)) = \Mat_{\B}(f) \times \Mat_{\B}(u_1) = A
+        % \times U_1 =
+        % \begin{smatrix}
+        %   3 & -1 & 1\\
+        %   2 & 0 & 2\\
+        %   1 & -1 & 3
+        % \end{smatrix}
+        %         % \times
+        % \begin{smatrix}
+        %   1 \\
+        %   1 \\
+        %   0
+        % \end{smatrix}
+        % = 
+        % \begin{smatrix}
+        %   2 \\
+        %   2 \\
+        %   0
+        % \end{smatrix}
+        % = 2 \cdot
+        % \begin{smatrix}
+        %   1 \\
+        %   1 \\
+        %   0
+        % \end{smatrix}
+        % $\\        
+
+      \item On a démontré précédemment que $u_2 \in E_2(f)$. Ainsi : $
+        f(u_2) = 0 \cdot u_1 + 2 \cdot u_2+0\cdot u_3 $.\\[.2cm]
+        On en déduit que $\Mat_{(u_1, u_2, u_3)}(f(u_2)) =
+        \begin{smatrix}
+          0 \\
+          2 \\
+          0
+        \end{smatrix}
+        $.
+        % $\Mat_{\B}(f(u_2)) = \Mat_{\B}(f) \times
+        % \Mat_{\B}(u_2) = A \times U_2 =
+        % \begin{smatrix}
+        %   3 & -1 & 1\\
+        %   2 & 0 & 2\\
+        %   1 & -1 & 3
+        % \end{smatrix}
+        %         % \times
+        % \begin{smatrix}
+        %   -1 \\
+        %   0 \\
+        %   1
+        % \end{smatrix}
+        % = 
+        % \begin{smatrix}
+        %   3 \\
+        %   0 \\
+        %   3
+        % \end{smatrix}
+        % = 3 \cdot
+        % \begin{smatrix}
+        %   -1 \\
+        %   0 \\
+        %   1
+        % \end{smatrix}
+        % $
+        
+      \item $\Mat_{\B}(f(u_3)) = \Mat_{\B}(f) \times
+        \Mat_{\B}(u_3) = A \times U_3 =
+        \begin{smatrix}
+          3 & -1 & 1\\
+          2 & 0 & 2\\
+          1 & -1 & 3
+        \end{smatrix}
+        % \times
+        \begin{smatrix}
+          1 \\
+          1 \\
+          1
+        \end{smatrix}
+        = 
+        \begin{smatrix}
+          3 \\
+          4 \\
+          3
+        \end{smatrix}       
+        $.\\[.2cm]
+        On cherche alors à décomposer ce vecteur suivant $(U_1, U_2,
+        U_3)$.\\
+        Autrement dit, on cherche $(\alpha, \beta, \gamma) \in \R^3$
+        tel que $\begin{smatrix}
+          3 \\
+          4 \\
+          3
+        \end{smatrix} 
+        = %
+        \alpha \cdot
+        \begin{smatrix}
+          1 \\
+          1 \\
+          0
+        \end{smatrix} %
+        + %
+        \beta \cdot
+        \begin{smatrix}
+          -1 \\
+          0 \\
+          1
+        \end{smatrix} %
+        + %
+        \gamma \cdot
+        \begin{smatrix}
+          1 \\
+          1 \\
+          1
+        \end{smatrix} %
+        $.\\[.2cm]
+        Ce qui équivaut au système :
+        \[
+        \begin{array}{cl}
+          &
+          \left\{
+            \begin{array}{rcrcrcr}
+              \ \alpha & - & \beta & + & \gamma & = & 3 \\
+              \ \alpha & & & + & \gamma & = & 4 \\
+              & & \beta & + & \gamma & = & 3
+            \end{array}
+          \right.
+          \\[.8cm]
+          \begin{arrayEq}
+            L_2 \leftarrow L_2 - L_1
+          \end{arrayEq}
+          &
+          \left\{
+            \begin{array}{rcrcrcr}
+              \ \alpha & - & \beta & + & \gamma & = & 3 \\
+              & & \beta & & & = & 1 \\
+              & & \beta & + & \gamma & = & 3
+            \end{array}
+          \right.
+          \\[.8cm]
+          \begin{arrayEq}
+            L_3 \leftarrow L_3 - L_2
+          \end{arrayEq}
+          &
+          \left\{
+            \begin{array}{rcrcrcr}
+              \ \alpha & - & \beta & + & \gamma & = & 3 \\
+              & & \beta & & & = & 1 \\
+              & & & & \gamma & = & 2
+            \end{array}
+          \right.
+          \\[.8cm]
+          \begin{arrayEq}
+            L_1 \leftarrow L_1 - L_3 
+          \end{arrayEq}
+          &
+          \left\{
+            \begin{array}{rcrcrcr}
+              \ \alpha & - & \beta & & & = & 1 \\
+              & & \beta & & & = & 1 \\
+              & & & & \gamma & = & 2
+            \end{array}
+          \right.
+          \\[.8cm]
+          \begin{arrayEq}
+            L_1 \leftarrow L_1 + L_2
+          \end{arrayEq}
+          &
+          \left\{
+            \begin{array}{rcrcrcr}
+              \ \alpha & & & & & = & 2 \\
+              & & \beta & & & = & 1 \\
+              & & & & \gamma & = & 2
+            \end{array}
+          \right.
+        \end{array}
+        \]
+        On en déduit que $f(u_3) = 2 \cdot u_1 + 1 \cdot u_2 + 2
+        \cdot u_3$.\\
+        Et ainsi : $\Mat_{(u_1, u_2, u_3)}(f(u_3)) =
+        \begin{smatrix}
+          2 \\
+          1 \\
+          2
+        \end{smatrix}
+        $.
+      \end{noliste}
+      \conc{Ainsi : $T = \Mat_{(u_1, u_2, u_3)}(f) =
+          \begin{smatrix}
+            2 & 0 & 2 \\
+            0 & 2 & 1 \\ 
+            0 & 0 & 2
+          \end{smatrix}
+          $.}~\\[-1.2cm]
+    \end{proof}
+
+  \item En écrivant $T = 2I + N$, déterminer, pour tout entier naturel
+    $n$, la matrice $T^{n}$ comme combinaison linéaire de $I$ et $N$,
+    puis de $I$ et $T$.
+
+    \begin{proof}~\\
+      Soit $n\in\N^*$.
+      \begin{noliste}{$\sbullet$}
+      \item D'après l'énoncé, $N = T - 2 \cdot I =
+        \begin{smatrix}
+          0 & 0 & 2 \\ 
+          0 & 0 & 1 \\ 
+          0 & 0 & 0
+        \end{smatrix}
+        $.
+                
+      \item De plus : $N^2 = 
+        \begin{smatrix}
+          0 & 0 & -1 \\ 
+          0 & 0 & -2 \\ 
+          0 & 0 & 0
+        \end{smatrix}
+        \times 
+        \begin{smatrix}
+          0 & 0 & -1 \\ 
+          0 & 0 & -2 \\ 
+          0 & 0 & 0
+        \end{smatrix}
+        = 
+        \begin{smatrix}
+          0 & 0 & 0 \\ 
+          0 & 0 & 0 \\ 
+          0 & 0 & 0
+        \end{smatrix}$.\\[.2cm]
+        On en déduit, par une récurrence immédiate, que pour tout $k
+        \geq 2$, $N^k=0$.\\
+        {\it (on peut aussi noter que pour tout $k \geq 2$, $N^k= N^2
+          \ N^{k-2} = 0 \times N^{k-2} = 0$)}
+
+      \item Les matrices $2I$ et $N$ commutent puisque $I$ commute
+        avec toute matrice carrée de même ordre. \\
+        On peut donc appliquer la formule du binôme de Newton.
+        \[
+	\begin{array}{rcl@{\quad}>{\it}R{4cm}}
+          T^{n} & = & (2 \, I+N)^n 
+          \\[.1cm]
+          & = & \Sum{k=0}{n} \dbinom{n}{k} \ (2 \, I)^{n-k} \ N^k 
+          \ = \ \Sum{k=0}{n} \dbinom{n}{k} \ 2^{n-k} \, I^{n-k} \ N^k 
+          \\[.5cm]
+          & = & \Sum{k=0}{n} \dbinom{n}{k} \ 2^{n-k} \, I \ N^k 
+          \ = \ \Sum{k=0}{n} \dbinom{n}{k} \ 2^{n-k} \ N^k & (car on a
+          : \\ $\forall j \in \N, \ I^j = I$)
+          \nl
+          \nl[-.1cm]
+          & = & \Sum{k=0}{1} \dbinom{n}{k} \ 2^{n-k} \ N^k +
+          \bcancel{\Sum{k=2}{n} \dbinom{n}{k} \ 2^{n-k} \ N^k} & (ce
+          découpage est \\ valable car $n \geq 1$) 
+          \nl
+          \nl[-.1cm]
+          & = & \Sum{k=0}{1} \dbinom{n}{k} \ 2^{n-k} \ N^k & (car on a
+          montré : \\ $\forall k \geq 2, \ N^k = 0$)
+          \nl
+          \nl[-.1cm]
+          & = & \multicolumn{2}{l}{\dbinom{n}{0} \ 2^n \ N^0  +
+            \dbinom{n}{1} \ 2^{n-1} \ N^1 
+            % \\[.5cm]
+            \ = \ 2^n \ I + n \ 2^{n-1} \ N}
+        \end{array}
+        \]
+
+      \item Enfin : $2^0 \ I + 0 \ 2^{-1} \ N = I$ et $T^0 = I$.\\
+        La formule précédente reste valable pour $n = 0$.%
+        \conc{Ainsi, pour tout $n\in\N$, \ $T^n = 2^n \ I + n\ 2^{n-1}
+          \ N$.}
+
+      \item De plus, comme $N = T-2I$, on obtient :
+	\[
+	T^n \ = \ 2^n \ I + n \ 2^{n-1} \ (T-2I) \ = \ 2^n \ I + n \
+        2^{n-1} \ T - n \ 2^n \ I \ = \ n \ 2^{n-1} \ T - (n-1) \ 2^n
+        \ I
+	\]
+      \end{noliste}
+      \conc{Pour tout $n\in\N$, \ $T^n = n \ 2^{n-1} \ T - (n-1) \ 2^n
+        \ I$.}~\\[-1.3cm]
+      \begin{remark}%~
+        \begin{noliste}{$\sbullet$}
+        \item La relation de Chasles stipule que pour tout $(m, p, n)
+          \in \N^3$ tel que $m \leq p \leq n$ :
+          \[
+          \Sum{k = m}{n} u_k = \Sum{k = m}{p} u_k + \Sum{k = p+1}{n}
+          u_k
+          \]
+          {\it (la deuxième somme est nulle si $p = n$)}\\
+          où $(u_n)$ est une suite quelconque de réels ou de
+          matrices de même taille.
+          % On insiste ici sur le fait que cette relation n'est
+          % vérifiée que sous la condition $m \leq p \leq n$.
+        \item Dans cette question, on est dans le cas où $m = 0$ et $p
+          = 1$.\\
+          L'argument $n \geq 1$ est donc nécessaire pour découper la
+          somme.\\
+          % :
+          % \[
+          % \Sum{k = 0}{n} u_k = \Sum{k = 0}{0} u_k + \Sum{k = 1}{n} u_k
+          % \]
+          Le cas $n = 0$ doit alors être traité à part.
+          % \item Ici, la matrice $N$ vérifie : $\forall k \geq 2, \ N^k =
+          %   0$. Elle est dite nilpotente d'indice $2$ (ce terme n'est pas
+          %   au programme et il est préférable de ne pas l'utiliser dans
+          %   une copie). Si elle avait été nilpotente d'ordre $3$, il
+          %   aurait fallu traiter à part les cas $n = 0$ mais aussi le
+          %   cas $n = 1$.
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+
+
+\newpage
+
+
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Expliquer pourquoi l'on a :
+    \[
+    \forall n\in\N, \ A^{n} = n2^{n-1} \ A - (n-1) \ 2^{n} \ I
+    \]
+
+    \begin{proof}~\\
+      Soit $n \in \N$. Notons $\B' = (u_1, u_2, u_3)$
+      \begin{noliste}{$\sbullet$}
+      \item Remarquons tout d'abord, à l'aide de la question précédente :
+        \[
+        \begin{array}{C{.8cm}rcl@{\quad}>{\it}R{4cm}}
+          & T^n & = & n2^{n-1} \ T - (n-1) \ 2^{n} \ I 
+          \\[.4cm]
+          Ainsi & \big( \Mat_{\B'}(f) \big)^n & = & n2^{n-1} \ \Mat_{\B'}(f) -
+          (n-1) \ 2^{n} \ \Mat_{\B'}(\id) & (par définition \\ de $T$ et $I$)
+          \nl
+          \nl[-.2cm]
+          & & = & \Mat_{\B'} \big( n2^{n-1} \ f -
+          (n-1) \ 2^{n} \ \id \big) & (par linéarité de l'application
+          $\Mat_{\B'}(.)$)
+        \end{array}
+        \]
+        Enfin, comme $\big( \Mat_{\B'}(f) \big)^n = \Mat_{\B'}(f^n)$,
+        on obtient :
+        \[
+        \Mat_{\B'}(f^n) \ = \ \Mat_{\B'} \big( n2^{n-1} \ f - (n-1) \
+        2^{n} \ \id \big)
+        \]
+        L'application $\Mat_{\B'}(.)$ étant bijective, on en conclut
+        : %
+        \conc{$f^n \ = \ n2^{n-1} \ f - (n-1) \ 2^{n} \ \id$}
+
+      \item En appliquant $\Mat_{\B}(.)$ de part et d'autre de cette
+        égalité, on obtient, à l'aide des propriétés listées au-dessus
+        :
+        \[
+        \Mat_{\B}(f^n) \ = \ n2^{n-1} \ \Mat_{\B}(f) - (n-1) \ 2^{n} \
+        \Mat_{\B}(\id)
+        \]
+        \conc{Ainsi : $A^n = n 2^{n-1} \ A - (n-1) \, 2^n \ I$}
+      \end{noliste}
+      \begin{remark}%~
+        \begin{noliste}{$\sbullet$}
+        \item Il faut comprendre que l'application $\Mat_{\B}(.)$
+          établit un isomorphisme entre l'ensemble des endomorphismes
+          de $\R^3$ et l'ensemble des matrices de $\M{3}$.\\
+          La base $\B$ étant fixée, cela signifie que tout
+          endomorphisme de $\R^3$ possède une unique représentation
+          matricielle dans $\B$ et qu'inversement toute matrice de
+          $\M{3}$ est la représentation matricielle dans $\B$ d'un
+          unique endomorphisme.
+        \item Le passage du monde des endomorphismes vers le monde
+          matriciel (application $\Mat_{\B}(.)$) est parfois appelé
+          \og passerelle endomorphisme-matrice \fg{}. \\
+          Le passage du monde matriciel vers le monde des
+          endomorphismes (la réciproque de $\Mat_{\B}(.)$) est parfois
+          appelé \og passerelle matrice-endomorphisme \fg{}.\\
+          On peut donc rédiger comme suit.\\[.2cm]
+          On rappelle :
+          \[
+          T^n = n 2^{n-1} \ T - (n-1) \, 2^n \ I
+          \]
+          \begin{noliste}{$\stimes$}
+          \item Comme $T$ est la matrice de $f$ dans la base $\B'$, on
+            en déduit, par la passerelle matrice-endomorphisme :
+            \[
+            f^n = n 2^{n-1} \ f - (n-1) \, 2^n \ Id
+            \]
+          \item Comme $A$ est la matrice de $f$ dans la base $(e_1,
+            e_2, e_3)$, on en déduit, par la passerelle
+            endomorphisme-matrice : 
+            \[
+            A^n = n 2^{n-1} \ A - (n-1) \, 2^n \ I
+            \]
+          \end{noliste}
+        \end{noliste}
+      \end{remark}
+      \begin{remark}
+        On pouvait procéder autrement.\\
+        Notons $P_{\B, \B'}$ la matrice de passage de la base $\B$ à
+        la base $\B'$. Alors :
+        \[
+        \begin{array}{rcl}
+          A & = & \Mat_{\B}(f) \\[.2cm]
+          & = & P_{{\B}, {\B'}} \times \Mat_{\B'}(f) \times 
+          P_{{\B'}, {\B}} \ = \ P \times T \times P^{-1}
+        \end{array}          
+        \]
+        Par une récurrence immédiate : $\forall n \in \N$, $A^n = P
+        \, T^n \, P^{-1}$.\\
+        {\it (la récurrence n'est pas explicitement demandée dans le
+          sujet, il n'est donc pas utile de la faire)}\\
+        Soit $n\in\N$. D'après la question précédente, $T^n = n \
+        2^{n-1}\ T - (n-1) \ 2^n \ I$. Donc :
+        \[
+        \begin{array}{rcl}
+          A^n & = & P \ T^n \ P^{-1} \ = \ P \ (n \ 2^{n-1} \ T - 
+          (n-1) \ 2^n \ I) \ P^{-1}\\[.2cm]
+          & = & n \ 2^{n-1} \ P \ T \ P^{-1} - (n-1) \ 2^n
+          \ P \ P^{-1} \\[.2cm]
+          & = & n \ 2^{n-1} \ A - (n-1) \ 2^n \ I
+        \end{array}
+        \]
+        Et ainsi, pour tout $n\in\N$, $A^n = n \ 2^{n-1} \ A - (n-1)
+        \ 2^n \ I$.
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+    
+  \item Utiliser le polynôme annulateur obtenu à la première question
+    pour déterminer $A^{-1}$ en fonction de $I$ et de $A$.
+
+    \begin{proof}~\\
+      D'après la question \itbf{1.}, $A^2 - 4A = -4I$.\\[.2cm]
+      On en déduit que $-\dfrac{1}{4} \ (A^2 - 4A) = I$. Et ainsi :
+      \[
+      A \times \left(-\dfrac{1}{4} \ (A - 4I)\right) = I
+      \]
+      \conc{On en conclut que $A$ est inversible, d'inverse : $A^{-1}
+        = -\dfrac{1}{4} \ (A - 4I)$.}~\\[-1cm]
+    \end{proof}
+
+  \item Vérifier que la formule trouvée à la question \itbf{5a} reste
+    valable pour $n = -1$.
+
+    \begin{proof}~\\
+      Si $n=-1$, on obtient :
+      \[
+      \begin{array}{rcl}
+        n \ 2^{n-1} \ A - (n-1) \ 2^n \ I & = & (-1)\ 2^{-1-1}\ A - (-1-1)\
+        2^{-1}\ I 
+        \\[.2cm]
+        & = & (-1) \ \dfrac{1}{2^2} \ A - (-2) \ \dfrac{1}{2} \ I \ = \ 
+        -\dfrac{1}{4} \ A + I 
+        \\[.2cm]
+        & = & -\dfrac{1}{4} (A - 4I) \ = \ A^{-1}
+      \end{array}
+      \]
+      \conc{Ainsi, la formule trouvée à la question \itbf{5.a)} reste
+        valable pour $n=-1$.}~\\[-1.2cm]
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+
+
+\newpage
+
+
+\section*{Exercice 2}
+\noindent
+Pour chaque entier naturel $n$, on définit la fonction $f_{n}$ par :
+$\forall x\in[n, + \infty[, \ f_{n}(x) = \dint{n}{x} \ee^{\sqrt{t}} \dt$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item Étude de $f_{n}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $f_{n}$ est de classe $\Cont{1}$ sur $[n, +
+    \infty[$ puis déterminer $f'_{n}(x)$ pour tout $x$ de $[n,
+    +\infty[$.\\
+    Donner le sens de variation de $f_{n}$.
+
+    \begin{proof}~\\%
+      Dans la suite, notons $g$ la fonction $g : t \mapsto
+      \ee^{\sqrt{t}}$.% Soit $n \in \N$.
+      \begin{noliste}{$\sbullet$}
+      \item La fonction $g$ est continue sur $[n, +\infty[$ car elle
+        est la composée $g = g_2 \circ g_1$ où :
+      \end{noliste}
+      \begin{noliste}{$\stimes$}
+      \item $g_1 : t \mapsto \sqrt{t}$ est :
+        \begin{liste}{$-$}
+        \item continue sur $[n, +\infty[$ (car $n \geq 0$),
+        \item telle que $g_1([n, +\infty[) \subset \R$.
+        \end{liste}
+        % \begin{noliste}{$\stimes$}
+      \item $g_2 : t \mapsto \exp(t)$, continue sur $\R$.
+      \end{noliste}
+      Ainsi, $g$ admet une primitive $G$ de classe $\Cont{1}$ sur $[n,
+      +\infty[$.
+      \begin{noliste}{$\sbullet$}
+      \item Soit $x \in [n, +\infty[$. Par définition :
+        \[
+        f_n(x) = \dint{n}{x} \ee^{\sqrt{t}} \dt = \Prim{G(t)}{n}{x} =
+        G(x)- G(n)
+        \]        
+        \conc{La fonction $f_n$ est de classe $\Cont{1}$ sur
+          $[n,+\infty[$ car $G$ l'est.}%
+        {\it ($f_n$ est la somme d'une fonction de classe $\Cont{1}$
+          sur $[n,+\infty[$ et d'une constante)}%
+
+      \item De plus :
+        \[
+        f_n'(x) = G'(x)-0 = g(x) = \ee^{\sqrt{x}}
+        \]
+        \conc{$\forall x \in [n,+\infty[$, $f_n'(x)= \ee^{\sqrt{x}}$}
+
+      \item On remarque enfin que $f_n'(x) = \ee^{\sqrt{x}} > 0$.%
+        \conc{La fonction $f_n$ est strictement croissante sur $[n,
+          +\infty[$.}%~\\[-1.2cm]
+      \end{noliste}
+      \begin{remarkL}{.98}%~\\
+        \begin{noliste}{$\sbullet$}
+        \item On peut aussi rédiger en se servant du fait que la
+          fonction $f_n$ est la primitive de $g$ sur $[n, +\infty[$
+          qui s'annule au point $n$. On en déduit immédiatement que
+          $f_n$ est $\Cont{1}$ sur $[n, +\infty[$ et : \ $\forall x
+          \in [n, +\infty[, \ f'_n(x) = g(x)$.
+
+        \item L'intérêt de la démonstration précédente est qu'elle est
+          plus générale et peut donc être adaptée à tous les cas
+          particuliers. Imaginons par exemple une fonction $h_n$
+          définie par :\\[-.4cm]
+          \[
+          \forall x \in [n, +\infty[, \ h_n(x) = \dint{n}{x^2}
+          \ee^{\sqrt{t}} \dt = \Prim{G(t)}{n}{x^2} = G(x^2)- G(n)
+          \]
+          La fonction $h_n$ {\tt N'EST PAS} une primitive de $g$.\\
+          L'expression ci-dessus permet toutefois de conclure que
+          $h_n$ est de classe $\Cont{1}$ sur $[n, +\infty[$ comme
+          composée de $x \mapsto x^2$ par $G$ toutes les deux de
+          classe $\Cont{1}$ sur $\R$. De plus :
+          \[
+          \forall x \in [n, +\infty[, \ h'_n(x) = 2x \times G'(x^2) =
+          2x \times g(x^2) = 2x \ \ee^{\sqrt{x^2}} = 2x \
+          \ee^{x}
+          \]
+        \item Il n'y a pas, dans le programme ECE, de théorème
+          permettant de dériver sous le symbole d'intégration. Les
+          tentatives de ce genre révèlent une mauvaise compréhension
+          des objets étudiés.
+        \end{noliste}
+      \end{remarkL}~\\[-1.4cm]
+    \end{proof}
+
+
+    \newpage
+
+
+  \item En minorant $f_{n}(x)$, établir que $\dlim{x \tend +\infty}
+    f_{n}(x) = + \infty$.
+
+    \begin{proof}~\\
+      Soit $x \in [n, +\infty[$.
+      \begin{noliste}{$\sbullet$}
+      \item Soit $t \in [n,x]$. Remarquons tout d'abord :
+        \[
+        \begin{array}{rcl@{\quad}>{\it}R{5.5cm}}
+          t \ \geq \ n & \Leftrightarrow & \sqrt{t} \ \geq \ \sqrt{n}
+          & (car $t\mapsto  \sqrt{t}$ est strictement \\ croissante sur $\R_+$)
+          \nl
+          \nl[-.2cm]
+          & \Leftrightarrow & \ee^{\sqrt{t}} \ \geq \ \ee^{\sqrt{n}} & (car 
+          $t\mapsto \ee^t$ est strictement \\ croissante sur $\R$)
+          \nl
+        \end{array}
+        \]
+        \conc{$\forall t \in [n,x]$, \ $g(t) \ \geq \ \ee^{\sqrt{n}}$}
+
+      \item Par croissance de l'intégrale, les bornes étant dans
+        l'ordre croissant ($x \geq n$) :
+        \[
+        \begin{array}{cccl}
+          \dint{n}{x} \ee^{\sqrt{t}}\dt & \geq & \dint{n}{x}
+          \ee^{\sqrt{n}} \dt 
+          \\[.4cm]
+          \shortparallel & & \shortparallel
+          \\[.2cm]
+          f_n(x) & \geq & \ee^{\sqrt{n}} \ (x - n) & \tendx{+\infty} +\infty
+        \end{array}
+        \]
+        En effet, $\ee^{\sqrt{n}} > 0$ et $\dlim{x \tend +\infty}
+        (x-n) = +\infty$.
+      \end{noliste}
+      \conc{On en déduit, par théorème de comparaison : $\dlim{x
+          \tend +\infty} f_n(x) = +\infty$.}~\\[-1.15cm]
+      \begin{remark}%~\\
+        \begin{noliste}{$\sbullet$}
+        \item Dans cette question, il s'agit de déterminer la limite
+          de $f_n(x)$ quand $\textbf{\textit{x}} \tend +\infty$ (à $n$
+          fixé) et non pas la limite de $f_n(x)$ quand
+          $\textbf{\textit{n}} \tend +\infty$ (à $x$ fixé).
+        \item Une lecture précise du sujet doit permettre de ne pas
+          faire ce type de confusions.
+        \end{noliste}
+      \end{remark}~\\[-1.2cm]
+    \end{proof}
+
+  \item En déduire que pour chaque entier naturel $n$, il existe un
+    unique réel, noté $u_n$, élément de $[n, + \infty[$, tel que
+    $f_{n}(u_n) = 1$.
+
+    \begin{proof}~\\
+      Soit $n \in \N$.
+      \begin{noliste}{$\sbullet$}
+      \item Notons tout d'abord : $f_n(n) = \dint{n}{n}
+        \ee^{\sqrt{t}}\dt = 0$.
+        % \item Avec les questions \itbf{1.a)} et \itbf{1.b)}, on
+        %   obtient le tableau de variations suivant :     
+        % \begin{center}
+        %   \begin{tikzpicture}[scale=0.8, transform shape]
+        %     \tkzTabInit[lgt=4,espcl=3] %
+        %     { %
+        %       $x$ /1, %
+        %       Signe de $f_n'(x)$ /1, %
+        %       Variations de $f_n$ /2 } %
+        %     {$n$, $+\infty$} %
+        %     \tkzTabLine{ , + , } %
+        %     \tkzTabVar{-/$0$, +/$+\infty$} %
+        %   \end{tikzpicture}
+        % \end{center}
+
+      \item La fonction $f_n$ est :
+        \begin{noliste}{$\stimes$}
+        \item continue sur l'intervalle $[n,+\infty[$,
+        \item strictement croissante sur $[n,+\infty[$.
+        \end{noliste}
+        Ainsi, $f_n$ réalise une bijection de $[n,+\infty[$ dans
+        $f_n\big([n,+\infty[\big)$.
+        \[
+        f_n\big([n,+\infty[\big) = [f_n(n), \dlim{x \tend +\infty}
+        f_n(x) [ \ = [0, +\infty[
+        \]
+
+      \item Comme $1 \in [0, +\infty[$, on en déduit que $1$ admet un
+        unique antécédent $u_n \in [n, +\infty[$ par la fonction
+        $f_n$.
+      \end{noliste}
+      \conc{Ainsi, il existe un unique réel $u_n\in[n,+\infty[$ tel
+        que $f_n(u_n) = 1$.}~\\[-1.2cm]
+      % \begin{remark}%~
+      %   Il ne faut pas oublier de préciser que $1 \in [0, +\infty[$.
+      % \end{remark}
+    \end{proof}
+  \end{noliste}
+
+\item Étude de la suite $(u_n)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $\dlim{n \tend +\infty} u_n = +\infty$.
+
+    \begin{proof}~\\
+      Soit $n\in\N$.
+      \begin{noliste}{$\sbullet$}
+      \item Par définition de $u_n$, on sait que $u_n \in
+        [n,+\infty[$. Ainsi, $u_n \geq n$.
+      \item Or : $n \tendn +\infty$.
+      \end{noliste}
+      \conc{Par théorème de comparaison, $\dlim{n\to+\infty} u_n =
+        +\infty$.}~\\[-1.2cm]
+    \end{proof}
+
+  \item Montrer que : $\forall n \in \N$, $\ee^{-\sqrt{u_n}} \leq
+    u_n-n \leq \ee^{-\sqrt{n}}$.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item Soit $t \in [n, u_n]$. Remarquons tout d'abord :
+        \[
+        \begin{array}{rcl@{\quad}>{\it}R{5.5cm}}
+          n \ \leq \ t \ \leq \ u_n & \Leftrightarrow & \sqrt{n} \
+          \leq \ \sqrt{t} \ \leq \ \sqrt{u_n}
+          & (car $t \mapsto \sqrt{t}$ est strictement \\ croissante sur $\R_+$)
+          \nl
+          \nl[-.2cm]
+          & \Leftrightarrow & \ee^{\sqrt{n}} \ \leq \ \ee^{\sqrt{t}} \
+          \leq \ \ee^{\sqrt{u_n}} & (car $t \mapsto \ee^t$ est 
+          strictement \\ croissante sur $\R$) 
+          \nl
+        \end{array}
+        \]
+        \conc{$\forall t \in [n, u_n]$, \ $\ee^{\sqrt{n}} \ \leq \
+          g(t) \ \leq \ \ee^{\sqrt{u_n}}$}~
+
+      \item Par croissance de l'intégrale, les bornes étant dans
+        l'ordre croissant ($u_n \geq n$) :
+        \[
+        \begin{array}{ccccc}
+          \dint{n}{u_n} \ee^{\sqrt{n}} \dt & \leq & \dint{n}{u_n}
+          \ee^{\sqrt{t}} \dt & \leq & \dint{n}{u_n} \ee^{\sqrt{u_n}} \dt 
+          \\[.4cm]
+          \shortparallel & & \shortparallel & & \shortparallel
+          \\[.2cm]
+          \ee^{\sqrt{n}} \ (u_n - n) & \leq & f_n(u_n) & \leq &
+          \ee^{\sqrt{u_n}} \ (u_n - n)  
+          \\[.4cm]
+          & & \shortparallel & & 
+          \\[.2cm]
+          & & 1 & & 
+        \end{array}
+        \]
+
+      \item Ainsi : $\ee^{\sqrt{n}} \ (u_n - n) \leq 1$.%
+        \conc{Par multiplication par $\ee^{-\sqrt{n}} \geq 0$, on
+          obtient : $u_n - n \leq \ee^{-\sqrt{n}}$}
+
+      \item Et : $1 \leq \ee^{\sqrt{u_n}} \ (u_n - n)$.%
+        \conc{Par multiplication par $\ee^{-\sqrt{u_n}} \geq 0$, on
+          obtient : $\ee^{-\sqrt{u_n}} \leq u_n - n$}~\\[-1.4cm]
+      \end{noliste}
+      % \conc{$\forall n\in\N$, $\ee^{-\sqrt{u_n}}\leq u_n -n \leq
+      %   \ee^{-\sqrt{n}}$}~\\[-1.2cm]
+    \end{proof}
+  \end{noliste}
+
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Utiliser la question \itbf{2.b)} pour compléter les commandes
+    \Scilab{} suivantes afin qu'elles permettent d'afficher un entier
+    naturel $n$ pour lequel $u_n-n$ est inférieur ou égal à $10^{-4}$.
+    %%% ATTENTION COQUILLE ! C'était inscrit v_n dans l'énoncé
+    %%% original (défini juste après...)
+    \begin{scilab}
+      & n = 0 \nl %
+      & \tcFor{while} ------------ \nl %
+      & \qquad n = ------------ \nl %
+      & \tcFor{end} \nl %
+      & disp(n)
+    \end{scilab}
+
+
+    \newpage
+
+
+    \begin{proof}~%\\
+      \begin{noliste}{$\sbullet$}
+      \item D'après ce qui précède : 
+        \[
+        \forall n \in \N, \ u_n - n \leq \ee^{-\sqrt{n}}
+        \]
+
+      \item Afin de trouver un entier $n$ tel que $u_n - n \leq
+        10^{-4}$, il suffit de trouver $N \in \N$ tel que :
+        \[
+        \ee^{-\sqrt{N}} \leq 10^{-4}
+        \]
+
+      \item On obtient alors, par transitivité :
+        \[
+        u_N - N \leq \ee^{-\sqrt{N}} \leq 10^{-4}
+        \]
+
+      \item Il s'agit donc de trouver le premier entier $N$ tel que
+        $\ee^{-\sqrt{N}} \leq 10^{-4}$.\\
+        Pour ce faire, on teste successivement tous les entiers
+        naturels.\\
+        On arrête l'itération dès le premier entier qui satisfait
+        cette relation.
+        \begin{scilabC}{1}
+          & \tcFor{while} exp(-sqrt(n)) > 10\puis{}(-4) \nl %
+          & \qquad n = n + 1 \nl %
+          & \tcFor{end} 
+        \end{scilabC}
+      \end{noliste}
+      \begin{remark}
+        \begin{noliste}{$\sbullet$}
+        \item La terminaison du programme présenté est assuré par le
+          fait que $\ee^{-\sqrt{n}} \tendn 0$. Ainsi, pour tout $\eps
+          > 0$, il existe $N \in \N$ tel que : $\forall n \geq N$,
+          $\ee^{-\sqrt{n}} \leq \eps$.\\
+          C'est notamment vrai pour $\eps = 10^{-4}$.          
+          % \item La valeur de $N$ peut être déterminée directement. En
+          %   effet :
+          %   \[
+          %   \begin{array}{rcl}
+          %     \ee^{-\sqrt{n}} \leq 10^{-4} & \Leftrightarrow &
+          %     \ee^{\sqrt{n}} \geq 10^{4} & (par stricte croissance de la
+          %     fonction inverse sur $]0, +\infty[$)
+          %     \nl
+          %     \nl[-.2cm]
+          %     & \Leftrightarrow & \sqrt{n} \geq 4 \ \ln(10)
+          %   \end{array}
+          %   \]
+        \item L'énoncé original contenait une coquille sans
+          gravité. En effet, la quesiton posée demandait de trouver le
+          premier $n$ tel que $v_n$ est inférieur ou égal à
+          $10^{-4}$.\\
+          Or, la suite $(v_n)$ n'est introduite qu'en question
+          \itbf{4}.
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+
+  \item Le script affiche l'une des trois valeurs $n = 55$, $n = 70$
+    et $n = 85$. \\
+    Préciser laquelle en prenant $2,3$ comme valeur approchée de
+    $\ln(10)$.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item On cherche à déterminer l'entier $N$ précédent. Or :
+        \[
+        \begin{array}{rcl@{\quad}>{\it}R{5.5cm}}
+          \ee^{-\sqrt{n}}\leq 10^{-4} & \Leftrightarrow & -\sqrt{n} 
+          \leq \ln(10^{-4})=-4\ln(10) & (car $x\mapsto \ln(x)$ est 
+          strictement croissante sur $\R_+^*$)
+          \nl
+          \nl[-.4cm]
+          & \Leftrightarrow & \sqrt{n} \geq 4\ln(10)
+          \\[.2cm]
+          & \Leftrightarrow & n \geq \big( 4\ln(10) \big)^2 & (car
+          $x\mapsto x^2$ est strictement croissante sur $[0,+\infty[$)
+        \end{array}
+        \]
+        Ainsi, le premier entier vérifiant la relation :
+        $\ee^{-\sqrt{n}} \leq 10^{-4}$ est l'entier $N = \big\lceil
+        (4\ln(10))^2 \big\rceil$.\\
+        {\it (où $x\mapsto \lceil x \rceil$ désigne la fonction partie
+          entière par excès)}
+      \item Cherchons maintenant une valeur approchée de
+        $(4\ln(10))^2$.\\[.1cm]
+        D'après l'énoncé : $\ln(10) \simeq 2,3$, donc $4\ln(10) \simeq
+        9,2 \geq 9$.\\
+        On en déduit :
+        \[
+        \big(4\ln(10) \big)^2 \geq 9^2 = 81
+        \]  
+        La seule solution possible parmi celles proposées est $n=85$.
+      \end{noliste}
+      \conc{Le script affiche $n=85$.}~\\[-1.2cm]
+    \end{proof}    
+  \end{noliste}
+
+
+  \newpage
+
+
+\item On pose $v_n = u_n-n$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $\dlim{n \tend +\infty} v_n= 0$.
+
+    \begin{proof}~\\
+      Soit $n\in\N$.
+      \begin{noliste}{$\sbullet$}
+      \item D'après la question \itbf{2.b)}, $\ee^{-\sqrt{u_n}} \leq
+        u_n -n \leq \ee^{-\sqrt{n}}$. Autrement dit :
+        \[
+        \ee^{-\sqrt{u_n}} \leq v_n \leq \ee^{-\sqrt{n}}
+        \]
+
+      \item Or :
+       \begin{noliste}{$\stimes$}
+       \item $\dlim{n \tend +\infty} \ee^{-\sqrt{n}} = \dlim{u \tend
+           +\infty} \ee^{-u} = 0$.\\[.1cm]
+         En effet : $\dlim{n \tend +\infty} \sqrt{n} = +\infty$. 
+       \item $\dlim{n \tend +\infty} \ee^{-\sqrt{u_n}} = \dlim{u \tend
+           +\infty} \ee^{-u} = 0$.\\[.1cm]
+         En effet, on rappelle que $\dlim{n \tend +\infty} u_n =
+         +\infty$ (question \itbf{2.a)}) et donc : $\dlim{n \tend
+           +\infty} \sqrt{u_n} = +\infty$.
+       \end{noliste}
+     \end{noliste}
+     \conc{Par théorème d'encadrement, $\dlim{n\tend+\infty} 
+     v_n=0$.}~\\[-1.2cm]
+    \end{proof}
+
+  \item Établir que, pour tout réel $x$ supérieur ou égal à $-1$, on a
+    : $\sqrt{1 + x} \leq 1 + \dfrac{x}{2}$.
+
+    \begin{proof}~%\\
+      \begin{noliste}{$\sbullet$}
+      \item Notons $h$ la fonction définie sur $[-1,+\infty[$ par :
+        \[
+        h(x) = \sqrt{1+x}
+        \]
+
+      \item La fonction $h$ est de classe $\Cont{2}$ sur
+        $]-1,+\infty[$ et, pour tout $x\in \ ]-1,+\infty[$, on a :
+        \[
+        h'(x) = \dfrac{1}{2} \ (1+x)^{-\frac{1}{2}}
+        % = \dfrac{1}{2\sqrt{1+x}}
+        \quad \text{ et } \quad h''(x) = -\dfrac{1}{4} \
+        (1+x)^{-\frac{3}{2}} = \dfrac{-1}{4} \
+        \dfrac{1}{(1+x)^{\frac{3}{2}}} = \dfrac{-1}{4} \
+        \dfrac{1}{(1+x) \ \sqrt{1+x}}
+        \]
+        Or : $1+x > 0$ et donc $\sqrt{1+x} > 0$. On en déduit :
+        \[
+        \forall x \in \ ]-1,+\infty[, \ h''(x)<0
+        \]
+
+      \item La fonction $h$ est donc concave.\\
+        Sa courbe représentative est donc située en dessous de ses
+        tangentes.\\
+        En particulier, elle est située en dessous de sa tangente au
+        point d'abscisse $0$. Ainsi :
+        \[
+        \forall x \in [-1,+\infty[, \ h(x) \ \leq \ h(0) + h'(0) \ (x-0)
+        \]
+        Enfin : $h(0) =\sqrt{1+0} = 1$ \quad et \quad $h'(0) =
+        \dfrac{1}{2\sqrt{1+0}} = \dfrac{1}{2}$.%
+        \conc{$\forall x\in[-1,+\infty[$, $\sqrt{1+x} \leq
+          1 + \dfrac{x}{2}$}~\\[-1cm]
+      \end{noliste}
+      \begin{remark}%~\\
+        \begin{noliste}{$\sbullet$}
+        \item On a dérivé $h$ grâce à l'écriture : $h(x) =
+          (1+x)^{\frac{1}{2}}$.\\
+          Il faut savoir passer d'une écriture à l'autre dans les
+          calculs.
+        \item Le membre droit de l'inégalité souhaitée est un polynôme
+          de degré $1$. Sa représentation graphique est une droite.
+          C'est ce constat qui doit faire penser à une inégalité de
+          convexité.
+        \item Si on ne pense pas à utiliser une propriété de
+          convexité, on peut aussi résoudre cette question en étudiant
+          le signe de la fonction $x \mapsto 1 + \dfrac{x}{2} -
+          \sqrt{1+x}$.
+        \end{noliste}
+      \end{remark}~\\[-1.5cm]
+    \end{proof}
+
+
+    \newpage
+
+
+  \item Vérifier ensuite que : $\forall n \in \N^{*}$,
+    $\ee^{-\sqrt{u_n}} \geq \ee^{-\sqrt{n}} \exp\left(
+      -\dfrac{v_n}{2\sqrt{n}} \right)$.
+
+    \begin{proof}~\\
+      Soit $n\in\N^*$.
+      \begin{noliste}{$\sbullet$}
+      \item Remarquons tout d'abord :
+        \[
+        \begin{array}{rcl@{\quad}>{\it}R{5.5cm}}
+          \ee^{-\sqrt{u_n}} \geq \ee^{-\sqrt{n}} \exp\left( 
+            -\dfrac{v_n}{2\sqrt{n}}\right)
+          & \Leftrightarrow & \ee^{-\sqrt{u_n}} \geq
+          \exp\left(-\sqrt{n}-\dfrac{v_n}{2\sqrt{n}}\right) 
+          \\[.4cm]
+          & \Leftrightarrow & -\sqrt{u_n} \geq -\sqrt{n} - 
+          \dfrac{v_n}{2\sqrt{n}} & (car $x \mapsto \ln(x)$ est
+          strictement croissante sur $\R_+^*$) 
+          \nl
+          \nl[-.2cm]
+          & \Leftrightarrow & \sqrt{u_n} \leq \sqrt{n} +
+          \dfrac{v_n}{2\sqrt{n}}
+          \\[.6cm]
+          & \Leftrightarrow & \dfrac{\sqrt{u_n}}{\sqrt{n}} \leq 1+
+          \dfrac{v_n}{2n} & (car $\sqrt{n} > 0$)
+          \nl
+          \nl[-.2cm]
+          & \Leftrightarrow & \sqrt{\dfrac{u_n}{n}} \leq 1+ \dfrac{v_n}
+          {2n}
+          \\[.6cm]
+          & \Leftrightarrow & \sqrt{\dfrac{v_n + n}{n}} \leq 1 +
+          \dfrac{v_n}{2n}
+          \\[.6cm]
+          & \Leftrightarrow & \sqrt{1+\dfrac{v_n}{n}} \leq 1+ 
+          \dfrac{\frac{v_n}{n}}{2}
+        \end{array}
+        \]        
+
+      \item En appliquant le résultat de la question \itbf{4.b)} à $x
+        = \dfrac{v_n}{n}$ (ce qui est licite car $\dfrac{v_n}{n} \geq
+        0 >-1$), on démontre la dernière inégalité.\\
+        Par raisonnement par équivalence, la première inégalité l'est
+        alors aussi.
+      \end{noliste}
+      \conc{$\forall n\in\N^*$, \ $\ee^{-\sqrt{u_n}} \geq
+        \ee^{-\sqrt{n}} \exp\left( -\dfrac{v_n}{2\sqrt{n}}
+        \right)$} %~\\[-1cm]
+      \begin{remark}%~%
+        \begin{noliste}{$\sbullet$}
+        \item Le mode de raisonnement le plus habituel est celui par
+          implication : on part d'une hypothèse et par une suite
+          logique de propositions, on aboutit au résultat souhaité.
+        \item Ici, on raisonne par équivalence : on démontre que le
+          résultat souhaité a la même valeur de vérité qu'une
+          proposition plus simple à démontrer. Le fait que l'on
+          travaille par équivalence permet de s'assurer que l'on peut
+          remonter de cette proposition jusqu'au résultat. Ce mode de
+          démonstration est adapté à cette question car le résultat à
+          démontrer ne semble pas directement impliqué par une
+          hypothèse à disposition.
+        \item Le programme officiel interdit l'utilisation du symbole
+          $\Leftrightarrow$ comme abréviation.\\
+          L'utilisation de ce symbole n'est pas neutre et doit être
+          réservée au mode de raisonnement par équivalence.
+        \end{noliste}
+      \end{remark}~\\[-1.2cm]
+    \end{proof}
+
+
+    \newpage
+
+
+  \item Déduire de l'encadrement obtenu en \itbf{2.b)} que : $u_n - n
+    \eqn{} \ee^{-\sqrt{n}}$.
+
+    \begin{proof}~\\
+      Soit $n\in\N^*$.
+      \begin{noliste}{$\sbullet$}
+      \item D'après la question \itbf{2.b)} :
+        \[
+        \begin{array}{rcccl@{\quad}>{\it}R{5cm}}
+          \ee^{-\sqrt{n}} & \geq & u_n - n & \geq & \ee^{-\sqrt{u_n}}
+          \\[.2cm]
+          & & & \geq & \ee^{-\sqrt{n}}\exp\left(-\dfrac{v_n}{2\sqrt{n}}\right) 
+          & (d'après la question \itbf{4.c)})
+        \end{array}
+        \]
+
+      \item Comme $\ee^{-\sqrt{n}} > 0$, on obtient :
+        \[
+        1 \ \geq \ \dfrac{u_n - n}{\ee^{-\sqrt{n}}} \ \geq \ \exp\left(-
+          \dfrac{v_n}{2\sqrt{n}}\right)
+        \]
+
+      \item Or, d'après la question \itbf{4.a)}, $\dlim{n \tend
+          +\infty} v_n= 0$.\\
+        On en déduit que $\dlim{n \tend +\infty}
+        -\dfrac{v_n}{2\sqrt{n}} = 0$ et donc : $\dlim{n \tend
+          +\infty} \exp\left(-\dfrac{v_n}{2\sqrt{n}}\right) = \ee^0 =
+        1$.\\[.1cm]
+        Ainsi, par théorème d'encadrement, $\dlim{n\tend+\infty}
+        \dfrac{u_n-n} {\ee^{-\sqrt{n}}} = 1$.
+      \end{noliste}
+     \conc{$u_n-n \eqn \ee^{-\sqrt{n}}$}~\\[-1.2cm]
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+
+\section*{Exercice 3}
+
+\noindent 
+\begin{noliste}{$\sbullet$}
+\item Dans cet exercice, toutes les variables aléatoires sont
+  supposées définies sur un même espace probabilisé $(\Omega, \A,
+  \Prob)$. On désigne par $p$ un réel de $]0,1[$.
+\item On considère deux variables aléatoires indépendantes $U$ et $V$,
+  telles que $U$ suit la loi uniforme sur $[-3,1]$, et $V$ suit la loi
+  uniforme sur $[-1,3]$.
+\item On considère également une variable aléatoire $Z$, indépendante
+  de $U$ et $V$, dont la loi est donnée par :
+  \[
+  \Prob(\Ev{Z = 1}) = p \quad \text{ et } \quad \Prob(\Ev{Z = -1}) =
+  1-p
+  \]
+\item Enfin,on note $X$ la variable aléatoire, définie par :
+  \[
+  \forall \omega \in \Omega, \ X(\omega) = %
+  \left\{
+    \begin{array}{cR{2.4cm}}
+      U(\omega) & si $Z(\omega) = 1$ 
+      \nl
+      \nl[-.2cm]
+      V(\omega) & si $Z(\omega) = -1$
+    \end{array}
+  \right.
+  \]
+\item On note $F_X$, $F_U$ et $F_V$ les fonctions de répartition
+  respectives des variables $X$, $U$ et $V$.
+\end{noliste}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item Donner les expressions de $F_U(x)$ et $F_V(x)$ selon les valeurs
+  de $x$.
+
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item D'après l'énoncé, $U \suit \Uc{-3}{1}$.\\ %
+      \conc{Ainsi, pour tout $x\in\R$, $F_U(x) = %
+        \left\{
+          \begin{array}{c@{\quad}R{2.2cm}}
+            0 & si $x<-3$
+            \nl
+            \nl[-.2cm]
+            \dfrac{x+3}{4} & si $x\in[-3,1]$
+            \nl
+            \nl[-.2cm]
+            1 & si $x>1$
+          \end{array}
+        \right.$.}
+
+
+      \newpage
+
+
+    \item D'après l'énoncé, $V\suit \Uc{-1}{3}$. \\ %
+      \conc{Ainsi, pour tout $x\in\R$, $F_V(x) = %
+        \left\{
+          \begin{array}{c@{\quad}R{2.2cm}}
+            0 & si $x<-1$
+            \nl
+            \nl[-.2cm]
+            \dfrac{x+1}{4} & si $x\in[-1,3]$
+            \nl
+            \nl[-.2cm]
+            1 & si $x>3$
+          \end{array}
+        \right.$.}
+    \end{noliste}
+    \begin{remarkL}{.97}%~
+      \begin{noliste}{$\sbullet$}
+      \item Une bonne connaissance du cours est une condition {\it
+          sine qua non} de réussite au concours. En effet, on trouve
+        dans toutes les épreuves de maths (même pour les écoles les
+        plus prestigieuses), des questions d'application directe du
+        cours.
+      \item Ici, il suffit de connaître la fonction de répartition
+        d'une variable $U \suit \Uc{a}{b}$ (avec $a < b$) :
+        \[
+        F_U : x \mapsto \left\{
+          \begin{array}{c@{\quad}R{3cm}}
+            0 & si $x < a$ \nl
+            \nl[-.2cm]
+            \dfrac{x-a}{b-a} & si $x \in [a,b]$ \nl
+            \nl[-.2cm]
+            1 & si $x > b$
+          \end{array}
+        \right.
+        \]
+      \end{noliste}
+    \end{remarkL}~\\[-1.4cm]
+  \end{proof}
+
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Établir, grâce au système complet d'évènements $\left( \Ev{Z =
+        1}, \Ev{Z = -1} \right)$, que :
+    \[
+    \forall x\in\R, \ F_X(x) = p \ F_U(x) + (1-p) \ F_V(x)
+    \]
+
+    \begin{proof}~\\
+      Soit $x \in \R$.\\
+      La famille $\big(\Ev{Z = 1}, \Ev{Z = -1}\big)$ forme un système
+      complet d'événements. \\
+      Ainsi, d'après la formule des probabilités totales :
+      \[
+      \begin{array}{rcccc@{\quad}>{\it}R{4cm}}
+        \Prob(\Ev{X\leq x}) & = & \Prob(\Ev{Z = 1} \cap \Ev{X\leq x})
+        & + & \Prob(\Ev{Z = -1} \cap \Ev{X\leq x}) 
+        \\[.2cm]
+        & = & \Prob(\Ev{Z = 1} \cap \Ev{U \leq x}) & + & 
+        \Prob(\Ev{Z = -1} \cap \Ev{V\leq x}) & (par définition de $X$)
+        \nl
+        \nl[-.2cm]
+        & = & \Prob(\Ev{Z = 1}) \times \Prob(\Ev{U \leq x}) & + & 
+        \Prob(\Ev{Z = -1}) \times \Prob(\Ev{V\leq x}) & (car $Z$ est
+        indépendante de $U$ et de $V$) 
+        \nl
+        \nl[-.2cm]
+        & = & p \times \Prob(\Ev{U \leq x}) & + & (1-p) \times 
+        \Prob(\Ev{V\leq x}) \\[.2cm]
+        & = & p \times F_U(x) & + & (1-p) \times F_V(x) 
+      \end{array}
+      \]
+      \conc{Ainsi, pour tout $x \in \R$, \ $F_X(x) = p \ F_U(x) + (1-p)
+        \ F_V(x)$.}~\\[-1cm]
+    \end{proof}
+    
+  \item Vérifier que $X(\Omega) = [-3,3]$ puis expliciter $F_X(x)$
+    dans les cas :
+    \[
+    x<-3, \quad -3\leq x\leq-1, \quad -1\leq x\leq1, \quad 1 \leq x
+    \leq 3 \quad \text{ et } \quad x>3
+    \]
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Soit $\omega \in \Omega$. Deux cas se présentent.
+        \begin{noliste}{$-$}
+        \item \dashuline{Si $Z(\omega) = 1$} alors, par définition,
+          $X(\omega) = U(\omega)$. \\
+          Comme $U \suit \Uc{-3}{1}$ alors $U(\omega) \in [-3,1]$.\\[.1cm]
+          Dans ce cas, $X(\omega)\in[-3,1]$.
+
+        \item \dashuline{Si $Z(\omega) = -1$} alors, par définition,
+          $X(\omega) = V(\omega)$.\\
+          Comme $V \suit \Uc{-1}{3}$ alors $U(\omega) \in [-1,3]$.\\[.1cm]
+          Dans ce cas, $X(\omega) \in [-1,3]$.
+        \end{noliste}
+        Ainsi, pour tout $\omega \in \Omega$, $X(\omega) \in [-3,1]
+        \cup [-1,3] = [-3,3]$.%
+        \conc{On en conclut : $X(\Omega) \subset [-3,3]$.}~\\[-1.2cm]
+      \end{noliste}
+      \begin{remark}%~
+        \begin{noliste}{$\sbullet$}
+        \item On peut supposer ici qu'une argumentation moins formelle
+          serait acceptée par le correcteur. Comme $X$ prend les mêmes
+          valeurs que $U$ ou $V$ (selon les valeurs prises par $Z$),
+          on peut écrire :%\\[-.4cm]
+          \[
+          X(\Omega) \subset U(\Omega) \cup V(\Omega) = [-3, 1] \cup
+          [-1, 3] = [-3, 3]
+          \]~\\[-1.35cm]
+          
+        \item On peut aussi supposer qu'une disjonction de cas écrite
+          sans les $\omega$ (cas $Z = 1$ et cas $Z \neq 1$) serait
+          acceptée. Cependant, il faut bien comprendre que toute \var
+          $Z$ est une application $Z : \Omega \tend \R$. Écrire \og si
+          $Z = 1$ \fg{} signifie donc que l'on considère tous les
+          éléments $\omega \in \Omega$ tels que $Z(\omega) = 1$ c'est
+          à dire tous les éléments $\omega$ qui réalisent l'événement
+          $\Ev{Z = 1}$.
+          
+        \item Une dernière possibilité est d'écrire la rédaction
+          (correcte) suivante :
+          \begin{noliste}{$-$}
+          \item si l'événement $\Ev{Z = 1}$ est réalisé alors $X$
+            prend la même valeur que $U$, \var qui prend ses valeurs
+            dans $[-3,1]$.
+          \item si l'événement $\Ev{Z = -1}$ est réalisé alors $X$
+            prend la même valeur que $V$, \var qui prend ses valeurs
+            dans $[-1,3]$.
+          \end{noliste}
+          Ainsi, $X$ prend ses valeurs dans $[-3, 1] \ \cup \ [-1,3]
+          = [-3, 3]$.
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+      \begin{noliste}{$\sbullet$}
+      \item Soit $x\in\R$. Plusieurs cas se présentent.
+        \begin{noliste}{$-$}
+        \item \dashuline{Si $x<-3$} alors $\Ev{X \leq x} =
+          \emptyset$.\\[.1cm]
+          On en déduit que \ $F_X(x) = \Prob(\Ev{X\leq x}) = 0$.
+    
+        \item \dashuline{Si $x\in[-3,-1]$} alors, d'après la question
+          précédente : 
+          \[
+          F_X(x) \ = \ p \ F_U(x) + (1-p) \ F_V(x) \ = \ p
+          \dfrac{x+3}{4} + (1-p) \times 0 \ = \ p \ \dfrac{x+3}{4}
+          \]
+          
+        \item \dashuline{Si $x\in[-1,1]$} alors, d'après la question
+          précédente : 
+          \[
+          F_X(x) \ = \ p \ F_U(x) + (1-p) \ F_V(x) \ = \ p \
+          \dfrac{x+3}{4}+(1-p)\frac{x+1}{4} \ = \ \dfrac{x+2p+1}{4}
+          \]
+          
+        \item \dashuline{Si $x \in [1,3]$} alors, d'après la question
+          précédente :
+          \[
+          F_X(x) \ = \ p \ F_U(x) + (1-p) \ F_V(x) \ = \ p \times 1 +
+          (1-p) \ \dfrac{x+1}{4} \ = \ p + (1-p) \ \dfrac{x+1}{4}
+          \]
+          
+        \item \dashuline{Si $x>3$} alors $\Ev{X \leq x} =
+          \Omega$.\\[.1cm]
+          On en déduit que \ $F_X(x) = \Prob(\Ev{X\leq x}) = 1$.
+        \end{noliste}%~\\[-2cm]        
+        \conc{On en conclut que, pour tout $x\in\R$, \ $F_X(x) = %
+          \left\{
+            \begin{array}{c@{\quad}R{2.5cm}}
+              0 & si $x<-3$ \nl
+              \nl[-.2cm]
+              p \ \dfrac{x+3}{4} & si $x\in[-3,-1]$ \nl
+              \nl[-.2cm]
+              \dfrac{x+2p+1}{4} & si $x\in[-1,1]$ \nl
+              \nl[-.2cm]
+              p + (1-p) \ \dfrac{x+1}{4} & si $x\in[1,3]$ \nl
+              \nl[-.2cm]
+              1 & si $x>3$
+            \end{array}
+          \right.$}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+
+
+    \newpage
+
+    
+  \item On admet que X est une variable à densité. Donner une densité
+    $f_{X}$ de la variable aléatoire $X$.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item La fonction $F_X$ est :
+        \begin{noliste}{$\stimes$}
+        \item continue sur $\R$.\\
+          En effet, elle est de classe $\Cont{0}$ (même
+          $\Cont{\infty}$) sur $]-\infty, -3[ \ \cup \ ]-3, -1[ \ \cup
+          \ ]-1, 1[ \ \cup \ ]1, 3[ \ \cup \ ]3, +\infty[$ car
+          polynomiale sur chacun de ces intervalles.\\
+          De plus, elle est continue en $-3$ car : $\dlim{x \tend
+            (-3)^-} F_X(x) = F_X(-3) = \dlim{x \tend (-3)^+} F_X(x) = 0$.\\
+          De la même manière, elle est aussi continue en $-1$, $1$ et
+          $3$.
+        \item de classe $\Cont{1}$ sur $]-\infty, -3[ \ \cup \ ]-3,
+          -1[ \ \cup \ ]-1, 1[ \ \cup \ ]1, 3[ \ \cup \ ]3, +\infty[ \
+          = \R \setminus \{-3, -1, 1, 3\}$.
+        \end{noliste}
+        Ainsi, $X$ est une variable à densité.
+
+      \item Afin d'obtenir une densité $f_X$, on dérive $F_X$ sur les
+        intervalles {\bf ouverts}.\\
+        Soit $x\in \R$. Plusieurs cas se présentent :
+        \begin{noliste}{$\stimes$}
+        \item \dashuline{si $x \in \ ]-\infty,-3[$} alors $f_X(x) =
+          F_X'(x) = 0$.
+        \item \dashuline{si $x\in \ ]-3,-1[$} alors $f_X(x) = F_X'(x) =
+          \dfrac{p}{4}$.
+        \item \dashuline{si $x\in \ ]-1,1[$} alors $f_X(x) = F_X'(x) =
+          \dfrac{1}{4}$.
+        \item \dashuline{si $x\in \ ]1,3[$} alors $f_X(x) = F_X'(x) =
+          \dfrac{1-p}{4}$.
+        \item \dashuline{si $x\in \ ]3,+\infty[$} alors $f_X(x) =
+          F_X'(x) = 0$.  
+        \end{noliste}	
+        Enfin, on {\bf choisit}, par exemple, $f_X(-3) = 0$, $f_X(-1)
+        = \dfrac{1}{4}$, $f_X(1) = \dfrac{1}{4}$ et $f_X(3) = 0$.
+      \end{noliste}
+      \conc{Ainsi, pour tout $x\in\R$, \ $f_X(x) = \left\{
+          \begin{array}{c@{\quad}R{3cm}}
+            0 & si $x\leq -3$ \nl
+            \nl[-.2cm]
+            \dfrac{p}{4} & si $x \in \ ]-3,-1[$ \nl
+            \nl[-.2cm]
+            \dfrac{1}{4} & si $x \in[-1,1]$ \nl
+            \nl[-.2cm]
+            \dfrac{1-p}{4} & si $x \in \ ]1,3[$ \nl
+            \nl[-.2cm]
+            0 & si $x\geq 3$
+          \end{array}
+        \right.$}%~\\[-1.2cm]
+      \begin{remark}%~%
+        Il faut bien comprendre qu'on peut prendre n'importe quelle
+        valeur positive pour $f_n$ en $-3$, $-1$, $1$ et $3$. On peut
+        ainsi construire une infinité de densités de $Y_n$. \\
+        C'est pourquoi on parle d'{\bf une} densité.
+      \end{remark}~\\[-1.2cm]
+    \end{proof}	    
+
+  \item Établir que $X$ admet une espérance $\E(X)$ et une variance
+    $\V(X)$, puis les déterminer.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item La \var $X$ admet une espérance si et seulement si
+        l'intégrale impropre $\dint{-\infty}{+\infty} t \ f_X(t) \dt$
+        est absolument convergente, ce qui équivaut à démontrer la
+        convergence pour les calculs de moment du type
+        $\dint{-\infty}{+\infty} t^n \ f_X(t) \dt$.
+      \item Remarquons tout d'abord :
+        \[
+        \dint{-\infty}{+\infty} t \ f_X(t) \dt \ = \ \dint{-3}{3} t \
+        f_X(t) \dt
+        \]
+        car $f$ est nulle en dehors de $[-3, 3]$.
+
+      \item La fonction $t \mapsto t \ f(t)$ est {\bf continue par
+          morceaux} sur $[-3, 3]$.\\
+        On en déduit que $\dint{-3}{3} t \ f_X(t) \dt$ est bien
+        définie et que $X$ admet une espérance donnée par :
+        \[
+        \begin{array}{rcl}
+          \E(X) %\\[.2cm]
+          & = & \dint{-\infty}{+\infty} t \ f_X(t) \dt \\[.6cm]
+          & = & \bcancel{\dint{-\infty}{-3} t \ 0 \dt} +
+          \dint{-3}{-1}t\ \dfrac{p}{4}\dt + \dint{-1}{1}t\
+          \dfrac{1}{4}\dt + \dint{1}{3}t\ \dfrac{1-p}{4}\dt +
+          \bcancel{\dint{3}{+\infty} t \ 0 \dt} \\[.6cm]
+          & = & \dfrac{p}{4}\left[ \dfrac{t^2}{2} \right]_{-3}^{-1}
+          +\dfrac{1}{4}\left[ \dfrac{t^2}{2} \right]_{-1}^{1}
+          +\dfrac{1-p}{4}\left[ \dfrac{t^2}{2} \right]_{1}^{3}
+          \\[.6cm]
+          & = & \dfrac{p}{8} \ ((-1)^2 - (-3)^2) + \dfrac{1}{8} \
+          (1^2 - (-1)^2) + \dfrac{1-p}{8} \ (3^2 - 1^2) \\[.4cm]
+          & = & \dfrac{p}{8} \ (1 - 9) + \dfrac{1}{8} \
+          \bcancel{(1 - 1)} + \dfrac{1-p}{8} \ (9 - 1) 
+          \\[.4cm]
+          & = & \dfrac{1}{8} \ (-8 \ p + 8 \ (1-p))
+          \\[.4cm]
+          & = & -p + (1-p) \ = \ 1-2p
+        \end{array}
+        \]
+        
+      \item De même, la fonction $t \mapsto t^2 \ f(t)$ est {\bf
+          continue par morceaux} sur $[-3, 3]$. On en déduit que
+        $\dint{-3}{3} t^2 \ f_X(t) \dt$ est bien définie et que $X$
+        admet un moment d'ordre $2$ donné par :
+        \[
+        \begin{array}{rcl}
+          \E(X^2) 
+          & = & \dint{-\infty}{+\infty} t^2 f_X(t)\dt \\[.6cm]
+          & = & \bcancel{\dint{-\infty}{-3} t^2 \ 0 \dt} +
+          \dint{-3}{-1}t^2\ \dfrac{p}{4}\dt +
+          \dint{-1}{1}t^2\ \dfrac{1}{4}\dt + \dint{1}{3}t^2\
+          \dfrac{1-p}{4}\dt + \bcancel{\dint{3}{+\infty} t^2 \ 0
+            \dt} \\[.6cm]
+          & = & \dfrac{p}{4}\left[ \dfrac{t^3}{3} \right]_{-3}^{-1}
+          +\dfrac{1}{4}\left[ \dfrac{t^3}{3} \right]_{-1}^{1}
+          +\dfrac{1-p}{4}\left[ \dfrac{t^3}{3} \right]_{1}^{3}  \\[.6cm]
+          & = & \dfrac{p}{12} \ ((-1)^3 - (-3)^3) + \dfrac{1}{12} \
+          (1^3 - (-1)^3) + \dfrac{1-p}{12} \ (3^3 - 1^3) \\[.4cm]
+          & = & \dfrac{p}{12} \ (-1 + 27) + \dfrac{1}{12} \
+          (1 + 1) + \dfrac{1-p}{12} \ (27 - 1) 
+          \ = \ \dfrac{1}{12} \ (26 \ p + 2 + 26 \ (1-p))
+          \\[.4cm]
+          & = & \dfrac{1}{6} \ (13 \ p + 1 + 13 \ (1-p)) \ = \
+          \dfrac{1}{6} \ (\bcancel{13 \ p} + 1 + 13 - \bcancel{13 \ p}) \ = \
+          \dfrac{14}{6} \ = \ \dfrac{7}{3}
+        \end{array}
+        \]
+     
+      \item Enfin, d'après la formule de K\oe{}nig-Huygens :
+        \[
+        \V(X) = \E(X^2) - (\E(X))^2 = \dfrac{7}{3}-(1-2p)^2 =
+        \dfrac{7}{3} - (1 - 4p + 4p^2) = \dfrac{4}{3} + 4p - 4p^2
+        \]
+      \end{noliste}
+      \conc{Ainsi, $\E(X) = 1-2p$ \ et \ $\V(X) = \dfrac{4}{3} + 4p -
+        4p^2$.}%~\\[-1.2cm]
+
+
+      \newpage
+
+
+      \begin{remark}%~\\
+        Revenons sur l'hypothèse de continuité par morceaux.
+        \begin{noliste}{$\sbullet$}
+        \item Tout d'abord, il faut se rendre compte que la fonction
+          $h : t \mapsto t \ f_X(t)$ {\tt N'EST PAS} continue sur
+          $[-3, 3]$. En fait, elle n'est pas continue en $-3$, ni en
+          $-1$, ni en $1$, ni en $3$. Par contre $h$ est continue sur
+          $]-\infty, -3[$, $]-3, -1[$, $]-1, 1[$, $]1, 3[$ et $]3,
+          +\infty[$.
+          
+        \item Pour autant, cela ne signifie pas que l'intégrale
+          $\dint{-3}{-1} h(t) \dt$ est impropre.\\
+          En effet, la fonction $\restriction{h}{]-3, -1[}$
+          (restriction de $h$ sur l'ensemble $]-3, -1[$) :
+          \begin{noliste}{$\stimes$}
+          \item admet une limite finie en $-3$ (égale à $-3 \
+            \frac{p}{4}$),
+          \item admet une limite finie en $-1$ (égale à $-
+            \frac{p}{4}$).
+          \end{noliste}
+          Ainsi, $\restriction{h}{]-3, -1[}$ est prolongeable par
+          continuité en une fonction continue sur $[-3, -1]$ ce qui
+          justifie que l'intégrale $\dint{-3}{-1} h(t) \dt$ est bien
+          définie. \\
+          Mais c'est la fonction $\restriction{h}{]-3, -1[}$ qui est
+          prolongée par continuité et en aucun cas $h$ (ce qui
+          n'aurait pas de sens : la fonction $h$ est définie en $-3$
+          et en $-1$, il n'y a pas lieu de la prolonger en ces
+          points).
+          
+        \item La notion de continuité par morceaux décrit complètement
+          cette situation :
+          \begin{noliste}{$\stimes$}
+          \item $h$ est continue sur les intervalles ouverts
+            $]-\infty, -3[$, $]-3, -1[$, $]-1, 1[$, $]1, 3[$ et $]3,
+            +\infty[$ {\it(ici, elle n'est pas continue en $-3$, $-1$,
+              $1$, $3$)}.
+          \item $h$ admet une limite finie à gauche en tous ces
+            points.
+          \item $h$ admet une limite finie à droite en tous ces
+            points.
+          \end{noliste}
+          {\it (la limite à gauche est éventuellement différente de la
+            limite à droite)}\\
+          Ainsi, $h$ est {\bf continue par morceaux} sur $[-3,3]$.
+          % \item Cela correspond à la représentation suivante.
+          %   La fonction représentée en rouge est continue par
+          %   morceaux sur $[a, b]$ et son intégrale sur $[a, b]$ est
+          %   représentée par l'aire grisée.
+          % \item De manière non formelle, on pourrait dire que cette
+          %   notion est nécessaire lorsqu'on s'intéresse à
+          %   l'intégrale sur $[a,b]$ d'une fonction qui n'est pas
+          %   continue sur $[a,b]$, sans pour autant que l'intégrale
+          %   soit impropre en $a$ ou en $b$.
+        \end{noliste}
+      \end{remark}~\\[-1.2cm]
+%     \begin{center}
+%         %\shorthandoff{;}  
+%         \begin{tikzpicture}
+%           [ xscale=2.5, yscale = 1, scale = .5, declare function =
+%           {myfunc(\x) = (\x-3)*(\x-5)^2*(\x-2)+2.3;}, ] %
+%           \draw[-] (2,0) -- (5.7,0); %
+%           \draw[-] (2,7) -- (2,-.8) node[below] {$a_0 = a$}; %
+%           \draw[-] (3.8,0) -- (3.8,-.8) node[below] {$a_1$}; %
+%           \draw[-] (4.5,0) -- (4.5,-.8) node[below] {$a_2$}; %
+%           \draw[-] (5.7,7) -- (5.7,-.8) node[below] {$a_3 = b$}; %
+%           \filldraw[draw=black, fill=gray!20] (2,0) -- (2, 5.2) plot
+%           [domain=2:3.8] (\x, {myfunc(\x)+2.2}) -- (3.8, 0) --
+%           (2,0); %
+%           \filldraw[draw=black, fill=gray!20] (3.8,0) -- (3.8, 3.8)
+%           plot [domain=3.8:4.5] (\x, \x) -- (4.5, 0) -- (3.8,0); %
+%           \filldraw[draw=black, fill=gray!20] (4.5,0) -- (4.5,
+%           {myfunc(4.5)-1.5}) plot [domain=4.5:5.7] (\x,
+%           {myfunc(\x)-1.5}) -- (5.7, 0) -- (4.5,0); %
+%           \draw[very thick, red, domain = 2:3.8, samples = 100] plot
+%           (\x, {myfunc(\x)+2.2}) node[above] {}; %
+%           \draw[very thick, red, domain = 3.8:4.5, samples = 2] plot
+%           (\x, {\x}) node[above] {}; %
+%           \draw[very thick, red, domain = 4.5:5.7, samples = 100] plot
+%           (\x, {myfunc(\x)-1.5}) node[above] {}; %
+%           % -- cycle;
+%         \end{tikzpicture}
+%     \end{center}~\\[-2.2cm]
+    \end{proof}    
+  \end{noliste}
+
+
+  
+\item On se propose de montrer d'une autre façon que $X$ possède une
+  espérance et un moment d'ordre $2$ puis de les déterminer.
+
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Vérifier que l'on a :
+    \[
+    X = U \ \dfrac{1 + Z}{2} + V \ \dfrac{1-Z}{2}
+    \]    
+
+    \begin{proof}~\\
+      Soit $\omega \in \Omega$. Deux cas se présentent.
+      \begin{noliste}{$\sbullet$}
+      \item \dashuline{Si $Z(\omega) = 1$} alors $X(\omega) =
+        U(\omega)$ et :
+        \[
+        U(\omega) \ \dfrac{1+Z(\omega)}{2} + V(\omega) \
+        \dfrac{1-Z(\omega)}{2} = U(\omega) \ \dfrac{1+1}{2} +
+        \bcancel{V(\omega) \ \dfrac{1-1}{2}} = U(\omega) = X(\omega)
+        \]
+      \item \dashuline{Si $Z(\omega) \neq 1$} alors $Z(\omega) = -1$,
+        $X(\omega) = V(\omega)$ et :
+        \[
+        U(\omega) \ \dfrac{1+Z(\omega)}{2} + V(\omega) \
+        \dfrac{1-Z(\omega)}{2} = \bcancel{U(\omega) \ \dfrac{1-1}{2}}
+        + V(\omega) \ \dfrac{1+1}{2} = V(\omega) = X(\omega)
+        \]    
+      \end{noliste}
+      \conc{Ainsi, pour tout $\omega \in \Omega$, \ $X(\omega) =
+        U(\omega) \ \dfrac{1+Z(\omega)}{2} + V(\omega) \
+        \dfrac{1-Z(\omega)}{2}$.}~\\[-1cm]
+    \end{proof}
+
+
+    \newpage
+
+
+  \item Déduire de l'égalité précédente que $X$ possède une espérance
+    et retrouver la valeur de $\E(X)$.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Notons tout d'abord que $U$ et $V$ admettent une espérance
+        car elles suivent des lois uniformes. \\
+        De plus :
+        \[
+        \E(U) = \dfrac{-3 + 1}{2} = -1 \quad \text{ et } \quad \E(V) =
+        \dfrac{-1 + 3}{2} = 1
+        \]
+      \item Les \var $Z$, $\dfrac{1+Z}{2}$ et $\dfrac{1-Z}{2}$ sont
+        finies donc admettent une espérance. De plus :
+        \[
+        \E(Z) = \Sum{z \in Z(\Omega)}{} z \ \Prob(\Ev{Z = z}) = -1 \
+        \Prob(\Ev{Z = -1}) + 1 \ \Prob(\Ev{Z = 1}) = -(1-p) + p = 2p-1
+        \]
+        Et par linéarité de l'espérance :
+        \[
+        \E\left(\dfrac{1+Z}{2}\right) = \dfrac{1}{2} \ (\E(1) + \E(Z)) =
+        \dfrac{1}{2} \ (\bcancel{1} + 2p -\bcancel{1}) = p
+        \]
+        \[
+        \E\left(\dfrac{1-Z}{2}\right) = \dfrac{1}{2} \ (\E(1) - \E(Z)) =
+        \dfrac{1}{2} \ (1 - 2p + 1) = 1-p
+        \]
+
+      \item Les \var $U$ et $Z$ sont indépendantes.\\
+        Par le lemme des coalitions, on en déduit que les \var $U$ et
+        $\dfrac{1+Z}{2}$ sont indépendantes.\\
+        On en déduit que la \var $U \ \dfrac{1+Z}{2}$ admet une
+        espérance comme produit de \var indépendantes admettant une
+        espérance. De plus : 
+        \[
+        \E\left(U \ \dfrac{1+Z}{2}\right) \ = \ \E(U) \
+        \E\left(\dfrac{1+Z}{2}\right) = - p
+        \]
+
+      \item De même, les \var $V$ et $Z$ sont indépendantes.\\
+        Par le lemme des coalitions, on en déduit que les \var $V$ et
+        $\dfrac{1-Z}{2}$ sont indépendantes.\\
+        On en déduit que la \var $V \ \dfrac{1-Z}{2}$ admet une
+        espérance comme produit de \var indépendantes admettant une
+        espérance. De plus : 
+        \[
+        \E\left(V \ \dfrac{1-Z}{2}\right) \ = \ \E(V) \
+        \E\left(\dfrac{1-Z}{2}\right) = 1-p
+        \]
+
+      \item Enfin, d'après la question précédente, $X$ s'écrit comme
+        la somme de deux \var qui admettent une espérance. On en
+        déduit que $X$ admet une espérance. Par linéarité, on obtient
+        :
+        \[
+        \begin{array}{rcl}
+          \E(X) & = & \E\left(U \ \dfrac{1+Z}{2} + V \ \dfrac{1-Z}{2}
+          \right)  
+          \\[.6cm]
+          & = & \E\left(U \ \dfrac{1+Z}{2}\right) + \E\left(V \
+            \dfrac{1-Z}{2}\right) 
+          \\[.6cm]
+          & = & - p + (1-p) = 1-2p
+        \end{array}
+        \]
+      \end{noliste}
+      \conc{On retrouve bien que $X$ admet une espérance et que $\E(X)
+        = 1-2p$.}~\\[-1.2cm]
+    \end{proof}	    
+
+
+    \newpage
+
+
+  \item En déduire également que $X$ possède un moment d'ordre $2$ et
+    retrouver la valeur de $\E(X^{2})$.
+
+    \begin{proof}~\\
+      On procède comme dans la question précédente.
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord :
+        \[
+        \begin{array}{rcl}
+          X^2 & = & \left( U \ \dfrac{1+Z}{2} + V \ \dfrac{1-Z}{2} \right)^2
+          = \left( U \ \dfrac{1+Z}{2} \right)^2 + UV \ \dfrac{1 -
+            Z^2}{4} + \left( V \ \dfrac{1-Z}{2} \right)^2 \\[.6cm]
+          & = & U^2 \ \dfrac{1 + 2Z + Z^2}{4} + UV \ \dfrac{1 -
+            Z^2}{4} + V^2 \ \dfrac{1 - 2Z + Z^2}{4} 
+        \end{array}
+        \]
+        Or, comme $Z(\Omega) = \{-1, 1\}$, $Z^2(\Omega) = \{1\}$ et
+        ainsi $Z^2 = 1$ ($Z^2$ est la variable constante égale à $1$).
+        On en déduit :
+        \[
+        \begin{array}{rcl}
+          X^2 & = & U^2 \ \dfrac{1 + 2Z + 1}{4} + \bcancel{UV \ \dfrac{1 -
+              1}{4}} + V^2 \ \dfrac{1 - 2Z + 1}{4} \\[.6cm]
+          & = & U^2 \ \dfrac{1 + Z}{2} + V^2 \ \dfrac{1 - Z}{2}
+        \end{array}
+        \]
+
+      \item Les \var $U$ et $V$, qui suivent des lois uniformes,
+        admettent un moment d'ordre $2$ puisqu'elles admmettent une
+        variance. On peut déduire de la formule de K\oe{}nig-Huygens :
+        \[
+        \E(U^2) = \V(U) + (\E(U))^2 = \dfrac{(1-(-3))^2}{12} + (-1)^2
+        = \dfrac{16}{12} + 1 = \dfrac{4}{3} + 1 = \dfrac{7}{3}
+        \]
+        \[
+        \E(V^2) = \V(V) + (\E(V))^2 = \dfrac{(3-(-1))^2}{12} + 1^2 =
+        \dfrac{16}{12} + 1 = \dfrac{7}{3}
+        \]
+
+      \item Les \var $U^2$, $\dfrac{1 + Z}{2}$ admettent une espérance
+        et sont indépendantes.\\
+        On en déduit que la \var produit $U^2 \ \dfrac{1 + Z}{2}$
+        admet une espérance, donnée par :
+        \[
+        \E\left( U^2 \ \dfrac{1 + Z}{2} \right) = \E(U^2) \
+        \E\left(\dfrac{1 + Z}{2}\right) = \dfrac{7}{3} \ p
+        \]
+
+      \item Les \var $V^2$, $\dfrac{1 - Z}{2}$ admettent une espérance
+        et sont indépendantes. \\
+        On en déduit que la \var produit $V^2 \ \dfrac{1 - Z}{2}$
+        admet une espérance, donnée par :
+        \[
+        \E\left( V^2 \ \dfrac{1 - Z}{2} \right) = \E(V^2) \
+        \E\left(\dfrac{1 - Z}{2} \right) = \dfrac{7}{3} \ (1-p)
+        \]
+
+      \item $X^2$ admet une espérance car est la somme de \var qui
+        admettent une espérance.\\
+        Enfin, par linéarité de l'espérance :
+        \[
+        \begin{array}{rcl}
+          \E(X^2) & = & \E\left(U^2 \ \dfrac{1 + Z}{2} + V^2 \ \dfrac{1 -
+              Z}{2}\right) = \E\left(U^2 \ \dfrac{1 + Z}{2}\right) +
+          \E\left(V^2 \ \dfrac{1 - Z}{2}\right) \\[.6cm]
+          & = & \dfrac{7}{3} \ p + \dfrac{7}{3} \ (1-p) = \dfrac{7}{3}
+          \ (p+(1-p)) = \dfrac{7}{3}
+        \end{array}
+        \]        
+      \end{noliste}
+      \conc{La \var $X$ admet un moment d'ordre $2$ et $\E(X^2) =
+        \dfrac{7}{3}$.}~\\[-1.2cm]
+    \end{proof}
+
+\end{noliste}
+
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Soit $T$ une variable aléatoire suivant la loi de Bernoulli de
+    paramètre $p$.\\
+    Déterminer la loi de $2T-1$.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Comme $T \suit \Bern{p}$, $T(\Omega) = \{0,
+        1\}$. On en déduit :
+        \[
+        \begin{array}{rcl}
+          (2T-1)(\Omega) & = & \{ 2 u - 1 \ | \ u \in T(\Omega) \} 
+          \\[.2cm]
+          & = & \{2 \times (-1) - 1, 2 \times - 1\} 
+          \\[.2cm]
+          & = & \{-1, 1\}
+        \end{array}
+        \]
+        \conc{$(2T-1)(\Omega) = \{-1, 1\}$}
+
+      \item De plus :
+        \[
+        \begin{array}{lcl}
+          \Prob(\Ev{2T-1 = -1}) & = & \Prob(\Ev{2T = 0}) \ = \ \Prob(\Ev{T = 0})
+          \ = \ 1 - p \\[.4cm]
+          \Prob(\Ev{2T-1 = 1}) & = & \Prob(\Ev{2T = 2}) \ = \ \Prob(\Ev{T = 1})
+          \ = \ p
+        \end{array}
+        \]
+      \end{noliste}
+      \conc{Ainsi, $2T-1$ et $Z$ suivent la même loi.}
+      \begin{remarkL}{.97}%~
+        \begin{noliste}{$\sbullet$}
+        \item Dire que deux \var discrètes $Z_1$ et $Z_2$ suivent la même
+          loi ne signifie pas que $Z_1 = Z_2$.\\
+          Cela ne signifie pas non plus que $\Prob(\Ev{Z_1 = Z_2}) = 1$.\\
+          Cela signifie simplement :
+          \begin{noliste}{$\stimes$}
+          \item $Z_1(\Omega) = Z_2(\Omega)$,
+          \item $\forall z \in Z_1(\Omega)$, $\Prob(\Ev{Z_1 = z}) =
+            \Prob(\Ev{Z_2 = z})$.
+          \end{noliste}
+
+        \item Comme $Z(\Omega) = \{-1, 1\} \neq \{0,1\}$, la \var $Z$
+          ne suit pas une loi de Bernoulli.\\
+          De manière générale, une \var qui ne prend que deux valeurs
+          ne suit pas pour autant une loi de Bernoulli. Pour que ce
+          soit le cas, il faut que ces deux valeurs soient $0$ et $1$.
+        \end{noliste}
+      \end{remarkL}~\\[-1.4cm]
+    \end{proof}
+
+  \item On rappelle que {\tt grand(1,1,\ttq{}unf\ttq{},a,b)} et {\tt
+      grand(1,1,\ttq{}bin\ttq{},p)} sont des commandes \Scilab{}
+    permettant de simuler respectivement une variable aléatoire à
+    densité suivant la loi uniforme sur $[a,b]$ et une variable
+    aléatoire suivant la loi de Bernoulli de paramètre $p$.\\
+    Écrire des commandes \Scilab{} permettant de simuler $U$, $V$,
+    $Z$, puis $X$.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item Pour simuler les \var $U$, $V$ et $T$, il suffit
+        d'utiliser les instructions données.
+        \begin{scilab}
+          & U = grand(1,1,\ttq{}unf\ttq{},-3,1) \nl %
+          & V = grand(1,1,\ttq{}unf\ttq{},-1,3) \nl %
+          & T = grand(1,1,\ttq{}bin\ttq{},p) 
+        \end{scilab}~
+
+      \item Pour les \var $Z$ et $X$ on utilise les questions
+        \itbf{3.a)} et \itbf{4.a)}.
+        \begin{scilabC}{3}
+          & Z = 2 \Sfois{} T - 1 \nl %
+          & X = U \Sfois{} (1+Z)/2 + V \Sfois{} (1-Z)/2
+        \end{scilabC}
+      \end{noliste}
+
+
+      \newpage
+
+
+      \begin{remark}%~
+        \begin{noliste}{$\sbullet$}
+        \item Ces quelques lignes ne sont utilisables que si {\tt p}
+          est préalablement défini. Pour ce faire, on peut ajouter une
+          ligne : {\tt p = input(\ttq{}Entrer une valeur pour p :
+            \ttq{})} en début de programme afin que l'utilisateur
+          entre une valeur pour {\tt p}.\\
+          Une autre manière de régler ce problème est de transformer
+          ce programme en une fonction de paramètre {\tt p}.
+
+        \item Dans le programme, on a écrit : {\tt Z = 2 \Sfois{} T -
+            1}. Autrement dit, on a décidé de simuler la \var $Z$ en
+          lui donnant pour valeurs celles d'une \var qui suit la même
+          loi. Au-delà de la \var, c'est ici la loi qu'on cherche à
+          simuler. Ainsi, n'importe quelle \var qui suit cette loi
+          fait l'affaire.
+
+        \item Comme dit précédemment, la \var {\tt Z} ne suit pas une
+          loi de Bernoulli.\\
+          Toutefois, on a vu en question précédente :
+          \[
+          \Prob(\Ev{Z = -1}) \ = \ \Prob(\Ev{T = 0}) \ = \ 1-p \quad
+          \text{ et } \quad \Prob(\Ev{Z = 1}) \ = \ \Prob(\Ev{T = 1})
+          \ = \ p
+          \]
+          On peut exploiter ce point pour écrire {\tt Z} à l'aide
+          d'une structure conditionnelle :
+          \begin{scilab}
+            & T = grand(1,1,\ttq{}bin\ttq{},p) \nl %
+            & \tcIf{if} T == 0 \tcIf{then} \nl %
+            & \qquad Z = -1 \nl %
+            & \tcIf{else} \nl %
+            & \qquad Z = 1 \nl %
+            & \tcIf{end} \nl %
+          \end{scilab}
+
+        \item Une fois {\tt U}, {\tt V} et {\tt Z} codées, on peut
+          aussi coder {\tt X} en se servant de sa définition initiale.
+          \begin{scilabC}{4}
+            & \tcIf{if} Z == 1 \tcIf{then} \nl %
+            & \qquad X = U \nl %
+            & \tcIf{else} \nl %
+            & \qquad X = V \nl %
+            & \tcIf{end} \nl %
+          \end{scilabC}
+        \end{noliste}
+      \end{remark}~\\[-1.2cm]
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+
+\section*{Problème}
+
+\subsection*{Partie I : Questions préliminaires.}
+
+\noindent
+Dans cette partie, $x$ désigne un réel élément de $[0,1[$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Pour tout $n$ de $\N^*$ et pour tout $t$ de $[0,x]$,
+    simplifier la somme $\Sum{p = 1}{n} t^{p-1}$.
+
+    \begin{proof}~\\
+      Soit $n \in \N^*$ et soit $t \in [0, x]$. Par conséquent, $t
+      \leq x < 1$ et donc $t \neq 1$. Ainsi :
+      \[
+      \Sum{p = 1}{n} t^{p-1} \ = \ \Sum{p = 0}{n-1} t^p \ = \
+      \dfrac{1-t^{n}}{1-t}
+      \]
+      \conc{$\forall n \in \N^*, \forall t \in [0,x], \ \Sum{p = 1}{n}
+        t^{p-1} \ = \ \dfrac{1-t^{n}}{1-t}$}~\\[-1cm]
+    \end{proof}
+
+
+    \newpage
+
+
+  \item En déduire que : $\Sum{p = 1}{n}\dfrac{x^{p}}{p} = - \ln(1-x)
+    - \dint{0}{x} \dfrac{t^n}{1-t} \dt$.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item La fonction $t \mapsto \Sum{p = 1}{n} t^{p-1}$ (polynôme
+        de degré $n-1$) est continue sur $[0, x]$. Il en est donc de
+        même de la fonction $t \mapsto \dfrac{1-t^n}{1-t}$ puisque ces
+        deux fonctions coïncident sur $[0, x]$.
+
+      \item On déduit de la question précédente :
+        \[
+        \begin{array}{rcl>{\it}R{4cm}}
+          \dint{0}{x} \left(\Sum{p = 1}{n} t^{p-1}\right) \dt & = &
+          \dint{0}{x} \dfrac{1-t^n}{1-t} \dt 
+          \ = \ \dint{0}{x} \dfrac{1}{1-t} \dt - \dint{0}{x}
+          \dfrac{t^n}{1-t} \dt 
+          & (par linéarité \\ de l'intégration)
+          \nl
+          \nl[-.2cm]
+          & = & - \dint{0}{x} \dfrac{-1}{1-t} \dt - \dint{0}{x}
+          \dfrac{t^n}{1-t} \dt \\[.6cm]
+          & = & - \Prim{\ln(|1-t|)}{0}{x} - \dint{0}{x}
+          \dfrac{t^n}{1-t} \dt \\[.6cm]
+          & = & - \Prim{\ln(1-t)}{0}{x} - \dint{0}{x}
+          \dfrac{t^n}{1-t} \dt & (car $1-t > 0$ \\ puisque $t < 1$) \nl
+          \nl[-.2cm]
+          & = & - (\ln(1-x) - \bcancel{\ln(1)}) - \dint{0}{x}
+          \dfrac{t^n}{1-t} \dt
+        \end{array}
+        \]
+        On remarque enfin, par linéarité de l'intégration :
+        \[
+        \dint{0}{x} \left(\Sum{p = 1}{n} t^{p-1}\right) \dt = \Sum{p =
+          1}{n} \dint{0}{x} t^{p-1} \dt = \Sum{p = 1}{n}
+        \Prim{\dfrac{t^{p}}{p}}{0}{x} = \Sum{p = 1}{n} \dfrac{x^p}{p}
+        \]
+      \end{noliste}
+      \conc{$\forall x \in [0,1[$, $\forall n \in \N^*$, $\Sum{p =
+          1}{n} \dfrac{x^{p}}{p} = - \ln(1-x) - \dint{0}{x}
+        \dfrac{t^{n}}{1-t} \dt$}~\\[-1cm]
+    \end{proof}
+
+  \item Établir par encadrement que l'on a : $\dlim{n \tend +\infty}
+    \dint{0}{x} \dfrac{t^n}{1-t} \dt = 0$.
+    \begin{proof}~\\
+      Soit $t \in [0, x]$. Ce qui signifie que $0 \leq t \leq x$.
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord, par croissance de la fonction élévation à la
+        puissance $n$ sur $\R_+$ : 
+        \[
+        0 \leq t^n \leq x^n
+        \]
+
+      \item D'autre part :
+        \[
+        \begin{array}{C{2cm}l@{\qquad}>{\it}R{5cm}}
+          comme & 0 \leq t \leq x \\[.2cm]
+          alors & 0 \geq -t \geq -x \\[.2cm]
+          et & 1 \geq 1-t \geq 1-x \\[.2cm]
+          enfin & 1 \leq \dfrac{1}{1-t} \leq \dfrac{1}{1-x} & (par
+          décroissance de \\ la fonction inverse sur $\R_{+}^*$)
+        \end{array}
+        \]
+        
+      \item Toutes les quantités étant positives, on déduit des deux
+        précédentes inégalités :
+        \[
+        0 \leq \dfrac{t^n}{1-t} \leq \dfrac{x^n}{1-x}
+        \]
+
+      \item La fonction $t \mapsto \dfrac{t^n}{1-t}$ est continue sur
+        $[0, x]$.\\
+        Ainsi, par croissance de l'intégrale, les bornes étant dans
+        l'ordre croissant ($0 \leq x$) :
+        \[
+        0 \leq \dint{0}{x} \dfrac{t^n}{1-t} \dt \leq \dint{0}{x}
+        \dfrac{x^n}{1-x} \dt = \dfrac{x^n}{1-x} \ \dint{0}{x} 1 \dt =
+        \dfrac{x^{n+1}}{1-x}
+        \]
+
+      \item Or :
+        \begin{noliste}{$\stimes$}
+        \item $\dlim{n \tend +\infty} 0 = 0$,
+        \item $\dlim{n \tend +\infty} \dfrac{x^{n+1}}{1-x} = 0$ car,
+          comme $x \in [0, 1[$, $x^{n+1} \tendn 0$.
+        \end{noliste}
+        On en déduit donc, par théorème d'encadrement, que
+        $\dint{0}{x} \dfrac{t^n}{1-t} \dt$ admet une limite lorsque
+        $n$ tend vers $+\infty$, et que cette limite est nulle.
+      \end{noliste}
+      \conc{$\forall x \in [0,1[$, $\dlim{n \tend +\infty} \dint{0}{x}
+        \dfrac{t^n}{1-t} \dt = 0$}%~\\[-1cm]
+      \begin{remark}%~
+        Il n'y a pas, dans le programme ECE, de théorème permettant de
+        passer à la limite sous le symbole d'intégration. Les
+        tentatives de ce genre révèlent une mauvaise compréhension des
+        objets étudiés.
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+
+  \item En déduire que : $\Sum{k = 1}{+ \infty}\dfrac{x^k}{k} =
+    -\ln(1-x)$.
+
+    \begin{proof}~\\
+      Soit $x \in [0, 1[$ et $n \in \N^*$
+      \begin{noliste}{$\sbullet$}
+      \item D'après la question \itbf{1.b)}, $\Sum{p = 1}{n}
+        \dfrac{x^{p}}{p}$ admet une limite finie lorsque $n \tend
+        +\infty$ car s'écrit comme la somme de deux quantités ayant
+        une limite finie.
+
+      \item Par passage à la limite, on en déduit :
+        \[
+        \begin{array}{ccccc}
+          \Sum{p = 1}{n} \dfrac{x^{p}}{p} & = & - \ln(1-x) & - &
+          \dint{0}{x} \dfrac{t^{n}}{1-t} \dt 
+          \\[.2cm]
+          \rotatebox{-90}{$\tendn$} & & \rotatebox{-90}{$\tendn$} & &
+          \rotatebox{-90}{$\tendn$} 
+          \\[1.2cm]
+          \Sum{p = 1}{+\infty} \dfrac{x^{p}}{p} & = & - \ln(1-x) & - &
+          0
+        \end{array}
+        \]
+
+      \end{noliste}
+      \conc{On en déduit : $\Sum{p = 1}{+\infty} \dfrac{x^{p}}{p}
+        = -\ln(1-x)$.}~\\[-1cm]
+    \end{proof}
+
+  \end{noliste}
+
+
+  \newpage
+
+
+\item Soit $m$ un entier naturel fixé. À l'aide de la formule du
+  triangle de Pascal, établir l'égalité :
+  \[
+  \forall q \geq m, \ \Sum{k = m}{q} \dbinom{k}{m} = \dbinom{q + 1}{m
+    + 1}
+  \]
+
+  \begin{proof}~\\
+    L'entier $m$ étant fixé, démontrons par récurrence : $\forall
+    q \geq m$, $\PP{q}$ \\
+    où $\PP{q}$ : $\Sum{k=m}{q} \dbinom{k}{m} = \dbinom{q+1}{m+1}$.
+    \begin{noliste}{1)}
+    \item {\bf Initialisation} :
+      \begin{noliste}{$\sbullet$}
+      \item D'une part : $\Sum{k=m}{m} \dbinom{k}{m} = \dbinom{m}{m} =
+        1$.
+      \item D'autre part : $\dbinom{m+1}{m+1} = 1$.        
+      \end{noliste}
+      D'où $\PP{m}$.
+      
+    \item {\bf Hérédité} : soit $q \geq m$.\\
+      Supposons $\PP{q}$ et démontrons $\PP{q+1}$ (\ie $\Sum{k=m}{q+1}
+      \dbinom{k}{m} = \dbinom{q+2}{m+1}$).\\
+      Tout d'abord :
+      \[
+      \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+        \Sum{k=m}{q+1} \dbinom{k}{m} & = & \Sum{k=m}{q}
+        \dbinom{k}{m} + \dbinom{q+1}{m} \\[.6cm]
+        & = & \dbinom{q+1}{m+1} + \dbinom{q+1}{m} & (par hypothèse \\ de
+        récurrence) \nl
+        \nl
+        & = & \dbinom{q+2}{m+1} & (par la formule du \\ triangle de Pascal)
+      \end{array}
+      \]
+      D'où $\PP{q+1}$.
+    \end{noliste}
+    \conc{Par principe de récurrence : $\forall q \geq m, \
+      \PP{q}$.}~\\[-1.2cm] 
+  \end{proof}
+  
+\item Soit $n$ un entier naturel non nul. On considère une suite
+  $(X_n)_{n\in\N^{*}}$ de variables aléatoires, mutuellement
+  indépendantes, suivant toutes la loi géométrique de paramètre $x$,
+  et on pose $S_n = \Sum{k = 1}{n}X_k$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer $S_n(\Omega)$ puis établir que, pour tout entier
+    $k$ supérieur ou égal à $n + 1$, on a :
+    \[
+    \Prob(\Ev{S_{n + 1} = k}) \ = \ \Sum{j = n}{k-1} \Prob(\Ev{S_n =
+      j} \cap \Ev{X_{n + 1} = k-j})
+    \]
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Pour tout $k \in \N^*$, $X_k(\Omega) = \llb 1, +\infty
+        \llb$. Ainsi, pour tout $\omega \in \Omega$ : 
+        \[
+        S_n(\omega) \ = \ \Sum{k=1}{n} X_k(\omega) \ \geq \
+        \Sum{k=1}{n} 1 \ = \ n
+        \]
+        \conc{On en déduit : $S_n(\Omega) \subset \llb n, +\infty
+          \llb$.}
+      \end{noliste}
+
+        \newpage
+
+
+      \begin{remark}%~
+        Cette question amène une remarque sur la notation $X(\Omega)$
+        lorsque $X$ est une \var
+        \begin{noliste}{$\sbullet$}
+        \item Rappelons qu'une \var $X$ est une application $X :
+          \Omega \to \R$.\\
+          Comme la notation le suggère, $X(\Omega)$ est l'image de
+          $\Omega$ par l'application $X$. \\
+          Ainsi, $X(\Omega)$ n'est rien d'autre que l'ensemble des
+          valeurs prises par la \var $X$ :
+          \[
+          \begin{array}{rcl}
+            X(\Omega) & = & \{ X(\omega) \ | \ \omega \in \Omega\}
+            \\[.2cm]
+            & = & \{ x \in \R \ | \ \exists \omega \in \Omega, \ X(\omega) =
+            x \}
+          \end{array}
+          \]
+        \item Il faut bien noter que, dans la définition de
+          $X(\Omega)$, aucune application probabilité $\Prob$
+          n'apparaît. Même si cela ne correspond pas directement à la
+          définition, il est d'usage courant de confondre, dans le cas
+          des \var discrètes, l'ensemble de valeurs possibles de la
+          \var $X$ (\ie l'ensemble $X(\Omega)$) et l'ensemble des
+          valeurs que $X$ prend avec probabilité non nulle (dans le
+          cas où $X$ est une \var discrète, cet ensemble est appelé
+          support de $X$ et est noté $\supp(X)$).
+        \item C'est certainement ce que le concepteur du sujet a en
+          tête dans cette question. Les \var $X_k$ étant
+          indépendantes, il est aisé de démontrer que $S_n$ peut
+          prendre toutes les valeurs de $\llb n, +\infty \llb$ avec
+          probabilité non nulle. Si on accepte la confusion entre
+          $X(\Omega)$ et $\supp(X)$, on peut alors rédiger comme suit.\\[.1cm]
+          Rappelons que $S_n = \Sum{k=1}{n} X_k$. Or, pour tout $k \in
+          \N^*$, $X_k(\Omega) = \llb 1, +\infty \llb$.\\
+          Les variables $X_k$ étant mutuellement indépendantes, on en
+          déduit :
+          \[
+          S_n(\Omega) = \llb n, +\infty \llb
+          \]
+%         \item Dans le cadre des \var à densité, la définition du
+%           suppport de $X$ est plus compliquée. Considérons une \var à
+%           densité $X$ et notons $f_X$ une densité de $X$.
+%           \begin{noliste}{$\stimes$}
+%           \item On ne peut évidemment définir le support de $X$ comme
+%             l'ensemble des valeurs que $X$ prend avec probabilité non
+%             nulle puisque, comme $X$ est une \var à densité, alors pour
+%             tout $x \in \R$, $\Prob(\Ev{X = x}) = 0$.
+%           \item Une deuxième tentative consiste à définir le support
+%             de $X$ comme l'ensemble sur lequel $f_X$ est strictement
+%             positive. Cette définition est problématique car le
+%             support de $X$ dépend alors de la densité choisie : en
+%             remplaçant un nombre fini de valeurs de $f_X$ par des
+%             valeurs nulles, on obtient une fonction qui est toujours
+%             une densité de $X$ mais qui définit un autre support pour
+%             $X$.
+%           \end{noliste}
+%           Cette dernière définition est une première approximation de
+%           la définition propre du support d'une \var qui est une
+%           notion évidemment indépendante de la densité considérée. La
+%           bonne définition est un peu technique à présenter et n'est
+%           donc pas détaillée ici.
+%         \item On prend le parti, dans cet ouvrage, de ne pas faire la
+%           confusion entre $X(\Omega)$ et support de $X$, quitte à
+%           devoir se restreindre à des inclusions lors de la
+%           détermination de $X(\Omega)$ (c'est le cas ici :
+%           $S_n(\Omega) \subset \llb n, +\infty \llb$).\\
+%           Il est toutefois peu probable que cette confusion soit
+%           sanctionnée aux concours.
+        \end{noliste}
+      \end{remark}%~\\[-1.2cm]
+      \begin{noliste}{$\sbullet$}        
+      \item La famille $\big(\Ev{S_n = j}\big)_{j \in \llb n, +\infty
+          \llb}$ forme un système complet d'événements.\\
+        Soit $k \geq n+1$. Par la formule des probabilités totales :
+        \[
+        \begin{array}{rccl@{\quad}>{\it}R{4.5cm}}
+          \Prob(\Ev{S_{n+1} = k}) & = & & \Sum{j=n}{+\infty}
+          \Prob(\Ev{S_{n} = j} \ \cap \ \Ev{S_{n+1} = k}) 
+          \\[.4cm]
+          & = & & \Sum{j=n}{+\infty} \Prob(\Ev{S_{n} = j} \ \cap \
+          \Ev{S_n + X_{n+1} = k}) 
+          \\[.4cm] 
+          & = & & \Sum{j=n}{+\infty} \Prob(\Ev{S_{n} = j} \ \cap \
+          \Ev{X_{n+1} = k - j}) 
+          \\[.4cm] 
+          & = & & \Sum{%
+            \scalebox{.8}{$
+            \begin{array}{c}
+              j=n \\
+              k -j \in X_{n+1}(\Omega)
+            \end{array}
+            $}
+          }{+\infty} \Prob(\Ev{S_{n} = j} \ \cap \ \Ev{X_{n+1} = k-j})
+          \\[1cm]
+          & &  + & \bcancel{\Sum{%
+            \scalebox{.8}{$
+            \begin{array}{c}
+              j=n \\
+              k -j \not\in X_{n+1}(\Omega)
+            \end{array}
+            $}}{+\infty} \Prob(\Ev{S_{n} = j} \ \cap \
+            \Ev{X_{n+1} = k-j})} & (car $\Ev{X_{n+1} = k-j} = \emptyset$) 
+          \nl
+          \nl[-.2cm]
+          & = & & \Sum{j=n}{k-1} \Prob(\Ev{S_{n} = j} \ \cap \
+          \Ev{X_{n+1} = k-j})
+        \end{array}
+        \]
+      \end{noliste}
+
+
+      \newpage
+
+
+      \noindent
+      La dernière ligne est obtenue en constatant :
+      \[
+      \left\{
+        \begin{array}{l}
+          k-j \in X_{n+1}(\Omega) = \N^* \\[.2cm]
+          j \in \llb n, +\infty \llb
+        \end{array}
+      \right.
+      \ \Leftrightarrow \
+      \left\{
+        \begin{array}{l}
+          1 \leq k-j \\[.2cm]
+          n \leq j
+        \end{array}
+      \right.
+      \ \Leftrightarrow \
+      \left\{
+        \begin{array}{l}
+          j \leq k-1 \\[.2cm]
+          n \leq j
+        \end{array}
+      \right.
+      \ \Leftrightarrow \
+      \left\{
+        \begin{array}{l}
+          n \leq j \leq k-1
+        \end{array}
+      \right.
+      \]
+      \conc{$\forall k \geq n+1, \ \Prob(\Ev{S_{n+1} = k}) =
+        \Sum{j=n}{k-1} \Prob(\Ev{S_{n} = j} \ \cap \ \Ev{X_{n+1} =
+          k-j})$}%~\\[-1.4cm]
+      \begin{remark}%
+        \begin{noliste}{$\sbullet$}
+        \item Il est fréquent, lors de l'étape de restriction des
+          indices de la somme de tomber sur une contrainte s'exprimant
+          par deux inégalités :
+          \[
+          a \leq i \leq b \ \ET{} \ c \leq i \leq d \quad \text{où
+            $(a,b,c,d) \in \big(\overline{\R}\big)^4$}
+          \]
+          où $\overline{\R} = \R \cup \{-\infty, +\infty\}$. On pourra
+          alors utiliser le résultat suivant :
+          \[
+          \Boxed{ %
+            (a \leq i \leq b \ \ET{} \ c \leq i \leq d) \quad
+            \Leftrightarrow \quad \max(a,c) \leq i \leq \min(b, d)
+          % 
+          }
+          \]
+          {\it (à gauche c'est le plus grand élément qui contraint le
+            plus, à droite c'est le plus petit élément qui contraint
+            le plus)}
+        \item On peut alors rédiger comme suit :
+          \[
+          \begin{array}{rcl}
+          \left\{
+            \begin{array}{l}
+              k-j \in X_{n+1}(\Omega) = \N^* \\[.2cm]
+              j \in \llb n, +\infty \llb
+            \end{array}
+          \right.
+          & \Leftrightarrow &
+          \left\{
+            \begin{array}{l}
+              1 \leq k-j < +\infty \\[.2cm]
+              n \leq j < +\infty
+            \end{array}
+          \right.
+          \ \Leftrightarrow \
+          \left\{
+            \begin{array}{l}
+              1-k \leq -j < +\infty \\[.2cm]
+              n \leq j < +\infty
+            \end{array}
+          \right.
+          \\[.8cm]
+          & \Leftrightarrow &
+          \left\{
+            \begin{array}{l}
+              -\infty < j \leq k-1 \\[.2cm]
+              n \leq j < +\infty
+            \end{array}
+          \right.
+          \ \Leftrightarrow \
+          \left\{
+            \begin{array}{l}
+              n \leq j \leq k-1
+            \end{array}
+          \right.
+        \end{array}
+          \]
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+
+  \item En déduire, par récurrence sur $n$, que la loi de $S_n$ est
+    donnée par :
+    \[
+    \forall k \in \llb n, + \infty \llb, \ \Prob(\Ev{S_n = k}) =
+    \dbinom{k-1}{n-1} \ x^n \ (1-x)^{k-n}
+    \]
+
+    \begin{proof}~\\
+      Démontrons par récurrence : $\forall n \in \N^*, \ \PP{n}$\\[.2cm]
+      où $\PP{n}$ : $\forall k \in \llb n, +\infty \llb, \
+      \Prob(\Ev{S_{n} = k}) = \dbinom{k-1}{n-1} \ x^{n} \
+      (1-x)^{k-n}$.
+      \begin{noliste}{1)}
+      \item {\bf Initialisation} :\\
+        Soit $k \in \llb 1, +\infty \llb$.
+        \begin{noliste}{$\sbullet$}
+        \item D'une part : $\Prob(\Ev{S_{1} = k}) = \Prob(\Ev{X_{1} =
+            k}) = (1-x)^{k-1} \ x$ car $S_1 = X_1 \suit \G{x}$.
+
+        \item D'autre part : $\dbinom{k-1}{1-1} \ x^{1} \ (1-x)^{k-1}
+          = \dbinom{k-1}{0} \ x^{1} \ (1-x)^{k-1} = x \ (1-x)^{k-1}$.
+        \end{noliste}
+        D'où $\PP{1}$.
+
+      \item {\bf Hérédité} : soit $n \in \N^*$.\\
+        Supposons $\PP{n}$ et démontrons $\PP{n+1}$ \\[.2cm]
+        (\ie $\forall k \in \llb n+1, +\infty \llb, \
+        \Prob(\Ev{S_{n+1} = k}) = \binom{k-1}{n} \ x^{n+1} \
+        (1-x)^{k-(n+1)}$).
+
+
+        \newpage
+
+
+        \noindent
+        Soit $k \in \llb n+1, +\infty \llb$.
+        \[
+        \begin{array}{cl@{\qquad}>{\it}R{5cm}}
+          & \Prob(\Ev{S_{n+1} = k}) 
+          \\[.2cm] 
+          = & \Sum{j=n}{k-1} \Prob(\Ev{S_{n}
+            = j} \ \cap \ \Ev{X_{n+1} = k-j}) 
+          \\[.4cm]
+          = & \Sum{j=n}{k-1} \Prob(\Ev{S_{n} = j}) \ \times \ 
+          \Prob(\Ev{X_{n+1} = k-j}) & (car $S_n$ et $X_{n+1}$ \\ sont
+          indépendantes (*)) 
+          \nl
+          \nl[-.2cm]
+          = & \Sum{j=n}{k-1} \left(\dbinom{j-1}{n-1} \ x^{n} \
+            (1-x)^{j-n} \right) \times \Prob(\Ev{X_{n+1} = k-j}) & (par
+          hypothèse \\ de récurrence) 
+          \nl
+          \nl[-.2cm]
+          = & \Sum{j=n}{k-1} \left(\dbinom{j-1}{n-1} \ x^{n} \
+            (1-x)^{j-n} \right) \ (1-x)^{k-j-1} \ x & (car $X_{n+1}
+          \suit \G{x}$) 
+          \nl
+          \nl[-.2cm]
+          = & \Sum{j=n}{k-1} \dbinom{j-1}{n-1} \ x^{n+1} \
+          (1-x)^{k-n-1} 
+          \\[.4cm]
+          = & (x^{n+1} \ (1-x)^{k-n-1}) \ \Sum{j=n}{k-1}
+          \dbinom{j-1}{n-1} & (car $x^{n+1} \ (1-x)^{k-n-1}$ est
+          indépendant de l'indice de sommation $j$) 
+          \nl
+          \nl[-.2cm]
+          = & (x^{n+1} \ (1-x)^{k-n-1}) \ \Sum{j=n-1}{k-2}
+          \dbinom{j}{n-1} 
+          \\[.8cm]
+          = & (x^{n+1} \ (1-x)^{k-n-1}) \ \dbinom{k-1}{n} & (d'après
+          la question \itbf{2.} avec $q = k-2$, $m = n-1$) 
+        \end{array}
+        \]
+        D'où $\PP{n+1}$.
+      \end{noliste}~\\[-.3cm]
+      (*) En effet, $X_{n+1}$ est indépendante de $X_1$, $X_2$,
+      \ldots, $X_n$.\\
+      On en déduit, par le lemme des coalitions, que $X_{n+1}$ est
+      indépendante de $X_1 + \ldots + X_n$.%
+      \conc{Par principe de récurrence : $\forall n \in \N^*, \
+        \PP{n}$.}~\\[-1cm]
+    \end{proof}
+
+  \item En déduire, pour tout $x$ de $]0,1[$ et pour tout entier
+    naturel $n$ non nul :
+    \[
+    \Sum{k = n}{+ \infty} \dbinom{k-1}{n-1} \ (1-x)^{k-n} =
+    \dfrac{1}{x^n}
+    \]
+
+    \begin{proof}~\\
+      Soit $x \in \ ]0,1[$ et soit $n \in \N^*$.\\
+      La famille $\big(\Ev{S_n = k}\big)_{k \in \llb n, +\infty \llb}$
+      forme un système complet d'événements.\\
+      On en déduit :
+      \[
+      \begin{array}{cc@{\qquad}c>{\it}R{4cm}}
+        \Sum{k = n}{+\infty} \ \Prob(\Ev{S_n = k}) & = & 1 \\[.2cm]
+        \shortparallel & & \\[.2cm]
+        \Sum{k = n}{+\infty} \dbinom{k-1}{n-1} \ x^n \ (1-x)^{k-n} & & &
+        (d'après la \\ question précédente)
+      \end{array}
+      \]
+      \concL{On en déduit, en multipliant de part et d'autre par
+        $\dfrac{1}{x^n}$ : \\
+        $\Sum{k = n}{+\infty} \dbinom{k-1}{n-1} \ (1-x)^{k-n} =
+        \dfrac{1}{x^n}$}{12}~\\[-1cm]
+    \end{proof}
+      
+
+    \newpage
+
+
+  \item On rappelle que la commande {\tt
+      grand(1,n,\ttq{}geom\ttq{},p)} permet à \Scilab{} de simuler $n$
+    variables aléatoires indépendantes suivant toutes la loi
+    géométrique de paramètre $p$.\\
+    Compléter les commandes \Scilab{} suivantes pour qu'elles simulent
+    la variable aléatoire $S_n$.\\
+    \begin{scilab}
+      & n = input(\ttq{}entrez une valeur de n supérieure à 1 :\ttq{}) \nl %
+      & S = ------------\nl %
+      & disp(S)
+    \end{scilab}
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item On rappelle que $S_n = \Sum{k=1}{n} X_k$ où les \var
+        $X_1$, \ldots, $X_n$ sont indépendantes et suivent toutes la
+        même loi $\G{x}$. L'instruction {\tt
+          grand(1,n,\ttq{}geom\ttq{},p)} permet de générer une matrice
+        ligne $[x_1, \ldots, x_n]$ qui simule le $n$-échantillon
+        $(X_1, \ldots, X_n)$.
+      \item Pour simuler $S_n$, il suffit de faire la somme des
+        coefficients de cette matrice ligne.
+        \begin{scilabC}{1}
+          & S = sum(grand(1,n,\ttq{}geom\ttq{},p)) \nl %
+        \end{scilabC}
+      \end{noliste}
+      \begin{remark}%~
+        Il est possible (mais moins élégant) de réaliser cette somme à
+        l'aide d'une structure itérative. On obtient le programme
+        suivant.\\
+        \begin{scilabC}{1}
+          & S = 0 \nl %
+          & tab = grand(1,n,\ttq{}geom\ttq{},p) \nl %
+          & \tcFor{for} i = 1:n \nl %
+          & \qquad S = S + tab(i) \nl %
+          & \tcFor{end} 
+        \end{scilabC}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+
+\subsection*{Partie 2 : étude d'une variable aléatoire.}
+
+\noindent
+Dans cette partie, on désigne par $p$ un réel de $]0,1[$ et on pose $q
+= 1-p$.\\
+On considère la suite $(u_k)_{k\in\N^{*}}$, définie par :
+\[
+\forall k\in\N^*, \ u_k = -\dfrac{q^{k}}{k \ \ln(p)}
+\]
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Vérifier que la suite $(u_k)_{k\in\N^{*}}$ est à termes
+    positifs.
+
+    \begin{proof}~\\%
+      Soit $k \in \N^*$.
+      \begin{noliste}{$\sbullet$}
+      \item Comme $p \in \ ]0, 1[$, $\ln(p) < 0$.
+      \item Comme $q = 1-p \in \ ]0, 1[$, $q^k > 0$. On en déduit :
+        \[
+        \dfrac{q^k}{k \ \ln(p)} < 0
+        \]
+        {\it (notons que $k \times \ln(p) \neq 0$ car $k \geq 1$ et
+          $\ln(p) \neq 0$)}
+      \end{noliste}
+      \conc{Ainsi, pour tout $k \in \N^*$, $u_k = -\dfrac{q^k}{k \
+          \ln(p)} > 0$}~\\[-1cm]
+    \end{proof}
+
+
+    \newpage
+
+
+  \item Montrer, en utilisant un résultat de la partie $1$, que
+    $\Sum{k = 1}{+ \infty} u_k = 1$.
+
+    \begin{proof}~\\%
+      Soit $N \in \N^*$.
+      \begin{noliste}{$\sbullet$}
+      \item Tout d'abord : $\Sum{k=1}{N} u_k \ = \ \Sum{k=1}{N}
+        \dfrac{-q^k}{k \ \ln(p)} \ = \ -\dfrac{1}{\ln(p)} \
+        \Sum{k=1}{N} \dfrac{q^k}{k}$.
+
+      \item Or, d'après la question \itbf{1.d)} de la partie $1$, pour
+        tout $x \in [0, 1[$, la série $\Sum{k \geq 1}{}
+        \dfrac{x^k}{k}$ est convergente, de somme $-\ln(1-x)$. En
+        appliquant ce résultat à $x = p \in \ ]0, 1[$, on obtient que
+        la série $\Sum{k \geq 1}{} u_k$ est convergente, de somme :
+        \[
+        \Sum{k = 1}{+\infty} u_k = - \dfrac{1}{\ln(p)} \ \Sum{k =
+          1}{+\infty} \dfrac{q^k}{k} = - \dfrac{1}{\ln(p)} \ (-\ln(1-q))
+        = - \dfrac{1}{\ln(p)} \ (-\ln(p)) = 1
+        \]
+      \end{noliste}
+      \conc{$\Sum{k=1}{+\infty} u_k = 1$}~\\[-1cm]
+    \end{proof}
+  \end{noliste}
+  On considère dorénavant une variable aléatoire $X$ dont la loi de
+  probabilité est donnée par :
+  \[
+  \forall k\in\N^{*}, \ \Prob(\Ev{X = k}) = u_k
+  \]
+  
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $X$ possède une espérance et la déterminer.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item La \var $X$ admet une espérance si et seulement si la
+        série $\Sum{k \geq 1}{} k \ u_k$ est absolument convergente.\\
+        Cette série étant à termes positifs, cela revient à démontrer
+        qu'elle est convergente.
+
+      \item Soit $N \in \N^*$.
+        \[
+        \Sum{k = 1}{N} k \ u_k = \Sum{k = 1}{N} \dfrac{-q^k}{\ln(p)} =
+        -\dfrac{1}{\ln(p)} \ \Sum{k = 1}{N} q^k
+        \]
+
+      \item Or, comme $q \in \ ]0, 1[$, la série $\Sum{k \geq 1}{}
+        q^k$ est convergente.\\
+        On en déduit que la \var $X$ admet une espérance, donnée par : 
+        \[
+        \E(X) = \Sum{k=1}{+\infty} k \ u_k = -\dfrac{1}{\ln(p)}
+        \ \Sum{k=1}{+\infty} q^k = -\dfrac{1}{\ln(p)} \ \dfrac{q^1}{1-q}
+        \]
+      \end{noliste}
+      \conc{La \var $X$ admet pour espérance $\E(X) = -\dfrac{q}{p \
+          \ln(p)}$.}~\\[-1.1cm]
+      \begin{remarkL}{.95}
+        Il est indispensable de connaître les formules donnant la
+        valeur d'une somme géométrique.
+        \begin{noliste}{$\sbullet$}
+        \item \dashuline{Dans le cas d'une somme finie}. Pour tout $q
+          \neq 1$, $n \in \N$ et $m \in \N$ tel que $m \leq n$ :
+          \[
+          \Sum{k = 0}{n} q^k = \dfrac{1 - q^{n+1}}{1-q} %
+          \qquad \text{ et } \qquad %
+          \Sum{k = m}{n} q^k = \dfrac{q^m - q^{n+1}}{1-q}
+          \]
+          %{\it (on retrouve la formule précédente lorsque $m = 0$)}
+          
+        \item \dashuline{Dans le cas d'une somme infinie}. Pour tout
+          $q \in \ ]-1, 1[$, pour tout $m \in \N$ :
+          \[
+          \Sum{k = 0}{+\infty} q^k = \dfrac{1}{1-q}%
+          \qquad \text{ et } \qquad %
+          \Sum{k = m}{+\infty} q^k = \dfrac{q^m}{1-q}
+          \]
+        \end{noliste}
+      \end{remarkL}~\\[-1.2cm]
+    \end{proof}
+
+
+    \newpage
+
+
+  \item Montrer également que $X$ possède une variance et vérifier que
+    : $\V(X) = \dfrac{-q \ (q + \ln(p))}{(p \ \ln(p))^{2}}$.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item La \var $X$ admet une variance si et seulement si la
+        série $\Sum{k \geq 1}{} k^2 \ u_k$ est absolument convergente.\\
+        Cette série étant à termes positifs, cela revient à démontrer
+        qu'elle est convergente.
+
+      \item Soit $N \in \N^*$.
+        \[
+        \Sum{k = 1}{N} k^2 \ u_k = \Sum{k = 1}{N} k^{\bcancel{2}} \
+        \dfrac{-q^k}{\bcancel{k} \ \ln(p)} = -\dfrac{1}{\ln(p)} \
+        \Sum{k = 1}{N} k \ q^k = -\dfrac{q}{\ln(p)} \ \Sum{k = 1}{N} k
+        \ q^{k-1}
+        \]
+
+      \item Or, comme $q \in \ ]0, 1[$, la série $\Sum{k \geq 1}{}
+        k \ q^{k-1}$ est convergente.\\
+        On en déduit que la \var $X$ admet un moment d'ordre $2$,
+        donné par :
+        \[
+        \E(X^2) = \Sum{k=1}{+\infty} k^2 \ u_k = -\dfrac{q}{\ln(p)} \
+        \Sum{k=1}{+\infty} k \ q^{k-1} = -\dfrac{q}{\ln(p)} \
+        \dfrac{1}{(1-q)^2} = -\dfrac{q}{p^2 \ \ln(p)}
+        \]
+
+      \item Enfin, par la formule de K\oe{}nig-Huygens :
+        \[
+        \begin{array}{rcl}
+          \V(X) & = & \E(X^2) - (\E(X))^2 
+          \\[.2cm]
+          & = & -\dfrac{q}{p^2 \ \ln(p)} - \left( -\dfrac{q}{p \
+              \ln(p)}\right)^2 
+          \\[.4cm]
+          & = & -\dfrac{q}{p^2 \ \ln(p)} - \dfrac{q^2}{p^2 \
+            (\ln(p))^2} 
+          \\[.6cm]
+          & = & \dfrac{-q \ \ln(p) - q^2}{p^2 \ (\ln(p))^2} 
+          % \\[.6cm]
+          \ = \ \dfrac{-q \ (q + \ln(p))}{(p \ \ln(p))^2}
+        \end{array}
+        \]
+        \conc{La \var $X$ admet pour variance $\V(X) = \dfrac{-q \ (q
+            + \ln(p))}{(p \ \ln(p))^2}$.}
+      \end{noliste}
+      \begin{remark}
+        Il faut aussi connaître la formule pour les sommes de séries
+        géométriques dérivées première et deuxième. Pour tout $q \in \
+        ]-1, 1[$ :
+        \[
+        \Sum{k = 1}{+\infty} k \ q^{k-1} = \dfrac{1}{(1-q)^2} %
+        \qquad \text{ et } \qquad %
+        \Sum{k = 2}{+\infty} k(k-1) \ q^{k-2} = \dfrac{2}{(1-q)^3}
+        \]        
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+
+\item Soit $k$ un entier naturel non nul. On considère une variable
+  aléatoire $Y$ dont la loi, conditionnellement à l'évènement $\Ev{X =
+    k}$, est la loi binomiale de paramètres $k$ et $p$.
+
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $Y(\Omega) = \N$ puis utiliser la formule des
+    probabilités totales, ainsi que la question \itbf{1}) de la partie
+    $1$, pour montrer que :
+    \[
+    \Prob(\Ev{Y = 0}) = 1 + \dfrac{\ln(1 + q)}{\ln(p)}
+    \]
+
+
+    \newpage
+
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item D'après l'énoncé, on sait que si l'événement $\Ev{X = k}$
+        est réalisé alors $Y$ peut prendre toutes les valeurs de $\llb
+        0, k \rrb$.
+      \item Or $X(\Omega) = \N^*$. Autrement dit, $X$ peut prendre
+        toutes les valeurs $k \in \N^*$.
+      \end{noliste}
+      On en déduit que $Y$ peut prendre toutes les valeurs de $\N$.%
+      \conc{$Y(\Omega) = \N$}
+      \begin{noliste}{$\sbullet$}
+      \item La famille $\big(\Ev{X = k}\big)_{k \in \N^*}$ forme un
+        système complet d'événements.\\
+        Par la formule des probabilités totales :
+        \[
+        \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+          \Prob(\Ev{Y = 0}) & = & \Sum{k=1}{+\infty} \Prob(\Ev{X = k} \cap
+          \Ev{Y = 0})
+          \\[.4cm]
+          & = & \Sum{k=1}{+\infty} \Prob(\Ev{X = k}) \times
+          \Prob_{\Ev{X = k}}(\Ev{Y = 0}) 
+          \\[.4cm]
+          & = & \Sum{k=1}{+\infty} \dfrac{-q^k}{k \ \ln(p)} \times
+          \dbinom{k}{0} \ p^0 \ (1-p)^k & (par définition de $X$ et
+          $Y$)
+          \nl
+          \nl[-.2cm]
+          & = & \dfrac{-1}{\ln(p)} \ \Sum{k=1}{+\infty} \dfrac{q^k}{k}
+          \times q^k
+          \\[.6cm]
+          & = & \dfrac{-1}{\ln(p)} \ \Sum{k=1}{+\infty} \dfrac{(q^2)^k}{k}
+          \\[.6cm]
+          & = & \dfrac{\bcancel{-}1}{\ln(p)} \ (\bcancel{-} \ln(1 -
+          q^2)) & (d'après la question \itbf{1.c)} partie $1$ avec $x
+          = q^2 \in \ ]0,1[$) 
+          \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{\ln(p)} \ (\ln((1 - q) (1 + q))) 
+          \\[.6cm] 
+          & = & \multicolumn{2}{l}{\dfrac{1}{\ln(p)} \ (\ln(p) + \ln(1
+            + q)) \ = \ \dfrac{\ln(p)}{\ln(p)} + \dfrac{\ln(1 + q)}{\ln(p)}
+          } 
+        \end{array}
+        \]
+      \end{noliste}
+      \conc{Ainsi, $\Prob(\Ev{Y = 0}) = 1 +
+        \dfrac{\ln(1+q)}{\ln(p)}$}~\\[-1.2cm] 
+    \end{proof}
+    
+  \item Après avoir montré que, pour tout couple $(k,n)$ de $\N^*
+    \times \N^*$, on a : $\dfrac{\binom{k}{n}}{k} =
+    \dfrac{\binom{k-1}{n-1}}{n}$, établir que, pour tout entier
+    naturel $n$ non nul, on a :
+    \[
+    \Prob(\Ev{Y = n}) = -\dfrac{p^{n} \ q^{n}}{n \ \ln(p)} \ \Sum{k =
+      n}{+ \infty} \dbinom{k-1}{n-1} \ \left(q^{2} \right)^{k-n}
+    \]
+    En déduire, grâce à la question \itbf{3)} de la première partie,
+    l'égalité :
+    \[
+    \Prob(\Ev{Y = n}) = -\dfrac{q^{n}}{n \ (1 + q)^{n} \ \ln(p)}
+    \]
+
+    \begin{proof}~\\%
+      Soit $(k, n) \in \N^* \times \N^*$. On doit démontrer :
+        \[
+        n \ \dbinom{k}{n} = k \ \dbinom{k-1}{n-1}
+        \]
+      \begin{noliste}{$\sbullet$}
+      \item Remarquons tout d'abord que si $n > k$, alors $n-1 > k-1$
+        et ainsi $\dbinom{k}{n} = \dbinom{k-1}{n-1} = 0$.
+
+
+        \newpage
+
+
+      \item On suppose maintenant que $n \leq k$. Tout d'abord :
+        \[
+        n \ \dbinom{k}{n} = n \ \dfrac{k!}{n! \ (k-n)!} =
+        \dfrac{k!}{(n-1)! \ (k-n)!}
+        \]
+        Par ailleurs : 
+        \[
+        k \ \dbinom{k-1}{n-1} = k \ \dfrac{(k-1)!}{(n-1)! \
+          ((k-\bcancel{1})-(n-\bcancel{1}))!} = \dfrac{k!}{(n-1)! \
+          (k-n)!}
+        \]
+        \conc{Ainsi : $\forall (k, n) \in \N^* \times \N^*$, $n \
+          \dbinom{k}{n} = k \ \dbinom{k-1}{n-1}$.}
+
+      \item La famille $\big(\Ev{X = k}\big)_{k \in \N^*}$ forme un
+        système complet d'événements.\\
+        Par la formule des probabilités totales :
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          \Prob(\Ev{Y = n}) & = & \Sum{k=1}{+\infty} \Prob(\Ev{X = k} \cap
+          \Ev{Y = n})
+          \\[.4cm]
+          & = & \Sum{k=1}{+\infty} \Prob(\Ev{X = k}) \times
+          \Prob_{\Ev{X = k}}(\Ev{Y = n}) 
+          \\[.4cm]
+          & = & \bcancel{\Sum{k=1}{n-1} \Prob(\Ev{X = k}) \times
+          \Prob_{\Ev{X = k}}(\Ev{Y = n})} & (\ $\Prob_{\Ev{X =
+            k}}(\Ev{Y = n}) = 0$ \\ si $k < n$) 
+          \nl
+          \nl[-.2cm]
+          & + & \Sum{k=n}{+\infty} \Prob(\Ev{X = k}) \times
+          \Prob_{\Ev{X = k}}(\Ev{Y = n}) 
+          \\[.4cm]
+          & = & \Sum{k=n}{+\infty} \dfrac{-q^k}{k \ \ln(p)} \times
+          \dbinom{k}{n} \ p^n \ (1-p)^{k-n} & (par définition de $X$ et
+          $Y$)
+          \nl
+          \nl[-.2cm]
+          & = & -\dfrac{p^n}{\ln(p)} \ \Sum{k=n}{+\infty}
+          \dfrac{\binom{k}{n}}{k} \ q^k \ q^{k-n} 
+          \\[.6cm]
+          & = & -\dfrac{p^n \ q^n}{\ln(p)} \ \Sum{k=n}{+\infty}
+          \dfrac{\binom{k}{n}}{k} \ q^{k-n} \ q^{k-n} 
+          \\[.6cm]
+          & = & -\dfrac{p^n \ q^n}{\ln(p)} \ \Sum{k=n}{+\infty}
+          \dfrac{\binom{k-1}{n-1}}{n} \ (q^2)^{k-n}
+        \end{array}
+        \]
+        \conc{Ainsi, on a bien : $\Prob(\Ev{Y = n}) = -\dfrac{p^n \
+            q^n}{n \ \ln(p)} \ \Sum{k=n}{+\infty} \dbinom{k-1}{n-1} \
+          (q^2)^{k-n}$.} 
+
+      \item Enfin : 
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          \Prob(\Ev{Y = n}) & = & -\dfrac{p^n \
+            q^n}{n \ \ln(p)} \ \Sum{k=n}{+\infty} \dbinom{k-1}{n-1} \
+          (1 - (1 - q^2))^{k-n} & (car $q^2 = 1 - (1 - q^2)$)
+          \nl
+          \nl[-.2cm]
+          & = & -\dfrac{p^n \ q^n}{n \ \ln(p)} \ \dfrac{1}{(1 - q^2)^n}
+          & (d'après la question \itbf{3.c)} \\ avec $x = 1-q^2 \in \ ]0,1[$)
+          \nl
+          \nl[-.2cm]
+          & = & -\dfrac{\bcancel{p^n} \ q^n}{n \ \ln(p)} \
+          \dfrac{1}{\bcancel{(1 - q)^n} \ (1 + q)^n}
+        \end{array}
+        \]
+        \conc{On en conclut : $\forall n \in \N^*$, $\Prob(\Ev{Y = n})
+          = -\dfrac{q^n}{n \ \ln(p) \ (1 + q)^n}$}
+      \end{noliste}      
+
+
+      \newpage
+
+
+      \begin{remark}
+        La relation sur les coefficients binomiaux peut aussi se
+        faire par dénombrement.\\
+        Pour ce faire, on considère un ensemble $E$ à $k$ éléments.\\
+        {\it (on peut penser à une pièce qui contient $k$
+          individus)}\\
+        On souhaite alors construire une partie $P$ à $n$ éléments de
+        cet ensemble contenant un élément distingué {\it (on peut
+          penser à choisir dans la pièce un groupe de $n$ individus
+          dans lequel figure un représentant de ces individus)}.\\
+        Pour ce faire, on peut procéder de deux manières :
+        \begin{noliste}{1)}
+        \item On choisit d'abord la partie à $n$ éléments de $E$ :
+          $\binom{k}{n}$ possibilités.\\[.1cm]
+          On distingue ensuite un élément de cet ensemble $P$ :
+          $\binom{n}{1} = n$ possibilités.\\
+          {\it (on choisit d'abord les $n$ individus et on élit
+            ensuite un représentant de ces individus)}\\[.1cm]
+          Ainsi, il y a $n \ \binom{k}{n}$ manières de construire $P$.
+          
+        \item On choisit d'abord, dans $E$, l'élément à distinguer :
+          $\binom{k}{1} = k$ possibilités.\\[.1cm]
+          On choisit ensuite $n-1$ éléments dans $E$ qui, pour former
+          $P$, en y ajoutant l'élément précédent : $\binom{k-1}{n-1}$
+          possibilités.\\
+          {\it (on choisit d'abord le représentant puis on lui adjoint
+            un groupe de $n-1$ individus)}\\[.1cm]
+          Ainsi, il y a $k \ \binom{k-1}{n-1}$ manières de construire
+          $P$.
+        \end{noliste}
+        On retrouve ainsi le résultat.
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+    
+  \item Vérifier que l'on a $\Sum{k = 0}{+ \infty}\Prob\left(\Ev{Y =
+        k}\right) = 1.$
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item Notons tout d'abord :
+        \[
+        \Sum{k = 0}{+\infty} \Prob(\Ev{Y = k}) \ = \ \Prob(\Ev{Y=0}) +
+        \Sum{k = 1}{+\infty} \Prob(\Ev{Y = k})
+        \]
+
+      \item Or : 
+        \[
+        \begin{array}{rcl@{\qquad}>{\it}R{3.5cm}}
+          \Sum{k = 1}{+\infty} \Prob(\Ev{Y = k}) & = & 
+          \Sum{k=1}{+\infty} \dfrac{-q^k}{k \ (1+q)^k \ \ln(p)}
+          & (d'après la \\ question \itbf{3.b)})
+          \nl
+          \nl[-.2cm]
+          & = & \dfrac{-1}{\ln(p)} \ \Sum{k=1}{+\infty}
+          \dfrac{\left(\frac{q}{1+q} \right)^k}{k}
+          \\[.6cm]
+          & = & \dfrac{\bcancel{-}1}{\ln(p)} \ (\bcancel{-} \ln\left(
+            1 - \dfrac{q}{1+q} \right)) & (d'après \itbf{1.d)} \\ de la
+          partie $1$ (*))
+          \nl
+          \nl[-.2cm]
+          & = & \dfrac{1}{\ln(p)} \ \ln\left( \dfrac{1}{1+q} \right)
+          \\[.6cm]
+          & = & - \dfrac{\ln(1+q)}{\ln(p)}
+        \end{array}
+        \]
+        {\it (*)} On peut utiliser ce résultat car $0 < q < 1+q$ et
+        donc $0 < \dfrac{q}{1+q} < 1$.
+
+      \item On en déduit, à l'aide de la question \itbf{3.a)} :
+        \[
+        \Sum{k = 0}{+\infty} \Prob(\Ev{Y = k}) \ = \ \left( 1 +
+          \bcancel{\dfrac{\ln(1+q)}{\ln(p)}} \right) -
+        \bcancel{\dfrac{\ln(1+q)}{\ln(p)}} \ = \ 1
+        \]
+      \end{noliste}
+      \conc{On a bien : $\Sum{k = 0}{+\infty} \Prob(\Ev{Y = k}) =
+        1$.}~\\[-1.2cm] 
+    \end{proof}
+    
+
+    \newpage
+
+
+  \item Montrer que $Y$ possède une espérance et donner son expression
+    en fonction de $\ln(p)$ et $q$.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item La \var $Y$ admet une espérance si et seulement si la
+        série $\Serie k \ \Prob(\Ev{Y = k})$ est absolument
+        convergente. Cette série étant à termes positifs, cela
+        revient à démontrer qu'elle est convergente.
+
+      \item Soit $N \in \N$.
+        \[
+        \begin{array}{rcl}
+          \Sum{k = 0}{N} k \ \Prob(\Ev{Y = k}) & = & 0 \times \Prob(\Ev{Y =
+            0}) + \Sum{k = 1}{N} k \ \Prob(\Ev{Y = k}) 
+          \\[.4cm]
+          & = & \Sum{k = 1}{N} \bcancel{k} \ \dfrac{-q^k}{\bcancel{k}
+            \ \ln(p) \ (1+q)^k} 
+          \\[.6cm]
+          & = & \dfrac{-1}{\ln(p)} \ \Sum{k = 1}{N}
+          \left(\dfrac{q}{1+q} \right)^k 
+        \end{array}
+        \]
+
+      \item Or, comme $\frac{q}{1+q} \in \ ]0, 1[$, la série $\Sum{k
+          \geq 1}{} \left( \frac{q}{1+q} \right)^k$ est convergente.\\
+        On en déduit que la \var $X$ admet une espérance, donnée par :
+        \[
+        \begin{array}{rcl}
+          \E(Y) & = & \Sum{k=0}{+\infty} k \ \Prob(\Ev{Y = k}) 
+          \\[.2cm]
+          & = & -\dfrac{1}{\ln(p)} \ \Sum{k=1}{+\infty} \left(\dfrac{q}{1+q}
+          \right)^k 
+          \\[.4cm]
+          & = & -\dfrac{1}{\ln(p)} \ \dfrac{\left( \frac{q}{1+q}
+            \right)^1}{1 - \frac{q}{1+q}}
+          \\[.6cm]
+          & = & -\dfrac{1}{\ln(p)} \ \dfrac{q}{1+q} \ \dfrac{1}{1 -
+            \frac{q}{1+q}} 
+          \\[.6cm]
+          & = & -\dfrac{1}{\ln(p)} \ \dfrac{q}{(1 + \bcancel{q}) -
+            \bcancel{q}} \ = \ - \dfrac{q}{\ln(p)}
+        \end{array}
+        \]
+
+        \conc{La \var $Y$ admet pour espérance $\E(Y) = -
+          \dfrac{q}{\ln(p)}$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+
+  \item Montrer aussi que $Y$ possède une variance et que l'on a :
+    $\V(Y) = -\dfrac{q \ (q + (1 + q) \ \ln(p))}{(\ln(p))^{2}}$.
+
+    \begin{proof}~%
+      \begin{noliste}{$\sbullet$}
+      \item La \var $Y$ admet une variance si et seulement si la série
+        $\Sum{k \geq 0}{} k^2 \ \Prob(\Ev{Y = k})$ est absolument
+        convergente. Cette série étant à termes positifs, cela
+        revient à démontrer qu'elle est convergente.
+
+      \item Soit $N \in \N$.
+        \[
+        \begin{array}{rcl}
+          \Sum{k = 0}{N} k^2 \ \Prob(\Ev{Y = k}) & = & 0^2 \times
+          \Prob(\Ev{Y = 0}) + \Sum{k = 1}{N} k^2 \ \Prob(\Ev{Y = k}) 
+          \\[.4cm]
+          & = & \Sum{k = 1}{N} k^{\bcancel{2}} \ \dfrac{-q^k}{\bcancel{k}
+            \ \ln(p) \ (1+q)^k} 
+          \\[.6cm]
+          & = & \dfrac{-1}{\ln(p)} \ \Sum{k = 1}{N} k \ 
+          \left(\dfrac{q}{1+q} \right)^k 
+          \\[.6cm]
+          & = & \dfrac{-q}{(1+q) \ \ln(p)} \ \Sum{k = 1}{N} k \ 
+          \left(\dfrac{q}{1+q} \right)^{k-1} 
+        \end{array}
+        \]
+
+
+        \newpage
+
+
+      \item Or, comme $\frac{q}{1+q} \in \ ]0, 1[$, la série $\Serie k
+        \ \left( \frac{q}{1+q} \right)^{k-1}$ est convergente.\\
+        On en déduit que la \var $Y$ admet un moment d'ordre $2$,
+        donné par :
+        \[
+        \begin{array}{rcl}
+          \E(Y^2) & = & \Sum{k=0}{+\infty} k^2 \ \Prob(\Ev{Y = k}) 
+          \\[.4cm]
+          & = & -\dfrac{q}{(1+q) \ \ln(p)} \ \Sum{k=1}{+\infty} k \ \left(
+            \dfrac{q}{1+q} \right)^{k-1} 
+          \\[.6cm]
+          & = & -\dfrac{q}{(1+q) \ \ln(p)} \ \dfrac{1}{\left( 1 -
+              \frac{q}{1+q} \right)^2} 
+          \\[.8cm]
+          & = & -\dfrac{q}{\bcancel{(1+q)} \ \ln(p)} \ \dfrac{(1 +
+            q)^{\bcancel{2}}}{\left( (1+q) - q \right)^2} 
+          %\\[.6cm]
+          \ = \ - \dfrac{q \ (1+q)}{\ln(p)}
+        \end{array}
+        \]
+
+      \item Enfin, par la formule de K\oe{}nig-Huygens :
+        \[
+        \begin{array}{rcl}
+          \V(Y) & = & \E(Y^2) - (\E(Y))^2 
+          \\[.2cm]
+          & = & - \dfrac{q \ (1+q)}{\ln(p)} - \left( -
+            \dfrac{q}{\ln(p)} \right)^2
+          \\[.4cm]
+          & = & - \dfrac{q \ (1+q)}{\ln(p)} - \dfrac{q^2}{(\ln(p))^2}
+          \\[.4cm]
+          & = & - \dfrac{q \ (1+q) \ \ln(p) + q^2}{(\ln(p))^2}
+          \\[.4cm]
+          & = & - \dfrac{q \ \left( (1+q) \ \ln(p) + q \right)}{(\ln(p))^2}
+        \end{array}
+        \]
+        \conc{La \var $Y$ admet pour variance $\V(Y) = - \dfrac{q \
+            \left( (1+q) \ \ln(p) + q \right)}{(\ln(p))^2}$.}       
+      \end{noliste}
+      \begin{remark}%~%
+        \begin{noliste}{$\sbullet$}
+        \item Il ne faut pas se laisser abuser par le signe devant les
+          expressions de $\V(X)$ et $\V(Y)$ :
+          \[
+          \V(X) = - \dfrac{q \ (q + \ln(p))}{p \ (\ln(p))^2} \qquad
+          \text{ et } \qquad \V(Y) = - \dfrac{q \ \left( (1+q) \
+              \ln(p) + q \right)}{(\ln(p))^2}
+          \]
+          Ces deux quantités sont bien positives.
+        \item Démontrons que cette première expression est positive.\\
+          Rappelons l'inégalité de convexité classique :
+          \[
+          \forall x \in \ ]-1, +\infty[, \ \ln(1+x) \leq x
+          \]
+          En l'appliquant en $x = -q \in \ ]-1, 0[$, on obtient :
+          $\ln(1-q) \leq -q$.\\
+          Ainsi : $q + \ln(p) \leq 0$ et $\V(X) \geq 0$.
+
+        \item D'autre part, en multipliant l'inégalité obtenue par
+          $1+q$ :
+          \[
+          (1+q) \ \ln(p) \leq -q \ (1+q) = -q - q^2 \leq -q
+          \]
+          Ainsi, $(1+q) \ \ln(p) + q \leq 0$ et $\V(Y) \geq 0$.
+        \end{noliste}
+      \end{remark}~\\[-1.2cm]
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+
+\end{document}
+

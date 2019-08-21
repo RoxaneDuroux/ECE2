@@ -1,0 +1,461 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+% \input{../macros_Livre.tex}
+\input{../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} EDHEC 2019} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+%%DEBUT
+
+\section*{Exercice 1}
+
+\noindent
+On considère les matrices $A =
+\begin{smatrix}
+  0 & 1 & 1 \\
+  -2 & 3 & 2 \\
+  1 & -1 & 0
+\end{smatrix}
+$ et $I =
+\begin{smatrix}
+  1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  0 & 0 & 1
+\end{smatrix}
+$.\\
+On note $f$ l'endomorphisme de $\R^3$ dont $A$ est la matrice
+relativement à la base canonique $\B = (e_1, \ e_2, \ e_3)$ de $\R^3$
+et $\id$ l'endomorphisme identité de $\R^3$ dont la matrice est $I$.
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer $(A - I)^2$.
+  \item En déduire que $A$ est inversible et écrire $A^{-1}$ comme
+    combinaison linéaire de $I$ et de $A$.    
+  \end{noliste}
+
+\item On pose $A = N + I$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Exprimer pour tout entier naturel $n$, la matrice $A^n$ comme
+    combinaison linéaire de $I$ et de $N$ puis l'écrire comme
+    combinaison linéaire de $I$ et $A$.
+  \item Vérifier que l'expression précédente est aussi valable pour
+    $n=-1$.
+  \end{noliste}
+
+\item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Utiliser la première question pour déterminer la seule valeur
+    propre de $A$.
+  \item En déduire si $A$ est ou n'est pas diagonalisable.
+  \end{noliste}
+
+\item On pose $u_1 = (f - \id)(e_1)$ et $u_2 = e_1 + e_3$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que le rang de $f - \id$ est égal à $1$.
+  \item Justifier que $(u_1, u_2)$ est une base de $\kr(f - \id)$.
+  \end{noliste}
+
+\item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que la famille $(u_1, u_2, e_1)$ est une base de $\R^3$.
+  \item Déterminer la matrice $T$ de $f$ dans cette même base.
+  \end{noliste}
+
+\item Soit la matrice $P =
+  \begin{smatrix}
+    -1 & 1 & 1 \\
+    -2 & 0 & 0 \\
+    1 & 1 & 0
+  \end{smatrix}
+  $. Justifier l'inversibilité de $P$ puis écrire la relation existant
+  entre les matrices $A$, $T$, $P$ et $P^{-1}$.
+
+\item On note $(E_{1, 1}, E_{1, 2}, E_{1, 3}, E_{2, 1}, E_{1, 2},
+  E_{2, 3}, E_{3, 1}, E_{3, 2}, E_{3, 3})$ la base canonique de
+  $\M{3}$ et on rappelle que pour tout $(i, j) \in \llb 1, 3 \rrb^2$,
+  la matrice $E_{i, j}$ n'a que des coefficients nuls sauf celui situé
+  à l'intersection de la $\eme{i}$ ligne et de la $\eme{j}$ colonne
+  qui vaut $1$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que l'ensemble $E$ des matrices $M$ qui commutent avec
+    $T$, c'est-à-dire des matrices vérifiant l'égalité $MT = TM$, est
+    le sous-espace vectoriel de $\M{3}$ engendré par la famille
+    $(E_{1, 1} + E_{3, 3}, E_{1, 2}, E_{1,3}, E_{2, 2}, E_{2,
+      3})$. Vérifier que la dimension de $E$ est égale à $5$.
+
+  \item Soit $N$ une matrice quelconque de $\M{3}$. Établir
+    l'équivalence :
+    \[
+    NA = AN \quad \Leftrightarrow \quad \big( P^{-1} N P \big) \, T \
+    = \ T \, \big( P^{-1} N P \big)
+    \]
+
+  \item En déduire que l'ensemble $F$ des matrices qui commutent avec
+    $A$ est le sous-espace vectoriel de $\M{3}$ engendré par la
+    famille $\big( P \, (E_{1,1} + E_{3,3}) \, P^{-1}, P \, E_{1,2} \,
+    P^{-1}, P \, E_{1,3} \, P^{-1}, P \, E_{2,2} \, P^{-1}, P \,
+    E_{2, 3} \, P^{-1} \big)$.
+  \end{noliste}
+\end{noliste}
+
+
+\newpage
+
+
+\section*{Exercice 2}
+
+\noindent 
+Soit $n$ un entier naturel supérieur ou égal à $3$.\\
+Une urne contient une boule noire non numérotée et $n-1$ boules
+blanches dont $n-2$ portent le numéro $0$ et une porte le numéro
+$1$. On extrait ces boules au hasard, une à une, sans remise, jusqu'à
+l'apparition de la boule noire.\\
+Pour chaque $i$ de $\llb 1, n-1 \rrb$, on note $B_i$ l'événement : \og
+le $\eme{i}$ tirage donne une boule blanche \fg{}, on pose
+$\overline{B_i} = N_i$, et on note $X$ la variable aléatoire égale au
+rang d'apparition de la boule noire.
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item Donner l'ensemble $X(\Omega)$ des valeurs que peut prendre la
+  variable $X$.
+
+\item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Pour tout $i$ de $\llb 2, n-1 \rrb$, justifier que $\Prob_{B_1
+      \cap \ldots \cap B_{i-1}}(B_i) = \dfrac{n-i}{n-i+1}$.
+
+  \item Utiliser la formule des probabilités composées pour trouver
+    $\Prob\big( \Ev{X = k} \big)$, pour tout $k$ de $X(\Omega)$.
+
+  \item Reconnaître la loi de $X$ et donner son espérance et sa variance.    
+  \end{noliste}
+
+
+\item On note $Y$ la variable aléatoire qui vaut $1$ si la boule
+  numérotée $1$ a été piochée lors de l'expérience précédente et qui
+  vaut $0$ sinon.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Pour tout $k$ de $X(\Omega)$, montrer, toujours grâce à la
+    formule des probabilités composées, que : 
+    \[
+    \Prob\big( \Ev{X = k} \cap \Ev{Y = 0} \big) = \dfrac{n-k}{n(n-1)}
+    \]
+
+  \item En déduire $\Prob\big( \Ev{Y = 0} \big)$.
+
+  \item Reconnaître la loi de $Y$ et donner son espérance et sa variance.    
+  \end{noliste}
+
+\item Simulation informatique.\\
+  On rappelle qu'en \Scilab{}, la commande {\tt grand(1, 1,
+    \ttq{}uin\ttq{}, a, b)} simule une variable aléatoire suivant la
+  loi uniforme $\llb a, b \rrb$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Compléter le script \Scilab{} suivant afin qu'il simule
+    l'expérience aléatoire décrite dans cet exercice et affiche la
+    valeur prise par la variable aléatoire $X$.\\
+    On admettra que la boule noire est codée tout au long de ce script
+    par le nombre {\tt nB + 1}, où {\tt nB} désigne le nombre de
+    boules blanches.
+    \begin{scilab}
+      & n = input(\ttq{}Entrez une valeur pour n : \ttq{}) \nl %
+      & nB = n-1 \nl %
+      & X = 1 \nl %
+      & u = grand(1, 1, \ttq{}uin\ttq{}, 1, nB+1) \nl %
+      & \tcFor{while} u < nB + 1 \nl %
+      & \qquad  nB = ---- \nl %
+      & \qquad  u = grand(1, 1, \ttq{}uin\ttq{}, 1, ----) \nl %
+      & \qquad  X = ---- \nl %
+      & \tcFor{end} \nl %
+      & disp(X, \ttq{}La boule noire est apparue au tirage numéro\ttq{})
+    \end{scilab}
+
+
+    \newpage
+
+
+  \item Compléter les lignes \ligne{4} et \ligne{9} ajoutées au script
+    précédent afin que le script qui suit renvoie et affiche, en plus
+    de celle prise par $X$, la valeur prise par $Y$.
+    \begin{scilab}
+      & n = input(\ttq{}Entrez une valeur pour n : \ttq{}) \nl %
+      & nB = n-1 \nl %
+      & X = 1 \nl %
+      & Y = ---- \nl %
+      & u = grand(1, 1, \ttq{}uin\ttq{}, 1, nB+1) \nl %
+      & \tcFor{while} u < nB + 1 \nl %
+      & \qquad nB = ---- \nl %
+      & \qquad \tcIf{if} u == 1 \tcIf{then} \nl %
+      & \qquad \qquad Y = ---- \nl %
+      & \qquad \tcIf{end} \nl %
+      & \qquad u = grand(1, 1, \ttq{}uin\ttq{}, 1, ----) \nl %
+      & \qquad X = ---- \nl %
+      & \tcFor{end} \nl %
+      & disp(X, \ttq{}La boule noire est apparue au tirage
+      numéro \ttq{}) \nl %
+      & disp(Y, \ttq{}La valeur de $Y$ est \ttq{}) \nl %
+    \end{scilab}
+  \end{noliste}
+
+\end{noliste}
+
+\section*{Exercice 3}
+
+\noindent
+Pour tout entier naturel $n$, on pose $u_n = \dint{0}{1} (1- t^2)^n
+\dt$. On a donc, en particulier : $u_0=1$.
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item Déterminer $u_1$ et $u_2$.
+  
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que la suite $(u_n)$ est décroissante.
+    
+  \item En déduire que la suite $(u_n)$ est convergente.
+  \end{noliste}
+  
+\item On se propose dans cette question de déterminer la limite de la
+  suite $(u_n)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Rappeler la valeur de l'intégrale $\dint{-\infty}{+\infty}
+    \dfrac{1}{\sigma \, \sqrt{2 \pi}} \ \ee^{- \frac{t^2}{2 \,
+        \sigma^2}} \dt$.
+    
+  \item En déduire la valeur de l'intégrale $\dint{-\infty}{+\infty}
+    \ee^{-n \, t^2} \dt$, puis celle de $\dint{0}{+\infty} \ee^{-n \,
+      t^2} \dt$.
+    
+  \item Montrer que, pour tout réel $t$, on a : $\forall t \in \R$,
+    $\ee^{-t^2} \geq 1-t^2$.
+    
+  \item En déduire : $0 \leq u_n \leq \dfrac{1}{2} \
+    \sqrt{\dfrac{\pi}{n}}$. Puis donner la limite de la suite $(u_n)$.
+  \end{noliste}
+  
+\item Calculer $\dint{0}{1} (1-t)^n \dt$ puis montrer : $u_n \geq
+  \dfrac{1}{n+1}$. Que peut-on en déduire en ce qui concerne la série
+  de terme général $u_n$ ?
+  
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Établir, grâce à une intégration par parties, que, pour tout
+    entier naturel $n$, on a :
+    \[
+      u_{n+1} \ = \ (2n+2)(u_n - u_{n+1})
+    \]
+    
+  \item En déduire l'égalité :
+    \[
+      \forall n \in \N, \ u_n = \dfrac{4^n \, (n!)^2}{(2n+1)!}
+    \]
+    
+
+    \newpage
+
+
+  \item On admet l'équivalent $n! \eqn \sqrt{2 \pi n} \, n^n \,
+    \ee^{-n}$. En écrivant $u_n = \dfrac{4^n \, (n!)^2}{(2n+1) \,
+    (2n)!}$, montrer :
+    \[
+      u_n \eqn \dfrac{1}{2} \ \sqrt{\dfrac{\pi}{n}}
+    \]
+  \end{noliste}
+    
+\item Informatique.\\
+  On admet que, si {\tt t} est un vecteur, la commande {\tt prod(t)}
+  renvoie le produit des éléments de {\tt t}.\\
+  Compléter le script \Scilab{} suivant afin qu'il permette de
+  calculer et d'afficher la valeur de $u_n$ pour une valeur de $n$
+  entrée par l'utilisateur.
+  \begin{scilab}
+    & n = input(\ttq{}entrez une valeur pour n : \ttq{}) \nl %
+    & x = 1:n \nl %
+    & m = 2 \Sfois{} n + 1 \nl %
+    & y = 1:m \nl %
+    & v = ........... \nl %
+    & w = ........... \nl %
+    & u = ........... \Sfois{} v\puis{}2 / w \nl %
+    & disp(u)
+  \end{scilab}
+\end{noliste}
+
+\section*{Problème}
+
+\subsection*{Partie I : étude de quelques propriétés d'une variable
+  aléatoire $X$}
+
+\noindent
+Dans cet exercice, $\theta$ (theta) désigne un réel élément de $\left]
+  0, \dfrac{1}{2}\right[$.\\[.4cm]
+On considère la fonction $f$ définie par : $f : x \mapsto \left\{
+  \begin{array}{cR{2cm}}
+    \dfrac{1}{\theta \, x^{1+\frac{1}{\theta}}} & si $x \geq 1$
+    \nl
+    \nl[-.2cm]
+    0 & si $x<1$
+  \end{array}
+\right.$
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item Montrer que $f$ peut être considérée comme une densité.
+\end{noliste}
+
+\noindent
+{\it On considère dans la suite une variable aléatoire $X$ de densité
+  $f$ et on note $F$ sa fonction de répartition.}
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{1}
+\item Montrer que $X$ possède une espérance et une variance et les
+  déterminer.
+  
+\item Déterminer, pour tout réel $x$, l'expression de $F(x)$ en
+  fonction de $x$ et $\theta$.
+  
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que l'équation $F(x) = \dfrac{1}{2}$ possède une seule
+    solution, notée $M_e$, que l'on déterminera.
+    
+  \item Montrer : $\forall x \in \left[0, \dfrac{1}{2}\right]$, $2^x
+    \, (1-x) \leq 1$.
+    
+  \item Comparer $\E(X)$ et $M_e$.
+  \end{noliste}
+  
+\item Soit $a$ un réel supérieur ou égal à $1$ et $b$ un réel
+  strictement positif.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer : $\Prob_{\Ev{X >a}}(\Ev{X >a+b}) = \left(
+      \dfrac{a}{a+b} \right)^{\frac{1}{\theta}}$.
+    
+  \item Déterminer la limite de cette quantité lorsque $a$ tend vers
+    $+\infty$. Interpréter cette dernière valeur si l'on admet que la
+    variable $X$ représente la durée de vie d'un certain appareil.
+  \end{noliste}
+\end{noliste}
+
+
+\newpage
+
+
+\subsection*{Partie 2 : simulation de $X$}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{5}
+\item On pose $Y = \ln(X)$ et on admet que $Y$ est une variable
+  aléatoire définie sur le même espace probabilisé que $X$. On note
+  $G$ sa fonction de répartition.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Pour tout réel $x$, exprimer $G(x)$ à l'aide de la fonction
+    $F$.
+    
+  \item En déduire que $Y$ suit une loi exponentielle dont on
+    précisera le paramètre.
+  \end{noliste}
+  
+\item On rappelle qu'en \Scilab{}, la commande {\tt grand(1, 1,
+    \ttq{}exp\ttq{}, 1/lambda)} simule une variable aléatoire suivant
+  la loi exponentielle de paramètre $\lambda$. Écrire des commandes
+  \Scilab{} utilisant {\tt grand} et permettant de simuler $X$.
+\end{noliste}
+
+
+\subsection*{Partie 3 : estimation d'un paramètre}
+
+\noindent
+On suppose dans la suite que le paramètre $\theta$ est inconnu et on
+souhaite en trouver une estimation ponctuelle puis par intervalle de
+confiance.\\
+On considère pour cela $n$ variables aléatoires $Y_1$, $\ldots$, $Y_n$
+toutes définies sur le même espace probabilisé, mutuellement
+indépendantes, et suivant toutes la même loi que $Y$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{7}
+\item On pose $T_n = \dfrac{1}{n} \ \Sum{i=1}{n} Y_k$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier que $T_n$ est un estimateur de $\theta$.
+    
+  \item $T_n$ est-il un estimateur sans biais de $\theta$ ?
+    
+  \item Calculer le risque quadratique de $T_n$ en tant qu'estimateur
+    de $\theta$. $T_n$ est-il un estimateur convergent de $\theta$ ?
+  \end{noliste}
+  
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Écrire l'inégalité de Bienaymé-Tchebychev pour la variable
+    $T_n$.
+    
+  \item Établir l'inégalité :
+    \[
+      \forall \eps >0, \ \Prob(\Ev{\theta \in [T_n - \eps, \, T_n +
+        \eps]}) \ \geq \ 1- \dfrac{\theta^2}{n \, \eps^2}
+    \]
+    
+  \item En utilisant le fait que $\theta \leq \dfrac{1}{2}$,
+    déterminer un intervalle de confiance pour $\theta$ au niveau de
+    confiance $90 \%$ lorsque l'on choisit $n=1000$.
+  \end{noliste}
+\end{noliste}
+
+\end{document}

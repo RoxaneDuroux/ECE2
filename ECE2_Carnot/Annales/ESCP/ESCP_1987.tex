@@ -1,0 +1,306 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1987} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{ESCP 1987}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1987}}
+
+
+
+{\large \textbf{Concepteur : ESCP}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{EXERCICE 1}
+
+On considère la fonction numérique $f$ définie par la relation : 
+\[
+f(x) = \dfrac{x^{2}-1}{4}-\dfrac{1}{2}\ln x
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Étudier les variations de $f$ et construire la courbe
+représentative
+de cette fonction.
+
+\item Déterminer la position de la courbe représentative de $f$ par
+rapport à la parabole d'équation 
+\[
+y = \dfrac{1}{2}(x-1)^{2}
+\]
+
+\item Pour tout élément $x$ de l'intervalle $]0,1[$, calculer
+$\dint{0}{1}f(t)dt$.\\
+En déduire $\dlim{x\rightarrow {0^{+}}}\dint{x}{1}f(t)dt$
+
+\item Soit $n$ un entier naturel supérieur ou égal à 3
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer : 
+\[
+\dfrac{1}{n}\left[ f(\dfrac{1}{n}) + f(\dfrac{2}{n}) + \cdots +
+f(\dfrac{n}{n})\right]
+\]
+On utilisera la relation : $\Sum{k = 1}{n}k^{2} = \dfrac{n(n + 1)(2n +
+1)}{6}$
+
+\item Prouver que : 
+\[
+\dint{1/n}{1}f(t)dt\leq \dfrac{1}{n}\Sum{k = 1}{n}f\left(
+\dfrac{k}{n}\right) \leq \dfrac{1}{n}f\left( \dfrac{1}{n}\right)
+ + \dint{1/n}{1}f(t)dt
+\]
+\end{noliste}
+
+\item À l'aide des questions précédentes, montrer que : 
+\[
+\dlim{n\rightarrow + \infty }\dfrac{1}{n}\ln \dfrac{n!}{n^{n}} = -1
+\]
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+\subsection*{I.}
+
+On considère la matrice carrée d'ordre 3 : 
+\[
+A = \left( 
+\begin{array}{ccc}
+1 & 2 & 0 \\
+2 & 1 & 0 \\
+0 & 1 & 0
+\end{array}
+\right)
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Trouver toutes les matrices carrées réelles $B$ d'ordre 3 telles
+que $AB = 0$.\\
+Déterminer la dimension de l'espace vectoriel formé par ces matrices
+$B$.
+
+\item Trouver toutes les matrices carrées réelles $B$ d'ordre 3 telles
+que $AB = BA = 0$.\\
+Déterminer la dimension de l'espace vectoriel formé par ces matrices
+$B$.
+
+\item Calculer les valeurs propres de $A$. La matrice $A$ est-elle
+diagonalisable ? Si oui, expliciter une base de vecteurs propres.
+\end{noliste}
+
+\subsection*{II.}
+
+Plus généralement, soit $E$ une espace vectoriel de dimension $n$ sur
+$\R$, où $n$ est un nombre entier naturel non nul. On considère des
+endomorphismes $u$ et $v$ de $E$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On suppose que : 
+\[
+vu = uv = 0
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\operatorname{Im}(u)\subset \ker (v)$ et
+$\operatorname{Im}(v)\subset
+\ker (u)$.
+
+\item Montrer que : 
+\[
+\dim \ker (u) + \dim \ker (v)\geq n
+\]
+\end{noliste}
+
+\item On suppose que $\operatorname{Im}(u)\subset \ker (v)$ et
+$\operatorname{Im}(v)\subset
+\ker (u)$. Montrer que $uv = vu = 0$.
+
+\item La propriété $uv = 0$ implique-t-elle la propriété $vu = 0$ ?
+Donner éventuellement un contre-exemple.
+\end{noliste}
+
+\section*{EXERCICE 3}
+
+Pour tout entier naturel $n$ tel que $n\geq 4$, on pose : 
+\[
+\begin{array}{ll}
+f_{n}(x) = 0 & \text{si }x<0 \\
+f_{n}(x) = \dfrac{a_{n}}{(x + 1)^{n}} & \text{si }x\geq 0
+\end{array}
+\]
+où $a_{n}$ est un réel.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour quelle valeur de $a_{n}$ la fonction $f_{n}$ est-elle une
+densité
+de probabilité ?
+
+\item On prend désormais pour $a_{n}$ la valeur trouvée dans la
+question 1).
+On note $X_{n}$ une variable aléatoire réelle de densité $f_{n}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la fonction de répartition $F_{n}$ de $X_{n}$.
+
+\item On pose $Y_{n} = X_{n} + 1$. Calculer l'espérance et la variance
+de $Y_{n}$. En déduire l'espérance et la variance de $X_{n}$.
+\end{noliste}
+
+\item Soit $Z_{n} = -X_{n}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Trouver la fonction de répartition $G_{n}$ et la densité de
+probabilité
+$g_{n}$ de $Z_{n}$.
+
+\item Pour tout nombre réel $x$, on pose $G(x) = \dlim{n\rightarrow
+ + \infty }G_{n}(x)$. Montrer que la fonction $G$ ainsi définie est une
+fonction de répartition. Quelle est la loi de probabilité d'une
+variable aléatoire $Z$ ayant $G$ pour fonction de répartition ?
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

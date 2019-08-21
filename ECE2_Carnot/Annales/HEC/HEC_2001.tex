@@ -1,0 +1,465 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 2001} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 2001}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\huge HEC Eco 2001}
+\end{center}
+
+{\LARGE Exercice 1}
+
+On note $m$ un paramètre réel et on considère les matrices $H_{m}$
+définies
+par 
+\[
+H_{m} = \left( 
+\begin{array}{ccc}
+-1-m & m & 2 \\
+-m & 1 & m \\
+-2 & m & 3-m
+\end{array}
+\right) 
+\]
+On note $h_{m}$ l'endomorphisme de $\mathbf{R}{3}$ ayant pour matrice
+$H_{m} $ dans la base canonique de $\mathbf{R}{3}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item {On suppose dans cette question que $m = 2$. }
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item {Déterminer les valeurs propres de la matrice $H_{2}$ et les
+sous-espaces propres associés. }
+
+\item {La matrice $H_{2}$ est-elle diagonalisable ? Si oui, donner une
+base
+de vecteurs propres. }
+\end{noliste}
+
+\item {Étudier de même les valeurs propres et les sous-espaces
+propres de $H_{0}$. Cette matrice est-elle diagonalisable ? }
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item {Montrer qu'il existe un réel $a$, qu'on déterminera, qui est
+valeur
+propre de la matrice $H_{m}$ pour toutes les valeurs du paramètre $m$.
+}
+
+\item {Déterminer, pour chaque valeur de $m$, le sous-espace propre
+associé
+à la valeur propre $a$. Montrer qu'on peut trouver un vecteur non nul
+$v_{1}$
+appartenant à tous ces sous-espaces. }
+\end{noliste}
+
+{%%%}
+
+\item {Soit $F$ le sous-espace de $\mathbf{R}{3}$ engendré par les
+vecteurs $v_{2} = (1,0,1)$ et $v_{3} = (1,1,0)$.\\
+Déterminer les vecteurs $h_{m}(v_{2})$ et $h_{m}(v_{3})$ et montrer que
+ces
+vecteurs appartiennent à $F$ pour tout $m$ réel. }
+
+\item {En se placant dans la base de $\mathbf{R}{3}$ formée des
+vecteurs $v_{1}$, $v_{2}$ et $v_{3}$, déterminer les valeurs de $m$
+pour lesquelles la
+matrice $H_{m}$ est diagonalisable. }
+\end{noliste}
+
+{\LARGE Exercice 2.}
+
+On réalise une suite de lancers indépendants d'une pièce de monnaie
+équilibrée. On associe à cette expérience une suite $(X_{n})_{n\geq 1}$
+de variables aléatoires indépendantes, définies sur un espace
+probabilisé $(\Omega,\mathcal{A},\mathbf{P})$ et suivant toutes la loi
+de Bernoulli de paramètre $\frac{1}{2}$.\\
+Pour tout entier $n$ supérieur ou égal à 1, on pose $S_{n} = X_{1} +
+\cdots
+ + X_{n}$.\\
+\emph{Notation} : Si $Z$ est une variable aléatoire définie sur
+$(\Omega,\mathcal{A},\mathbf{P})$, on note $\E(Z)$ son espérance.\\
+{N.B.} La partie {II} peut être traitée indépendamment de la partie
+{I}.
+
+\textbf{Partie I. Préliminaire}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item {Déterminer la loi de probabilité de la variable $S_{n}$. }
+
+\item {Quelles sont l'espérance et la variance de $S_{n}$ ? }
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item {Montrer que pour tout réel }$\varepsilon ${\ strictement
+positif, on
+peut trouver une constante $K_{\varepsilon }$ telle que, pour tout
+entier $n$
+supérieur ou égal à 1, on ait l'inégalité : 
+\[
+\mathbf{P}\left( \left| \frac{S_{n}}{n}-\frac{1}{2}\right| \geq
+\varepsilon
+\right) \leq \frac{K_{\varepsilon }}{n}
+\]
+}
+
+\item {Déduire de la majoration obtenue que, pour tout réel $r$
+vérifiant $0<r<\frac{1}{2}$, on a : 
+\[
+\dlim{n\to + \infty }\mathbf{P}\left( \left|
+\frac{S_{n}}{n}-\frac{1}{2}\right| \geq \frac{1}{n^{r}}\right) = 0
+\]
+}
+\end{noliste}
+
+\item {Montrer d'autre part, à l'aide du théorème de la limite centrée,
+que
+la suite définie pour $n$ supérieur ou égal à 1 par $ n\to
+P\left(\Ev{ \left| \frac{S_{n}}{n}-\frac{1}{2}\right|
+>\frac{1}{\sqrt{n}}}\right) 
+$ admet une limite non nulle }
+\end{noliste}
+
+\emph{L'objet de la suite de l'exercice est l'étude d'une
+majoration de la probabilité $\mathbf{P}\left( \left|
+\frac{S_{n}}{n}-\frac{1}{2}\right| \geq \varepsilon \right) $ meilleure
+que la
+majoration obtenue à la question 2.a.}
+
+\textbf{Partie II. Étude de fonctions}\\
+On considère la fonction $f$ définie sur $\mathbf{R}$ par $f(x) = \ln
+\left( \frac{e^{x} + 1}{2}\right) $.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item {Étudier les variations de $f$. }
+
+\item {Montrer qu'il existe des réels $\alpha $ et $\beta $, que l'on
+déterminera, tels que : 
+\[
+\dlim{x\to + \infty }(f(x)-(\alpha x + \beta )) = 0
+\]
+}
+
+\item {Montrer de même qu'il existe des réels $\alpha ^{\prime }$ et
+$\beta
+^{\prime }$ tels que : 
+\[
+\dlim{x\to -\infty }(f(x)-(\alpha ^{\prime }x + \beta ^{\prime })) = 0
+\]
+}
+\end{noliste}
+
+\item {Soit $a$ un réel vérifiant $0<a<1$ et soit $\varphi_{a}$ la
+fonction définie sur $\mathbf{R}$ par 
+\[
+\forall x\in \mathbf{R},\ \varphi_{a}(x) = f(x)-ax
+\]
+}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item {Étudier les variations de la fonction $\varphi_{a}$ et préciser
+les valeurs de $\varphi_{a}(0)$ et de $\varphi_{a}{\prime }(0)$.
+Montrer
+que la fonction $\varphi_{a}$ atteint un minimum en un unique point
+$x_{a}$
+de $\mathbf{R}$ dont on donnera l'expression en fonction de $a$. }
+
+\item {Étudier le signe de $x_{a}$ suivant les valeurs de $a$. Montrer
+que, pour tout réel $a$ vérifiant $a\ne \frac{1}{2}$, on a : 
+\[
+e^{\varphi_{a}(x_{a})}<1
+\]
+}
+\end{noliste}
+\end{noliste}
+
+\emph{Dans toute la suite, pour tout réel a vérifiant $0<a<1$, on
+pose $h_{a} = e^{\varphi_{a}(x_{a})}$}
+
+\textbf{Partie III. Étude de l'écart de \boldmath
+}$\frac{S_{n}}{n}$\textbf{\unboldmath\ à sa moyenne}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item {Montrer que si $Z$ est une variable aléatoire prenant un nombre
+fini
+de valeurs réelles positives $z_{1},\ldots,z_{r}$, on a la majoration
+}$\mathbf{P}${$(Z\geq 1)\leq E(Z)$. }
+
+\item {Calculer, pour tout réel $u$ et tout entier $n$ supérieur ou
+égal à
+1, l'espérance $\E(e^{uS_{n}})$. En déduire que, pour tout entier $n$
+supérieur ou égal à 1, si $a$ est un réel vérifiant $0<a<1$ et $t$ un
+réel
+quelconque, on a : 
+\[
+\E\left( e^{t\,(\frac{S_{n}}{n}-a)}\right) = e^{\varphi_{a}\left(
+\frac{t}{n}\right) }
+\]
+}
+
+\item {\emph{On suppose dans cette question que $a$ est un réel
+vérifiant $\frac{1}{2}<a<1$.} }
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item {Montrer que, pour tout réel $t$ strictement positif et tout
+entier $n
+$ supérieur ou égal à 1, on a l'inégalité : 
+\[
+\mathbf{P}\left( \frac{S_{n}}{n}-a\geq 0\right) \leq
+e^{\varphi_{a}(\frac{t}{n})}
+\]
+}
+
+\item {En donnant à $t$, dans l'inégalité précédente, une valeur
+convenablement choisie, établir, pour tout entier $n$ supérieur ou égal
+à
+1, l'inégalité : 
+\[
+\mathbf{P}\left( \frac{S_{n}}{n}\geq a\right) \leq (h_{a})^{n}
+\]
+}
+\end{noliste}
+
+\item {Soit }$\varepsilon ${\ un réel vérifiant $0<\varepsilon
+<\frac{1}{2}$; on pose $a = \frac{1}{2} + \varepsilon $. }
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item {Comparer, pour tout entier $n$ supérieur ou égal à 1, les lois
+de
+probabilité des variables aléatoires $S_{n}$ et $n-S_{n}$. En déduire
+l'égalité : 
+\[
+\mathbf{P}\left( \frac{S_{n}}{n}\geq a\right) = \mathbf{P}\left(
+\frac{S_{n}}{n}\leq 1-a\right) 
+\]
+puis la majoration : 
+\[
+\mathbf{P}\left( \left| \frac{S_{n}}{n}-\frac{1}{2}\right| \geq
+\varepsilon
+\right) \leq 2(h_{a})^{n}
+\]
+En quoi cette majoration peut-elle être considérée, pour }$\varepsilon
+${\
+strictement positif fixé, comme meilleure que celle de la question
+I.2.a ? }
+
+\item {\`{A}l'aide de l'expression de $x_{a}$ trouvée à la question
+II.2.a, 
+établir l'égalité 
+\[
+\varphi_{a}(x_{a}) = -\left( (\frac{1}{2} + \varepsilon )\ln (1 +
+2\varepsilon ) + (\frac{1}{2}-\varepsilon )\ln (1-2\varepsilon )\right)
+
+\]
+}
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item {En déduire qu'on a : $\varphi_{\frac{1}{2} + \varepsilon
+}(x_{\frac{1}{2} + \varepsilon }) = -2\varepsilon ^{2} + o(\varepsilon
+^{2})$, quand }$\varepsilon ${\ tend vers 0. }
+
+\item {Montrer qu'on peut retrouver ainsi la limite obtenue en I.2.b. }
+\end{noliste}
+\end{noliste}
+
+\textbf{Partie IV. Étude d'un algorithme}\\
+On se propose d'illustrer cet exercice par une simulation. On considère
+pour
+cela le programme -\Scilab{} nommé \texttt{Simulation} et reproduit
+ci-dessous, dans lequel \texttt{RANDOM(100)} désigne un nombre entier
+tiré
+au hasard par l'ordinateur, avec la loi uniforme, dans l'intervalle
+$[0,99]$
+(la procédure \texttt{RANDOMIZE} sert à initialiser la fonction
+\texttt{RANDOM}).
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item {Que fait la procédure \texttt{EP} de ce programme ? }
+
+\item {Quels nombres entiers sont comptabilisés dans les variables
+\texttt{U}, \texttt{V} et \texttt{W} à la fin de ce programme ? }
+
+\item {De quels nombres les valeurs \texttt{P1}, \texttt{P2} et
+\texttt{P3}
+fournies par le programme sont-elles des estimations ? }
+
+\item {\`{A} quoi peut-on s'attendre pour la valeur de \texttt{P1} ? }
+
+\texttt{PROGRAM Simulation;}
+
+\texttt{\hspace{1cm}VAR}
+
+\texttt{\hspace{1cm}n,K,U,V,W,i,j,X :integer;}
+
+\texttt{\hspace{1cm}S :real;}
+
+\texttt{CONST}
+
+\texttt{\hspace{1cm}nombredelancers = 20000;}
+
+\texttt{\hspace{1cm}nombredessais = 2000;}
+
+\texttt{PROCEDURE EP\left(\Ev{n :integer}\right);}
+
+\texttt{begin}
+
+\texttt{\hspace{1cm}S : = 0;}
+
+\texttt{\hspace{1cm}for i : = 1 to n do}
+
+\texttt{\hspace{1cm}begin}
+
+\texttt{\hspace{2cm}X : = RANDOM(100);}
+
+\texttt{\hspace{2cm}if X>49 then S : = S + 1;}
+
+\texttt{\hspace{1cm}end;}
+
+\texttt{end;}
+
+\texttt{BEGIN}
+
+\texttt{\hspace{1cm}RANDOMIZE;}
+
+\texttt{\hspace{1cm}n : = nombredelancers;}
+
+\texttt{\hspace{1cm}K : = nombredessais;}
+
+\texttt{\hspace{1cm}U : = 0; V : = 0; W : = 0;}
+
+\texttt{\hspace{1cm}for j : = 1 to K do}
+
+\texttt{\hspace{1cm}begin}
+
+\texttt{\hspace{2cm}EP\left(\Ev{n}\right);}
+
+\texttt{\hspace{2cm}if abs(S/n-0.5) > exp((-0.4)*ln(n)) then
+U : = U + 1;}
+ 
+\texttt{\hspace{2cm}if abs(S/n-0.5) > exp((-0.5)*ln(n)) then
+V : = V + 1;}
+
+\texttt{\hspace{2cm}if abs(S/n-0.5) > exp((-0.9)*ln(n)) then
+W : = W + 1;}
+
+\texttt{\hspace{1cm}end;}
+
+\texttt{\hspace{1cm}writeln('P1 = ',U/K);}
+
+\texttt{\hspace{1cm}writeln('P2 = ',V/K);}
+
+\texttt{\hspace{1cm}writeln('P3 = ',W/K);}
+
+\texttt{END.}
+\end{noliste}
+
+\end{document}
+

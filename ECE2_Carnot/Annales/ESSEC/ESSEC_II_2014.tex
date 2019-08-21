@@ -1,0 +1,374 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../macros.tex}
+%\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \\
+  Mathématiques\\[.2cm]
+  \hrule} %
+\chead{} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} ESSEC II 2014} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+
+\section{Autour de la loi de Benford}
+\noindent
+Soit $x\in\R$. On note $\lfloor x\rfloor$ sa partie entière, c'est à 
+dire le plus grand entier relatif inférieur ou égal à $x$, et $\{ 
+x\}$ sa partie fractionnaire : $\{ x\}=x-\lfloor x\rfloor$. On note 
+$\log (z)$ le logarithme \underline{en base $10$} \ du réel $z>0$. On a 
+donc $\log (z)=\frac{\ln (z)}{\ln (10)}$. On rappelle en particulier 
+les propriétés suivantes, qu'on poura utiliser sans démonstration 
+\[
+\forall z>0, \; 10^{\log (z)}=z
+\]
+\[
+\forall z>0, \ \forall z'>0, \ \log(z \times z')=\log (z)+\log (z')
+\]
+\[
+\forall a\in\R, \; \log\left(10^a\right)=a
+\]
+On a par exemple $\log (100)=2$ et $\log(\sqrt{10})=\frac 12$.
+\begin{noliste}{1.}
+\setlength{\itemsep}{2mm}
+
+\item
+\begin{noliste}{a)}
+\item Montrer que pour tout réel $x$ positif et non nul, on a  
+\[
+x=10^{\{\log (x)\}} \times 10^{\lfloor\log (x)\rfloor}
+\]
+
+Cette décomposition est dite {\em notation scientifique} de $x$.
+\item Montrer que pour tout $x>0$, le couple  $( 10^{\{\log (x)\}}, 
+\lfloor\log (x)\rfloor )$ est l'unique couple $(\alpha , n)$ dans  
+$[1,10[\times \Z$ tel que $x=\alpha \times 10^n$.
+
+\item Soit $x>0$. On pose $\gamma=\lfloor 10^{\{ \log (x)\} }\rfloor$. 
+Montrer que $\gamma\in\{ 1,2,\ldots , 9\}$.  
+\end{noliste}
+
+\item Pour tout entier naturel $k$ tel que $1\leq k\leq 9$, on pose 
+$p_k=\log (1+\frac 1k)$. Montrer que 
+$\Sum{k=1}{9} p_k=1$.\\
+$(p_k)_{1\leq k\leq 9}$ définit donc une loi de probabilité sur $\{ 
+1,2,\ldots , 9\}$ dite \emph{loi de Benford}.
+
+\item Soit $X$ une variable aléatoire réelle strictement positive. 
+On suppose que la variable aléatoire réelle $Y=\{\log (X)\}$ suit une 
+loi uniforme sur $[0,1[$. 
+
+\begin{noliste}{a)}
+\item Soit $k\in\{ 1,2,\ldots , 9\}$. Montrer que $\lfloor 
+10^Y\rfloor=k\Leftrightarrow k\leq 10^Y<k+1$.
+
+\item On considère la variable aléatoire $\Gamma =\lfloor 
+10^{\{\log (X)\}}\rfloor$ égale au premier chiffre significatif de $X$. 
+Déterminer la loi de la variable aléatoire $\Gamma$.  
+\end{noliste}
+
+\item 
+Soit $Y$ une variable aléatoire réelle admettant une densité $g$ 
+continue sur $\R$. On suppose que 
+\begin{nonoliste}{}
+\item $(h_1)$ \quad $g$ atteint son maximum $M$ en un unique point 
+$a_0\in\R$.
+
+\item $(h_2)$ \quad $g$ est croissante sur $]-\infty , a_0]$ et 
+décroissante sur $[a_0,+\infty [$.
+\end{nonoliste}
+
+\begin{noliste}{a)}
+\item
+\begin{nonoliste}{i.}
+\item Montrer que pour tout $y\in\R$ et tout $n\in\Z$, 
+$\{ y\}=\{ y-n\}$.
+
+\item Déduire que pour tout $n\in\Z$, la loi de  $\{ Y\}$ est 
+identique à celle de  $\{Y-n\}$.
+
+\item Déterminer une fonction de densité  $\tilde {g}$ continue de 
+la variable aléatoire $Y-\lfloor a_0\rfloor$. 
+
+\item Montrer que $\tilde g$ admet un unique maximum en un point 
+$\tilde a_0\in [0,1[$.
+
+\item Montrer que $\tilde g$ vérifie les conditions $(h_1)$ et 
+$(h_2)$ ci-dessus avec $\tilde a_0$ rempla\c{c}ant $a_0$.
+\end{nonoliste}
+On supposera donc désormais que $a_0\in [0,1[$. On fixe $x\in ]0,1[$ 
+et on note $I_{n,x}=[n, n+x[$ pour tout $n\in\Z$.
+
+\newpage
+
+\item 
+\begin{nonoliste}{i.}
+\item Soit $\varphi$ une fonction positive continue et croissante sur 
+$[0,1]$. Montrer, en utilisant un changement de variable, que    
+$\dint{0}{x}\varphi (t)\dt\leq x \times \dint{0}{1}\varphi (u)\ du$.
+
+\item Déduire que pour tout $n\in\Z$ tel que $n\leq -1$, on a 
+$\dfrac{1}{x}\dint{I_{n,x}}{}g(t)\dt\leq 
+\dint{n}{n+1}g(t)\dt$.\\
+On {\bf admettra} qu'on montrerait de même que pour $n\geq 2$, 
+$\dfrac{1}{x} \dint{I_{n,x}}{} g(t)\dt \leq \dint{n-1+x}{n+x} 
+g(t)\dt$
+
+\item Montrer que $\dfrac{1}{x} 
+\Sum{n\geq 1}{} \dint{I_{-n,x}}{} g(t)\dt\leq \dint{-\infty}{0} 
+g(t)\dt$ et que $\dfrac{1}{x} \Sum{n\geq 2}{} 
+\dint{I_{n,x}}{} g(t)\dt \leq \dint{1+x}{+\infty} g(t)\dt$
+
+\item Montrer que $\dint{I_{0,x}}{} g(u)\ du\leq xM$ et que 
+$\dint{I_{1,x}}{} g(u)\ du\leq xM$
+
+\item Conclure que 
+$\dfrac{1}{x} \Sum{n\in\Z}{} \dint{I_{n,x}}{} g(u)\ du= 
+\dfrac{1}{x} \Sum{n\geq 1}{} \dint{I_{-n,x}}{} g(u)\ du+
+\dfrac{1}{x} \Sum{n\geq 0}{} \dint{I_{n,x}}{} g(u)\ du\leq 1+2M$.\\
+On montrerait de même que $\dfrac{1}{x} 
+\Sum{n\in\Z}{} \dint{I_{n,x}}{} g(u)\ du\geq 1-2M$, inégalité qu'on 
+{\bf admettra}.
+
+\item Montrer que l'événement 
+$\Ev{\{Y\}<x}$ est égal à $\dcup{n\in\Z}{}\Ev{Y\in I_{n,x}}$.
+
+\item Déduire que  $\vert \Prob(\Ev{\{Y\}<x})-x \vert \leq 2M$.
+\end{nonoliste}
+\end{noliste}
+
+\item
+Soit $(Z_n)_{n \geq 1}$ une suite de variables aléatoires, où 
+$Z_n$ suit une loi exponentielle de paramètre $\frac{1}{n}$.\\ 
+On pose $X_n=10^{\sqrt{Z_n}}$ et $Y_n=\log (X_n)=\sqrt{Z_n}$. 
+ \begin{noliste}{a)}
+\item Déterminer une densité $g_n$ de la loi $Y_n$, continue sur 
+$\R$. 
+\item \'Etudier les variations de $g_n$ sur $\R_+$ et déterminer son 
+maximum.
+\item Montrer que pour tout $x\in \ ]0,1[$, 
+$\vert \Prob(\Ev{\{Y_n\}<x})-x \vert \leq 2\sqrt{\dfrac{2}{n}} 
+\ee^{-\frac{1}{2}}$. 
+\item {\bf Seulement pour les cubes} : \\
+Montrer que la suite $(\{ 
+Y_n\})_{n\geq 1}$ converge en loi vers la loi uniforme sur $[0,1[$.
+\end{noliste}
+\end{noliste}
+
+
+\section{Répartition des valeurs dans une table numérique}
+
+\noindent
+Henri Poincaré (1854-1912) a proposé au début du $\eme{20}$ siècle 
+une façon originale d'étudier la répartition des valeurs d'une 
+table numérique en montrant que pour un bon choix d'une fonction $F$ 
+de période assez grande par rapport à l'incrémentation des 
+valeurs de la table, la moyenne des valeurs prises par $F$ sur la table 
+sera petite, ce qui indique une certaine forme d'équilibre dans la 
+répartition de ces valeurs.\\
+Poincaré considère l'exemple des valeurs d'une table de logarithmes :
+\[
+z_n=\ln\left( 1+\frac n{100 \, 000}\right)
+\]
+pour $n=1,2,3,\ldots , 10 \, 000$ et pose $F(y)=\sin (1000 
+\times \pi \times y)$, fonction de période $\frac{1}{500}$, grande par 
+rapport à l'incrémentation $\frac{1}{100 \, 000}$ dans la table. Il 
+s'intéresse à la moyenne des valeurs de $F$ sur la table, c'est à dire 
+à :
+\[
+S=\dfrac{1}{10 \, 000}\Sum{k=1}{10 \, 000}F(z_k)
+\]
+et désire montrer que cette valeur est petite.\\
+Posons 
+\[
+J=\dfrac{1}{10 \, 000}\dint{\frac{1}{2}}{10 \, 000+\frac{1}{2}} 
+F\left(\ln \left(1+\frac x{100 \, 000} \right)\right) \dx
+\]
+
+\newpage
+
+\begin{noliste}{1.}
+\setlength{\itemsep}{2mm}
+\setcounter{enumi}{5}
+\item
+\begin{noliste}{a)}
+\item Soit $\varphi$ une fonction de classe ${\cal C}^2$ sur $[\frac 12 
+, +\infty [$. On suppose qu'il existe un réel $M>0$ tel que, pour 
+tout $u\in [\frac 12, +\infty [$, $\vert \varphi ''(u) \vert \leq M$. \\
+Montrer que pour $n\in\N^*$ et $\vert h \vert \leq \frac{1}{2}$, on a 
+\[
+-\dfrac{M}{8}\leq \varphi (n+h)-\varphi (n)-h \, \varphi'(n)\leq
+\dfrac{M}{8}
+\]
+
+\item Déduire que pour tout $n\in\N^*$, 
+\[
+-\dfrac{M}{8}\leq \dint{n-\frac{1}{2}}{n+\frac{1}{2}}\varphi (u)\ 
+du-\varphi (n)\leq \dfrac{M}{8}
+\]
+
+\item À partir de cette question, dans la partie II, on utilise des 
+fonctions trigonométriques qui ne sont pas connues en voie 
+E. Je les ai donc supprimées mais vous pouvez aller les consulter sur 
+internet.
+\end{noliste}
+\end{noliste}
+
+\section{Sur les nombres normaux}
+
+\noindent
+Dans cette partie, on se donne un espace probabilisé $(\Omega, \A, 
+\Prob)$ et on notera comme d'habitude, sous réserve d'existence, 
+$\E(X)$ et $\V(X)$ l'espérance et la variance d'une variable aléatoire 
+réelle $X$. \\
+On commence par rappeler les deux points de théorie suivants.
+\begin{nonoliste}{(i)}
+\item Pour toute suite d'événements $(C_k)_{k\in\N}$ dans $\Omega$, 
+on a $\Prob(\dcup{k=0}{+\infty }C_k) \leq \Sum{k=0}{\infty}\Prob(C_k)$ 
+avec la convention que cette série vaut $+\infty$ si elle diverge.
+
+\item Si $(C_k)_{k\in\N}$ est une suite décroissante d'événements 
+dans $\Omega$, au sens où $\forall k\geq 0$, $C_k\supset C_{k+1}$, on 
+a $\Prob(\dcap{k\geq 0}{}C_k)=\dlim{k\to+\infty}\Prob(C_k)$
+\end{nonoliste}
+
+\noindent
+On rappelle aussi l'\emph {inégalité de Markov} : si $Z$  est une 
+variable aléatoire positive admettant une espérance $\E(Z)$, pour 
+tout $\alpha >0$, on a $\Prob(\Ev{Z>\alpha}) 
+\leq \dfrac{\E(Z)}{\alpha}$.\\
+On considère ici le tirage au sort d'un nombre réel entre $0$ et 
+$1$ qu'on modélise de la fa\c{c}on suivante : $(X_n)_{n\geq 1}$ est 
+une suite de variables aléatoires indépendantes, de m\^eme loi 
+uniforme à valeurs dans $\{ 0,1,2,\ldots , 9\}$. Les $(X_n)_{n\geq 
+1}$ représentent les décimales du nombre tiré au hasard c'est à 
+dire que ce nombre est $\Sum{k=1}{+\infty}\dfrac{X_k}{10^k}$.\\
+On définit enfin pour tout $k\geq 1$ une variable aléatoire $Y_k$ 
+à valeurs $0$ ou $1$ par $Y_k=1$ si $X_k=1$ et $Y_k=0$ si $X_k\neq 
+1$. 
+\begin{noliste}{1.}
+\setlength{\itemsep}{2mm}
+\setcounter{enumi}{6}
+\item 
+\begin{noliste}{a)}
+\item Montrer que les variables $Y_k$ sont indépendantes et de même 
+loi que l'on précisera.
+
+\item Déterminer $\E(Y_k)$ et $\V(Y_k)$. \\
+On pose $S_n=\Sum{k=1}{n} Y_k$. par conséquent, $\dfrac{S_n}{n}$ 
+représente la fréquence des $1$ dans la suite des décimales du 
+nombre tiré. 
+
+\item Calculer  $\V(\frac{S_n}{n})$ en fonction de $n$.
+
+\item Soit $\varepsilon >0$ fixé. Montrer 
+$\Prob(\Ev{\vert \frac{S_n}{n}-\frac{1}{10}\vert > \varepsilon})
+\leq \dfrac{\V(\frac{S_n}{n})}{\varepsilon^2 } $.
+
+\item En déduire que 
+\[
+\dlim{n\to+\infty} \Prob\left(\Ev{\left\vert \frac{S_n}{n}-\frac{1}{10} 
+\right\vert >\varepsilon}\right)=0
+\]
+\end{noliste}
+
+\noindent
+On va dans la suite améliorer ce résultat en montrant qu'en fait 
+pour la plupart des nombres réels, la fréquence des $1$ dans leurs 
+décimales vaut $\frac{1}{10}$. 
+
+\newpage
+
+\item 
+\begin{noliste}{a)}
+\item On pose $A=\dcap{N\geq 1}{} \dcup{k=N}{\infty}A_k$. Montrer 
+que $A$ est l'ensemble des $\omega$ qui appartiennent à une 
+infinité d'événements $A_k$.
+
+\item On pose, pour tout $N\geq 1$, $B_N=\dcup{k=N}{\infty} A_k$. 
+Montrer que $\forall N\geq 0$, $B_N\supset B_{N+1}$.
+
+\item Déduire que $\dlim{N\to +\infty} \Prob(B_N)=\Prob(A)$.
+
+\item On suppose que $\Sum{k=1}{\infty} \Prob(A_k)<+\infty$. 
+\begin{noliste}{i.}
+\item Que vaut 
+$\dlim{N\to+\infty} \Sum{k=N}{+\infty} \Prob(A_k)$ ?
+
+\item Conclure que $\Prob(A)=0$.
+\end{noliste}
+\end{noliste}
+
+\item On pose, pour tout $k\geq 1$, $Y'_k=Y_k-\frac{1}{10}$.
+
+\begin{noliste}{a)}
+\item Montrer que 
+$\dfrac{S_n}{n}-\dfrac{1}{10}=\dfrac{1}{n} \Sum{k=1}{n} Y'_k$.
+
+\item Montrer que les variables $Y'_k$  sont indépendantes, 
+d'espérance nulle et telles que  $\vert Y'_k \vert \leq 1$. 
+
+\item Montrer que 
+$\E\left(\left(\Sum{k=1}{n} Y'_k\right)^4\right)\leq n+3n(n-1)$.
+
+\item Déduire que 
+\[
+\E\left(\left(\dfrac{S_n}{n}-\dfrac{1}{10}\right)^4\right)\leq 
+\dfrac{3}{n^2}
+\]
+
+\item On pose, pour $k\geq 1$, $A_k=\Ev{\left((\dfrac{S_k}{k}-
+\dfrac{1}{10}\right)^4 > \dfrac{1}{\sqrt{k}}}$. Montrer que 
+$\Prob(A_k)\leq \dfrac{3}{k^{\frac{3}{2}}}$.
+
+\item Déduire que  $\Sum{k\geq 1}{} \Prob(A_k)$ est une série 
+convergente. 
+
+\item On considère l'événement $A=\{\omega\in\Omega , \; 
+\left(\frac{S_k(\omega)}{k}- \frac{1}{10}\right)^4 > 
+\frac{1}{\sqrt{k}}\mbox{ pour une infinité de } k\}$. Montrer que 
+$\Prob(A)=0$.
+
+\item Déduire qu'avec probabilité $1$, on peut trouver $N$ tel que 
+pour tout $k\geq N$,  
+$\left\vert \dfrac{S_k}{k}-\dfrac{1}{10}\right\vert \leq 
+\dfrac{1}{\sqrt[8]{k}}$.
+
+\item Conclure qu'avec probabilité $1$, on a , 
+$\dlim{k\to+\infty}\dfrac{S_k}{k}=\dfrac{1}{10}$. 
+\end{noliste}
+\end{noliste}
+
+
+
+
+
+
+\end{document}

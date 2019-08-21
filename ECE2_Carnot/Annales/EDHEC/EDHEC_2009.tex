@@ -1,0 +1,462 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 2009} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 2009}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2009}}
+
+
+
+{\large \textbf{Concepteur : Edhec}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{EXERCICE 1}
+
+Dans cet exercice, on considère la fonction $f$ définie comme suit :\\
+$f(0) = 1$, et pour tout $x$ non nul de $]-\infty ;1[,\quad f(x) =
+\dfrac{-x}{(1-x)\ln (1-x)}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $f$ est continue sur $]-\infty ;1[$.
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer le développement limité de $\ln(1-x)$ à
+l'ordre 2 lorsque $x$ est au voisinage de 0.
+
+\item En déduire que $f$ est dérivable en 0, puis vérifier que
+$f^{\prime }(0) = \dfrac{1}{2}$.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f$ est dérivable sur $]-\infty;0[$ et sur $]0;1[$,
+puis calculer $f^{\prime }(x)$ pour tout réel $x$ élément de
+$]-\infty;0[ \ \cup ]0;1[$.
+
+\item Déterminer le signe de la quantité $\ln(1-x) + x$ lorsque $x$
+appartient à $]-\infty;1[$, puis en déduire les variations de $f$.
+
+\item Déterminer les limites de $f$ aux bornes de son domaine de
+définition, puis dresser son tableau de variation.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir que, pour tout $n\in \N^*$, il existe un seul réel
+de $[0;1[$, noté $u_{n}$, tel que $f(u_{n}) = n$ et donner la valeur de
+$u_{1}$.
+
+\item Montrer que la suite $(u_{n})$ converge et que
+$\underset{n\rightarrow
+ + \infty }{\lim }u_{n} = 1$
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+Dans cet exercice, $p$ désigne un réel de $]0;1[$ et on note $q =
+1-p$.\\
+On considère deux variables aléatoires $X$ et $Y$ définies sur
+le même espace probabilisé $(\Omega,\mathcal{A},P)$, indépendantes et
+suivant toutes deux la même loi géométrique de paramètre $p$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On pose $Z = \inf (X,Y)$ et on admet que $Z$ est une variable
+aléatoire, elle aussi définie sur l'espace probabilisé
+$(\Omega,\mathcal{A},P)$.\\
+On rappelle que, pour tout entier naturel $k$, on a l'égalité : $(Z>k)
+= (X>k)\cap (Y>k)$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout entier naturel $k$, calculer $P\left(\Ev{Z>k}\right)$.
+
+\item Établir que, pour tout entier naturel $k$ supérieur ou égal 
+à 1, on a :
+\[
+P\left(\Ev{Z = k}\right) =
+P\left(\Ev{Z>k-1}\right)-P\left(\Ev{Z>k}\right)
+\]
+
+\item En déduire que $Z$ suit la loi géométrique de paramètre
+$(1-q^{2})$.
+\end{noliste}
+
+\item On définit la variable aléatoire $T$ de la façon suivante :\\
+Pour tout $\omega $ de $\Omega $ tel que $X(\omega )$ est un entier
+naturel
+pair, on pose $T(\omega ) = \dfrac{X(\omega )}{2}$, et, pour tout
+$\omega $ de 
+$\Omega $ tel que $X(\omega )$ est un entier naturel impair, on pose
+$T(\omega ) = \dfrac{1 + X(\omega )}{2}$.\\
+On admet que $T$ est une variable aléatoire, elle aussi définie sur
+$(\Omega,\mathcal{A},P)$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $T$ prend des valeurs entières non nulles.
+
+\item Réciproquement, justifier que tout entier naturel $k$ non nul est
+
+élément de $T(\Omega )$ et en déduire que $T(\Omega ) = \N^{\ast }$.
+
+\item Exprimer l'événement $(T = k)$ en fonction de certains événements
+$(X = i)$ puis montrer que $T$ suit la même loi que $Z$.
+\end{noliste}
+
+\item On rappelle que la fonction random renvoie de façon uniforme un
+réel aléatoire élément de $[0;1[$.\\
+Compléter le programme suivant pour que, d'une part, il simule les
+lancers d'une pièce donnant $"pile"$ avec la probabilité $p$ et
+calculer la valeur prise par la variable aléatoire $X$ égale au rang
+du premier $"pile"$ obtenu lors de ces lancers ($X$ suit bien la loi
+géométrique de paramètre $p$) et pour que, d'autre part, il calcule et
+affiche la valeur prise par $T$, la variable aléatoire $T$ ayant été
+définie dans la deuxième question.\\
+\texttt{Program edhec2009;\\
+Var x,t,lancer :integer;\\
+Begin\\
+\hspace*{1cm}Randomize; }x\texttt{ : = 0;\\
+\hspace*{1cm}Repeat lancer : = random; x : =.......; until(lancer < =
+p);\\
+\hspace*{1cm}If(x mod 2 = 0) then.... else....;\\
+\hspace*{1cm}Writeln(t);\\
+End.}
+\end{noliste}
+
+\section*{EXERCICE 3}
+
+Dans tout l'exercice $\lambda $ désigne un réel strictement positif.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On considère la fonction $h$ définie sur $\R$ par : 
+\[
+h(x) = \left\{ 
+\begin{array}{ll}
+\lambda^{2}xe^{-\lambda x} \text{ si } x\geq 0 & \\
+0 \text{ si } x<0 & 
+\end{array}
+\right.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En se référant éventuellement à une loi exponentielle,
+montrer la convergence de l'intégrale $\int \limits_{0}{+
+\infty}h(x)dx$
+puis donner sa valeur.
+
+\item Montrer que $h$ peut être considérée comme la densité
+d'une variable aléatoire $X$.
+
+\item Montrer la convergence de l'intégrale $\int
+\limits_{0}{+ \infty}xh(x)dx$ puis donner sa valeur. En déduire que $X$
+possède une espérance et la déterminer.
+\end{noliste}
+
+\item Dans cette question, on considère une variable aléatoire $Y$
+de densité $f$, nulle sur $]-\infty ;0[$, continue sur $[0; + \infty
+\lbrack $ et strictement positive sur $[0; + \infty \lbrack $. On note
+alors $F $ la fonction de répartition de $Y$.\\
+Justifier que, pour tout réel $x$, on a : $1-F(x)>0$.\\
+On définit alors la fonction $g$ par : 
+\[
+g(x) = \left\{ 
+\begin{array}{ll}
+-f(x)\ln (1-F(x))\text{ } & \text{si }x\geq 0 \\
+0 & \text{si }x<0
+\end{array}
+\right.
+\]
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $g$ est positive sur $\R$.
+
+\item Montrer que $g$ est continue sur $]-\infty ;0[$ et sur $[0; +
+\infty
+\lbrack $.
+
+\item En remarquant que, si l'on pose $u^{\prime }(x) = -f(x)$, on peut
+choisir $u(x) = 1-F(x)$, montrer gr\^{a}ce à une intégration par
+parties que $\int \limits_{0}{+ \infty }g(x)dx$ est une intégrale
+convergente et que $\int \limits_{0}{+ \infty }g(x)dx = 1$.
+
+\item Établir que $g$ peut être considérée comme la densité
+d'une variable aléatoire $Z$.
+
+\item Étude d'un cas particulier.\\
+Vérifier que la variable aléatoire $Y$ suivant la loi exponetielle
+de paramètre $\lambda $ (avec $\lambda >0$) vérifie les conditions
+imposées dans la deuxième question. Montrer alors que $Z$ suit la même
+loi que $X$.\\
+\end{noliste}
+\end{noliste}
+
+\section*{PROBLEME}
+
+Les parties 1 et 2 sont indépendantes.
+
+\subsection*{Partie 1}
+
+On note $e_{0},e_{1},e_{2}$ les fonctions définies par : 
+\[
+\forall t\in \R,\quad e_{0}(t) = 1,\quad e_{1}(t) = t,\quad
+e_{2}(t) = t^{2}
+\]
+On rappelle que la famille $(e_{0},e_{1},e_{2})$ est une base de
+l'espace
+vectoriel $E$ constitué des fonctions polynomiales de degré inférieur
+ou égal à 2.\\
+\\
+On considère l'application $f$ qui, à tout élément $P$ de $E$
+associe $f(P) = P^{\prime \prime }-5P^{\prime } + 6P$, où $P^{\prime }$
+et $P^{\prime \prime }$ désignent respectivement les dérivées première
+et seconde de $P$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $f$ est un endomorphisme de $E$.
+
+\item Écrire la matrice $A$ de $f$ relativement à la base $(e_{0},
+e_{1},
+e_{2})$.
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir que $f$ est un automorphisme de $E$. En déduire Ker($f$).
+
+\item Écrire la matrice de $f^{-1}$ relativement à la base $(e_{0},
+e_{1},
+e_{2})$.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la seule valeur propre $\lambda$ de $f$.
+L'endomorphisme $f$ est-il diagonalisable ?
+
+\item Préciser le sous-espace propre associé à la valeur propre
+$\lambda $.
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie 2}
+
+On note $F$ l'espace vectoriel des fonctions de classe $C^{\infty }$
+sur $\R$ et $Id$ l'endomorphisme identité de $F$.\\
+On considère l'application $g$ qui, à toute fonction $u$ de $F$,
+associe $g(u) = u^{\prime \prime }-5u^{\prime } + 6u$, où $u^{\prime }$
+et $u^{\prime \prime }$ désignent respectivement les dérivées première
+et seconde de $u$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $g$ est un endomorphisme de $F$.
+
+\item Dans cette question, on se propose de déterminer $\ker \left(
+g-6Id\right) $. On considère donc une fonction $u$ élément de $\ker
+\left( g-6Id\right) $.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la fonction $j$, définie par tout réel $x$ par $j(x)
+= u^{\prime }\left( x\right) e^{-5x}$ est constante.
+
+\item En déduire que $\ker \left( g-6Id\right) = \mathrm{Vect}\left(
+u_{1},u_{2}\right) $, où $u_{1}$ est la fonction constante égale 
+à 1 et $u_{2}$ la fonction définie pour tout réel $x$ par $u_{2}(x) =
+e^{5x}$.\\
+\end{noliste}
+
+On se propose, dans les trois questions suivantes de déterminer $\ker
+\left( g\right) $. On considère donc $u$ une fonction de $\ker \left(
+g\right) $.
+
+\item On pose $v = u^{\prime }-2u$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $v^{\prime } = 3v$.
+
+\item En déduire que la fonction $h$, définie pour tout réel $x$
+par $h(x) = v(x)e^{-3x}$, est constante.
+
+\item Conclure qu'il existe un réel $\alpha $ tel que : $\forall x\in 
+\R,\quad v(x) = \alpha e^{3x}$.
+\end{noliste}
+
+\item On pose $w = u^{\prime }-3u$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $w^{\prime } = 2w$.
+
+\item En déduire que la fonction $k$, définie pour tout réel $x$
+par $k(x) = w(x)e^{-2x}$, est constante.
+
+\item Conclure qu'il existe un réel $\beta $ tel que : $\forall x\in 
+\R,\quad w(x) = \beta e^{2x}$.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer, en utilisant les deux questions précédentes, que $\ker
+\left( g\right) = \mathrm{Vect}\left( u_{3},u_{4}\right) $, où les
+fonctions $u_{3}$ et $u_{4}$ sont définies pour tout réel $x$ par
+$u_{3}(x) = e^{3x}$ et $u_{4}(x) = e^{2x}$.
+
+\item Montrer enfin que dim(Ker($g$)) = 2.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+
+
+\end{document}
+

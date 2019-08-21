@@ -1,0 +1,471 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 1998} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dint}{\int}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 1998}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+\begin{center}
+{\Huge ECRICOME Eco 1998}
+\end{center} 
+
+\noindent \textbf{Exercice 1 }
+
+\noindent
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{1)}] Soit $g$ l'application de $]0, + \infty [$ dans
+$\R$
+définie par 
+\[
+g(x) = \ln ({\frac{x}{1 + x}})-{\frac{\ln (1 + x)}{x}} 
+\]
+
+\begin{noliste}{$\sbullet$}
+\item[ \ \textbf{a :}] Montrer que $g$ est dérivable sur $]0, + \infty
+[$ et
+expliciter sa dérivée.
+
+\item[ \ \textbf{b :}] Dresser la tableau de variations de $g$, avec
+ses éventuelles limites aux bornes.
+\end{noliste}
+
+\item[ \ \textbf{2)}] Soit $f$ l'application de $\R$ dans $\R$ définie
+par 
+\[
+f(x) = e^{-x}\ln (1 + e^{x}) 
+\]
+
+\begin{noliste}{$\sbullet$}
+\item[ \ \textbf{a :}] À l'aide d'un changement de variable, montrer
+que pour
+tout réel $x$ positif, on a : 
+\[
+\dint{0}{x}f(t)dt = g(e^{x}) + 2\ln 2 
+\]
+
+\item[ \ \textbf{b :}] Montrer qu'il existe un réel $c$, que l'on
+explicitera, tel que l'application $h_{c}$ définie sur $\R$ par : 
+\[
+x\longrightarrow h_{c}(x) = \left\{ 
+\begin{array}{cc}
+cf(x) & \hbox{ si }x\geq 0 \\
+0 & \hbox{ si }x<0
+\end{array}
+\right. 
+\]
+soit une densité d'une variable aléatoire $X$.
+
+\item[ \ \textbf{c :}] On considère la variable aléatoire $Y =
+e^{X}$.\\
+Montrer que $Y$ a une densité que l'on explicitera.
+\end{noliste}
+\end{noliste}
+
+\vspace{1cm} %\newpage
+%------------------- Exercice n� 2 
+\noindent \textbf{Exercice 2 }
+
+\noindent Dans cet exercice, on étudie la diagonalisation des
+matrices carrées d'ordre 3 antisymétriques ( c'est à dire vérifiant
+$^{t}\!A = -A$ ).\\
+On étudie d'abord un cas particulier avant de passer au cas général.
+
+\textbf{Partie A}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{1)}] On désigne par $E$ l'espace vectoriel $\R^{3}$
+muni de sa base canonique $\mathcal{B} = (e_{1},e_{2},e_{3})$. On note
+$0_{E}$
+l'élément nul de $\R^{3}$.\\
+On rappelle que toute famille libre de trois vecteurs de $E$ est une
+base de 
+$E$.\\
+Soit $A = \left( 
+\begin{array}{ccc}
+0 & 2 & -1 \\
+-2 & 0 & -2 \\
+1 & 2 & 0
+\end{array}
+\right) $ et $f$ l'endomorphisme de $E$ représenté par $A$ dans la
+base $\mathcal{B}$.\\
+Soit $\mathcal{U} = (u_{1},u_{2},u_{3})$ où $u_{1} = -2e_{1} + e_{2} +
+2e_{3}$,\ 
+$u_{2} = e_{1} + 2e_{2}$ \ et \ $u_{3} = f(u_{2})$.
+
+\begin{noliste}{$\sbullet$}
+\item[ \ \textbf{a :}] Déterminer le noyau de $f$ et en donner une
+base.
+
+\item[ \ \textbf{b :}] Montrer que $\mathcal{U}$ est une base de $E$ et
+déterminer la matrice $B$ représentant $f$ dans cette base.
+\end{noliste}
+
+\item[ \ \textbf{2)}] Soit $\lambda $ un réel non nul.\\
+Montrer que pour tout vecteur $x$ de $E$, $[ \ \ f(x) = \lambda x\ ]$
+équivaut à $[ \ \ x = 0_{E}\ ]$.\\
+On pourra utiliser la décomposition de $x$ dans $\mathcal{U}$.
+
+\item[ \ \textbf{3)}] 
+
+\begin{noliste}{$\sbullet$}
+\item[ \ \textbf{a :}] Quel est finalement l'ensemble des valeurs
+propres de $A$
+ ?
+
+\item[ \ \textbf{b :}] La matrice $A$ est-elle diagonalisable ?
+\end{noliste}
+\end{noliste}
+
+\textbf{Partie B}
+
+\noindent Soient $a$, $b$ et $c$ trois réels donnés. On pose $a^{2} +
+b^{2} + c^{2} = s$ et on suppose $s \neq0$.\\
+On considère la matrice $M = \left( 
+\begin{array}{lll}
+0 & -a & -b \\
+a & 0 & -c \\
+b & c & 0
+\end{array}
+\right)$ et $g$ l'endomorphisme de $E$ représenté par $M$ dans la base
+$\mathcal{B}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{1)}] 
+
+\begin{noliste}{$\sbullet$}
+\item[ \ \textbf{a :}] Calculer $M^{2}$ et $M^{3}$.
+
+\item[ \ \textbf{b :}] Vérifier que $M^{3}$ s'exprime simplement en
+fonction
+de $M$ et $s$.
+\end{noliste}
+
+\item[ \ \textbf{2)}] Montrer que si le réel $\lambda $ est valeur
+propre
+de $g$ alors $\lambda $ est nécessairement nul. On utilisera la
+relation
+trouvée ci dessus.
+
+\item[ \ \textbf{3)}] Montrer que l'hypothèse ``$M$ est inversible''
+conduit à une contradiction.
+
+\item[ \ \textbf{4)}] 
+
+\begin{noliste}{$\sbullet$}
+\item[ \ \textbf{a :}] Quel est finalement l'ensemble des valeurs
+propres de $M$
+ ?
+
+\item[ \ \textbf{b :}] La matrice $M$ est-elle diagonalisable ?
+\end{noliste}
+\end{noliste}
+
+\vspace{2cm} 
+%----------------------------- Problème
+---------------------------------
+\centerline{\bf Problème}
+
+\noindent Dans tout le problème, $X$ désigne une variable aléatoire
+définie sur un espace probabilisé $(\Omega,\mathcal{A},P)$ et à valeurs
+dans $\N$ et $\E(X)$ l'espérance de $X$ si
+elle existe.\\
+On note $A$ l'événement \textquotedblleft $X$ prend une valeur
+paire" (on écrira dorénavant pour abréger \textquotedblleft $X$
+est pair"). On rappelle que $0$ est pair. On pose : $a =
+P\left(\Ev{A}\right)$.\\
+$\bullet $ On dit que $X$ a la propriété $\mathcal{P}$ si et
+seulement si $a>1/2$.\\
+On définit deux variables $X_{0}$ et $X_{1}$ :
+\[
+X_{0} = \left\{ 
+\begin{array}{lc}
+X & \text{si }X\text{ est pair} \\
+0 & \text{sinon}
+\end{array}
+\right. \hspace{3cm}X_{1} = \left\{ 
+\begin{array}{lc}
+X & \text{si }X\text{ est impair} \\
+0 & \text{sinon}
+\end{array}
+\right. 
+\]
+$\bullet $ On dit que $X$ a la propriété $\mathcal{Q}$ si et
+seulement si $\E(X_{1})>\E(X_{0})$
+
+\vspace{0.5cm} \textbf{Préliminaires}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{1)}] Déterminer $X_{0} + X_{1}$.
+
+\item[ \ \textbf{2)}] On note $Y$ la variable aléatoire qui vaut
+$\left\{ 
+\begin{array}{rc}
+1 & \text{si }X\text{ est pair} \\
+-1 & \text{si }X\text{ est impair}
+\end{array}
+\right. $\\
+Montrer les relations : 
+\[
+X_{0} = {\frac{1}{2}}(1 + Y)X\qquad \hbox{ et }\qquad X_{1} =
+{\frac{1}{2}}(1-Y)X
+\]
+\end{noliste}
+
+\textbf{Partie A}
+
+\noindent Dans cette partie, on suppose que $X$ suit une loi
+géométrique de paramètre $p$ $(0<p<1)$ et on pose $q = 1-p$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{1)}] Montrer que $a =  {\frac{q}{q + 1}}$, puis que $X
+$ ne vérifie pas la propriété $\mathcal{P}$.
+
+\item[ \ \textbf{2)}] Montrer que $X_{1}$ admet une espérance donnée
+$\E(X_{1}) = \frac{q^{2} + 1}{(1 + q)(1-q^{2})}}$
+
+\item[ \ \textbf{3)}] Montrer que $X_{0}$ admet aussi une espérance que
+l'on précisera, puis que $X$ vérifie la propriété $\mathcal{Q}$.
+\end{noliste}
+
+\textbf{Partie B}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{1)}] Pour tout entier naturel $n$, on pose $p_{n} =
+P\left(\Ev{X = n}\right)$ et
+on suppose que la suite $(p_{n})_{n\in \N}$ est strictement
+décroissante.\\
+En écrivant $P\left(\Ev{A}\right)$ et $P\left(\Ev{\overline{A}}\right)$
+à l'aide des nombres $p_{n}$, montrer que $X$ vérifie $\mathcal{P}$.
+
+\item[ \ \textbf{2)}] On suppose maintenant que $X$ a une espérance.
+
+\begin{noliste}{$\sbullet$}
+\item[ \ \textbf{a :}] Montrer que $X_{0}$ et $X_{1}$ admettent aussi
+des espérances.
+
+\item[ \ \textbf{b :}] Montrer à l'aide des préliminaires, que $X$
+vérifie $\mathcal{Q}$ si et seulement si $\E(YX)<0$.
+\end{noliste}
+\end{noliste}
+
+\textbf{Partie C}
+
+\noindent On suppose ici que la variable aléatoire $X$ est en
+fait à valeurs dans l'intervalle entier $ \llbracket 0 ; 20 :\rrbracket
+$ et donc que, pour tout entier $n \geq 21$, $p_{n} = 0$.\\
+On définit un type :
+\begin{verbatim}
+ type Table = array[0..20] of real;
+\end{verbatim}
+
+et on demande d'écrire un programme en \Scilab{} :
+
+- contenant une procédure \texttt{ENTR\E\_{L}OI} (à écrire) qui permet
+à l'utilisateur d'entrer dans une variable T de type TABLE les nombres
+$P\left(\Ev{X = k}\right)$ pour $k = 0,1,\ldots,20$.
+
+- calculant $\E(Y X)$ et indiquant par un message si $X$ vérifie
+$\mathcal{Q}$ ou non.
+
+\vspace{0.5cm} \textbf{Partie D}
+
+\noindent Le but de cette partie est d'étudier le cas o ? $X$ suit
+une loi binomiale $\mathcal{B}(n,p)$ avec $n \geq 2$ et $0<p<1/2$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[ \ \textbf{1)}] Soit $f$ la fonction de deux variables définie
+sur
+l'ouvert $U = \ ]1, + \infty [ \ \times ]0,{\frac{1}{2}}$ de $\R^{2}$
+par : 
+\[
+(x,y)\longrightarrow f(x,y) = xy(1-2y)^{x-1} = xy\exp [(x-1)\ln (1-2y)]
+
+\]
+
+\begin{noliste}{$\sbullet$}
+\item[ \ \textbf{a :}] Montrer que $f$ admet en tout point $(x,y)$ de
+$U$ des dérivées partielles premières $\frac{\partial f}{\partial
+x}}(x,y)$ et $\frac{\partial f}{\partial y}}(x,y)$.
+Les calculer et les mettre sous forme de produits.\\
+Montrer que $f$ est de classe $C^{1}$ sur $U$.
+
+\item[ \ \textbf{b :}] Montrer que, pour tout élément $u$ de $]0,1[
+:\quad \ln (1-u)<-u$\\
+En déduire que $f$ n'a pas d'extremum sur $U$.
+\end{noliste}
+
+\item[ \ \textbf{2)}] Dans cette question, $p$ est un réel vérifiant :
+$0<p<1$.\\
+On réalise une suite d'épreuves de Bernoulli indépendantes, de
+probabilité de ``succès'' $p$ et de probabilité d'``échec'' $q =
+1-p$.\\
+Pour tout élément $n$ de $\N^{*}$, on définit l'événement : \\
+$F_{n} = $``au cours des n premières épreuves, on obtient un nombre
+pair de succès'' et on pose $u_{n} = P\left(\Ev{F_{n}}\right)$.
+
+\begin{noliste}{$\sbullet$}
+\item[ \ \textbf{a :}] Montrer que pour tout élément $n$ de $\N^{*} $,
+$u_{n + 1} = (1-p)u_{n} + p(1-u_{n})$\\
+On pose par convention $u_{0} = 1$. Vérifier que la relation précédent
+est encore vraie pour $n = 0$.
+
+\item[ \ \textbf{b :}] Donner l'expression générale de $u_{n}$ en
+fonction de $n$ pour tout entier naturel $n$.
+\end{noliste}
+
+\item[ \ \textbf{3)}] On se place maintenant dans le cas annoncé au
+début de la partie D : $X$ suit une loi binomiale $\mathcal{B}(n,p)$
+avec $n\ge
+2$ et $0<p<1/2$.
+
+\begin{noliste}{$\sbullet$}
+\item[ \ \textbf{a :}] En reprenant la définition du réel $a$ associé
+à la variable $X$, montrer que $a = u_{n}$.\\
+Montrer que $X$ vérifie la propriété $\mathcal{P}$.
+
+\item[ \ \textbf{b :}] Calculer $\E(YX)$\\
+En déduire que $\E(X_{1})-\E(X_{0}) = f(n,p)$ (o ? $f$ est la fonction
+introduite en D-1) puis que $X$ a la propriété $\mathcal{Q}$.
+
+\item[ \ \textbf{c :}] On considère l'application partielle : 
+\[
+g :\quad y\longrightarrow g(y) = f(n,y)\quad \hbox{ définie sur
+}]0,{\frac{1}{2}}[ \ \quad (n\geq 2) 
+\]
+Montrer que $g$ admet un maximum $M_{n} =  {\frac{1}{2}}\left(
+{\frac{n-1}{n}}\right) ^{n-1}$
+
+\item[ \ \textbf{d :}] Montrer que la fonction $\phi :\
+x\longrightarrow  (x-1)\ln (1-{\frac{1}{x}})$ est de classe $C^{2}$ sur
+$[2, + \infty [$, que sa dérivée seconde est strictement positive sur
+$[2, + \infty [$ et que $ \dlim{x\rightarrow + \infty }\phi
+^{\prime }(x) = 0$.\\
+En déduire que la suite $(M_{k})_{k\geq 2}$ est strictement
+décroissante.
+
+\item[ \ \textbf{e :}] Montrer que la suite $(M_{k})_{k\geq 2}$
+converge, préciser sa limite et montrer que pour tout entier $k$
+supérieur ou égal à 2, $ {\frac{1}{2e}}\leq M_{k}\leq {\frac{1}{4}}$
+\end{noliste}
+
+\item[ \ \textbf{4)}] On suppose que deux joueurs Alain et Béatrice
+jouent 
+à pile ou face avec une pièce désiquilibrée, la probabilité d'obtenir
+``face'' étant égale à $p$ $(0<p< 
+{\frac{1}{2}})$.\\
+Une pièce est lancée $n$ fois $(n\geq 2)$, les lancers successifs
+sont supposés indépendants.\\
+Alain empoche un gain égal au nombre de faces apparues si ce nombre de
+faces est pair et Béatrice, un gain égal au nombre de faces apparues
+si ce nombre est impair.
+
+\begin{noliste}{$\sbullet$}
+\item[ \ \textbf{a :}] Quel est celui des joueurs qui a le plus de
+chances de
+gagner ?
+
+\item[ \ \textbf{b :}] Quel est celui des joueurs qui a la plus forte
+espérance de gain ?
+
+\item[ \ \textbf{c :}] Comment interpréter l'encadrement obtenu à la
+question 3-e) de cette partie ?
+\end{noliste}
+\end{noliste}
+
+\end{document}
+

@@ -1,0 +1,441 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 2004 - voie Générale} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION SCIENTIFIQUE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 2004}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent On note $E$ l'ensemble des fonctions $f$ de $\R$ dans $\R$
+pour lesquelles il existe une suite réelle $s = (s_{n})_{n\in
+\N^{\times }}$, dite adaptée à $f$, telle que :
+\begin{equation}
+\forall n\in \N^{\times },\quad \forall x\in \R,\quad
+\Sum{k = 0}{n-1}f(x + \frac{k}{n}) = s_{n}f(nx) \label{def}
+\end{equation}L'ensemble des fonctions de $\R$ dans $\R$ est noté
+$\mathcal{F}(\R,\R)$.\\
+Les polynômes considérés sont à coefficients réels, et tout polynôme
+$P$
+sera confondu avec la fonction polynomiale, élément de
+$\mathcal{F}(\R,\R)$, qui lui est naturellement associée.\\
+Pour tout entier naturel $p$ non nul, et toute fonction $p$ fois
+dérivable $f $, de $\R$ dans $\R$, la dérivée $p$-ème de la fonction
+$f$
+est notée $f^{(p)}$ (la dérivée première de $f$ est aussi notée
+$f^{\prime }$).\\
+On rappelle que, $T$ étant un réel non nul, une fonction $f$ de $\R$
+dans $\R$ est dite $T$-périodique lorsque :
+\[
+\forall x\in \R,\quad f(x + T) = f(x)
+\]
+L'objet du problème est de déterminer certaines des fonctions $f$
+satisfaisant l'équation (\ref{def}).
+
+\section*{Partie I Résultats généraux et exemples d'éléments de $E$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $f$ une fonction appartenant à $E$, autre que la fonction
+nulle.
+\\
+Montrer qu'il existe une \textit{unique} suite $s = (s_{n})_{n\in
+\N^{\times }}$ adaptée à $f$, et que $s_{1} = 1$.
+
+\item Montrer que si $f$ est une fonction dérivable appartenant à $E$,
+alors
+la dérivée $f^{\prime }$ de $f$ appartient à $E$.
+
+\item Montrer que les fonctions constantes appartiennent à $E$.
+
+\item Soit $A$ la fonction de $\R$ dans $\R$ qui à $x$
+associe $x-\dfrac{1}{2}$. Établir que $A$ est élément de $E$.
+
+\item $E$ constitue-t-il un sous-espace vectoriel du $\R$-espace
+vectoriel $\mathcal{F}(\R,\R)$ ?
+
+\item Soit $\chi $ la fonction de $\R$ dans $\R$ définie par :
+\[
+\forall x\in \R,\quad \chi (x) = \left\{
+\begin{tabular}{ll}
+$1$ & \textrm{\ }si\textrm{\ }$x\in \Z$ \\
+$0$ & \textrm{\ }si\textrm{\ } $x\not\in \Z$\end{tabular}\right.
+\]
+Pour tout entier naturel non nul $n$ et tout réel $x$, déterminer, en
+distinguant les cas $nx\in \Z$ et $nx\not\in \Z$, la valeur
+de la somme $\Sum{k = 0}{n-1}\chi (x + \dfrac{k}{n})$. En déduire que
+$\chi $ appartient à $E$, la suite adaptée étant constante, égale à
+$1$.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout réel $x$ et tous entiers naturels non nuls $p$ et $n$,
+calculer $\Sum{k = 0}{n-1}e^{2ip\pi (x + \frac{k}{n})}$, et en déduire
+que :
+\[
+\Sum{k = 0}{n-1}\cos (2p\pi (x + \frac{k}{n})) = \left\{
+\begin{tabular}{ll}
+$n\cos (2p\pi x)$ & si $p$ est multiple de $n$ \\
+$0$ & sinon\end{tabular}\right. \
+\]
+
+\item Soit $u$ la fonction de $\R$ dans $\R$ qui à $x$
+associe $\cos (2\pi x)$. Montrer que $u$ appartient à $E$, et préciser
+la
+suite adaptée à $u$.
+
+\item Justifier, pour tout réel $x$, la convergence de la série de
+terme général $\dfrac{1}{2^{q}}\cos (2^{q + 1}\pi x)$.
+
+Soit alors $v$ la fonction de $\R$ dans $\R$ qui à $x$
+associe $\Sum{q = 0}{+ \infty }\dfrac{1}{2^{q}}\cos (2^{q + 1}\pi x)$.
+\\
+Montrer que $v$ appartient à $E$, et préciser la suite adaptée à $v$.
+\end{noliste}
+\end{noliste}
+
+\section*{Partie II Recherche des polynômes éléments de $E$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que si $P$ est un polynôme de degré $1$ élément de $E$,
+alors
+la suite adaptée au polynôme $P$ est constante, égale à $1$.
+
+\item Quels sont les polynômes de degré $1$ appartenant à $E$ ?
+\end{noliste}
+
+\item On suppose dans cette question que $P$ est un polynôme non nul
+élément
+de $E$, et on note $p$ le degré de $P$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la suite adaptée à $P$ est la suite $s =
+(s_{n})_{n\in
+\N^{\times }}$ définie par :
+\[
+\forall n\in \N^{\times },\quad s_{n} = \dfrac{1}{n^{p-1}}
+\]
+
+\item Montrer que, si $p$ est au moins égal à 1, on a l'égalité :\quad
+$\dint{0}{1}P\left(\Ev{t}\right)dt = 0$.
+\end{noliste}
+
+\item Établir que, pour tout polynôme $Q$, il existe un unique polynôme
+$P$
+tel que $P^{\prime } = Q$ et $\dint{0}{1}P\left(\Ev{t}\right)dt = 0$.\\
+\textit{On peut donc définir une suite }$(B_{p})_{p\in \N}$\textit{\
+de polynômes de la manière suivante : }
+\[
+\left\{
+\begin{array}{lll}
+B_{0} = 1 & & \\
+\forall p\in \N^{\times },\quad B_{p}{\prime } = pB_{p-1} & \text{et}
+ & \dint{0}{1}B_{p}(t)dt = 0
+\end{array}
+\right. \
+\]
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer, pour chaque entier naturel $p$, le degré et le
+coefficient
+dominant de $B_{p}$.
+
+\item Vérifier, pour tout réel $x$, l'égalité : $B_{1}(x) =
+x-\dfrac{1}{2}$,
+puis calculer $B_{2}(x)$ pour tout réel $x$.
+\end{noliste}
+
+\item On a déjà vu dans la partie I que $B_{0}$ et $B_{1}$ sont des
+éléments
+de $E$. Vérifier que $B_{2}$ est élément de $E$.
+
+\item Soit $p$ un entier naturel non nul. On suppose que $B_{p-1}$ est
+élément de $E$ et on veut montrer que $B_{p}$ est élément de $E$. Pour
+cela, on
+fixe un entier naturel non nul $n$ et on pose, pour tout réel $x$ :
+\[
+\varphi (x) = \Sum{k = 0}{n-1}B_{p}(x + \frac{k}{n})\text{\quad et\quad
+}\psi
+(x) = \frac{1}{n^{p-1}}B_{p}(nx)
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la fonction $\varphi -\psi $ est constante.
+
+\item Calculer $\dint{0}{1/n}\varphi (x)dx\text{ et }\dint{0}{1/n}\psi
+(x)dx$.
+
+\item Établir que $\varphi -\psi = 0$ et conclure.
+\end{noliste}
+
+\item Déduire des questions précédentes que, pour tout entier naturel
+$p$,
+les polynômes de degré $p$ qui appartiennent à $E$ sont exactement les
+polynômes $\lambda B_{p}$ obtenus lorsque $\lambda $ décrit $\R^{\times
+}$.
+\end{noliste}
+
+\section*{Partie III Étude des fonctions indéfiniment dérivables de
+$E$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $\delta $ la fonction de $\mathcal{F}(\R,\R)$
+dans lui-même qui, à toute fonction $\varphi $ de $\R$ dans $\R$,
+associe la fonction $\delta (\varphi )$ définie par :
+\[
+\forall x\in \R,\quad \delta (\varphi )(x) = \varphi (x + 1)-\varphi
+(x)
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\delta $ est linéaire. Quelle propriété caractérise
+les éléments de son noyau ?
+
+\item Vérifier que, lorsque $P$ est une fonction polynomiale, il en est
+de même de $\delta (P)$, puis préciser le degré et le coefficient
+dominant de $\delta (P)$ lorsque $P$ est de degré $p$ supérieur ou égal
+à $1$.
+\end{noliste}
+
+\item Montrer que, si $f$ est une fonction élément de $E$, de suite
+adaptée $s = (s_{n})_{n\in \N^{\times }}$, on a :
+\begin{equation}
+\forall n\in \N^{\times },\quad \forall x\in \R,\quad
+s_{n}\delta (f)(nx) = \delta (f)(x) \label{s_{n}delta}
+\end{equation}
+
+\item Soit $g$ une fonction de classe $C^{\infty }$ de $\R$ dans $\R$.
+On suppose qu'il existe un réel $\alpha $ tel que :
+\begin{equation}
+\forall x\in \R,\quad \alpha g(2x) = g(x)
+\end{equation}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que :
+\begin{equation}
+\forall x\in \R,\text{\quad }\forall k\in \N,\quad \alpha
+^{k}g(x) = g(\frac{x}{2^{k}})
+\end{equation}
+
+\item Montrer que si $\alpha = 0$, alors $g$ est nulle.
+
+\item Montrer que si $\left| \alpha \right| >1$, alors $g$ est nulle.
+
+\item On suppose $0<\left| \alpha \right| \alpha \leq
+1$. Justifier l'existence d'un entier naturel $p$ et d'un réel
+$\beta $ tels que :
+\[
+\left| \beta \right| >1\quad \text{et\quad }\forall x\in \R,\quad \beta
+g^{(p)}(2x) = g^{(p)}(x)
+\]
+
+\item En déduire que, dans tous les cas, $g$ est polynomiale.
+\end{noliste}
+
+\item Dans cette question, on suppose que $f$ est une fonction de
+classe $C^{\infty }$ élément de $E$, de suite adaptée $s =
+(s_{n})_{n\in \N^{\times }}$, et que $\delta (f)$ n'est pas la fonction
+nulle.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\delta (f)$ est une fonction polynomiale non nulle;
+on
+note $q$ son degré.
+
+\item À l'aide de (\ref{s_{n}delta}), montrer que pour tout entier
+naturel non
+nul $n$, on a :\quad $s_{n} = \dfrac{1}{n^{q}}$
+
+puis montrer qu'il existe un réel non nul $a$ tel que :\quad $\forall
+x\in
+\R,\quad \delta (f)(x) = ax^{q}$.
+
+\item Pour chaque entier naturel non nul $p$, montrer, en appliquant ce
+dernier résultat à la fonction polynomiale $B_{p}$ introduite dans la
+partie
+\textbf{II}, qu'on a :
+\[
+\forall x\in \R,\quad \delta (B_{p})(x) = px^{p-1}
+\]
+
+\item Montrer qu'il existe un réel $\lambda $ non nul et un entier $p$
+non
+nul tels que la fonction $\delta (f-\lambda B_{p})$ soit nulle. Établir
+alors que la fonction $h = f-\lambda B_{p}$ est une fonction
+$1$-périodique,
+de classe $C^{\infty }$ et élément de $E$, et en préciser une suite
+adaptée.
+\end{noliste}
+\end{noliste}
+
+\section*{Partie IV Étude des fonctions indéfiniment dérivables et
+$1$-périodiques de $E$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Dans cette question préliminaire, on suppose que $g$ est une
+fonction
+de $\R$ dans $\R$, continue et $1$-périodique, telle que,
+pour tout réel $x$, $g(nx)$ tend vers $0$ lorsque l'entier $n$ tend
+vers $ + \infty $.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout entier naturel $k$, on a l'égalité : $g(k)
+= 0$.
+
+\item Montrer que $g(\dfrac{1}{2}) = 0$. Plus généralement, montrer
+que, pour
+tout entier relatif $p$ et tout entier naturel non nul $q$, on a
+l'égalité :
+$g(\dfrac{p}{q}) = 0$.
+
+\item En déduire que $g$ est la fonction nulle.
+\end{noliste}
+
+\noindent Dans toute la suite de cette partie, on suppose que $f$ est
+une
+fonction de classe $C^{\infty }$ et $1$-périodique, élément de $E$, de
+suite
+adaptée $s = (s_{n})_{n\in \N^{\times }}$.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que l'application qui à tout réel $x$ associe $\dint{x}{x
++ 1}f(t)dt$ est constante.
+
+\item Pour tout réel $x$, montrer que $\dfrac{s_{n}}{n}f(nx)$ tend vers
+$\dint{0}{1}f(t)dt$ lorsque l'entier $n$ tend vers $ + \infty $.
+\end{noliste}
+
+\item On suppose dans cette question que $\dfrac{\left| s_{n}\right|
+}{n}$ tend vers $ + \infty $ lorsque l'entier $n$ tend vers $ + \infty
+$.
+
+Montrer, à l'aide de la question 1), que $f$ est la fonction nulle.
+
+\item Dans cette question, on suppose plus généralement qu'il existe un
+entier naturel $k$ tel que $n^{k}\left| s_{n}\right| $ tend vers $ +
+\infty $ lorsque l'entier $n$ tend vers $ + \infty $.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer, en considérant une dérivée d'ordre suffisant de $f$, que
+$f$
+est polynomiale.
+
+\item Montrer que $f$ est constante.
+\end{noliste}
+
+\item À l'aide du résultat final de la partie \textbf{III}, montrer que
+les
+fonctions de classe $C^{\infty }$ appartenant à $E$ et qui ne sont pas
+$1$-périodiques sont exactement les fonctions polynomiales du type
+$\lambda B_{p}$, obtenues lorsque $p$ décrit $\N^{\times }$ et $\lambda
+$ décrit $\R^{\times }$.
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

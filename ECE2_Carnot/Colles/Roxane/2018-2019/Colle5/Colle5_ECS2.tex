@@ -1,0 +1,183 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECS2 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 5}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Série 1}
+\subsection*{Question de cours}
+Montrer que $P=
+\begin{smatrix}
+ 1 & 1 & 1\\
+ -\sqrt{2} & 0 & \sqrt{2}\\
+ 1 & -1 & 1
+\end{smatrix}$ est inversible et déterminer son inverse.
+
+
+\subsection*{Exercice}
+\noindent
+Dans cet exercice, $x$ d\'esigne un r\'eel \'el\'ement de $[0,1[$ et $n$ 
+un entier
+sup\'erieur ou \'egal \`a $1$.
+\begin{noliste}{1.}
+\item
+\begin{noliste}{a)}
+\item
+Montrer que: $\displaystyle \forall p\in\N^*,\quad {1\over p+1}\le
+\int_p^{p+1}{1\over t}\dt\le {1\over p}$.
+\item
+En d\'eduire que: $\displaystyle \forall k\in\N^*,\quad 0\le
+\sum_{p=1}^k{1\over p}-\ln(k)\le 1$.
+\end{noliste}
+\item
+\begin{noliste}{a)}
+\vspace{-0.2cm}\item
+Montrer que : $\displaystyle \sum_{p=1}^n{x^p\over
+p}=-\ln(1-x)-\int_0^x{t^n\over 1-t} \dt$.
+\item
+
+En d\'eduire que la s\'erie de terme g\'en\'eral $\displaystyle 
+{x^n\over n}$ converge
+et exprimer sa somme en fonction de $x$.
+\end{noliste}
+
+\item
+\begin{noliste}{a)}
+\item
+Pour tout $x$ de $]0,1[$, calculer $\displaystyle
+\lim_{n\to+\infty}\ln(n^2\ln(n)x^n)$.
+\item
+En d\'eduire que, pour tout $x$ de $[0,1[$, la s\'erie de terme 
+g\'en\'eral $\ln(n)x^n$
+est convergente.
+
+\hskip -8mm On pose maintenant $\displaystyle 
+S_n(x)=\sum_{k=1}^n\ln(k)x^k$ et
+$\displaystyle S(x)=\sum_{k=1}^{+\infty}\ln(k)x^k$.
+\end{noliste}
+\item
+Le but de cette question est de trouver un \'equivalent simple de $S(x)$ 
+lorsque
+$x$ est au voisinage de $1^-$.
+\begin{noliste}{a)}
+\item
+Montrer, en utilisant la premi\`ere question, que :
+$\quad  0\leq \DSum{k=1}{n}\DSum{p=1}{k}{x^k\over p}-S_n(x)\le 
+\sum_{k=1}^nx^k$.
+\item
+En d\'eduire que:\quad$\displaystyle 0\le {1\over 
+1-x}\left(\sum_{p=1}^n{x^p\over
+p}-x^{n+1}\sum_{p=1}^n{1\over p}\right)-S_n(x)\le {x\over 1-x}$.
+\item
+Justifier que:\quad $\displaystyle 
+\lim_{n\to+\infty}x^{n+1}\sum_{p=1}^n{1\over
+p}=0$.
+\item
+En d\'eduire que: \quad $\displaystyle 
+S(x)\eqx{1^-}-{\ln(1-x)\over 1-x}$.
+\end{noliste}
+\end{noliste}
+
+
+
+\newpage
+
+\section*{Série 2}
+\subsection*{Question de cours}
+\noindent
+Montrer que la loi binomiale est stable par somme.
+
+\subsection*{Exercice}
+\noindent
+Pour tout $n\in\N^{*}$, on pose ${\displaystyle 
+u_{n}=\int_{0}^{+\infty}{\frac{\ee^{-x}}{x+\frac{1}{n}}dx}}$.
+
+\begin{noliste}{1.}
+\item Montrer que la suite $(u_{n})_{n\in\N^{*}}$ est bien définie.
+\item Pour tout $n\in\N^{*}$, on pose alors ${\displaystyle 
+v_{n}=\int_{0}^{1}{\frac{\ee^{-x}}{x+\frac{1}{n}}dx}}$
+et ${\displaystyle 
+w_{n}=\int_{1}^{+\infty}{\frac{\ee^{-x}}{x+\frac{1}{n}}dx}}$.
+
+\begin{noliste}{a)}
+\item Montrer que: ${\displaystyle \forall n\in\N^{*},\;0\le 
+w_{n}\le\frac{1}{\ee}}$.
+\item Montrer que: ${\displaystyle \forall n\in\N^{*},\; 
+v_{n}\ge\frac{1}{\ee}\ln(n+1)}$.
+\item Donner la limite de la suite $(u_{n})$.
+\end{noliste}
+\item On se propose de déterminer un équivalent de $u_{n}$ lorsque $n$
+est au voisinage de $+\infty$.
+
+\begin{noliste}{a)}
+\item Montrer que l'intégrale ${\displaystyle 
+I=\int_{0}^{1}{\frac{1-\ee^{-x}}{x}dx}}$
+est une intégrale convergente.
+\item Établir que: ${\displaystyle \forall 
+n\in\N^{*},\;0\le\int_{0}^{1}{\frac{1-\ee^{-x}}{x+\frac{1}{n}}dx}\le I}$.
+\item En déduire un encadrement de $v_{n}$ valable pour tout 
+$n\in\N^{*}$.
+\item Donner enfin, en utilisant cet encadrement, un équivalent simple 
+de
+$u_{n}$.
+\end{noliste}
+\end{noliste}
+
+
+\newpage
+
+\section*{Série 3}
+\subsection*{Question de cours}
+Calculer $\dint{1}{+\infty} \dfrac{\ln(x)}{x(1+(\ln(x))^4)} \dx$.
+
+\subsection*{Exercice}
+\noindent
+On pose, pour tout $n\in\N$, 
+$I_n=\dint{0}{1}\dfrac{x^n}{\sqrt{1-x}}\dx$.\\
+\begin{noliste}{1.}
+\item Montrer que $I_n$ existe, pour tout $n\in\N$.
+\item Montrer que la suite $(I_n)_{n\in\N}$ est convergente.
+\item \begin{noliste}{a)}
+	\item Montrer que, pour tout $n\in\N^*$, 
+$I_n=\dfrac{2n}{2n+1}\,I_{n-1}$.
+	\item En déduire l'existence et la nature de la série de terme 
+général $v_n=\ln(I_n)-\ln(I_{n-1})$, puis la limite de $(I_n)_{n\in\N}$.
+	\end{noliste}
+\item Pour tout $n\in\N$, on pose $J_n=\sqrt{n}\,I_n$ et 
+$K_n=\sqrt{n+1}\,I_n$.
+	\begin{noliste}{a)}
+	\item Montrer que les suites $(J_n)_{n\in\N}$ et 
+$(K_n)_{n\in\N}$ sont adjacentes.
+	\item En déduire qu'il existe un réel $\alpha>0$ tel que 
+$I_n\eqn \dfrac{\alpha}{\sqrt{n}}\cdot$
+	\end{noliste}
+\item \begin{noliste}{a)}
+	\item Calculer $I_n$ en fonction de $n$.
+	\item On admet la formule de Stirling : $n!
+\eqn n^n\,\ee^{-n}\sqrt{2\pi n}$. Montrer que 
+$I_n\eqn e\,\left(\dfrac{2n}{2n+1}
+\right)^{2n+1}\frac{\sqrt{\pi}}{\sqrt{n}}\cdot$
+	\item Déterminer la valeur de $\alpha$.
+\end{noliste}
+\end{noliste}
+
+
+
+\end{document}

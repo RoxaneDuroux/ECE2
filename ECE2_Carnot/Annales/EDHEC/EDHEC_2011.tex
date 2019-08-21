@@ -1,0 +1,542 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 2011} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 2011}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2011}}
+
+
+
+{\large \textbf{Concepteur : Edhec}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{Exercice 1}
+
+On considère la fonction $f$ définie sur $\R^{+}$ par :
+$ = \dfrac{2}{x^{2}}\dint{0}{x} \dfrac{t}{e^{t} + 1}dt}$ si
+$x>0$ et $f(0) = \dfrac{1}{2}.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que : $\forall x\in]0, + \infty\lbrack,$ $\forall
+t\in\left[
+0,x\right],$ $\dfrac{1}{e^{x} + 1}\leq\dfrac{1}{e^{t} +
+1}\leq\dfrac{1}{2}.$
+
+\item Établir alors que, pour tout réel $x$ strictement positif, on a :
+$\dfrac{1}{e^{x} + 1}\leq f(x)\leq\dfrac{1}{2}.$
+
+\item En déduire que la fonction $f$ est continue (à droite) en 0.
+\end{noliste}
+
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f$ est de classe $C^{1}$ sur $]0, + \infty\lbrack,$
+puis
+vérifier que, pour tout réel $x$ strictement positif, on peut écrire :
+$f^{\prime}(x) = -\dfrac{4}{x^{3}}g(x),$ où $g$ est une fonction que
+l'on déterminera.
+
+\item Étudier les variations, puis le signe de la fonction $g.$ En
+déduire que
+$f$ est décroissante sur $\R^{+}.$
+\end{noliste}
+
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout réel $t$ positif, on a : $\dfrac{t}{e^{t}
++ 1}\leq1.$
+
+\item En déduire la limite de $f(x)$ lorsque $x$ tend vers $ + \infty.$
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 2}
+
+On désigne par $E$ l'espace vectoriel des fonctions polynômiales de
+degré
+inférieur ou égal à 2 et on note $\mathcal{B}$ la base $\left(
+e_{0},e_{1},e_{2}\right) $ de $E,$ où pour tout réel $x,$ on a :
+$e_{0}\left(
+x\right) = 1,$ $e_{1}\left( x\right) = x$ et $e_{2}\left( x\right) =
+x^{2}.$\\
+ On considère l'application, notée $f,$ qui à toute fonction
+polynômiale $P$ appartenant à $E,$ associe la fonction polynômiale
+$f(P)$
+définie par :
+\[
+\forall x\in\R,\ \left( f\left( P\right) \right) \left( x\right)
+ = 2xP\left(\Ev{ x}\right) -\left( x^{2}-1\right) P^{\prime}\left(
+x\right).
+\]
+
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f$ est une application linéaire.
+
+\item En écrivant, pour tout réel $x,$ $P\left(\Ev{x}\right) = a + bx +
+cx^{2},$ définir
+explicitement $(f(P))(x)$ puis en déduire que $f$ est un endomorphisme
+de $E.
+$
+
+\item Écrire $f(e_{0}),$ $f(e_{1})$ et $f(e_{2})$ comme des
+combinaisons
+linéaires de $e_{0},$ $e_{1}$ et $e_{2},$ puis en déduire la matrice
+$A$ de
+$f$ dans la base $\mathcal{B}.$
+\end{noliste}
+
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $\operatorname*{Im}f = \operatorname{vect}\left(
+e_{1},e_{0} + e_{2}\right) $ et donner la dimension de
+$\operatorname{Im}f.$
+
+\item Déterminer $\operatorname{Ker}f.$
+\end{noliste}
+
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item À l'aide de la méthode du pivot de Gauss, déterminer les valeurs
+propres
+de $A.$
+
+\item En déduire que $f$ est diagonalisable et donner les sous-espaces
+propres
+de $f.$
+
+\item Vérifier que les sous-espaces propres de $f,$ autres que
+$\operatorname*{Ker}f,$ sont inclus dans $\operatorname{Im}f.$
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 3}
+
+On désigne par $n$ un entier naturel supérieur ou égal à 2. On dispose
+de $n$
+urnes, numérotées de $1$ à $n,$ contenant chacune $n$ boules. On répète
+$n$
+épreuves, chacune consistant à choisir une urne au hasard et à en
+extraire une
+urne au hasard. On suppose que les choix des urnes sont indépendants
+les uns
+des autres.\\
+ Pour tout $i$ de $\left\{ 1,2,...,n\right\},$ on note
+$X_{i}$ la variable aléatoire prenant la valeur 1 si l'urne numérotée
+$i$
+contient toujours $n$ boules au bout de ces $n$ épreuves, et qui prend
+la
+valeur 0 sinon.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout $i$ et tout $k,$ éléments de $\{1,2,...,n\},$ on note
+$U_{i,k}$ l'évènement "l'urne numéro $i$ est choisie à la
+$k^{\text{ème}}$
+épreuve".\\
+ Écrire l'évènement $(X_{i} = 1)$ à l'aide de certains des
+évènements $U_{i,k},$ puis montrer que :
+\[
+\forall i\in\left\{ 1,2,...,n\right\},\ P\left(\Ev{X_{i} = 1}\right) =
+\left( 1-\dfrac{1}{n}\right) ^{n}.
+\]
+
+
+\item Justifier également que, si $i$ et $j$ sont deux entiers
+distincts,
+éléments de $\{1,2,...,n\},$ on a :
+\[
+P\left( \left[ X_{i} = 1\right] \cap\left[ X_{j} = 1\right] \right) =
+\left(
+1-\dfrac{2}{n}\right) ^{n}.
+\]
+
+
+\item Comparer $\left( 1-\dfrac{2}{n}\right) $ et $\left(
+1-\dfrac{1}{n}\right) ^{2}$ et en déduire que, si $i$ et $j$ sont deux
+entiers
+distincts, éléments de $\left\{ 1,2,...,n\right\},$ alors les variables
+$X_{i}$ et $X_{j}$ en sont pas indépendantes.
+\end{noliste}
+
+\item On pose $ = \Sum{k = 1}{n}X_{i}.}$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer l'espérance de $Y_{n},$ notée $\E(Y_{n}).$
+
+\item En déduire $\dlim{n\rightarrow + \infty}\dfrac{\E(Y_{n})}{n}}$ et
+donner un équivalent de $\E(Y_{n})$ lorsque $n$ est au voisinage de
+$ + \infty.$
+\end{noliste}
+
+\item Pour tout $i$ de $\left\{ 1,2,...,n\right\},$ on note $N_{i}$ la
+variable aléatoire égale au nombre de boules manquantes dans l'urne
+numérotée
+$i$ à la fin de ces $n$ épreuves.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner sans calcul la loi de $N_{i}$ ainsi que la valeur de
+$\E(N_{i}).$
+
+\item Que vaut le produit $N_{i}X_{i}$ ?
+
+\item Les variables $N_{i}$ et $X_{i}$ sont-elles indépendantes ?
+\end{noliste}
+
+\item Compléter le programme informatique suivant pour qu'il simule
+l'expérience décrite au début de cet exercice et affiche les valeurs
+prises
+par $X_{1}$ et $N_{1}$ pour une valeur de $n$ entrée par l'utilisateur.
+
+\texttt{Program\ edhec\_{2}011;}
+
+\texttt{Var\ x1,\ n1,\ n,\ k,\ tirage,\ hasard\ :\ integer;}
+
+\texttt{Begin}
+
+\texttt{\hspace*{1cm}Randomize;}
+
+\texttt{\hspace*{1cm}Writeln('donnez\ un\ entier\ naturel\ n\
+supérieur\ ou\ égal\ à\ 2');}
+
+\texttt{\hspace*{1cm}Readln(n);}
+
+\texttt{\hspace*{1cm}n1 : = 0;\ x1 : = 1;}
+
+\texttt{\hspace*{1cm}For\ k : = 1\ to\ n\ do}
+
+\texttt{\hspace*{1cm}begin}
+
+\texttt{\hspace*{2cm}hasard\ : = \ random(n) + 1;}
+
+\texttt{\hspace*{2cm}if\ hasard\ = \ 1\ then\ begin\ x1\ : = --------;\
+n1 : = \ --------;\ end;}
+
+\texttt{\hspace*{1cm}end;}
+
+\texttt{\hspace*{1cm}Writeln(x1,n1);}
+
+\texttt{End.}
+\end{noliste}
+
+\section*{Problème}
+
+\textbf{Notations et objectifs}
+
+On considère deux variables aléatoires $X$ et $Y,$ définies sur un
+espace
+probabilisé $\left( \Omega,\mathcal{A},P\right),$ et indépendantes.
+
+On suppose que $X$ est une variable à densité et on note $F_{X}$ sa
+fonction
+de répartition.
+
+On suppose par ailleurs que la loi de $Y$ est donnée par
+$P\left(\Ev{Y = 1}\right) = P\left(\Ev{Y = -1}\right) = \dfrac{1}{2}.$
+
+L'indépendance de $X$ et $Y$ se traduit par les égalités suivantes,
+valables
+pour tout réel $x$ :
+\[
+P\left( \left[ X\leq x\right] \cap\left[ Y = 1\right] \right) =
+P\left(\Ev{
+X\leq x}\right) P\left(\Ev{ Y = 1}\right) \quad\text{et }\quad P\left(
+\left[
+X\leq x\right] \cap\left[ Y = -1\right] \right) = P\left(\Ev{ X\leq
+x}\right)
+P\left(\Ev{ Y = -1}\right).
+\]
+On pose $Z = XY$ et on admet que $Z$ est, elle-aussi, une variable
+aléatoire
+définie sur $(\Omega,\mathcal{A},P).$
+
+On se propose d'établir deux résultats utiles pour la suite dans la
+partie 1,
+puis d'en déduire la loi de la variable aléatoire $Z$ en fonction de la
+loi de
+$X$ dans les parties 2 et 3.
+
+\subsection*{Partie 1 : expression de la fonction de répartition de $Z$
+en
+fonction de celle de $X.$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Rappeler l'expression des fonctions de répartition d'une variable
+aléatoire suivant une loi uniforme sur $[a,b]$ (avec $a<b$) et d'une
+variable
+aléatoire suivant une loi exponentielle de paramètre $\lambda$ (avec
+$\lambda>
+0$).
+
+\item En utilisant le système complet d'évènements $\{(Y = 1),(Y =
+-1)\},$ montrer
+que la fonction de répartition $F_{Z}$ de la variable aléatoire $Z$ est
+donnée
+par :
+\[
+\forall x\in\R,\ F_{Z}(x) = \dfrac{1}{2}\left( F_{X}(x)-F_{X}(-x) +
+1\right).
+\]
+
+\end{noliste}
+
+\subsection*{Partie 2 : Étude de deux premiers exemples.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On suppose que la loi de $X$ est la loi normale centrée
+réduite.\\
+Reconnaître la loi de $Z.$
+
+\item On suppose que la loi de $X$ est la loi uniforme sur $[0,1].$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer l'expression de $F_{X}(-x)$ selon les valeurs prises
+par $x.$
+
+\item Déterminer $F_{Z}(x)$ pour tout réel $x,$ puis reconnaître la loi
+de
+$Z.$
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie 3 : Étude du cas où la loi de $X$ est la loi
+exponentielle
+de paramètre 1.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la fonction de répartition $F_{Z}$ de la variable
+aléatoire
+$Z$ est définie par :
+\[
+F_{Z}(x) = \left\{
+\begin{array}
+[c]{cl}1-\frac{1}{2}e^{-x} & \text{ si } x \geq0\\
+\frac{1}{2}e^{x} & \text{ si } x < 0
+\end{array}
+\right.
+\]
+
+
+\item En déduire que $Z$ est une variable aléatoire à densité.
+
+\item Établir alors qu'une densité de $Z$ est la fonction $f_{Z}$
+définie pour
+tout réel $x$ par :
+\[
+f_{Z}(x) = \dfrac{1}{2}e^{-|x|}.
+\]
+
+
+\item Donner la valeur de l'intégrale $\dint{0}{+ \infty}xe^{-x}dx.}$
+
+\item Montrer que $f_{Z}$ est une fonction paire et en déduire
+l'existence et
+la valeur de $\E(Z).$
+\end{noliste}
+
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner la valeur de l'intégrale $\dint{0}{+
+\infty}x^{2}e^{-x}dx.}$
+
+\item En déduire l'existence et la valeur de $\E(Z^{2}),$ puis donner
+la valeur
+de la variance de $Z.$
+\end{noliste}
+
+\item
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer $\E(X)\E(Y)$ et comparer avec $\E(Z).$ Quel résultat
+retrouve-t-on ainsi ?
+
+\item Exprimer $Z^{2}$ en fonction de $X,$ puis en déduire de nouveau
+la
+variance de $Z.$
+\end{noliste}
+
+\item Soit $U$ et $V$ des variables aléatoires suivant respectivement
+la loi
+de Bernoulli de paramètre $\dfrac{1}{2}$ et la loi uniforme sur
+$[0,1[.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On pose $Q = -\ln(1-V)$ et on admet que $Q$ est une variable
+aléatoire.
+Déterminer la fonction de répartition de $Q$ et en déduire la loi
+suivie par
+la variable aléatoire $Q.$
+
+\item On pose $R = 2U-1$ et on admet que $R$ est une variable
+aléatoire.
+Déterminer $R(\Omega)$ et donner la loi suivie par la variable $R.$
+
+\item Informatique.
+
+En tenant compte des résultats des questions 5a) et 5b), écrire en
+\texttt{ \Scilab{}} une déclaration de fonction dont l'en-tête est
+\texttt{function z :real;} pour qu'elle simule la loi de $Z.$
+\end{noliste}
+\end{noliste}
+
+
+\end{document}

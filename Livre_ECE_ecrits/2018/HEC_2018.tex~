@@ -1,0 +1,699 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../macros_Livre.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2018} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+\section*{Exercice}
+
+\noindent
+Soit $n$ un entier supérieur ou égal à $2$ et $f$ un endomorphisme de
+$\R^n$.
+\begin{noliste}{$\sbullet$}
+\item On note $\id_{\R^n}$ l'endomorphisme identité de $\R^n$ et
+  $0_{\LL{\R^n}}$ l'endomorphisme nul de $\R^n$.
+
+\item On pose $f^0=\id_{\R^n}$ et : $\forall j \in \N, \ f^{j+1}=f
+  \circ f^j$.
+  
+\item On suppose que $f^n$ est l'endomorphisme nul de $\R^n$ : \
+  \fbox{$f^n=0_{\LL{\R^n}}$ }
+\end{noliste}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \item Soit $M$ la matrice définie par : 
+  $M = \begin{smatrix}
+    0 & 0 & 0 & 0\\
+    0 & 0 & 1 & 0\\
+    0 & 0 & 0 & 1\\
+    0 & 0 & 0 & 0
+  \end{smatrix}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer le spectre de $M$. La matrice $M$ est-elle 
+    diagonalisable ?
+    
+    
+
+    
+    \item Préciser le rang des matrices $M$ et $M^2$ respectivement.
+    
+    
+
+    
+    \item Quels sont les polynômes annulateurs de $M$ dont le degré 
+    est égal à $3$ ? 
+    
+    
+  \end{noliste}
+  
+  
+  %\newpage
+  
+  
+\item Pour tout $j \in \llb 0,n \rrb$, on note $F_j$ l'image de
+  l'endomorphisme $f^j$ et $r_j$ son rang : 
+  \[
+  F_j = \im(f^j) \quad \text{ et } \quad r_j = \dim(F_j)
+  \]
+  Pour tout $j \in \llb 0, n-1 \rrb$, on note $g_j$ la restriction de
+  $f$ à $F_j$, c'est à dire l'application linéaire de $F_j$ dans
+  $\R^n$ définie par : $\forall x \in F_j, \ g_j(x)=f(x)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer $r_0$ et $r_n$.
+    
+    
+
+    
+    \item Soit $j \in \llb 0,n-1\rrb$.
+    \begin{nonoliste}{(i)}
+      \item Déterminer le rang de $g_j$.
+    \end{nonoliste}
+
+    
+    
+%       
+
+    \begin{nonoliste}{(i)}
+      \setcounter{enumiii}{1}
+    \item Justifier l'égalité : $r_j-r_{j+1}=\dim(\kr(f) \cap F_j)$.
+      
+      
+    \end{nonoliste}
+    
+
+    %\newpage
+
+
+  \item Établir les inégalités : $n \geq r_0-r_1 \geq r_1-r_2 \geq
+    \ldots \geq r_{n-1}-r_n \geq 0$.
+    
+    
+  \end{noliste}
+\end{noliste}
+
+\noindent {\it On rappelle que le cardinal d'un ensemble fini $H$,
+  noté $\Card(H)$, est le nombre de ses éléments.\\
+  Pour $k \in \N^*$, on note $P(k)$ l'ensemble des $k$-uplets
+  $(x_1,x_2,\ldots,x_k)$ d'entiers naturels tels que :
+  \[
+  \Sum{i=1}{k} i \ x_i = k
+  \]
+  c'est à dire : $P(k)=\{(x_1,x_2,\ldots,x_k) \in \N^k \ | \ x_1 +
+  2x_2 + \ldots + k x_k = k\}$.\\
+  On pose $p(k) = \Card\big(P(k) \big)$.}
+
+
+
+
+%\newpage
+
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{2}
+\item Pour tout $i \in \llb 1,n \rrb$, on pose : $x_i= \Card\left(\{j
+    \in \llb 0, n-1 \rrb \ | \ r_j-r_{j+1}=i\} \right)$ \quad $(*)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $(x_1,x_2, \ldots,x_n)$ est un élément de 
+    $P(n)$.
+
+    
+
+
+    %\newpage
+
+
+  \item Dans cette question, on suppose que $n$ est égal à $4$.
+  \end{noliste}
+    \begin{noliste}{(i)}
+    \item Déterminer $(x_1,x_2,x_3,x_4)$ lorsque $f$ est
+      l'endomorphisme de matrice $M$ dans la base canonique
+      \nolinebreak de $\R^4$.
+
+      
+      
+    \item Trouver l'ensemble $P(4)$ et vérifier que $p(4)=5$.
+    \end{noliste}
+
+    
+
+
+    %\newpage
+
+
+    \begin{noliste}{(i)}
+      \setcounter{enumii}{2}
+    \item Montrer que pour tout $(x_1,x_2,x_3,x_4) \in P(4)$, il
+      existe un endomorphisme $f$ de $\R^4$ vérifiant \nolinebreak
+      $(*)$.
+
+      
+    \end{noliste}
+  \end{noliste}
+
+
+  %\newpage
+
+
+  \begin{noliste}{1.}
+    \setcounter{enumi}{3}
+  \item Pour tout couple $(\ell,k) \in (\N^*)^2$, on pose : \
+    $Q(\ell,k)=\{(x_1,x_2, \ldots, x_k)\in P(k) \ | \ x_1+x_2
+    +\ldots +x_k \leq \ell\}$\\ et $q(\ell, k)=\Card(Q(\ell,k))$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Soit $k \in \N^*$.
+    \begin{nonoliste}{(i)}
+      \item Trouver l'ensemble $Q(1,k)$.
+
+        
+      
+      \item Pour tout entier $\ell \geq k$, justifier l'égalité :
+        $Q(\ell, k) = P(k)$.
+        % \end{nonoliste}
+        
+        
+        \end{nonoliste}
+
+    \item Pour tout couple $(\ell,k)$ d'entiers tels que $k > \ell 
+    \geq 2$, établir la relation :
+    \[
+    q(\ell,k-\ell) = \Card\big(\{(x_1,x_2,\ldots,x_k) \in P(k) \ | \
+      x_1+x_2 +\ldots + x_k=\ell \}\big)
+    \]
+
+    
+
+
+    %\newpage
+    
+    
+  \item Soit $\ell$ un entier supérieur ou égal à $2$.
+    \begin{nonoliste}{(i)}
+    \item Pour tout entier $k > \ell$, montrer l'égalité : \
+      $q(\ell,k) = q(\ell-1,k) + q(\ell, k-\ell)$.
+      
+      
+
+    \item Que vaut $q(\ell,\ell) - q(\ell-1,\ell)$ ?
+
+      
+    \end{nonoliste}
+  \end{noliste}
+  
+\item La fonction \Scilab{} suivante dont le script est incomplet
+  (lignes \ligne{5} et \ligne{6}), calcule une matrice {\tt
+    qmatrix(n)} telle que pour chaque couple $(\ell,k) \in\llb 1,n
+  \rrb^2$, le coefficient situé à l'intersection de la ligne $\ell$ et
+  de la colonne $k$ est égal à $q(\ell,k)$.
+  \begin{scilab}
+    & \tcFun{function} \tcVar{q} = qmatrix(\tcVar{n}) \nl %
+    & \qquad \tcVar{q} = ones(\tcVar{n}, \tcVar{n}) \nl %
+    & \qquad \tcFor{for} L = 2:\tcVar{n} \nl %
+    & \qquad \qquad \tcFor{for} K = 2:\tcVar{n} \nl %
+    & \qquad \qquad \qquad \tcIf{if} (K<L) \tcIf{then} \nl %
+    & \qquad \qquad \qquad \qquad \tcVar{q}(L,K) = ................
+    \nl %
+    & \qquad \qquad \qquad \tcIf{elseif} (K==L) \tcIf{then} \nl %
+    & \qquad \qquad \qquad \qquad \tcVar{q}(L,K) = ..............
+    \nl %
+    & \qquad \qquad \qquad \tcIf{else} \nl %
+    & \qquad \qquad \qquad \qquad \tcVar{q}(L,K) = \tcVar{q}(L-1,K) +
+    \tcVar{q}(L,K-L) \nl %
+    & \qquad \qquad \qquad \tcIf{end} \nl %
+    & \qquad \qquad \tcFor{end} \nl %
+    & \qquad \tcFor{end} \nl %
+    & \tcFun{endfunction}
+  \end{scilab} 
+  
+  \noindent
+  L'application de la fonction {\tt qmatrix} à l'entier $n=9$ fournit 
+  la sortie suivante :
+  \[
+    \begin{console}
+      \lDisp{----> qmatrix(9)} \nl %
+      \lDisp{\qquad 1. \qquad 1. \qquad 1. \qquad 1. \qquad 1.  \qquad
+        1. \qquad 1. \qquad 1. \qquad 1.} \nl %
+      \lDisp{\qquad 1. \qquad 2. \qquad 2. \qquad 3. \qquad 3.  \qquad
+        4. \qquad 4. \qquad 5. \qquad 5.} \nl %
+      \lDisp{\qquad 1. \qquad 2. \qquad 3. \qquad 4. \qquad 5.  \qquad
+        7. \qquad 8. \qquad\espn{} 10. \qquad\espn{} 12.} \nl %
+      \lDisp{\qquad 1. \qquad 2. \qquad 3. \qquad 5. \qquad 6.  \qquad
+        9. \qquad\espn{} 11. \qquad\espn{} 15. \qquad\espn{} 18.}
+      \nl %
+      \lDisp{\qquad 1. \qquad 2. \qquad 3. \qquad 5. \qquad
+        7. \qquad\espn{} 10. \qquad\espn{} 13. \qquad\espn{}
+        18. \qquad\espn{} 23.} \nl %
+      \lDisp{\qquad 1. \qquad 2. \qquad 3. \qquad 5. \qquad 7.
+        \qquad\espn{} 11. \qquad\espn{} 14. \qquad\espn{}
+        20. \qquad\espn{} 26.} \nl %
+      \lDisp{\qquad 1. \qquad 2. \qquad 3. \qquad 5. \qquad 7.
+        \qquad\espn{} 11. \qquad\espn{} 15. \qquad\espn{}
+        21. \qquad\espn{} 28.} \nl %
+      \lDisp{\qquad 1. \qquad 2. \qquad 3. \qquad 5. \qquad 7.
+        \qquad\espn{} 11. \qquad\espn{} 15. \qquad\espn{}
+        22. \qquad\espn{} 29.} \nl %
+      \lDisp{\qquad 1. \qquad 2. \qquad 3. \qquad 5. \qquad 7.
+        \qquad\espn{} 11. \qquad\espn{} 15. \qquad\espn{}
+        22. \qquad\espn{} 30.}
+    \end{console}
+    \]
+
+
+  %\newpage
+
+
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Compléter les lignes \ligne{5} et \ligne{6} du script de la
+    fonction {\tt qmatrix}.
+
+    
+
+  \item Donner un script \Scilab{} permettant de calculer $p(n)$ à
+    partir d'une valeur de $n$ entrée au clavier.
+    
+    
+
+  \item Conjecturer une formule générale pour $q(2,k)$ applicable à
+    tout entier $k \geq 1$, puis la démontrer.
+
+        
+  \end{noliste}
+\end{noliste}
+
+
+
+%\newpage
+
+
+\section*{Problème}
+
+\noindent
+{\bfseries Dans tout le problème :}
+\begin{noliste}{$\sbullet$}
+  \item toutes les variables aléatoires introduites sont 
+  supposées définies sur un même espace probabilisé $(\Omega, \A, 
+  \Prob)$ ;
+  
+  \item on note $n$ un entier supérieur ou égal à $2$.
+\end{noliste}
+{\it L'objet du problème est l'étude de sommes de variables 
+aléatoires suivant une loi de Bernoulli de même paramètre, mais qui ne 
+sont pas nécessairement indépendantes.
+
+\noindent
+Les parties II et III sont indépendantes de la partie I.}
+
+
+\subsection*{Partie I. Valeurs possibles du coefficient de 
+corrélation linéaire dans divers schémas de Bernoulli}
+
+\noindent
+{\it Dans cette partie, on considère des variables aléatoires 
+$X_1, X_2, \ldots, X_n$ suivant chacune la même loi de Bernoulli de 
+paramètre $p$ avec $0 < p < 1$, c'est à dire : 
+\[
+  \forall k \in \llb 1, n \rrb, \ \Prob(\Ev{X_k=1}) = p \quad \text{et} 
+  \quad \Prob(\Ev{X_k=0}) = 1-p
+\]
+
+\noindent
+On suppose que pour tout couple $(k,\ell) \in \llb 1,n \rrb^2$ avec $k 
+\neq \ell$, le coefficient de corrélation linéaire des variables $X_k$ 
+et $X_\ell$ est le même ; on note $r$ ce coefficient. On a donc :
+\[
+  \forall (k,\ell) \in \llb 1,n \rrb^2, \ 
+  \dfrac{\Cov(X_k,X_\ell)}{\sqrt{\V(X_k) 
+  \V(X_\ell)}} = \left\{
+  \begin{array}{cR{3cm}}
+    1 & si $k=\ell$
+    \nl
+    \nl[-.4cm]
+    r & si $k \neq \ell$
+  \end{array}
+  \right.
+\]
+}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Dans les cas $(i)$ et $(ii)$ suivants, calculer la valeur 
+    de $r$ et exprimer la variance de la variable aléatoire $ 
+    \Sum{k=1}{n} X_k$ en fonction de $n$ et $p$.
+    \begin{nonoliste}{(i)}
+      \item Les variables aléatoires $X_1, X_2, \ldots, X_n$ sont 
+      mutuellement indépendantes.
+      
+      \item Les variables aléatoires $X_1, X_2, \ldots, X_n$ sont 
+      toutes égales.
+    \end{nonoliste}
+    
+    De plus, préciser la loi de $\Sum{k=1}{n} X_k$ dans chacun 
+    des deux cas précédents.
+    
+    
+
+
+    %\newpage
+
+    
+  \item Montrer que pour tout $k \in \llb 1,n \rrb$, la variance de la
+    variable aléatoire $\Sum{i=1}{k} X_i$ est donnée par la formule :
+    \[
+    \V \Big(\Sum{i=1}{k} X_i\Big) \ = \ k \, p \, (1-p) \, (1+(k-1)r)
+    \]
+    
+    
+    
+  \item En déduire que le coefficient $r$ est au moins égal à
+    $-\dfrac{1}{n-1}$.
+
+    
+  \end{noliste}
+  
+  
+  %\newpage
+  
+  
+\item On suppose dans cette question que $n$ est au moins égal à $2$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $r$ est égal à $-1$ si et seulement si on a :
+    $\Prob (\Ev{X_1=1} \cap \Ev{X_2=1}) = p(2p-1)$.
+    
+    
+
+  \item Que vaut alors $\Prob\big(\Ev{X_1=0} \cap \Ev{X_2=0} \big)$ ?
+
+    
+    
+  \item En déduire que le coefficient $r$ ne peut-être égal à $-1$ que
+    lorsque $p = \dfrac{1}{2}$ et $\Prob(\Ev{X_1 + X_2 = 1}) = 1$.
+
+    
+  \end{noliste}
+
+\item On suppose dans cette question que $n$ est supérieur ou égal à
+  $3$ et que $\Prob\left(\Ev{\Sum{k=1}{n} X_k = 1}\right)=1$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Exprimer les valeurs de $p$ et $r$ en fonction de $n$.
+
+    
+
+  \item Déterminer les $n$-uplets $(x_1, x_2, \ldots, x_n) \in
+    \{0,1\}^n$ pour lesquels la probabilité $\Prob\left( \dcap{k=1}{n}
+      \Ev{X_k = x_k}\right)$ est strictement positive et la calculer.
+
+    
+  \end{noliste}
+\end{noliste}
+
+
+
+%\newpage
+
+
+\subsection*{Partie II. Lois bêtas-binomiales}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{3}
+\item Soit $(x,y) \in \R^2$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Justifier que l'intégrale $\dint{0}{\frac{1}{2}} t^{x-1} \
+    (1-t)^{y-1} \dt$ est convergente si seulement si $x>0$.
+
+    
+    
+  \item Pour tout réel $\eps$ tel que $0 < \eps < \dfrac{1}{2}$,
+    établir à l'aide d'un changement de variable affine, l'égalité :
+    \[
+    \dint{\frac{1}{2}}{1-\eps} t^{x-1} \ (1-t)^{y-1} \dt \ = \
+    \dint{\eps}{\frac{1}{2}} t^{y-1} \ (1-t)^{x-1} \dt
+    \]
+
+    
+    
+
+    %\newpage
+
+
+  \item En déduire que l'intégrale $\dint{0}{1} t^{x-1} \ (1-t)^{y-1}
+    \dt$ est convergente si et seulement si $x>0$ et $y>0$.
+
+    
+  \end{noliste}
+\end{noliste}
+
+\noindent {\it Dans toute la suite du problème, on pose : \ $\forall
+  (x,y) \in (\R_+^*)^2 , \ B(x,y) = \dint{0}{1} t^{x-1} \, (1-t)^{y-1}
+  \dt$.}
+
+
+%\newpage
+
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{4}
+\item Soit $x$ et $y$ des réels strictement positifs.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item À l'aide d'une intégration par parties, établir la relation :
+    $B(x+1,y) = \dfrac{x}{y} \times B(x,y+1)$.
+    
+    
+
+
+    %\newpage
+
+
+  \item En déduire l'égalité : $B(x,y+1) = \dfrac{y}{x+y} \times
+    B(x,y)$.
+
+    
+
+  \end{noliste}
+  
+\item Pour tout réel $z$, soit $\left( (z)^{[m]} \right)_{m \in \N}$
+  la suite définie par :
+  \[
+  (z)^{[0]}=1 \quad \text{et} \quad \forall m \in \N, \ 
+  (z)^{[m+1]}=(z+m)   \times (z)^{[m]}
+  \]
+  (par exemple, pour tout $m \in \N$, on a $(1)^{[m]}=m!$)\\[.1cm]
+  Établir pour tout $(x,y) \in (\R_+^*)^2$ et pour tout 
+  couple $(k, \ell)$ d'entiers tels que $0 \leq k \leq \ell$, la 
+  relation :
+  \[
+  B(x+k, y+\ell-k) \ = \ \dfrac{(x)^{[k]} \times (y)^{[\ell-k]}}{(x +
+    y)^{[\ell]}} \times B(x,y)
+  \]
+  
+  
+  
+\item Soit $a$ et $b$ des réels strictement positifs.\\[.2cm]
+  Pour $k \in \llb 0,n \rrb$, on pose : $p_k = \dbinom{n}{k} \
+  \dfrac{(a)^{[k]} \times (b)^{[n-k]}}{(a+b)^{[n]}}$.
+
+
+  %\newpage
+
+
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item À l'aide de la relation obtenue dans la question \itbf{6},
+    montrer que $\Sum{k=0}{n} p_k = 1$.
+    
+    
+    
+  \end{noliste}
+  
+  \noindent
+  {\itshape On dit qu'une variable aléatoire $S$ suit une loi
+    bêta-binomiale ${\bf B}(n;a,b)$ si $S(\Omega)=\llb 0,n\rrb$ et si
+    :
+    \[
+    \forall k \in \llb 0,n \rrb, \ \Prob(\Ev{S=k}) = \dbinom{n}{k} \
+    \dfrac{(a)^{[k]} \times (b)^{[n-k]}}{(a+b)^{[n]}}
+    \]
+  }
+
+
+  %\newpage
+
+
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \setcounter{enumii}{1}
+    \item Reconnaître la loi ${\bf B}(n;1,1)$. 
+
+      
+
+    \item Montrer que l'espérance d'une variable aléatoire $S$ qui
+      suit la loi ${\bf B}(n;a,b)$ est égale à $\dfrac{na}{a+b}$.
+
+      
+  \end{noliste}
+\end{noliste}
+
+
+%\newpage
+
+
+\subsection*{Partie III. Un possible dans le cas où $n=2$}
+
+\noindent
+Soit $a$ et $b$ des réels strictement positifs et $X_1$ et $X_2$ deux 
+variables aléatoires à valeurs dans $\{0,1\}$ telles que :
+\[
+\forall (x_1,x_2) \in \{0,1\}^2, \ \Prob\left(\Ev{X_1=x_1}\cap
+  \Ev{X_2=x_2}\right) \ = \ \dfrac{B(a+x_1+x_2,b+2-x_1-x_2)}{B(a,b)}
+\]
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm} %
+  \setcounter{enumi}{7}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que les deux variables $X_1$ et $X_2$ suivent la même
+    loi de Bernoulli.
+
+    
+
+
+    %\newpage
+
+
+  \item Montrer que la variable aléatoire $X_1 + X_2$ suit la loi
+    bêta-binomiale ${\bf B}(2;a,b)$.
+
+    
+
+
+    %\newpage
+    
+
+  \item Établir la relation : $\Prob_{\Ev{X_1=1}}(\Ev{X_2=1}) =
+    \dfrac{a+1}{a+b+1}$.
+
+    
+  \end{noliste}
+  
+\item La fonction \Scilab{} suivante dont le script est incomplet
+  (lignes \ligne{7} et \ligne{11}), effectue une simulation des deux
+  variables $X_1$ et $X_2$ qu'elle place dans un vecteur ligne à deux
+  composantes.
+\end{noliste}
+
+\begin{scilab}
+  & \tcFun{function} \tcVar{x} = randbetabin(\tcVar{a}, \tcVar{b})
+  \nl %
+  & \qquad \tcVar{x} = zeros(1,2) \nl %
+  & \qquad u = (\tcVar{a} + \tcVar{b}) \Sfois{} rand() \nl %
+  & \qquad v = (\tcVar{a} + \tcVar{b} + 1) \Sfois{} rand() \nl %
+  & \qquad \tcIf{if} (u < \tcVar{a}) \tcIf{then} \nl %
+  & \qquad \qquad \tcVar{x}(1,1) = 1 \nl %
+  & \qquad \qquad \tcIf{if} .............. \tcIf{then} \nl %
+  & \qquad \qquad \qquad \tcVar{x}(1,2) = 1 \nl %
+  & \qquad \qquad \tcIf{end} \nl %
+  & \qquad \tcIf{else} \nl %
+  & \qquad \qquad \tcIf{if} ............. \tcIf{then} \nl %
+  & \qquad \qquad \qquad \tcVar{x}(1,2) = 1 \nl %
+  & \qquad \qquad \tcIf{end} \nl %
+  & \qquad \tcIf{end} \nl %
+  & \tcFun{endfunction}
+\end{scilab}
+  
+\begin{liste}{a)}
+  \setlength{\itemsep}{2mm}
+\item Préciser la loi simulée par la variable {\tt u} de la ligne
+  \ligne{3}.
+
+  
+    
+  \item Compléter les lignes \ligne{7} et \ligne{11}.
+    
+    
+\end{liste}
+
+
+%\newpage
+
+  
+\begin{noliste}{1.}
+  \setcounter{enumi}{9} %
+  \setlength{\itemsep}{4mm}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Calculer le coefficient de corrélation linéaire de $X_1$ et
+    $X_2$.
+      
+    
+
+
+    %\newpage
+
+
+  \item Soit $(p,r)$ un couple de réels vérifiant $0 < p < 1$ et $0 <
+    r < 1$.\\
+    Expliquer comment utiliser la fonction {\tt randbetabin} pour
+    simuler deux variables aléatoires suivant une même loi de
+    Bernoulli de paramètre $p$ et dont le coefficient de corrélation
+    linéaire est égal à $r$.
+
+    
+
+  \end{noliste}
+\end{noliste}
+  
+
+
+
+
+\end{document}

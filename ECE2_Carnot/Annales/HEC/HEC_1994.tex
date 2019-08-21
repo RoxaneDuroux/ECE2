@@ -1,0 +1,290 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 1994} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 1994}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\huge HEC Eco 1994}
+\end{center}
+
+\section*{Exercice 1}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour tout entier naturel $n$, on note $f_{n}$ la fonction définie
+sur $[0,1]$ par 
+\[
+f_{n}(x) = \dint{0}{x}e^{nt^{2}}dt-\dint{x}{1}e^{-nt^{2}}dt
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f_{n}$ est dérivable sur $[0,1]$.
+
+\item Étudier le sens de variation de $f_{n}$.
+\end{noliste}
+
+\item Montrer qu'il existe un unique réel $c_{n}$ de $[0,1]$ tel que 
+\[
+\dint{0}{c_{n}}e^{nt^{2}}dt = \dint{c_{n}}{1}e^{-nt^{2}}dt
+\]
+Donner la valeur de $c_{0}$.
+
+\item On considère la suite $(c_{n})_{n\geq 0}$ des nombres définis à
+la question précédente; montrer qu'elle est croissante et qu'elle
+converge
+vers une limite $\ell $ appartenant à $[0,1]$.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout nombre réel fixé de $[0,1]$,
+$\dlim{n\rightarrow + \infty }\dint{0}{r}e^{nt^{2}}dt = + \infty $.
+
+\item Montrer que pour tout entier naturel $n$ on a
+$\dint{c_{n}}{1}e^{-nt^{2}}dt\leq 1$.
+
+\item En déduire la valeur de $\ell $.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 2}
+
+On note $(e_{1},e_{2},e_{3})$ la base canonique de $\R^{3}$ et on
+désigne par $\Gamma $ la partie de $\M_{3}(\R)$ constituée des
+matrices dont les trois colonnes sont égales.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $T = \left( 
+\begin{array}{ccc}
+a & a & a \\
+b & b & b \\
+c & c & c
+\end{array}
+\right) $ un élément de $\Gamma $. On pose $s = a + b + c$ et on note
+$u$
+l'endomorphisme de $\R^{3}$ de matrice $T$ dans la base
+$(e_{1},e_{2},e_{3})$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On suppose dans cette question que $s\neq 0$.
+
+\begin{nonoliste}{(i)}
+\item Montrer que les vecteurs 
+\[
+f_{1} = e_{1}-e_{2}\qquad f_{2} = e_{2}-e_{3}\qquad f_{3} = ae_{1} +
+be_{2} + ce_{3}
+\]
+forment une base de $\R^{3}$.
+
+\item Déterminer la matrice de $u$ dans cette base.
+
+\item En déduire les valeurs propres de $T$.
+\end{nonoliste}
+
+\item On suppose dans cette question que $s = 0$.
+
+\begin{nonoliste}{(i)}
+\item Calculer $T^{2}$.
+
+\item En déduire que $T$ admet 0 pour unique valeur propre.
+\end{nonoliste}
+\end{noliste}
+
+\item Soit de plus $T^{\prime } = \left( 
+\begin{array}{ccc}
+a^{\prime } & a^{\prime } & a^{\prime } \\
+b^{\prime } & b^{\prime } & b^{\prime } \\
+c^{\prime } & c^{\prime } & c^{\prime }
+\end{array}
+\right) $ un autre élément de $\Gamma $ et $s^{\prime } = a^{\prime
+} + b^{\prime } + c^{\prime }$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer le produit $TT^{\prime }$ en fonction de $T$.
+
+\item A quelles conditions les matrices $TT^{\prime }$ et $T$ ont-elles
+les mêmes valeurs propres ? (On pourra distinguer le cas $s = 0$ et
+$s\neq 0$).
+\end{noliste}
+
+\item Soit $M$ un élément de $\M_{3}(\R)$ de la forme $M = T + I$
+où $T$ appartient à $\Gamma $ et $I$ est la matrice unité de
+$\M_{3}(\R)$. On suppose que $T$ n'est pas la matrice nulle.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout couple $(\alpha,\beta )$ de nombres réels, exprimer le
+produit $M(\alpha I + \beta M)$ comme combinaison linéaire de $I$ et
+$M$.
+
+\item Trouver les valeurs de $s$ pour lesquelles $M$ possède une
+matrice
+inverse la forme $(\alpha I + \beta M)$ et calculer cette inverse.\\
+Pour les autres valeurs de $s$, la matrice $M$ est-elle inversible ?
+
+\item Montrer que la matrice $N = \left( 
+\begin{array}{rrr}
+2 & 1 & 1 \\
+0 & 1 & 0 \\
+-1 & -1 & 0
+\end{array}
+\right) $ est inversible et calculer sont inverse.
+
+\item Trouver les valeurs propres et les vecteurs propres de $N$.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 3}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Rappeler la valeur de la quantité ${\dfrac{1}{\sqrt{2\pi
+}}}\dint{-\infty }{+ \infty }e^{-{\frac{x^{2}}{2}}}dx$ et en déduire la
+valeur de $\dint{0}{+ \infty }e^{-{\frac{x^{2}}{2}}}dx$
+
+\item Déterminer la constante $k$ telle que la fonction $f$ définie par
+
+\[
+f(x) = \left\{ 
+\begin{array}{rrr}
+ke^{-{\frac{t^{2}}{2}}} & \text{si} & x\geq 0 \\
+0 & \text{si} & x<0
+\end{array}
+\right. 
+\]
+soit une densité de probabilité.
+\end{noliste}
+
+\item Un barrage alimente l'irrigation d'une région donnée. La quantité
+d'eau de pluie tombée en un mois en amont du barrage est une variable
+aléatoire $X$ qui suit une loi de densité $f$. On suppose que, dans un
+système
+d'unités convenablement choisi, la quantité d'eau fournie par le
+barrage est 
+égale a la variable aléatoire $Q = (1-ae^{-bX^{2}})$ où $b$ est un
+nombre
+strictement positif et $a$ un nombre tel que $0<a<1$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer l'espérance $\E(X)$ et la variance $\V(X)$ de la
+variable aléatoire $X$.
+
+\item Étudier la fonction $g$ définie par $g(x) = (1-ae^{-bx^{2}})$.\\
+Montrer qu'elle admet une fonction réciproque $g^{-1}$ dont on
+précisera
+l'ensemble de définition.\\
+Expliciter la valeur $g^{-1}(y)$ en fonction de $y$.
+
+\item Calculer l'espérance $\E(Q)$ et la variance $\V(Q)$ de la
+variable $Q$
+en fonction de $a$ et $b$.
+\end{noliste}
+
+\item Exprimer la probabilité $p$ que $Q$ soit supérieure à une valeur
+fixée 
+$\alpha $ à l'aide de la fonction de répartition $\Phi $ d'une loi
+normale
+centrée réduite, de la fonction $g^{-1}$ et de $\alpha $.
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

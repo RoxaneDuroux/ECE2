@@ -1,0 +1,418 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EML 2003} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{EML 2003}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2003}}
+
+
+
+{\large \textbf{Concepteur : EML}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+
+\begin{center}
+{\large \textbf{EXERCICE~1} }
+\end{center}
+
+On note $\M{3} $ l'ensemble des matrices
+carrées réelles d'ordre trois et on considère les matrices
+suivantes de $\M{3} $~ : {\large 
+\[
+I = \left( 
+\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{array}
+\right) \qquad A = \left( 
+\begin{array}{ccc}
+1 & 1 & 1 \\
+1 & 0 & 0 \\
+1 & 0 & 0
+\end{array}
+\right) 
+\]
+}
+
+\textbf{I.~ Première partie}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer $A^{2}$ et $A^{3}$, puis vérifier~ : $A^{3} = A^{2} +
+2A$.
+
+\item Montrer que la famille $\left( {A,A^{2}}\right) $ est libre dans
+$\M{3} $.
+
+\item Montrer que, pour tout entier $n$ supérieur ou égal à $1$, il
+existe un couple unique $\left( {a_{n},b_{n}}\right) $ de nombres
+réels tel que~ : $A^{n} = a_{n}A + b_{n}A^{2}$, et exprimer $a_{n + 1}$
+et $b_{n + 1}$ en fonction de $a_{n}$ et $b_{n}$.
+
+\item Écrire un programme en -\Scilab{} qui calcule et affiche $a_{n}$
+et $b_{n}$ pour un entier $n$ donné supérieur ou égal à $1$.
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer, pour tout entier $n$ supérieur ou égal à 1~ : 
+\[
+a_{n + 2} = a_{n + 1} + 2a_{n}
+\]
+
+\item En déduire $a_{n}$ et $b_{n}$ en fonction de $n$, pour tout
+entier $n$ supérieur ou égal à $1$.
+
+\item Donner l'expression de $A^{n}$ en fonction de $A$, $A^{2}$ et
+$n$,
+pour tout entier $n$ supérieur ou égal à $1$.
+\end{noliste}
+\end{noliste}
+
+{\large \ ~}
+
+\textbf{\noindent II.~ Seconde partie}
+
+On note $f$ l'endomorphisme de $\Bbb{R}{3}$ dont la matrice
+relativement
+à la base canonique $\left( {e_{1},e_{2},e_{3}}\right) $ de
+$\Bbb{R}{3}$ est $A$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer une base de $\operatorname{Im}\left( {f}\right) $ et
+donner la
+dimension de $\operatorname{Im}\left( {f}\right) $.
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Est-ce que $f$ est diagonalisable~ ?
+
+\item Est-ce que $f$ est bijectif~ ?
+\end{noliste}
+
+\item Déterminer les valeurs propres de $f$, et donner, pour chaque
+sous-espace propre de $f$, une base de ce sous-espace propre.
+
+\item Déterminer une matrice diagonale $D$ dont les termes diagonaux
+sont dans l'ordre réel croissant, et une matrice inversible $P$ dont la
+troisième ligne est formée de termes tous égaux à $1$,
+telles que $A = PDP^{-1}$, et calculer $P^{-1}$.
+
+\item Déterminer l'ensemble des matrices $M$ de $\M{3} $ telles que~ : 
+\[
+AM + MA = 0
+\]
+\end{noliste}
+
+\begin{center}
+\vspace{1.5cm}{\LARG\E\ \noindent EXERCICE~2}
+\end{center}
+
+On note $\text{e} = \exp \left( {1}\right) $, et $\Bbb{R}_{+}{*} =
+\left] {0; + \infty }\right[ $.
+
+On considère, pour tout nombre réel $a$ non nul, l'application $f_{a}
+:\Bbb{R}_{+}{*}\times \Bbb{R}_{+}{*}\longrightarrow \Bbb{R}$
+définie par~ : 
+\[
+\forall \left( {x,y}\right) \in \Bbb{R}_{+}{*}\times
+\Bbb{R}_{+}{*},\quad f_{a}\left( {x,y}\right) =
+\dfrac{x\mathrm{e}{-x}}{y}-\dfrac{y}{a} 
+\]
+
+Les deux parties de l'exercice sont indépendantes entre elles.
+
+~
+
+\textbf{\ \noindent I.~ Première partie}
+
+Dans cette première partie, on prend $a = -\mathrm{e}$, et on note $g$
+à la place de $f_{-\text{e}}$. Ainsi, l'application $g
+:\Bbb{R}_{+}{*}\times \Bbb{R}_{+}{*}\longrightarrow \Bbb{R}$ est
+définie
+par~ : 
+\[
+\forall \left( {x,y}\right) \in \Bbb{R}_{+}{*}\times
+\Bbb{R}_{+}{*},\quad g\left( {x,y}\right) = \dfrac{x\mathrm{e}{-x}}{y}
++ \dfrac{y}{e}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $g$ est de classe $C^{2}$ sur $\Bbb{R}_{+}{*}\times
+\Bbb{R}_{+}{*}$.
+
+\item Calculer les dérivées partielles d'ordre $1$ de $g$ en tout
+point $\left( {x,y}\right) $ de $\Bbb{R}_{+}{*}\times \Bbb{R}_{+}{*}$.
+
+\item Montrer qu'il existe un couple unique $\left( {x,y}\right) $ de
+$\Bbb{R}_{+}{*}\times \Bbb{R}_{+}{*}$ en lequel les deux
+dérivées partielles d'ordre $1$ de $g$ s'annulent, et calculer ce
+couple.
+
+\item Est-ce que $g$ admet un extremum~ ?
+\end{noliste}
+
+~
+
+\textbf{\ \noindent II.~ Seconde partie }
+
+Dans cette seconde partie, on prend $a = 1$.
+
+On considère, pout tout entier $n$ tel que $n\geq 1$, l'application 
+$h_{n} :\left] {0; + \infty }\right[ \ \longrightarrow \Bbb{R}$ définie
+par~ : 
+\[
+\forall x\in \left] {0; + \infty }\right[,\quad h_{n}\left( {x}\right)
+ = f_{1}\left( {x,x^{n}}\right) = \dfrac{x\text{e}{-x}}{x^{n}}-x^{n} 
+\]
+et l'application $\varphi_{n} :\left] {0; + \infty }\right[ \
+\longrightarrow \Bbb{R}$ définie par~ : 
+\[
+\forall x\in \left] {0; + \infty }\right[,\quad \varphi_{n}\left(
+{x}\right)
+ = \text{e}{-x}-x^{2n-1} 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout entier $n$ supérieur ou égal à $1$~ : 
+\[
+\forall x\in \left] {0; + \infty }\right[,\quad h_{n}\left( {x}\right)
+ = 0\Longleftrightarrow \varphi_{n}\left( {x}\right) = 0 
+\]
+
+\item En déduire que, pour tout entier $n$ supérieur ou égal
+à $1$, l'équation $h_{n}\left( {x}\right) = 0$, d'inconnue $x\in
+\left] {0; + \infty }\right[ $, admet une solution et une seule, notée
+$u_{n}$, et que~ : 
+\[
+0<u_{n}<1 
+\]
+
+\item Montrer, pour tout entier $n$ supérieur ou égal à $1$~ : $\ln
+\left( {u_{n}}\right) = -\dfrac{u_{n}}{2n-1}$.
+
+\item En déduire~ : $u_{n}\rightarrow 1$ quand $n\rightarrow + \infty $
+\end{noliste}
+\end{noliste}
+
+\begin{center}
+\vspace{1.5cm}{\LARG\E\ \noindent EXERCICE~3}
+\end{center}
+
+Montrer que l'intégrale $ \dint{2}{+ \infty }\dfrac{1}{x\sqrt{x}}dx$
+est convergente et calculer sa valeur.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item ~
+
+Soit $f :\Bbb{R}\longrightarrow \Bbb{R}$ la fonction définie par~ :
+$\left\{ 
+\begin{array}{cc}
+f\left( {x}\right) = 0 & \text{si }x<2 \\
+f\left( {x}\right) = \dfrac{1}{x\sqrt{2x}} & \text{si }x\geq 2
+\end{array}
+\right. $
+
+~
+
+\item Montrer que $f$ définit une densité de probabilité.
+
+\item Soit $X$ une variable aléatoire réelle admettant $f$ pour
+densité.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la fonction de répartition de $X$.
+
+\item La variable aléatoire $X$ admet-elle une espérance~ ?
+\end{noliste}
+
+~
+
+On considère trois variables aléatoires indépendantes $T_{1}$, $T_{2}$
+et $T_{3}$, chacune de même loi que $X$.
+
+~
+
+\item On condidère la variable aléatoire $U = \inf \left(
+{T_{1},T_{2},T_{3}}\right) $ définie par~ : 
+\[
+\forall t\in \Bbb{R},\quad \left( {U>t}\right) = \left(
+{T_{1}>t}\right)
+\cap \left( {T_{2}>t}\right) \cap \left( {T_{3}>t}\right) 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la fonction de répartition $G$ de $U$.
+
+\item Montrer que $U$ admet une densité et déterminer une
+densité $g$ de $U$.
+
+\item Montrer que $U$ admet une espérance et calculer $\E\left(
+{U}\right) $.
+\end{noliste}
+
+\item On condidère la variable aléatoire $V = \sup \left(
+{T_{1},T_{2},T_{3}}\right) $ définie par~ : 
+\[
+\forall t\in \Bbb{R},\quad \left( {\V\leq t}\right) = \left( {T_{1}\leq
+t}\right) \cap \left( {T_{2}\leq t}\right) \cap \left( {T_{3}\leq
+t}\right) 
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la fonction de répartition $H$ de $V$.
+
+\item Montrer que $V$ admet une densité et déterminer une
+densité $h$ de $V$.
+
+\item La variable aléatoire $V$ admet-elle une espérance~ ?
+\end{noliste}
+\end{noliste}
+
+\end{document}
+

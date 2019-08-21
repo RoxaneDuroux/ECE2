@@ -1,0 +1,1706 @@
+\usepackage{array}
+\usepackage{paralist}
+
+\usepackage[svgnames, usenames, dvipsnames]{xcolor}
+\xdefinecolor{RecColor}{named}{Aqua}
+\xdefinecolor{IncColor}{named}{Aqua}
+\xdefinecolor{ImpColor}{named}{PaleGreen}
+
+% \usepackage{frcursive}
+
+\usepackage{adjustbox}
+
+%%%%%%%%%%%
+\newcommand{\cRB}[1]{{\color{Red} \pmb{#1}}} %
+\newcommand{\cR}[1]{{\color{Red} {#1}}} %
+\newcommand{\cBB}[1]{{\color{Blue} \pmb{#1}}}
+\newcommand{\cB}[1]{{\color{Blue} {#1}}}
+\newcommand{\cGB}[1]{{\color{LimeGreen} \pmb{#1}}}
+\newcommand{\cG}[1]{{\color{LimeGreen} {#1}}}
+
+%%%%%%%%%%
+
+\usepackage{diagbox} %
+\usepackage{colortbl} %
+\usepackage{multirow} %
+\usepackage{pgf} %
+\usepackage{environ} %
+\usepackage{fancybox} %
+\usepackage{textcomp} %
+\usepackage{marvosym} %
+
+%%%%%%%%%% pour qu'une cellcolor ne recouvre pas le trait du tableau
+\usepackage{hhline}%
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{patchplots}
+\usepgfplotslibrary{fillbetween}
+\usepackage{tikz,tkz-tab}
+\usepackage{ifthen}
+\usepackage{calc}
+\usetikzlibrary{calc,decorations.pathreplacing,arrows,positioning} 
+\usetikzlibrary{fit,shapes,backgrounds}
+\usepackage[nomessages]{fp}% http://ctan.org/pkg/fp
+
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing,
+  decorations.pathreplacing} 
+
+\newcommand{\myunit}{1 cm}
+\tikzset{
+    node style sp/.style={draw,circle,minimum size=\myunit},
+    node style ge/.style={circle,minimum size=\myunit},
+    arrow style mul/.style={draw,sloped,midway,fill=white},
+    arrow style plus/.style={midway,sloped,fill=white},
+}
+
+%%%%%%%%%%%%%%
+%%%%% écrire des inférieur égal ou supérieur égal avec typographie
+%%%%% francaise
+%%%%%%%%%%%%%
+
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\emptyset}{\varnothing}
+
+\newcommand{\Leq}{\leqslant}
+\newcommand{\Geq}{\geqslant}
+
+%%%%%%%%%%%%%%
+%%%%% Macro Celia
+%%%%%%%%%%%%%
+
+\newcommand{\ff}[2]{\left[#1, #2\right]} %
+\newcommand{\fo}[2]{\left[#1, #2\right[} %
+\newcommand{\of}[2]{\left]#1, #2\right]} %
+\newcommand{\soo}[2]{\left]#1, #2\right[} %
+\newcommand{\abs}[1]{\left|#1\right|} %
+\newcommand{\Ent}[1]{\left\lfloor #1 \right\rfloor} %
+
+
+%%%%%%%%%%%%%%
+%%%%% tikz : comment dessiner un "oeil"
+%%%%%%%%%%%%%
+
+\newcommand{\eye}[4]% size, x, y, rotation
+{ \draw[rotate around={#4:(#2,#3)}] (#2,#3) -- ++(-.5*55:#1) (#2,#3)
+  -- ++(.5*55:#1); \draw (#2,#3) ++(#4+55:.75*#1) arc
+  (#4+55:#4-55:.75*#1);
+  % IRIS
+  \draw[fill=gray] (#2,#3) ++(#4+55/3:.75*#1) arc
+  (#4+180-55:#4+180+55:.28*#1);
+  % PUPIL, a filled arc
+  \draw[fill=black] (#2,#3) ++(#4+55/3:.75*#1) arc
+  (#4+55/3:#4-55/3:.75*#1);%
+}
+
+
+%%%%%%%%%%
+%% discontinuité fonction
+\newcommand\pointg[2]{%
+  \draw[color = red, very thick] (#1+0.15, #2-.04)--(#1, #2-.04)--(#1,
+  #2+.04)--(#1+0.15, #2+.04);%
+}%
+
+\newcommand\pointd[2]{%
+  \draw[color = red, very thick] (#1-0.15, #2+.04)--(#1, #2+.04)--(#1,
+  #2-.04)--(#1-0.15, #2-.04);%
+}%
+
+%%%%%%%%%%
+%%% 1 : position abscisse, 2 : position ordonnée, 3 : taille, 4 : couleur
+%%%%%%%%%%
+% \newcommand\pointG[4]{%
+%   \draw[color = #4, very thick] (#1+#3, #2-(#3/3.75))--(#1,
+%   #2-(#3/3.75))--(#1, #2+(#3/3.75))--(#1+#3, #2+(#3/3.75)) %
+% }%
+
+\newcommand\pointG[4]{%
+  \draw[color = #4, very thick] ({#1+#3/3.75}, {#2-#3})--(#1,
+  {#2-#3})--(#1, {#2+#3})--({#1+#3/3.75}, {#2+#3}) %
+}%
+
+\newcommand\pointD[4]{%
+  \draw[color = #4, very thick] ({#1-#3/3.75}, {#2+#3})--(#1,
+  {#2+#3})--(#1, {#2-#3})--({#1-#3/3.75}, {#2-#3}) %
+}%
+
+\newcommand\spointG[4]{%
+  \draw[color = #4, very thick] ({#1+#3/1.75}, {#2-#3})--(#1,
+  {#2-#3})--(#1, {#2+#3})--({#1+#3/1.75}, {#2+#3}) %
+}%
+
+\newcommand\spointD[4]{%
+  \draw[color = #4, very thick] ({#1-#3/2}, {#2+#3})--(#1,
+  {#2+#3})--(#1, {#2-#3})--({#1-#3/2}, {#2-#3}) %
+}%
+
+%%%%%%%%%%
+
+\newcommand{\Pb}{\mathtt{P}}
+
+%%%%%%%%%%%%%%%
+%%% Pour citer un précédent item
+%%%%%%%%%%%%%%%
+\newcommand{\itbf}[1]{{\small \bf \textit{#1}}}
+
+
+%%%%%%%%%%%%%%%
+%%% Quelques couleurs
+%%%%%%%%%%%%%%%
+
+\xdefinecolor{cancelcolor}{named}{Red}
+\xdefinecolor{intI}{named}{ProcessBlue}
+\xdefinecolor{intJ}{named}{ForestGreen}
+
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+% barrer du texte
+\usetikzlibrary{shapes.misc}
+
+\makeatletter
+% \definecolor{cancelcolor}{rgb}{0.127,0.372,0.987}
+\newcommand{\tikz@bcancel}[1]{%
+  \begin{tikzpicture}[baseline=(textbox.base), inner sep=0pt]
+    \node[strike out, draw] (textbox) {#1}[thick, color=cancelcolor];
+    \useasboundingbox (textbox);
+  \end{tikzpicture}%
+}
+\newcommand{\bcancel}[1]{%
+  \relax\ifmmode
+    \mathchoice{\tikz@bcancel{$\displaystyle#1$}}
+               {\tikz@bcancel{$\textstyle#1$}}
+               {\tikz@bcancel{$\scriptstyle#1$}}
+               {\tikz@bcancel{$\scriptscriptstyle#1$}}
+  \else
+    \tikz@bcancel{\strut#1}%
+  \fi
+}
+\newcommand{\tikz@xcancel}[1]{%
+  \begin{tikzpicture}[baseline=(textbox.base),inner sep=0pt]
+  \node[cross out,draw] (textbox) {#1}[thick, color=cancelcolor];
+  \useasboundingbox (textbox);
+  \end{tikzpicture}%
+}
+\newcommand{\xcancel}[1]{%
+  \relax\ifmmode
+    \mathchoice{\tikz@xcancel{$\displaystyle#1$}}
+               {\tikz@xcancel{$\textstyle#1$}}
+               {\tikz@xcancel{$\scriptstyle#1$}}
+               {\tikz@xcancel{$\scriptscriptstyle#1$}}
+  \else
+    \tikz@xcancel{\strut#1}%
+  \fi
+}
+\makeatother
+
+\newcommand{\xcancelRA}{\xcancel{\rule[-.15cm]{0cm}{.5cm} \Rightarrow
+    \rule[-.15cm]{0cm}{.5cm}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\vide}{\multicolumn{1}{c}{}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{multicol}
+% \usepackage[latin1]{inputenc}
+% \usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[normalem]{ulem}
+\usepackage[french]{babel}
+
+\usepackage{url}    
+\usepackage{hyperref}
+\hypersetup{
+  backref=true,
+  pagebackref=true,
+  hyperindex=true,
+  colorlinks=true,
+  breaklinks=true,
+  urlcolor=blue,
+  linkcolor=black,
+  %%%%%%%%
+  % ATTENTION : red changé en black pour le Livre !
+  %%%%%%%%
+  bookmarks=true,
+  bookmarksopen=true
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Pour faire des traits diagonaux dans les tableaux
+%% Nécessite slashbox.sty
+%\usepackage{slashbox}
+
+\usepackage{tipa}
+\usepackage{verbatim,listings}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{tablists}
+\usepackage{dsfont,amsfonts,amssymb,amsmath,amsthm,stmaryrd,upgreek,manfnt}
+\usepackage{enumerate}
+
+%\newcolumntype{M}[1]{p{#1}}
+\newcolumntype{C}[1]{>{\centering}m{#1}}
+\newcolumntype{R}[1]{>{\raggedright}m{#1}}
+\newcolumntype{L}[1]{>{\raggedleft}m{#1}}
+\newcolumntype{P}[1]{>{\raggedright}p{#1}}
+\newcolumntype{B}[1]{>{\raggedright}b{#1}}
+\newcolumntype{Q}[1]{>{\raggedright}t{#1}}
+
+\newcommand{\alias}[2]{
+\providecommand{#1}{}
+\renewcommand{#1}{#2}
+}
+\alias{\R}{\mathbb{R}}
+\alias{\N}{\mathbb{N}}
+\alias{\Z}{\mathbb{Z}}
+\alias{\Q}{\mathbb{Q}}
+\alias{\C}{\mathbb{C}}
+\alias{\K}{\mathbb{K}}
+
+%%%%%%%%%%%%
+%% rendre +infty et -infty plus petits
+%%%%%%%%%%%%
+\newcommand{\sinfty}{{\scriptstyle \infty}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% macros TP Scilab %%%%%%%%
+\newcommand{\Scilab}{\textbf{Scilab}} %
+\newcommand{\Scinotes}{\textbf{SciNotes}} %
+\newcommand{\faire}{\noindent $\blacktriangleright$ } %
+\newcommand{\fitem}{\scalebox{.8}{$\blacktriangleright$}} %
+\newcommand{\entree}{{\small\texttt{ENTRÉE}}} %
+\newcommand{\tab}{{\small\texttt{TAB}}} %
+\newcommand{\mt}[1]{\mathtt{#1}} %
+% guillemets droits
+
+\newcommand{\ttq}{\textquotesingle} %
+
+\newcommand{\reponse}[1]{\longboxed{
+    \begin{array}{C{0.9\textwidth}}
+      \nl[#1]
+    \end{array}
+  }} %
+
+\newcommand{\reponseR}[1]{\longboxed{
+    \begin{array}{R{0.9\textwidth}}
+      #1
+    \end{array}
+  }} %
+
+\newcommand{\reponseC}[1]{\longboxed{
+    \begin{array}{C{0.9\textwidth}}
+      #1
+    \end{array}
+  }} %
+
+\colorlet{pyfunction}{Blue}
+\colorlet{pyCle}{Magenta}
+\colorlet{pycomment}{LimeGreen}
+\colorlet{pydoc}{Cyan}
+% \colorlet{SansCo}{white}
+% \colorlet{AvecCo}{black}
+
+\newcommand{\visible}[1]{{\color{ASCo}\colorlet{pydoc}{pyDo}\colorlet{pycomment}{pyCo}\colorlet{pyfunction}{pyF}\colorlet{pyCle}{pyC}\colorlet{function}{sciFun}\colorlet{var}{sciVar}\colorlet{if}{sciIf}\colorlet{comment}{sciComment}#1}} %
+
+%%%% à changer ????
+\newcommand{\invisible}[1]{{\color{ASCo}\colorlet{pydoc}{pyDo}\colorlet{pycomment}{pyCo}\colorlet{pyfunction}{pyF}\colorlet{pyCle}{pyC}\colorlet{function}{sciFun}\colorlet{var}{sciVar}\colorlet{if}{sciIf}\colorlet{comment}{sciComment}#1}} %
+
+\newcommand{\invisibleCol}[2]{{\color{#1}#2}} %
+
+\NewEnviron{solution} %
+{ %
+  \Boxed{
+    \begin{array}{>{\color{ASCo}} R{0.9\textwidth}}
+      \colorlet{pycomment}{pyCo}
+      \colorlet{pydoc}{pyDo}
+      \colorlet{pyfunction}{pyF}
+      \colorlet{pyCle}{pyC}
+      \colorlet{function}{sciFun}
+      \colorlet{var}{sciVar}
+      \colorlet{if}{sciIf}
+      \colorlet{comment}{sciComment}
+      \BODY
+    \end{array}
+  } %
+} %
+
+\NewEnviron{solutionC} %
+{ %
+  \Boxed{
+    \begin{array}{>{\color{ASCo}} C{0.9\textwidth}}
+      \colorlet{pycomment}{pyCo}
+      \colorlet{pydoc}{pyDo}
+      \colorlet{pyfunction}{pyF}
+      \colorlet{pyCle}{pyC}
+      \colorlet{function}{sciFun}
+      \colorlet{var}{sciVar}
+      \colorlet{if}{sciIf}
+      \colorlet{comment}{sciComment}
+      \BODY
+    \end{array}
+  } %
+} %
+
+\newcommand{\invite}{--\!\!>} %
+
+%%%%% nouvel environnement tabular pour retour console %%%%
+\colorlet{ConsoleColor}{Black!12}
+\colorlet{function}{Red}
+\colorlet{var}{Maroon}
+\colorlet{if}{Magenta}
+\colorlet{comment}{LimeGreen}
+
+\newcommand{\tcVar}[1]{\textcolor{var}{\bf \small #1}} %
+\newcommand{\tcFun}[1]{\textcolor{function}{#1}} %
+\newcommand{\tcIf}[1]{\textcolor{if}{#1}} %
+\newcommand{\tcFor}[1]{\textcolor{if}{#1}} %
+
+\newcommand{\moins}{\!\!\!\!\!\!- }
+\newcommand{\espn}{\!\!\!\!\!\!}
+
+\usepackage{booktabs,varwidth} \newsavebox\TBox
+\newenvironment{console}
+{\begin{lrbox}{\TBox}\varwidth{\linewidth}
+    \tabular{>{\tt\small}R{0.84\textwidth}}
+    \nl[-.4cm]} {\endtabular\endvarwidth\end{lrbox}%
+  \fboxsep=1pt\colorbox{ConsoleColor}{\usebox\TBox}}
+
+\newcommand{\lInv}[1]{%
+  $\invite$ #1} %
+
+\newcommand{\lAns}[1]{%
+  \qquad ans \ = \nl %
+  \qquad \qquad #1} %
+
+\newcommand{\lVar}[2]{%
+  \qquad #1 \ = \nl %
+  \qquad \qquad #2} %
+
+\newcommand{\lDisp}[1]{%
+  #1 %
+} %
+
+\newcommand{\ligne}[1]{\underline{\small \tt #1}} %
+
+\newcommand{\ligneAns}[2]{%
+  $\invite$ #1 \nl %
+  \qquad ans \ = \nl %
+  \qquad \qquad #2} %
+
+\newcommand{\ligneVar}[3]{%
+  $\invite$ #1 \nl %
+  \qquad #2 \ = \nl %
+  \qquad \qquad #3} %
+
+\newcommand{\ligneErr}[3]{%
+  $\invite$ #1 \nl %
+  \quad !-{-}error #2 \nl %
+  #3} %
+%%%%%%%%%%%%%%%%%%%%%% 
+
+\newcommand{\bs}[1]{\boldsymbol{#1}} %
+\newcommand{\nll}{\nl[.4cm]} %
+\newcommand{\nle}{\nl[.2cm]} %
+%% opérateur puissance copiant l'affichage Scilab
+%\newcommand{\puis}{\!\!\!~^{\scriptscriptstyle\pmb{\wedge}}}
+\newcommand{\puis}{\mbox{$\hspace{-.1cm}~^{\scriptscriptstyle\pmb{\wedge}}
+    \hspace{0.05cm}$}} %
+\newcommand{\pointpuis}{.\mbox{$\hspace{-.15cm}~^{\scriptscriptstyle\pmb{\wedge}}$}} %
+\newcommand{\Sfois}{\mbox{$\mt{\star}$}} %
+
+%%%%% nouvel environnement tabular pour les encadrés Scilab %%%%
+\newenvironment{encadre}
+{\begin{lrbox}{\TBox}\varwidth{\linewidth}
+    \tabular{>{\tt\small}C{0.1\textwidth}>{\small}R{0.7\textwidth}}}
+  {\endtabular\endvarwidth\end{lrbox}%
+  \fboxsep=1pt\longboxed{\usebox\TBox}}
+
+\newenvironment{encadreL}
+{\begin{lrbox}{\TBox}\varwidth{\linewidth}
+    \tabular{>{\tt\small}C{0.25\textwidth}>{\small}R{0.6\textwidth}}}
+  {\endtabular\endvarwidth\end{lrbox}%
+  \fboxsep=1pt\longboxed{\usebox\TBox}}
+
+\newenvironment{encadreF}
+{\begin{lrbox}{\TBox}\varwidth{\linewidth}
+    \tabular{>{\tt\small}C{0.2\textwidth}>{\small}R{0.70\textwidth}}}
+  {\endtabular\endvarwidth\end{lrbox}%
+  \fboxsep=1pt\longboxed{\usebox\TBox}}
+
+\newenvironment{encadreLL}[2]
+{\begin{lrbox}{\TBox}\varwidth{\linewidth}
+    \tabular{>{\tt\small}C{#1\textwidth}>{\small}R{#2\textwidth}}}
+  {\endtabular\endvarwidth\end{lrbox}%
+  \fboxsep=1pt\longboxed{\usebox\TBox}}
+
+%%%%% nouvel environnement tabular pour les script et fonctions %%%%
+\newcommand{\commentaireDL}[1]{\multicolumn{1}{l}{\it
+    \textcolor{comment}{$\slash\slash$ #1}}}
+
+\newcommand{\commentaire}[1]{{\textcolor{comment}{$\slash\slash$ #1}}}
+
+\newcounter{cptcol}
+
+\newcommand{\nocount}{\multicolumn{1}{c}{}}
+
+\newcommand{\sciNo}[1]{{\small \underbar #1}}
+
+\NewEnviron{scilab}{ %
+  \setcounter{cptcol}{0}
+  \begin{center}
+    \longboxed{
+      \begin{tabular}{>{\stepcounter{cptcol}{\tiny \underbar
+              \thecptcol}}c>{\tt}l}
+        \BODY
+      \end{tabular}
+    }
+  \end{center}
+}
+
+\NewEnviron{scilabNC}{ %
+  \begin{center}
+    \longboxed{
+      \begin{tabular}{>{\tt}l} %
+          \BODY
+      \end{tabular}
+    }
+  \end{center}
+}
+
+\NewEnviron{scilabC}[1]{ %
+  \setcounter{cptcol}{#1}
+  \begin{center}
+    \longboxed{
+      \begin{tabular}{>{\stepcounter{cptcol}{\tiny \underbar
+              \thecptcol}}c>{\tt}l}
+        \BODY
+      \end{tabular}
+    }
+  \end{center}
+}
+
+\newcommand{\scisol}[1]{ %
+  \setcounter{cptcol}{0}
+  \longboxed{
+    \begin{tabular}{>{\stepcounter{cptcol}{\tiny \underbar
+            \thecptcol}}c>{\tt}l}
+      #1
+    \end{tabular}
+  }
+}
+
+\newcommand{\scisolNC}[1]{ %
+  \longboxed{
+    \begin{tabular}{>{\tt}l}
+      #1
+    \end{tabular}
+  }
+}
+
+\newcommand{\scisolC}[2]{ %
+  \setcounter{cptcol}{#1}
+  \longboxed{
+    \begin{tabular}{>{\stepcounter{cptcol}{\tiny \underbar
+            \thecptcol}}c>{\tt}l}
+      #2
+    \end{tabular}
+  }
+}
+
+\NewEnviron{syntaxe}{ %
+  % \fcolorbox{black}{Yellow!20}{\setlength{\fboxsep}{3mm}
+  \shadowbox{
+    \setlength{\fboxsep}{3mm}
+    \begin{tabular}{>{\tt}l}
+      \BODY
+    \end{tabular}
+  }
+}
+
+%%%%% fin macros TP Scilab %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% TP Python - listings %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Python}{\textbf{Python}} %
+
+\lstset{% general command to set parameter(s)
+basicstyle=\ttfamily\small, % print whole listing small
+keywordstyle=\color{blue}\bfseries\underbar,
+%% underlined bold black keywords
+frame=lines,
+xleftmargin=10mm,
+numbers=left,
+numberstyle=\tiny\underbar,
+numbersep=10pt,
+%identifierstyle=, % nothing happens
+commentstyle=\color{green}, % white comments
+%%stringstyle=\ttfamily, % typewriter type for strings
+showstringspaces=false}
+
+\newcommand{\pysolCpt}[2]{
+  \setcounter{cptcol}{#1}
+  \longboxed{
+    \begin{tabular}{>{\stepcounter{cptcol}{\tiny \underbar
+            \thecptcol}}c>{\tt}l}
+        #2
+      \end{tabular}
+    }
+} %
+
+\newcommand{\pysol}[1]{
+  \setcounter{cptcol}{0}
+  \longboxed{
+    \begin{tabular}{>{\stepcounter{cptcol}{\tiny \underbar
+            \thecptcol}}c>{\tt}l}
+        #1
+      \end{tabular}
+    }
+} %
+
+% \usepackage[labelsep=endash]{caption}
+
+% avec un caption
+\NewEnviron{pythonCap}[1]{ %
+  \renewcommand{\tablename}{Programme}
+  \setcounter{cptcol}{0}
+  \begin{center}
+    \longboxed{
+      \begin{tabular}{>{\stepcounter{cptcol}{\tiny \underbar
+              \thecptcol}}c>{\tt}l}
+        \BODY
+      \end{tabular}
+    }
+    \captionof{table}{#1}
+  \end{center}
+}
+
+\NewEnviron{python}{ %
+  \setcounter{cptcol}{0}
+  \begin{center}
+    \longboxed{
+      \begin{tabular}{>{\stepcounter{cptcol}{\tiny \underbar
+              \thecptcol}}c>{\tt}l}
+        \BODY
+      \end{tabular}
+    }
+  \end{center}
+}
+
+\newcommand{\pyVar}[1]{\textcolor{var}{\bf \small #1}} %
+\newcommand{\pyFun}[1]{\textcolor{pyfunction}{#1}} %
+\newcommand{\pyCle}[1]{\textcolor{pyCle}{#1}} %
+\newcommand{\pyImp}[1]{{\bf #1}} %
+
+%%%%% commentaire python %%%%
+\newcommand{\pyComDL}[1]{\multicolumn{1}{l}{\textcolor{pycomment}{\#
+      #1}}}
+
+\newcommand{\pyCom}[1]{{\textcolor{pycomment}{\# #1}}}
+\newcommand{\pyDoc}[1]{{\textcolor{pydoc}{#1}}}
+
+\newcommand{\pyNo}[1]{{\small \underbar #1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% Système linéaire paramétré : écrire les opérations au-dessus
+%%%%%% d'un symbole équivalent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{systeme}
+
+\NewEnviron{arrayEq}{ %
+  \stackrel{\scalebox{.6}{$
+      \begin{array}{l} 
+        \BODY \\[.1cm]
+      \end{array}$}
+  }{\Longleftrightarrow}
+}
+
+\NewEnviron{arrayEg}{ %
+  \stackrel{\scalebox{.6}{$
+      \begin{array}{l} 
+        \BODY \\[.1cm]
+      \end{array}$}
+  }{=}
+}
+
+\NewEnviron{operationEq}{ %
+  \scalebox{.6}{$
+    \begin{array}{l} 
+      \scalebox{1.6}{$\mbox{Opérations :}$} \\[.2cm]
+      \BODY \\[.1cm]
+    \end{array}$}
+}
+
+% \NewEnviron{arraySys}[1]{ %
+%   \sysdelim\{.\systeme[#1]{ %
+%     \BODY %
+%   } %
+% }
+
+%%%%%
+
+%%%%%%%%%%
+%%%%%%%%%% ESSAI
+\newlength\fboxseph
+\newlength\fboxsepva
+\newlength\fboxsepvb
+
+\setlength\fboxsepva{0.2cm}
+\setlength\fboxsepvb{0.2cm}
+\setlength\fboxseph{0.2cm}
+
+\makeatletter
+
+\def\longboxed#1{\leavevmode\setbox\@tempboxa\hbox{\color@begingroup%
+\kern\fboxseph{\m@th$\displaystyle #1 $}\kern\fboxseph%
+\color@endgroup }\my@frameb@x\relax}
+
+\def\my@frameb@x#1{%
+  \@tempdima\fboxrule \advance\@tempdima \fboxsepva \advance\@tempdima
+  \dp\@tempboxa\hbox {%
+    \lower \@tempdima \hbox {%
+      \vbox {\hrule\@height\fboxrule \hbox{\vrule\@width\fboxrule #1
+          \vbox{%
+            \vskip\fboxsepva \box\@tempboxa \vskip\fboxsepvb}#1
+          \vrule\@width\fboxrule }%
+        \hrule \@height \fboxrule }}}}
+
+\newcommand{\boxedhv}[3]{\setlength\fboxseph{#1cm}
+  \setlength\fboxsepva{#2cm}\setlength\fboxsepvb{#2cm}\longboxed{#3}}
+
+\newcommand{\boxedhvv}[4]{\setlength\fboxseph{#1cm}
+  \setlength\fboxsepva{#2cm}\setlength\fboxsepvb{#3cm}\longboxed{#4}}
+
+\newcommand{\Boxed}[1]{{\setlength\fboxseph{0.2cm}
+  \setlength\fboxsepva{0.2cm}\setlength\fboxsepvb{0.2cm}\longboxed{#1}}}
+
+\newcommand{\mBoxed}[1]{{\setlength\fboxseph{0.2cm}
+  \setlength\fboxsepva{0.2cm}\setlength\fboxsepvb{0.2cm}\longboxed{\mbox{#1}}}}
+
+\newcommand{\mboxed}[1]{{\setlength\fboxseph{0.2cm}
+  \setlength\fboxsepva{0.2cm}\setlength\fboxsepvb{0.2cm}\boxed{\mbox{#1}}}}
+
+\newsavebox{\fmbox}
+\newenvironment{fmpage}[1]
+     {\begin{lrbox}{\fmbox}\begin{minipage}{#1}}
+     {\end{minipage}\end{lrbox}\fbox{\usebox{\fmbox}}}
+
+%%%%%%%%%%
+%%%%%%%%%%
+
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\sh}{sh}
+
+%%%%%%%%%%
+%%%%%%%%%%
+
+\newcommand{\norme}[1]{\Vert #1 \Vert}
+
+%\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+
+\newcommand{\nl}{\tabularnewline}
+
+\newcommand{\hand}{\noindent\ding{43}\ }
+\newcommand{\ie}{\textit{i.e. }}
+\newcommand{\cf}{\textit{cf }}
+
+\newcommand{\Card}{\operatorname{Card}}
+
+\newcommand{\aire}{\mathcal{A}}
+
+\newcommand{\LL}[1]{\mathscr{L}(#1)} %
+\newcommand{\B}{\mathscr{B}} %
+\newcommand{\Bc}[1]{B_{#1}} %
+\newcommand{\M}[1]{\mathscr{M}_{#1}(\mathbb{R})}
+
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\kr}{Ker}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\spc}{Sp}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\supp}{Supp}
+
+\newcommand{\Mat}{{\rm{Mat}}}
+\newcommand{\Vect}[1]{{\rm{Vect}}\left(#1\right)}
+
+\newenvironment{smatrix}{%
+  \begin{adjustbox}{width=.9\width}
+    $
+    \begin{pmatrix}
+    }{%      
+    \end{pmatrix}
+    $
+  \end{adjustbox}
+}
+
+\newenvironment{sarray}[1]{%
+  \begin{adjustbox}{width=.9\width}
+    $
+    \begin{array}{#1}
+    }{%      
+    \end{array}
+    $
+  \end{adjustbox}
+}
+
+\newcommand{\vd}[2]{
+  \scalebox{.8}{
+    $\left(\!
+      \begin{array}{c}
+        #1 \\
+        #2
+      \end{array}
+    \!\right)$
+    }}
+
+\newcommand{\vt}[3]{
+  \scalebox{.8}{
+    $\left(\!
+      \begin{array}{c}
+        #1 \\
+        #2 \\
+        #3 
+      \end{array}
+    \!\right)$
+    }}
+
+\newcommand{\vq}[4]{
+  \scalebox{.8}{
+    $\left(\!
+      \begin{array}{c}
+        #1 \\
+        #2 \\
+        #3 \\
+        #4 
+      \end{array}
+    \!\right)$
+    }}
+
+\newcommand{\vc}[5]{
+  \scalebox{.8}{
+    $\left(\!
+      \begin{array}{c}
+        #1 \\
+        #2 \\
+        #3 \\
+        #4 \\
+        #5 
+      \end{array}
+    \!\right)$
+    }}
+
+\newcommand{\ee}{\text{e}}
+
+\newcommand{\dd}{\text{d}}
+
+%%% Ensemble de définition
+\newcommand{\Df}{\mathscr{D}}
+\newcommand{\Cf}{\mathscr{C}}
+\newcommand{\Ef}{\mathscr{C}}
+
+\newcommand{\rond}[1]{\,\overset{\scriptscriptstyle \circ}{\!#1}}
+
+\newcommand{\df}[2]{\dfrac{\partial #1}{\partial #2}} %
+\newcommand{\dfn}[2]{\partial_{#2}(#1)} %
+\newcommand{\ddfn}[2]{\partial^2_{#2}(#1)} %
+\newcommand{\ddf}[2]{\dfrac{\partial^2 #1}{\partial #2^2}} %
+\newcommand{\ddfr}[3]{\dfrac{\partial^2 #1}{\partial #2 \partial
+    #3}} %
+
+
+\newcommand{\dlim}[1]{{\displaystyle \lim_{#1} \ }}
+\newcommand{\dlimPlus}[2]{
+  \dlim{
+    \scalebox{.6}{
+      $
+      \begin{array}{l}
+        #1 \rightarrow #2\\
+        #1 > #2
+      \end{array}
+      $}}}
+\newcommand{\dlimMoins}[2]{
+  \dlim{
+    \scalebox{.6}{
+      $
+      \begin{array}{l}
+        #1 \rightarrow #2\\
+        #1 < #2
+      \end{array}
+      $}}}
+
+%%%%%%%%%%%%%%
+%% petit o, développement limité
+%%%%%%%%%%%%%%
+
+\newcommand{\oo}[2]{{\underset {{\overset {#1\rightarrow #2}{}}}{o}}} %
+\newcommand{\oox}[1]{{\underset {{\overset {x\rightarrow #1}{}}}{o}}} %
+\newcommand{\oon}{{\underset {{\overset {n\rightarrow +\infty}{}}}{o}}} %
+\newcommand{\po}[1]{{\underset {{\overset {#1}{}}}{o}}} %
+\newcommand{\neqx}[1]{{\ \underset {{\overset {x \to #1}{}}}{\not\sim}\ }} %
+\newcommand{\eqx}[1]{{\ \underset {{\overset {x \to #1}{}}}{\sim}\ }} %
+\newcommand{\eqn}{{\ \underset {{\overset {n \to +\infty}{}}}{\sim}\ }} %
+\newcommand{\eq}[2]{{\ \underset {{\overset {#1 \to #2}{}}}{\sim}\ }} %
+\newcommand{\DL}[1]{{\rm{DL}}_1 (#1)} %
+\newcommand{\DLL}[1]{{\rm{DL}}_2 (#1)} %
+
+\newcommand{\negl}{<<}
+
+\newcommand{\neglP}[1]{\begin{array}{c}
+    \vspace{-.2cm}\\
+    << \\
+    \vspace{-.7cm}\\
+    {\scriptstyle #1}
+  \end{array}}
+
+%%%%%%%%%%%%%%
+%% borne sup, inf, max, min
+%%%%%%%%%%%%%%
+\newcommand{\dsup}[1]{\displaystyle \sup_{#1} \ }
+\newcommand{\dinf}[1]{\displaystyle \inf_{#1} \ }
+\newcommand{\dmax}[1]{\max\limits_{#1} \ }
+\newcommand{\dmin}[1]{\min\limits_{#1} \ }
+
+\newcommand{\dcup}[2]{{\textstyle\bigcup\limits_{#1}^{#2}}\hspace{.1cm}}
+%\displaystyle \bigcup_{#1}^{#2}}
+\newcommand{\dcap}[2]{{\textstyle\bigcap\limits_{#1}^{#2}}\hspace{.1cm}}
+% \displaystyle \bigcap_{#1}^{#2}
+%%%%%%%%%%%%%%
+%% opérateurs logiques
+%%%%%%%%%%%%%%
+\newcommand{\NON}[1]{\mathop{\small \tt{NON}} (#1)}
+\newcommand{\ET}{\mathrel{\mathop{\small \mathtt{ET}}}}
+\newcommand{\OU}{\mathrel{\mathop{\small \tt{OU}}}}
+\newcommand{\XOR}{\mathrel{\mathop{\small \tt{XOR}}}}
+
+\newcommand{\id}{{\rm{id}}}
+
+\newcommand{\sbullet}{\scriptstyle \bullet}
+\newcommand{\stimes}{\scriptstyle \times}
+
+%%%%%%%%%%%%%%%%%%
+%% Probabilités
+%%%%%%%%%%%%%%%%%%
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\Ev}[1]{\left[ {#1} \right]}
+\newcommand{\Evmb}[1]{[ {#1} ]}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\Cov}{{\rm{Cov}}}
+\newcommand{\U}[2]{\mathcal{U}(\llb #1, #2\rrb)}
+\newcommand{\Uc}[2]{\mathcal{U}([#1, #2])}
+\newcommand{\Ucof}[2]{\mathcal{U}(]#1, #2])}
+\newcommand{\Ucoo}[2]{\mathcal{U}(]#1, #2[)}
+\newcommand{\Ucfo}[2]{\mathcal{U}([#1, #2[)}
+\newcommand{\Bern}[1]{\mathcal{B}\left(#1\right)}
+\newcommand{\Bin}[2]{\mathcal{B}\left(#1, #2\right)}
+\newcommand{\G}[1]{\mathcal{G}\left(#1\right)}
+\newcommand{\Pois}[1]{\mathcal{P}\left(#1\right)}
+\newcommand{\HG}[3]{\mathcal{H}\left(#1, #2, #3\right)}
+\newcommand{\Exp}[1]{\mathcal{E}\left(#1\right)}
+\newcommand{\Norm}[2]{\mathcal{N}\left(#1, #2\right)}
+
+\DeclareMathOperator{\cov}{Cov}
+
+\newcommand{\var}{v.a.r. }
+\newcommand{\suit}{\hookrightarrow}
+
+\newcommand{\flecheR}[1]{\rotatebox{90}{\scalebox{#1}{\color{red}
+      $\curvearrowleft$}}}
+
+
+\newcommand{\partie}[1]{\mathcal{P}(#1)}
+\newcommand{\Cont}[1]{\mathcal{C}^{#1}}
+\newcommand{\Contm}[1]{\mathcal{C}^{#1}_m}
+
+\newcommand{\llb}{\llbracket}
+\newcommand{\rrb}{\rrbracket}
+
+%\newcommand{\im}[1]{{\rm{Im}}(#1)}
+\newcommand{\imrec}[1]{#1^{- \mathds{1}}}
+
+\newcommand{\unq}{\mathds{1}}
+
+\newcommand{\Hyp}{\mathtt{H}}
+
+\newcommand{\eme}[1]{#1^{\scriptsize \mbox{ème}}}
+\newcommand{\er}[1]{#1^{\scriptsize \mbox{er}}}
+\newcommand{\ere}[1]{#1^{\scriptsize \mbox{ère}}}
+\newcommand{\nd}[1]{#1^{\scriptsize \mbox{nd}}}
+\newcommand{\nde}[1]{#1^{\scriptsize \mbox{nde}}}
+
+\newcommand{\truc}{\mathop{\top}}
+\newcommand{\fois}{\mathop{\ast}}
+
+\newcommand{\f}[1]{\overrightarrow{#1}}
+
+\newcommand{\checked}{\textcolor{green}{\checkmark}}
+
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}}
+
+\makeatletter
+\newcommand*{\da@rightarrow}{\mathchar"0\hexnumber@\symAMSa 4B }
+\newcommand*{\da@leftarrow}{\mathchar"0\hexnumber@\symAMSa 4C }
+\newcommand*{\xdashrightarrow}[2][]{%
+  \mathrel{%
+    \mathpalette{\da@xarrow{#1}{#2}{}\da@rightarrow{\,}{}}{}%
+  }%
+}
+\newcommand{\xdashleftarrow}[2][]{%
+  \mathrel{%
+    \mathpalette{\da@xarrow{#1}{#2}\da@leftarrow{}{}{\,}}{}%
+  }%
+}
+\newcommand*{\da@xarrow}[7]{%
+  % #1: below
+  % #2: above
+  % #3: arrow left
+  % #4: arrow right
+  % #5: space left 
+  % #6: space right
+  % #7: math style 
+  \sbox0{$\ifx#7\scriptstyle\scriptscriptstyle\else\scriptstyle\fi#5#1#6\m@th$}%
+  \sbox2{$\ifx#7\scriptstyle\scriptscriptstyle\else\scriptstyle\fi#5#2#6\m@th$}%
+  \sbox4{$#7\dabar@\m@th$}%
+  \dimen@=\wd0 %
+  \ifdim\wd2 >\dimen@
+    \dimen@=\wd2 %   
+  \fi
+  \count@=2 %
+  \def\da@bars{\dabar@\dabar@}%
+  \@whiledim\count@\wd4<\dimen@\do{%
+    \advance\count@\@ne
+    \expandafter\def\expandafter\da@bars\expandafter{%
+      \da@bars
+      \dabar@ 
+    }%
+  }%  
+  \mathrel{#3}%
+  \mathrel{%   
+    \mathop{\da@bars}\limits
+    \ifx\\#1\\%
+    \else
+      _{\copy0}%
+    \fi
+    \ifx\\#2\\%
+    \else
+      ^{\copy2}%
+    \fi
+  }%   
+  \mathrel{#4}%
+}
+\makeatother
+
+
+
+\newcount\depth
+
+\newcount\depth
+\newcount\totaldepth
+
+\makeatletter
+\newcommand{\labelsymbol}{%
+      \ifnum\depth=0
+        %
+      \else
+        \rlap{\,$\bullet$}%
+      \fi
+}
+
+\newcommand*\bernoulliTree[1]{%
+    \depth=#1\relax            
+    \totaldepth=#1\relax
+    \draw node(root)[bernoulli/root] {\labelsymbol}[grow=right] \draw@bernoulli@tree;
+    \draw \label@bernoulli@tree{root};                                   
+}                                                                        
+
+\def\draw@bernoulli@tree{%
+    \ifnum\depth>0 
+      child[parent anchor=east] foreach \type/\label in {left child/$E$,right child/$S$} {%
+          node[bernoulli/\type] {\label\strut\labelsymbol} \draw@bernoulli@tree
+      }
+      coordinate[bernoulli/increment] (dummy)
+   \fi%
+}
+
+\def\label@bernoulli@tree#1{%
+    \ifnum\depth>0
+      ($(#1)!0.5!(#1-1)$) node[fill=white,bernoulli/decrement] {\tiny$p$}
+      \label@bernoulli@tree{#1-1}
+      ($(#1)!0.5!(#1-2)$) node[fill=white] {\tiny$q$}
+      \label@bernoulli@tree{#1-2}
+      coordinate[bernoulli/increment] (dummy)
+   \fi%
+}
+
+\makeatother
+
+\tikzset{bernoulli/.cd,
+         root/.style={},
+         decrement/.code=\global\advance\depth by-1\relax,
+         increment/.code=\global\advance\depth by 1\relax,
+         left child/.style={bernoulli/decrement},
+         right child/.style={}}
+
+
+\newcommand{\eps}{\varepsilon}
+
+% \newcommand{\tendi}[1]{\xrightarrow[\footnotesize #1 \rightarrow
+%   +\infty]{}}%
+
+\newcommand{\tend}{\rightarrow}%
+\newcommand{\tendn}{\underset{n\to +\infty}{\longrightarrow}} %
+\newcommand{\ntendn}{\underset{n\to
+    +\infty}{\not\hspace{-.15cm}\longrightarrow}} %
+% \newcommand{\tendn}{\xrightarrow[\footnotesize n \rightarrow
+%   +\infty]{}}%
+\newcommand{\Tendx}[1]{\xrightarrow[\footnotesize x \rightarrow
+  #1]{}}%
+\newcommand{\tendx}[1]{\underset{x\to #1}{\longrightarrow}}%
+\newcommand{\ntendx}[1]{\underset{x\to #1}{\not\!\!\longrightarrow}}%
+\newcommand{\tendd}[2]{\underset{#1\to #2}{\longrightarrow}}%
+% \newcommand{\tendd}[2]{\xrightarrow[\footnotesize #1 \rightarrow
+%   #2]{}}%
+\newcommand{\tendash}[1]{\xdashrightarrow[\footnotesize #1 \rightarrow
+  +\infty]{}}%
+\newcommand{\tendashx}[1]{\xdashrightarrow[\footnotesize x \rightarrow
+  #1]{}}%
+\newcommand{\tendb}[1]{\underset{#1 \to +\infty}{\longrightarrow}}%
+\newcommand{\tendL}{\overset{\mathscr L}{\underset{n \to
+      +\infty}{\longrightarrow}}}%
+\newcommand{\tendP}{\overset{\Prob}{\underset{n \to
+      +\infty}{\longrightarrow}}}%
+\newcommand{\tenddL}[1]{\overset{\mathscr L}{\underset{#1 \to
+      +\infty}{\longrightarrow}}}%
+
+\NewEnviron{attention}{ %
+  ~\\[-.2cm]\noindent
+  \begin{minipage}{\linewidth}
+  \setlength{\fboxsep}{3mm}%
+  \ \ \dbend \ \ %
+  \fbox{\parbox[t]{.88\linewidth}{\BODY}} %
+  \end{minipage}\\
+}
+
+\NewEnviron{sattention}[1]{ %
+  ~\\[-.2cm]\noindent
+  \begin{minipage}{#1\linewidth}
+  \setlength{\fboxsep}{3mm}%
+  \ \ \dbend \ \ %
+  \fbox{\parbox[t]{.88\linewidth}{\BODY}} %
+  \end{minipage}\\
+}
+
+%%%%% OBSOLETE %%%%%%
+
+% \newcommand{\attention}[1]{
+%   \noindent
+%   \begin{tabular}{@{}l|p{11.5cm}|}
+%     \cline{2-2}
+%     \vspace{-.2cm} 
+%     & \nl
+%     \dbend & #1 \nl
+%     \cline{2-2}
+%   \end{tabular}
+% }
+
+% \newcommand{\attentionv}[2]{
+%   \noindent
+%   \begin{tabular}{@{}l|p{11.5cm}|}
+%     \cline{2-2}
+%     \vspace{-.2cm} 
+%     & \nl
+%     \dbend & #2 \nl[#1 cm]
+%     \cline{2-2}
+%   \end{tabular}
+% }
+
+\newcommand{\explainvb}[2]{
+  \noindent
+  \begin{tabular}{@{}l|p{11.5cm}|}
+    \cline{2-2}
+    \vspace{-.2cm} 
+    & \nl
+    \hand & #2 \nl [#1 cm]
+    \cline{2-2}
+  \end{tabular}
+}
+
+
+% \noindent
+% \begin{tabular}{@{}l|lp{11cm}|}
+%   \cline{3-3} 
+%   \multicolumn{1}{@{}l@{\dbend}}{} & & #1 \nl
+%   \multicolumn{1}{l}{} & & \nl [-.8cm]
+%   & & #2 \nl
+%   \cline{2-3}
+% \end{tabular}
+
+% \newcommand{\attention}[1]{
+%   \noindent
+%   \begin{tabular}{@{}@{}cp{11cm}}
+%     \dbend & #1 \nl
+%   \end{tabular}
+% }
+
+\newcommand{\PP}[1]{\mathcal{P}(#1)}
+\newcommand{\HH}[1]{\mathcal{H}(#1)}
+\newcommand{\FF}[1]{\mathcal{F}(#1)}
+
+\newcommand{\DSum}[2]{\displaystyle\sum\limits_{#1}^{#2}\hspace{.1cm}}
+\newcommand{\Sum}[2]{{\textstyle\sum\limits_{#1}^{#2}}\hspace{.1cm}}
+\newcommand{\Serie}{\textstyle\sum\hspace{.1cm}}
+\newcommand{\Prod}[2]{\textstyle\prod\limits_{#1}^{#2}}
+
+\newcommand{\Prim}[3]{\left[\ {#1} \ \right]_{\scriptscriptstyle
+   \hspace{-.15cm} ~_{#2}\, }^ {\scriptscriptstyle \hspace{-.15cm} ~^{#3}\, }}
+
+% \newcommand{\Prim}[3]{\left[\ {#1} \ \right]_{\scriptscriptstyle
+%     \!\!~_{#2}}^ {\scriptscriptstyle \!\!~^{#3}}}
+
+\newcommand{\dint}[2]{\displaystyle \int_{#1}^{#2}\ }
+\newcommand{\Int}[2]{{\rm{Int}}_{\scriptscriptstyle #1, #2}}
+\newcommand{\dt}{\ dt}
+\newcommand{\dx}{\ dx}
+
+\newcommand{\llpar}[1]{\left(\!\!\!
+    \begin{array}{c}
+      \rule{0pt}{#1}
+    \end{array}
+  \!\!\!\right.}
+
+\newcommand{\rrpar}[1]{\left.\!\!\!
+    \begin{array}{c}
+      \rule{0pt}{#1}
+    \end{array}
+  \!\!\!\right)}
+
+\newcommand{\llacc}[1]{\left\{\!\!\!
+    \begin{array}{c}
+      \rule{0pt}{#1}
+    \end{array}
+  \!\!\!\right.}
+
+\newcommand{\rracc}[1]{\left.\!\!\!
+    \begin{array}{c}
+      \rule{0pt}{#1}
+    \end{array}
+  \!\!\!\right\}}
+
+\newcommand{\ttacc}[1]{\mbox{\rotatebox{-90}{\hspace{-.7cm}$\llacc{#1}$}}}
+\newcommand{\bbacc}[1]{\mbox{\rotatebox{90}{\hspace{-.5cm}$\llacc{#1}$}}}
+
+\newcommand{\comp}[1]{\overline{#1}}%
+
+\newcommand{\dcomp}[2]{\stackrel{\mbox{\ \ \----}{\scriptscriptstyle
+      #2}}{#1}}%
+
+% \newcommand{\Comp}[2]{\stackrel{\mbox{\ \
+%       \-------}{\scriptscriptstyle #2}}{#1}}
+
+% \newcommand{\dcomp}[2]{\stackrel{\mbox{\ \
+%       \-------}{\scriptscriptstyle #2}}{#1}}
+
+\newcommand{\A}{\mathscr{A}}
+
+\newcommand{\conc}[1]{
+  \begin{center}
+    \fbox{
+      \begin{tabular}{c}
+        #1
+      \end{tabular}
+    }
+  \end{center}
+}
+
+\newcommand{\concC}[1]{
+  \begin{center}
+    \fbox{
+    \begin{tabular}{C{10cm}}
+      \quad #1 \quad
+    \end{tabular}
+    }
+  \end{center}
+}
+
+\newcommand{\concL}[2]{
+  \begin{center}
+    \fbox{
+    \begin{tabular}{C{#2cm}}
+      \quad #1 \quad
+    \end{tabular}
+    }
+  \end{center}
+}
+
+
+% \newcommand{\lims}[2]{\prod\limits_{#1}^{#2}}
+
+\newtheorem{theorem}{Théorème}[]
+\newtheorem{lemma}{Lemme}[]
+\newtheorem{proposition}{Proposition}[]
+\newtheorem{corollary}{Corollaire}[]
+
+% \newenvironment{proof}[1][Démonstration]{\begin{trivlist}
+% \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{definition}[1][Définition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{example}[1][Exemple]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{examples}[1][Exemples]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{notation}[1][Notation]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{propriete}[1][Propriété]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{proprietes}[1][Propriétés]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+% \newenvironment{remark}[1][Remarque]{\begin{trivlist}
+% \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{application}[1][Application]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+% Environnement pour les réponses des DS
+\newenvironment{answer}{\par\emph{Réponse :}\par{}}
+{\vspace{-.6cm}\hspace{\stretch{1}}\rule{1ex}{1ex}\vspace{.3cm}}
+
+\newenvironment{answerTD}{\vspace{.2cm}\par\emph{Réponse :}\par{}}
+{\hspace{\stretch{1}}\rule{1ex}{1ex}\vspace{.3cm}}
+
+\newenvironment{answerCours}{\noindent\emph{Réponse :}}
+{\rule{1ex}{1ex}}%\vspace{.3cm}}
+
+
+% footnote in footer
+\newcommand{\fancyfootnotetext}[2]{%
+  \fancypagestyle{dingens}{%
+    \fancyfoot[LO,RE]{\parbox{0.95\textwidth}{\footnotemark[#1]\footnotesize
+        #2}}%
+  }%
+  \thispagestyle{dingens}%
+}
+
+%%% définit le style (arabic : 1,2,3...) et place des parenthèses
+%%% autour de la numérotation
+\renewcommand*{\thefootnote}{(\arabic{footnote})}
+% http://www.tuteurs.ens.fr/logiciels/latex/footnote.html
+
+%%%%%%%% tikz axis
+% \pgfplotsset{every axis/.append style={
+%                     axis x line=middle,    % put the x axis in the middle
+%                     axis y line=middle,    % put the y axis in the middle
+%                     axis line style={<->,color=blue}, % arrows on the axis
+%                     xlabel={$x$},          % default put x on x-axis
+%                     ylabel={$y$},          % default put y on y-axis
+%             }}
+
+%%%% s'utilise comme suit
+
+% \begin{axis}[
+%   xmin=-8,xmax=4,
+%   ymin=-8,ymax=4,
+%   grid=both,
+%   ]
+%   \addplot [domain=-3:3,samples=50]({x^3-3*x},{3*x^2-9}); 
+% \end{axis}
+
+%%%%%%%%
+
+
+
+%%%%%%%%%%%% Pour avoir des numéros de section qui correspondent à
+%%%%%%%%%%%% ceux du tableau
+\renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+\renewcommand{\thesubsection}{\Roman{section}.\arabic{subsection}.\hspace{-.2cm}}
+\renewcommand{\thesubsubsection}{\Roman{section}.\arabic{subsection}.\alph{subsubsection})\hspace{-.2cm}}
+%%%%%%%%%%%% 
+
+%%% Changer le nom des figures : Fig. au lieu de Figure
+\usepackage[font=small,labelfont=bf,labelsep=space]{caption}
+\captionsetup{%
+  figurename=Fig.,
+  tablename=Tab.
+}
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.2cm}}
+% \renewcommand{\thesubsection}{\Roman{section}
+%   .\hspace{.2cm}\arabic{subsection}\ .\hspace{-.3cm}}
+% \renewcommand{\thesubsubsection}{\alph{subsection})}
+
+\newenvironment{tabliste}[1]
+{\begin{tabenum}[\bfseries\small\itshape #1]}{\end{tabenum}} 
+
+%%%% ESSAI contre le too deeply nested %%%%
+%%%% ATTENTION au package enumitem qui se comporte mal avec les
+%%%% noliste, à redéfinir !
+% \usepackage{enumitem}
+
+% \setlistdepth{9}
+
+% \newlist{myEnumerate}{enumerate}{9}
+% \setlist[myEnumerate,1]{label=(\arabic*)}
+% \setlist[myEnumerate,2]{label=(\Roman*)}
+% \setlist[myEnumerate,3]{label=(\Alph*)}
+% \setlist[myEnumerate,4]{label=(\roman*)}
+% \setlist[myEnumerate,5]{label=(\alph*)}
+% \setlist[myEnumerate,6]{label=(\arabic*)}
+% \setlist[myEnumerate,7]{label=(\Roman*)}
+% \setlist[myEnumerate,8]{label=(\Alph*)}
+% \setlist[myEnumerate,9]{label=(\roman*)}
+
+%%%%%
+
+\newenvironment{noliste}[1] %
+{\begin{enumerate}[\bfseries\small\itshape #1]} %
+  {\end{enumerate}}
+
+\newenvironment{nonoliste}[1] %
+{\begin{enumerate}[\hspace{-12pt}\bfseries\small\itshape #1]} %
+  {\end{enumerate}}
+
+\newenvironment{arrayliste}[1]{ 
+  % List with minimal white space to fit in small areas, e.g. table
+  % cell
+  \begin{minipage}[t]{\linewidth} %
+    \begin{enumerate}[\bfseries\small\itshape #1] %
+      {\leftmargin=0.5em \rightmargin=0em
+        \topsep=0em \parskip=0em \parsep=0em
+        \listparindent=0em \partopsep=0em \itemsep=0pt
+        \itemindent=0em \labelwidth=\leftmargin\labelsep+0.25em}
+    }{
+    \end{enumerate}\end{minipage}
+}
+
+\newenvironment{nolistes}[2]
+{\begin{enumerate}[\bfseries\small\itshape
+    #1]\setlength{\itemsep}{#2 mm}}{\end{enumerate}}
+
+\newenvironment{liste}[1]
+{\begin{enumerate}[\hspace{12pt}\bfseries\small\itshape
+    #1]}{\end{enumerate}}   
+
+
+%%%%%%%% Pour les programmes de colle %%%%%%%
+
+\newcommand{\cours}{{\small \tt (COURS)}} %
+\newcommand{\poly}{{\small \tt (POLY)}} %
+\newcommand{\exo}{{\small \tt (EXO)}} %
+\newcommand{\culture}{{\small \tt (CULTURE)}} %
+\newcommand{\methodo}{{\small \tt (MÉTHODO)}} %
+\newcommand{\methodob}{\Boxed{\mbox{\tt MÉTHODO}}} %
+
+%%%%%%%% Pour les TD %%%%%%%
+\newtheoremstyle{exostyle} {\topsep} % espace avant
+{.6cm} % espace apres
+{} % Police utilisee par le style de thm
+{} % Indentation (vide = aucune, \parindent = indentation paragraphe)
+{\bfseries} % Police du titre de thm
+{} % Signe de ponctuation apres le titre du thm
+{ } % Espace apres le titre du thm (\newline = linebreak)
+{\thmname{#1}\thmnumber{ #2}\thmnote{.
+    \normalfont{\textit{#3}}}} % composants du titre du thm : \thmname
+                               % = nom du thm, \thmnumber = numéro du
+                               % thm, \thmnote = sous-titre du thm
+ 
+\theoremstyle{exostyle}
+\newtheorem{exercice}{Exercice}
+\newtheorem*{exoCours}{Exercice}
+
+%%%%%%%% Pour des théorèmes Sans Espaces APRÈS %%%%%%%
+\newtheoremstyle{exostyleSE} {\topsep} % espace avant
+{} % espace apres
+{} % Police utilisee par le style de thm
+{} % Indentation (vide = aucune, \parindent = indentation paragraphe)
+{\bfseries} % Police du titre de thm
+{} % Signe de ponctuation apres le titre du thm
+{ } % Espace apres le titre du thm (\newline = linebreak)
+{\thmname{#1}\thmnumber{ #2}\thmnote{.
+    \normalfont{\textit{#3}}}} % composants du titre du thm : \thmname
+                               % = nom du thm, \thmnumber = numéro du
+                               % thm, \thmnote = sous-titre du thm
+ 
+\theoremstyle{exostyleSE}
+\newtheorem{exerciceSE}{Exercice}
+\newtheorem*{exoCoursSE}{Exercice}
+
+% \newcommand{\lims}[2]{\prod\limits_{#1}^{#2}}
+
+\newtheorem{theoremSE}{Théorème}[]
+\newtheorem{lemmaSE}{Lemme}[]
+\newtheorem{propositionSE}{Proposition}[]
+\newtheorem{corollarySE}{Corollaire}[]
+
+% \newenvironment{proofSE}[1][Démonstration]{\begin{trivlist}
+% \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{definitionSE}[1][Définition]{\begin{trivlist}
+  \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{exampleSE}[1][Exemple]{\begin{trivlist} 
+  \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{examplesSE}[1][Exemples]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{notationSE}[1][Notation]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{proprieteSE}[1][Propriété]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{proprietesSE}[1][Propriétés]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remarkSE}[1][Remarque]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{applicationSE}[1][Application]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+%%%%%%%%%%% Obtenir les étoiles sans charger le package MnSymbol
+%%%%%%%%%%%
+\DeclareFontFamily{U} {MnSymbolC}{}
+\DeclareFontShape{U}{MnSymbolC}{m}{n}{
+  <-6> MnSymbolC5
+  <6-7> MnSymbolC6
+  <7-8> MnSymbolC7
+  <8-9> MnSymbolC8
+  <9-10> MnSymbolC9
+  <10-12> MnSymbolC10
+  <12-> MnSymbolC12}{}
+\DeclareFontShape{U}{MnSymbolC}{b}{n}{
+  <-6> MnSymbolC-Bold5
+  <6-7> MnSymbolC-Bold6
+  <7-8> MnSymbolC-Bold7
+  <8-9> MnSymbolC-Bold8
+  <9-10> MnSymbolC-Bold9
+  <10-12> MnSymbolC-Bold10
+  <12-> MnSymbolC-Bold12}{}
+
+\DeclareSymbolFont{MnSyC} {U} {MnSymbolC}{m}{n}
+
+\DeclareMathSymbol{\filledlargestar}{\mathrel}{MnSyC}{205}
+\DeclareMathSymbol{\largestar}{\mathrel}{MnSyC}{131}
+
+\newcommand{\facile}{\rm{(}$\scriptstyle\largestar$\rm{)}} %
+\newcommand{\moyen}{\rm{(}$\scriptstyle\filledlargestar$\rm{)}} %
+\newcommand{\dur}{\rm{(}$\scriptstyle\filledlargestar\filledlargestar$\rm{)}} %
+\newcommand{\costaud}{\rm{(}$\scriptstyle\filledlargestar\filledlargestar\filledlargestar$\rm{)}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% Fin de la partie TD
+
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+\makeatletter %
+\newenvironment{myitemize}{%
+  \setlength{\topsep}{0pt} %
+  \setlength{\partopsep}{0pt} %
+  \renewcommand*{\@listi}{\leftmargin\leftmargini \parsep\z@
+    \topsep\z@ \itemsep\z@} \let\@listI\@listi %
+  \itemize %
+}{\enditemize} %
+\makeatother
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+
+%% Commentaires dans la correction du livre
+
+\newcommand{\Com}[1]{
+% Define box and box title style
+\tikzstyle{mybox} = [draw=black!50,
+very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=8pt]
+\tikzstyle{fancytitle} =[rounded corners, fill=black!80, text=white]
+\tikzstyle{fancylogo} =[ text=white]
+\begin{center}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+
+    \begin{minipage}{0.90\linewidth}
+\vspace{6pt}  #1
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) 
+{\bfseries\normalsize{Commentaire}};
+
+\end{tikzpicture}%
+
+\end{center}
+%
+}
+
+\NewEnviron{remark}{%
+  % Define box and box title style
+  \tikzstyle{mybox} = [draw=black!50, very thick, rectangle, rounded
+  corners, inner sep=10pt, inner ysep=8pt] %
+  \tikzstyle{fancytitle} = [rounded corners , fill=black!80,
+  text=white] %
+  \tikzstyle{fancylogo} =[ text=white]
+  \begin{center}
+    \begin{tikzpicture}
+      \node [mybox] (box){%
+        \begin{minipage}{0.90\linewidth}
+          \vspace{6pt} \BODY
+        \end{minipage}
+      }; %
+      \node[fancytitle, right=10pt] at (box.north west) %
+      {\bfseries\normalsize{Commentaire}}; %
+    \end{tikzpicture}%
+  \end{center}
+}
+
+\NewEnviron{remarkST}{%
+  % Define box and box title style
+  \tikzstyle{mybox} = [draw=black!50, very thick, rectangle, rounded
+  corners, inner sep=10pt, inner ysep=8pt] %
+  \tikzstyle{fancytitle} = [rounded corners , fill=black!80,
+  text=white] %
+  \tikzstyle{fancylogo} =[ text=white]
+  \begin{center}
+    \begin{tikzpicture}
+      \node [mybox] (box){%
+        \begin{minipage}{0.90\linewidth}
+          \vspace{6pt} \BODY
+        \end{minipage}
+      }; %
+      % \node[fancytitle, right=10pt] at (box.north west) %
+%       {\bfseries\normalsize{Commentaire}}; %
+    \end{tikzpicture}%
+  \end{center}
+}
+
+\NewEnviron{remarkL}[1]{%
+  % Define box and box title style
+  \tikzstyle{mybox} = [draw=black!50, very thick, rectangle, rounded
+  corners, inner sep=10pt, inner ysep=8pt] %
+  \tikzstyle{fancytitle} =[rounded corners, fill=black!80,
+  text=white] %
+  \tikzstyle{fancylogo} =[ text=white]
+  \begin{center}
+    \begin{tikzpicture}
+      \node [mybox] (box){%
+        \begin{minipage}{#1\linewidth}
+          \vspace{6pt} \BODY
+        \end{minipage}
+      }; %
+      \node[fancytitle, right=10pt] at (box.north west) %
+      {\bfseries\normalsize{Commentaire}}; %
+    \end{tikzpicture}%
+  \end{center}
+}
+
+\NewEnviron{remarkSTL}[1]{%
+  % Define box and box title style
+  \tikzstyle{mybox} = [draw=black!50, very thick, rectangle, rounded
+  corners, inner sep=10pt, inner ysep=8pt] %
+  \tikzstyle{fancytitle} =[rounded corners, fill=black!80,
+  text=white] %
+  \tikzstyle{fancylogo} =[ text=white]
+  \begin{center}
+    \begin{tikzpicture}
+      \node [mybox] (box){%
+        \begin{minipage}{#1\linewidth}
+          \vspace{6pt} \BODY
+        \end{minipage}
+      }; %
+%       \node[fancytitle, right=10pt] at (box.north west) %
+%       {\bfseries\normalsize{Commentaire}}; %
+    \end{tikzpicture}%
+  \end{center}
+}
+
+\NewEnviron{titre} %
+{ %
+  ~\\[-1.8cm]
+  \begin{center}
+    \bf \LARGE \BODY
+  \end{center}
+  ~\\[-.6cm]
+  \hrule %
+  \vspace*{.2cm}
+} %
+
+\NewEnviron{titreL}[2] %
+{ %
+  ~\\[-#1cm]
+  \begin{center}
+    \bf \LARGE \BODY
+  \end{center}
+  ~\\[-#2cm]
+  \hrule %
+  \vspace*{.2cm}
+} %
+
+
+
+%%%%%%%%%%% Redefinition \chapter
+
+
+
+\usepackage[explicit]{titlesec}
+\usepackage{color}
+\titleformat{\chapter}
+{\gdef\chapterlabel{}
+\selectfont\huge\bf}
+%\normalfont\sffamily\Huge\bfseries\scshape}
+{\gdef\chapterlabel{\thechapter)\ }}{0pt}
+{\begin{tikzpicture}[remember picture,overlay]
+\node[yshift=-3cm] at (current page.north west)
+{\begin{tikzpicture}[remember picture, overlay]
+\draw (.1\paperwidth,0) -- (.9\paperwidth,0);
+\draw (.1\paperwidth,2) -- (.9\paperwidth,2);
+%(\paperwidth,3cm);
+\node[anchor=center,xshift=.5\paperwidth,yshift=1cm, rectangle,
+rounded corners=20pt,inner sep=11pt]
+{\color{black}\chapterlabel#1};
+\end{tikzpicture}
+};
+\end{tikzpicture}
+}
+\titlespacing*{\chapter}{0pt}{50pt}{-75pt}
+
+
+
+
+%%%%%%%%%%%%%% Affichage chapter dans Table des matieres
+
+\makeatletter
+\renewcommand*\l@chapter[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 1.0em \@plus\p@
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode %\bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\ 
+       \leaders\hbox{$\m@th
+        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+        mu$}\hfil\nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+\makeatother
+
+
+
+
+%%%%%%%%%%%%%%%%% Redefinition part
+
+

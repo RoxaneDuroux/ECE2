@@ -1,0 +1,180 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECS2 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 7}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+
+\section*{Série 1}
+\subsection*{Question de cours}
+\noindent
+Démontrer l'inégalité de Cauchy-Schwarz et son cas d'égalité.
+
+\subsection*{Exercice} % ESCP 2003
+\noindent
+Soit $a$ un nombre r\'eel tel que $ 0 < a < 1$ et $ b$ un nombre r\'eel 
+strictement positif.\\
+On consid\`ere un couple $(X, Y)$ de variables al\'eatoires \`a valeurs 
+dans  $\N^2$,
+dont la loi de probabilit\'e est donn\'ee par:
+\[
+\Prob(\Ev{X=i}\cap \Ev{Y=j})=\begin{cases}\hfill 0\hfill &\text{ si 
+$i<j$}\cr
+\dfrac{b^i\, \ee^{-b}a^j(1-a)^{i-j}}{j!(i-j)!}&\text{ si $i\geq 
+j$}\end{cases}
+\]
+
+\begin{noliste}{1.}
+\item
+D\'eterminer la loi de probabilit\'e de $X$. D\'eterminer, si elles 
+existent, son esp\'erance et sa variance.
+\item
+D\'eterminer la loi de probabilit\'e de $ Y$.
+\item
+Les variables $X$ et $Y$ sont-elles ind\'ependantes ?
+\item
+Soit $Z$ la variable al\'eatoire  $Z = X-Y$. D\'eterminer sa loi.
+\item
+Les variables $Y$ et $Z$ sont-elles ind\'ependantes ?
+\end{noliste}
+
+
+
+\newpage
+
+\section*{Série 2}
+\subsection*{Question de cours}
+\noindent
+Démontrer que le produit scalaire canonique sur l'ensemble des matrices 
+carrées est bien un produit scalaire
+
+\subsection*{Exercice} % ESCP 2017
+\noindent
+Soit $n\in\N^*$ et $E$ l'espace vectoriel des polynômes à coefficients 
+réels de degré inférieur ou égal à $n$.
+\begin{noliste}{1.}
+ \item Montrer qu'on définit sur $E$ un produit scalaire en posant :
+ \[
+  \forall (P,Q)\in E^2, \ \langle P,Q \rangle = \dint{0}{+\infty} 
+  P(t)Q(t) \ee^{-t} \dt
+ \]
+ On note $\Vert . \Vert$ la norme associée.
+ 
+ \item Montrer qu'il existe une base $\mathcal{Q}=(Q_0,Q_1, \hdots, 
+  Q_n)$ orthonormée de $E$, pour ce produit scalaire, telle que pour 
+  tout $k\in\llb 0,n\rrb$, $\deg(Q_k)=k$.
+  
+  \item 
+  \begin{noliste}{a)}
+    \item Que dire de l'ensemble $F=\{P\in E, \ P(0)=0\}$ ?
+    
+    \item En déterminer une base à l'aide des éléments de $\mathcal{Q}$.
+  \end{noliste}
+  
+  \item Soit $U=Q_0 + \Sum{j=1}{n} Q_j(0) \ Q_j$.
+  Justifier que : $\forall \ V \in F$, $\langle V,U\rangle =0$.
+  
+  \item Montrer que, pour tout $k\in\llb 1,n\rrb$, on a :
+  $\langle Q_k, Q_k'\rangle =0$.
+  
+  \item Soit $k\in\llb 1,n\rrb$. En calculant de deux façons :
+  \[
+   I_k=\dint{0}{+\infty} \dfrac{d}{dt}\left[-\left(Q_k(t)\right)^2 
+   \ee^{-t}\right] \dt
+  \]
+  déterminer la valeur de $\left(Q_k(0)\right)^2$.
+  
+  \item On note $F^\perp = \{ P \in E \ / \ \forall \ V \in F, \ 
+  \langle P, V\rangle =0\}$.
+  On admettra que : $F^\perp = \Vect{U}$.\\
+  Calculer $\delta = \min\{\Vert Q_0-P\Vert, \ P \in F^\perp\}$ 
+  et $d=\min\{\Vert Q_0-P\Vert, \ P\in F\}$.
+\end{noliste}
+
+
+
+
+
+
+
+\newpage
+ 
+\section*{Série 3}
+\subsection*{Question de cours}
+\noindent
+Soit $X$ une \var à densité. Soit $(a,b)\in\R^2$. Que vaut $\V(aX+b)$ 
+?\\
+Démontrer ce résultat.
+
+\subsection*{Exercice} % ESCP 2013
+\noindent
+Toutes les variables aléatoires de  cet exercice sont définies
+sur un même espace probabilisé $(\Omega,{\cal A},\Prob)$.
+
+\begin{noliste}{1.}
+\item
+Soit $Z$ une variable al\'{e}atoire \`{a} valeurs dans $\N$.\\ 
+Montrer
+que la variable al\'{e}atoire $2^{-Z}$ admet une esp\'{e}rance. On la
+note $r(Z)$.\\
+On suppose dans la suite de l'exercice   que pour tout $n\in \N$,
+$\Prob(\Ev{Z=n})=  \left( \dfrac{1}{2} \right)^{n+1}$.
+
+\item
+\begin{noliste}{a)}
+\item
+Montrer que l'on d\'{e}finit ainsi une  loi de probabilit\'{e} et
+calculer $r(Z)$.
+\item
+Montrer que pour tout $(n,q)\in \N^2$, $ \DSum{k=0}{n}
+\dbinom{k+q}{ q}= \dbinom{n+q+1}{ q+1}$.
+\item
+Soit $(X_i)_{i\in\N^*}$ une suite de variables al\'{e}atoires
+indépendantes de même loi que $Z$ et pour tout entier $q\geq 1$,
+on pose
+$S_q =
+\DSum{i=1}{q} X_i$.\\
+Montrer que la loi de $S_q$ est d\'{e}finie par :
+\[
+\forall\, n \in \N,  \quad \Prob(\Ev{S_q=n})= \dbinom{n+q-1}{q-1}\left(
+\dfrac12\right)^{n+q}
+\]
+\item
+Calculer $r(S_q)$. En d\'{e}duire que
+\[
+\DSum{n=0}{+\infty} \dbinom{n+q-1}{ q-1} \left(
+\dfrac{1}{4}\right)^{n} = \left( \dfrac{4}{3}\right)^q
+\]
+\end{noliste}
+\item
+On suppose dans cette question  que $Z$ représente le nombre de
+lionceaux devant naître en 2014 d'un couple de lions. Chaque
+lionceau a la probabilité $\dfrac{1}{2}$ d'être mâle ou 
+femelle,
+indépendamment des autres. On note $F$ la variable aléatoire
+représentant le nombre de femelles devant naître en 2014.\\
+Déterminer la loi de $F$.
+\end{noliste}
+
+
+
+
+
+\end{document}

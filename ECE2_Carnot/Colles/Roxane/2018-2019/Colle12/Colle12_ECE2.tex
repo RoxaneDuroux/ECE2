@@ -1,0 +1,157 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 12}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\begin{exercice}~\\
+Une urne contient $n$ boules noires (avec $n\in\N^*$) et deux boules 
+blanches. On effectue dans cette urne des tirages successifs d'une 
+boule, sans remise. On note :
+\begin{noliste}{$\stimes$}
+\item $X$ la \var égale au nombre de tirages nécessaires pour 
+obtenir la première boule blanche.
+
+\item $Y$ la \var égale au nombre de tirages nécessaires pour 
+obtenir la seconde boule blanche.
+
+\item Pour tout $i\in \llb 1,n+2\rrb$, $N_i$ (resp. $B_i$) 
+l'événement \og le $i$ème tirage amène une boule noire (resp. blanche) 
+\fg{}.
+\end{noliste}
+\begin{noliste}{1.}
+\item \begin{noliste}{a)}
+	\item Préciser $X(\Omega)$. Décrire, pour tout $k\in 
+X(\Omega)$, l'événement $\Ev{X=k}$ à l'aide des événements $N_i$ et 
+$B_i$.
+	\item Montrer que pour tout $k\in X(\Omega)$, $ 
+\Prob(\Ev{X=k})=\dfrac{2(n+2-k)}{(n+1)(n+2)}$.
+	\item Calculer $\E(X)$.
+	\end{noliste}
+\item \begin{noliste}{a)}
+	\item Déterminer $Y(\Omega)$.
+	\item Déterminer la loi jointe du couple $(X,Y)$.
+	\item En déduire la loi de $Y$.
+	\item Calculer $\E(Y)$.
+	\end{noliste}
+\item Calculer $\cov(X,Y)$. Commenter son signe.
+\end{noliste}
+\end{exercice}
+
+
+\begin{exercice}~\\
+On considère une suite infinie de lancers d'une pièce équilibrée. Pour 
+tout entier naturel non nul $n$, on désigne par $P_n$ l'événement \og 
+Pile apparaît au $n$ème lancer \fg{} et par $F_n$ l'événement \og Face 
+apparaît au $n$ème lancer \fg{}.\\
+Soit $Y$ la v.a. désignant le rang du lancer où, pour la première fois, 
+apparaît un Face précédé d'au moins deux Pile si cette configuration 
+apparaît, et prenant la valeur $0$ si cette configuration n'apparaît 
+jamais.\\
+On suppose que l'expérience est modélisée par un espace probabilisé 
+$(\Omega, \A,\Prob)$.\\
+On pose $c_1=c_2=0$ et pour tout $n\geq 3$, $c_n=\Prob(\Ev{Y=n})$. On 
+note également :
+\[
+\forall n \geq 3, \ B_n=P_{n-2}\cap P_{n-1}\cap F_n \ \mbox{ et } \ 
+U_n=\dcup{i=3}{n} B_i
+\]
+On pose enfin $u_1=u_2=0$ et pour tout $n\geq 3$, $u_n=\Prob(U_n)$
+\begin{noliste}{1.}
+\item Montrer que la suite $(u_n)_{n\geq 3}$ est monotone et 
+convergente.
+\item \begin{noliste}{a)}
+	\item Pour tout $n\geq 3$, calculer $\Prob(B_n)$.
+	\item Montrer que, pour tout $n\geq 3$, les événements $B_n$, 
+$B_{n+1}$ et $B_{n+2}$ sont deux à deux incompatibles.
+	\item Calculer les valeurs de $u_3$, $u_4$ et $u_5$.
+	\end{noliste}
+\item Dans cette question, on suppose $n\geq 5$.
+	\begin{noliste}{a)}
+	\item Comparer les événements $U_n \cap B_{n+1}$ et $U_{n-2} 
+\cap B_{n+1}$. Préciser leurs probabilités respectives.
+	\item Montrer que pour tout $n\geq 3$, $u_{n+1} 
+=u_n+\dfrac{1}{8}(1-u_{n-2})$.
+	\item Déterminer la limite de la suite $(u_n)$.
+	\item Calculer $\Prob(\Ev{Y=0})$.
+	\end{noliste}
+\item Pour tout $n\in \N^*$, on pose $v_n=1-u_n$.
+\begin{noliste}{a)}
+\item Trouver $(\beta,\gamma)\in\R^2$ tels que pour tout $n\in\N^*$, 
+$v_n=\beta v_{n+2} +\gamma v_{n+3}$.
+\item Montrer que la série de terme général $v_n$ est convergente et 
+calculer $\Sum{n=0}{+\infty} v_n$.
+\end{noliste}
+\end{noliste}
+\end{exercice}
+
+\newpage
+
+
+\begin{exercice}~\\ % ESCP 2017 (voie S)
+ Soit $n$ un entier naturel tel que $n\geq 2$. On dispose d'un paquet 
+de $n$ cartes $C_1$, $C_2$, $\hdots$, $C_n$ que l'on distribue 
+intégralement, les unes après les autres entre $n$ joueurs $J_1$, 
+$J_2$, $\hdots$, $J_n$ selon le protocole suivant :
+\begin{noliste}{$\stimes$}
+ \item la première carte $C_1$ est donnée à $J_1$ ;
+ \item la deuxième carte $C_2$ est donnée de façon équiprobable entre 
+$J_1$ et $J_2$ ;
+ \item la troisième carte $C_3$ est donnée de façon équiprobable entre 
+$J_1$, $J_2$ et $J_3$ ;
+ \item et ainsi de suite, jusqu'à la dernière carte $C_n$ qui est donc 
+distribuée de façon équiprobable entre les joueurs $J_1$, $\hdots$, 
+$J_n$.
+\end{noliste}
+On suppose l'expérience modélisée sur un espace probabilisé $(\Omega, 
+\A, \Prob)$.\\
+On note $X_n$ la variable aléatoire égale au nombre de joueurs qui 
+n'ont reçu aucune carte à la fin de la distribution.
+\begin{noliste}{1.}
+ \item Déterminer $X_n(\Omega)$ et calculer $\Prob(\Ev{X_n=0})$ et 
+$\Prob(\Ev{X_n=n-1})$.
+
+ \item Pour tout $i$ de $\llb 1,n\rrb$, on note $B_i$ la \var qui vaut 
+$1$ si $J_i$ n'a reçu aucune carte à la fin de la distribution et vaut 
+$0$ sinon.\\
+Déterminer la loi de $B_i$. Exprimer la \var $X_n$ en fonction des \var 
+$B_i$ et en déduire l'espérance de $X_n$.
+
+ \item En faisant le moins de calculs possibles, donner la loi de $X_4$.
+ 
+ \item 
+ \begin{noliste}{a)}
+  \item Montrer que pour $i$ et $j$ dans $\llb 1,n\rrb$ tels que $i<j$, 
+on a :
+\[
+ \Prob(\Ev{B_i=1})\cap \Ev{B_j=1})=\dfrac{(i-1)(j-2)}{n(n-1)}
+\]
+En déduire la covariance des \var $B_j$ et $B_j$.
+
+  \item Montrer que $\V(X_n)=\dfrac{n+1}{12}$.
+ \end{noliste}
+\end{noliste}
+\end{exercice}
+
+
+
+
+
+\end{document}

@@ -1,0 +1,237 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+
+\vspace{0.1cm}
+
+\begin{center}
+\textbf{\Large{Programme de colle - Semaine 7}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Notation}
+
+\noindent
+On adoptera les principes suivants pour noter les étudiants :
+\begin{noliste}{$\stimes$}
+\item si l'étudiant sait répondre à la question de cours, il 
+aura une note $>8$.
+\item si l'étudiant ne sait pas répondre à la question de 
+cours ou s'il y a trop d'hésitations, il aura une note $\leq 8$.
+\end{noliste}
+
+\section*{Questions de cours}
+
+\begin{noliste}{$\sbullet$}
+\item {\bf Le noyau et l'image sont des ev}\\
+Soit $f \in \LL{E,F}$. Alors : 
+\begin{noliste}{$\stimes$}
+  \item $\kr(f)$ est un sous espace vectoriel de $E$,
+  
+  \item $\im(f)$ est un sous espace vectoriel de $F$.
+\end{noliste}
+
+\begin{proof}[Preuve]~
+  \begin{noliste}{$\sbullet$}
+    \item \dashuline{$\kr(f)$} : 
+      \begin{noliste}{-}
+        \item $\kr(f) \subset E$ par définition.
+        
+        \item $0_{E} \in \kr(f)$ car $f(0_{E}) = 0_{F}$ 
+        
+        \item Soit $(u_1,u_2) \in (\kr(f))^2$ et soit $(\lambda_1,
+        \lambda_2) \in \R^2$, vérifions : 
+        $\lambda_1 \cdot u_1 + \lambda_2 \cdot u_2 \in \kr(f)$, \ie 
+        montrons : $f(\lambda_1 \cdot u_1 + \lambda_2 \cdot u_2)=
+        0_{F}$.
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+            f(\lambda_1 \cdot u_1 + \lambda_2 \cdot u_2) & = & 
+            \lambda_1 \cdot f(u_1) + \lambda_2 \cdot f(u_2) 
+            & (car $f$ est linéaire) 
+            \nl
+            \nl[-.2cm]
+            &=& \lambda_1 \cdot 0_F + \lambda_2 \cdot 0_F 
+            & (car $u_1\in \kr(f)$ et $u_2\in\kr(f)$)
+            \nl
+            \nl[-.2cm]
+            &=& 0_F
+          \end{array}
+        \]
+        Donc $\lambda_1 \cdot u_1 + \lambda_2 \cdot u_2\in\kr(f)$.
+      \end{noliste}
+      $\kr(f)$ est donc un sous espace vectoriel de $E$.      
+      
+    \item \dashuline{$\im(f)$} :
+      \begin{noliste}{-}
+        \item $\im(f) \subset F$ par définition.
+        
+        \item $0_{F} \in \im(f)$ car $f(0_{E}) = 0_{F}$
+        
+        \item Soit $(v_1,v_2) \in (\im(f))^2$ et soit $(\lambda_1,
+        \lambda_2)\in \R^2$, vérifions : 
+        $v_3= \lambda_1 \cdot v_1 + \lambda_2 \cdot v_2 \in \im(f)$, 
+        c'est-à-dire :
+        \[
+          \exists u_3 \in E, \ \ f(u_3) \ = \ v_3.
+        \]
+        Comme $v_1$ et $v_2$ appartiennent à $\im(f)$, on sait alors :
+        \[
+          \exists (u_1,u_2) \in E^2, \ f(u_1) = v_1 \ \text{ et } \ 
+          f(u_2) =v_2
+        \]
+        Donc, comme $f$ est linéaire :
+        \[
+          v_3 \ = \ \lambda_1 \cdot v_1 + \lambda_2 \cdot v_2 \ = \ 
+          \lambda_1 \cdot f(u_1) + \lambda_2 \cdot f(u_2) \ = \ 
+          f(\lambda_1 \cdot u_1 + \lambda_2 \cdot u_2)
+        \]
+        Donc en posant $u_3 = \lambda_1 \cdot u_1 + \lambda_2 \cdot 
+        u_2$, on a bien $f(u_3) = v_3$, donc $v_3 \in \im(f)$. 
+      \end{noliste}
+      On conclut que $\im(f)$ est un sous-espace vectoriel de $F$.
+  \end{noliste}
+\end{proof}
+
+
+\newpage
+
+
+\item {\bf Caractérisation de l'image}\\
+Soit $f : E \to F$ une application linéaire et soit $(e_1,\ldots,e_n)$ 
+une base de $E$. Alors
+\[
+\im(f) \ = \ \Vect{ f(e_1),\ldots,f(e_n)}.
+\]
+
+\begin{proof}[Preuve]~\\
+Montrons que $\im(f) \ = \ \Vect{ f(e_1),\ldots,f(e_n)}$ par 
+double inclusion.
+\begin{noliste}{$\sbullet$}
+  \item \dashuline{$\im(f) \ \subset \ \Vect{f(e_1),\ldots,f(e_n)}$ : } 
+  \\[.2cm]
+  Soit $v \in \im(f)$, alors il existe $u\in E$ tel que $v=f(u)$. De 
+  plus, $u \in E$, donc il s'écrit comme une combinaison linéaire de la 
+  base canonique, \ie il existe $(\lambda_1,\ldots,\lambda_n)\in\R^n$ 
+  tel que :
+  \[
+    u = \Sum{k=1}{n} \lambda_k \cdot e_k
+  \]
+  Donc : 
+  \[
+    v = f(u) = f\left( \Sum{k=1}{n} \lambda_k \cdot e_k \right) \ 
+    = \ \Sum{k=1}{n} \lambda_k \cdot f(e_k) .
+  \]
+  $v$ est donc une combinaison linéaires des $(f(e_1),\ldots,f(e_n))$, 
+  donc $v \in \Vect{f(e_1),\ldots,f(e_n)}$.
+  
+  \item \dashuline{$ \Vect{f(e_1),\ldots,f(e_n)} \ \subset \ 
+  \im(f)$ : } 
+  \\[.2cm]
+  Soit $v \in \Vect{f(e_1),\ldots,f(e_n)}$, donc $v$ s'écrit comme 
+  combinaison linéaire des $(f(e_1),\ldots,f(e_n))$. Ainsi, il existe 
+  $(\lambda_1,\ldots,\lambda_n)\in\R^n$ tel que :
+  \[
+    v = \Sum{k=1}{n} \lambda_k \cdot f(e_k) = f \left( \Sum{k=1}{n} 
+    \lambda_k \cdot e_k\right)
+  \]
+  donc en posant $u = \Sum{k=1}{n} \lambda_k \cdot e_k$, on a bien 
+  $f(u) = v$. On en déduit que $v \in \im(f)$. 
+\end{noliste}
+\end{proof}
+
+
+
+
+\item {\bf Caractérisation des applications injectives / surjectives}\\
+Soit $f\in\LL{E,F}$. Alors
+\begin{noliste}{1.}
+\item $f$ est injective si et seulement si $\kr(f) = \{0_{E}\}$ 
+(\ie $\forall u \in E$, $f(u)=0_{F} \Rightarrow u = 0_{E}$).
+\item $f$ est surjective si et seulement si $\im(f) = F$.
+\end{noliste}
+
+
+\begin{proof}[Preuve]~
+  \begin{noliste}{1.}
+    \item On raisonne par double implication.
+    \begin{noliste}{}
+      \item[\quad ($\Rightarrow$)] Supposons $f$ est injective alors, 
+      par définition : 
+      \[
+        (u_1,u_2) \in E^2, \ f(u_1) = f(u_2) \Rightarrow u_1 = u_2
+      \]
+      Soit $u\in\kr(f)$.\\
+      Alors $f(u)=0_F=f(0_E)$, \ie $f(u)=f(0_E)$.\\ 
+      Donc, comme $f$ est injective, $u=0_E$.\\
+      Donc $\kr(f) = \{0_{E}\}$.
+      
+      \item[\quad ($\Leftarrow$)] Supposons $\kr(f) = \{0_{E}\}$.\\ 
+      Soient $(u_1,u_2) \in E^2$ tel que $f(u_1) = f(u_2)$, alors par 
+      linéarité de $f$ :
+      \[
+        f(u_1) = f(u_2) \ \Leftrightarrow \ f(u_1) - f(u_2) = 0_{F} \ 
+        \Leftrightarrow \ f(u_1-u_2)= 0_{F} \ \Leftrightarrow \ u_1-u_2 
+        \in \kr(f)
+      \]
+    On en déduit que $u_1-u_2=0_{F}$ donc $u_1=u_2$, \ie $f$ est 
+    injective.
+  \end{noliste}
+  
+  
+  \newpage
+  
+  
+  \item On procède par double implication.
+  \begin{noliste}{}
+    \item[\quad ($\Rightarrow$)] Supposons $f$ est surjective, alors 
+    pour tout $v \in F$, il existe $u \in E$ tel que $f(u) = v$.\\ 
+    Donc $v \in \im(f)$. On en déduit : $\im(f) = F$.
+    
+    \item[\quad ($\Leftarrow$)] Supposons $\im(f) = F$.\\
+    Soit $v \in F$. Alors $v \in \im(f)$.\\
+    Donc, par définition de $\im(f)$, il existe $u \in E$ tel que :
+    $v=f(u)$.\\
+    On en déduit que $f$ est surjective.
+  \end{noliste}
+\end{noliste}
+\end{proof}
+\end{noliste}
+
+
+\section*{Connaissances exigibles}
+
+\subsection*{Algèbre linéaire}
+
+\begin{noliste}{$\sbullet$}
+  \item Application linéaire, endomorphisme, isomorphisme, 
+  automorphisme.
+\item Noyau, image, caractérisation des injections et surjections, 
+caractérisation de $\im(f)$.
+\item Rang, théorème du rang, caractérisation des isomorphismes.
+\item Application linéaire associée à une matrice.
+\item Matrice associée à une application linéaire.
+\item {\bf Aucun résultat de réduction n'est au programme.}
+\end{noliste}
+
+
+
+
+
+
+\end{document}

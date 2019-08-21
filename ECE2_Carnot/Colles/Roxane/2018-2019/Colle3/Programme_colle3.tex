@@ -1,0 +1,220 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+
+\vspace{0.1cm}
+
+\begin{center}
+\textbf{\Large{Programme de colle - Semaine 3}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Notation}
+
+\noindent
+On adoptera les principes suivants pour noter les étudiants :
+\begin{noliste}{$\stimes$}
+\item si l'étudiant sait répondre à la question de cours, il 
+aura une note $> 8$.
+\item si l'étudiant ne sait pas répondre à la question de 
+cours ou s'il y a trop d'hésitations, il aura une note $\leq 8$.
+\end{noliste}
+
+\section*{Questions de cours}
+
+\begin{noliste}{$\sbullet$}
+  
+  \item {\bf Critère de convergence des séries télescopiques} :\\
+   Soit $(u_n)_{n\in\N}$ une suite de réels.
+  \[
+    \begin{array}{rcl}
+      \mbox{$(u_n)$ converge} & \Leftrightarrow & 
+      \mbox{$\Sum{}{} (u_{n+1}-u_n)$ converge}
+    \end{array}
+  \]
+  De plus, si $(u_n)$ converge vers $\ell \in \R$,
+  \[
+    \dlim{n \to +\infty} S_n = \Sum{k=0}{+\infty}(u_{k+1} - u_k) = 
+    \ell - u_0.
+  \]
+
+\begin{proof}[Preuve]~\\
+  Pour tout $n \geq 0$, on a :
+  \[
+    \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+      S_n = \Sum{k=0}{n} (u_{k+1} - u_k)
+      & = & \Sum{k=0}{n} u_{k+1} - \Sum{k=0}{n} u_k 
+      \\[.6cm]
+      & = & \Sum{j=1}{n+1} u_{j} - \Sum{k=0}{n} u_k 
+      & (avec le changement d'indice $j=k+1$) 
+      \nl
+      \nl[-.2cm]
+      & = & \Sum{j=1}{n} u_{j} + u_{n+1} - \left( \Sum{k=1}{n} u_k + 
+      u_0 \right) 
+      \\[.4cm]
+      & = & u_{n+1} - u_0
+    \end{array}
+  \]
+  Donc $(S_n)$ converge si et seulement si $(u_n)$ converge.\\ 
+  De plus, si $(u_n)$ converge vers $\ell \in \R$ : 
+  \[
+    \dlim{n \to +\infty} \Sum{k=0}{n}(u_{k+1} - u_k) = \dlim{n \to 
+    \infty}  (u_{n+1} - u_0) = \ell - u_0.
+  \]~\\[-1.2cm]
+\end{proof}
+
+
+\newpage
+    
+    
+  \item {\bf Critère de convergence des séries de Riemann} :\\
+  $\DSum{}{} \dfrac{1}{n^\alpha} \mbox{ converge} \ \Leftrightarrow \
+  \alpha >1$
+  
+  \begin{proof}[Preuve]~\\
+    On détaillera uniquement le cas $\alpha>1$.\\
+    Soit $k \in \N$ et $x \in [k, k+1]$.\\ 
+    Alors, par décroissante de la fonction 
+    $x \mapsto \dfrac{1}{x^\alpha}$ sur $]0,+\infty[$ :
+    \[
+      \dfrac{1}{(k+1)^\alpha} \ \leq \ \dfrac{1}{x^\alpha} 
+      \ \leq \ \dfrac{1}{k^\alpha},
+    \]
+    Donc, par croissance de l'intégrale, les bornes étant 
+    dans l'ordre croissant ($k \leq k+1$) :
+    \[
+      \dint{k}{k+1} \dfrac{1}{(k+1)^\alpha} \dx 
+      \ \leq \ \dint{k}{k+1} \dfrac{1}{x^\alpha} \dx
+      \ \leq \ \dint{k}{k+1} \dfrac{1}{k^\alpha} \dx
+    \]
+    Comme $k^\alpha$ et $(k+1)^\alpha$ sont des constantes par 
+    rapport à la variable d'intégration $x$, on obtient :
+    \[
+      \dfrac{1}{(k+1)^\alpha} \ \leq \ \dint{k}{k+1} 
+      \dfrac{1}{x^\alpha} \dx \ \leq \ \dfrac{1}{k^\alpha}
+    \]
+    Soit $n \in \N^*$. En sommant l'encadrement précédent de $1$ à 
+    $n-1$, on obtient :
+    \[
+      \Sum{k=1}{n-1} \dfrac{1}{(k+1)^\alpha} \ \leq \ 
+      \dint{1}{n} \dfrac{1}{x^\alpha} \dx \ \leq \ \Sum{k=1}{n-1} 
+      \dfrac{1}{k^\alpha}
+    \]
+    c'est-à-dire :
+    \[
+    \Sum{k=2}{n} \dfrac{1}{k^\alpha}
+    \ \leq \ \dint{1}{n} \dfrac{1}{x^\alpha} \dx 
+    \ \leq \ \Sum{k=1}{n-1} \dfrac{1}{k^\alpha}
+    \]
+    Or : $\dint{1}{n} \dfrac{1}{x^\alpha} \dx 
+    \ = \ \Prim{ \dfrac{1}{1-\alpha} \, \dfrac{1}{x^{\alpha-1}}}{1}{n} 
+    \ = \ \dfrac{1}{\alpha-1} \left( 1- \dfrac{1}{n^\alpha} \right)$. 
+    Donc :
+    \[
+      \Sum{k=2}{n} \dfrac{1}{k^\alpha}
+      \ \leq \ \dfrac{1}{\alpha-1} \left( 1- \dfrac{1}{n^\alpha} 
+      \right)
+      \ \leq \ \Sum{k=1}{n-1} \dfrac{1}{k^\alpha}.
+    \]
+    Si $\alpha >1$, alors : $0 \leq 1 - \dfrac{1}{n^\alpha} 
+      \leq 1$ pour tout $n \in \N^*$.\\[.2cm]
+      La suite $\left( \Sum{k=1}{n} \dfrac{1}{k^\alpha} \right)$ est 
+      donc majorée par $\dfrac{1}{\alpha -1}$. Elle est de plus 
+      croissante car c'est une somme de termes positifs. Donc, par 
+      théorème de convergence monotone, elle converge.\\ 
+      D'où la série $\Sum{}{} \dfrac{1}{n^\alpha}$ est convergente.
+  \end{proof}
+  
+  
+  \newpage
+  
+  
+  \item {\bf Comparaison série / intégrale} :\\ 
+  Soit $f$ une fonction définie sur $[0,+ \infty[$, continue, 
+  positive et décroissante sur cet intervalle.\\
+  Alors la série $\Sum{}{} f(n)$ et la suite $\left(
+  \dint{0}{n} f(t) \dt\right)$ ont même nature.
+
+\begin{proof}[Preuve]~\\
+Pour tout $k \in \N$, comme $f$ est décroissante, on a :
+\[
+  \forall x \in [k,k+1], \ f(k+1) \leq f(x) \leq f(k)
+\]
+Par croissance de l'intégrale, les bornes étant bien ordonnées 
+($k\leq k+1$) :
+\[
+  f(k+1) \ \leq \ \dint{k}{k+1} f(t) \dt \ \leq \ f(k)
+\]
+On somme l'encadrement précédent pour $k$ variant de $0$ à 
+$n-1$. On obtient ainsi :
+\[
+  \Sum{k=0}{n-1} f(k+1) \ \leq \ \dint{0}{n} f(t) \dt
+  \ \leq \ \Sum{k=0}{n-1} f(k)
+\]
+et, si on note $S_n$ la somme partielle d'indice $n$ de la série 
+$\Sum{}{} f(n)$, cela s'écrit :
+\[
+  S_n-f(0) \ \leq \ \dint{0}{n}f(t) \dt \ \leq \ S_{n-1}
+\]
+En observant que les deux suites $(S_n)$ et $\left( \dint{0}{n} f(t) 
+\dt \right)_{n\in\N}$ sont croissantes (car $f$ est positive), on 
+peut affirmer grâce à la dernière égalité :
+\begin{noliste}{$\stimes$}
+  \item si $(S_n)$ converge vers $\ell$, alors $\left( \dint{0}{n} 
+  f(t) \dt \right)_{n\in\N}$ est majorée par $\ell$, donc converge 
+  aussi ;
+
+  \item si $\left( \dint{0}{n} f(t) \dt \right)_{n\in\N}$ converge 
+  vers $\ell'$, alors $(S_n)$ est majorée par $\ell' + f(0)$, donc 
+  converge aussi.
+\end{noliste}
+\end{proof}
+
+  \underline{{\it Remarque}} : On pourra demander à l'étudiant s'il 
+  est possible d'amoindrir les hypothèses.
+\end{noliste}
+
+
+\section*{Connaissances exigibles}
+
+\begin{noliste}{$\sbullet$}
+\item convergence de suites numériques (théorème de convergence 
+monotone, théorème d'encadrement, etc.)
+\item suites adjacentes
+\item étude de suites récurrentes (les élèves doivent être guidés dans 
+le cheminement de ces études)
+\item équivalents
+\item négligeabilité
+\item séries numériques, à termes positifs, séries usuelles, comparaison 
+série / intégrale, comparaisons de séries par négligeabilité et 
+équivalence.
+\item les séries alternées sont hors programme mais les étudiants ont vu 
+en exercice comment démontrer le critère de convergence des séries 
+alternées.
+\item toutes les techniques sont à connaître (sommation télescopique, 
+calcul direct des sommes partielles - séries usuelles, comparaison 
+séries / intégrales, critères sur les SATP...)
+\item on insistera particulièrement en colle sur les rédactions 
+classiques (notamment pour tous les critères sur les SATP).
+\end{noliste}
+
+
+
+
+
+\end{document}

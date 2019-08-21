@@ -1,0 +1,372 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../../../macros.tex}
+%\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \\
+  Mathématiques\\[.2cm]
+  \hrule} %
+\chead{} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} ESCP 2001} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+
+\section*{Exercice 1}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On considère la matrice $A$ définie par : $A = 
+\begin{smatrix}
+-1 & -1 & 2 \\
+1 & 2 & -1 \\
+-2 & -1 & 3
+\end{smatrix}
+$ et on note $\phi $ l'endomorphisme de $\R^{3}$ représenté par $A$
+dans la base canonique.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item 
+
+\begin{nonoliste}{i)}
+\item Montrer que $A$ admet les valeurs propres $1$ et $2$ et n'en
+admet pas
+d'autre.\\
+Déterminer les sous-espaces propres $E_{1}$ et $E_{2}$ associés à ces
+valeurs propres
+
+\item La matrice $A$ est-elle diagonalisable ?
+\end{nonoliste}
+
+\item Soit $V$ un vecteur propre de $A$ associé à la valeur propre $1$.
+Trouver un vecteur $W$ de $\R^{3}$ tel que $\phi (W) = v + W$.
+
+\item Soit $U$ un vecteur propre de $A$ associé à la valeur propre $2$.
+Montrer que la famille $(U,V,W)$ est une base de $\R^{3}$.
+
+\item Déterminer la matrice $B$ représentant l'endomorphisme $\phi $
+dans la
+base $(U,V,W)$ ainsi qu'une matrice inversible $P$ telle qu'on ait
+l'égalité\ $B = P^{-1}AP$.
+\end{noliste}
+
+\item Etant données les matrices 
+\[
+I = 
+\begin{smatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{smatrix},\qquad H = 
+\begin{smatrix}
+1 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 0
+\end{smatrix}
+\qquad N = 
+\begin{smatrix}
+0 & 0 & 0 \\
+0 & 0 & 1 \\
+0 & 0 & 0
+\end{smatrix},
+\]
+on associe à tout élément $(a,b,c)$ de $R^{3}$ la matrice $C_{(a,b,c)}$
+définie par : 
+\[
+C_{(a,b,c)} = aI + bH + cN
+\]
+On note $M$ l'ensemble des matrices $C_{(a,b,c)}$ où $(a,b,c)$ décrit
+$\R^{3}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $M$ est un sous-espace vectoriel de l'espace
+vectoriel $\M{3}$ des matrices carrées d'ordre 3 et
+déterminer
+sa dimension.
+
+\item Vérifier que la matrice $B$ définie en \itbf{4.b)} appartient à 
+$M $.
+
+\item Préciser les conditions que doivent vérifier $(a,b,c)$ pour que
+$C_{(a,b,c)}$ soit inversible. Déterminer, quand elle existe, sa
+matrice
+inverse.
+
+\item Déterminer les valeurs propres de $C_{(a,b,c)}$.\\
+Montrer que cette matrice est diagonalisable si et seulement si $c$ est
+nul.
+\end{noliste}
+\end{noliste}
+
+\newpage
+
+\section*{Exercice 2}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On considère la fonction $G$ de deux variables réelles définie,
+pour
+tout $x$ et $y$ strictement positifs, par : 
+\[
+G(x,y) = \dfrac{x^{2}}{2y^{2}}-\ln x + y-\dfrac{3}{2}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer les dérivées partielles d'ordre 1 et 2 de la fonction
+$G$.
+
+\item Rechercher les extrema éventuels de la fonction $G$ dans le
+domaine $]0, + \infty \lbrack \times ]0, + \infty \lbrack $.
+\end{noliste}
+
+\item On considère maintenant la fonction $f$ définie, pour tout $x$
+strictement positif, par : 
+\[
+f(x) = G(x,1) = \dfrac{x^{2}}{2}-\ln x-\dfrac{1}{2}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier les variations de $f$. Montrer que c'est une fonction
+convexe.
+Donner sa représentation graphique.
+
+\item 
+
+\begin{nonoliste}{i)}
+\item Calculer une primitive de la fonction $f$ sur l'intervalle $]0, +
+\infty
+\lbrack $.
+
+\item En déduire que l'intégrale $\dint{0}{1}f(x)\,\text{d}x$ existe
+et calculer sa valeur.
+\end{nonoliste}
+
+\item Soit $n$ un entier supérieur ou égal à 2. On pose $S_{n} =
+\dfrac{1}{n}\DSum{j = 1}{n}f\left(\dfrac{j}{n}\right)$.
+
+\begin{nonoliste}{i)}
+\item Établir, pour tout entier $j$ vérifiant $1\leq j\leq n$, les
+inégalités : 
+\[
+\dfrac{1}{n}f\left( \dfrac{j + 1}{n}\right) \leq
+\dint{\frac{j}{n}}{\frac{j + 1}{n}}f(x)\,\text{d}x\leq
+\dfrac{1}{n}f\left( \dfrac{j}{n}\right) 
+\]
+
+\item En déduire l'encadrement : 
+\[
+\dint{\frac{1}{n}}{1}f(x)\,\dx\leq S_{n}\leq \dfrac{1}{n}f\left(
+\dfrac{1}{n}\right) + \dint{\frac{1}{n}}{1}f(x)\,\dx
+\]
+
+\item Montrer les inégalités : 
+\[
+0\leq \dfrac{1}{n}f\left( \dfrac{1}{n}\right) \leq
+\dint{0}{\frac{1}{n}}f(x)\,\dx
+\]
+\end{nonoliste}
+
+\item On considère la suite $(S_{n})_{n\geq 2}$ définie précédemment.
+Montrer que cette suite converge et déterminer sa limite.
+
+\item On rappelle que, pour tout entier naturel non nul, on a l'égalité
+$\DSum{k = 1}{n}k^{2} = \dfrac{n(n + 1)(2n + 1)}{6}$.
+
+\begin{nonoliste}{(i)}
+\item Exprimer, pour tout entier naturel non nul, la somme $\DSum{j =
+1}{n}f\left( \dfrac{j}{n}\right) $ en fonction de $n$.
+
+\item En déduire la limite : $\dlim{n\rightarrow + \infty
+}\dfrac{1}{n}\ln \left( \dfrac{n^{n}}{n!}\right) $.
+\end{nonoliste}
+\end{noliste}
+\end{noliste}
+
+\newpage
+
+\section*{Exercice 3}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \textbf{Préliminaire}
+
+Montrer, pour tout entier naturel non nul $n$, l'égalité : $\DSum{k =
+1}{n}k^{3} = \dfrac{n^{2}(n + 1)^{2}}{4}$.
+
+\item Soit $N$ un entier supérieur ou égal à 2.\\
+Une urne contient $N$ boules dont $N-2$ sont blanches et 2 sont
+noires. On
+tire au hasard, successivement et sans remise, les $N$ boules de cette
+urne.\\
+Les tirages étant numérotés de 1 à $N$, on note $X_1$ la variable
+aléatoire égale au numéro du tirage qui a fourni, pour la première
+fois, une boule
+noire et $X_{2}$ la variable aléatoire égale au numéro du tirage qui a
+fourni, pour la deuxième fois, une boule noire.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Préciser l'espace probabilisé $(\Omega,\A,\Prob)$ que l'on peut
+utiliser
+pour modéliser cette expérience aléaoire.
+
+\item Soit $i$ et $j$ deux entiers de l'intervale $\llb 1,N\rrb$. 
+Montrer que
+l'on
+a : 
+\[
+\Prob\left(\Ev{X_{1} = i,\ X_{2} = j}\right) = \left\{ 
+\begin{array}{rcl}
+0 & \text{si} & 1\leq j\leq i\leq N \\
+\dfrac{2}{N(N-1)} & \text{si} & 1\leq i<j\leq N
+\end{array}
+\right.
+\]
+
+\item Déterminer les lois de probabilité des variables $X_{1}$ et
+$X_{2}$.
+Ces variables sont-elles indépendantes ?
+
+\item 
+
+\begin{nonoliste}{i)}
+\item Démontrer que la variable $N + 1-X_{2}$ a même loi que $X_{1}$.
+
+\item Déterminer la loi de la variable $X_{2}-X_{1}$ et la comparer à
+celle
+de $X_{1}$.
+\end{nonoliste}
+
+\item À l'aide des résultats de la question 4 :
+
+\begin{nonoliste}{i)}
+\item Calculer les espérances $\E(X_{1})$ et $\E(X_{2})$.
+
+\item Montrer l'égalité des variances $\V(X_{1})$ et $\V(X_{2})$.
+
+\item établir la relation : $2 \cov(X_{1},X_{2}) = \V(X_{1})$ où
+$\cov(X_{1},X_{2})
+$ désigne la covariance des variables $X_{1}$ et $X_{2}$.
+\end{nonoliste}
+
+\item Calculer $\V(X_{1})$; en déduire $\V(X_{2})$ et
+$\cov(X_{1},X_{2})$.
+\end{noliste}
+
+\item Dans cette partie, $N$ désigne encore un entier supérieur ou égal
+à
+deux.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On considère le programme \Scilab{} suivant, où 
+\texttt{grand(1,1,\ttq{}uin\ttq{},1,10)}
+désigne
+un nombre entier tiré au hasard par l'ordinateur dans l'intervalle
+$[1,10]$ :
+
+\begin{scilab}
+  & a = grand(1,1,\ttq{}uin\ttq{},1,10) \nl %
+  & b = grand(1,1,\ttq{}uin\ttq{},1,10) \nl %
+  & \tcIf{if} a > b \tcIf{then} \nl %
+  & \qquad c = a \nl %
+  & \qquad a = b \nl %
+  & \qquad b = c \nl %
+  & \tcIf{end} \nl %
+  & \tcIf{if} a < b \tcIf{then} \nl %
+  & \qquad disp(\ttq{}a = \ttq{} + string(a)) \nl %
+  & \qquad disp(\ttq{}b = \ttq{} + string(b)) \nl %
+  & \tcIf{end}
+\end{scilab}
+
+\newpage
+
+\begin{nonoliste}{i)}
+\item Que fait l'ordinateur dans le cas où les variables \texttt{a} et 
+\texttt{b}
+contiennent
+toutes les deux le même nombre ?
+
+\item Qu'affiche l'ordinateur dans le cas où les variables \texttt{a} 
+et \texttt{b}
+contiennent respectivement les nombres 3 et 5 ?
+
+\item Qu'affiche l'ordinateur dans le cas où les variables \texttt{a} 
+et \texttt{b}
+contiennent respectivement les nombres 10 et 1 ?\ 
+\end{nonoliste}
+
+\item On suppose que $A$ et $B$ sont deux variables aléatoires définies
+sur
+le même espace probabilisé $(\Omega,\A,\Prob)$, indépendantes, suivant 
+la
+même
+loi uniforme sur l'ensemble $\{1,2,\ldots,N)$ et on désigne par $D$
+l'évènement : "$A$ ne prend pas la même valeur que $B$".
+
+\begin{nonoliste}{i)}
+\item Montrer que la probabilité de l'évènement $D$ est
+$\dfrac{N-1}{N}$.
+
+\item Soit $Y_{1}$ et $Y_{2}$ les variables aléatoires définies par :
+$\left\{ 
+\begin{array}{l}
+Y_{1} = \min (A,B) \\
+Y_{2} = \max (A,B)
+\end{array}
+\right. $\\[.2cm]
+Calculer, pour tout couple $(i,j)$ d'éléments de $\{1,2,\ldots,N\}$, la
+probabilité conditionnelle $\Prob_D\left(\Ev{Y_{1} = i,Y_{2} = 
+j}\right)$.
+\end{nonoliste}
+
+\item Expliquer pourquoi le programme de la question \itbf{3.a)} permet 
+de
+simuler les
+variables aléatoires $X_{1}$ et $X_{2}$, dans le cas où
+$N$
+est égal à 10.
+\end{noliste}
+\end{noliste}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

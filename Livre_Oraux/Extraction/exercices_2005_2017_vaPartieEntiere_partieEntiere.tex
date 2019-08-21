@@ -1,0 +1,384 @@
+\subsection*{Exercices oraux HEC 2011}
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 4; %
+% annee : 2011; %
+% theme : vaPartieEntiere, vaGeometrique, probaLimMonotone, vaIndep; %
+
+\begin{exerciceAP}~\\
+  Toutes les variables aléatoires de cet exercice sont définies sur un
+  espace probabilisé $(\Omega , \A , \Prob)$. Soit $p \in \ ]0, 1[$ et
+  $q = 1-p$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Indépendance de $n$ variables aléatoires
+    discrètes $(n \in \N^*)$.
+  \item On effectue des lancers successifs et indépendants d'une pièce
+    de monnaie. On suppose qu'à chaque lancer la probabilité d'obtenir
+    Pile est égale à $p$. On notera $P$ et $F$ les évènements \og
+    Obtenir Pile \fg{} et \og Obtenir Face \fg{}.\\
+    On définit les variables aléatoires $X_1$ et $X_2$ de la façon
+    suivante :
+    \begin{noliste}{$\stimes$}
+    \item $X_1$ vaut $k$ si le premier Pile de rang impair s'obtient
+      au rang $2k-1$ (entier qui représente le $\eme{k}$ nombre impair
+      de $\N^*$);
+    \item $X_2$ vaut $k$ si le premier Pile de rang pair s'obtient au
+      rang $2k$ (entier qui représente le $k$-ième nombre pair de
+      $\N^*$.
+    \end{noliste}
+    Par exemple si l'on obtient $(F , P , F , F , F , P , P)$ alors
+    $X_1$ prend la valeur 4 et $X_2$ prend la valeur 1.\\
+    On posera $X_1 = 0$ (respectivement $X_2=0$) si Pile n'apparaît à
+    aucun rang impair (respectivement à aucun rang pair).
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Prouver que $\Prob(\Ev{X_1 = 0}) = \Prob(\Ev{X_2 = 0}) = 0$.
+    \item Calculer $\Prob(\Ev{X_1 = 1})$ et $\Prob(\Ev{X_2 =
+        1})$. Déterminer les lois de $X_1$ et de $X_2$. Les variables
+      aléatoires $X_1$ et $X_2$ sont-elles indépendantes ?
+    \item Déterminer la loi de la variable aléatoire $Y$ égale au
+      minimum de $X_1$ et de $X_2$.
+    \end{noliste}
+  \item Soit $X$ une variable aléatoire suivant une loi géométrique de
+    paramètre $p$.
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Montrer que la variable aléatoire $Y = \left\lfloor
+        \dfrac{X+1}{2} \right\rfloor$ suit une loi géométrique
+      ($\lfloor x \rfloor$ désigne la partie entière du nombre $x$).
+    \item Montrer que les variables aléatoires $Y$ et $2Y - X$ sont
+      indépendantes.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+
+\subsection*{Exercices oraux HEC 2016}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 82; %
+% annee : 2016; % 
+% theme : vaDensite, vaUniformeDensite, partieEntiere, vaDiscrete, 
+% vaPartieEntiere; % 
+
+\begin{exerciceAP}~\\
+On suppose que toutes les variables aléatoires qui interviennent dans 
+l'exercice sont définies sur un même espace probabilisé $(\Omega, 
+\A,\Prob)$.
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Loi uniforme sur un intervalle $[a,b]$;
+    définition, propriétés.
+  
+  \item Pour tout $x$ réel, on note $\lfloor x \rfloor$ la partie 
+  entière de $x$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Pour $n$ entier de $\N^*$, montrer que pour tout $x$ réel, 
+    on a : $\dlim{n\to+\infty} \dfrac{\lfloor nx\rfloor}{n}=x$.
+    
+    \item Établir pour tout $(x,y)\in\R^2$ l'équivalence suivante 
+    : $\lfloor y \rfloor \leq x \ \Leftrightarrow \ y < \lfloor x 
+    \rfloor +1$.
+    
+    \item Soit $\alpha$ et $\beta$ deux réels vérifiant $0\leq 
+    \alpha\leq \beta\leq 1$ et soit $N_n(\alpha,\beta)$ le nombre 
+    d'entiers $k$ qui vérifient $\alpha <\dfrac{k}{n}\leq \beta$. 
+    Exprimer $N_n(\alpha,\beta)$ en fonction de $\lfloor n\alpha 
+    \rfloor$ et $\lfloor n\beta \rfloor$.
+  \end{noliste}
+  
+  \item Pour tout entier $n\geq 1$, on note $Y_n$ la variable aléatoire 
+  discrète dont la loi est donnée par :
+  \[
+    \forall k\in\llb 0,n-1\rrb, \ 
+    \Prob\left(\Ev{Y_n=\frac{k}{n}}\right)=\frac{1}{n}.
+  \]
+  Soit $Z$ une variable aléatoire suivant la loi uniforme sur 
+  l'intervalle $[0,1]$. Pour tout entier $n\geq 1$, on définit la 
+  variable aléatoire $Z_n$ par : $Z_n=\dfrac{\lfloor nZ\rfloor}{n}$. 
+  Soit $\alpha$ et $\beta$ deux réels vérifiant $0\leq \alpha\leq 
+  \beta\leq 1$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $\dlim{n\to+\infty} \Prob(\Ev{\alpha <Y_n\leq 
+    \beta})=\beta-\alpha$.
+    
+    \item Comparer les fonctions de répartition respectives de $Y_n$ 
+    et $Z_n$. Conclusion.
+  \end{noliste}
+\end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 88; %
+% annee : 2016; % 
+% theme : vaConvergence, vaPartieEntiere, vaDensite, vaExponentielle,
+% vaDiscrete, vaGeometrique, vaUniformeDensite; % 
+
+\begin{exerciceAP}~\\
+Toutes les variables aléatoires qui interviennent dans l'exercice sont 
+supposées définies sur le même espace probabilisé $(\Omega, 
+\A,\Prob)$.
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Convergence en loi d'une suite de variables 
+  aléatoires.\\
+  Dans tout l'exercice, $X$ désigne une variable aléatoire suivant la 
+  loi exponentielle de paramètre $\lambda>0$.
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item On pose : $T=\lfloor X\rfloor$ (partie entière de $X$). 
+    Montrer que la loi de $T$ est donnée par :
+    \[
+      \forall k \in\N, \ 
+      \Prob(\Ev{T=k}) = \Big(1 - \ee^{-\lambda} \Big) \, 
+      \Big(\ee^{-\lambda}\Big)^k
+    \]
+    
+    \item Quelle est la loi de $T+1$ ? En déduire l'espérance et la 
+    variance de $T$.
+  \end{noliste}
+  
+  \item On pose : $Z=X-\lfloor X\rfloor$.\\
+  Montrer que $Z$ est une variable aléatoire à densité et déterminer 
+  une densité de $Z$.
+
+  \item Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires 
+  indépendantes telles que, pour tout $n\in\N^*$, $X_n$ suit une loi 
+  exponentielle de paramètre $\dfrac{\lambda}{n}$. On pose pour tout 
+  $n\in\N^*$ : $Z_n=X_n-\lfloor X_n\rfloor$.\\
+  Montrer que la suite de variables aléatoires $(Z_n)_{n\geq 1}$ 
+  converge en loi vers une variable aléatoire dont on précisera la loi.
+\end{noliste}
+\end{exerciceAP} 
+
+
+\subsection*{Exercices oraux HEC 2017}
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 94; %
+% annee : 2017; %
+% theme : partieEntiere, vaDensite, vaMin, equivalent, vaPartieEntiere; 
+%
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Question de cours
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Définition et représentation graphique de la fonction 
+      partie entière.
+      
+      \item Donner un programme \Scilab{} permettant de représenter la 
+      fonction partie entière sur l'intervalle $\left[ - 
+      \dfrac{5}{2}, \dfrac{5}{2} \right]$.
+    \end{noliste}
+  \end{noliste}
+  
+  \noindent
+  Pour tout $n\in \N^*$, on note $X_n$ une variable aléatoire 
+  définie sur un espace probabilisé $(\Omega, \A, \Prob)$ dont une 
+  densité $f_n$ est donnée par :
+  \[
+    f_n(t) = \left\{
+    \begin{array}{cR{2cm}}
+      \dfrac{1}{n} \, \ee^{-\frac{t}{n}} & si $t\geq 0$
+      \nl
+      \nl[-.2cm]
+      0 & sinon
+    \end{array}
+    \right.
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \setcounter{enumi}{1}
+    \item Reconnaître la loi de $X_n$, puis en donner l'espérance et la 
+    variance.
+    
+    \item Pour tout $n\in \N^*$, on pose : $u_n = \Prob(\Ev{\vert X_n
+    - \E(X_n) \vert <1})$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Montrer que $u_n = \Big(\ee^{\frac{2}{n}} -1 \Big) 
+      \ee^{-\frac{n+1}{n}}$.
+      
+      \item Déterminer un équivalent de $u_n$ lorsque $n$ tend vers 
+      $+\infty$, de la forme $\dfrac{\alpha}{n}$ où $\alpha$ est un 
+      réel que l'on déterminera.
+    \end{noliste}
+    
+    \item Pour tout $k\in \N$, on considère l'événement 
+    $A_k = \Ev{k + \dfrac{1}{2} < X_n < k+1}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Exprimer l'événement $B_n = \Ev{X_n - \lfloor X_n \rfloor 
+      > \dfrac{1}{2}}$ en fonction des événements $A_k$ ($k\in \N$).
+      
+      \item Pour tout $n\in \N^*$, on pose : $v_n = \Prob(B_n)$.
+      Calculer $v_n$ puis $\dlim{n\to +\infty} v_n$.
+    \end{noliste}
+    
+    \item On suppose désormais que les variables aléatoires $X_1$, 
+    $X_2$, $\ldots$, $X_n$, $\ldots$ sont indépendates et, pour 
+    tout $n\in\N^*$, on pose :
+    \[
+      M_n = \min(X_1, X_2, \ldots, X_n)
+    \]
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Déterminer la loi de $M_n$.
+      
+      \item Pour tout $n\in\N^*$, on pose : $w_n = \Prob(\Ev{\vert 
+      M_n - \E(M_n) \vert <1})$. Calculer $w_n$ puis $\dlim{n\to 
+      +\infty} w_n$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 102; %
+% annee : 2017; %
+% theme : vaPartieEntiere, reductionMat, vaUniformeDensite; %
+
+\begin{exerciceSP}~\\
+  Soit $U$ et $V$ deux variables aléatoires indépendantes, définies 
+  sur un espace probabilisé $(\Omega, \A, \Prob)$, suivant chacune 
+  la loi uniforme sur $[0,1]$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Calculer, pour tout $n\in \N^*$, la probabilité 
+      $\Prob(\Ev{\lfloor n \, U \rfloor = \lfloor n \, V \rfloor})$.
+      
+      \item En déduire la probabilité $\Prob(\Ev{U=V})$.
+    \end{noliste}
+    
+    \item Soit $A$ la matrice aléatoire $
+    \begin{smatrix}
+      U & 1\\
+      0 & V
+    \end{smatrix}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Quelle est la probabilité que $A$ soit inversible ?
+      
+      \item Quelle est la probabilité que $A$ soit diagonalisable ?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceSP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 106; %
+% annee : 2017; %
+% theme : vaMoments, vaDiscrete, partieEntiere; %
+
+\begin{exerciceAP}~\\
+  Dans tout l'exercice, $(\Omega, \A, \Prob)$ désigne un espace 
+  probabilisé, et toutes les variables considérées sont définies sur 
+  cet espace probabilisé et $X$ désigne une variable aléatoire 
+  \underline{à valeurs dans $\N$}.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Question de cours : rappeler la formule de Koenig-Huygens.
+    
+    \item Démontrer que, si $X$ admet un moment d'ordre deux, alors 
+    on a :
+    \[
+      \forall c \in \R, \ \V(X) \leq \E((X-c)^2)
+    \]
+  \end{noliste}
+  
+  \item Dans cette question, $n$ est un entier strictement positif et 
+  $X$ une variable aléatore telle que :
+  \[
+    X(\Omega) \subset \llb 0, 2n \rrb
+  \]
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item En utilisant une des inégalités prouvées en \itbf{1.b)}, 
+    démontrer que la variance de $X$ est inférieure ou égale à $n^2$.
+    
+    \item Démontrer que, si $\E(X) = n$, alors la variance de $X$ est 
+    égale à $n^2$ si, et seulement si, $\Prob(\Ev{X=0}) = 
+    \Prob(\Ev{X=2n}) = \dfrac{1}{2}$.
+    
+    \item Quelle est la plus petite valeur possible de $\V(X)$ 
+    lorsque $\E(X)=n$ ?
+  \end{noliste}
+  
+  \noindent
+  Dans toute la suite de l'exercice, $c$ désigne un nombre réel positif
+  qui n'est \underline{pas entier} et $\lfloor c \rfloor$ sa partie 
+  entière.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \setcounter{enumi}{2}
+    \item Soit $X_0$ une variable aléatoire vérifiant : $\left\{
+    \begin{array}{l}
+      X_0(\Omega) = \{ \lfloor c \rfloor, \ \lfloor c \rfloor 
+      +1\}\\[.1cm]
+      \E(X_0) = c
+    \end{array}
+    \right.$
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Vérifier que : $\Prob(\Ev{X_0 = \lfloor c \rfloor }) =
+      \lfloor c \rfloor +1-c$.
+      
+      \item En déduire que la variance de $X_0$ est égale à 
+      $(c- \lfloor c \rfloor )(\lfloor c \rfloor +1-c)$.
+    \end{noliste}
+    
+    \item Dans cette question et la suivante, $X$ est une variable 
+    aléatoire à valeurs dans $\N$ qui admet une espérance et une 
+    variance, et vérifie : $\E(X)=c$.\\
+    On note $A= \Ev{X \leq c}$ et $p=\Prob(A)$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Justifier que $p$ est strictement compris $0$ et $1$.
+      
+      \item Justifier la ocnvergence de la série $\Sum{k\geq 0}{} 
+      k \, \Prob_{\bar{A}}(\Ev{X=k})$, où $\bar{A}$ désigne le 
+      complémentaire de l'événement $A$.
+    \end{noliste}
+    
+    \item On note : $c_0 = \Sum{k=0}{\lfloor c \rfloor} 
+    k \, \Prob_A(\Ev{X=k})$ et $c_1 = \Sum{k= \lfloor c \rfloor +1}
+    {+\infty} k \, \Prob_{\bar{A}}(\Ev{X=k})$.\\[.1cm]
+    Soit $Y$ une variable aléatoire telle que $\Prob(\Ev{Y=c_0})
+    =p$ et $\Prob(\Ev{Y=c_1})=1-p$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Vérifier que les variables aléatoires $X$ et $Y$ ont la même
+      espérance.
+      
+      \item Prouver l'égalité : $\V(Y) = (c-c_0)(c_1-c)$.
+      
+      \item Démonter l'inégalité :
+      \[
+        \V(X) \geq \V(Y)
+      \]
+      
+      \item En déduire que $\V(X_0)$ est la plus petite valeur possible 
+      de $\V(X))$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+

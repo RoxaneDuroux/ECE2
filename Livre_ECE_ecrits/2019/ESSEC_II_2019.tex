@@ -1,0 +1,528 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+% \input{../macros_Livre.tex}
+\input{../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} ESSEC II 2019} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+%%DEBUT
+
+\noindent %
+Un modèle probabiliste d'une expérience aléatoire représente dans un
+certain sens le désordre qui intervient dans l'expérience et il est
+donc naturel que des outils soient introduits qui permettent de
+mesurer l'intensité de ce désordre. C'est le cas de la notion
+d'entropie qui fait l'objet du présent problème. On considèrera
+différentes situations et notamment la façon dont on mesure
+l'information que deux variables aléatoires s'apportent
+mutuellement.\\
+Dans la première partie on étudie le cas plus simple techniquement de
+variables dont la loi admet une densité. Les deuxièmes et troisièmes
+parties sont consacrées au cas discret. Dans la deuxième partie, on
+introduit les différentes notions d'entropie pour le cas de variables
+discrètes et dans la troisième partie, on examine comment on peut
+mesurer l'information apportée mutuellement par deux variables
+aléatoires.\\
+Toutes les variables aléatoires intervenant dans le problème sont
+définies sur un espace probabilisé $(\Omega, \A, \Prob)$.\\
+Pour toute variable aléatoire $Y$, on notera $\E(Y)$ son espérance
+lorsqu'elle existe.
+
+
+\subsection*{Première partie : Entropie différentielle d'une variable
+  à densité}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item La fonction logarithme de base $2$, notée $\log_2$, est définie
+  sur $\R_+^*$ par : $\log_2(x) = \dfrac{\ln(x)}{\ln(2)}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que pour tout $(x,y)$ élément de $\R_+^* \times
+    \R_+^*$, on a : $\log_2(x \, y) = \log_2(x) + \log_2(y)$.
+    
+  \item Vérifier que pour tout réel $\alpha$ :
+    $\log_2\left(2^\alpha\right) = \alpha$.
+    
+  \item Montrer que la fonction $\log_2$ est concave sur $\R_+^*$.
+  \end{noliste}
+  
+\item Soit $X$ une variable aléatoire réelle à densité, et soit $f$
+  une densité de $X$. On appelle {\bf support} de $f$ l'ensemble $I=
+  \{x \in \R \ | \ f(x) >0\}$, et on suppose que $I$ est un intervalle
+  de $\R$ d'extrémités $a$ et $b$ ($a<b$, $a$ et $b$ finis ou
+  infinis). L'{\bf entropie différentielle} de $X$ est, sous réserve
+  d'existence, le réel :
+  \[
+    h(X) \ = \ - \dint{a}{b} f(x) \, \log_2 \big(f(x)\big) \dx
+  \]
+  Montrer : $h(X) = - \E\Big(\log_2\big(f(X
+  )\big)\Big)$.
+  
+\item Soit $X$ une variable aléatoire de densité $f$ de support $I$,
+  intervalle de $\R$ d'extrémités $a$ et $b$. On suppose que $X$ admet
+  une entropie différentielle.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Soit $c$ un réel, et soit $Y$ la variable aléatoire définie
+    par $Y = c+X$.
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Déterminer une densité de $Y$.
+      
+    \item Justifier l'existence de l'entropie différentielle $h(Y)$,
+      et la déterminer en fonction de $h(X)$.
+    \end{nonoliste}
+    
+  \item Soit $\alpha$ un réel strictement positif, et soit $Z$ la
+    variable aléatoire définie par $Z = \alpha \, X$.
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Déterminer une densité de $Z$.
+      
+    \item Justifier l'existence de l'entropie différentielle $h(Z)$,
+      et la déterminer en fonction de $h(X)$.
+    \end{nonoliste}
+  \end{noliste}
+  
+\item On détermine dans cette question l'entropie différentielle de
+  quelques variables aléatoires suivant des lois classiques.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Soit $a>0$. On considère $X$ une variable aléatoire de loi
+    uniforme sur $[0,a]$.
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Donner une densité de $X$.
+      
+    \item Justifier l'existence de l'entropie différentielle $h(X)$,
+      et la déterminer.
+      
+    \item Déterminer une condition nécessaire et suffisante sur $a$
+      pour que $h(X)>0$.
+    \end{nonoliste}
+
+
+    \newpage
+    
+    
+  \item On considère $Y$ une variable aléatoire de loi normale centrée
+    réduite. Montrer que $Y$ admet une entropie différentielle et :
+    $h(Y) = \dfrac{1}{2} \ \log_2(2 \pi \ee)$.
+    
+  \item On considère $Z$ une variable aléatoire de loi exponentielle
+    de paramètre $\lambda$ ($\lambda >0$). Justifier l'existence de
+    l'entropie différentielle $h(Z)$ et la déterminer.
+    
+  \item Soit $f$ la fonction définie sur $\R$ par $f(x) = \dfrac{1}{2}
+    \ \lambda \, \ee^{-\lambda \, |x|}$ ($\lambda >0$).
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Montrer que $f$ est une densité de probabilité sur $\R$.
+      
+    \item Soit $W$ une variable aléatoire de densité $f$. Justifier
+      l'existence de l'entropie différentielle $h(W)$ et la déterminer.
+    \end{nonoliste}
+  \end{noliste}
+  
+\item On dit qu'un couple $(X,Y)$ de variables aléatoires est un
+  couple gaussien centré si, pour tout $(\alpha, \beta) \in \R^2$,
+  $\alpha \, X + \beta \, Y$ est une variable de loi normale centrée,
+  c'est-à-dire qu'il existe $\gamma \in \R$ et une variable aléatoire
+  $Z$ de loi normale centrée réduite tels que $\alpha \, X + \beta \,
+  Y$ a même loi que $\gamma \, Z$. On considère un tel couple $(X,Y)$
+  et on noté $\sigma^2$ la variance de $X$. On suppose : $\sigma^2
+  >0$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $X$ suit une loi normale centrée.
+    
+  \item Calculer $h(X)$.
+    
+  \item On suppose désormais que $X$ et $Y$ suivent la même loi
+    normale centrée de variance $\sigma^2$ et on admet que les
+    propriétés de l'espérance des variables discrètes se généralisent
+    aux variables aléatoires quelconques.
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Montrer que $\E(XY)$ existe.
+      
+    \item Montrer de plus, pour tout réel $\lambda$ : $\lambda^2 \,
+      \E\left( Y^2 \right) + 2 \lambda \, \E(XY) + \E\left( X^2
+      \right) \ \geq \ 0$.
+      
+    \item En déduire : $\big( \E(XY) \big)^2 \ \leq \ \E\left( X^2
+      \right) \, \E\left( Y^2 \right)$.
+      
+    \item On pose $\rho = \dfrac{\E(XY)}{\sigma^2}$. Montrer : $\rho
+      \in [-1,1]$.
+      
+    \item Que vaut $\rho$ si $X$ et $Y$ sont indépendantes ?
+    \end{nonoliste}
+    
+  \item On suppose $|\rho| <1$. On appelle {\bf entropie jointe} du
+    couple $(X,Y)$ le réel :
+    \[
+      h(X,Y) \ = \ \log_2\left(2 \pi \, \ee \, \sigma^2 \, \sqrt{1-
+          \rho^2} \right)
+    \]
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item À quelle condition $h(X,Y)$ est-elle nulle ?
+      
+    \item L'{\bf information mutuelle} de $X$ et $Y$ est définie par :
+      \[
+        I(X,Y) \ = \ h(X) + h(Y) - h(X,Y)
+      \]
+      Calculer $I(X,Y)$.
+      
+    \item Montrer : $I(X,Y) \geq 0$.
+      
+    \item Quelle est la limite de $I(X,Y)$ quand $\rho$ tend vers $1$ ?
+    \end{nonoliste}
+  \end{noliste}
+\end{noliste}
+
+
+\newpage
+
+
+\subsection*{Deuxième partie : Généralités sur l'entropie des
+  variables discrètes}
+
+\noindent
+Soit $A$ un ensemble fini non vide. On dit que $X$ est une variable
+aléatoire dont la loi est à support $A$, si $X$ est à valeurs dans $A$
+et si pour tout $x \in A$ : $\Prob(\Ev{X = x}) >0$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{5}
+\item Soit $X$ une variable aléatoire de loi à support $\{0,1,2,
+  \ldots, n\}$ où $n$ est un entier naturel. On appelle {\bf entropie}
+  de $X$ le réel :
+  \[
+    H(X) \ = \ - \Sum{k=0}{n} \Prob(\Ev{X = k}) \, \log_2\big(
+    \Prob(\Ev{X = k})\big)
+  \]
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item On définit la fonction $g : \{0, \ldots,n\} \to \R$ en posant
+    $g(k) = \log_2 \big( \Prob(\Ev{X = k}) \big)$ pour $k$ élément de
+    $\{0, 1, \ldots, n\}$. Montrer : $H(X) = - \E \big(g(X)\big)$.
+    
+  \item Montrer : $H(X) \geq 0$.
+    
+  \item Soit $p$ un réel tel que $0 < p < 1$.\\
+    On suppose dans cette
+    question que $X$ suit la loi de Bernoulli $\Bern{p}$.
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Calculer $H(X)$ en fonction de $p$. On note $\psi$ la
+      fonction qui, à $p$, associe $H(X)$.
+      
+    \item Montrer que $\psi$ est concave sur $]0,1[$.
+      
+    \item Déterminer la valeur $p_0$ où $\psi$ est maximale.
+    \end{nonoliste}
+    
+  \item On suppose dans cette question que la loi de $X$ est à support
+    $\{0,1,2,3\}$ avec les probabilités :
+    \[
+      \Prob(\Ev{X = 0}) = \dfrac{1}{2} \quad ; \quad \Prob(\Ev{X = 1})
+      = \dfrac{1}{4} \quad ; \quad \Prob(\Ev{X = 2}) = \Prob(\Ev{X =
+        3}) = \dfrac{1}{8}
+    \]
+    Calculer $H(X)$.
+  \end{noliste}
+  
+\item On souhaite écrire une fonction en \Scilab{} pour calculer
+  l'entropie d'une variable aléatoire $X$ dont le support de la loi
+  est de la forme $A = \{0,1, \ldots, n\}$ où $n$ est un entier
+  naturel. On suppose que le vecteur {\tt P} de \Scilab{} est tel que
+  pour tout $k$ de $A$, ${\tt P(k + 1)} = \Prob(\Ev{X =
+    k})$. Compléter la fonction ci-dessous d'argument {\tt P} qui
+  renvoie l'entropie de $X$, c'est-à-dire $-\Sum{k=0}{n} \Prob(\Ev{X =
+    k}) \, \log_2\big( \Prob(\Ev{X = k}) \big)$.
+  \begin{scilab}
+    & \tcFun{function} \tcVar{h} = \underline{Entropie}(\tcVar{P})
+    \nl %
+    & ... \nl %
+    & \tcFun{endfunction}
+  \end{scilab}
+  Si nécessaire, on pourra utiliser l'instruction {\tt length(P)} qui
+  donne le nombre d'éléments de {\tt P}.\\
+  On souhaite maintenant démontrer quelques inégalités concernant
+  l'entropie.
+  
+\item On commence par une inégalité générale, appelée {\bf Inégalité
+    de Jensen}.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Soit $N \geq 2$. Soit $X$ une variable aléatoire de loi à
+    support $\{x_1, x_2, \ldots, x_N\}$ où les $x_i$ sont des éléments
+    distincts de $\R_+$. On pose $\Prob(\Ev{X = x_i}) = p_i$.\\
+    Montrer que, pour tout $1 \leq i \leq N$, on a : $p_i <
+    1$.\\[.4cm]
+    On désire démontrer par récurrence la propriété suivante :
+    \[
+      \begin{array}{rc@{\qquad}>{\it}R{12cm}}
+        \PP{N} & : & {\bf Pour toute fonction $\varphi$ convexe sur
+                     $\R_+$, si $X$ est une variable aléatoire de loi
+                     à support $A \subset \R_+$ avec $\Card(A) = N$,
+                     on a : $\E\big(\varphi(X)\big) \geq \varphi\big(
+                     \E(X) \big)$}
+      \end{array}
+    \]
+    
+  \item Montrer que $\PP{2}$ est vraie.
+
+
+    \newpage
+
+
+  \item Soit $N \geq 3$. On suppose que $\PP{N-1}$ est vérifiée. Soit
+    $X$ une variable aléatoire de loi à support $A= \{x_1, x_2,
+    \ldots, x_N\}$ où les $x_i$ sont des éléments distincts de
+    $\R_+$. On pose : $\Prob(\Ev{X = x_i}) = p_i$.\\
+    Pour $i$ tel que $1 \leq i \leq N-1$, on pose : $p_i' =
+    \dfrac{p_i}{1 - p_N}$.
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Montrer : $\Sum{i=1}{N-1} p_i' = 1$ et $ \forall i \in \llb 1,
+      N-1 \rrb$, $0< p_i' <1$.
+      
+    \item Soit $Y$ une variable aléatoire de loi à support $\{x_1,
+      \ldots, x_{N-1}\}$ telle que $\Prob(\Ev{Y = x_i}) = p_i'$ pour
+      $1 \leq i \leq N-1$. Montrer : $\Sum{i=1}{N-1} p_i' \,
+      \varphi(x_i) \ \geq \ \varphi\left( \Sum{i=1}{N-1} p_i' \, x_i
+      \right)$.
+      
+    \item Montrer : $\E\big( \varphi(X) \big) \ \geq \ \varphi\big( \E(X)
+      \big)$.
+    \end{nonoliste}
+    
+  \item Montrer que, si $\varphi$ est {\it concave} sur $\R_+$, on a :
+    $\E\big( \varphi(X)\big) \ \leq \ \varphi\big( \E(X) \big)$.
+  \end{noliste}
+  
+\item Soit $X$ une variable aléatoire de loi à support $\{0,1, \ldots,
+  n\}$. On pose, pour $k$ tel que $0 \leq k \leq n$, $p_k =
+  \Prob(\Ev{X = k})$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer : $\Sum{k=0}{n} p_k \, \log_2\left( \dfrac{1}{(n+1) \,
+        p_k} \right) \ \leq \ \log_2\left( \Sum{k=0}{n}
+      \dfrac{p_k}{(n+1) \, p_k}\right) \ = \ 0$.
+    
+  \item Montrer : $\Sum{k=0}{n} p_k \, \log_2 \big( (n+1) \, p_k \big)
+    \ = \ \log_2(n+1) - H(X)$.
+    
+  \item Montrer : $H(X) \leq \log_2(n+1)$.
+    
+  \item On suppose que $X$ suit la loi uniforme sur $\{0,1, \ldots,
+    N\}$. Calculer $H(X)$.
+  \end{noliste}
+  
+\item Soient $X$ et $Y$ deux variables aléatoires {\it de même loi} à
+  support $\{0,1, \ldots, n\}$. On suppose en outre $X$ et $Y$
+  indépendantes.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer : $\Prob(\Ev{X = Y}) \ = \ \Sum{k=0}{n} \big(
+    \Prob(\Ev{X = k})\big)^2$.
+    
+  \item On pose $v(k) = \Prob(\Ev{X = k})$ pour tout $k$ élément de
+    $\{0,1, \ldots, n\}$. Montrer :
+    \[
+      2^{\E\left( \log_2\big(v(X)\big)\right)} \ \leq \ \E\left(
+      2^{\log_2 \big(v(X)\big)}\right) \ = \ \E\big(v(X)\big)
+    \]
+      
+  \item En déduire : $2^{-H(X)} \ \leq \ \Prob(\Ev{X = Y})$.
+    
+  \item Donner un exemple de loi où l'inégalité précédente est une
+    égalité.
+  \end{noliste}
+\end{noliste}
+
+
+\subsection*{Troisième partie : Entropie jointe et information
+  mutuelle de deux variables discrètes}
+
+\noindent
+Soient $X$ et $Y$ deux variables aléatoires de lois à support $\{0,1,
+\ldots, n\}$. On appelle {\bf entropie jointe} de $X$ et $Y$ le réel :
+\[
+  H(X,Y) \ = \ - \Sum{k=0}{n} \, \Sum{j=0}{n} \Prob(\Ev{X = k} \cap
+  \Ev{Y = j}) \, \log_2 \big( \Prob(\Ev{X = k} \cap \Ev{Y = j}) \big)
+\]
+avec la convention : $0 \times \log_2(0) = 0$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{10}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item On définit la fonction $g : \{0,1, \ldots , n \}^2 \to \R \up
+    \{-\infty\}$ en posant pour $(k,j) \in \{0,1, \ldots, n\}^2$ :
+    \[
+      g(k,j) \ = \ \log_2 \big( \Prob(\Ev{X = k} \cap \Ev{Y = j})\big)
+    \]
+    Montrer : $H(X,Y) = -\E\big( g(X,Y) \big)$.
+    
+  \item Montrer : $H(X,Y) = H(Y,X)$.
+    
+  \item Pour tout $k$ tel que $0 \leq k \leq n$, on pose :
+    \[
+      H(Y \, | \, X = k) \ = \ -\Sum{j=0}{n} \Prob_{\Ev{X = k}} (\Ev{Y
+        = j}) \, \log_2 \left( \Prob_{\Ev{X = k}}(\Ev{Y = j}) \right)
+    \]
+    On appelle {\bf entropie conditionnelle} de $Y$ sachant $X$ le
+    réel :
+    \[
+      H(Y \, | \, X) \ = \ \Sum{k=0}{n} \Prob(\Ev{X = k}) \, H(Y \, |
+      \, X = k)
+    \]
+    Montrer : $H(X,Y) \ = \ H(X) + H(Y \, | \, X)$.
+    
+  \item Montrer que pour tout couple de variables aléatoires $X$ et
+    $Y$ de lois à support $\{0,1, \ldots ,n\}$, on a :
+    \[
+      H(X) - H(X \, | \, Y) \ = \ H(Y) - H(Y \, | \, X)
+    \]
+  \end{noliste}
+  
+\item On considère dans cette question deux variables aléatoires de
+  lois à support $\{0,1,2,3\}$. On suppose que la loi conjointe de
+  $(X,Y)$ est donnée par le tableau suivant :
+  \[
+    % \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|>{\centering\small}c||
+      *{4}{>{\centering\arraybackslash\small$}m{7mm}<{$}|
+      }}
+    % \hhline{~|*{3}{-}}
+      \hline
+      \diagbox[width=1.2cm, height=1.2cm]
+      {\scalebox{1}{$j$}}
+      {\scalebox{1}{$k$}}
+      & \cellcolor{gray!20} 0 & \cellcolor{gray!20} 1  
+      & \cellcolor{gray!20} 2 & \cellcolor{gray!20} 3 \\
+      \hline
+      \hline
+      \rule[18pt]{0pt}{0pt}
+      \cellcolor{gray!20} 0
+      \rule[-15pt]{0pt}{0pt} 
+      & \dfrac{1}{8} & \dfrac{1}{16} & \dfrac{1}{32} 
+      & \dfrac{1}{32} \\
+      \hline
+      \rule[18pt]{0pt}{0pt}
+      \cellcolor{gray!20} 1
+      \rule[-15pt]{0pt}{0pt} 
+      & \dfrac{1}{16} & \dfrac{1}{8} & \dfrac{1}{32}
+      & \dfrac{1}{32} \\
+      \hline
+      \rule[18pt]{0pt}{0pt}
+      \cellcolor{gray!20} 2
+      \rule[-15pt]{0pt}{0pt} 
+      & \dfrac{1}{16} & \dfrac{1}{16} & \dfrac{1}{16} 
+      & \dfrac{1}{16} \\
+      \hline
+      \rule[18pt]{0pt}{0pt}
+      \cellcolor{gray!20} 3
+      \rule[-15pt]{0pt}{0pt} 
+      & \dfrac{1}{4} & 0 & 0 & 0 \\
+      \hline
+    \end{tabular}
+  \]
+  (on lit dans la $\eme{k}$ colonne et la $\eme{j}$ ligne la valeur de
+  $\Prob(\Ev{X = k} \cap \Ev{Y = j})$)
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer la loi de $X$ et montrer : $H(X) = \dfrac{7}{4}$.
+    
+  \item Déterminer la loi de $Y$ et calculer $H(Y)$.
+    
+  \item Montrer : $H(X \, | \, Y) = \dfrac{11}{8}$.
+    
+  \item Que vaut $H(Y \, | \, X)$ ?
+    
+  \item Calculer $H(X,Y)$.
+  \end{noliste}
+  
+\item Soient $X$ et $Y$ deux variables aléatoires de lois à support
+  $\{0,1, \ldots, n\}$. On appelle {\bf information mutuelle} de $X$
+  et de $Y$ le réel :
+  \[
+    I(X,Y) \ = \ \Sum{k=0}{n} \, \Sum{j=0}{n} \Prob(\Ev{X = k} \cap
+    \Ev{Y = j}) \, \log_2 \left( \dfrac{\Prob(\Ev{X = k} \cap \Ev{Y =
+          j})}{\Prob(\Ev{X = k}) \, \Prob(\Ev{Y = j})} \right)
+  \]
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer : $I(X,Y) = I(Y,X)$.
+    
+  \item Montrer : $I(X,Y) = H(X) - H(X \, | \, Y)$.
+    
+  \item Montrer : $I(X,X) = H(X)$.
+    
+  \item Que vaut $I(X,Y)$ si $X$ et $Y$ sont indépendantes ?
+  \end{noliste}
+
+
+  \newpage
+  
+  
+\item Soient $X$ et $Y$ deux variables aléatoires de lois à support
+  $\{0,1, \ldots, n\}$. On fixe $0 \leq k \leq n$. Pour $0 \leq j \leq
+  n$, on pose : $p_j = \dfrac{\Prob(\Ev{X = k} \cap \Ev{Y = j})}{
+    \Prob(\Ev{X = k})}$. On suppose que $p_j >0$ pour tout $0 \leq j
+  \leq n$ et on pose : $x_j = \dfrac{\Prob(\Ev{X = k}) \, \Prob(\Ev{Y
+      = j})}{\Prob(\Ev{X = k} \cap \Ev{Y = j})}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer : $\Sum{j=0}{n} p_j = 1$.
+    
+  \item Soit $Z_k$ une variable aléatoire de loi à support $\{x_0,
+    \ldots, x_n \}$ dont la loi est donnée par $\Prob(\Ev{Z_k = x_j})
+    =~p_j$ pour $0 \leq j \leq n$. Montrer :
+    \[
+      \E\big( \log_2(Z_k) \big) \ \leq \ 0
+    \]
+    
+  \item En déduire : $I(X,Y) \geq 0$.
+  \end{noliste}
+\end{noliste}
+\end{document}

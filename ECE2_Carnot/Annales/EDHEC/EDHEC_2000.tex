@@ -1,0 +1,450 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 2000} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 2000}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2000}}
+
+
+
+{\large \textbf{Concepteur : Edhec}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\paragraph{ Exercice 1}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer l'ensemble $D$ des réels tels que $e^{x}-e^{-x}>0$.
+
+On définit la fonction $f$ par~ : $\forall x \in D,\;
+f(x) = \ln\left(e^{x}-e^{-x}\right)$.
+
+On note $(C)$ sa courbe représentative dans un repère orthonormé
+$(O,\vec{\imath},\vec{\jmath})$.
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier les variations de $f$ et donner les limites de $f$ aux
+bornes de $D$.
+
+\item En déduire l'existence d'un unique réel $\alpha$ vérifiant
+$f(\alpha) = 0$, puis donner la valeur exacte de $\alpha$.
+
+\item Montrer que le coefficient directeur de la tangente $(T)$ à la
+courbe $(C)$ au point d'abscisse $\alpha$ vaut $\sqrt{5}$.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $ \dlim{x\rightarrow + \infty} \left(f(x)-x\right)
+$.
+
+\item En déduire l'équation de l'asymptote $(\Delta)$ à la courbe $(C)$
+au voisinage de $ + \infty$.
+
+\item Donner la position relative de $(\Delta)$ et $(C)$.
+\end{noliste}
+
+\item Donner l'allure de la courbe $(C)$ en faisant figurer les droites
+$(\Delta)$ et $(T)$.
+
+On admettra que $\alpha \simeq 0,5$ et que $\sqrt{\alpha}\simeq 2,2$.
+
+\item Soit $\lambda$ un réel, on note $g_{\lambda}$ la fonction définie
+par~ : $ \left\{
+\begin{array}{ll}
+g_{\lambda}(x) = 0 & \text{si} \; x<\alpha \\
+g_{\lambda}(x) =  \frac{\lambda}{e^{2x}-1} & \text{si} \;
+x\geq\alpha
+\end{array}
+\right.$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On pose $h(x) = f(x)-x$. Après avoir calculer $h^{\prime }(x)$,
+déterminer $\lambda$ en fonction de $\alpha$ pour que $g_{\lambda}$
+soit
+une densité de probabilité d'une certaine variable aléatoire $X$.
+
+\item Donner la fonction de répartition $G_{\lambda}$ de $X$.
+\end{noliste}
+\end{noliste}
+
+%-------------------------------------------------------------
+
+\paragraph{ Exercice 2}
+
+\hfill\\
+
+Soit la matrice $K = 
+\begin{smatrix}
+0 & 0 & 1 \\
+0 & 1 & 0 \\
+1 & 0 & 0
+\end{smatrix}
+$.
+
+On note $E$ l'ensemble des matrices $M$ de $\M{3}$
+vérifiant~ : $MK = KM = M$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $E$ est un espace vectoriel.
+
+\item Montrer par l'absurde qu'aucune matrice de $E$ n'est inversible.
+\end{noliste}
+
+\item Soit $M = \begin{matrix}
+a & b & c \\
+d & e & f \\
+g & h & k\end{matrix}$ une matrice de $E$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $k = g = c = a$, $h = b$ et $f = d$, puis en déduire
+la forme des
+matrices de $E$.
+
+\item Retrouver le fait que les matrices de $E$ ne sont pas
+inversibles.
+
+\item Déterminer une base de $E$ et vérifier que $\mathrm{dim} E = 4$.
+\end{noliste}
+
+\item On considère l'ensemble $F$ des mtrices de la forme $M =
+\begin{matrix}
+x & y & x \\
+y & z & y \\
+x & y & x\end{matrix}$ où $x$, $y$ et $z$ sont des réels.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $F$ est un sous-espace vectoriel de $E$ et donner
+une
+base de $F$.
+
+\item Les matrices de $F$ sont-elles diagonalisables~ ?
+
+\item Dans cette question on appelle $U$ la matrice de $F$ telle que~ :
+$x = 3$, $y = 2$ et $z = 4$.
+
+Trouver les valeurs propres de $U$ et exhiber un vecteur colonne propre
+pour
+chacune d'entre elles.
+\end{noliste}
+
+\item On note $\varphi$ l'application de $F$ dans $\R$ qui à toute
+matrice $A$ de $F$ associe le nombre $\Sum{i = 1}{3}\Sum{j =
+1}{3}(-1)^{i + j}a_{i,j}$, où $a_{i,j}$ désigne
+l'élément de la matrice $A$ situé à l'intersection de la
+$i^{\grave{e}me}$ ligne et de la $j^{i\grave{e}me}$ colonne.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\varphi$ est une application linéaire de $F$ dans
+$\R$.
+
+\item Déterminer $\mathrm{Im}\, \varphi$. En déduire que
+$\mathrm{Ker}\,
+\varphi$ est de dimension $2$.
+
+\item Soit $M = \begin{matrix}
+x & y & x \\
+y & z & y \\
+x & y & x\end{matrix}$ une matrice de $\mathrm{Ker}\, \varphi$.
+
+Exprimer $\varphi (M)$ en fonction de $x$, $y$ et $z$ et en déduire une
+base de $\mathrm{Ker}\, \varphi$.
+\end{noliste}
+\end{noliste}
+
+\vspace{0.5cm} 
+%-------------------------------------------------------------
+
+\paragraph{ Exercice 3}
+
+\hfill\\
+
+Pour tout entier $n$ supérieur ou égal à $1$, on définit la fonction 
+$f_{n}$ par~ : 
+\[
+\forall x \in \R_+,\;\; f_{n}(x) = x^{n} + 9x^{2}-4.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que l'équation $f_{n}(x) = 0$ n'a qu'une seule solution
+strictement positive, notée $u_{n}$.
+
+\item Calculer $u_{1}$ et $u_{2}$.
+
+\item Vérifier que~ : $\forall n \in \N^*,\; \in]0,\frac{2}{3}[$.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout $x$ élément de $]0,1[$, on a~ : $f_{n +
+1}(x)<f_{n}(x)$.
+
+\item En déduire le signe de $f_{n}(u_{n + 1})$, puis les variations de
+la
+suite $(u_{n})$.
+
+\item Montrer que la suite $(u_{n})$ est convergente. On note $\ell $
+sa
+limite.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer la limite de $(u_{n})^{n}$ lorsque $n$ tend vers $ +
+\infty$.
+
+\item Donner enfin la valeur de $\ell $.
+\end{noliste}
+
+\item Montrer que la série de terme général $\frac{2}{3}-u_{n}$ est
+convergente.
+\end{noliste}
+
+\vspace{0.5cm} 
+%-------------------------------------------------------------
+
+\paragraph{ Problème}
+
+\hfill\\
+
+On lance indéfiniment une pièce donnant \textit{``Pile''} avec la
+probabilité $p$ et \textit{``Face''} avec la probabilité $q = 1-p$. On
+suppose que $p\in]0,1[$ et on admet que les lancers sont mutuellement
+indépendants.
+
+Pour tout entier naturel $k$, supérieur ou égal à $2$, on dit que le
+$k^{i\grave{e}me}$ lancer est un changement s'il amène un résultat
+différent de celui du $(k-1)^{i\grave{e}me}$ lancer.
+
+On note $P_{k}$ (resp. $F_{k}$) l'événement~ : \textit{``on obtient
+Pile
+(resp. Face) au $k^{i\grave{e}me}$ lancer''}.
+
+Pour ne pas surcharger l'écriture on écrira, par exemple, $P_{1}F_{2}$
+à
+la place de $P_{1}\cap F_{2}$.
+
+Pour tout entier naturel $n$ supérieur ou égal à $2$, on note $X_{n}$
+la
+variable aléatoire égale au nombre de changements survenus durant les
+$n$
+premiers lancers.
+
+\paragraph{Partie 1~ : étude de quelques exemples.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Donner la loi de $X_{2}$.
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner la loi de $X_{3}$.
+
+\item Vérifier que $\E(X_{3}) = 4pq$ et que $\V(X_{3}) = 2pq(3-8pq)$.
+\end{noliste}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Trouver la loi de $X_{4}$.
+
+\item Calculer $\E(X_{4})$.
+\end{noliste}
+\end{noliste}
+
+\paragraph{Partie 2~ : étude du cas $p\neq q$.}
+
+Dans cette partie, $n$ désigne un entier naturel supérieur ou égal à 
+$2$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Exprimer $P\left(\Ev{X_{n} = 0}\right)$ en fonction de $p$, $q$
+et $n$.
+
+\item En décomposant l'événement $(X_{n} = 1)$ en une réunion
+d'événements incompatibles, montrer que \\
+$ P\left(\Ev{X_{n} = 1}\right) = \frac{2pq}{q-p}\left(
+q^{n-1}-p^{n-1}\right) $.
+
+\item En distinguant les cas $n$ pair et $n$ impair, exprimer
+$P\left(\Ev{X_{n} = n-1}\right)$
+en fonction de $p$ et $q$.
+
+\item Retrouver, gr\^{a}ce aux trois questions précédentes, les lois de
+$X_{3}$ et $X_{4}$.
+
+\item Pour tout entier naturel $k$, supérieur ou égal à $2$, on note
+$Z_{k}$ la variable aléatoire qui vaut $1$ si le $k^{i\grave{e}me}$
+lancer
+est un changement et $0$ sinon ($Z_{k}$ est donc une variable de
+Bernouilli).
+
+Écrire $X_{n}$ à l'aide de certaines des variables $Z_{k}$ et en
+déduire $\E(X_{n})$.
+\end{noliste}
+
+\paragraph{Partie 3~ : étude du cas $p = q$.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Vérifier, en utilisant les résultats de la partie 1, que $X_{3}$
+et $X_{4}$ suivent chacune une loi bin\^{o}miale.
+
+\item Montrer que, pour tout entier naturel $n$ supérieur ou égal à
+$2$, $X_{n}$ suit une loi bin\^{o}miale dont on donnera les paramètres.
+\end{noliste}
+
+\end{document}
+

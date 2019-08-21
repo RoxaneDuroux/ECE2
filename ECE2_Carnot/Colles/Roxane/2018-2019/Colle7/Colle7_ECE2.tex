@@ -1,0 +1,202 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 7}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+
+\begin{exercice}~\\
+On considère l'espace vectoriel $\M{2}$ muni de sa base canonique 
+$\B=(M_1,M_2,M_3,M_4)$ avec
+\[
+  M_1= 
+  \begin{smatrix} 
+    1 & 0\\ 
+    0 & 0 
+  \end{smatrix}
+  , \ M_2 = 
+  \begin{smatrix} 
+    0 & 1\\
+    0 & 0 
+  \end{smatrix}
+  , \ M_3= 
+  \begin{smatrix} 
+    0 & 0\\ 
+    1 & 0 
+  \end{smatrix}
+  , \ M_4= 
+  \begin{smatrix} 
+    0 & 0\\ 
+    0 & 1 
+  \end{smatrix}.
+\]
+Soit $f: \left\{\begin{array}{ccc}
+\M{2} & \rightarrow & \M{2}\\
+M & \mapsto & ^t M
+\end{array}\right.$ et $g: \left\{\begin{array}{ccc}
+\M{2} & \rightarrow & \M{2}\\
+M & \mapsto & M+ ^t M
+\end{array}\right.$
+\begin{noliste}{1.}
+\item Montrer que $f \in \LL{\M{2}}$ et $g \in \LL{\M{2}}$.
+\item Déterminer la matrice $A$ de $f$ relativement à la base $\B$.
+\item En déduire sans calcul supplémentaire la matrice de $g$ 
+relativement à la base $\B$.
+\item Les applications $f$ et $g$ sont-elles des automorphismes ? Si 
+oui, déterminer l'application réciproque.
+\item Si $a$ et $b$ sont deux automorphismes, est-ce que $a+b$ est 
+également un automorphisme ?
+\end{noliste}
+\end{exercice}
+
+\begin{exercice}~\\
+Soit $f$ l'endomorphisme de $\R^3$ dont la matrice dans la base 
+canonique de $\R^3$ est $A= 
+\begin{smatrix} 
+  1 & 0 & 0\\ 
+  1 & 2 & 1\\ 
+  2 & -2 & -1 
+\end{smatrix}$. On 
+considère les vecteurs $u$ et $v$ de $\R^3$ définis par $u=(0,1,-2)$ et 
+$v=(0,1,-1)$.
+\begin{noliste}{1.}
+\item Déterminer une base de $\kr(f)$ et une base de $\im(f)$.
+\item Justifier de deux manières différentes que $f$ n'est pas 
+bijectif.
+\item Montrer que $(v)$ est une base de $\kr(f-id)$
+\item Déterminer un vecteur $w$ de $\R^3$, dont la 3ème coordonnée 
+(dans la base canonique de $\R^3$) est nulle, tel que la famille 
+$C=(u,v,w)$ soit une base de $\R^3$ et que la matrice de $f$ dans la 
+base $C$ soit la matrice $T= 
+\begin{smatrix} 
+  0 & 0 & 0\\ 
+  0 & 1 & 1\\ 
+  0 & 0 & 1 
+\end{smatrix}$.
+\item Dans cette question, on suppose qu'il existe un endomorphisme $g$ 
+de $\R^3$ vérifiant $g \circ g=f$.
+\begin{noliste}{a)}
+\item Montrer que $f \circ g = g \circ f$.
+\item En déduire que $f(g(u))=0$ et $f(g(v))=g(v)$.
+\item Justifier qu'il existe deux réels $a$ et $b$ tels que $g(u)=au$ 
+et $g(v)=bv$.
+\item On note $N$ la matrice de $g$ dans la base $C=(u,v,w)$ définie à 
+la question $4$. Justifier que $N= 
+\begin{smatrix} 
+  a & 0 & c\\ 
+  0 & b & d\\ 
+  0 & 0 & e 
+\end{smatrix}$, où 
+$a$ et $b$ sont les deux réels définis à la question précédente, et 
+$c$, $d$ et $e$ des réels.
+\end{noliste}
+\item Existe-t-il des endomorphismes $g$ de $\R^3$ tels $g \circ g =f$ 
+?\\
+{\it Indication : Utiliser les matrices de $f$ et $g$ dans la base 
+$C=(u,v,w)$.}
+\end{noliste}
+\end{exercice}
+
+\newpage
+
+\begin{exercice}~\\
+Soit $E$ un espace vectoriel de dimension finie.\\
+On dit qu'un endomorphisme $f$ de $E$ est un projecteur si $f\circ 
+f=f$.\\
+On considère $p$ et $q$ deux projecteurs de $E$.
+\begin{noliste}{1.}
+\item Montrer que $p+q$ est un projecteur de $E$ si et seulement si 
+$p\circ q = q \circ p=0$.
+\item On suppose dans cette question que $p+q$ est un projecteur de 
+$E$.\\
+Montrer que
+\[
+  \kr(p+q)=\kr(p)\cap\kr(q)
+\]
+\[
+  \im(p)\cap\im(q)=\{0\}
+\]
+\[
+  \im(p+q)=\im(p)+\im(q)
+\]
+(si $A$ et $B$ sont deux espaces vectoriels, on note $A+B=\{a+b \ / \ 
+a\in A \mbox{ et } b\in B\}$)
+\end{noliste}
+\end{exercice}
+
+
+\begin{exercice}~\\
+On note $f$ l'application définie sur $\R^3$ par : 
+$f((x,y,z))=(y+z,y,x+y)$
+\begin{noliste}{1.}
+\item Montrer que $f$ est un endomorphisme de $\R^3$.
+\item Déterminer le noyau de $f$. En déduire le rang de $f$.
+\item Déterminer l'image de $f$.
+\item Montrer que $f$ est un automorphisme de $\R^3$.
+\item Montrer que $H=\{ u \in \R^3 \ / \ f(u)=u\}$ est un espace 
+vectoriel réel.\\
+Déterminer une base de $H$.
+\item On note $F$ l'ensemble défini par $F=\{(x,y,z)\in\R^3 \ / \ 
+y=0\}$.\\
+Montrer que $f$ stabilise $F$, \ie $f(F)\subset F$.
+\end{noliste}
+\end{exercice}
+
+
+\begin{exercice}~\\
+L'application $f$ désigne un endomorphisme de $\R^n$. On munit $\R^n$ 
+d'une base $(e_1,\cdots, e_n)$.
+\begin{noliste}{1.}
+\item On suppose que 
+\[
+\forall x\in\R^n, \ \exists \lambda_x \in\R \mbox{ tel que } 
+f(x)=\lambda_x x
+\]
+\begin{noliste}{a)}
+\item \'Ecrire de deux manières différentes le vecteur 
+$f(e_1+\cdots+e_n)$.
+\item En déduire qu'il existe un réel $\lambda$ tel que $f=\lambda 
+\cdot \id$.
+\end{noliste}
+\item Soit $x$ un vecteur non nul de $\R^n$.\\
+Justifier qu'il existe une base de $\R^n$ de la forme 
+$(x,\eps_2,\hdots,\eps_n)$.\\
+On note alors $p_x$ l'application de $\R^n$ dans $\R^n$ définie par :
+\[
+\forall (a,b_2,\hdots, b_n)\in\R^n, \ p_x\left( a\cdot x + 
+\Sum{k=2}{n} b_k\cdot\eps_k\right)=a\cdot x
+\]
+\begin{noliste}{a)}
+\item Montrer que $p_x$ est un endomorphisme de $\R^n$.
+\item Montrer que pour tout $z\in\R^n$, on a
+\[
+p_x(z)=z \ \Leftrightarrow \ z\in\Vect{x}
+\]
+\end{noliste}
+\item Montrer l'équivalence suivante :
+\[
+\forall g\in\LL{\R^n}, \ f\circ g=g\circ f \ \Leftrightarrow \ 
+\exists \lambda\in\R, \ f=\lambda \cdot \id
+\]
+\end{noliste}
+\end{exercice}
+
+
+\end{document}

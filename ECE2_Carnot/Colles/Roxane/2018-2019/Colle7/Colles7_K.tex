@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+K \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 7}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Planche 1}
+
+\noindent
+  On considère $E$ un espace vectoriel de dimension finie $n \in
+  \N^*$.\\
+  On considère $f$ un endomorphisme de $\LL{E}$.
+  \begin{noliste}{A)}
+  \item \dashuline{Suite des noyaux itérés}
+    \begin{noliste}{1.}
+    \item Démontrer : $\forall i \in \N$, $\kr\big( f^i \big) \subset
+      \kr\big( f^{i+1} \big)$.
+    \item Dans cette question, on suppose qu'il existe $r \in \N$ tel
+      que :
+      \[
+      \kr\big( f^{r} \big) = \kr\big( f^{r+1} \big)
+      \]
+      Démontrer : $\forall i \in \llb r, +\infty \llb$, $\kr\big( f^i
+      \big) = \kr\big( f^{i+1} \big)$.
+    \item Pour tout $i \in \N$, on note : $d_i = \dim\left(
+        \kr\big(f^{i}\big) \right)$.
+      \begin{noliste}{a)}
+      \item Démontrer que la suite $(d_i)_{i\in\N}$ est monotone.
+      \item En procédant par l'absurde, démontrer qu'il existe $r \in
+        \llb 0, n \rrb$ tel que : $d_r = d_{r+1}$.
+      \item En déduire que la suite $(d_i)_{i\in\N}$ est
+        stationnaire.
+      \end{noliste}
+    \end{noliste}
+
+  \item \dashuline{Suite des images itérées}
+    \begin{noliste}{1.}
+    \item Démontrer : $\forall j \in \N$, $\im\big( f^{j+1} \big)
+      \subset \im\big( f^{j} \big)$.
+    \item Dans cette question, on suppose qu'il existe $s \in \N$ tel
+      que :
+      \[
+      \im\big( f^{s+1} \big) = \im\big( f^{s} \big)
+      \]
+      Démontrer : $\forall j \in \llb s, +\infty \llb$, $\im\big(
+      f^{j+1} \big) = \im\big( f^{j} \big)$.
+    \item Pour tout $j \in \N$, on note : $m_j = \dim\left(
+        \im\big(f^{j}\big) \right)$.
+      \begin{noliste}{a)}
+      \item Démontrer que la suite $(m_j)_{j\in\N}$ est monotone.
+      \item Démontrer : $m_{r+1} = m_{r}$ (où $r$ est l'entier défini
+        en question \itbf{A.3.d)}).
+      \item En déduire que la suite $(m_j)_{j\in\N}$ est stationnaire.
+      % \item Démontrez enfin : $r = s$.
+      \end{noliste}
+    \end{noliste}
+  \end{noliste}
+
+
+\newpage
+
+
+\section*{Planche 2}
+
+\begin{exercice}~\\ % ENS 2018
+Soit $E$ un espace vectoriel. Une {\it involution} de $\LL{E}$ est un 
+endomorphisme $u \in \LL{E}$ tel que $u \circ u = \id_E$, où $\id_E$ 
+désigne l'endomorphisme identité.
+\begin{noliste}{1.}
+  \item Soient $a$ et $b$ deux endomorphismes bijectifs de $\LL{E}$ 
+  vérifiant :
+  \[
+    a \circ b \circ a =b \quad \text{et} \quad b \circ a \circ b = a
+  \]
+  Montrer que $a^2=b^2$ et que $a^2$ est une involution.
+  
+  \item Soient $a$ et $b$ deux involutions de $\LL{E}$.
+  \begin{noliste}{a)}
+    \item Montrer que $\im(a \circ b - b\circ a) \subset \im(a-b) 
+    \cap \im(a+b)$.
+
+    \item Montrer que $\im(a-b) \cap \im(a+b) \subset \im(a \circ b - b 
+    \circ a)$.
+  \end{noliste}
+\end{noliste}
+\end{exercice}
+
+\begin{exercice}~\\ % ENS 16
+  Soient $E$, $F$, $G$ trois espaces vectoriels, $f:E \to F$ et $g:F 
+  \to G$ deux applications linéaires. Montrer  :
+\begin{noliste}{1.}
+  \item $\kr(g \circ f) = \kr(f) \ \Leftrightarrow \ \kr(g) \cap \im(f) 
+  = \{0\}$
+  
+  \item $\im(g \circ f) = \im(g) \ \Leftrightarrow \ \kr(g) + \im(f) 
+  = F$
+\end{noliste}
+\end{exercice}
+
+
+
+\newpage
+
+
+\section*{Planche 3}
+
+
+\noindent
+Soit $E$ un $\R$ espace vectoriel et $u$ un endomorphisme de $E$. Si 
+$F$ est un sous-espace vectoriel de $E$, on dit qu $F$ est stable par 
+$u$ si : $\forall x \in F$, $u(x) \in F$. Pour tout entier $k \geq 1$, 
+on note $u^k$ l'application $u \circ u \circ \cdots \circ u$ où $u$ 
+apparaît $k$ fois.\\
+Soient $n \geq 1$ un entier et $p$ un projecteur. On suppose que $u^n$ 
+est l'application linéaire identité et que $\im(p)$ est stable par $u$. 
+On pose :
+\[
+  q \ = \ \dfrac{1}{n} \ \Sum{k=1}{n} u^k \circ p \circ u^{n-k}
+\]
+\begin{noliste}{1.}
+  \item Montrer que $\im(q) \subset \im(p)$ et que $p \circ q = q$.
+  
+  \item Montrer : $q \circ u = u \circ q$.
+  
+  \item Montrer : $q \circ p =p$.
+  
+  \item Montrer que $q$ est un projecteur.
+  
+  \item Montrer que $\kr(q)$ est un supplémentaire de $\im(p)$ stable 
+  par $u$.
+\end{noliste}
+
+
+
+
+
+\end{document}

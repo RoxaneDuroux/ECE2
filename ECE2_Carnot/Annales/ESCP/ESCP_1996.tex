@@ -1,0 +1,370 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1996} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{ESCP 1996}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1996}}
+
+
+
+{\large \textbf{Concepteur : ESCP}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{Exercice I}
+
+On note $\left( e_{1},e_{2},e_{3}\right) $ la base canonique de
+l'espace
+vectoriel $\R^{3}$. Dans tout l'exercice on associe à tout nombre réel
+$a$ les vecteurs $U_{a},V_{a}$ et $W_{a}$ définis par : 
+\begin{eqnarray*}
+U_{a} & = & e_{1} + 2e_{2} + e_{3} \\
+V_{a} & = & -e_{1} + (a-3)e_{2} + (a-1)e_{3} \\
+W_{a} & = & -2e_{1}-4e_{2} + ae_{3}
+\end{eqnarray*}
+
+et l'endomorphisme $\Phi_{a}$ de $\R^{3}$ défini par les conditions : 
+\[
+\Phi_{a}\left( e_{1}\right) = U_{a},\;\;\Phi_{a}\left( e_{2}\right)
+ = V_{a},\;\;\Phi_{a}\left( e_{3}\right) = W_{a}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $\Phi_{0}$ est un automorphisme et déterminer la
+matrice
+de son automorphisme réciproque, dans la base canonique de $\R^{3}$
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les valeurs du paramètre $a$ pour lesquelles
+$\Phi_{a}$
+est un automorphisme.
+
+\item Déterminer, pour chaque valeur du paramètre $a$, le noyau de
+$\Phi
+_{a} $.
+
+\item Déterminer les valeurs de $a$ pour lesquelles le vecteur
+$e_{1}-e_{2}-e_{3}$ appartient à l'image de $\Phi_{a}$.
+\end{noliste}
+
+\item On considère maintenant les trois vecteurs :
+
+$f_{1} = e_{1} + 3e_{2}-e_{3}$
+
+$f_{2} = 2e_{1} + 4e_{2}-e_{3}$
+
+$f_{3} = e_{3}.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\left( f_{1},f_{2},f_{3}\right) $ est; une base de
+$\R^{3}$ et déterminer la matrice de $\Phi_{1}$ dans cette base.
+
+\item L'endomorphisme $\Phi_{1}$ est-il diagonalisable ?
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les valeurs propres de $\Phi_{-2}$.
+
+\item Cet endomorphisme est-il diagonalisable ?
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice II}
+
+On considère la fonction $f$ définie sur $\left] 0, + \infty \right[ $
+par $f(1) = 1$ et 
+\[
+f(x) = \dfrac{x + 1}{x-1}\dfrac{\ln \left( x\right) }{2}\;\;\text{si\ \
+}x\neq 1
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $f$ est une fonction continue sur $\left] 0, + \infty
+\right[.$
+
+\item Calculer la dérivée $f^{\prime }$ de $f$ sur les intervalles
+$\left]
+0,1\right[ $ et $\left] 1, + \infty \right[ $. Étudier son signe et en
+déduire
+que $f$ est monotone sur chacun de ces deux intervalles.
+
+\item Montrer que pour tout $x$ strictement positif et différent de 1,
+la dérivée $f^{\prime }$ de $f$ vérifie : 
+\[
+f^{\prime }\left( x\right) = \dfrac{\left( x-1\right) -\ln \left(
+x\right) }{\left( x-1\right) ^{2}}-\dfrac{1}{2x}
+\]
+En déduire que $f$ est dérivable au point 1 et déterminer $f^{\prime
+}\left(
+1\right) $.
+
+Montrer que $f^{\prime }$ est continue sur l'intervalle $\left] 0, +
+\infty \right[.$
+
+\item Montrer que, pour tout $x>1$, on a $\ln \left( x\right) <\left(
+x-1\right) $. En déduire que, pour tout $x>1$, on a $f(x)<x.$
+
+\item Donner la représentation graphique de la fonction $f$.
+
+\item Soit $a$ un réel supérieur à 1.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer qu'il existe une suite $\left( x_{n}\right)_{n\geq 0}$ de
+réels vérifiant $x_{0} = a$ et, pour tout entier $n\geq 0$, $x_{n + 1}
+= f\left(
+x_{n}\right) $
+
+\item Montrer que cette suite est décroissante et qu'elle admet une
+limite $\ell $ que l'on précisera.
+\end{noliste}
+
+\item On se propose d'étudier la vitesse avec laquelle la suite $\left(
+x_{n}\right)_{n\geq 0}$ tend vers $\ell $.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer qu'il existe un entier $n_{0}$ tel que $\left| f\left(
+x_{n}\right) -\ell \right| \leq \dfrac{1}{3}$ $\left| x_{n}-\ell
+\right| $
+pour tout $n\geq n_{0}$
+
+\item En déduire que la suite $\left( x_{n}-\ell \right)_{0}$ est
+négligeable devant la suite $\left( 1/2^{n}\right)_{n\geq 0}$
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice III}
+
+On note $\N$ l'ensemble des entiers naturels et $\N^{\times }
+$ l'ensemble des entiers strictement positifs\\
+Une urne contient des boules blanches, noires et rouges. Les
+proportions
+respectives de ces boules sont $p$ pour les blanches, $q$ pour les
+noires et 
+$r$ pour les rouges ($p + q + r = 1$ )\\
+On fait dan cette urne des tirages successifs indépendants numérotés 1,
+2,... etc. Ces tirages sont faits avec relise de la boule tirée. Les
+proportions des boules restent ainsi les mêmes au cours de
+l'expérience.\\
+Toutes les variables aléatoires sont définies dans un espace de
+probabilité $\left( \Omega,\mathcal{A},P\right) $
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On note $X_{1}$ la variable aléatoire représentant le numéro du
+tirage
+auquel une boule blanche sort pour la prenrière fois. Trouver la loi de
+probabilité de $X_{1}$ ; calculer son espérance et sa variance.
+
+\item On note $X_{2}$ la variable aléatoire représentant le numéro du
+deuxième tirage d'une boule blanche.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Trouver, pour tout couple d'entiers strictement positifs $\left(
+k,l\right) $, la probabilité de l'évènement.$\left\{
+X_{1} = k\;,\;X_{2} = k + l\right\} $. En déduire la loi de probabilité
+de $X_{2}$
+
+\item Montrer que la variable $U_{2} = X_{2}-X_{1}$ est indépendante de
+$X_{1}$
+et qu'elle a la même loi de probabilité. En déduire l'espérance et la
+variance de $X_{2}$.
+\end{noliste}
+
+\item On note $W$ la variable aléatoire représentant le nombre de
+boules
+rouges tirées avant l'obtention de la première boule blanche. Pour tout
+couple $(k,l)$ de $\N^{\times }\times \N$, déterminer la
+probabilité conditionnelle de l'évènement $\{W = l\}$ sachant que
+$X_{1} = k$.
+Quelle est la loi conditionnelle de $W$ sachant $X_{1} = k$ ?
+
+\item On note $Y_{1}$ la variable aléatoire représentant le numéro du
+tirage
+auquel une boule noire sort pour la première fois.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Trouver 1a loi de probabilité du couple $\left(
+X_{1},Y_{1}\right) $.
+Les variables aléatoires $X_{1}$ et $Y_{1}$sont elles indépendantes ?
+
+\item On se place, pour cette question, dans le cas particulier où $r =
+0$
+(c'est à dire qu'il n'y a pas de boule rouge). Calculer alors la
+covariance
+de $X_{1}$ et $Y_{1}$
+\end{noliste}
+
+\item Soit, pour $n$ entier strictement positif, $Z_{n}$ la variable
+aléatoire qui prend la valeur $ + 1$ si au $n^{i\grave{e}me}$ tirage
+une boule
+blanche est tirée, $-1$ si au $n^{i\grave{e}me}$ tirage une boule noire
+est
+tirée, 0 si au $n^{i\grave{e}me}$ tirage une boule rouge est tirée. On
+note $S_{n} = Z_{1} + \dots + Z_{n}$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Trouver la loi de probabilité de $S_{1}$. Calculer son espérance
+et sa
+variance ; en déduire l'espérance et la variance de $S_{n}$ pour tout
+$n\ge
+1.$
+
+\item Soit $t$ un réel strictement positif. On pose $V_{n} =
+t^{S_{n}}$.
+Trouver la loi de probabilité de la variable $V_{1}$ et calculer son
+espérance.
+
+\item En déduire l'espérance de $V_{n}$.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

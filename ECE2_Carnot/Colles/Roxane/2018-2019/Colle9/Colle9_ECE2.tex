@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 9}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\begin{exercice}~\\
+On pose $ I=\dint{0}{1} \dfrac{x\ln(x)}{1-x}\dx$, et pour tout $n\in\N$ 
+:
+\[
+ I_n=\dint{0}{1} \frac{x^n \ln(x)}{1-x}\dx \ \mbox{ et } \ 
+ J_n=\dint{0}{1} x^n \ln(x)\dx
+\]
+\begin{noliste}{1.}
+  \item Montrer que l'intégrale $I$ est convergente.
+  \item Montrer que, pour tout $n\in\N$, l'intégrale $I_n$ est 
+  convergente.
+  \item Montrer que, pour tout $x\in]0,1[$, $-1\leq 
+  \dfrac{x\ln(x)}{1-x}\leq 0$. En déduire que pour tout $n\in\N^*$, 
+  $-\dfrac{1}{n}\leq I_n \leq 0$, puis la limite de $I_n$ lorsque $n$ 
+  tend vers $+\infty$.
+  \item Montrer que l'intégrale $J_n$ est convergente pour tout 
+  $n\in\N$, et calculer sa valeur.
+  \item Calculer $ \Sum{k=1}{n} J_k$, pour tout $n\in\N^*$.\\
+  En déduire que : $\forall n\in\N^*, \ I=-\Sum{k=2}{n+1} 
+  \dfrac{1}{k^2} +I_{n+1}$.
+\end{noliste}
+\end{exercice}
+
+
+
+\begin{exercice}~\\
+On pose, quand l'intégrale converge, $ f(x)=\dint{1}{+\infty} 
+\dfrac{1}{1+t+t^{x+1}}\dt$.
+\begin{noliste}{1.}
+  \item Montrer que le domaine de définition de $f$ est $]0,+\infty[$.
+  \item Montrer que $f$ est décroissante sur $]0,+\infty[$.
+  \item 
+  \begin{noliste}{a)}
+    \item Pour $x>0$, justifier l'existence de $ g(x)=\dint{1}{+\infty} 
+    \dfrac{1}{t(1+t^x)}\dt$.
+    \item Pour $x>0$ et $t\geq 1$, simplifier 
+    $\dfrac{1}{t}-\dfrac{t^{x-1}}{1+t^x}$, puis calculer $g(x)$.
+    \item En déduire que, pour tout $x>0$ : $0\leq f(x) \leq \dfrac{\ln 
+    (2)}{x}$.\\
+    Déterminer la limite de $f$ en $+\infty$.
+  \end{noliste}
+  \item 
+  \begin{noliste}{a)}
+    \item Montrer que : $\forall x>0$, $0\leq \dfrac{\ln 
+    (2)}{x}-f(x)\leq \dfrac{1}{2x+1}$.
+    \item En déduire la limite et un équivalent de $f(x)$ quand $x$ 
+    tend vers $0$.
+  \end{noliste}
+\end{noliste}
+\end{exercice}
+
+
+
+\begin{exercice}~\\
+On considère la fonction $H$ définie sur $\R_+$ par $ 
+H(x)=\dint{x}{+\infty} \dfrac{\ee^{-t}}{1+t} \dt$.
+\begin{noliste}{1.}
+  \item Montrer que $H$ est bien définie sur $\R_+$.
+  \item Montrer que $H$ est de classe $\Cont{1}$ sur $\R_+$, et 
+  calculer $H'(x)$, pour tout $x\geq 0$.
+  \item Montrer que $ \dlim{x\to +\infty} x \, H(x)=0$.
+  \item Montrer que l'intégrale $ I=\dint{0}{+\infty} H(t)\dt$ est 
+  convergente et calculer sa valeur en fonction de $H(0)$.
+\end{noliste}
+\end{exercice}
+
+
+\newpage
+
+
+\begin{exercice}~\\
+  Pour $x>0$, on pose ${f(x)=\dint{0}{1} \frac{t^x}{1+t}dt}$.
+  \begin{noliste}{1.}
+  \item Vérifier que pour $x>0$, ${f(x) + f(x+1) =
+      \dfrac{1}{x+1}}$.
+  \item Donner le sens de variation de $f$.
+  \item En utilisant la question \itbf{1} :
+    \begin{noliste}{a)}
+    \item Trouver la limite de $f$ lorsque $x$ tend vers $+\infty$.
+    \item Donner un équivalent simple de $f(x)$ en $ +\infty$.
+    \end{noliste}
+\end{noliste}
+\end{exercice}
+
+
+
+\end{document}

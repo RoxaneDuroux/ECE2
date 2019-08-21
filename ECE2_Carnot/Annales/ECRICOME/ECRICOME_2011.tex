@@ -1,0 +1,535 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 2011} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\NN}{\mbox{${\mathbb N}$}}
+\newcommand{\ZZ}{\mbox{${\mathbb Z}$}}
+\newcommand{\QQ}{\mbox{${\mathbb Q}$}}
+\newcommand{\RR}{\mbox{${\mathbb R}$}}
+\newcommand{\MM}{\mbox{${\mathcal{M}}$}}
+\newcommand{\CC}{\mbox{${\mathcal{C}}$}}
+\newcommand{\DD}{\mbox{${\mathcal{D}}$}}
+
+\newcommand{\vpp}{\vspace{0.1cm}}
+\newcommand{\vp}{\vspace{0.2cm}}
+\newcommand{\vg}{\vspace{0.4cm}}
+\newcommand{\dsp}{\def \tend #1{\xrightarrow[ \
+\phantom{a}#1\phantom{a}]{}}
+\def \equi #1{\mathop{\sim}_{\substack{#1}}}
+\def 
+\[
+ {[ \ \![}
+\def 
+\]
+ {]\!]}
+\newcommand{\pg}{\geq }
+\newcommand{\pp}{\leq}
+\newcommand{\dt}{\,\textrm{d}t}
+\newcommand{\dx}{\,\textrm{d}x}
+\newcommand{\du}{\,\textrm{d}u}
+\newcommand{\Ent}{\textrm{Ent}}
+\newcommand{\bul}{\item[$\bullet$]}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Ecricome 2011}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+\Large Ecricome 2011
+\end{center}
+
+\noindent {\bf\Large EXERCICE 1.}
+
+\vp\vp
+\begin{minipage}{.965\textwidth}
+On dit qu'une matrice $A$ carrée d'ordre $n$ est une matrice nilpotente
+s'il existe un entier naturel $k$ non nul tel que :
+\[
+A^{k-1}\neq 0_{n}\quad\textrm{et}\quad A^{k} = 0_{n}
+\]
+
+où $0_{n}$ représente la matrice carrée nulle d'ordre $n$.
+
+\vpp
+Soit $A$ une matrice carrée d'ordre $n$, on dit que le couple
+$(\Delta,N)$ est une décomposition de Dunford de $A$ lorsque :
+\[
+\left\{
+\begin{array}{l}
+ \textrm{$\Delta$ est un matrice diagonalisable} \\
+\textrm{$N$ est une matrice nilpotente} \\
+\Delta N = N\Delta\;\;\textrm{et}\;\; 
+A = N + \Delta
+\end{array}
+\right.
+\]
+\end{minipage}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On pose :
+\[
+A = 
+\begin{smatrix}
+1 & 2 \\
+0 & 1
+\end{smatrix},\quad \Delta = 
+\begin{smatrix}
+1 & 0\\
+0 & 1
+\end{smatrix}
+\quad\textrm{et}\quad
+N = 
+\begin{smatrix}
+0 & 2 \\
+0 & 0
+\end{smatrix}
+\]
+
+Vérifier que $(\Delta,N)$ est une décomposition de Dunford de $A$.
+
+\vpp
+Dans toute la suite de l'exercice, on pose :
+\[
+A = 
+\begin{smatrix}
+3 & 1 & -1\\
+-2 & 0 & 2\\
+0 & 0 & 1
+\end{smatrix},\quad N = 
+\begin{smatrix}
+0 & 0 & -1\\
+0 & 0 & 2\\
+0 & 0 & 0
+\end{smatrix},\quad
+\Delta = 
+\begin{smatrix}
+3 & 1 & 0\\
+-2 & 0 & 0\\
+0 & 0 & 1
+\end{smatrix},\quad D = 
+\begin{smatrix}
+2 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{smatrix}
+\]
+
+\item\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les valeurs propres de $A$.
+
+\item La matrice $A$ est-elle diagonalisable ?
+\end{noliste} 
+
+\item On considère les matrices colonnes 
+\[
+X_{1} = 
+\begin{smatrix}
+1\\
+-1 \\
+0
+\end{smatrix},\quad X_{2} = 
+\begin{smatrix}
+0\\
+0 \\
+1
+\end{smatrix}
+\quad\textrm{et}\quad 
+X_{3} = 
+\begin{smatrix}
+1\\
+-2 \\
+0
+\end{smatrix}
+\]
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer les produits $\Delta X_{1}$, $\Delta X_{2}$ et $\Delta
+X_{3}$.
+
+\item Justifier que la matrice $\Delta$ est diagonalisable et
+déterminer une matrice $P$ inversible telle que : $P^{-1}\Delta P = D$.
+
+\item Calculer $P^{-1}$. 
+\end{noliste} 
+
+\item\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir que $N$ est une matrice nilpotente.
+
+\item Vérifier que $(\Delta,N)$ est une décomposition de Dunford de la
+matrice $A$.
+
+\item En utilisant la formule du binôme de Newton que l'on justifiera,
+donner l'expression de $A^{n}$ en fonction des puissances de $\Delta$,
+de $N$
+et de $n$.
+
+\item Établir que : \quad Pour tout entier naturel $k\pg1$, \;\;
+$\Delta^{k}N = N$ 
+
+\item Proposer une décomposition de Dunford de $A^{n}$.
+\end{noliste} 
+\end{noliste}
+
+
+
+
+\newpage
+\vg\vg
+\noindent {\bf\Large EXERCICE 2.}
+
+\vp
+On considère l'application $\varphi$ définie sur $\R_+ $ par :
+\[
+\left\{
+\begin{array}{ll}
+ \varphi(x) = 1-x^{2}\ln (x) & \textrm{si $x>0$} \\
+\varphi(0) = 1
+\end{array}
+\right.
+\]
+
+ainsi que la fonction numérique $f$ des variables réelles $x$ et $y$
+définie par :
+\[
+\forall\,(x,y)\in\,]0, + \infty[ \ \,\times\,]0, + \infty[,\quad f(x,y)
+= xy + \ln(x)\ln(y)
+\]
+
+\vp
+{\bf I. Étude des zéros de $\varphi$.}
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer la limite de $\varphi(x)$ lorsque $x$ tend vers $ +
+\infty$, ainsi que la limite de $\frac{\varphi(x)}{x}$\, lorsque $x$
+tend vers 
+$ + \infty$. Interpréter graphiquement cette limite.
+
+\item Prouver que $\varphi$ est continue sur $\RR_+ $.
+
+\item Justifier la dérivabilité de $\varphi$ sur $\RR_+^*$ et calculer
+sa fonction dérivée.
+
+\item Montrer que $\varphi$ est dérivable en 0. Donner l'allure de la
+représentation graphique de $\varphi$ au voisinage du point d'abscisse
+0.
+
+\item Dresser le tableau de variations de $\varphi$.
+
+\item On rappelle que $\ln(2)\approx 0,7$. 
+
+Montrer l'existence d'un unique réel $\alpha$ tel que :
+$\varphi(\alpha) = 0$ et justifier que :
+$\sqrt{2}<\alpha<2$.
+
+\item Établir la convergence de l'intégrale $I = \dint{0}{\alpha}
+\varphi(x)\dx$ et vérifier que :
+\[
+I = \frac{\alpha(6 + \alpha^{2})}{9}
+\]
+
+\item On considère les deux suites $(a_{n})_{n\in\NN}$ et
+$(b_{n})_{n\in\NN}$ définies par :
+
+\begin{noliste}{$\sbullet$}
+\bul $a_{0} = \sqrt{2}$ et $b_{0} = 2$ ;
+
+\bul Pour tout $n\pg0$, si $\varphi(a_{n})\varphi\!\left(\frac{a_{n} +
+b_{n}}{2}\right)<0$ alors $a_{n + 1} = a_{n}$ et $b_{n + 1} =
+\frac{a_{n} + b_{n}}{2}$ ;
+
+\vpp
+\bul Pour tout $n\pg0$, si $\varphi(a_{n})\varphi\!\left(\frac{a_{n} +
+b_{n}}{2}\right)\pg0$ alors $a_{n + 1} = \frac{a_{n} + b_{n}}{2}$ et
+$b_{n + 1} = b_{n}$.
+\end{noliste}
+
+Écrire une programme en \Scilab{} calculant $a_{7}$ et $b_{7}$.
+\end{noliste} 
+
+
+\vp\vpp
+{\bf II. Extrema de $f$ sur $]0, + \infty[ \ \,\times\,]0, + \infty[$.}
+
+\vp
+Rappelons que $\alpha$ est l'unique réel vérifiant $\varphi(\alpha) =
+0$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Justifier que $f$ est de classe $\mathcal{C}{2}$ sur $]0, +
+\infty[ \ \,\times\,]0, + \infty[$.
+
+\item Calculer les dérivées partielles premières et prouver que le
+point de coordonnées $\left(\frac{1}{\alpha}\,,\frac{1}{\alpha}\right)$
+est
+l'unique point critique de $f$ sur $]0, + \infty[ \ \,\times\,]0, +
+\infty[$.
+
+\item Calculer les dérivées partielles secondes sur $]0, + \infty[ \
+\,\times\,]0, + \infty[$ et établir que pour tous réels $x$ et $y$
+strictement positifs :
+\[
+\left\{
+\begin{array}{l}
+\frac{\partial^{2}f}{\partial x^{2}}\,(x,y) =
+\left(\frac{y}{x}\right)^{2}\left(1-\varphi\!\left(\frac{1}{y}\right)\r
+ght) \\
+\\
+\frac{\partial^{2}f}{\partial y\partial x}\,(x,y) = 1 + \frac{1}{xy} \\
+\\
+\frac{\partial^{2}f}{\partial y^{2}}\,(x,y) =
+\left(\frac{x}{y}\right)^{2}\left(1-\varphi\!\left(\frac{1}{x}\right)\r
+ght)
+\end{array}
+\right.
+\]
+
+\item La fonction $f$ présente-t-elle un extremum local sur $]0, +
+\infty[ \ \,\times\,]0, + \infty[$ ? Si oui, en donner sa nature
+(maximum ou minimum).
+\end{noliste} 
+
+
+
+
+\newpage
+\vg
+\noindent {\bf\Large EXERCICE 3.}
+
+\vp\vpp
+{\bf I. Un jeu en ligne.}
+
+\vp\vpp
+\begin{minipage}{.965\textwidth}
+\noindent Le société Lehazard met à la disposition de ses clients un
+nouveau jeu en ligne dont la page d'écran affiche une grille à trois
+lignes et trois colonnes.
+
+\vpp
+\noindent Après une mise initiale de 2 euros du joueur, une fonction
+aléatoire place au hasard successivement trois jetons ($\bigstar$) dans
+trois cases différentes.
+La partie est gagnée si les trois jetons sont alignés. Le gagnant
+empoche 10 fois sa mise, ce qui lui rapporte 18 euros à l'issue du jeu.
+Dans le cas
+contraire la mise initiale est perdue par le joueur.
+\[
+\begin{array}{|c|c|c|c|}
+ \hline & \textrm{A} & \textrm{B} & \textrm{C} \\
+\hline 1 & \bigstar & & \\
+\hline 2 & \bigstar & &\\
+\hline 3 & &\bigstar & \\
+\hline
+\end{array}
+\]
+
+\vpp
+On définit les événements $H$, $V$, $D$, $N$ par :
+
+\hskip 0,5cm - $H$ : \og les trois jetons sont alignés horizontalement
+\fg.
+
+\hskip 0,5cm - $V$ : \og les trois jetons sont alignés verticalement
+\fg.
+
+\hskip 0,5cm - $D$ : \og les trois jetons sont alignés en diagonale
+\fg.
+
+\hskip 0,5cm - $N$ : \og les trois jetons ne sont pas alignés \fg.
+\end{minipage}
+
+\vpp
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Justifier qu'il y a 84 positionnements possibles des trois jetons
+dans les trois cases.
+
+\item Déterminer les probabilités $p(H)$, $p(V)$, $p(D)$ des évènements
+$H,V,D$.
+
+\item En déduire que la probabilité de l'événement $N$ est égale à :
+\[
+p(N) = \frac{19}{21}\approx 0,9048
+\]
+
+\item La société peut s'attendre à 10\,000 relances par jour de ce jeu.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour chaque entier naturel $i$ non nul, on note $Z_{i}$ le gain
+de la société à la $i$-ième relance.
+
+\noindent Calculer l'espérance mathématique $\E(Z_{i})$ de $Z_{i}$.
+
+\item Quel gain journalier $Z$ la société peut-elle espérer ? 
+\end{noliste} 
+\end{noliste} 
+
+
+\vp\vpp
+\noindent {\bf II. Cas de joueurs invétérés.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Un joueur décide de jouer 100 parties consécutives que l'on
+suppose indépendantes.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner la loi de la variable aléatoire $X$ égale au nombre de
+parties gagnées.
+
+\item Indiquer l'espérance et la variance de $X$.
+
+\item Exprimer la perte $T$ du joueur en fonction de $X$.
+\end{noliste} 
+
+\item Quel est le nombre minimum $n$ de parties qu'il devrait jouer
+pour que la probabilité de gagner au moins une partie soit supérieure
+ou égale à 50\% ? ({\it On admettra que
+$\ln\!\left(\frac{19}{21}\right)\approx-0,1$ et $\ln(2)\approx0,7$}).
+
+\item Un autre joueur décide de jouer et de miser tant qu'une partie
+n'est pas gagnée. On note $Y$ la variable aléatoire égale au nombre de
+parties jouées pour gagner la première fois.
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Donner la loi de $Y$.
+
+\item Indiquer l'espérance et la variance de $Y$.
+
+\item Pour tout entier naturel $k$, montrer que la probabilité $p_{k}$
+que le joueur joue au plus $k$ parties avant de gagner pour la première
+fois
+est donnée par la formule :
+\[
+p_{k} = 1-\left(\frac{19}{21}\right)^{k}
+\]
+\end{noliste} 
+\end{noliste} 
+
+
+\vp\vpp
+\noindent {\bf III. Contrôle de la qualité du jeu.}
+
+\vp\vpp
+\begin{minipage}{.965\textwidth}
+\noindent On constate que, parfois, la fonction aléatoire est déréglée.
+Dans ce cas, elle place le premier jeton dans la case $(\textrm{A},1)$,
+les deux autres étant placés au hasard dans les cases restantes. On
+note $\Delta$ l'évènement \og la fonction aléatoire est déréglée \fg
+\;et on pose $p(\Delta) = x$ avec $x\in\,]0,1[$.
+\end{minipage}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer les probabilités conditionnelles $p_{\Delta}(H)$,
+$p_{\Delta}(V)$ et $p_{\Delta}(D)$ des évènements $H,V,D$ sachant
+l'évènement $\Delta$.
+
+\item Utiliser la formule des probabilités totales avec le système
+complet d'évènements $(\Delta,\overline{\Delta})$ pour en déduire que
+la probabilité que les jetons ne soient pas alignés est égale à :
+\[
+P\left(\Ev{N}\right) = -\frac{x}{84} + \frac{19}{21}
+\]
+
+\item Soit $G$ la variable aléatoire égale au gain réalisé par la
+société de jeu lors d'une partie jouée. Déterminer la valeur maximale
+de $x$ pour que l'espérance du gain soit positive.
+
+\item On joue une partie. On constate que les jetons sont alignés.
+Quelle est la probabilité, en fonction de $x$, que la fonction
+aléatoire
+ait été déréglée ?
+\end{noliste} 
+
+
+
+
+
+\end{document}

@@ -1,0 +1,353 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1986} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{ESCP 1986}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1986}}
+
+
+
+{\large \textbf{Concepteur : ESCP}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{EXERCICE 1}
+
+Soit $n$ un nombre entier naturel. On note $E_{n},$l'espace vectoriel
+des
+polynômes à coefficients réels de degré inférieur ou égal à $n$.\\
+Soit $u$ l'endomorphisme de $E_{n},$qui à tout polynôme $P$ associe le
+polynôme $Q$ défini par la relation :
+\[
+Q(x) = P\left(\Ev{x-1}\right) + P\left(\Ev{x}\right).
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Prouver que si $P$ est un élément non nul de $E_{n}$ le degré de
+$Q$
+est égal a celui de $P.$
+
+\item En déduire que $u$ est un automorphisme de $E_{n}.$
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer qu'il existe un élément $P_{n}$ de $E_{n}$ et un seul tel
+que
+\[
+(1)\qquad P_{n}(x-1) + P_{n}(x) = 2x^{n}.
+\]
+
+\item En dérivant l'équation (1), montrer que si $n\neq 0,\quad
+P_{n}{\prime } = nP_{n-1}.$
+
+\item Calculer $P_{0},P_{1}$, $P_{2}$, et $P_{3}$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Écrire la relation satisfaite par le polynôme $Q_{n}(x) =
+P_{n}(-x-1).$
+
+\item En déduire que : $P_{n}(-x-1) = (-1)^{n}P_{n}(x)$
+
+\item Soit $C_{n}$ la courbe représentative de $P_{n}$. Trouver les
+éléments de symétrie de $C_{n}$ suivant la parité de $n.$
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Prouver que si $n$ est pair et non nul, $P_{n}(0) = P_{n}(-1) =
+0.$
+
+\item Montrer que si $n$ est impair, $P_{n}(-1/2) = 0.$
+\end{noliste}
+
+\item Construire les courbes les courbes $C_{2}$, et $C_{3}$.
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+On considère la fonction numérique $f$ définie sur l'intervalle
+$]-1;1[$ par
+la relation : 
+\[
+f(x) = (1-x^{2})\ln \left( {\dfrac{{1 + x}}{{1-x}}}\right).
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier la parité de $f$ et prouver que $f$ se prolonge en une
+fonction continue $g$ sur $[-1;1].$
+
+\item Calculer la dérivée de $f$ ; étudier la dérivabilité de $g$ aux
+bornes
+de l'intervalle.
+\end{noliste}
+
+\item Soit $h$ la fonction définie sur $]-1; + \infty \lbrack $ par la
+relation $h(t) = \ln \left( {\dfrac{{t + 1}}{{t-1}}}\right) -t$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier la variation de $h$.
+
+\item Prouver que $h$ s'annule en un point $\alpha $ et un seul, et que
+$1,5\leq \alpha \leq 1,6.$
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier le signe de $f^{\prime }.$
+
+\item Dresser le tableau de variation de $g$ et construire la courbe
+représentative $C$ de $g$.\\
+Exprimer en fonction de $\alpha $ les coordonnée des points de $C$ où
+la
+tangente est parallèle à l'axe des abscisses.
+\end{noliste}
+
+\item Calculer $\dint{0}{1}g(x)dx.$
+\end{noliste}
+
+\section*{EXERCICE 3}
+
+Soit $E$ l'espace vectoriel des fonctions $f$ à valeurs réelles,
+continues
+sur l'intervalle $[-1;1]$ et telles que $f(-1) = f(1) = 0$.\\
+On note $M(f)$ le maximum de $|f|$ sur $[-1;1]$ et on pose :
+\[
+I(f) = \dint{-1}{1}\left| f(t)\right\ dt.
+\]
+Soit enfin $B$ la partie de $E$ constituée des fonctions $f$ de classe
+$C^{1}
+$ sur les intervalles $[-1;0]$ et $[0;1]$ et telles que, pour tout
+élément
+non nul $t$ de $[-1;1],\quad \left| f^{\prime }(t)\right| \leq
+1.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $\varphi $ la fonction définie sur $[-1;1]$ par la relation
+$\varphi (t) = 1-\left| t\right| $. \\
+Prouver que $\varphi $ appartient à $B$ et construire sa courbe
+représentative.
+
+\item Soit $f$ un élément de $B.$Prouver que, pour tout point $t$ de
+$[-1;1]$, $\quad \left| f(t)\right| \leq \varphi (t)$\\
+(On pourra se placer d'abord sur $[0;1]$, puis sur $[-1;0]$.
+
+\item Prouver que, pour tout élément $f$ de $B$, $I(f)\leq 1$;
+déterminer les éléments $f$ de $B$ tels que $I(f) = l.$
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Prouver que, pour tout élément $f$ de $B$, $M(f)\leq 1.$
+
+\item Soit $\psi $ un élément de $B$ tel que $M(\psi ) = 1.$ à l'aide
+de la
+question 2$,$montrer que $\left| \psi (0)\right| = 1.$\\
+Lorsque $\psi (0) = 1$, prouver que $\psi = \varphi.$ (On utilisera la
+méthode
+indiquée dans la question 2.)
+
+\item Déterminer les éléments $f$ de $B$ tels que $M(f) = 1.$
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE 4}
+
+Soient $X$ et $Y$ deux variables aléatoires indépendantes, définies sur
+un
+espace probabilisé $(\Omega ;A;P).$On suppose que $X$ est une variable
+de
+Poisson de paramètre $\lambda $ et $Y$ une variable de Poisson de
+paramètre $\mu $, où $\lambda $ et $\mu $ sont strictement positifs.
+Pour tout nombre
+entier naturel $n$, on notera
+\[
+p_{n} = P\left(\Ev{X = n}\right)\quad \text{et}\quad q_{n} =
+P\left(\Ev{Y = n}\right)
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que la variable $Z = X + Y$ est une variable de Poisson
+dont on déterminera le paramètre.\\
+Trouver l'espérance et la variance de $Z.$
+
+\item Soit $k$ un nombre entier naturel. Déterminer la loi de
+probabilité
+conditionnelle de $X$ sachant que $Z = k.$
+
+\item On pose $U = X-Y.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Trouver l'espérance et la variance de $U$.
+
+\item Déterminer l'ensemble des valeurs que peut prendre $U$. La
+variable $U$
+est-elle une variable de Poisson ?
+
+\item Trouver la loi conditionnelle de $U$ sachant que $Z = k$, où
+$k\in N$
+(on pourra utiliser le résultat de la question 2).
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

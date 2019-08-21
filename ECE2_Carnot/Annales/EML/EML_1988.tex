@@ -1,0 +1,252 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EML 1988} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{EML 1988}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1988}}
+
+
+
+{\large \textbf{Concepteur : EML}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{EXERCICE 1}
+
+Soit $f :\R^{3}\rightarrow \R^{3},(x,y,z)\longmapsto
+(3x-2y,2x-4z,y-3z).$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Écrire la matrice $A$ de $f$ dans la base canonique de $\R^{3}$.
+
+\item Déterminer les valeurs propres de $A$. En déduire que $A$ n'est
+pas
+inversible et que $A$ est diagonalisable.
+
+\item Calculer $A^{2}$, $A^{3}$. En déduire $A^{n}$, $n\in \N^{\times
+}$.
+\end{noliste}
+
+\section*{EXERCIC\E\ 2}
+
+Soit f la fonction de $\R$ dans $\R$ définie par $f(x) =
+x-\dfrac{1}{4}(x + 1)e^{-x}.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer $f^{\prime }$ et $f"$. Étudier les variations de
+$f^{\prime }$. \\
+Montrer que l'équation $f^{\prime }(x) = 0$ admet une seule solution
+$\alpha $
+et que $-1,3<\alpha <-1,2.$ \\
+En déduire le sens de variation de $f$. Étudier les limites de $f$ en $
++ \infty $ et $-
+\[
+\infty $. Préciser les branches infinies de $\mathcal{C}_{f} $. Tracer
+$\mathcal{C}_{f}$.
+
+\item Soit $u$ la suite définie par $u_{0} = 0$ et $\forall n\in
+\N,\quad u_{n + 1} = f(u_{n})$. \\
+Montrer que pour tout entier $n>0$, on a $-1<u_{n}<0$ et que la suite
+$u$
+est décroissante. Trouver sa limite.
+\end{noliste}
+
+\section*{EXERCIC\E\ 3}
+
+Une secrétaire effectue n appels téléphoniques vers n correspondants
+distincts $(n\geq 2)$. Pour chaque appel, la probabilité d'obtenir le
+correspondant demandé est $p$ appartenant à $]0,1[$ et la probabilité
+de ne
+pas l'obtenir est $q$, avec $q = 1-p$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $X$ le nombre de correspondants obtenus lors de ces $n$
+appels.
+Quelle est la loi de $X$ ? Calculer l'espérance $\E(X)$ et la variance
+$\V(X)$.
+
+\item Après ces $n$ recherches, la secrétaire demande une deuxième fois
+chacun des $n-X$ correspondants qu'elle n'a pas obtenus la première
+fois.
+Soit $Y$ le nombre de correspondants obtenus dans la deuxième série
+d'appels, et $Z = X + Y$ le nombre total de correspondants obtenus.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Quelles sont les valeurs prises par $Z$ ?
+
+\item Calculer $p_{0} = P\left(\Ev{Z = 0}\right),p_{1} = P\left(\Ev{Z =
+1}\right)$. Montrer que $p_{1} = npq^{2n--2}(1 + q).$
+
+\item Calculer la probabilité conditionnelle $P\left(\Ev{(Y = h)/(X =
+k)}\right)\left(\Ev{Y = h}\right)/\left(\Ev{X = k}\right))$, pour $k$
+appartenant à $\{0,1,\dots,n\}$ et $h$ à $\{0,1,\dots,n-k\}$.
+
+\item Démontrer $P\left(\Ev{Z = s}\right) = \Sum{k = 0}{s}P(\left(\Ev{X
+= k}\right)\cap \left(\Ev{Y = s-k}\right)).$
+
+\item Calculer $p_{s} = P\left(\Ev{Z = s}\right)$, et montrer que $Z$
+suit une loi binomiale de
+paramètres $n$ et $p(1 + q)$. \\
+(On pourra vérifier : $C_{n}{k}C_{n-k}{s-k} = C_{n}{s}C_{s}{k}$)
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCIC\E\ 4}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Vérifier : $\forall x\in \lbrack 0, + \infty \lbrack,\quad 0\leq
+\ln (1 + x)\leq x.$ En déduire la limite quand l'entier $n$ tend vers $
++ \infty $ de $\dint{0}{1}\ln (1 + x^{n})dx$.
+
+\item Soit u la suite réelle définie par $u_{n} =
+\dint{0}{1}\dfrac{x^{n}}{1 + x^{n}}dx$. Montrer que pour tout entier
+naturel $n$ non nul : 
+\[
+u_{n} = \dfrac{\ln (2)}{n}-\dfrac{1}{n}\dint{0}{1}\ln (1 + x^{n})dx
+\]
+(On pourra utiliser une intégration par parties.)\\
+En déduire la limite de $u_{n}$ et celle de $n.u_{n}$ quand n tend vers
++ $\infty $.
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

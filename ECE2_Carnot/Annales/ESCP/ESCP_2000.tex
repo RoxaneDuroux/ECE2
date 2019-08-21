@@ -1,0 +1,438 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 2000} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{ESCP 2000}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 2000}}
+
+
+
+{\large \textbf{Concepteur : ESCP}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{EXERCICE I}
+
+Dans tout l'exercice, $\alpha $ désigne un paramètre réel. On considère
+la
+matrice $A_{\alpha } = 
+\begin{smatrix}
+-1 & 2-\alpha & -\alpha \\
+-\alpha & 1 & -\alpha \\
+2 & \alpha -2 & \alpha + 1
+\end{smatrix}
+$ et on note $\phi_{\alpha }$ l'endomorphisme de $\R^{3}$ représenté
+par $A_{\alpha }$ dans la base canonique de $\R^{3.}$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, quel que soit $\alpha $, l'endomorphisme
+$\phi_{\alpha }$
+admet la valeur propre $1$.
+
+\item On note $E_{1}(\alpha )$ le sous-espace propre de $\phi_{\alpha
+}$
+associé à la valeur propre $1$. \\
+Déterminer, suivant les valeurs de a, une base de $E_{1}(\alpha )$.
+\end{noliste}
+
+\item On considère les vecteurs $f_{1} = (1,1,-1)$ et $f_{2} =
+(1,1,-2)$ et on
+note $F_{1}$ le sous-espace de $\R^{3}$ engendré par $f_{1}$ et
+$f_{2}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $(f_{l},f_{2})$ est une base de $F_{l}$.
+
+\item Montrer que l'image par $\phi_{\alpha }$ de tout vecteur de
+$F_{1}$
+appartient à $F_{1}$.
+
+\item Soit$\hat{\phi}_{\alpha }$ l'endomorphisme de $F_{1}$ induit par
+$\phi
+_{\alpha }$, c'est-à-dire vérifiant,.pour tout vecteur $V$ de $F_{1}$,
+\[
+\hat{\phi}_{\alpha }(V) = \phi_{\alpha }(V)
+\]
+Donner la matrice de $\hat{\phi}_{\alpha }$ dans la base
+$(f_{l},f_{2})$de $F_{1}$.
+\end{noliste}
+
+\item Montrer que, pour tout réel $\alpha $, l'endomorphisme
+$\phi_{\alpha
+} $ admet la valeur propre $\alpha -1$ et qu'on peut trouver un vecteur
+$f_{3}$de $\R^{3}$ ne dépendant pas de $\alpha $, qui soit, pour tout
+réel $\alpha $, vecteur propre de $\phi_{\alpha }$ associé à la valeur
+propre $\alpha -1$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $(f_{l,}f_{2},f_{3})$ est une base de $\R^{3}$.
+Donner la matrice de $\phi_{\alpha }$ dans cette base.
+
+\item Pour quelles valeurs du paramètre $\alpha $ l'endomorphisme $\phi
+_{\alpha }$ est-il diagonalisable ?
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE II}
+
+\subsection*{I. Étude d'une suite vérifiant une relation de récurrence
+linéaire}
+
+Etant donné un paramètre réel $\alpha >0$, on note $E$ l'espace
+vectoriel
+des suites $U = (u_{n})_{n\geq 0}$ de réels qui vérifient, pour tout n
+positif, la relation
+
+\[
+u_{n + 2} = \alpha (u_{n + 1} + u_{n})
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer qu'on peut trouver deux réels $r$ et $s$, avec $r<s$,
+tels que
+les suites $R = (r^{n})_{n\geq 0}$ et $S = (s^{n})_{n\geq 0}$ forment
+une base de l'espace vectoriel $E.$ Exprimer $r$ et $s$ en fonction de
+$\alpha $ et comparer $\left| r\right| $ et $\left| s\right|. $
+
+\item Etant donné un élément $U = (u_{n})_{n\geq 0}$ de $E $ s'écrivant
+$U = aR + bS$ avec $(a,b)\in \R^{2}$, donner l'expression de $a$ et $b$
+en fonction de $u_{0}$ et $u_{1}.$
+
+\item On suppose, dans cette question, que l'on a $0<a<\dfrac{1}{2}.$ 
+\\
+Soit $U = (u_{n})_{n\geq 0}$un élément de $E$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la suite $U$ converge vers $0$.
+
+\item Si $u_{1}-u_{0}r$ n'est pas nul, montrer qu'il existe un indice
+$n_{0}$
+tel que, pour $n>n_{0}$, $u_{n}$ ne s'annule pas et garde un signe
+constant
+et que l'on a :
+\[
+\underset{n\rightarrow + \infty }{\lim }\dfrac{\ln \left|
+u_{n}\right| }{n} = \ln (s)
+\]
+
+\item Montrer que si, au contraire, $u_{1}-u_{0}r$ est nul et si la
+suite $(u_{n})_{n\geq 0}$ n'est pas identiquement nulle, alors, pour
+tout
+entier $n$ positif, $u_{n}$ et $u_{n + l}$ sont de signes contraires.
+Quel équivalent peut-on donner, dans ce cas, de$\ln \left| u_{n}\right|
+$ ?
+\end{noliste}
+
+\item On suppose, dans cette question, que l'on a $\dfrac{1}{2}<a.$\\
+A quelle condition sur $u_{0}$ et $u_{1}$ l'élément $U = (u_{n})_{n\geq
+
+0} $ de $E$ est-il une suite bornée ? Montrer que les éléments de E qui
+sont
+des suites bornées forment un sous-espace vectoriel de E dont on
+précisera
+la dimension.
+\end{noliste}
+
+\subsection*{II. Étude d'une récurrence non linéaire}
+
+Soit $\beta $ un réel strictement positif. On note $m = \min (l,\beta
+)$ le
+plus petit des nombres $1$ et $\beta $ et $M = \max (l,\beta )$ le plus
+grand
+de ces nombres.\\
+On considère la suite $V = (v_{n})_{n\geq 0}$ vérifiant $v_{0} = 0$,
+$v_{1} = \beta $ et, pour tout $n$ positif, la relation
+\[
+v_{n + 2} = \sqrt{v_{n + 1}} + \sqrt{v_{n}}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer, pour tout $n$ strictement positif, l'inégalité $m\leq
+v_{n}\leq 4M.$
+
+\item Montrer que si la suite $V = (v_{n})_{n\geq 0}$ admet une limite,
+cette limite est nécessairement égale à $4$.\\
+On se propose de montrer que, pour tout $\beta $ strictement positif,
+la
+suite $V$ admet effectivement pour limite $4$.
+
+\item Montrer, pour tout $n$ positif, l'inégalité
+\[
+\left| v_{n + 2}-4\right| \leq \dfrac{\left|
+v_{n + 1}-4\right| }{\sqrt{v_{n + 1}} + 2} + \dfrac{\left|
+v_{n}-4\right| }{\sqrt{v_{n}} + 2}
+\]
+
+\item On pose $\alpha = \dfrac{1}{\sqrt{m} + 2}$ et on considère la
+suite U = (u$_{n})_{n\geq 0}$ vérifiant la relation de récurrence
+linéaire 
+\[
+u_{n + 2} = \alpha (u_{n + 1} + u_{n})
+\]
+et les conditions initiales, $u_{0} = \left| v_{1}-4\right| $ et $u_{1}
+= \left| v_{2}-4\right| $. \\
+Montrer que, pour tout n strictement positif $\left| v_{n}-4\right|
+\leq u_{n-1}$\textbf{.}
+
+\item En conclusion, montrer à l'aide des résultats de la première
+partie
+que la suite $V$ converge vers $4$.
+
+\item Écrire un programme -\Scilab{} qui lise un entier $N$ et un réel
+$\beta $ et qui affiche, en sortie, les $N$ premiers termes de la suite
+$V$.
+\end{noliste}
+
+\section*{EXERCICE III}
+
+Sachant qu'un appareil a fonctionné correctement pendant une certaine
+durée
+x, on s'intéresse à la probabilité pour qu'il continue à bien
+fonctionner
+pendant encore au moins une durée y. Pour cela on convient de
+représenter la
+durée de vie de ce type d'appareil par une variable aléatoire réelle
+$X$ définie sur un espace probabilisé dont on notera la probabilité P.
+L'exercice
+a pour objet l'étude de quelques fonctions liées à cette durée de vie.
+
+\subsection*{I.}
+
+On suppose d'abord que $X$ prend ses valeurs dans $\N^{\times }$ et
+que, pour tout $n$ de $\N^{\times }$, $P\left(\Ev{X = n}\right)$ n'est
+pas nul. On
+pose; pour tout $n$ de $\N^{\times }$,
+\[
+p_{n} = P\left(\Ev{X = n}\right),\quad G_{n} = P\left(\Ev{X\geq
+n}\right) = \Sum{k = n}{\infty }p_{k}\text{\quad et}\quad Z_{n} =
+\dfrac{{p_{n}}}{{G_{n}}}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Justifier les inégalités $0<p_{n}<G_{n}\leq 1$ et $0<Z_{n}<1$.
+
+\item Soit $n$ un entier naturel. Établir l'égalité $P\left(\Ev{X\geq 
+n + 1/X\geq n}\right) = 1-Z_{n}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la suite $(P\left(\Ev{X\geq n + 1/X\geq
+n}\right))_{n\in \N^{\times }}$ est constante si et seulement si la
+suite $(Z_{n})_{n\in 
+\N^{\times }}$. est constante.
+
+\item Vérifier que les conditions précédentes sont réalisées dans le
+cas où
+la loi de $X$ est une loi géométrique.
+
+\item Réciproquement, on suppose qu'il existe une constante p
+appartenant à $]0,1[$ telle que la suite $(Z_{n})_{n\in \N^{\times }}$
+soit la
+suite constante égale à $p$. Montrer par récurrence que $X$ suit une
+loi géométrique.
+\end{noliste}
+
+\item Montrer que si, pour tout entier $m$ de $\N^{\times }$, la
+suite $\left( \dfrac{p_{n + m}}{p_{n}}\right)_{n\in \N^{\times }}$est
+décroissante, alors la suite $(Z_{n})_{n\in \N^{\times }}$ est
+croissante et la suite $(P\left(\Ev{X\geq n + 1/X\geq n}\right))_{n\in
+\N^{\times }}$ est décroissante. (On dit alors qu'il y a vieillissement
+de
+l'appareil dont $X$ est la durée de vie.)
+\end{noliste}
+
+\subsection*{II.}
+
+On suppose maintenant que la variable aléatoire $X$ prend ses valeurs
+dans $\R$\textbf{*}$_{+}$ et admet une densité f continue et
+strictement
+positive sur $\R_{+}{\times }$, On pose, pour tout réel strictement
+positif $x$,
+\[
+G(x) = \dint{x}{+ \infty }f(t)dt\quad \text{et\quad }Z(x) =
+\dfrac{f(x)}{G(x)}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Si x et y sont des réels strictement positifs, on pose$H(x,y) =
+\dfrac{G(x + y)}{G(x)}$. \\
+Montrer que l'on a alors, pour tout couple $(x,y)$ de $\R_{+}{\times
+}$, l'égalité :
+\[
+\dfrac{\partial H}{\partial x}(x,y) = \dfrac{G(x + y)}{G(x)}(Z(x)-Z(x +
+y))
+\]
+
+\item Montrer que la fonction $x\rightarrow Z(x)$ est une fonction
+croissante sur $\R_{+}{\times }$ si et seulement si, pour tout réel 
+$y$ strictement positif fixé, la fonction $x\rightarrow
+P\left(\Ev{X\geq 
+x + y/X\geq x}\right)$ est une fonction décroissante.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que si la loi de $X$ est une loi exponentielle, alors la
+fonction $Z$ est constante.
+
+\item Réciproquement, montrer que si $Z$ est la fonction constante
+égale au réel strictement positif $\lambda $, alors la fonction
+$x\rightarrow
+e^{\lambda x}G(x)$ est constante. Quelle est alors la loi de $X$ ?
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

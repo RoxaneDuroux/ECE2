@@ -1,0 +1,500 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 2003} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 2003}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\Huge EDHEC}
+
+\textbf{School of management\vspace{3cm}}
+
+{\large ECOLE DE HAUTES ETUDES COMMERCIALES DU NORD}
+
+{\large Concours d'admission sur classes préparatoires}
+
+\underline{\hspace{3cm}}
+
+{\LARGE MATHEMATIQUES}
+
+{\large Option économique}
+
+\textbf{Année 2003}{\large }
+\end{center}
+
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document : seule
+l'utilisation d'une règle graduée est autorisée.\vspace{1cm}}
+
+\noindent \textbf{L'utilisation de toute calculatrice et de tout
+matériel électronique est interdite.}\vspace{1cm}
+
+\section*{Exercice 1}
+
+On note $f$ la fonction définie, pour tout réel $x$ strictement
+positif, par : $f\left( x\right) = \dfrac{e^{\dfrac{1}{x}}}{x^{2}}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout entier naturel $n$ supérieur ou égal à $1$, montrer que
+l'intégrale $I_{n} = \dint{n}{+ \infty }f\left( x\right\dx$ est
+convergente et exprimer $I_{n}$ en fonction de $n$.
+
+\item En déduire que $I_{n}\underset{n\rightarrow + \infty }{\sim
+}\dfrac{1}{n}$.
+\end{noliste}
+
+\item Montrer que la série de terme général $u_{n} = f\left( {n}\right)
+$ est convergente.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir que : \quad $\forall k\in ${$\N$}$^{\times },\quad
+f\left( k + 1\right) \leq \dint{k}{k + 1}f\left( x\right)
+dx\leq f\left( k\right) $.
+
+\item En sommant soigneusement cette dernière inégalité, montrer que : 
+\[
+\forall n\in {\N}{\times },\quad \Sum{k = n + 1}{+ \infty
+}u_{k}\leq I_{n}\leq \Sum{k = n + 1}{+ \infty }u_{k} +
+\dfrac{e^{\dfrac{
+1}{n}}}{n^{2}}
+\]
+
+\item Déduire des questions précédentes un équivalent simple, lorsque
+$n$ est au voisinage de $ + \infty $, de $\Sum{k = n + 1}{+ \infty
+}\dfrac{e^{\dfrac{1}{k}}}{k^{2}}$.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 2}
+
+Dans cet exercice, $n$ désigne un entier naturel non nul.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $f_{n}$ la fonction définie par : $f_{n}\left( x\right) = 
+\left\{
+\begin{array}{cl}
+nx^{n-1} & \text{si }x\in \left[ 0;1\right] \\
+0 & \text{sinon}
+\end{array}
+\right.
+$\\
+Montrer que $f_{n}$ est une densité de probabilité.
+
+\item On considère une variable aléatoire $X_{n}$ réelle dont une
+densité de probabilité est $f_{n}$. On dit alors que $X_{n}$ suit une
+loi monôme d'ordre $n$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Reconnaître la loi de $X_{1}$.
+
+\item Dans le cas où $n$ est supérieur ou égal à $2$, déterminer la
+fonction
+de répartition $F_{n}$ de $X_{n}$, ainsi que son espérance $\E\left(
+x{_{n}}
+\right) $ et sa variance $\V\left( x{_{n}}\right) $.
+\end{noliste}
+
+\item On considère deux variables aléatoires $U_{n}$ et $V_{n}$
+définies sur
+le même espace probabilisé $\left( {\Omega,\mathcal{A},P}\right) $,
+suivant
+la loi monôme d'ordre $n\ \left( n\geq 2\right) $ et indépendantes,
+c'est-à-dire qu'elles vérifient en particulier l'égalité suivante : 
+\[
+\forall x\in \R,\quad P\left( U_{n}\leq x\cap V_{n}\leq
+x\right) = P\left(\Ev{ U_{n}\leq x}\right) P\left(\Ev{ V_{n}\leq
+x}\right)
+\]
+
+On pose $M_{n} = \sup \left( U_{n},V_{n}\right) $ et on admet que
+$M_{n}$ est
+une variable aléatoire définie, elle aussi, sur $\left(
+{\Omega,\mathcal{A},P}\right) $.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout réel $x$, écrire, en justifiant la réponse, l'évènement
+$
+\left( M_{n}\leq x\right) $ à l'aide des évènements $\left(
+U_{n}\leq x\right) $ et $\left( V_{n}\leq x\right) $.
+
+\item En déduire une densité de $M_{n}$. Vérifier que $M_{n}$ suit une
+loi
+monôme dont on donnera l'ordre, puis déterminer sans calcul $\E\left(
+M_{n}\right) $.
+
+\item On pose $T_{n} = \inf \left( U_{n},V_{n}\right) $. Exprimer
+$M_{n} + T_{n}$
+en fonction de $U_{n}$ et $V_{n}$, puis en déduire, sans calcul
+d'intégrale,
+la valeur de $\E\left( T_{n}\right) $.
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 3}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que : $\forall x\in ${$\R$}$^{\times },\quad \dfrac{
+e^{x}-1}{x}>0$.\\
+On considère la fonction $f$ définie sur $\R$ par : $
+\left\{
+\begin{array}{cl}
+f\left( x\right) = \ln \left( \dfrac{e^{x}-1}{x}\right) & \text{si
+}x\neq 0
+\\
+f\left( {0}\right) = 0 & 
+\end{array}
+\right.
+$
+
+\item Montrer que $f$ est continue sur $\R$.
+
+\item Montrer que $f$ est de classe $C^{1}$ sur $\left] {-\infty
+;0}\right[ $
+et sur $\left] {0; + \infty }\right[ $, puis préciser $f^{\prime
+}\left(
+x\right) $ pour tout $x$ de {$\R$}$^{\times }$.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\underset{x\rightarrow 0}{\lim }f^{\prime }\left(
+x\right) = \dfrac{1}{2}$.
+
+\item En déduire que $f$ est de classe $C^{1}$ sur $\R$ et donner
+$f^{\prime }\left( {0}\right) $.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Étudier les variations de la fonction $g$ définie par : $\forall
+x\in 
+\R,\quad g\left( x\right) = xe^{x}-e^{x} + 1$.
+
+\item En déduire le signe de $g\left( x\right) $, puis dresser le
+tableau de
+variations de $f$ (limites comprises).
+\end{noliste}
+
+\vspace{0pt} On considère la suite $\left( u_{n}\right) $ définie par
+la donnée de son premier terme $u_{0}>0$ et par la relation, valable
+pour tout entier naturel $n$ : $u_{n + 1} = f\left( u_{n}\right) $.
+
+\vspace{0pt}
+
+\item Montrer que : $\forall n\in \N,\quad u_{n}>0$.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que : $\forall x\in \R,\quad f\left( x\right)
+-x = f\left( {-}x\right) $.
+
+\item En déduire le signe de $f\left( x\right) -x$ sur
+{$\R$}$_{+}{\times }$.
+
+\item Montrer que la suite $\left( u_{n}\right) $ est décroissante.
+\end{noliste}
+
+\item En déduire que $\left( u_{n}\right) $ converge et donner sa
+limite.
+
+\item Écrire un programme en \texttt{\Scilab{}} permettant de
+déterminer et
+d'afficher le plus petit entier naturel $n$ pour lequel $u_{n}\leq
+10^{-3}$, dans le cas où $u_{0} = 1$.
+\end{noliste}
+
+\section*{Problème}
+
+Un joueur participe à un jeu se jouant en plusieurs parties. Ses
+observations lui permettent d'affirmer que :
+
+\begin{noliste}{$\sbullet$}
+\item s'il gagne deux parties consécutives, alors il gagne la prochaine
+avec
+la probabilité $\dfrac{2}{3}$.
+
+\item s'il perd une partie et gagne la suivante, alors il gagne la
+prochaine
+avec la probabilité $\dfrac{1}{2}$.
+
+\item s'il gagne une partie et perd la suivante, alors il gagne la
+prochaine
+avec la probabilité $\dfrac{1}{2}$.
+
+\item s'il perd deux parties consécutives, alors il gagne la prochaine
+avec
+la probabilité $\dfrac{1}{3}$.
+\end{noliste}
+
+Pour tout entier naturel $n$ non nul, on note $A_{n}$ l'évènement : "le
+joueur gagne la $n^{\text{ième}}$ partie".
+
+De plus, pour tout entier naturel $n$ supérieur ou égal à 2, on pose : 
+\[
+E_{n} = A_{n-1}\cap A_{n}\qquad F_{n} = \overline{A_{n-1}}\cap
+A_{n}\qquad
+G_{n} = A_{n-1}\cap \overline{A_{n}}\qquad H_{n} =
+\overline{A_{n-1}}\cap 
+\overline{A_{n}}
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On admet que $\left( E_{n},F_{n},G_{n},H_{n}\right) $ est un
+système
+complet d'évènements.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Utiliser la formule des probabilités totales pour montrer que,
+pour
+tout entier naturel $n$ supérieur ou égal à $2$, on a : $P\left(\Ev{
+E_{n + 1}}\right) = \dfrac{2}{3}P\left(\Ev{ E_{n}}\right) +
+\dfrac{1}{2}P\left(\Ev{
+F_{n}}\right) $.
+
+\item Exprimer de la même façon (aucune explication n'est exigée) les
+probabilités $P\left(\Ev{ F_{n + 1}}\right) $, $P\left(\Ev{ G_{n +
+1}}\right) $ et $
+P\left(\Ev{ H_{n + 1}}\right) $ en fonction de $P\left(\Ev{
+E_{n}}\right) $, $P\left(\Ev{
+F_{n}}\right) $, $P\left(\Ev{ G_{n}}\right) $ et $P\left(\Ev{
+H_{n}}\right) $.
+
+\item Pour tout entier naturel $n$ supérieur ou égal à $2$, on pose :
+$U_{n} = 
+\begin{smatrix}
+P\left(\Ev{ E_{n}}\right) \\
+P\left(\Ev{ F_{n}}\right) \\
+P\left(\Ev{ G_{n}}\right) \\
+P\left(\Ev{ H_{n}}\right)
+\end{smatrix}
+$.
+
+Vérifier que $U_{n + 1} = MU_{n}$, où $M = 
+\begin{smatrix}
+2/3 & 1/2 & 0 & 0 \\
+0 & 0 & 1/2 & 1/3 \\
+1/3 & 1/2 & 0 & 0 \\
+0 & 0 & 1/2 & 2/3
+\end{smatrix}
+$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soient $P = 
+\begin{smatrix}
+1 & 1 & 3 & 3 \\
+-2 & -1 & -1 & 2 \\
+2 & -1 & 1 & 2 \\
+-1 & 1 & -3 & 3
+\end{smatrix}
+$ et $Q = 
+\begin{smatrix}
+-1 & -3 & 3 & 1 \\
+2 & -3 & -3 & 2 \\
+2 & 1 & -1 & -2 \\
+1 & 1 & 1 & 1
+\end{smatrix}
+$.
+
+Calculer $PQ$. En déduire que $P$ est inversible et donner son inverse.
+
+\item On note $C_{1}$, $C_{2}$, $C_{3}$ et $C_{4}$ les colonnes de $P$.
+Calculer $MC_{1}$, $MC_{2}$, $MC_{3}$ et $MC_{4}$, puis en déduire que
+$-
+\dfrac{1}{3}$, $\dfrac{1}{6}$, $\dfrac{1}{2}$ et $1$ sont les valeurs
+propres de $M$.
+
+\item Justifier que $M = PDP^{-1}$, où $D$ est une matrice diagonale
+que l'on déterminera.
+\end{noliste}
+
+\vspace{0pt} \textbf{\emph{Dans toute la suite, on suppose que le
+joueur a
+gagné les deux premières parties.}}
+
+\vspace{\normalbaselineskip}
+
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer par récurrence que : $\forall n\in \N,\quad
+M^{n} = PD^{n}P^{-1}$.
+
+\item Montrer, également par récurrence, que : $\forall n\geq 2,\quad
+U_{n} = M^{n-2}U_{2}$.
+
+\item Pour tout entier naturel $n$ supérieur ou égal à 2, donner la
+première
+colonne de $M^{n}$, puis en déduire $P\left(\Ev{ E_{n}}\right) $,
+$P\left(\Ev{
+F_{n}}\right) $, $P\left(\Ev{ G_{n}}\right) $ et $P\left(\Ev{
+H_{n}}\right) $.
+
+\item Montrer que l'on a : 
+\[
+\underset{n\rightarrow + \infty }{\lim }P\left(\Ev{ E_{n}}\right) =
+\dfrac{3}{10}
+\qquad \underset{n\rightarrow + \infty }{\lim }P\left(\Ev{
+F_{n}}\right) = \dfrac{2
+}{10}\qquad \underset{n\rightarrow + \infty }{\lim }P\left(\Ev{
+G_{n}}\right) = 
+\dfrac{2}{10}\qquad \underset{n\rightarrow + \infty }{\lim }P\left(\Ev{
+H_{n}}\right) = \dfrac{3}{10}\qquad
+\]
+\end{noliste}
+
+\item Pour tout entier naturel $k$ non nul, on note $X_{k}$ la variable
+aléatoire qui vaut $1$ si le joueur gagne la $k^{\text{ième}}$ partie
+et qui vaut $0$ sinon ($X_{1}$ et $X_{2}$ sont donc deux variables
+certaines).
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout entier naturel $k$ supérieur ou égal à $2$, exprimer
+$A_{k}$ en fonction de $E_{k}$ et $F_{k}$.
+
+\item En déduire, pour tout entier naturel $k$ supérieur ou égal à $2$,
+la loi de $X_{k}$.
+\end{noliste}
+
+\item Pour tout entier naturel $n$ supérieur ou égal à $2$, on note
+$S_{n}$ la variable aléatoire égale au nombre de parties gagnées par le
+joueur lors des $n$ premières parties.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $P\left(\Ev{ S_{n} = 2}\right) $ en distinguant les cas
+$n = 2$, $n = 3$
+et $n\geq 4$.
+
+\item Déterminer $P\left(\Ev{ S_{n} = n}\right) $.
+
+\item Pour tout entier $n$ supérieur ou égal à 3, écrire $S_{n}$ en
+fonction
+des variables $X_{k}$, puis déterminer $\E\left( S_{n}\right) $ en
+fonction
+de $n$.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

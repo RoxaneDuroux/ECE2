@@ -1,0 +1,620 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../macros_Livre.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\pagestyle{fancy} %
+ \lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2015} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+%%DEBUT
+
+\section*{Exercice}
+
+\noindent
+Soit $n$ un entier supérieur ou égal à 2 et $\B=(e_1,e_2,\ldots,e_n)$
+la base canonique de $\R^n$.\\
+Soit $v$ un vecteur donné de $\R^n$ de coordonnées
+$v_1,v_2,\ldots,v_n$ dans la base $\B$ et qui vérifie $\Sum{i=1}{n}
+v_i=1$.\\[.2cm]
+Soit $f$ l'application définie sur $\R^n$ qui à tout vecteur
+$x=(x_1,x_2,\ldots,x_n) \in \R^n$, associe le vecteur $f(x)$ défini
+par: $f(x) = x-\Big(\Sum{i=1}{n} x_i\Big) \cdot v$.
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $f$ est un endomorphisme de $\R^n$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Montrons que $f$ est une application linéaire.\\
+        Soit $(\lambda, \mu)\in \R^2$. Soit $(x,y)\in (\R^n)^2$.
+        Alors il existe $(x_1, \ldots, x_n, y_1, \ldots, y_n) \in
+        \R^{2n}$ tels que :
+        \[
+        x=(x_1,x_2, \ldots, x_n) \quad \mbox{et} \quad
+        y=(y_1,y_2, \ldots, y_n)
+        \]
+        Par définition de $f$ :
+        \[
+        \begin{array}{rcl}
+          f(\lambda \cdot x + \mu \cdot y) & = & (\lambda \cdot x + 
+          \mu \cdot y) - \left(\Sum{i=1}{n}(\lambda \, x_i + \mu \, y_i)
+          \right) \cdot v
+          \\[.6cm]
+          & = & \lambda \cdot x + \mu \cdot y - \left(\lambda 
+            \Sum{i=1}{n} x_i + \mu \Sum{i=1}{n} y_i \right) \cdot v
+          \\[.6cm]
+          & = & \lambda \cdot x + \mu \cdot y - \lambda \left( 
+            \Sum{i=1}{n} x_i \right) \cdot v - \mu \left( \Sum{i=1}{n} 
+            y_i \right) \cdot v
+          \\[.6cm]
+          & = & \lambda \cdot \left(x - \Big( \Sum{i=1}{n} x_i \Big) 
+\cdot 
+            v\right) + \mu \cdot \left(y - \Big( \Sum{i=1}{n} y_i \Big) 
+\cdot 
+            v\right)
+          \\[.6cm]
+          & = & \lambda \cdot f(x) + \mu \cdot f(y)
+        \end{array}
+        \]
+        \conc{L'application $f$ est linéaire.}
+        
+      \item Montrons que $f(\R^n) \subset \R^n$, \ie : $\forall x\in
+        \R^n$, $f(x) \in \R^n$.\\
+        Soit $x = (x_1, \ldots, x_n) \in \R^n$. Alors : $\Sum{i=1}{n}
+        x_i \in \R$.\\
+        On rappelle que : $f(x) = x-\Big(\Sum{i=1}{n} x_i\Big) \cdot
+        v$.\\
+        Ainsi, $f(x)$ appraît comme combinaison linéaire des vecteurs
+        de $\R^n$, $x$ et $v$.\\
+        Comme $\R^n$ est un espace vectoriel, on a bien : $f(x) \in
+        \R^n$.  \conc{L'application $f$ est à valeurs dans $\R^n$.}
+      \end{noliste}
+      \conc{L'application $f$ est un endomorphisme de $\R^n$.}~\\[-1cm]
+    \end{proof}
+
+  
+    \newpage
+    
+    
+  \item Montrer que $f\circ f=f$.
+  
+    \begin{proof}~\\
+      Soit $x=(x_1, \ldots, x_n) \in \R^n$.
+%       \[
+%       (f\circ f)(x) \ = \ f(f(x)) \ = \ f\left(x - \Big(\Sum{i=1}{n}
+%         x_i \Big) \cdot v\right)
+%       \]
+%       Notons $u = f(x)$. On obtient alors :
+%       \[
+%       \begin{array}{rcl}
+%         u & = & x- \Big( \Sum{i=1}{n} x_i \Big) \cdot v \ = \ 
+%         \left(x_1 - \Big( \Sum{i=1}{n} x_i \Big) \ v_1, \ x_2 - 
+%           \Big( \Sum{i=1}{n} x_i \Big) \ v_2, \ldots,
+%           \ x_n - \Big( \Sum{i=1}{n} x_i \Big) \ v_n\right)
+%         \\[.6cm]
+%         & = & (u_1, u_2, \ldots, u_n)
+%       \end{array}
+%       \]
+%       En particulier :
+      \[
+      \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+        (f\circ f)(x) & = & f(f(x)) \ = \ f\left(x - \Big(\Sum{i=1}{n}
+          x_i \Big) \cdot v\right)
+        \\[.2cm]
+        & = & f(x) - \Big(\Sum{i=1}{n} x_i \Big) \cdot f(v)
+        & (par linéarité de $f$)
+        \nl
+        \nl[-.2cm]
+        & = & f(x) - \Big(\Sum{i=1}{n} x_i \Big) \cdot \left( v -
+          \Big(\Sum{i=1}{n} v_i \Big) \cdot v \right)
+        \nl
+        \nl[-.2cm]
+        & = & f(x) - \Big(\Sum{i=1}{n} x_i \Big) \cdot \left( v -
+          v \right)
+        & (car $\Sum{i=1}{n} v_i = 1$)
+        \nl
+        \nl[-.2cm]
+        & = & f(x)
+%         \Sum{i=1}{n} u_i & = & \Sum{i=1}{n} \left(
+%           x_i - \Big( \Sum{j=1}{n} x_j \Big) \ v_i \right)
+%         \\[.6cm]
+%         & = & \Sum{i=1}{n} x_i - \Sum{i=1}{n} \Big(\Sum{j=1}{n} x_j 
+%         \Big) 
+%         \ v_i & (par linéarité de \\ la sommation)
+%         \nl
+%         \nl[-.2cm]
+%         & = & \Sum{i=1}{n} x_i - \Big(\Sum{j=1}{n} x_j \Big) 
+%         \Big( \Sum{i=1}{n} v_i \Big)
+%         \\[.6cm]
+%         & = & \bcancel{\Sum{i=1}{n} x_i} - \bcancel{\Big( \Sum{j=1}{n} 
+%           x_j \Big)} \times 1
+%         & (car, d'après l'énoncé, $\Sum{i=1}{n} v_i=1$)
+%         \nl
+%         \nl[-.2cm]
+%         & = & 0
+      \end{array}
+      \]
+%       Enfin :
+%       \[
+%       (f\circ f)(x) \ = \ f(f(x)) \ = \ f(u) \ = \ u -
+%       \Big(\Sum{i=1}{n} u_i \Big) \cdot v \ = \ u \ = \ f(x)
+%       \]
+      \conc{On en déduit : $f\circ f=f$.}      
+      \begin{remark}~\\
+        Si $E$ est un espace vectoriel, un endomorphisme $f \in
+        \LL{E}$ qui vérifie $f \circ f = f$ est appelé projecteur de
+        $E$. Dans cet exercice, on va étudier quelques propriétés
+        classiques (mais hors programme) des projecteurs.
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+ 
+ \item Déterminer le spectre de $f$.
+ 
+   \begin{proof}~
+     \begin{noliste}{$\sbullet$}
+     \item D'après la question précédente : $f\circ
+       f-f=0_{\LL{\R^n}}$.\\[.1cm]
+       Donc $Q(X) = X^2-X = X(X-1)$ est un polynôme annulateur de
+       $f$.%
+       \conc{Ainsi : $\spc(f) \subset \{\mbox{racines de $Q$}\} =
+         \{0,1\}$.}
+
+     \item On remarque alors :
+       \[
+       f(v) = v - \Big(\Sum{i=1}{n} v_i \Big) \cdot v = v - 1 \cdot v
+       = 0
+       \]
+       Or $v\neq 0_{\R^n}$ car $\Sum{i=1}{n} v_i =1$. Donc :
+       $\left\{
+         \begin{array}{l}
+           v \neq 0_{\R^n}\\[.1cm]
+           f(v)=0_{\R^n}
+         \end{array}
+       \right.$.\\[.2cm]
+       On en déduit que $v$ est un vecteur propre de $f$ associé à la
+       valeur propre $0$. %
+       \conc{Ainsi, $0$ est valeur propre de $f$.}
+
+     \item D'après ce qui précède, pour tout $x \in \R^n$, $f\big(
+       f(x) \big) = f(x) = 1 \cdot f(x)$.\\
+       Ainsi, tout vecteur $f(x)$ {\bf non nul} est vecteur propre
+       associé à la valeur propre $1$.\\
+       Un tel élément existe forcément. Pour le démontrer, remarquons
+       tout d'abord que comme l'endomorphisme $f$ n'est pas
+       l'application nulle alors : $\im(f) \neq \{0_{\R^n}\}$.\\
+       Ainsi il existe $u \in \im(f)$ tel que $u \neq
+       0_{\R^n}$. Et d'après ce qui précède : $f(u) = 1 \cdot u$.\\[.1cm]
+       {\it (on peut de nouveau le détailler. Comme : $u\in \im(f)$,
+         il existe $x \in \R^n$ tel que $u = f(x)$ et $f(u) = f(f(x))
+         = (f\circ f)(x) = f(x) =u$)}%
+       \conc{Ainsi, $1$ est valeur propre de $f$.}
+     \end{noliste}
+     \conc{Finalement : $\spc(f) = \{0,1\}$.}
+
+
+     \newpage
+
+
+     \begin{remark}~
+       \begin{noliste}{$\sbullet$}
+       \item L'application $f$ est définie à l'aide du vecteur
+         $v$. Penser à déterminer $f(v)$, dès la lecture de cette
+         définition, est un bon réflexe. Il faut alors penser à
+         utiliser ce calcul au bon moment : pour démontrer $0$ est
+         bien une valeur propre de $f$ puisque $v$ en est un vecteur
+         propre.
+         
+       \item Il est plus difficile de trouver un vecteur propre
+         associé à la valeur propre $1$.\\
+         On se sert pour cette question du résultat suivant :
+         \[
+         \forall u \in \im(f), \ f(u) = u
+         \]
+         Cette relation est vraie pour tout projecteur $f$ et se
+         démontre grâce à la relation : $f \circ f=f$ (c'est ce qui a
+         été fait dans le corrigé de cette question et dans la
+         suivante).
+         
+       \item Il est important de penser à la notion de polynôme
+         annulateur dès que l'énoncé met en jeu des puissances de
+         matrices ou des itérées d'applications linéaires.\\
+         Ce réflexe permet de démontrer l'étape :
+         \[
+         \spc(f) \subset \{0,1\}
+         \]
+         S'il est évidemment préférable d'écrire toutes les étapes de
+         démonstration d'une question, chacune d'entre elles rapporte
+         des points. Il est donc vivement conseillé d'écrire la
+         première étape de démonstration quitte à admettre celles qui
+         suivent.
+       \end{noliste}
+     \end{remark}~\\[-1.4cm]
+   \end{proof}
+   
+ \item 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{1mm}
+  \item Montrer que le vecteur $y$ appartient à l'image de $f$, 
+  notée $\im(f)$, si et seulement si $f(y)=y$.
+  
+  \begin{proof}~\\
+   Soit $y\in\R^n$.
+   \begin{liste}{$\quad$}
+   \item[$(\Rightarrow)$] 
+     % Montrons l'implication : $(y \in \im(f)) \ \Rightarrow
+     % \ (f(y)=y)$.\\[.1cm]
+     Supposons que $y\in \im(f)$. Alors il existe $x\in \R^n$ tel que
+     : $y=f(x)$. \\
+     On obtient alors :
+     \[
+     f(y) = f(f(x)) = (f\circ f)(x) = f(x) =y
+     \]
+   \item[$(\Leftarrow)$] % Montrons l'implication : $(f(y)=y) \ 
+     % \Rightarrow
+     % \ (y\in\im(f))$.\\[.1cm]
+     Supposons que : $f(y) = y$.\\
+     Alors, en posant : $x = y$, on exhibe bien $x\in \R^n$ tel
+     que $y = f(x)$.\\
+     Donc $y\in \im(f)$.~\\[-.8cm]
+   \end{liste}
+   \conc{$\forall y\in \R^n$, \ $(y\in \im(f)) \ \Leftrightarrow \
+     (f(y)=y)$}%~\\[-1.4cm]
+   \begin{remark}~\\
+     Cette démonstration n'utilise pas la définition de $f$ mais
+     seulement la propriété : $f\circ f = f$.\\
+     C'est donc un résultat général sur les projecteurs que l'on
+     montre ici.
+   \end{remark}~\\[-1.4cm]
+  \end{proof}
+
+\item Montrer que la dimension de $\im(f)$ est inférieure ou égale à
+  $n-1$.
+  
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item D'après la question \itbf{2.}, $0$ est valeur propre de $f$.
+      Donc : $\kr(f) \neq \{0_{\R^n}\}$.\\
+      On en déduit : $\dim(\kr(f)) \geq 1$.
+      
+    \item Ainsi, d'après le théorème du rang :
+      \[
+      \begin{array}{ccl}
+        \dim(\R^n) & = & \dim(\kr(f)) + \dim(\im(f)) \ \geq \ 1 + 
+        \dim(\im(f))
+        \\[.1cm]
+        \shortparallel 
+        \\%[.2cm]
+        n
+      \end{array}      
+      \]
+    \end{noliste}
+    \conc{Comme $n \geq 1 + \dim(\im(f))$, on a bien : $\dim(\im(f))
+      \leq n-1$.}~\\[-1.2cm]
+  \end{proof}
+    
+
+\newpage
+
+
+\item Montrer que pour tout $i \in \llb 1,n-1 \rrb$, on a :
+  $(e_i-e_{i+1})\in \im(f)$.
+  
+  \begin{proof}~\\
+   Soit $i\in \llb 1, n-1 \rrb$.
+   \begin{noliste}{$\sbullet$}
+   \item Pour tout $j \in \llb 1, n \rrb$, notons : $e_j = (e_j^1,
+     e_j^2, \ldots, e_j^n)$. Alors, par définition de $e_j$ :
+     \[
+     \forall k \in \llb 1, n \rrb, \ e_j^k = \left\{
+       \begin{array}{cl}
+         1 & \mbox{ si $k=j$}\\
+         0 & \mbox{ sinon}
+       \end{array}
+     \right.
+     \]
+     Ainsi : $\Sum{k=1}{n} e_j^k = 1$.
+     
+   \item On calcule alors :
+     \[
+     f(e_i) = e_i - 1 \cdot v = e_i - v
+     \]
+     De même : $f(e_{i+1}) = e_{i+1}-v$.\\
+     On en déduit, par linéarité de $f$ :
+     \[
+     f(e_i-e_{i+1}) = f(e_i)-f(e_{i+1}) = (e_i - \bcancel{v}) - (e_{i+1}
+     - \bcancel{v}) = e_i - e_{i+1}
+     \]
+     D'après la question \itbf{3.a)}, on en déduit : 
+     $(e_i-e_{i+1}) \in \im(f)$.
+   \end{noliste}
+   \conc{$\forall i \in \llb 1, n-1 \rrb$, $(e_i-e_{i+1}) \in 
+     \im(f)$}~\\[-1.2cm]
+  \end{proof}
+
+  \item En déduire une base et la dimension  de $\im(f)$. Quel est le 
+  rang de $f$ ?
+  
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item Montrons que la famille $(e_1-e_2, e_2-e_3, \ldots, 
+      e_{n-1} - e_n)$ est une famille libre de $\im(f)$.
+      \begin{noliste}{$\stimes$}
+      \item D'après la question précédente :
+        \[
+        \forall i \in \llb 1, n-1 \rrb, \ (e_i - e_{i+1}) \in \im(f)
+        \]
+      
+      \item Démoontrons maintenant que cette famille est libre. \\
+        Soit $(\lambda_1, \lambda_2, \ldots, \lambda_{n-1}) \in
+        \R^{n-1}$. Supposons :
+        \[
+        \lambda_1 \cdot (e_1 - e_2) + \lambda_2 \cdot (e_2 - e_3)
+        + \cdots + \lambda_{n-1} \cdot (e_{n-1}-e_n) = 0_{\R^n}
+      \]
+      On obtient alors :
+      \[
+       \lambda_1 \cdot e_1 + (\lambda_2 - \lambda_1) \cdot e_2 + 
+       \cdots + (\lambda_{n-1} - \lambda_{n-2}) \cdot e_{n-1} +
+       \lambda_{n-1} \cdot e_n = 0_{\R^n}
+      \]
+
+
+      % \newpage
+
+
+      \noindent
+      Or la famille $(e_1, \ldots, e_n)$ est une base de $\R^n$. La
+      proposition précédente équivaut donc à :
+      \[
+      \begin{array}{rcl}
+       & & \left\{
+       \begin{array}{rrrrrrrrrcl}
+        \lambda_1 & & & & & & & & & = & 0\\
+        -\lambda_1 & + & \lambda_2 & & & & & & & = & 0\\
+         & & & & \vdots & & & & & & \\
+         & & & & & - & \lambda_{n-2} & + & \lambda_{n-1} & = & 0\\
+         & & & & & & & & \lambda_{n-1} & = & 0
+       \end{array}
+       \right.
+       \\[2cm]
+       & \Leftrightarrow & 
+        \left\{ \lambda_1 = \lambda_2 = \cdots = \lambda_{n-2} = 
+        \lambda_{n-1} = 0 \right.
+       \\[.2cm]
+       & & \mbox{\it (par remontées successives)}
+      \end{array}
+      \]
+      \conc{La famille $(e_1-e_2, e_2-e_3, \ldots, e_{n-1} - e_n)$ est
+        une famille libre de $\im(f)$.}
+     \end{noliste}
+         
+   \item On en déduit :
+      \[
+       \dim(\im(f)) \geq \Card((e_1-e_2, e_2-e_3, \ldots, 
+       e_{n-1} - e_n)) = n-1
+      \]
+      Or, d'après la question \itbf{3.b)} : $\dim(\im(f)) \leq n-1$.
+      \conc{On en déduit : $\dim(\im(f))=n-1$}
+      
+      \item On sait que :
+      \begin{noliste}{$\stimes$}
+	\item $(e_1-e_2, e_2-e_3, \ldots, 
+	e_{n-1} - e_n)$ est une famille libre de $\im(f)$,
+	\item $\Card((e_1-e_2, e_2-e_3, \ldots, 
+	e_{n-1} - e_n))=n-1 = \dim(\im(f))$
+      \end{noliste}
+      \conc{On en déduit que $(e_1- e_2, e_2-e_3, \ldots, e_{n-1} - 
+      e_n)$ est une base de $\im(f)$.\\[.1cm]
+      De plus : $\rg(f) = \dim(\im(f))=n-1$.}
+   \end{noliste}
+   \begin{remark}~\\
+     Les énoncés de type HEC / ESSEC se distinguent des énoncés EML /
+     EDHEC par un découpage plus faible des questions qui oblige à
+     prendre plus d'initiatives. Ici, la formulation de la question
+     \og En déduire que \ldots \fg{} doit aider à comprendre qu'il
+     s'agit de se servir du résultat précédent. En question
+     précédente, on exhibe $(n-1)$ vecteurs de $\im(f)$. Il s'agit
+     alors de tester si la famille constituée de ces vecteurs est une
+     base de $\im(f)$.
+   \end{remark}~\\[-1.4cm]
+  \end{proof}
+
+ \end{noliste}
+ 
+ \item 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{1mm}
+  \item Déterminer une base du noyau de $f$.
+  
+  \begin{proof}~
+   \begin{noliste}{$\sbullet$}
+    \item D'après le théorème du rang :
+    \[
+     \begin{array}{ccccc}
+      \dim(\kr(f)) & + & \dim(\im(f)) & = & \dim(\R^n)
+      \\[.2cm]
+       & & \rotatebox{90}{$=$} & & \rotatebox{90}{$=$}
+      \\
+      & & n-1 & & n
+     \end{array}
+    \]
+    Donc : $\dim(\kr(f))=n-(n-1)=1$.
+    
+    \item D'après la question \itbf{2.} :
+    \begin{noliste}{$\stimes$}
+      \item $v\in \kr(f)$,
+      \item $v \neq 0_{\R^n}$.
+    \end{noliste}
+    Donc $(v)$ forme une famille libre de $\kr(f)$.
+
+    
+    % \newpage
+
+    
+    \item On obtient alors :
+    \begin{noliste}{$\stimes$}
+      \item $(v)$ est une famille libre de $\kr(f)$,
+      \item $\Card((v)) = 1 = \dim(\kr(f))$.
+    \end{noliste}
+    \conc{On en déduit que $(v)$ est une base de $\kr(f)$.}~\\[-1.4cm]
+   \end{noliste}
+  \end{proof}
+
+  
+  \item Quels sont les sous-espaces propres de $f$ ?
+  
+  \begin{proof}~
+   \begin{noliste}{$\sbullet$}
+    \item On a déjà, d'après la question \itbf{4.a)} :
+    \[
+     E_0(f)=\kr(f- 0_{\R} \cdot \id) = \kr(f) 
+     =\Vect{v}
+    \]
+    \conc{On en déduit que : $E_0(f)=\Vect{v}$.}
+        
+    \item Soit $y\in \R^n$. D'après la question \itbf{3.a)} :
+    \[
+     y \in \im(f) \ \Leftrightarrow \ f(y)=y \ \Leftrightarrow \
+     y \in E_1(f)
+    \]
+    On en déduit que : $\im(f)=E_1(f)$.
+    \conc{D'après la question \itbf{3.d)} :\\[.1cm]
+    $E_1(f)= \im(f) =
+    \Vect{e_1- e_2, e_2-e_3, \ldots, e_{n-1} -e_n}$}~\\[-1.2cm]
+   \end{noliste}
+  \end{proof}
+
+  \item L'endomorphisme $f$ est-il diagonalisable ?
+  
+    \begin{proof}~\\
+      D'après les questions \itbf{3.d)}, \itbf{4.a)} et \itbf{4.b)} :
+   \[
+    \dim(E_0(f)) + \dim(E_1(f)) = 1 + (n-1) = n = \dim(\R^n)
+   \]
+   \conc{On en déduit que $f$ est diagonalisable.}~\\[-1.2cm]
+  \end{proof}
+ \end{noliste}
+ 
+ \item Écrire la matrice $M$ de l'endomorphisme $f$ dans la base 
+  canonique de $\R^n$ et la matrice $M'$ de $f$ dans une base de 
+  vecteurs propres.
+  
+  \begin{proof}~
+   \begin{noliste}{$\sbullet$}
+    \item Soit $i\in \llb 1,n \rrb$. On a déjà montré en question 
+    \itbf{3.c)} :
+    \[
+     \begin{array}{rcl}
+       f(e_i) & = & e_i - v \ = \ e_i - \Sum{j=1}{n} v_j \cdot e_j
+       \\[.6cm]
+       & = & (-v_1) \cdot e_1 + \cdots + (1-v_i) \cdot e_i + (- v_{i+1})
+       \cdot e_{i+1} + \cdots + (- v_n) \cdot e_n
+     \end{array}
+    \]
+    \conc{On obtient alors : $M=
+    \begin{smatrix}
+     1-v_1 & -v_1 & \cdots & -v_1 & -v_1\\
+     -v_2 & 1-v_2 & \cdots & -v_2 & -v_2\\
+     \vdots & \vdots & \ddots & \vdots & \vdots\\
+     -v_{n-1} & -v_{n-1} & \cdots & 1-v_{n-1} & -v_{n-1}\\
+     -v_n & -v_n & \cdots & -v_n & 1-v_n
+    \end{smatrix}$}
+    
+
+  % \newpage
+
+
+    \item La famille $(v,e_1- e_2, e_2-e_3, \ldots, e_{n-1} -e_n)$ est 
+    une base de vecteurs propres de $f$.
+    \begin{noliste}{$\stimes$}
+     \item Comme $v\in E_0(f)$ : 
+     \[
+      f(v)=0_{\R^n} = 0 \cdot v + 0 \cdot 
+      (e_1-e_2) + \cdots + 0 \cdot (e_{n-1}-e_n)
+     \]
+     
+     \item Comme $(e_1-e_2)\in E_1(f)$ : 
+     \[
+      f(e_1-e_2)=e_1-e_2 = 0 \cdot 
+      v + 1 \cdot (e_1-e_2) + 0 \cdot (e_2-e_3)+ \cdots + 0 \cdot 
+      (e_{n-1}-e_n)
+     \]
+     
+     \item $\cdots$
+     
+     \item Comme $(e_{n-1}-e_n)\in E_1(f)$ : 
+     \[
+      f(e_{n-1}-e_n)= 
+      e_{n-1}-e_n = 0 \cdot v + 0 \cdot (e_1-e_2) + \cdots + 0 \cdot 
+      (e_{n-2}-e_{n-1}) + 1 \cdot (e_{n-1}-e_n)
+     \]
+    \end{noliste}    
+    \conc{On obtient alors :
+    $
+     M' = 
+     \begin{smatrix}
+      0 & 0 & \cdots & 0
+      \\
+      0 & 1 & \cdots & 0
+      \\
+      \vdots & \vdots & \ddots & \vdots 
+      \\
+      0 & 0 & \cdots & 1 
+     \end{smatrix}
+    $}~\\[-1.6cm]
+%     \conc{On en déduit : $M' =
+%     \left(
+%     \begin{sarray}{c|c}
+%       0 & 0_{1,n-1}
+%       \\[.2cm]
+%       \cline{1-2}
+%       \\[-.2cm]
+%       0_{n-1,1} & I_{n-1,n-1}
+%     \end{sarray}
+%     \right)$}~\\[-1.2cm]
+   \end{noliste}
+  \end{proof}
+
+\end{noliste}
+
+
+
+
+\end{document}

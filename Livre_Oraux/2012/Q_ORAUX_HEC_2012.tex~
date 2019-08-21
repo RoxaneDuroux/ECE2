@@ -1,0 +1,1306 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} Q_{O}RAUX_{H}EC 2012} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+\section{Annales 2012}
+ 
+ %\setcounter{exercice}{0}
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item La série de terme général $(u_{n})$ converge si la suite
+$(S_{n})$ des sommes partielles : $S_{n} = \sum \limits_{k = 1}{n}
+u_{k}$ admet une limite finie lorsque $n$ tend vers $ + \infty$.\\
+ La série de terme général $(\ln x)^{n}$ est géométrique donc converge
+si et seulement si $|\ln x|<1 \Leftrightarrow -1< \ln x < 1
+\Leftrightarrow \frac{1}{e} < x < e$ par stricte croissance de la
+fonction exponentielle. On a alors : \\
+ 
+\[
+ \Sum{n = 0}{+ \infty} (\ln x)^{n} = \frac{1 }{1-\ln x}
+ 
+\]
+ \item 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $f_{n}$ est de classe $\mathcal{C}{2}$ sur $]0, + \infty[$ comme
+somme de produits de fonctions usuelles de classe $\mathcal{C}{2}$ sur
+$]0, + \infty[$.\\
+ $\forall x > 0$, $f_{n}{'}(x) = \frac{n}{x}(\ln x)^{n-1}-1$.\\
+ Ainsi, si $n = 1$, $f_{1}{'}(x) = \frac{1}{x}-1$ donc $f_{1}{''}(x) =
+-\frac{1}{x^{2}}$; \\
+ si $n \geq 2$, $f_{n}{''}(x) = -\frac{1}{x^{2}} n (\ln x) ^{n-1} +
+\frac{1}{x^{2}} n (n-1) (\ln x)^{n-2} = \frac{n}{x^{2}} (\ln
+x)^{n-2}[-\ln x + n-1]$.
+ \item \noindent
+
+
+ \begin{center} \begin{tikzpicture}
+ \tkzTabInit{$x$/0.8,signe de $f_{1}{''}(x)$/1,variations de
+$f_{1}{'}$/2,signe de $f_{1}{'}(x)$/1,variations de $f_{1}$/2}{$0$,
+$1$, $ + \infty$}
+ \tkzTabLine{d,-,t,-, }
+ \tkzTabVar{D + /, R, -/}
+ \tkzTabIma{1}{3}{2}{0}
+ \tkzTabLine{d, +,z,-, }
+ \tkzTabVar{D-/, + /$-1$, -/}
+ \end{tikzpicture} \end{center} 
+ \vspace{0.3cm}
+ \item $\lim \limits_{ x \to 0} f_{2} = -\infty$ et $f_{2}(1) = -1$
+donc d'après le théorème des valeurs intermédiaires ($f_{2}$ est
+continue) il existe $a \in \ ]0,1[$ tel que $f_{2}(a) = 0$.
+ \end{noliste}
+ \item
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $\frac{n}{x^{2}} (\ln x)^{n-2}$ est strictement positif sur $]1,
++ \infty[$ donc $f_{n}{''}(x)$ est du signe de $-\ln x + n-1$.\\
+ $-\ln(x) + n-1 \geq 0 \Leftrightarrow \ln x \leq n-1 \leftrightarrow x
+\leq e^{n-1}$ par croissance de exp.
+ \begin{center} \begin{tikzpicture}
+ \tkzTabInit{$x$/0.8,signe de $f_{n}{''}(x)$/1,variations de
+$f_{n}{'}$/2}{$1$, $e^{n-1}$, $ + \infty$}
+ \tkzTabLine{, +,z,-, }
+ \tkzTabVar{-/ $-1$, + / $>0$, -/ $-1$}
+ \tkzTabVal{1}{2}{0.5}{$\alpha_{n}$}{0}
+ \tkzTabVal{2}{3}{0.5}{$\beta_{n}$}{0}
+ \end{tikzpicture} \end{center} 
+ On a $f_{n}{'}(e^{n-1}) >0$, en effet : $f_{n}{'}(e^{n-1}) = n
+\left(\frac{n-1}{e} \right)^{n-1}-1$ avec : si $n \geq 4$, $n-1 \geq e$
+donc $\frac{n-1}{e} >1$ donc $n \frac{n-1}{e} >1$ d'où
+$f_{n}{'}(e^{n-1}) >0$ et si $n = 3$, $f_{3}{'}(e^{2}) =
+3\frac{2^{2}}{e^{2}}-1 = \frac{12}{e^{2}}-1 >0$. \\
+ On cherche maintenant à étudier le signe de $f_{n}'$ : \\
+ $f_{n}{'}$ est continue et strictement croissante sur $]1, e^{n-1}]$
+donc définit une bijection de $]1, e^{n-1}]$ dans $]-1, f_{n}(e^{n-1})]
+$ qui contient 0 donc il existe un unique $\alpha_{n} \in \ ]1,
+e^{n-1}[$ tel que $f_{n}{'}(\alpha_{n}) = 0$.\\
+ De même, il existe un unique $\beta_{n}$ sur $]e^{n-1}, + \infty[$ tel
+que $f_{n}{'}(\beta_{n}) = 0$.\\
+ \begin{center} \begin{tikzpicture}
+ \tkzTabInit{$x$/0.8,signe de $f_{n}{'}(x)$/1,variations de
+$f_{n}$/2}{$1$, $\alpha_{n}$, $\beta_{n}$, $ + \infty$}
+ \tkzTabLine{,-,z, +,z,-, }
+ \tkzTabVar{+ / $-1$, -/ $<-1$, + / $>0$, -/ $-\infty$}
+ \tkzTabVal{2}{3}{0.5}{$u_{n}$}{0}
+ \tkzTabVal{3}{4}{0.5}{$v_{n}$}{0}
+ \tkzTabVal{2}{3}{0.75}{$e^{n-1}$}{}
+ \end{tikzpicture} \end{center} 
+ En effet, $f_{n}(\beta_{n}) > f_{n}(e^{n-1})$ avec $f_{n}(e^{n-1}) =
+(n-1)^{n}-e^{n-1} > (n-1)^{n-1}-e^{n-1} >0$ si $n \geq 4 $ car $n-1 >e$
+et la fonction puissance est strictement croissante sur $R_{+}$. Et on
+vérifie que $f_{3}(e^{2}) >0$.\\
+\\
+ $f_{n}$ est décroissante donc majorée par $-1$ sur $]1, \alpha_{n}]$
+donc ne s'annule pas sur cet intervalle.\\
+ Par deux théorèmes de la bijection sur $[ \ \alpha_{n}, \beta_{n}]$ et
+$]\beta_{n}, + \infty[$ on démontre l'existence de deux racines $u_{n}$
+et $v_{n}$ sur $]1, + \infty[$.
+ \item $v_{n} > \beta_{n} > e^{n-1}$ or $\lim \limits_{n \to + \infty}
+e^{n-1} = + \infty$ donc par comparaison, $\lim \limits_{n \to +
+\infty} v_{n} = + \infty$.
+ \end{noliste}
+ \item Cette question est une vraie question de recherche. Il faut
+utiliser les méthodes habituelles d'étude des suites implicites : \\
+ $\bullet$ \textbf{On étudie les variations de la suite $u_{n}$ en
+comparant $f_{n}(u_{n})$ et $f_{n}(u_{n + 1})$ :} \\
+ $f_{n}(u_{n + 1}) = ( \ln u_{n + 1})^{n}-u_{n + 1} $ or $f_{n +
+1}(u_{n + 1}) = 0$ donc $u_{n + 1} = (\ln u_{n + 1})^{n + 1}$ d'où : \\
+ $f_{n}(u_{n + 1}) = ( \ln u_{n + 1})^{n}- ( \ln u_{n + 1})^{n + 1} = (
+\ln u_{n + 1})^{n}[ 1-\ln(u_{n + 1})]$. Avec $u_{n + 1} \geq 1$ donc
+$\ln(u_{n + 1}) \geq 0$.\\
+ Etudions le signe de $1-\ln u_{n + 1} $ : pour cela, comparons $u_{n +
+1}$ et $e$ : \\
+ $\forall n \in \N$, $f_{n}(e) = ( \ln e)^{n} - e = 1-e<0 $ donc
+d'après le tableau de variations de $f_{n}$, $e \in \ ]1, u_{n}[$ ou $e
+\in \ ]v_{n}, + \infty[$ or $v_{n} > e^{n-1} > e$ donc $\forall n \in
+\N, \ e < u_{n}$.\\
+ Ainsi, $e < u_{n + 1}$ donc $1-\ln u_{n + 1} <0$ \\
+ Donc $f_{n}(u_{n + 1}) <0 = f_{n}(u_{n})$, ainsi $u_{n + 1} \in \
+]-\infty, u_{n}[$. 
+ 
+\[
+ \boxed{\text{La suite $(u_{n})$ est décroissante}}
+ 
+\]
+ $\bullet$ \textbf{On conclut que la suite $(u_{n})$ converge vers un
+certain réel l } : \\
+ $(u_{n})$ est décroissante et minorée par 1 donc converge vers un réel
+$l \geq 1$ \\
+ $\bullet$ \textbf{On trouve $l$ en passant à la limite dans la
+relation $f_{n}(u_{n}) = 0$} : \\
+ $u_{n} = (\ln u_{n})^{n}$ : $u_{n}{\frac{1}{n}} = \ln u_{n}$ donc
+$e^{\frac{1}{n} \ln u_{n}} = \ln u_{n}$. \\
+ avec $\ln u_{n} \to \ln l$ donc $\frac{1}{n} \ln u_{n} \to 0$ donc
+$e^{\frac{1}{n} \ln u_{n}} \to 1$ \\
+En passant à la limite on obtient donc $1 = \ln l$ c-a-d $l = e$.\\
+\\
+ \end{noliste}
+ \textbf{\underline{Exercice sans préparation}} \\
+\\
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $cov(Y_{k}, Y_{k + 1}) = \frac{1}{2} \left(\V(Y_{k} + Y_{k +
+1})-\V(Y_{k})-\V(Y_{k + 1}) \right)$.\\
+ Or $\V(Y_{k} + Y_{k + 1}) = \V(X_{k} + 2X_{k + 1} + X_{k + 2}) =
+\V(X_{k}) + 4\V(X_{k + 1}) + \V(X_{k + 2})$ par indépendance des
+$X_{k}$; \\
+ $\V(Y_{k} + Y_{k + 1}) = 6\V(X_{1})$. et, de même, $\V(Y_{k}) =
+2\V(X_{1}) = \V(Y_{k + 1})$ d'où : \\
+ $cov(Y_{k}, Y_{k + 1}) = \V(X_{1}) = pq$. 
+ \item On étudie $p \to p(1-p)$ sur $]0,1[$. 
+ \end{noliste}
+ \item si $ l \geq k + 2$ alors $Y_{k}$ et $Y_{l}$ sont fonctions de
+ variables $X_{n}$ distinctes : c'est variables étant indépendantes,
+ $Y_{k}$ et $Y_{l}$ sont indépendantes donc $cov(Y_{k}, Y_{l}) = 0$ si
+ $l = k + 1$ alors $cov(Y_{k}, Y_{l}) = pq$ d'après 1.a).
+ \item On note $Y = \frac{1}{n} \sum \limits_{k = 1}{n} Y_{k}$ alors
+ d'après l'inégalité de Bienaymé-Tchebychev : $P\left(\Ev{|Y-\E(Y)| >
+ \varepsilon}\right)\left(\Ev{Y}\right)| >
+ \varepsilon) \leq \frac{\V(Y)}{ \varepsilon^{2}}$ c-a-d $\mathcal{P}
+ \left( \left[ \ \left| \frac{1}{n} \sum \limits_{k = 1}{n} Y_{k}-2p
+ \right|> \varepsilon\right] \right) \leq V \left( \frac{1}{n}
+ \sum \limits_{k = 1}{n} Y_{k} \right) / \varepsilon^{2}$.\\
+ Avec $\V\left( \frac{1}{n} \sum \limits_{k = 1}{n} Y_{k} \right) = 
+ \frac{1}{n^{2}} V \left(\sum \limits_{k = 1}{n} Y_{k}
+ \right) = \frac{1}{n^{2}} [ \ \sum \limits_{k = 1}{n} \V(Y_{k}) + 2
+\sum
+ \limits_{k = 1}{n} \sum \limits_{l = k + 1}{n} cov(Y_{k},
+ Y_{l})] = \frac{1}{n^{2}} [ \ \sum \limits_{k = 1}{n} \V(Y_{k}) + 2
+\sum
+ \limits_{k = 1}{n-1} cov(Y_{k}, Y_{k + 1})] = \frac{4n-2}{n^{2}}
+\V(X_{1})
+ \to 0$.
+ \end{noliste}
+ \end{exercice}
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Soit $(A_{i})_{i \in I}$ un système complet d'évènements (c-a-d
+deux à deux incompatibles et dont la réunion fait l'univers) \textbf{de
+probabilités non nulles}, alors pour tout évènement $B$ : \\
+ 
+\[
+ \Prob\left(\Ev{B}\right) = \sum \limits_{i \in I} \Prob(B \cap A_{i})
+= \sum \limits_{i \in I} P_{A_{i}}(B ) \Prob\left(\Ev{A_{i}}\right)
+ 
+\]
+ \item
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $I_{n,0} = \dint{0}{1} x^ \dx = \frac{1}{n + 1}$.
+ \item On pose $u$ et $v$ les fonctions définies sur $[0,1]$ par $u(x)
+= \frac{x^{n + 1}}{n + 1}$ et $v(x) = (1-x)^{p + 1}$. $u$ et $v$ sont
+de classe $\mathcal{C}{1}$ sur $[0,1]$ de dérivées, $u'(x) = x^{n}$ et
+$v'(x) = -(p + 1)(1-x)^{p}$ \\
+ Par intégration par parties, on obtient : \\
+ 
+\[
+ \dint{0}{1} x^{n} (1-x)^{p + 1 \dx = [ \ \frac{x^{n + 1}}{n +
+1}(1-x)^{p + 1}]_{0}{1} + \dint{0}{1} \frac{x^{n + 1}}{n + 1}(p +
+1)(1-x)^ \dx
+ 
+\]
+ soit : 
+ 
+\[
+ I_{n,p + 1} = \frac{p + 1}{n + 1} I_{n + 1,p}
+ 
+\]
+ \item On connait $I_{n,0}$, on part donc de $I_{n,p}$ et on se ramène
+par récurrence à un $I_{m,0}$ : \\
+ On démontrer par récurrence que $I_{n,p} = \frac{p! n!}{(n + p)!} I_{n
++ p,0} = \frac{p! n!}{(n + p + 1)!}$.
+ \end{noliste}
+ \item On note $U_{k}$ l'évènement "choisir l'urne $U_{k}$". Il existe
+$\lambda$ tel que pour tout $k\in \llb 1,N \rrb$,
+$\Prob\left(\Ev{U_{k}}\right) = \lambda k$ (probabilité proportionnelle
+au nombre de boules rouges. \\
+ Or $\sum \limits_{k = 1}{N} \Prob\left(\Ev{U_{k}}\right) = 1$ (les
+$(U_{k})_{1 \leq k \leq N}$ forment un s.c.e) donc $\lambda \sum
+\limits_{k = 1}{N} k = 1$, $\lambda = \frac{2}{N(N + 1)}$.
+ 
+\[
+ \boxed{\forall k \in \llb, 1,N \rrb, \ \Prob\left(\Ev{U_{k}}\right) =
+\frac{2k}{N(N + 1)}}
+ 
+\]
+ \item
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item La probabilité d'obtenir une boule rouge dépend de l'urne
+choisie, on décompose donc sur le système complet d'évènements
+$(U_{k})_{ 1 \leq k \leq N}$ : \\
+ 
+\[
+ \Prob\left(\Ev{E_{n}}\right) = \sum \limits_{k = 1}{N}
+\Prob\left(\Ev{U_{k}}\right) P_{U_{k}}(E_{n})
+ 
+\]
+ Sachant que l'on tire dans l'urne $U_{k}$, Les tirages étant
+indépendants, le nombre de boules rouges obtenues au cours de 2n
+tirages suit une loi binomiale de paramètres 2n et $p = \frac{k}{N}$
+donc $P_{U_{k}}(E_{n}) = \binom{2n}{n} \left(\frac{k}{N}
+\frac{N-k}{N}\right)^{n}$. Ainsi, 
+ 
+\[
+ \Prob\left(\Ev{E_{n}}\right) = \sum \limits_{k = 1}{N} \frac{2k}{N(N +
+1)} \binom{2n}{n}
+ \frac{k^{n}(N-k)^{n}}{N^{2n}}
+ 
+\]
+ \item $P_{E_{n}}(R_{2n + 1}) = \frac{\Prob(E_{n} \cap R_{2n +
+1})}{\Prob\left(\Ev{E_{n}}\right)}$ avec \\
+ $\Prob(E_{n} \cap R_{2n + 1}) = \sum \limits_{k = 1}{N}
+\Prob\left(\Ev{U_{k}}\right) P_{U_{k}}(E_{n}
+ \cap R_{2n + 1}) = \sum \limits_{k = 1}{N}
+\Prob\left(\Ev{U_{k}}\right) P_{U_{k}}(E_{n}
+ )P_{U_{k}}(R_{2n + 1}) = \sum \limits_{k = 1}{N} \frac{2k}{N(N + 1)}
+ \binom{2n}{n} \left(\frac{k}{N} \right)^{n} \left(\frac{N-k}{N}
+ \right)^{n}\frac{k}{N}$.\\
+ Ainsi, 
+ 
+\[
+ 
+ \Prob(E_{n} \cap R_{2n + 1}) = \frac{\sum \limits_{k = 1}{N} \left(
+ \frac{k}{N}\right)^{n + 2} \left(1-\frac{k}{N} \right)^{n}
+ }{\sum \limits_{k = 1}{N} \left( \frac{k}{N}\right)^{n + 1}
+ \left(1-\frac{k}{N} \right)^{n}}
+ 
+\]
+ 
+\[
+ \Prob(E_{n} \cap R_{2n + 1}) = \frac{\frac{1}{N}\sum \limits_{k =
+1}{N}
+ \left( \frac{k}{N}\right)^{n + 2} \left(1-\frac{k}{N} \right)^{n}
+ }{\frac{1}{N}\sum \limits_{k = 1}{N} \left(
+ \frac{k}{N}\right)^{n + 1} \left(1-\frac{k}{N} \right)^{n}}
+ 
+\]
+ On reconnait les sommes de Riemann des fonctions $x \mapsto
+ x^{n + 2} (1-x)^{n}$ et $x \mapsto x^{n + 1}(1-x)^{n} $ continues sur
+ $[0,1]$ donc : \\
+ $\bullet$ $\frac{1}{N}\sum \limits_{k = 1}{N} \left(
+ \frac{k}{N}\right)^{n + 2} \left(1-\frac{k}{N} \right)^{n} \to
+ \dint{0}{1} x^{n + 2} (1-x)^ \dx$\\
+ $\bullet$ $\frac{1}{N}\sum \limits_{k = 1}{N} \left(
+ \frac{k}{N}\right)^{n + 1} \left(1-\frac{k}{N} \right)^{n} \to
+ \dint{0}{1} x^{n + 1} (1-x)^ \dx$\\
+ $\Prob(E_{n} \cap R_{2n + 1}) \to \frac{I_{n + 2,n}}{I_{n + 1,n}} = 
+ \frac{n!(n + 2)!}{(2n + 3)!} \frac{(2n + 2)!}{n!(n + 1)!} = 
+ \frac{n + 2}{2n + 3}$.
+ \end{noliste}
+ \item
+ \end{noliste}
+ \textbf{\underline{Exercice sans préparation}} \\
+\\
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item On donne la base canonique de $\M{2}$ : $\left( \begin{smatrix}
+1 & 0 \\
+0 & 0
+\end{smatrix}, \begin{smatrix}
+0 & 1 \\
+0 & 0
+\end{smatrix}, \begin{smatrix}
+0 & 0 \\
+1 & 0
+\end{smatrix}, \begin{smatrix}
+0 & 0 \\
+0 & 1
+\end{smatrix}
+\right)$
+ \item on prend des matrices inversibles (colonnes non colinéaires) les
+plus simples possibles en faisant attention qu'elles forment une
+famille libre : $\left( \begin{smatrix}
+1 & 0 \\
+0 & 1
+\end{smatrix}, \begin{smatrix}
+1 & 0 \\
+0 & -1
+\end{smatrix}, \begin{smatrix}
+0 & 1 \\
+1 & 0
+\end{smatrix}, \begin{smatrix}
+0 & 1 \\
+-1 & 0
+\end{smatrix}
+\right)$
+ \item On prend une base des matrices symétriques : $\left(
+\begin{smatrix}
+1 & 0 \\
+0 & 0
+\end{smatrix}, \begin{smatrix}
+0 & 1 \\
+1 & 0
+\end{smatrix}, \begin{smatrix}
+0 & 0 \\
+0 & 1
+\end{smatrix}
+\right)$. On la complète en une base en prenant une matrice
+triangulaire à deux valeurs propres distinctes, exemple : $
+\begin{smatrix}
+1 & 1 \\
+0 & 2
+\end{smatrix}
+$.
+ \end{noliste}
+ \end{exercice}
+
+
+\newpage
+
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Un estimateur $T$ de $\theta$ admettant une espérance est dit
+sans biais si $\E(T) = \theta$. \\
+ Si $T$ admet un moment d'ordre 2, son risque quadratique est défini
+par $r(T) = E((T- \theta)^{2})$.
+ \item $X$ est une variable bornée donc admet des moments de tous
+ordres\\
+ $\E(X) = \dint{-\infty}{+ \infty} x f(x \dx = \dint{0}{\theta}
+2\frac{x^{2}}{\theta^{2}}dx = \frac{2}{3} \theta$.\\
+ $\E(X^{2}) = \dint{-\infty}{+ \infty} x^{2}f(x)dx = \dint{0}{\theta}
+2\frac{x^{3}}{\theta^{2}}dx = \frac{1}{2} \theta^{2}$. Ainsi, d'après
+Koenig-Huygens, $\V(X) = \E(X^{2})-(\E(X))^{2} = \frac{1}{18}
+\theta^{2}$. 
+ \item 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $\forall x \in \R$, $F(x) = \Prob\left(\Ev{\Ev{X \leq x
+}}\right) = \dint{-\infty}{x} f(t)dt$.\\
+ $\bullet$ si $x < 0$, $F(x) = 0$ \\
+ $\bullet$ si $ 0 \leq x \leq \theta$, $F(x) = \dint{0}{x} f(t)dt =
+\frac{x^{2}}{\theta^{2}}$.\\
+ $\bullet$ si $x > \theta$, $F(x) = 1$ 
+ \item
+ \end{noliste}
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $\E(\overline{X_{n}}) = \frac{1}{n} \Sum{k = 1}{n} \E(X_{k}) =
+\E(X) = \frac{2}{3} \theta$ (linéarité de l'espérance). \\
+ Soit alors $T_{n} = \frac{3}{2} \overline{X_{n}}$. Par linéarité de
+l'espérance, $T_{n}$ est un estimateur sans biais de $\theta$.
+ \item $r(T_{n}) = \V(T_{n}) = \frac{c^{2}}{n^{2}} \V(\sum \limits_{k =
+1}{n} X_{k}) = \frac{c^{2}}{n^{2}} \sum \limits_{k = 1}{n} \V(X_{k}) =
+\frac{c^{2}}{n} \V(X)$ par indépendance des $X_{k}$. \\
+ $r(T_{n}) = \frac{\theta^{2}}{8n} $.\\
+ $r(\overline{X_{n}}) = \V(\overline{X_{n}}) + \left(
+b(\overline{X_{n}})\right)^{2} = \frac{(2n + 1) \theta^{2}}{18n} $ 
+ \end{noliste}
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $\forall x \in \R$, $G_{n}(x) = \Prob\left(\Ev{\Ev{M_{n} \leq x
+}}\right) = P( \Ev{X_{1} \leq x } \cap \Ev{X_{2} \leq x} \cap... \cap
+X_{n} \leq x) = \Prob\left(\Ev{\Ev{X_{1} \leq x}}\right)
+\Prob\left(\Ev{\Ev{X_{2} \leq x }}\right)...\Prob\left(\Ev{\Ev{X_{n}
+\leq x}}\right) = \Prob\left(\Ev{\Ev{X \leq x}}\right)^{n} = \left\{
+\begin{array}{lr}
+ 0 & \text{ si } x < 0\\
+\frac{x^{2n}}{\theta^{2n}} & \text{ si } 0 \leq x \leq \theta\\
+1 & \text{ si } x > \theta
+\end{array}
+\right.$.\\
+ $G_{n}$ est de classe $\mathcal{C}_{1}$ sur $\R$ sauf en $0$ et
+$\theta$, on vérifie aisément qu'elle est continue en 0 et $\theta$
+donc $M_{n}$ est une variable à densité de densité : $g_{n}(x) =
+\left\{
+\begin{array}{lr}
+ 0 & \text{ si } x < 0\\
+\frac{2n x^{2n-1}}{\theta^{2n}} & \text{ si } 0 \leq x \leq \theta\\
+0 & \text{ si } x > \theta
+\end{array}
+\right.$
+ \item $M_{n}$ est une variable finie donc admet des moments de tous
+ordres : \\
+ $\E(M_{n}) = \dint{0}{\theta} 2n x^{2n}{\theta^{2n}}dx = \frac{2n}{2n
++ 1} \theta$. On choisit donc $W_{n} = \frac{2n + 1}{2n} M_{n}$ comme
+estimateur sans biais de $\theta$
+ \item Comparons leur risque quadratique : calculer $r(W_{n}) =
+\V(W_{n}) = \frac{(2n + 1)^{2}}{(2n)^{2}} \V(M_{n})$ avec,\\
+ $\E(M_{n}{2}) = \frac{n}{n + 1} \theta^{2}$ donc $\V(M_{n}) =
+\frac{n}{(n + 1)(2n + 1)^{2}} \theta^{2}$ d'où $r(W_{n}) =
+\frac{\theta^{2}}{4n(n + 1)}$. \\
+ $W_{n}$ est meilleur estimateur que $T_{n}$ car son risque quadratique
+est en $\frac{1}{n^{2}}$ au voisinage de $ + \infty$ alors que celui de
+$T_{n}$ est en $\frac{1}{n}$ (son risque quadratique tend plus vite
+vers 0).
+ \end{noliste}
+ \item
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item On résout l'équation $G_{n}(a \theta) = \frac{\alpha}{2}
+\Leftrightarrow a = \left( \frac{\alpha}{2}\right)^{\frac{1}{2n}}$ et
+on résout l'équation $G_{n}(\theta)- G_{n}(b \theta) = \frac{\alpha}{2}
+\leftrightarrow b = \left( 1-\frac{\alpha}{2}\right)^{\frac{1}{2n}}$ 
+ \item On isole $\theta$ dans les inégalité en renversant ces
+inégalités : \\
+ On a $\Prob\left(\Ev{M_{n} \leq a \theta}\right) = \frac{\alpha}{2}
+\Leftrightarrow \Prob\left(\Ev{ \theta \geq \frac{M_{n}}{a}}\right) =
+\frac{\alpha}{2}$. \\
+ $\Prob\left(\Ev{ b \theta \leq M_{n}}\right) = \Prob\left(\Ev{ b
+\theta \leq M_{n} \leq \theta}\right) = \frac{\alpha}{2}$ donc
+$\Prob\left(\Ev{ \theta \leq \frac{M_{n}}{b}}\right) =
+\frac{\alpha}{2}$.\\
+ Ainsi, $\Prob\left(\Ev{ \frac{M_{n}}{b} \leq \theta \leq
+\frac{M_{n}}{a}}\right) = 1- P(\left(\Ev{\theta \leq \frac{M_{n}}{b}
+}\right) \cup (\theta \geq \frac{M_{n}}{a}) ) = 1-\Prob\left(\Ev{\theta
+\leq \frac{M_{n}}{b} }\right)- P \left(\Ev{\theta \geq
+\frac{M_{n}}{a}}\right) = 1-\alpha.$
+ \end{noliste}
+ \end{noliste}
+ \textbf{\underline{Exercice sans préparation}} \\
+\\
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $A(A^{2} + A + I) = 0$. Si $A$ est inversible, on peut
+simplifier par $A$ en multipliant par $A^{-1}$ à gauche, on obtient :
+$A^{2} + A + I = 0 $ soit $A(-A-I) = (-A-I)A = I$ donc $A^{-1} = -A-I$.
+ \item Si $A$ est symétrique alors elle est diagonalisable c'est-à-dire
+il existe $P$ inversible et $D$ diagonale tels que $A = PDP^{-1}$ où
+$D$ a sur sa diagonale des valeurs propres de $A$.\\
+ Or $X^{3} + X^{2} + X$ est un polynôme annulateur de $A$ donc si
+$\lambda$ est valeur propre de $A$ alors $\lambda^{3} + \lambda^{2} +
+\lambda = 0$ donc $\lambda( \lambda^{2} + \lambda + 1) = 0$ or
+l'équation de degré 2 n'a pas de solutions donc $\lambda = 0$ donc $D =
+0$ d'où $A = P0P^{-1} = 0$.
+ \end{noliste}
+ \end{exercice}
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $X$ et $Y$ sont indépendantes si $\forall i \in X(\Omega)$,
+$\forall j \in Y(\Omega)$, $\Prob([X = i] \cap [Y = j]) =
+\Prob\left(\Ev{\Ev{[X = i]}}\right) \Prob\left(\Ev{\Ev{[Y =
+j]}}\right)$.
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item faire un graphique pour représenter les différents déplacements
+possibles. On obtient : \\
+ $T_{n}(\Omega) = \{-1,0,1\}$, $\Prob\left(\Ev{\Ev{[T_{n} =
+-1]}}\right) = \Prob\left(\Ev{\Ev{[T_{n} = 1]}}\right) = \frac{1}{4}$
+et $\Prob\left(\Ev{\Ev{[T_{n} = 0]}}\right) = \frac{1}{2} $
+(équiprobabilité des quatre déplacements)
+ $\E(T_{n}) = -1 \Prob\left(\Ev{\Ev{[T_{n} = -1]}}\right) +
+0\Prob\left(\Ev{\Ev{[T_{n} = 0]}}\right) + 1\Prob\left(\Ev{\Ev{[T_{n} =
+1]}}\right) = 0$.\\
+ $\E(T_{n}{2}) = (-1)^{2} \Prob\left(\Ev{\Ev{ [T_{n} = -1]}}\right) +
+1^{2} \Prob\left(\Ev{\Ev{[T_{n} = 1]}}\right) = \frac{1}{2}$ donc par
+K-H $\V(T_{n}) = \E(T_{n}{2}) = \frac{1}{2}$. 
+ \item $\sum \limits_{k = 1}{n} T_{k} = \sum \limits_{k = 1}{n}
+(X_{k}-X_{k-1}) = X_{n}-X_{0} = X_{n}$ (télescopage).
+ \item $\E(T_{k}) = -1 \Prob\left(\Ev{\Ev{[T_{k} = -1]}}\right) +
+0\Prob\left(\Ev{\Ev{[T_{k} = 0]}}\right) + 1\Prob\left(\Ev{\Ev{[T_{k} =
+1]}}\right) = 0$ et donc par linéarité de l'espérance $\E(X_{n}) = \sum
+\limits_{k = 1}{n} \E(T_{k}) = 0$.
+ \item Commençons par calculer $\V(X_{n})$ facile à calculer car somme
+de variables indépendantes donc $\V(X_{n}) = \sum \limits_{k = 1}{n}
+\V(T_{k}) = \frac{n}{2}$. Et par K-H : $\E(x_{n}{2}) = \V(X_{n}) +
+\E(X_{n})^{2}$ donc :
+ 
+\[
+ \E(X_{n}{2}) = \frac{n}{2}
+ 
+\]
+ \end{noliste}
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $\Prob([X_{n} = n] \cap [Y_{n} = n]) = 0$ car à chaque
+déplacement, l'abscisse et l'ordonnée ne se modifient pas simultanément
+donc il faudrait 2n déplacements et non n déplacements pour avoir cette
+configuration.
+ \item Il faut utiliser l'inégalité $\E(Z_{n})^{2} \leq \E(Z_{n}{2})$
+vraie pour toute variable aléatoire : en effet, $\V(Z_{n}) \geq 0 $
+donc $\E(Z_{n}{2})-\E(Z_{n})^{2} \geq0$. \\
+ Ainsi, $\E(Z_{n})^{2} \leq \E(Z_{n}{2})$ avec $Z_{n}{2} = X_{n}{2} +
+Y_{n}{2}$ donc par linéarité de l'espérance $\E(Z_{n}{2}) =
+\E(X_{n}{2}) + \E(Y_{n}{2}) = n$ par symétrie de $X_{n}$ et $Y_{n}$. \\
+ Ainsi, $\E(Z_{n})^{2} \leq n $ donc $\E(Z_{n}) \leq \sqrt{n}$ ($Z_{n}$
+distance donc positive )
+ \end{noliste}
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item Soit $k$ le nombre total de déplacements à l'est et $l$ le
+nombre total de déplacements au nord. Pour revenir à l'origine la puce
+doit faire $k$ déplacements à l'ouest et $l$ déplacements au sud soit
+au total $2(k + l)$ déplacements (nombre pair de déplacements) ainsi,
+si $n$ impair, $p_{n} = 0$ 
+ \item D'après l'explication précédente, si la puce fait $2m$
+déplacements alors la somme des déplacements à l'ouest et au nord vaut
+$m$. \\
+ Notons $N$ le nombre de déplacements au nord, $E$ le nombre de
+déplacements à l'est, $O$ le nombre de déplacements à l'ouest et $S$ le
+nombre de déplacements au sud.\\
+ $\Ev{[N = k]}_{0 \leq k \leq m}$ est un système complet d'évènements
+donc d'après la formule des probas totales : 
+ 
+\[
+ \Prob\left(\Ev{\Ev{M_{n} = 0}}\right) = \sum \limits_{k = 0}{n}
+\Prob([M_{n} = 0] \cap [N = k]) = \sum \limits_{k = 0}{n} \Prob( [N =
+k]\cap [S = k] \cap [O = m-k] \cap [E = m-k]) \text{ (d' après
+l'explication précédente.)}
+ 
+\]
+ \underline{ Calculons $\Prob( [N = k]\cap [S = k] \cap [O = m-k] \cap
+[E = m-k])$} :\\
+ -on choisit la place des déplacements vers le nord au cours de $2m$
+déplacements : on a $\binom{2m}{k}$ choix.\\
+ - ces emplacements étant choisis, on choisit la place des déplacements
+vers l'est parmi les places restantes : on a $\binom{2m-k}{m-k}$
+choix.\\
+ - on choisit l'emplacement des déplacements vers le sud parmi les
+places restantes : $\binom{m}{k}$ choix. et il ne reste plus de choix
+pour les déplacements vers l'est. \\
+ La probabilité de chacun de ces déplacements possibles, par
+indépendance des déplacements est $\frac{1}{4^{2m}}$, on a donc au
+final : 
+ 
+\[
+ \Prob( [N = k]\cap [S = k] \cap [O = m-k] \cap [E = m-k]) =
+\binom{2m}{k} \binom{2m-k}{m-k} \binom{m}{k} \frac{1}{4^{2m}}
+ 
+\]
+ Or on montre facilement que $\binom{2m}{k} \binom{2m-k}{m-k} =
+\binom{2m}{m} \binom{m}{k}$ donc 
+ 
+\[
+ \Prob( [N = k]\cap [S = k] \cap [O = m-k] \cap [E = m-k]) =
+\binom{2m}{m} \binom{m}{k}{2} \frac{1}{4^{2m}}
+ 
+\]
+ Ainsi, $\Prob\left(\Ev{\Ev{M_{n} = 0}}\right) = \binom{2m}{m}
+\frac{1}{4^{2m}} \sum \limits_{k = 0}{n} \binom{m}{k}{2}$.
+ \end{noliste}
+ \end{noliste}
+ \textbf{\underline{Exercice sans préparation}} \\
+\\
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item On se sait rien faire lorsque le premier indice tend vers
+l'infini, on va donc se ramener à ce que l'on connait (les séries) : \\
+ Soit $M >n$, $\sum \limits_{k = n}{M} \frac{1}{k^{3}} = \sum
+\limits_{k = 1}{M} \frac{1}{k^{3}}-\sum \limits_{k = 1}{n}
+\frac{1}{k^{3}}$ or la première somme converge lorsque $M$ tend vers $
++ \infty$ comme série de Riemann avec $\alpha = 3 >1$ donc $v_{n}$
+existe bien et vaut : 
+ 
+\[
+ v_{n} = \sum \limits_{k = n}{+ \infty} \frac{1}{k^{3}} = \sum
+\limits_{k = 1}{+ \infty} \frac{1}{k^{3}}-\sum \limits_{k = 1}{n}
+\frac{1}{k^{3}}
+ 
+\]
+ On fait tendre $n$ vers $ + \infty$ dans la seconde expression, on
+obtient : 
+ 
+\[
+ \lim \limits_{n \to + \infty} v_{n} = \sum \limits_{k = 1}{+ \infty}
+\frac{1}{k^{3}}-\sum \limits_{k = 1}{+ \infty} \frac{1}{k^{3}} = 0 
+ 
+\]
+ \item On est clairement dans un exercice de comparaison
+série-intégrale.
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item La fonction $x \mapsto \frac{1}{x^{3}}$ est décroissante sur
+$\R_{+}^*$ donc $\forall k \geq 1$, soit $ x \in [k, k + 1]$, alors :
+$\frac{1}{(k + 1)^{3}}\leq \frac{1}{x^{3}} \leq \frac{1}{k^{3}}$. La
+fonction étant de plus continue, on peut intégrer l'inégalité sur $[k,
+k + 1]$. (bornes croissantes ) :
+ 
+\[
+ \dint{k}{k + 1} \frac{1}{(k + 1)^{3}}dx\leq \dint{k}{k +
+1}\frac{1}{x^{3}}dx \leq\dint{k}{k + 1} \frac{1}{k^{3}}dx 
+ 
+\]
+ 
+\[
+ \frac{1}{(k + 1)^{3}} \leq \dint{k}{k + 1}\frac{1}{x^{3}}dx \leq
+\frac{1}{k^{3}}
+ 
+\]
+ On somme alors l'encadrement pour $k$ allant de $n$ à $n + m$ et on
+obtient le résultat.
+ \item Encadrons $v_{n}$ grâce à la question précédente : 
+ $\bullet$ on a $\sum \limits_{k = n}{n + m} \frac{1}{k^{3}} \geq
+\dint{n}{n + m + 1}\frac{1}{x^{3}}dx = \frac{1}{2n^{2}}-\frac{1}{2(n +
+m + 1)^{2}}$, on fait tendre $m$ vers $ + \infty$, on obtient : 
+ 
+\[
+ v_{n} \geq \frac{1}{2n^{2}}
+ 
+\]
+ $\bullet$ La seconde inégalité est : $ \sum \limits_{k = n}{n + m}
+\frac{1}{(k + 1)^{3}} \leq \dint{n}{n + m + 1}\frac{1}{x^{3}}dx$ or par
+changement d'indice on a : 
+ $ \sum \limits_{k = n}{n + m} \frac{1}{(k + 1)^{3}} = \sum \limits_{k
+= n + 1}{n + m + 1} \frac{1}{k^{3}} = \sum \limits_{k = n}{n + m + 1}
+\frac{1}{k^{3}} - \frac{1}{n^{3}}$.\\
+ On passe alors à la limite dans l'inégalité, on obtient : 
+ 
+\[
+ v_{n} - \frac{1}{n^{3}} \leq \frac{1}{2n^{2}} \Leftrightarrow v_{n}
+\leq \frac{1}{2n^{2}} + \frac{1}{n^{3}} 
+ 
+\]
+ D'où 
+ 
+\[
+ \frac{1}{2n^{2}} \leq v_{n} \leq \frac{1}{2n^{2}} + \frac{1}{n^{3}}
+ 
+\]
+ Grâce à cet encadrement, on montre par le théorème d'encadrement que
+$\frac{v_{n}}{\frac{1}{2n^{2}}} \to 1$ donc $v_{n} \sim
+\frac{1}{2n^{2}}$. 
+ \end{noliste}
+ \end{noliste}
+ \end{exercice}
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Deux matrices $A$ et $B$ de $\M{n}$ sont semblables s'il existe
+une matrice $P$ de $\M{n}$ inversible telle que $A = PBP^{-1}$. 
+ \item
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $f^{2}(i) = f (f(i)) = f(i-j + k) = f(i)-f(j) + f(k) = 2j-2k$
+(linéarité de $f$) donc $(f^{2}-2f + 2Id)(i) = f^{2}(i)-2f(i) + 2i = 0$
+\\
+ ainsi, $(2Id-f)((f^{2}-2f + 2Id)(i)) = (2Id-f)(0) = 0$ par linéarité
+de $2Id-f$. \\
+ De même, on trouve : $(f^{2}-2f + 2Id)(j) = i + j + k$ et
+$(2Id-f)((f^{2}-2f + 2Id)(j)) = (2Id-f)(i + j + k) = 0$ et $(f^{2}-2f +
+2Id)(k) = i + j + k$ et $(2Id-f)((f^{2}-2f + 2Id)(k)) = (2Id-f)(i + j +
+k) = 0$.
+ \item Montrons que $f$ est surjective $\Leftrightarrow Im(f) =
+\R^{3}$.\\
+ $Im(f) = Vect(f(i), f(j), f(k)) = Vect(i-j + k, i + 2j, j + k)$.
+Vérifions la liberté de la famille $(i-j + k, i + 2j, j + k)$ : \\
+ $a(i-j + k) + b(i + 2j) + c(j + k) = 0 \Leftrightarrow (a + b)i + (-a
++ 2b + c)j + (a + c)k = 0$ $\Leftrightarrow \left\{
+\begin{array}{ccccc}
+ a + & b & & = & 0\\
+-a + & 2b + & c & = & 0\\
+ & -b + & c & = & 0
+\end{array}
+\right.$ car $(i,j,k)$ est une base de $E$ donc une famille libre.\\
+ On résout le système par pivots, on obtient :$ a = b = c = 0$. La
+famille est libre et génératrice de $Im(f)$ donc c'est une base de
+$Im(f)$ et $dim(Im(f) = 3$.\\
+ $Im(f)$ est un sous-espace de $E$ de dimension 3 donc $Im(f) = E$.\\
+ $f$ est une endomorphisme de $E$ ( $E$ de dim finie) surjectif donc
+bijectif.
+ 
+\[
+ \text{$f$ est un automorphisme de $E$}
+ 
+\]
+ \item La matrice de $f$ dans la base $(ij,k)$ est $A = \begin{smatrix}
+1 & 1 & 0\\
+-1 & 2 & 1\\
+1 & 0 & 1
+\end{smatrix}
+$. 
+ \item D'après la question 2.a) $(2-X)(X^{2}-2X + 2)$ est un polynôme
+annulateur de $f$. Donc si $\lambda$ est valeur propre de $f$ alors
+$(2-\lambda)(\lambda^{2}-2\lambda + 2) = 0$ donc $\lambda = 2$.\\
+ On résout l'équation $(A-2I)X = 0$ on obtient $E_{2}(f) = Vect(i + j +
+k)$. 
+ \end{noliste}
+ \item La somme des dimensions des sous-espaces propres de $f$ est
+égale à 1 et non à 3 donc $f$ n'est pas diagonalisable.
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item On résout l'équation $\alpha(-b,a,0) + \beta (0,c,-b) + \gamma
+(-c,0,a) = (0,0,0)$ en distinguant les cas $b\neq 0$ et $b = 0$ (alors
+$a$ ou $c \neq 0$), et on obtient dans tous les cas que la famille est
+liée or les vecteurs ne sont pas colinéaires deux à deux donc
+$Vect(U,V,W) = Vect(U,V)$ où $(U,V)$ est une base de $Vect(U,V,W)$. 
+ \item On remarque que $U$, $V$ et $W$ appartiennent à $P$ car ils
+vérifient l'équation de $P$ donc comme $P$ espace vectoriel alors
+$Vect(U,V,W) \subset P$. On vérifie facilement en trouvant une base de
+$P$ que $P$ est de dimension 2 donc : 
+ 
+\[
+ P = Vect(U,V,W)
+ 
+\]
+ \underline{Calculons $f(U)$, $f(V)$ et $f(W)$ :}\\
+ $f(U) = f(-bi + aj) = -bf(i) + af(j) = -b(i-j + k) + a(i + 2j) =
+(a-b)i + (b + 2a)j-bk$.\\
+ $f(V) = ci + (2c-b)j-bk$ et $f(W) = -ci + (c + a)j + (a-c)k$. comme
+$f(P)$ est un espace vectoriel alors $f(P) \subset P$ si et seulement
+si $f(U)$, $f(V)$ et $f(W) \in P$, si et seulement si $\left\{ 
+\begin{array}{c}
+a(a-b) + b(b + 2a)-cb = 0\\
+ac + b(2c-b)-cb = 0\\
+-ac + b(c + a) + c(a-c) = 0
+\end{array}
+\right.$.\\
+ Il reste à résoudre ce système d'équations (bonne chance...)
+ \end{noliste}
+ \end{noliste}
+ \textbf{\underline{Exercice sans préparation}} \\
+\\
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $x (1-\Phi(ax)) = x\Prob\left(\Ev{\Ev{X >ax}}\right) (clairement
+positif) = x \dint{ax}{+ \infty} \frac{1}{\sqrt{2 \pi}} e^{-t^{2}}{2}dt
+= \frac{1}{a} \dint{ax}{+ \infty} \frac{ax}{\sqrt{2 \pi}}
+e^{-t^{2}}{2}dt \leq \frac{1}{a} \dint{ax}{+ \infty} \frac{t}{\sqrt{2
+\pi}} e^{-t^{2}}{2}dt = \frac{1}{\sqrt{2 \pi a}}e^{-a^{2}x2/2} \leq
+\sqrt{\frac{2}{\pi}} e^\frac{-ax^{2}}{2}$. 
+ \item La densité d'une variable centrée de variance $\frac{1}{a}$ est
+$f(x) = \sqrt{\frac{a}{2 \pi}}e^{-ax^{2}/2}$. Cette densité étant
+paire, on a : \\
+ 
+\[
+ \dint{0}{+ \infty}\sqrt{\frac{a}{2 \pi}}e^{-ax^{2}/2}dx = \frac{1}{2}
+\Leftrightarrow \dint{0}{+ \infty} \sqrt{\frac{2}{\pi}}
+e^\frac{-ax^{2}}{2}dx = \frac{1}{\sqrt{a}} 
+ 
+\]
+ Ainsi, par croissance des bornes : \\
+ 
+\[
+ 0 \leq \dint{0}{+ \infty}x (1-\Phi(ax))dx \leq \frac{1}{\sqrt{a}}
+ 
+\]
+ Et par le théorème d'encadrement, on obtient : $\lim \limits_{ a \to +
+\infty} \dint{0}{+ \infty}x (1-\Phi(ax))dx = 0$. 
+ \end{noliste}
+ \end{exercice}
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Une fonction $f$ définie sur $\R$ est convexe si elle est au
+ dessus de toutes ses tangentes.\\
+ Caractérisation : une fonction $f$ définie sur $\R$ est convexe si et
+seulement si elle est au dessous de toutes ses cordes.\\
+ Si $f$ est de classe $\mathcal{C}{1}$ sur $\R$ alors elle est convexe
+si et seulement si sa dérivée $f'$ est croissante.\\
+ Si $f$ est de classe $\mathcal{C}{2}$ sur $\R$ alors elle est convexe
+si et seulement si sa dérivée seconde $f''$ est positive.\\
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item Si $x \geq 0$, $t \mapsto e^{t^{2}}$ est continue sur $[0,x]$
+donc $\dint{0}{x} e^{t^{2}}dt$ existe; \\
+ Si $x \leq 0$, $t \mapsto e^{t^{2}}$ est continue sur $[x,0]$ donc
+$\dint{0}{x} e^{t^{2}}dt$ existe.
+ \item $g : t \mapsto e^{t^{2}}$ est continue sur $\R$ donc admet une
+primitive $G$ sur cet intervalle. Ainsi, $\forall x \in \R$, $f(x) =
+G(x)-G(0)$ or $G$ est de classe $\mathcal{C}{2}$ sur $\R$ en tant que
+primitive de $g$, fonction de classe $\mathcal{C}{1}$ sur $\R$ donc $f$
+est aussi de classe $\mathcal{C}_{2}$ sur $\R$. \\
+ $\bullet$ $\R$ est centré en 0.\\
+ $\bullet$ Soit $x \in \R$, $f(-x) = \dint{0}{-x} e^{t^{2} \ dt$. On
+pose le changement de variable $u = -t$ de classe $\mathcal{C}{1}$ sur
+$[0,x]$ ($t \mapsto -t$ affine), alors $f(-x) = \dint{0}{x}
+e^{(-u)^{2}} -du = -\dint{0}{x} e^{u^{2}} du = -f(x)$ \\
+ 
+\[
+ \boxed{\text{$f$ est impaire}}
+ 
+\].\\
+ $\forall x \in \R$, $f'(x) = g(x) = e^{x^{2}}$ et $f''(x) = 2x
+e^{x^{2}}$ est du signe de $2x$ car $\exp>0$ donc $f'' >0$ sur
+$]-\infty, 0[$ et $f''>0$ sur $]0, + \infty[$. \\
+ 
+\[
+ \boxed{\text{$f$ est concave sur $ ]-\infty,0]$ et convexe sur $[0, +
+\infty[$}}
+ 
+\]
+ \item $f' >0$ sur $\R$ donc $f$ est strictement croissante sur $\R$. 
+ \end{noliste}
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item si $t >1$ alors $t^{2} >t$ donc $\exp(t^{2}) > \exp(t)$ donc
+$\dint{1}{x} e^{t^{2}}dt > \dint{1}{x} e_{t} = e^{x} - e \to + \infty $
+lorsque $x \to + \infty$.\\
+Ainsi, $\lim \limits_{x \to + \infty } f(x) = + \infty$ et par
+imparité, $\lim \limits_{ x \to -\infty } f(x) = -\infty$.\\
+ $f$ est continue et strictement croissante sur $\R$ donc réalise une
+bijection de $\R$ dans $f(\R) = \R$ ainsi,pour tout $ n \in \N^*$, il
+existe un unique réel $u_{n}$ tel que $f(u_{n}) = \frac{1}{n}$. 
+ \item $f(u_{n}) = \frac{1}{n}$ et $f(u_{n + 1}) = \frac{1}{n + 1}$ or
+$\frac{1}{n + 1} < \frac{1}{n}$ par stricte décroissante de la fonction
+inverse sur $\R_{+}{*}$ donc $f(u_{n + 1}) < f(u_{n})$ d'où $u_{n + 1}
+< u_{n}$ en composant par $f^{-1}$ strictement croissante.
+ 
+\[
+ \boxed{\text{$(u_{n})$ est décroissante}}
+ 
+\]
+ De plus, $f(x) < f(0) = 0$ si $x <0$ donc $u_{n} >0$. \\
+ La suite $(u_{n})$ est décroissante et minorée (par 0) donc
+convergente vers un certain réel $l$. 
+ \item On passe à la limite lorsque $n \to + \infty$ dans l'égalité
+$f(u_{n}) = \frac{1}{n}$. Par continuité de $f$ sur $\R$ donc en $l$,
+on obtient $f(l) = 0$. Or l'unique antécédent par $f$ de 0 est 0 donc
+$l = 0$.
+ \end{noliste}
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item La fonction $\exp$ est convexe sur $\R$ donc au dessus de sa
+tangente en $0$ donc $\forall u\in \R$, $\exp(u) \geq 1 + u$. \\
+ Pour démontrer l'autre inégalité, on étudie la fonction $u \mapsto 1 +
+2u - e^{u}$ sur $[0, \ln(2)]$.
+ \item Soit $t \in [0, \sqrt{\ln(2)}]$, alors $t^{2} \in [0, \ln(2)]$
+donc en appliquant l'inégalité précédente pour $u = t^{2}$, on obtient
+$ 1 + t^{2} \leq e^{t^{2}} \leq 1 + 2t^{2}$. \\
+
+ Pour pouvoir alors intégrer l'encadrement sur $[0, u_{n}]$, il faut
+que $u_{n} \leq \sqrt{\ln(2)}$ or $\lim \limits_{n \to + \infty } u_{n}
+= 0$ donc en prenant la définition de la limite pour $ \epsilon =
+\sqrt{\ln(2)}$, on sait qu'il existe $n_{0}$ tel que pour tout $n \geq
+n_{0}$, $|u_{n}| = u_{n} \leq \sqrt{\ln(2)}$. \\
+ Pour $n \geq n_{0}$, par croissance des bornes on obtient : 
+\[
+ \dint{0}{u_{n}} (1 + t^{2})dt \leq \dint{0}{u_{n}} e^{t^{2} \ dt =
+f(u_{n}) = \frac{1}{n} \leq \dint{0}{u_{n}} (1 + 2t^{2})dt
+ 
+\]
+ \item On calcule les intégrales de cette inégalité, on obtient :
+$u_{n} + \frac{u_{n}{3}}{3} \leq \frac{1}{n} \leq u_{n} +
+\frac{2u_{n}{3}}{3}$. \\
+ c-a-d $nu_{n} + \frac{nu_{n}{3}}{3} \leq 1 \leq nu_{n} + \frac{2n
+u_{n}{3}}{3}$.\\
+ $\bullet$ En divisant par $n u_{n}$, on obtient déjà que $ n u_{n}
+\sim 1$ car par le théorème d'encadrement $\lim \limits_{n \to +
+\infty} \frac{1}{nu_{n}} = 1$ \\
+ Ainsi, $\lim \limits_{n \to + \infty} nu_{n} = 1$. Au passage, on a
+montré que $u_{n} \sim \frac{1}{n}$.\\
+ On renverse alors l'encadrement pour encadrer $n u_{n}{3}$ : 
+ 
+\[
+ \frac{3}{2}(1-n u_{n}) \leq n u_{n}{3} \leq 3(1-n u_{n})
+ 
+\]
+ Par encadrement, on obtient $ n u_{n}{3} \to 0$.\\
+\\
+ \end{noliste}
+ \end{noliste}
+ \textbf{\underline{Exercice sans préparation}} \\
+\\
+ $\bullet$ $Y$ prend la valeur 0 et lorsque $X$ prend toutes les
+valeurs paires supérieures à 2 alors $\frac{X}{2}$ prend toutes les
+valeurs entières supérieures à 1 donc 
+ 
+\[
+ \boxed{Y(\Omega) = \N}
+ 
+\]
+ $\bullet$ Soit $k \geq 1$, $\Prob\left(\Ev{\Ev{Y = k}}\right) =
+\Prob\left(\Ev{ \frac{X}{2} = k}\right) = \Prob\left(\Ev{\Ev{X =
+2k}}\right) = p q^{2k-1}$.\\
+ $\Prob\left(\Ev{\Ev{Y = 0}}\right) = \Prob\left(\Ev{ \bigcup
+\limits_{k = 0}{+ \infty} [X = 2k + 1]}\right) = \sum \limits_{k = 0}{+
+\infty} \Prob\left(\Ev{\Ev{[X = 2k + 1]}}\right) $ (incompatibilité
+deux à deux des évènements de l'union) $ = \sum \limits_{k = 0}{+
+\infty}pq^{2k} = \frac{p}{1-q^{2}} = \frac{1}{1 + q}$. \\
+ Pour tout $k \in \N$, $k\Prob\left(\Ev{\Ev{[Y = k]}}\right) \geq 0$
+donc la série de terme général $k \Prob\left(\Ev{\Ev{[Y = k]}}\right)$
+converge absolument si et seulement si elle converge. \\
+ Sous réserve de convergence, on a : \\
+ $\E(Y) = 0 \Prob\left(\Ev{\Ev{ [Y = 0]}}\right) + \sum \limits_{k =
+1}{+ \infty} k \Prob\left(\Ev{\Ev{[Y = k]}}\right) = \sum \limits_{k =
+1}{+ \infty} k pq^{2k-1} = pq \sum \limits_{k = 1}{+ \infty}
+k(q^{2})^{k-1}$. On reconnaît une série géométrique dérivée de raison
+$q^{2}$ avec $|q^{2}| = q^^{2} <1$ donc la série converge et 
+ 
+\[
+ \E(Y) = \frac{pq}{(1-q^{2})^{2}} = \frac{q}{(1 + q)^{2}(1-q)} 
+ 
+\]
+ \end{exercice}
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Soient $X$ et $Y$ deux variables aléatoires discrètes. La loi du
+couple $(X,Y)$ est déterminée par : \\
+ $ \bullet$ La donnée de $(X,Y)(\Omega)$ : l'ensemble des valeurs
+prises par le couple.\\
+ $\bullet$ La donnée, pour tout $(i,j) \in (X,Y)(\Omega)$ de $\Prob([X
+= i] \cap [Y = j])$.\\
+ Les lois marginales sont les lois de $X$ et de $Y$. On déterminer la
+loi d'une variable en utilisant la formule des probas totales sur le
+sce des valeurs prises par l'autre variable : 
+ 
+\[
+ \Prob\left(\Ev{\Ev{[X = i]}}\right) = \sum \limits_{j \in Y(\Omega)}
+\Prob([X = i] \cap [Y = j])
+ 
+\]
+ 
+\[
+ \Prob\left(\Ev{\Ev{[Y = j]}}\right) = \sum \limits_{i \in X(\Omega)}
+\Prob([X = i] \cap [Y = j]) 
+ 
+\]
+ Pour tout $j \in Y(\Omega)$, la loi de $X$ sachant $[Y = j]$ est
+définie par : \\
+ Pour tout $i \in X(\Omega)$, $P_{[Y = j]} \Ev{[X = i]} =
+\frac{\Prob([X = i] \cap [Y = j])} {\Prob\left(\Ev{\Ev{[Y =
+j]}}\right)}$
+ \item $\bullet$ $(X,Y)( \Omega) = \{(i,j) \in \N^{2} | j \leq i\}$. \\
+ $\bullet$ $\forall (i,j) \in (X,Y)(\Omega)$, $\Prob([X = i] \cap [Y =
+j]) = \Prob\left(\Ev{\Ev{[X = i]}}\right)P_{[X = i]}\Ev{ [Y = j]} =
+e^{-\lambda} \frac{\lambda^{i}}{i!} \binom{i}{j} p^{j} (1-p)^{i-j} =
+e^{-\lambda} \frac{1}{j!(i-j)!}(\lambda p)^{j} (1-p)^{i-j} $
+ \item $\forall j \in \N$, $\Prob\left(\Ev{\Ev{[Y = j}\right)) = \sum
+\limits_{i = 0}{+ \infty} \Prob([X = i] \cap [Y = j]) = \sum \limits_{i
+= j}{+ \infty} \Prob([X = i] \cap [Y = j]) = \sum \limits_{i = j}{+
+\infty} e^{-\lambda} \frac{1}{j!(i-j)!}(\lambda p)^{j} (1-p)^{i-j} =
+e^{-\lambda} \frac{(\lambda p)^{j}}{j!} \sum \limits_{i = j}{+ \infty}
+\frac{(1-p)^{i-j }}{(i-j)!}$. On pose le changement d'indice $k = i-j$
+: \\
+ $\Prob\left(\Ev{\Ev{[Y = j]}}\right) = e^{-\lambda} \frac{(\lambda
+p)^{j}}{j!} \sum \limits_{k = 0}{+ \infty} \frac{(1-p)^{k }}{k!} =
+e^{-\lambda} \frac{(\lambda p)^{j}}{j!} e^{\lambda(1-p)} = e^{-\lambda
+p} \frac{(\lambda p)^{j}}{j!}$.\\
+ $Y$ suit une loi de Poisson de paramètre $\lambda p$.
+ \item $\bullet$ $(X-Y)(\Omega) = \N$ ($X$ peut prendre n'importe
+quelle valeur entière et de nombre de succès de la binomiale a tjrs une
+proba non nulle de valoir 0). \\
+ $\bullet$ Soit $n \in \N$, $\Prob\left(\Ev{\Ev{[X-Y] = n}}\right) =
+\sum \limits_{i = 0}{+ \infty} \Prob([X = i] \cap [Y = i-n]) = \sum
+\limits_{i = n}{+ \infty} \Prob([X = i] \cap [Y = i-n]) = \sum
+\limits_{i = n}{+ \infty}e^{-\lambda} \frac{1}{(i-n)!}{n!}(\lambda
+p)^{i-n}(1-p)^{n} = e^{-\lambda}\frac{(1-p)^{n}}{n!}\sum \limits_{i =
+n}{+ \infty} \frac{1}{(i-n)!}(\lambda p)^{i-n}$. On pose le changement
+d'indice $k = i-n$ : \\
+ $\Prob\left(\Ev{\Ev{[X-Y] = n}}\right) =
+e^{-\lambda}\frac{(1-p)^{n}}{n!}\sum \limits_{k = 0}{+ \infty}
+\frac{1}{k!}(\lambda p)^{k} = e^{\lambda(1-p)}\frac{(1-p)^{n}}{n!}$
+ \item\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $\forall (j,n) \in \N^{2}$, $\Prob([Y = j ] \cap [X-Y = n]) =
+\Prob([Y = j] \cap [X = j + n]) = e^{-\lambda} \frac{1}{j!n!} (\lambda
+p)^{j}(1-p)^{n} = e^{-\lambda p} \frac{(\lambda p)^{j}}{j!} \times
+e^{\lambda(1-p)} \frac{(1-p)^{n}}{n!} = \Prob\left(\Ev{\Ev{[Y =
+j]}}\right)\Prob\left(\Ev{\Ev{[X-Y = n]}}\right)$.\\
+ Les variables $Y$ et $X-Y$ sont indépendantes.
+ \item $Y$ et $X-Y$ étant indépendantes, on a $cov(Y, X-Y) = 0$ cad
+$cov(Y,X)- Cov(Y,Y) = Cov(X,Y)-\V(Y) = 0$ (linéarité à droite et
+symétrie de la covariance). \\
+ Ainsi, $Cov(X,Y) = \V(Y) $ donc $\frac{Cov(X,Y)}{\sigma(X) \sigma(Y)}
+= \frac{ \sigma(Y)}{\sigma(X)} = \sqrt{p}$. 
+ \end{noliste}
+ \end{noliste}
+ \textbf{\underline{Exercice sans préparation}} \\
+\\
+ $A$ est diagonalisable donc il existe $P \in \M{n}$ inversible et
+$D\in \M{n} $ diagonale constituée de valeurs propres de $A$ telles que
+$A = PDP^{-1}$. \\
+ Or $X^{k}-1$ est un polynôme annulateur de $A$ donc si $\lambda$ est
+valeur propre de $A$ alors $\lambda^{k} = 1$. \\
+ $\bullet$ Si $k$ est impair alors $\lambda = 1$ donc $D = I_{n}$ donc
+$A = PI_{n} P^{-1} = I_{n}$ donc $A^{2} = I_{n}$.\\
+ $\bullet$ Si $k$ est pair alors $\lambda = \pm 1$. Donc $D$ est
+diagonale de coefficients diagonaux tous égaux à $\pm 1$ donc $D^{2} =
+I_{n}$.\\
+ Ainsi, $A^{2} = PDP^{-1} PDP^{-1} = PD^{2} P^{-1} = PI_{n} P^{-1} =
+I_{n}$. 
+ \end{exercice}
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Une fonction est de classe $\mathcal{C}{p}$ sur un intervalle
+$I$ si elle est $p$ fois dérivable et que sa dérivée $p$-ième est
+continue. \\
+ Toute fonction de classe $\mathcal{C}{p}$ admet une formule de Taylor
+à l'ordre $p-1$ cad pour tout $a$, $b$ $\in I$, $f(b) = \Sum{k =
+0}{(p-1)} \frac{(b-a)^{k}}{k!} f^{(k)}(a) + \dint{a}{b} (b-t)^{p-1}
+f^{(p)}(t)dt$.
+ \item 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item Montrons que $(f_{1},f_{2})$ est libre : \\
+ Soit $a$ et $b$ deux réels tels que $\forall x \in \R$, $a f_{1}(x) +
+b f_{2}(x) = 0$. Alors, en prenant des valeurs particulières ($x = 0$
+et $x = 1$) on obtient $a = 0$ et $a + b = 0$ cad $a = b = 0$. \\
+ La famille est libre et génératrice de $E$ donc est une base de $E$.
+ \item La dérivation est linéaire donc $\Delta$ est linéaire.\\
+ $\forall x \in \R$, $\Delta(f_{1})(x) = f_{1}'(x) = \alpha f_{1}(x)$
+donc $\delta(f_{1}) = \alpha f_{1} \in E$.\\
+ $\forall x \in \R$, $\Delta(f_{2})(x) = e^{\alpha x} + \alpha x
+e^{\alpha(x)}$ donc $\Delta(f_{2}) = f_{1} + \alpha f_{2} \in E$. Par
+linéarité der $\Delta$ et par stabilité de $E$ par combinaisons
+linéaires, on obtient, $\Delta(E) \subset E$. \\
+ 
+\[
+ \boxed{\text{$\Delta$ est un endomorphisme de $E$}}
+ 
+\]
+ 
+ La matrice de $\Delta$ dans la base $(f_{1},f_{2})$ est $A =
+\begin{smatrix}
+\alpha & 1\\
+0 & \alpha
+\end{smatrix}
+$
+ \item $A$ est inversible car trig sup avec des coeff diag non nuls
+donc $\Delta$ est bijective et comme $A$ est triangulaire, son unique
+valeur propre est $\alpha$. \\
+ Si $A$ était diagonalisable alors il existerait $P$ inversible telle
+que $A = P \alpha I_{n} P^{-1} = \alpha I_{n}$ : contradiction donc
+$\Delta$ n'est pas diagonalisable.
+ \end{noliste}
+ \item $A^{-1} = \begin{smatrix}
+\frac{1}{\alpha} & -\frac{1}{\alpha^{2}}\\
+0 & \frac{1}{\alpha}\end{smatrix}
+$.\\
+ Soit $f \in E$, si $\Delta^{-1}(f) = g$ alors $\Delta(g) = f$ cad $g'
+= f$ cad $g$ est une primitive de $f$. $\Delta^{-1}$ associe donc à $f$
+une primitive de $f$ (celle qui est dans $E$). \\
+ $A^{-1} \begin{smatrix}
+-3\\
+2
+\end{smatrix}
+ = \begin{smatrix}
+-\frac{3
+ \alpha + 2}{\alpha^{2}} \\
+\frac{2}{\alpha}\end{smatrix}
+$ donc $\Delta^{-1}(-3f_{1} + 2f_{2}) = -\frac{3
+ \alpha + 2}{\alpha^{2}}f_{1} + \frac{2}{\alpha}$. \\
+ Les primitive de $f$ sont donc les fonctions de la forme $-\frac{3
+\alpha + 2}{\alpha^{2}}f_{1} + \frac{2}{\alpha} + constante$
+ \item\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item On calcule les premières puissances, on trouve $A^{2} =
+\begin{smatrix}
+\alpha^{2} & 2 \alpha\\
+0 & \alpha^{2}
+\end{smatrix}
+$, $A^{3} = \begin{smatrix}
+\alpha^{3} & 3 \alpha^{2}\\
+0 & \alpha^{3}
+\end{smatrix}
+$, $A^{4} = \begin{smatrix}
+\alpha^{4} & 4 \alpha^{3}\\
+0 & \alpha^{4}
+\end{smatrix}
+$. On fait alors l'hypothèse que $\forall n \in \N$, $A^{n} =
+\begin{smatrix}
+\alpha^{n} & n \alpha^{n-1}\\
+0 & \alpha^{n}
+\end{smatrix}
+$ et on démontrer cette relation par récurrence. 
+ \item $A^{n} \begin{smatrix}
+-3\\
+2
+\end{smatrix}
+ = \begin{smatrix}
+-3 \alpha^{n} + 2n \alpha^{n-1}\\
+2\alpha^{n}
+\end{smatrix}
+$ donc $\Delta^{n}(f) = \alpha^{n-1}[ (-3\alpha + 2n)f_{1} + 2 \alpha
+f_{2}]$. \\
+ \end{noliste}
+ \end{noliste}
+ \textbf{\underline{Exercice sans préparation}} \\
+\\
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item si $X$ pair alors $(-1)^{X} = 1$ et si $X$ impair alors
+$(-1)^{X} = -1$ donc $Y(\Omega) = \{-1,1\}$.\\
+ D'après le théorème de transfert, sous réserve de convergence absolue,
+on a : 
+ 
+\[
+ \E(Y) = \sum \limits_{k = 0}{+ \infty} (-1)^{k} \Prob\left(\Ev{\Ev{X =
+k}}\right) 
+ 
+\]
+ Montrons la convergence absolue de cette série : la série de terme
+général $|(-1)^{k} \Prob\left(\Ev{\Ev{[X = k]}}\right)| =
+\Prob\left(\Ev{\Ev{X = k}}\right)$ converge (sce) donc la série
+converge bien absolument. \\
+ 
+\[
+ \E(Y) = \sum \limits_{k = 0}{+ \infty} (-1)^{k}
+e^{-\lambda}\frac{\lambda^{k}}{k!} = e^{-\lambda} \sum \limits_{k =
+0}{+ \infty}\frac{(-\lambda)^{k}}{k!} = e^{-2\lambda}
+ 
+\]
+ \item on a $\E(Y) = 1 \Prob\left(\Ev{\Ev{ [Y =
+1]}}\right)-1\Prob\left(\Ev{\Ev{[Y = -1]}}\right) = e^{-2\lambda}$ et
+$\Prob\left(\Ev{\Ev{[Y = 1]}}\right) + \Prob\left(\Ev{\Ev{[Y =
+-1]}}\right) = 1$. On résout ce système de deux équations à deux
+inconnues, on obtient : $\Prob\left(\Ev{\Ev{[Y = 1]}}\right) = \frac{
+e^{-2\lambda} + 1}{2}$ et $\Prob\left(\Ev{\Ev{[Y = -1]}}\right) =
+\frac{1-e^{-2\lambda}}{2 }$
+ \end{noliste}
+ \end{exercice}
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Si $\dint{a}{b} f(t)dt$ converge absolument, alors elle
+converge.\\
+ Théorèmes de comparaison si $f$ est positif et continue par morceaux
+sur $]a,b]$ : \\
+ $\bullet$ Si $f \leq g$ avec $\dint{a}{b} g(t)dt$ converge alors
+$\dint{a}{b} f(t \ dt $ converge.\\
+ $\bullet$ Si $f = o_{a}( g)$ avec $\dint{a}{b} g(t)dt$ converge alors
+$\dint{a}{b} f(t \ dt $ converge.\\
+ $\bullet$ Si $f \underset{a}{\sim} g$alors $\dint{a}{b} g(t)dt$
+converge si et seulement si $\dint{a}{b} f(t \ dt $ converge.
+ \item Si $x \leq 0$ alors $t \to t^{-x} \sqrt{1 + t}$ est continue sur
+$[0,1]$ donc l'intégrale converge. \\
+ Si $x>0$,la fonction intérieure est positive et l'intégrale est
+impropre en 0 or $\frac{1}{t^{x}} \sqrt{1 + t} \underset{t \to 0}{sim}
+\frac{1}{t^{x}}$ avec $\dint{0}{1} \frac{1}{t^{x}}dt$ converge si et
+seulement si $x<1$ (intégrale de Riemann) donc d'après les théorèmes de
+comparaison, $f(x)$ existe si et seulement si $x <1$.
+ \item On ne sait pas dériver $f$ donc on revient à la définition des
+variations d'une fonction : \\
+ soient $a<b <1$, alors $-a > -b $ donc pour tout $t \in \ ]0,1[$, $-a
+\ln(t) < -b \ln(t) $ car $\ln(t) < 0$ donc $e^{-a \ln(t) } < e^{-b
+\ln(t) }$ par stricte croissance de l'exponentielle.\\
+ On a donc $t^{-a} < t^{-b}$ donc $t^{-a} \sqrt{1 + t} < t^{-b} \sqrt{1
++ t}$. On intègre l'inégalité sur $]0,1[$, par croissance des bornes,
+on obtient $f(a) < f(b)$.\\
+ $f$ est strictement croissante sur $D$.
+ \item\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $\forall t \in \ ]0,1]$, $1 \leq 1 + t \leq 2$ et $1 \leq
+\sqrt{1 + t} \leq \sqrt{2}$ par croissance de la fct racine sur $\R_+
+$. d'où $t^{-x} \leq t^{-x} \sqrt{1 + t} \leq \sqrt{2} t^{-x}$. \\
+ En intégrant cet encadrement sur $t \in \ ]0,1]$, on obtient
+(croissance des bornes) : 
+ 
+\[
+ \frac{1}{1-x} \leq f(x) \leq\frac{\sqrt{2}}{1-x} 
+ 
+\]
+ \item $\lim \limits_{x \to -\infty} \frac{1}{1-x} = 0$ donc d'après le
+théorème d'encadrement, $\lim \limits_{x \to -\infty } f(x) = 0$.\\
+ $\lim \limits_{x \to 1^-} \frac{1}{1-x} = + \infty$ donc d'après le
+théorème de comparaison, $\lim \limits_{x \to 1^-} f(x) = + \infty$.
+ \end{noliste}
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $f(0) = \dint{0}{1} t^{0} \sqrt{1 + t}dt = \dint{0}{1} (1 +
+t)^{\frac{1}{2}}dt = \frac{2}{3} (2^\frac{3}{2}-1)$.
+ \item $f(x) = \dint{0}{1} t^{-x} \sqrt{1 + t}dt$. \\
+ On pose $u$ et $v$ définies sur $[0,1]$ par $u(t) = t^{-x}$ et $v(t) =
+\frac{2}{3}(1 + t)\sqrt{1 + t}$. $u$ et $v$ sont de classe
+$\mathcal{C}{1}$ sur $]0,1]$ de dérivées $u'(t) = x t^{-(x + 1)}$ et
+$v'(t) = \sqrt{1 + t}$. Ainsi, pour tout $0 < M < 1$, on a, par I.P.P.
+: \\
+ 
+\[
+ \dint{M}{1} t^{-x} \sqrt{1 + t}dt = [ \ \frac{2}{3}t^{-x}(1 +
+t)\sqrt{1 + t}]_{M}{1} + x\frac{2}{3} \dint{M}{1} t^{-(x + 1)}(1 +
+t)\sqrt{1 + t}dt 
+ 
+\]
+ avec $\dint{M}{1}t^{-(x + 1)}(1 + t)\sqrt{1 + t}dt = \dint{M}{1}
+(t^{-x} + t^{-(x + 1)})\sqrt{1 + t}dt = \dint{M}{1} t^{-x}\sqrt{1 +
+t}dt + \dint{M}{1} t^{-(x + 1)}\sqrt{1 + t}dt $.\\
+ On fait tendre $M$ vers $0$, on obtient : 
+ 
+\[
+ f(x) = \frac{4 \sqrt{2}}{3} + \frac{2}{3}x(f(x) + f(x + 1))
+ 
+\]
+ On isole $f(x + 1)$, on obtient : 
+ 
+\[
+ f(x + 1) = \frac{1}{x}[f(x)(\frac{3}{2}-x)-2\sqrt{2}]
+ 
+\]
+ \item On obtient $f(x + 1)\underset{x \to 0}{\sim}
+\frac{1}{x}[f(0)frac{3}{2}-2\sqrt{2}] = -\frac{1}{x}$ à condition que
+$f$ soit continue en 0 ($\ast$].\\
+ Alors $f(X) \underset{X \to 1}{\sim} \frac{1}{1-X}$ en posant $X = x +
+1$. \\
+\\
+ $(\ast) $ continuité de $f$ en 0 : \\
+ $|f(x)-f(0)| = \left| \dint{0}{1} (t^{-x}-1) \sqrt{1 + t}dt\right|
+\leq \dint{0}{1} |t^{-x}-1|\sqrt{1 + t}dt \leq \sqrt{2}
+\dint{0}{1}|t^{-x}-1|dt = \sqrt{2} | \frac{1}{1-x}-1| \to 0$ lorsque
+$x$ tend vers 0 d'où $f$ est continue en 0.
+ \end{noliste}
+ \item
+ \end{noliste}
+ \textbf{\underline{Exercice sans préparation}} \\
+\\
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item L'univers est l'ensemble des $n$-listes d'urnes, avec
+répétitions donc $card(\Omega) = n^{n}$. \\
+ On note $A$ l'évènement "chaque urne reçoit exactement 1 boule", alors
+$A$ est constitué de l'ensemble des permutations des $n$ urnes donc
+$card(A) = n!$. \\
+ Par équiprobabilité des choix, on : \\
+ 
+\[
+ p_{n} = \Prob\left(\Ev{A}\right) = \frac{n!}{n^{n}}
+ 
+\]. 
+ \item $\forall n \in \N^*$, $\frac{p_{n + 1}}{p_{n}} = \frac{(n +
+1)!n^{n}}{n! (n + 1)^{n + 1}} = \frac{(n + 1)!}{n!} \frac{n^{n}}{(n +
+1)^{n + 1}} = (n + 1) \frac{n^{n}}{(n + 1)^{n + 1}} = \frac{n^{n}}{(n +
+1)^{n}} = \left(\frac{n}{n + 1} \right)^{n}<1$ \\
+ La suite $(o_{n})$ est donc décroissante et minorée (par 0 car chaque
+terme est une proba ) donc convergente.
+ \item $p_{n} = \frac{n}{n} \frac{n-1}{n} \frac{n-2}{n}....\frac{1}{n}
+< \frac{1}{n} $ donc $0 \leq p_{n} \leq \frac{1}{n}$ et par le théorème
+d'encadrement, on trouve $p_{n} \to 0$. 
+ \end{noliste}
+ \end{exercice}
+
+ 
+
+\end{document}

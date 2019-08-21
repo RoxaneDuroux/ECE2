@@ -1,0 +1,558 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 2006} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC III 2006}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION ECONOMIQUE}
+
+{\Large MATHEMATIQUES III}
+
+\textbf{Année 2006}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\section*{EXERCICE}
+
+Dans cet exercice, $n$ désigne un entier supérieur ou égal à 2,
+$\lambda $
+et $\mu $ deux nombres réels strictement positifs et $B$ la matrice de
+$\mathfrak{M}_{n}(\R)$ suivante : 
+\[
+B = 
+\begin{smatrix}
+0 & \lambda & 0 & \ldots & \ldots & 0 \\
+\mu & 0 & \lambda & \ddots & & \vdots \\
+0 & \mu & \ddots & \ddots & \ddots & \vdots \\
+\vdots & \ddots & \ddots & \ddots & \ddots & 0 \\
+\vdots & & \ddots & \mu & 0 & \lambda \\
+0 & \dots & \dots & 0 & \mu & 0
+\end{smatrix},\quad \text{c'est-à-dire}\quad B = (b_{i,j})\quad a =
+\text{avec}\quad \left\{ 
+\begin{array}{ll}
+b_{i,j} = \lambda & \text{si }j = i + 1 \\
+b_{i,j} = \mu & \text{si }j = i-1 \\
+b_{i,j} = 0 & \text{sinon}
+\end{array}
+\right.
+\]
+On s'intéresse aux valeurs propres de $B$ et pour cela, pour $a$ réel,
+on
+note $A_{a} = B-aI_{n}$, où $I_{n}$ désigne la matrice unité d'ordre
+$n$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \textbf{Exemple.} Dans cette question, on considère la matrice $B
+= 
+\begin{smatrix}
+0 & 1 & 0 & 0 & 0 \\
+1 & 0 & 1 & 0 & 0 \\
+0 & 1 & 0 & 1 & 0 \\
+0 & 0 & 1 & 0 & 1 \\
+0 & 0 & 0 & 1 & 0
+\end{smatrix}
+$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item La matrice $B$ est-elle diagonalisable ?
+
+\item Déterminer les valeurs propres et les vecteurs propres de
+l'endomorphisme de $\R^{5}$ canoniquement associé à la matrice $B.$\\
+\textsl{On revient maintenant au cas général. On dira qu'une suite
+$(u_{k})_{k\in \N}$ vérifie la propriété (R) lorsque l'on a, pour
+tout $k$ de $\N$ : $\mu u_{k}-au_{k + 1} + \lambda u_{k + 2} = 0$}
+\end{noliste}
+
+\item Montrer qu'un vecteur $X = 
+\begin{smatrix}
+x_{1} \\
+x_{2} \\
+\vdots \\
+x_{n}\end{smatrix}
+$ de $\mathfrak{M}_{n,1}(\R)$ vérifie $A_{a}X = 0$ si et seulement
+si,\\
+en posant $x_{0} = x_{n + 1} = 0$, les nombres
+$x_{0},x_{1},...,x_{n},x_{n + 1}$
+sont les $n + 2$ premiers termes d'une suite vérifiant $(R)$.
+
+\item On suppose dans cette question que $a^{2}> 4 \lambda \mu$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer l'ensemble des suites vérifiant $(R)$
+
+\item Montrer que si un vecteur $X$ de $\mathfrak{M}_{n,1}(\R)$ vérifie
+$A_{a}X = 0$, alors $X$ est le vecteur nul.
+\end{noliste}
+
+\item On suppose dans cette question que $a^{2} = 4 \lambda \mu$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer l'ensemble des suites vérifiant $(R)$.
+
+\item Montrer que si un vecteur $X$ de $\mathfrak{M}_{n,1}(\R)$ vérifie
+$A_{a}X = 0$, alors $X$ est le vecteur nul.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En déduire que si $B$ admet des valeurs propres, elles
+appartiennent à
+l'intervalle $]-2\sqrt{\lambda \mu },2\sqrt{\lambda \mu }[$
+
+\item Un théorème classique du à Jacques Hadamard, affirme que si le
+réel $a$
+est valeur propre de $B$, alors $|a|\leq \lambda + \mu $ (ce théorème
+n'est pas à démontrer).\\
+Le résultat que l'on a obtenu en [5)a :] est-il meilleur que le
+résultat du théorème d'Hadamard ?
+\end{noliste}
+\end{noliste}
+
+\section*{Problème}
+
+\textsl{Ce problème a pour objet principal la modélisation d'un
+processus aléatoire ponctuel (discret) représenté par une suite de
+variables aléatoires de Bernoulli. Ce modèle est ensuite approché par
+un modèle continu, et dans la
+dernière partie, on s'intéresse, dans un cas particulier, à
+l'adéquation de ce modèle continu au modèle discret initial.} \\
+\textsl{Dans tout le problème, $\lambda $ désigne un nombre réel de
+l'intervalle ouvert $]0,1[$.} \vspace{0.5cm}
+
+\subsection*{Partie I : Modèle discret.}
+
+On suppose donnée une suite $(X_{n})_{n\in \N}$ de variables aléatoires
+de Bernoulli, définies sur un espace probabilisé
+$(\Omega,\mathcal{A},P)$. Pour tout $n$ de $\N$, on note $p_{n}$ le
+paramètre de la
+variable aléatoire $X_{n}$.\\
+On suppose que $p_{0}$ appartient à l'intervalle ouvert $]0,1[$ et que
+pour
+tout $n$ de $\N$, on a les probabilités conditionnelles suivantes : 
+\[
+P_{(X_{n} = 1)}(X_{n + 1} = 1) = P\left(\Ev{X_{n} = 1}\right) =
+p_{n}\quad \text{et}\quad
+P_{(X_{n} = 0)}(X_{n + 1} = 1) = \lambda P\left(\Ev{X_{n} = 1}\right) =
+\lambda p_{n}
+\]
+\textsl{[On rappelle que la probabilité conditionnelle $P_{A}(B)$ peut
+aussi
+se noter $P\left(\Ev{B/A}\right)$]}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que pour tout entier $n$ de $\N$, on a : \qquad $p_{n +
+1} = (1-\lambda )p_{n}{2} + \lambda p_{n}$.
+
+\item En déduire que pour tout entier $n$ de $\N$, on a : \qquad
+$0<p_{n}<1$
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la suite $(p_{n})_{n\in \N}$ est convergente et
+déterminer sa limite.
+
+\item On pose $a = (1-\lambda )p_{0} + \lambda $. Établir, pour tout
+$n$ de $\N$, l'inégalité : \qquad $p_{n}\leq a^{n}$.\\
+En déduire que la série de terme général $p_{n}$ est convergente.
+\end{noliste}
+
+\item Pour tout $n$ de $N$, on définit la variable aléatoire $Y_{n}$
+par :
+\quad $Y_{n} = \dsum\limits_{k = 0}{n}X_{k}$ \quad et on note
+$\E(Y_{n})$ son espérance.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Justifier l'existence de la limite $L$ de la suite $\left(
+\E(Y_{n})\right)_{n\in \N}$.
+
+\item Écrire une fonction \Scilab{} permettant de calculer une valeur
+approchée
+de $\E(Y_{n})$. L'en-tête de cette fonction sera : \\
+\texttt{function approx( n :integer ; p0, lambda : real) : real}
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer, pour tout $n$ de $\N$, la covariance $\Cov(X_{n},X_{n +
+1})$ de $X_{n}$ et $X_{n + 1}$ en fonction de $p_{n}$ et $p_{n + 1}$.
+\\
+Les variables $X_{n}$ et $X_{n + 1}$ sont-elles indépendantes ?
+
+\item Montrer que $\dlim{n\rightarrow \infty }\left( \dfrac{p_{n +
+1}}{p_{n}}\right) = \lambda $.
+
+\item Pour tout $n$ de $\N$, on note $r_{n}$ le coefficient de
+corrélation linéaire entre $X_{n}$ et $X_{n + 1}$ : 
+\[
+r_{n} = \dfrac{\Cov(X_{n},X_{n + 1})}{\sqrt{\V(X_{n})\V(X_{n +
+1})}}\qquad 
+\text{où }\V\text{ désigne la variance}
+\]
+Exprimer $r_{n}$ en fonction de $p_{n}$ et $p_{n + 1}$.\\
+Montrer que lorsque $n$ tend vers $ + \infty $, $r_{n}$ est équivalent
+à $\dfrac{1-\lambda }{\sqrt{\lambda }}p_{n}$.
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie II : Simulation.}
+
+\textsl{On rappelle que la fonction \Scilab{} \texttt{random } simule
+une
+variable aléatoire suivant une loi uniforme sur l'intervalle $[0,1]$.}
+\\
+Soit $N$ un entier naturel non nul et inférieur ou égal à $200$.\\
+On considère la suite finie des $N + 1$ variables aléatoires
+$X_{0},X_{1},...,X_{N}$ vérifiant les conditions de la partie I,
+modélisée
+par l'arbre pondéré suivant, et on note encore $Y_{N} = X_{0} + \cdots
++ X_{N}$.
+
+\begin{center}
+\includegraphics[height = 7.5cm]{hec3_{2}006.png}
+\end{center}
+
+\noindent On cherche à étudier cette situation à l'aide du programme
+suivant :
+\begin{verbatim}
+Program evaluation;
+ var lambda,p0 : real;
+ 
+function bernoulli(p :real) :integer;
+ begin
+ if random < = p then bernoulli : = 1 else bernoulli : = 0;
+ end;
+ 
+function simulation(N :integer) :integer;
+ var c,i,x : integer; a,p,q :real;
+ begin
+ p : = p0; x : = bernoulli(p); c : = x;
+ for i : = 1 to N do
+ begin
+ q : = p;
+ if x = 0 then q : = p*lambda;
+ x : = bernoulli(q); c : = c + x; p : = (1-lambda)*p*p + lambda * p;
+ end;
+ simulation : = c;
+ end;
+ 
+var y,k, N :integer ; T : array[0..200] of integer; begin
+ readln(lambda);readln(p0);readln(N);randomize;
+ for k : = 0 to N do T[k] : = 0;
+ for k : = 1 to 10000 do
+ begin
+ y : = simulation(N); T[y] : = T[y] + 1;
+ end;
+ for k : = 0 to N do
+ begin
+ write(T[k]); write(' ');
+ end;
+ readln;
+end.
+\end{verbatim}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Expliquer le résultat rendu par la fonction \texttt{bernoulli}.
+
+\item Expliquer le fonctionnement de la fonction \texttt{simulation} et
+donner en particulier la signification du résultat rendu.
+
+\item Le programme \texttt{evaluation} permet de simuler une variable
+aléatoire. En se référant à la loi faible des grands nombres, quelle
+loi de probabilité peut-on simuler grâce à ce programme ?
+\end{noliste}
+
+\subsection*{Partie III : Modèle continu.}
+
+soit $\ell $ tel que $0<\ell <1$ et soit $T$ un réel strictement
+positif.
+Pour tout $t$ de $[0,T]$, on définit une variable aléatoire $X(t)$ sur
+un
+espace probabilisé $(\Omega,\mathcal{A},P)$ qui suit une loi de
+Bernoulli
+de paramètre $p(t)$, c'est-à-dire que : $p(t) = P\left(\Ev{X(t) =
+1}\right)\left(\Ev{t}\right) = 1)$. On suppose que la
+fonction $p$ est définie et dérivable sur $[0,T]$, de dérivée
+$p^{\prime }$,
+et vérifie la relation :
+\[
+\forall t\in \lbrack 0,T]\qquad p^{\prime }(t) = (1-\ell )p(t)(p(t)-1)
+\]
+On note $p(0) = p_{0}$ et on suppose que $p_{0}$ appartient à
+l'intervalle
+ouvert $]0,1[$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Soit $f$ la fonction définie sur $[0,T]$ par $f(t) = p(t) \times
+e^{(1-\ell)t}$. Montrer que $f$ est croissante sur $[0,T]$ et en
+déduire que
+la fonction $p$ ne s'annule pas sur $[0,T]$.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $g$ la fonction définie sur $[0,T]$ par : $g(t) =
+\dfrac{e^{-(1-\ell )t}}{p(t)}$. \quad Exprimer $g^{\prime }(t)$ en
+fonction de $\ell $ et $t$ et en déduire qu'il existe une constante $k$
+telle que, pour tout $t$ de $[0,T]$, \quad $g(t) = k + e^{(\ell -1)t}$.
+
+\item Montrer que, pour tout $t$ de $[0,T]$, on a : $p(t) =
+\dfrac{p_{0}}{p_{0} + (1-p_{0})e^{(1-\ell )t}}$.
+
+\item Dresser le tableau de variations de $p$ sur $[0,T]$. Soit $(C)$
+la
+courbe représentative de $p$ dans le plan rapporté à un repère
+orthogonal. A
+quelle condition, portant sur $p_{0}$, la courbe $(C)$ présente-t-elle
+un
+point d'inflexion ? Quelles sont alors les coordonnées de ce point ?
+\end{noliste}
+
+\item Pour tout $n\in \N^{\ast }$, on note $\delta = \dfrac{T}{n}$ et
+pour tout $k\in \lbrack \hspace{-0.15em}[0,n]\hspace{-0.13em}]$, $t_{k}
+= k\delta $.\\
+Pour tout $n\in \N^{\ast }$, on définit la variable aléatoire $Z_{n}$
+par : $Z_{n} = \dsum\limits_{k = 0}{n}X(t_{k})$, d'espérance
+$\E(Z_{n})$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la suite $\left( \dfrac{\E(Z_{n})}{n}\right)_{n\in
+\N^{\times }}$ est convergente et de limite
+$\dfrac{1}{T}\dint_{0}{T}p(t)\ dt$. Cette limite sera notée $m(T)$ dans
+la suite de cette partie.
+
+\item Justifier la validité du changement de variable $u = e^{(1-\ell
+)t}$
+dans l'intégrale $\dint\limits_{0}{T}p(t)\ dt$ et en déduire que l'on a
+: 
+\[
+m(T) = \dfrac{1}{(1-\ell )T}\dint\limits_{1}{e^{(1-\ell )T}}\left(
+\dfrac{1}{u}-\dfrac{1-p_{0}}{p_{0} + (1-p_{0})u}\right) \ du
+\]
+
+\item En déduire une expression de $m(T)$ en fonction de $p_{0}$, $\ell
+$ et 
+$T$ et montrer que, lorsque $T$ tend vers $ + \infty $, $p_{0}$ et
+$\ell $ étant fixés, $m(T)$ est équivalent à $-\dfrac{\ln
+(1-p_{0})}{(1-\ell )T}$
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie IV : Retour au modèle discret.}
+
+Soit $n$ un entier naturel non fixé. Avec les notations des parties I
+et
+III, on suppose que $p_{0} = \dfrac{1}{3}$, $\ell = \dfrac{1}{2}$ et $T
+= 2n(1-\lambda )$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que la fonction $p$ définie dans la partie III est deux
+fois dérivable sur $[0,T]$, et montrer que pour tout $t$ de $[0,T]$ :
+\qquad $p^{\prime \prime }(t) = \dfrac{1}{4}(2p(t)-1)p(t)(p(t)-1)$
+\quad où $p^{\prime
+\prime }$ désigne la dérivée seconde de $p$.
+
+\item On rappelle que pour tout $k$ de $[ \
+\hspace{-0.15em}[0,n]\hspace{-0.13em}]$, \quad $t_{k} = k\delta =
+k\dfrac{T}{n}$ et que $p_{k}$ a été défini dans
+la partie I.\\
+Pour tout $k$ de $[ \ \hspace{-0.15em}[0,n]\hspace{-0.13em}]$, on pose
+$\varepsilon_{k} = p(t_{k})-p_{k}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir, pour tout $k$ de $[ \
+\hspace{-0.15em}[0,n-1]\hspace{-0.13em}]$,
+l'inégalité suivante : \quad $|p(t_{k + 1} ) -p(t_{k})-\delta p^{\prime
+}(t_{k})|\leq \dfrac{\delta ^{2}}{8}$.
+
+\item Établir, pour tout $k$ de $[ \
+\hspace{-0.15em}[0,n-1]\hspace{-0.13em}]$,
+l'égalité : $p(t_{k}) + \delta p^{\prime }(t_{k})-p_{k + 1} =
+\varepsilon
+_{k}[1-(1-\lambda )(1-p(t_{k})-p_{k})]$.
+
+\item En déduire, pour tout $k$ de $[ \
+\hspace{-0.15em}[0,n-1]\hspace{-0.13em}]
+$, l'inégalité suivante : $|\varepsilon_{k + 1}|\leq \dfrac{\delta
+^{2}}{8} + \dfrac{1}{3}(\lambda + 2)|\varepsilon_{k}|$.
+
+\item Établir, pour tout $k$ de $[ \
+\hspace{-0.15em}[0,n]\hspace{-0.13em}]$,
+l'inégalité : $|\varepsilon_{k}|\leq 6(1-\lambda )$.
+\end{noliste}
+
+\item Pour tout réel $\alpha $ tel que $\alpha >18(1-\lambda )$, on
+pose : $N(\alpha ) = \dfrac{1}{1-\lambda }\ln \left( \dfrac{\alpha
+}{12(1-\lambda )}-\dfrac{1}{2}\right) $.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que pour tout réel $\alpha> 18(1-\lambda)$, on a
+$N(\alpha)>0$.
+
+\item Montrer que si $n\leq N(\alpha )$, alors pour tout $k$ de
+$[\hspace{-0.15em}[0,n]\hspace{-0.13em}]$, on a : $\left|
+\dfrac{p(t_{k})-p_{k}}{p(t_{k})}\right| \leq \alpha $.
+
+\item Montrer que, pour $\alpha $ fixé, $\dlim{\lambda \rightarrow
+1}N(\alpha ) = + \infty $
+
+\item Conclure sur la qualité de l'approximation du modèle discret par
+le modèle continu, lorsque $\lambda$ se "rapproche" de $1$.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

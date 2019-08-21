@@ -1,0 +1,195 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 15}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\begin{exercice}[ESC 2005]~\\
+\noindent
+On considère la fonction de deux variables $f$ définie sur l'ouvert\\ 
+$U = \ ]0,+\infty [ \ \times \ ]0,+\infty [$ par :%
+\[
+  f(x,y)=x^{2}\ln (y) - y\ln (x)
+\]
+
+\begin{noliste}{1.}
+  \item On note $g$ la fonction définie sur $]0,+\infty [$ par $%
+  g(t) = 4t^{2}-2t\ln t-1$.
+  \begin{noliste}{a)}
+    \item Montrer que $g$ est $\Cont{2}$ sur son domaine de définition et 
+    calculer $g'(t)$ et $g''(t)$ pour $t>0$.
+    
+    \item Étudier les variations de $g'$ sur $]0;+\infty [ $, puis
+    celle de $g$ sur $]0;+\infty [ $.\\
+    (On précisera à chaque fois les limites aux bornes)
+    
+    \item En déduire qu'il existe un unique élément strictment positif 
+    $\alpha$
+    %, élément de $\oo{\dfrac{1}{e}}{\dfrac{1}{2}}$, 
+    tel que $g(\alpha)=0$.
+    
+    \item Vérifier : $\ln (\alpha) =2\alpha -\dfrac{1}{2\alpha }$.
+  \end{noliste}
+  
+  \item 
+  \begin{noliste}{a)}
+    \item Montrer que $f$ est de classe $\Cont{2}$ sur $U$.
+    
+    \item Calculer les dérivées partielles d'ordre 1 de $f$.
+    
+    \item En déduire que si $(x_{0},y_{0})$ est un point critique de $f$ , 
+    alors $x_{0}>1$ et $y_{0}=\dfrac{(x_{0})^{2}}{\ln (x_{0})}$.
+    
+    \item Établir alors que $g(\ln (x_{0}))=0$.\\
+    En déduire que $f$ possède un unique point critique noté $M$ , de 
+    coordonnées $\left( \ee^{\alpha },\dfrac{\ee^{2\alpha }}{\alpha }\right) $ 
+    où $\alpha $ est le réel défini en \itbf{1.c)}.
+  \end{noliste}
+  
+  \item
+  \begin{noliste}{a)}
+    \item Calculer les dérivées partielles d'ordre 2 de $f$.
+    
+    \item En utilisant la relation de la question \itbf{1.d)}, montrer : $2\ln
+    (y_{0})+\dfrac{y_{0}}{(x_{0})^{2}}=\dfrac{2}{\alpha }$.\\
+    En déduire que la fonction $f$ ne présente pas d'extremum.
+  \end{noliste}
+\end{noliste}
+\end{exercice}
+
+\begin{exercice}[ESCP 2002]~\\
+\noindent
+Soit $a$ un paramètre réel et $F_a$ la fonction définie sur $\R^2$ par :
+\[
+  \begin{matrix}
+    \forall (x,y)\in\R^2,\quad  F_a(x,y)=& \textbf{(}x & y & 
+    a\textbf{)} \\ & & &
+    \\
+    & & & 
+  \end{matrix}
+  \;
+  \begin{smatrix} 
+    -3 & 1 & 1 \\
+    1 & -3 & 1 \\ 
+    1 & 1 & -3
+  \end{smatrix}
+  \; 
+  \begin{smatrix} 
+    x \\ 
+    y \\ 
+    a 
+  \end{smatrix}
+\]
+\begin{noliste}{1.}
+  \item Déterminer, pour tout $(x,y)\in\R^2$, l'expression de $F_a(x,y)$ en 
+  fonction de $x,y$ et $a$.
+  
+  \item Vérifier que cette fonction est de classe $\Cont{1}$ sur $\R^2$ et 
+  calculer ses dérivées partielles d'ordre $1$ en tout point $(x,y)$ de 
+  $\R^2$.
+  
+  \item Montrer qu'il existe un unique point $(x_0,y_0)$ de $\R^2$, que 
+  l'on précisera, en lequel les dérivées partielles d'ordre $1$ de $F_a$ sont
+  nulles. Calculer $F_a(x_0,y_0)$.
+  
+  \item Calculer, pour tout couple $(x,y)$ de $\R^2$, le nombre :
+  \[
+    G_a(x,y)=F_a(x,y)+\frac{1}{3}(3x-y-a)^2+2a^2,
+  \]
+  et préciser son signe.	
+  
+  \item En déduire que la fonction $F_a$ admet un unique extremum sur $\R^2$. 
+  Préciser s'il s'agit d'un minimum ou d'un maximum global et donner sa valeur 
+  notée $M(a)$.
+  
+  \item Montrer que la fonction $M$ qui, à tout réel $a$ associe le nombre 
+  $M(a)$, admet un unique extremum que l'on précisera. Que peut-on en conclure 
+  ?
+\end{noliste}
+\end{exercice}
+
+
+\newpage
+
+
+\begin{exercice}[INSEEC 2002]~\\
+\noindent
+On considère la fonction $g$ définie sur $\R^3$ par :
+\[ 
+  \forall (x,y,z)\in\R^3,\ g(x,y,z) = 4x^2+4y^2+2z^2+4xz-4yz
+\]
+On définit la fonction $f:\R^2\longrightarrow \R$ par : $\forall (x,y)\in\R^2 
+, \ f(x,y)=g(x,y,y^2)$.\\
+On dit alors qu'on étudie la fonction $g$ \textbf{sous la contrainte} $z=y^2$.
+\begin{noliste}{1.}
+  \item Expliciter $f(x,y)$, et calculer $\dfn{f}{1}(x,y)$, $\dfn{f}{2}(x,y)$, 
+  $\ddfn{f}{1,1}(x,y)$, $\ddfn{f}{1,2}(x,y)$ et $\ddfn{f}{2,2}(x,y)$.
+  
+  \item Déterminer les extrema éventuels de $f$ sur $\R^2$.
+  
+  \item Montrer, pour tout $(x,y,z)\in\R^3$ : 
+  \[
+    g(x,y,z) = 4 \, \left(x+\dfrac{1}{2}z\right)^2 + 4 \, 
+    \left(y-\dfrac{1}{2}z\right)^2
+  \]
+  En déduire que $f$ admet un minimum global en $(0,0)$.
+  
+  \item Montrer que $f$ présente un minimum local en $(-2,2)$.
+  
+  \item Déterminer le développement limité d'ordre $2$ de $f$ en 
+  $\left(-\dfrac{1}{2},1\right)$. En déduire le développement limité d'ordre 
+  $2$ de $f\left(-\dfrac{1}{2}+h,1+h\right)$ et de 
+  $f\left(-\dfrac{1}{2}+h,1-h\right)$, lorsque $h$ est au voisinage de $0$. En 
+  déduire que $f$ ne présente pas d'extremum local 
+  en $\left(-\dfrac{1}{2},1\right).$
+\end{noliste}
+\end{exercice}
+
+
+
+\begin{exercice}[HEC 2017]~\\
+  \noindent
+  Soit $f$ la fonction de deux variables définies sur $\R^2$ par :
+  \[
+    f : (x,y) \mapsto x^3 + y^3 -9xy +1
+  \]
+  \begin{noliste}{1.}
+    \item 
+    \begin{noliste}{a)}
+      \item Donner le développement limité à l'ordre $2$ de $f$ au voisinage 
+      de $(0,0)$.
+      
+      \item En déduire que $(0,0)$ est un point col de $f$.
+    \end{noliste}
+    
+    \item 
+    \begin{noliste}{a)}
+      \item Montrer que $f$ admet un extremum local.
+      
+      \item Cet extremum est-il global ?
+    \end{noliste}
+  \end{noliste}
+\end{exercice}
+
+
+
+
+
+\end{document}

@@ -1,0 +1,601 @@
+\chapter*{ESSEC-II 2017 : le sujet}
+  
+%
+
+\noindent
+Étudier l'évolution des inégalités dans la répartition des richesses, 
+matérielles ou symboliques, dans une société est un des thèmes majeurs 
+des sciences humaines. Considérons un exemple élémentaire. Le tableau 
+ci-dessous présente le pourcentage d'accès à l'enseignement secondaire 
+en Grande-Bretagne lors de deux périodes pour deux catégories sociales: 
+\\
+\begin{center} 
+ \begin{tabular}{c|c|c|} 
+  & avant 1910 & entre 1935 et 1940\\ \hline
+  Profession libérale & $37\%$ & $62\%$ \\ \hline
+  Ouvriers & $1\%$ & $10\%$ \\ \hline
+ \end{tabular}
+\end{center}
+On propose trois modes de comparaison des inégalités entre les deux 
+classes sociales.
+\begin{noliste}{1.}
+ \item En regardant l'augmentation des pourcentages pour les deux 
+ classes entre les deux périodes on conclut que l'inégalité a augmenté 
+ entre la classe la plus aisée (Profession libérale) et la plus 
+ défavorisée (Ouvriers). 
+ 
+ \item Si on regarde le taux d'accroissement des pourcentages, comme 
+ $\frac{10}{1} > \frac{62}{37}$, on déduit que l'inégalité a diminué.
+ 
+ \item Si on regarde le taux d'accroissement des pourcentages \emph{de 
+ ceux qui n'accèdent pas à l'enseignement secondaire}, comme 
+ $\frac{90}{99} > \frac{38}{63}$, on déduit que l'inégalité a 
+ augmenté puisque le nombre de ceux qui n'ont pas accès à 
+ l'enseignement supérieur a proportionnellement plus diminué que celui 
+ de ceux qui y ont accès.
+\end{noliste}
+Comme on le voit chacune des façons de voir est légitime à sa manière. 
+L'objet du problème est d'introduire des outils afin d'étudier la 
+\emph{concentration} d'une loi de probabilité pour contourner des 
+paradoxes auxquels une analyse trop rapide peut conduire, ou du moins 
+d'en être conscient.
+
+
+
+
+\section*{Partie I - Indice de Gini}
+
+\noindent
+On rappelle qu'une fonction numérique définie sur l'intervalle $J$ de 
+$\R$ est \emph{convexe} sur $J$ si elle vérifie la propriété suivante: 
+$\forall (t_1,t_2) \in J^2, \ \forall \lambda \in [0,1], \ f( \lambda 
+\, t_1 + (1- \lambda) \, t_2) \leq \lambda \, f(t_1) + (1-\lambda ) \, 
+f(t_2)$. \\
+On rappelle en outre qu'une fonction $f$ est \emph{concave} si $-f$ est 
+convexe.\\
+On désigne par $E$ l'ensemble des applications $f$ définies sur $[0,1]$ 
+à valeurs dans $[0,1]$, continues et convexes sur $[0,1]$, et telles 
+que 
+$f(0)=0$ et $f(1)=1$. Pour toute application $f$ de $E$, on note 
+$\tilde{f}$ l'application associée à $f$, définie sur $[0,1]$ par 
+$\tilde{f}(t)=t-f(t)$. \\[.1cm]
+On pose $I(f)= 2\dint{0}{1} \tilde{f}(t) \dt= 
+2\dint{0}{1}(t-f(t)) \dt$. $I(f)$ s'appelle l'\textbf{indice de Gini} 
+de l'application $f$. 
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Donnez une interprétation géométrique de la propriété de 
+  convexité.
+  
+  
+  
+  
+  
+
+  
+  \item Lorsque $f$ est une fonction de classe $\Cont{1}$ sur $[0,1]$, 
+  rappeler la caractérisation de la convexité de $f$ sur $[0,1]$ à 
+  l'aide de la dérivée $f'$.
+  
+  
+
+ \end{noliste}
+ 
+ \item 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Justifier que $\tilde{f}$ est concave sur $[0,1]$.
+  
+  
+  
+  \item Montrer que $I(f)= 1-2 \ \dint{0}{1}f(t) \dt$. 
+  
+  
+
+  
+  \item Représenter dans un même repère orthonormé les fonctions $f$ et 
+  $t \mapsto t $ et donner une interprétation géométrique de $I(f)$.
+  
+  
+ \end{noliste}
+ 
+ 
+ 
+ %\newpage
+ 
+ 
+ 
+ \item \textbf{Un premier exemple}.\\
+ Soit $f : [0,1] \to \R$ telle que $f(t)= t^2$ pour tout $t \in [0,1]$. 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Montrer que $f$ est un élément de $E$.
+  
+  
+
+  
+  \item Calculer $I(f)$. 
+  
+  
+ \end{noliste}
+ 
+
+\newpage
+
+
+ \item \textbf{Propriétés de l'indice de Gini.}
+ \begin{noliste}{a)}
+  \item Pour $f$ élément de $E$, établir que $I(f) \geq 0$. 
+  
+  
+
+  
+  \item Montrer que $I(f) =0$ si et seulement si $f(t)=t$ pour tout $t 
+  \in [0,1]$. 
+  
+  
+  
+  
+  
+  %\newpage
+  
+
+  
+  \item Montrer que pour tout $f$ élément de $E$, $I(f) < 1$.
+  
+  
+
+  
+  \item Pour tout entier $n >0$, on définit $f_n$ sur $[0,1]$ par 
+  $f_n(t)=t^n$.
+  \begin{nonoliste}{(i)}
+    \item Pour tout entier $n$ strictement positif, calculer $I(f_n)$.
+    
+    
+
+    
+    \item En déduire que pour tout réel $A$ vérifiant $0 \leq A <1$, il 
+    existe $f$ appartenant à $E$ telle que $I(f)>A$. 
+    
+    
+
+  \end{nonoliste}
+ \end{noliste}
+ 
+ \item \textbf{Minoration de l'indice de Gini} 
+ \begin{noliste}{a)}
+  \item Soit $f$ élément de $E$. Montrer qu'il existe $t_0$ dans 
+  $]0,1[$ tel que $\tilde{f}(t_0)= \dmax{t \in [0,1]} \tilde{f}(t)$. 
+  
+  
+
+ 
+  \item Montrer que pour tout $t$ de $[0,t_0]$, $\tilde{f}(t) \geq 
+  \tilde{f}(t_0) \cdot \dfrac{t}{t_0}$. 
+  
+  
+
+  
+  \item Montrer que pour tout $t$ de $[t_0,1]$, $\tilde{f}(t) \geq 
+  \tilde{f}(t_0) \cdot \dfrac{t-1}{t_0-1}$. 
+  
+  
+  
+  \item En déduire que $I(f) \geq \tilde{f}(t_0)$. 
+  
+  
+
+ \end{noliste}
+ L'indice de Gini donne une indication sur la concentration des 
+ richesses d'un pays si l'on suppose que la fonction $f$ rend compte de 
+ cette concentration. Par exemple, $f(0,3)=0,09$ s'interprète par le 
+ fait que dans la population classée par ordre de richesse croissante, 
+ les premiers $30 \%$ de la population possèdent $9\%$ de la richesse 
+ totale du pays. Plus l'indice $I(f)$ est grand, plus la répartition 
+ des richesses est inégalitaire.
+\end{noliste}
+
+
+
+\section*{Partie II - Le cas à densité}
+
+\noindent
+Soit $g$ une densité de probabilité sur $\R$, nulle sur $]-\infty, 0]$, 
+continue et strictement positive sur $]0,+\infty[$. On définit une 
+fonction $G$ sur $\R_+$ par $G(x)=\dint{0}{x} g(v) \ dv$ pour $x \in 
+\R_+$. Si $g$ représente la densité de population classée suivant son 
+revenu croissant, $G(x)$ représente la proportion de la population dont 
+le revenu est inférieur à $x$. On suppose de plus que 
+$\dint{0}{+\infty} v \, g(v) \ dv$ est convergente et on note $m$ sa 
+valeur qui représente donc la richesse moyenne de la population. 
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \setcounter{enumi}{5}
+ \item 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Montrer que $m >0$.
+  
+  
+
+  
+  \item Montrer que $G$ est une bijection de $[0,+\infty[$ sur $[0,1[$. 
+  On notera $G^{-1}$ son application réciproque.
+  
+  
+
+  
+  \item Quel est le sens de variation de $G^{-1}$ sur $[0,1[$ ?
+  
+  
+ \end{noliste}
+ 
+ \item
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item À l'aide du changement de variable $u=G(v)$, établir que pour 
+  tout $t \in [0,1[$, 
+  \[
+   \dint{0}{t} G^{-1}(u) \ du= \dint{0}{G^{-1}(t)} v \, g(v) \ dv
+  \]
+  
+  
+  
+  \item En déduire que $\dint{0}{1} G^{-1}(u) \ du$ converge et donner 
+  sa valeur. 
+  
+  
+
+ \end{noliste}
+ 
+
+\newpage
+
+
+ \item Soit $f$ la fonction définie sur $[0,1]$ par : $f(t)= 
+ \dfrac{1}{m} \dint{0}{t} G^{-1}(u) \ du$ pour tout $t \in [0,1[$ et 
+ $f(1)=1$.
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item 
+  \begin{nonoliste}{(i)}
+   \item Montrer que $f$ est continue sur $[0,1]$. 
+   
+   
+
+   
+   
+   
+   %\newpage
+   
+   
+   
+   \item Montrer que $f$ est convexe sur $[0,1[$. \textbf{On admettra 
+   qu'en fait $f$ est convexe sur $[0,1]$}. 
+   
+   
+   
+   \item En déduire que $f$ est un élément de $E$.
+   
+   
+  \end{nonoliste}
+  
+  \item Montrer, à l'aide d'une intégration par parties, l'égalité
+  \[
+   I(f)= -1+\dfrac{2}{m} \dint{0}{\infty} v \, g(v) \, G(v) \ dv
+  \]
+  
+  
+
+ \end{noliste}
+ 
+ 
+ %\newpage
+ 
+ 
+ \item Soit $\lambda$ un réel strictement positif. On suppose dans 
+ cette question que $g$ est une densité de la loi exponentielle de 
+ paramètre $\lambda$.
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Expliciter $G(x)$ pour $x >0$. 
+  
+  
+  
+  \item Expliciter $G^{-1}(u)$ pour $u \in [0,1[$. 
+  
+  
+
+  
+  \item Donner la valeur de $m$. 
+  
+  
+
+  
+  \item Soit $t \in[0,1[$. Montrer que $f(t)= - \dint{0}{t} \ln(1-u) 
+  \ du.$
+  
+  
+
+  
+  
+  %\newpage
+  
+  
+  \item En déduire que pour tout $t$ élément de $[0,1[$, on a $f(t)= 
+  (1-t)\ln(1-t)+t$. 
+  
+  
+  
+  
+  
+  %\newpage
+  
+
+  
+  \item Justifier la convergence de l'intégrale $\dint{0}{1} 
+  (1-t)\ln(1-t) \dt$ et la calculer. 
+  
+  
+  
+  \item En déduire la valeur de $I(f)$.
+  
+  
+ \end{noliste}
+\end{noliste}
+
+
+%\newpage
+
+
+\section*{Partie III - Application à une population}
+
+\noindent
+Une population de $N$ personnes est divisée en deux classes 
+(typiquement hommes et femmes) et en $n$ catégories (par exemple 
+socio-professionnelles), suivant le tableau à double entrée suivant où 
+tous les $x_i$ et $y_i$ pour $i$ dans $\llb 1,n \rrb$ sont des entiers 
+naturels. \\
+On suppose en outre que pour tout $i$ dans $\llb 1,n \rrb$, 
+$x_i \neq 0$. \\ 
+\begin{center}
+ \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+  \hline
+  \backslashbox{Classes}{Catégories} & $c_1$ & $c_2$ & $c_3$ & $\cdots$ 
+  & $c_i$ & $\cdots$ & $c_n$ & Total \\ 
+  \hline
+  I & $x_1$ & $x_2$ & $x_3$ & $\cdots$ & $x_i$ & $\cdots$ & $x_n$ & $X$ 
+  \\ 
+  \hline
+  II & $y_1$ & $y_2$ & $y_3$ & $\cdots$ & $y_i$ & $\cdots$ & $y_n$ & 
+  $Y$ \\ 
+  \hline
+  Total & $n_1$ & $n_2$ & $n_3$ & $\cdots$ & $n_i$ & $\cdots$ & $n_n$ & 
+  $N$ \\ 
+  \hline
+ \end{tabular}
+\end{center}
+
+\noindent
+où on a donc posé $X= \Sum{i=1}{n} x_i$, $Y= \Sum{i=1}{n} y_i$ et 
+$X+Y=N$. On suppose en outre que $Y>0$. \\
+Pour $i$ appartenant à $\llb 1,n\rrb$, on adopte les notations 
+suivantes: 
+\[
+ p_i=\dfrac{n_i}{N}, \ q_i=\dfrac{x_i}{X},  \ r_i=\dfrac{y_i}{Y}
+\]
+On note aussi $\varepsilon_i= \dfrac{x_i}{n_i}$, et 
+$\varepsilon=\dfrac{X}{N}$, et on suppose que les catégories sont 
+numérotées de telle sorte que : 
+\[
+ \varepsilon_1 \leq \varepsilon_2 \leq \cdots \leq \varepsilon_n
+\]
+
+
+\newpage
+
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \setcounter{enumi}{9}
+ \item On pose $\Omega=\{c_1,c_2, \ldots ,c_n\}$, ensemble des 
+ catégories dans la population.
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Montrer que $P=(p_i)_{1 \leq i \leq n}$, $Q= (q_i)_{1 \leq i 
+  \leq n}$ et $R= (r_i)_{1 \leq i \leq n}$ sont des distributions de 
+  probabilités.
+  
+  
+  
+  
+  %\newpage
+  
+
+  
+  \item Montrer que : $\dfrac{q_1}{p_1} \leq \cdots \leq 
+  \dfrac{q_n}{p_n}$ $(\ast)$
+  
+  
+  
+  \item Montrer que : $\dfrac{r_1}{p_1} \geq \cdots \geq 
+  \dfrac{r_n}{p_n}$.
+  
+  
+
+  
+  \item Montrer que pour $i$ appartenant à $\llb 1,n \rrb$, $r_i= 
+  \dfrac{n_i-x_i}{N-X}= \dfrac{p_i-\varepsilon q_i}{1- \varepsilon}$. 
+  
+  
+ \end{noliste}
+ 
+ 
+ 
+ %\newpage
+ 
+ 
+ 
+ \item Dans un premier temps, nous allons construire une application 
+ appartenant à $E$, qui permet de mesurer les inégalités à l'intérieur 
+ de la classe I.\\
+ On pose $P_0=Q_0=0$, et pour $i \in \llb 1,n \rrb$, $P_i= \Sum{h=1}{i} 
+ p_h$ et $Q_i=\Sum{h=1}{i} q_h$. On définit alors l'application 
+ $\varphi$ de $[0,1]$ dans $[0,1]$ telle que, pour tout entier $i \in 
+ \llb 0,n \rrb$, $\varphi(P_i)=Q_i$ et pour tout entier $i \in \llb 
+ 0,n-1 \rrb$, $\varphi$ est affine sur le segment $[P_i, P_{i+1}]$. 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item On suppose \textbf{dans cette question} $n=3$.\\
+  Représenter dans un repère orthonormé $\varphi$ lorsque $P= \left( 
+  \frac{1}{2}, \frac{1}{4}, \frac{1}{4} \right)$ et $Q=\left( 
+  \frac{1}{3}, \frac{1}{6}, \frac{1}{2}  \right)$. 
+  
+  
+
+  
+  \item Montrer que, dans le plan rapporté à un repère orthonormé, la 
+  pente de la droite passant par les points de coordonnées $(P_{i-1}, 
+  Q_{i-1})$ et $(P_i, Q_i)$ est $u_i=\frac{q_i}{p_i}$ pour $i$ 
+  appartenant à $\llb 1,n \rrb$. 
+  
+  
+  
+  
+  
+  %\newpage
+  
+
+  
+  \item Montrer que si $i \in \llb 0,n-1 \rrb$ et $t \in [P_i, 
+  P_{i+1}]$, on a $\varphi(t) =u_{i+1} (t-P_i)+Q_i$. 
+  
+  
+  
+  \item \textbf{En admettant} que les inégalités $(\ast)$ de la 
+  question \itbf{10.b)} permettent d'affirmer que $\varphi$ est 
+  convexe, justifier que $\varphi$ appartient à $E$. 
+  
+  
+
+  
+  \item Pour $i \in \llb 0,n-1 \rrb$, calculer $\dint{P_i}{P_{i+1}} 
+  \varphi(t) \dt$. 
+  
+  
+  
+  \item Exprimer $I(\varphi)$ sous la forme d'une somme en fonction de 
+  $P_0, P_1,...,P_n, Q_0,...Q_n$. 
+  
+  
+ \end{noliste}
+ 
+ \item Nous allons maintenant étudier l'application correspondante pour 
+ la classe II.\\
+ On pose $P_0=R_0=0$ et pour $i \in \llb 1,n \rrb$ , $P_i = 
+ \Sum{h=1}{i} p_h$ et $R_i=\Sum{h=1}{i} r_h$. De même, on définit pour 
+ $i$ élément de $\llb 0,n \rrb$, $\Pi_i=1-P_{n-i}$. On considère 
+ l'application $\psi$ de $[0,1]$ dans $[0,1]$ telle que pour tout $i 
+ \in \llb 0,n \rrb$, $\psi(P_i)=R_i$ et pour tout entier $i \in \llb 0, 
+ n-1 \rrb$, $\psi$ est affine sur le segment $[P_i, P_{i+1}]$. 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Montrer que la pente de la droite passant par les points de 
+  coordonnées $(P_{i-1}, R_{i-1})$ et $(P_i, R_i)$ est $v_i 
+  = \frac{r_i}{p_i}$ pour $i \in \llb 1,n \rrb$. 
+  
+  
+  
+  
+  
+  %\newpage
+  
+
+  
+  \item On considère l'application $\psi^*$ définie pour tout $t \in 
+  [0,1]$, par $\psi^*(t)= 1-\psi(1-t)$. 
+  \begin{nonoliste}{(i)}
+   \item On suppose \textbf{dans cette question} $n=3$.\\
+   Représenter dans un même repère orthonormé les courbes 
+   représentatives de $\psi$ et $\psi^*$ lorsque $P= \left( 
+   \frac{1}{2}, \frac{1}{4}, \frac{1}{4} \right)$ et $R=\left( 
+   \frac{2}{3}, \frac{1}{6}, \frac{1}{6}  \right)$. 
+   
+   
+   
+   \item Montrer que $\psi^*$ est convexe sur $[0,1]$. 
+   
+   
+
+   
+   \item Montrer que $\psi^*$ est affine sur $[\Pi_{i-1}, \Pi_i]$ pour 
+   $i \in \llb 0,n-1 \rrb$. 
+   
+   
+
+   
+   \item Montrer que la pente de $\psi^*$ sur $[\Pi_{i-1}, \Pi_i]$ est 
+   $v_{n-i+1}$ pour $i \in \llb 1,n \rrb$. 
+   
+   
+  \end{nonoliste}
+
+  \noindent
+  On dit dans cette situation que les fonctions $\varphi$ et $\psi^*$ 
+  sont \textbf{adjointes} l'une de l'autre. C'est leur comparaison que 
+  Gini a proposé de considérer pour \og mesurer les inégalités \fg{} 
+  entre la population de catégorie I et celle de catégorie II. \\
+  Une égalité entre les fonctions adjointes signale notamment l'absence 
+  totale d'inégalité sociale. La dernière question précise quelque peu 
+  ce point. 
+ \end{noliste}
+ 
+ \item 
+ \begin{noliste}{a)}
+  \setlength{\itemsep}{2mm}
+  \item Montrer que si $\varphi= \psi^*$ alors pour tout $i$ 
+  appartenant à $\llb 1,n \rrb$ :
+  \[
+   \dfrac{\varepsilon_i}{\varepsilon} = 
+   \dfrac{1-\varepsilon_{n-i+1}}{1-\varepsilon}
+  \]
+  
+  
+  
+  \item Montrer que si $\varphi= \psi^*$, alors pour tout $i$ 
+  appartenant à $\llb 1,n \rrb$, $\varepsilon_i+ \varepsilon_{n-i+1}=2 
+  \varepsilon$. 
+  
+  
+
+  
+  \item Déduire que si $\varphi= \psi^*$, on a pour tout $i$ 
+  appartenant à $\llb 1,n \rrb$, $\varepsilon_i(1-2\varepsilon)= 
+  \varepsilon(1-2\varepsilon)$.
+  
+  
+  
+  
+  %\newpage
+
+  
+  \item On suppose que $\varepsilon \neq \dfrac{1}{2}$.  Montrer que si 
+  $\varphi= \psi^*$, alors pour tout $i$ appartenant à $\llb 1,n \rrb$, 
+  $\varepsilon_i=\varepsilon$. \\[.1cm]
+  Interpréter ce résultat.
+  
+  
+
+ \end{noliste}
+\end{noliste}
+
+
+
+
+
+

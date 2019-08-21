@@ -1,0 +1,177 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=1.5cm,bmargin=1.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+K \\
+Mathématiques
+\end{flushleft}
+
+\begin{center}
+\textbf{\Large{Colles - Semaine 3}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Planche 1}
+
+
+
+\subsection*{Exercice} % Exo Gilles
+
+\noindent
+Pour tout entier $n\geq 1$, on définit la fonction polynomiale $P_n$ 
+sur $\R$ par :
+\[
+ P_n(x) \ = \ (x-1)(2-x) + \dfrac{x^3}{n}
+\]
+\begin{noliste}{1.}
+ \item Montrer que pour $n$ suffisamment grand, $P_n$ admet deux 
+ extrema locaux, aux points $r_{1,n} \leq r_{2,n}$ avec $r_{1,n} 
+ \tendn \ell$ et $r_{2,n} \eqn \gamma \, n$ pour deux réels $\ell$
+ et $\gamma$ à préciser.
+ 
+ \item Montrer que pour $n$ suffisamment grand, $P_n$ admet trois 
+ racines distinctes notées $a_n < b_n < c_n$.
+ 
+ \item Montrer que la suite $(a_n)$ ainsi définie est croissante, 
+ de limite $\alpha$ à préciser.
+ 
+ \item En déduire le développement limité :
+ \[
+  a_n \ = \ \alpha + \dfrac{\beta}{n} + \oon \left(\dfrac{1}{n}
+  \right)
+ \]
+ pour un réel $\beta$ à préciser.
+\end{noliste}
+
+
+
+
+
+
+\newpage
+
+
+
+\section*{Planche 2}
+
+
+\subsection*{Exercice}
+
+\noindent
+Soit $f$ la fonction définie sur $[0,+\infty[$ par :
+\[
+ f \ : \ x \mapsto \left\{
+ \begin{array}{cR{3cm}}
+  x^{1+\frac{1}{x}}=\ee^{(1+\frac{1}{x})\ln (x)} & si $x>0$
+  \nl
+  \nl[-.2cm]
+  0 & si $x=0$
+ \end{array}
+ \right.
+\]
+
+On désigne par $\mathcal{C}$ la courbe représentative de $f$ dans le 
+plan muni d'un repère orthonormé.
+\begin{noliste}{1.}
+  \item
+  \begin{noliste}{a)}
+    \item Montrer que $f$ est continue en $0$.
+    
+    \item Étudier la dérivabilité de $f$ en $0$.
+  \end{noliste}
+  
+  \item
+  \begin{noliste}{a)}
+    \item Montrer que, pour tout réel $x$ strictement positif : 
+    $\ln (x) \leq x+1$.
+    
+    \item Calculer $f'(x)$ pour $x>0$ et déterminer son signe.\\ 
+    Préciser le sens de variation de $f$.
+  \end{noliste}
+  
+  \item
+  \begin{noliste}{a)}
+    \item Déterminer la limite de $f$ en $+\infty $.
+    
+    \item Déterminer un équivalent de $f(x)-x$ en $+\infty $.\\ 
+    En déduire la nature de la branche infinie de $\mathcal{C}$ en $+
+    \infty $.
+  \end{noliste}
+  
+  \item On définit la suite $(u_n)$ par :
+  \[
+   \left\{
+   \begin{array}{l}
+    u_0 >0\\
+    \forall n \in \N, \ u_{n+1} = f(u_n)
+   \end{array}
+   \right.
+  \]
+  \begin{noliste}{a)}
+    \item Montrer que la suite $(u_n)$ est bien définie et : 
+    $\forall n \in \N$, $u_n >0$.
+    
+    \item Que dire de la suite $(u_n)$ si $u_0=0$ ?
+    
+    \item On se place maintenant dans le cas : $u_0= \dfrac{1}{2}$.
+    \begin{nonoliste}{(i)}
+     \item Déterminer la monotonie de $(u_n)$.
+     
+     \item Montrer que la suite $(u_n)$ converge et 
+     déterminer sa limite.
+    \end{nonoliste}
+  \end{noliste}
+\end{noliste}
+
+
+
+\newpage
+
+
+
+
+\section*{Planche 3}
+
+
+
+\subsection*{Exercice} % ENS 2017
+
+\noindent
+Soient $a>0$ et $\beta>1$. On considère une fonction continue $f : 
+[0,1] \to [0,1]$ qui peut s'écrire comme suit au voisinage de $0$ :
+\[
+ f(x) \ = \ x - a \, x^\beta + \oox{0}(x^\beta)
+\]
+On fixe $u_0 \in [0,1]$, et on considère la suite $(u_n)_{n\geq 0}$ 
+définie par : $\forall n \in \N$, $u_{n+1} = f(u_n)$.
+\begin{noliste}{1.}
+ \item Que vaut $f(0)$ ? Montrer qu'il existe $\eta >0$ tel que $f(x) 
+ <x$ sur $]0,\eta]$. En déduire que si $u_0$ est suffisamment petit, 
+ $(u_n)$ converge vers $0$.\\
+ Dans la suite, on suppose que $u_n \tendn 0$.
+ 
+ \item Soit $\gamma \in \R$. Donner un équivalent de $(f(x))^\gamma - 
+ x^\gamma$ lorsque $x$ tend vers $0$. En déduire une valeur de $
+ \gamma$ pour laquelle la suite $u_{n+1}^\gamma - u_n^\gamma$ 
+ converge vers un réel strictement positif.
+ 
+ \item Soit $(v_n)_{n\geq 1}$ une suite de nombres réels tels que 
+ $v_{n+1}-v_n \tendn \ell$, où $\ell \in \R$. Montrer que $
+ \dfrac{v_n}{n} \tendn \ell$.
+ 
+ \item En déduire un équivalente de $(u_n)$.
+\end{noliste}
+
+
+
+\end{document}

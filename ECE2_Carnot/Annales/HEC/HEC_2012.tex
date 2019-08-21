@@ -1,0 +1,546 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../../../../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} HEC 2012} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{HEC 2012}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\huge HEC Eco 2012}
+\end{center}
+
+\section*{EXERCICE}
+
+\begin{flushleft}
+Soit $m$ un réel donné strictement positif et $f$ l'endomorphisme de
+$\R^{3}$ dont la matrice $M$ dans la base canonique de $\R^{3}$ est
+donnée par :\\
+
+
+\end{flushleft}
+
+\noindent
+
+\begin{flushleft}
+$M = \left(
+\begin{array}
+[c]{ccc}0 & 1/m & 1/m^{2}\\
+m & 0 & 1/m\\
+m^{2} & m & 0
+\end{array}
+\right) $.
+
+
+\end{flushleft}
+
+\noindent
+
+\begin{flushleft}
+On note $I$ la matrice identité de $\M{3} $ et $\text{Id}$
+l'endomorphisme identité de $\R^{3}$.
+
+
+\end{flushleft}
+
+\noindent
+
+\begin{flushleft}
+Pour tout endomorphisme $g$ de $\R^{3}$ on pose $g^{0} = \text{Id}$ et
+pour tout $k$ de $\N^{*}$, $g^{k} = g\circ g^{k-1}$.
+
+
+\end{flushleft}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer le noyau $\ker\left( f\right) $ et l'image
+$\text{im}\left( f\right) $ de l'endomorphisme $f.$ La matrice $M$
+est-elle inversible ?
+
+\item {}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la matrice $M^{2}$ est une combinaison linéaire de
+$I$
+et de $M$.
+
+\item Déterminer un polyn\^{o}me annulateur non nul de la matrice $M$.
+
+\item Déterminer les valeurs propres et les sous-espaces propres de
+$M$.
+La matrice $M$ est-elle diagonalisable ?
+\end{noliste}
+
+\item \`{A} l'aide des résultats de la question 2.(c), indiquer une
+méthode, sans faire les calculs, qui permettrait d'obtenir pour tout
+$n$
+de $\N$, l'expression de $M^{n}$ en fonction de $n$.
+
+\item On pose : $p = \dfrac{1}{3}\left( f + \text{Id}\right) $ et $q =
+-\dfrac
+{1}{3}\left( f-2\text{Id}\right) $.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $p\circ q$ et $q\circ p$, puis pour tout $n$ de $\N$,
+$p^{n}$ et $q^{n}$.
+
+\item En déduire pour tout $n$ de $\N$, l'expression de $f^{n}$ en
+fonction de $p$ et $q$.
+
+\item Déterminer les deux suites réelles telles que pour tout $n$ de
+$\N$, on ait : $M^{n} = a_{n}I + b_{n}M$.
+
+\item La formule précédente reste-t-elle valable si $n$ appartient
+à $\Z$ ?
+\end{noliste}
+\end{noliste}
+
+\subsection*{PROBL\`{E}ME}
+
+\begin{flushleft}
+Sous réserve d'existence, on note $\E(U)$ et $\V(U)$ respectivement,
+l'espérance mathématique et la variance d'une variable aléatoire
+$U$ définie sur l'espace probabilisé $(\Omega;\mathcal{A};P)$.
+\\
+ Pour $p$ entier supérieur ou égal à 2, on dit que les
+variables aléatoires à densité $U_{1};\ldots;U_{p}$ sont
+indépendantes si pour tout $p$- uplet $\left( u_{1};\ldots;u_{p}\right)
+$ de réels, les événements $\left[ U_{1}\leq u_{1}\right]
+;\ldots;\left[ U_{p}\leq u_{p}\right] $ sont indépendants.
+
+
+\end{flushleft}
+
+\noindent
+
+\begin{flushleft}
+L'objet du problème est l'étude de quelques propriétés d'une
+loi de probabilité utilisée notamment en fiabilité.
+
+
+\end{flushleft}
+
+\noindent
+
+\begin{flushleft}
+Les parties I et II sont largement indépendantes. La partie III est
+indépendante des parties I et II.
+
+
+\end{flushleft}
+
+\subsection*{Partie I. Loi à 1 paramètre.}
+
+On note $\lambda$ un paramètre réel strictement positif. On
+considère la fonction $f_{\lambda}$ de $\R$ dans $\R$
+définie par :
+\[
+f_{\lambda}\left( x\right) = \left\{
+\begin{array}
+[c]{ccc}\dfrac{\lambda}{2\sqrt{x}}e^{-\lambda\sqrt{x}} & \text{si} &
+x>0\\
+ & & \\
+0 & \text{si} & x\leq0
+\end{array}
+\right..
+\]
+
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item {}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la fonction $f_{\lambda}$ est de classe $C^{2}$ sur
+$\R_{+}{*}$.
+
+\item Dresser le tableau de variation de $f_{\lambda}$ sur
+$\R_{+}{\ast}$ et préciser les limites suivantes :\\
+${\dlim{x\rightarrow0^{+}}f_{\lambda}\left( x\right) }$,
+${\dlim{x\rightarrow + \infty}f_{\lambda}\left( x\right) }$.
+
+\item Établir la convexité de la fonction $f_{\lambda}$ sur
+$\R_{+}{*}$.
+
+\item Tracer l'allure de la courbe représentative de $f_{\lambda}$ dans
+le
+plan rapporté à un repère orthogonal.
+\end{noliste}
+
+\item {}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que la fonction $x\mapsto-e^{-\lambda\sqrt{x}}$ est une
+primitive de $f_{\lambda}$ sur $\R_{+}{*}$.
+
+\item ) Établir la convergence de l'intégrale
+${ \dint{0}{+ \infty}f_{\lambda}\left( x\right\dx}$ et
+calculer sa valeur.
+
+\item En déduire que la fonction $f_{\lambda}$ est une densité de
+probabilité sur $\R_{+}{*}$.
+\end{noliste}
+
+\item Soit $X$ une variable aléatoire définie sur un espace
+probabilisé $(\Omega;\mathcal{A};P)$, à valeurs strictement
+positives, ayant $f_{\lambda}$ pour densité. On note $F_{\lambda}$ la
+fonction de répartition de $X$ et on pose : $Y = \lambda\sqrt{X}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer pour tout $x$ réel, $F_{\lambda}\left( x\right) $.
+
+\item Montrer que $Y$ suit la loi exponentielle de paramètre 1.
+
+\item Établir pour tout $r$ de $\N^{*}$, l'existence de $\E\left(
+Y^{r}\right) $.
+
+\item Montrer que pour tout $r$ de $\N^{*}$, on a : $\E\left(
+Y^{r + 1}\right) = \left( r + 1\right) E\left( Y^{r}\right) $.
+
+\item En déduire pour tout $r$ de $\N^{*}$, $\E\left(
+Y^{r}\right) $ et $\E\left( X^{r}\right) $. En particulier, calculer
+$\E(X)$
+et $\V(X)$.
+\end{noliste}
+
+\item Soit $\left( X_{n}\right) _{n\in\N^{\ast}}$ une suite de
+variables aléatoires définies sur $(\Omega;\mathcal{A};P)$,
+indépendantes et de même loi que $X$. \\
+ Soit $\left(
+a_{n}\right) _{n\in\N^{\ast}}$ et $\left( b{}_{n}\right)
+_{n\in\N^{\ast}}$ deux suites de réels strictement positifs
+vérifiant ${\dlim{n\rightarrow + \infty}n^{2}a_{n} = 1}$ et
+${\dlim{n\rightarrow + \infty}n^{2}b_{n} = 0}$. \\
+ On pose
+pour tout $n$ de $\N^{\ast}$, $M_{n} = {\min_{1\leq
+k\leq n}\left( X_{k}\right) }$ et $J_{n} = \dfrac{M_{n}-b_{n}}{a_{n}}$.
+\\
+ On admet que $M_{n}$ et $J_{n}$ sont des variables aléatoires
+à densité définies sur $(\Omega;\mathcal{A};P)$. \\
+ Montrer
+que la suite $\left( J_{n}\right) _{n\in\N^{\ast}}$ converge en loi
+vers une variable aléatoire dont on précisera la loi.
+\end{noliste}
+
+\subsection*{Partie II. Estimation ponctuelle de $\lambda$.}
+
+\begin{flushleft}
+Pour $n$ entier de $\N^{\ast}$, on note $\left( X_{1};\ldots
+;X_{n}\right) $ un $n$-échantillon de variables aléatoires à
+valeurs strictement positives, indépendantes et de même loi que la
+variable aléatoire $X$ définie dans la question 3. On rappelle que
+$Y = \lambda\sqrt{X}$, et on pose pour tout $k$ de $\left[ \!\left[
+1;n\right] \!\right] $, $Y_{k} = \lambda\sqrt{X_{k}}$, $S_{k} = {\Sum{j
+= 1}{k}Y_{j}}$ et $g_{k}$ une densité de $S_{k}$.\\
+\textbf{On admet} que pour tout entier $n$ supérieur ou égal
+à $2$, les variables aléatoires $Y_{1};\ldots;Y_{n}$ sont
+indépendantes et que pour tout $k$ de $\left[ \!\left[ 1;n\right]
+\!\right] $, les variables aléatoires $S_{k}$ et $Y_{k + 1}$ sont
+indépendantes. On admet que si $T$ et $Z$ sont deux variables
+aléatoires à densité indépendantes définies sur le
+même espace probabilisé, de densités respectives $f_{T}$ et
+$f_{Z}$ telles que $f_{T}$ et $f_{Z}$ soit bornée, alors la variable
+aléatoire $T + Z$ admet une densité $f_{T + Z}$ définie pour tout $x$
+réel par
+\[
+f_{T + Z}\left( x\right) = \dint{-\infty}{+ \infty} f_{T}\left(
+y\right)
+f_{Z}\left( x-y\right) dy.
+\]
+
+\end{flushleft}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item[5.]
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En utilisant les propriétés admises, montrer que $g_{2}\left(
+x\right) = \left\{
+\begin{array}
+[c]{ccc}xe^{-x} & \text{si} & x>0\\
+0 & \text{si} & x\leq0
+\end{array}
+\right. $.
+
+\item \`{A} l'aide d'un raisonnement par récurrence, montrer que pour
+tout
+$n$ de $\N^{\ast}$, on a $g_{n}\left( x\right) = \left\{
+\begin{array}
+[c]{ccc}\dfrac{1}{\left( n-1\right) !}x^{n-1}e^{-x} & \text{si} & x>0\\
+0 & \text{si} & x\leq0
+\end{array}
+\right. $.
+
+\item On admet que pour tout $n$ de $\N^{\ast}$, $\dfrac{1}{S_{n}}$
+est une variable aléatoire à densité. Pour quelles valeurs de $n$,
+l'espérance $\E\left( \dfrac{1}{S_{n}}\right) $ et la variance
+$\V\left( \dfrac{1}{S_{n}}\right) $ existent-elles ? Calculer alors
+leurs
+valeurs respectives.
+\end{noliste}
+
+\item[6.] On note $\left( x_{1};\ldots;x_{n}\right) $ un $n$-uplet de
+$\left( \R_{+}{\ast}\right) ^{n}$ constituant une réalisation
+du $n$-échantillon $\left( X_{1};\ldots;X_{n}\right) $.\\
+ On
+suppose que le paramètre $\lambda$ est inconnu. Soit $H$ la fonction de
+$\R_{+}{\ast}$dans $\R$ définie par :
+\[
+H\left( \lambda\right) = \ln\left( {\prod_{k = 1}{n}f_{\lambda}\left(
+x_{k}\right) }\right).
+\]
+\\
+ Montrer que la fonction $H$ admet un maximum atteint en un unique
+point $\lambda_{0}$ dont on donnera la valeur.
+
+\item[7.] On pose pour tout entier $n$ supérieur ou égal à $3$ ou
+$\lambda_{n}{\ast} = \dfrac{n}{{\Sum{k = 1}{n}\sqrt{X_{k}}}}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Que représente $\lambda_{0}$ pour $\lambda_{n}{\ast}$ ?
+
+\item Construire à partir de $\lambda_{n}{\ast}$ un estimateur sans
+biais
+$\hat{\lambda}_{n}$ de $\lambda$ et calculer le risque quadratique
+$\rho\left( \hat{\lambda}_{n}\right) $ de $\hat{\lambda}_{n}$.
+
+\item Calculer ${\dlim{n\rightarrow + \infty}\rho\left(
+\hat{\lambda}_{n}\right) }$. Commenter.
+\end{noliste}
+
+\subsection*{Partie III. Loi à 2 paramètres.}
+
+\item[8.] Soit $\lambda$ et $\alpha$ deux paramètres réels strictement
+positifs et $f_{\left( \lambda;\alpha\right) }$ la fonction définie sur
+$\R$ par
+\[
+f_{\left( \lambda;\alpha\right) }\left( x\right) = \left\{
+\begin{array}
+[c]{ccc}\lambda\alpha x^{\alpha-1}e^{-\lambda x^{\alpha}} & \text{si} &
+x>0\\
+0 & \text{si} & x\leq0
+\end{array}
+\right.
+\]
+
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f_{\left( \lambda;\alpha\right) }$ est une densité
+de
+probabilité sur $\R$. \\
+ Soit $W$ une variable aléatoire
+définie sur un espace probabilisé $(\Omega;\mathcal{A};P)$, à
+valeurs strictement positives, de densité $f_{\left( \lambda
+;\alpha\right) }$. On dit que $W$ suit la loi $\mathcal{WB}\left(
+\lambda;\alpha\right) $.
+
+\item On note $F_{\left( \lambda;\alpha\right) }$ la fonction de
+répartition de $W$. Calculer pour tout $x$ réel, $F_{\left(
+\lambda;\alpha\right) }\left( x\right) $.
+
+\item Montrer que la variable aléatoire $F_{\left(
+\lambda;\alpha\right)
+}\left( W\right) $ suit la loi uniforme sur $[0;1]$.
+
+\item Écrire nne fonction \Scilab{} d'en-tête function
+\texttt{W(lambda,alpha :real) :real;} permettant de simuler $W$.
+\end{noliste}
+
+\item[9.] Soit $K$ une variable aléatoire à densité définie
+sur un espace probabilisé $(\Omega;\mathcal{A};P)$, à valeurs
+strictement positives, de densité $f_{K}$ nulle sur $\R_{-}$,
+continue sur $\R$, de classe $C^{1}$ sur $\R_{+}{*}$ et
+strictement positive sur $\R_{+}{*}$. On note $F_{K}$ la fonction de
+répartition de $K$. On pose pour tout $X$ réel $R\left( x\right)
+ = -\ln\left( 1-F_{K}\left( x\right) \right) $ et $r\left( x\right)
+ = R^{\prime}\left( x\right) $, où $R^{\prime}$ est la fonction
+dérivée de $R$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item On suppose dans cette question que $K$ suit la loi
+$\mathcal{WB}\left(
+\lambda;2\right) $ avec $\lambda>0$. \\
+Établir les
+propriétés (i) et (ii) suivantes : \\
+(i) la fonction $r$ est
+continue et strictement croissante sur $\R_{+}$, et $r\left(
+0\right) = 0$. \\
+(ii) la variable aléatoire $r(K)$ suit la loi
+$\mathcal{WB}\left( \dfrac{1}{4\lambda};2\right) $.
+
+\item Réciproquement, on suppose dans cette question que les
+propriétés (i) et (ii) sont vérifiées. \\
+ Montrer que
+$K$ suit la loi $\mathcal{WB}\left( \lambda;2\right) $. Conclusion ?
+\end{noliste}
+
+Dans les questions 10 et 11, l'entier $n$ est supérieur ou égal à
+2. On note $w_{1};\ldots;w_{n}$ des réels strictement positifs et non
+tous égaux.
+
+\item[10.] Soit $\varphi$ la fonction de $\R_{+}{\ast}$ dans
+$\R$ définie par
+\[
+\varphi\left( x\right) = \dfrac{{\Sum{k = 1}{n}\left(
+w_{k}\right) ^{x}\ln\left( w_{k}\right) }}{{\Sum{k = 1}{n}}\left(
+w_{k}\right) ^{x}}-\dfrac{1}{x}.
+\]
+
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $y_{1};\ldots;y_{n}$des réels non tous nuls et
+$z_{1};\ldots;z_{n}$ des réels quelconques. \\
+ En étudiant la fonction
+polynomiale du second degré $Q$ définie sur $\R$ par
+$Q(t) = {\Sum{k = 1}{n}}\left( z_{k}-ty_{k}\right) ^{2}$,
+établir l'inégalité \\
+\[
+\left( {\Sum{k = 1}{n}}y_{k}z_{k}\right) ^{2}\leq{\left( \sum
+_{k = 1}{n}y_{k}{2}\right) {\left( \Sum{k = 1}{n}z_{k}{2}\right) }}.
+\]
+
+
+\item Montrer que la fonction $\varphi$ est strictement croissante sur
+$\R_{+}{*}$.
+
+\item On note $n_{0}$ le nombre d'entiers $k_{0}$ de $\left[ \!\left[
+1;n\right] \!\right] $ vérifiant $w_{k_{0}} = { \max
+_{1\leq k\leq n}\left( w_{k}\right) }$. Montrer que $1\leq
+n_{0}\leq n-1$.
+
+\item Donner un équivalent de ${ \Sum{k = 1}{n}}\left(
+w_{k}\right) ^{x}$ en fonction de $n_{0}$ et $w_{k_{0}}$, lorsque $x$
+tend
+vers $ + \infty$.
+
+\item Calculer en fonction de $w_{k_{0}}$, la limite de $\varphi\left(
+x\right) $ lorsque $x$ tend vers $ + \infty$. \\
+(on distinguera les deux
+cas $w_{k_{0}} = 1$ et $w_{k_{0}}\neq1$).
+
+\item En déduire que sur $\R_{+}{*}$ l'équation
+$\varphi\left( x\right) = \dfrac{1}{n}{ \Sum{k = 1}{n}}\ln\left(
+w_{k}\right) $ admet une unique solution.
+\end{noliste}
+
+\item[11.] On note $\left( W_{1};\ldots;W_{n}\right) $ un
+$n$-échantillon de variables aléatoires à valeurs strictement
+positives, indépendantes et de même loi $\mathcal{WB}\left(
+\lambda;\alpha\right) $ définie dans la question 8. dont une
+réalisation est le $n$-uplet $\left( w_{1};\ldots;w_{n}\right) $.\\
+ On suppose que les paramètres $\lambda$ et $\alpha$ sont
+inconnus.\\
+ Soit $G$ la fonction de $\left( \R_{+}{*}\right)
+^{2}$ dans $\R$ définie par $G\left( \lambda;\alpha\right)
+ = \ln\left( { \prod_{k = 1}{n}f_{\left( \lambda;\alpha\right)
+}\left( w_{k}\right) }\right) $.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la fonction $G$ admet un unique point critique
+$\mbox{\ensuremath{\left(\hat{\lambda};\hat{\alpha}\right)}}$ sur
+$\left(
+\R_{+}{*}\right) ^{2}$.
+
+\item Montrer que la fonction $G$ admet un maximum local au point
+$\mbox{\ensuremath{\left(\hat{\lambda};\hat{\alpha}\right)}}$.
+\end{noliste}
+\end{noliste}
+
+
+\end{document}

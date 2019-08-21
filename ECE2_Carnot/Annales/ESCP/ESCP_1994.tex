@@ -1,0 +1,366 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1994} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{ESCP 1994}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1994}}
+
+
+
+{\large \textbf{Concepteur : ESCP}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{\protect\Large Exercice 1 :}
+
+Pour tout entier naturel $n$, on pose : 
+\[
+u_{n} = \dint\limits_{0}{1}x^{n}e^{1-x}dx
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer $u_{0}$ et $u_{1}.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout entier naturel $n$, $\dfrac{1}{n + 1}\leq
+u_{n}\leq \dfrac{e}{n + 1}.$
+
+\item Calculer la limite de la suite $\left( u_{n}\right)_{n\geq 0}.$
+\end{noliste}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer, pour $n\geq 1,u_{n}$ en fonction de $u_{n-1}$ et de
+$n.$
+
+\item En déduire que, pour tout entier $n\geq 0,u_{n} = n!\left(
+e-\dsum\limits_{k = 0}{n}\dfrac{1}{k!}\right).$
+\end{noliste}
+
+\item Soit $a$ un nombre réel et soit $\left( v_{n}\right)_{n\geq 0}$
+la suite définie par les conditions :
+\[
+v_{0} = a,\text{ et pour tout entier }n\geq 1,\text{ }v_{n} =
+nv_{n-1}-1
+\]
+Montrer que si $a\neq u_{0}$, la suite $\left( v_{n}\right)_{n\geq 0}$
+est divergente.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout entier naturel,
+\[
+u_{n} = \dfrac{1}{n + 1} + \dfrac{1}{\left( n + 1\right) \left( n +
+2\right) } + \dfrac{u_{n + 2}}{\left( n + 1\right) \left( n + 2\right)
+}
+\]
+
+\item En déduire qu'il existe deux constantes $c_{1},c_{2}$, que l'on
+déterminera, telles qu'on ait :
+\[
+u_{n} = \dfrac{c_{1}}{n} + \dfrac{c_{2}}{n^{2}} + o\left(
+\dfrac{1}{n^{2}}\right)
+\]
+lorsque $n$ tend vers l'infini.
+\end{noliste}
+\end{noliste}
+
+\section*{\protect\Large Exercice 2 :}
+
+Soit la matrice à coefficients réels :
+\[
+A = \left( 
+\begin{array}{rrr}
+-1 & -1 & -1 \\
+-1 & 1 & -1 \\
+-1 & -1 & 3
+\end{array}
+\right) 
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $\lambda $ est valeur propre de $A$ si et seulement
+si : $\lambda ^{3}-3\lambda ^{2}-4\lambda + 8 = 0.$
+
+\item En déduire que $A$ admet trois valeurs propres
+$\lambda_{1},\lambda
+_{2},\lambda_{3}$ qui vérifient :
+\[
+\lambda_{1}<1<\lambda_{2}<2<\lambda_{3}.
+\]
+
+\item On considère l'application $f$ de $\R$ dans $\R$ définie par :
+\[
+f\left( \lambda \right) = \dfrac{1}{6}\left( \lambda ^{3}-3\lambda
+^{2} + 2\lambda + 8\right)
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $f\left( \lambda_{2}\right) = \lambda_{2}.$
+
+\item Montrer que le segment $\left[ 1,2\right] $ est stable par $f$
+(c'est-à-dire que $f\left( \left[ 1,2\right] \right) \subset \left[
+1,2\right] $).
+
+\item Montrer que, pour tout $\lambda $ de $\left[ 1,2\right],\left|
+f\left( \lambda \right) -f\left( \lambda_{2}\right) \right| \leq 
+\dfrac{1}{3}\left| \lambda -\lambda_{2}\right|.$
+\end{noliste}
+
+\item Soit $x_{0} = 1$ et pour tout entier $n\geq 1,x_{n} = f\left(
+x_{n-1}\right).$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la suite $\left( x_{n}\right)_{n\geq 0}$ converge
+vers $\lambda_{2}.$
+
+\item Donner une valeur fractionnaire simple de $x_{1}.$
+\end{noliste}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En utilisant la factorisation :
+\[
+\lambda ^{3}-3\lambda ^{2}-4\lambda + 8 = \left( \lambda
+-\lambda_{1}\right)
+\left( \lambda -\lambda_{2}\right) \left( \lambda -\lambda_{3}\right)
+\]
+calculer $\lambda_{1} + \lambda_{3}$ et $\lambda_{1}\lambda_{3}$ en
+fonction de $\lambda_{2}.$
+
+\item On prend $x_{1}$ comme valeur approchée de $\lambda_{2}$ :\\
+en déduire des valeurs approchées de $\lambda_{1}$ et $\lambda_{3}. $
+\end{noliste}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que la matrice $A$ est diagonalisable.
+
+\item Montrer que l'on peut trouver dans $\R^{3}$ une base $\left(
+V_{1},V_{2},V_{3}\right) $ de vecteurs propres de $A$ de la forme :
+\[
+V_{1} = \left( p\left( \lambda_{1}\right),\lambda_{1},q\left( \lambda
+_{1}\right) \right),V_{2} = \left( p\left( \lambda_{2}\right),\lambda
+_{2},q\left( \lambda_{2}\right) \right),V_{3} = \left( p\left( \lambda
+_{3}\right),\lambda_{3},q\left( \lambda_{3}\right) \right),
+\]
+où $p$ et $q$ sont des polynômes qu'on déterminera.
+\end{noliste}
+\end{noliste}
+
+\section*{\protect\Large Exercice 3 :}
+
+On dispose d'un paquet de $m$ cartes, $m$ étant un entier supérieur ou
+égal à
+2. \\
+Ces cartes sont numérotées de $1$ à $m.$\\
+Un joueur $A$ propose à un joueur $B$ le jeu suivant, moyennant une
+mise de
+1 franc que lui verse $B$ à chaque partie :\\
+$B$ tire une carte au hasard, montre le nombre $\beta $ qu'elle porte
+et
+remet la carte dans le paquet. \\
+Puis $A$ tire une carte au hasard; quand celle-ci porte le nombre
+$\alpha $ :
+
+$\bullet $ Si $\alpha <\beta $, alors $A$ donne à $B$ la somme $\left(
+\beta
+-\alpha \right) $ francs : $B$ a donc gagné $\left( \beta -\alpha
+-1\right) $
+francs.
+
+$\bullet $ Si $\alpha >\beta $, alors $B$ donne à $A$ la somme de 1
+franc : $B$ a donc perdu 2 francs.
+
+$\bullet $ Si $\alpha = \beta $, alors $B$ a simplement perdu 1 franc,
+le
+montant de la mise.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On suppose dans cette question que $m = 6.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Dresser le tableau à double entrée donnant les gains (positifs ou
+négatifs) de $B$ suivant les différentes valeurs du couple $\left(
+\alpha,\beta \right).$
+
+\item Soit $X$ la variable aléatoire représentant les gains de $B.$
+Donner
+la loi de probabilité de $X.$
+
+\item Calculer l'espérance de $X$. Le jeu est-il équilibré ou
+avantage-t-il
+l'un des joueurs ?Calculer la variance de $X.$
+\end{noliste}
+
+\item On revient au cas général : $m\geq 2.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir, en préliminaire, les formules suivantes, pour tout
+entier $N\geq 1$ :
+\[
+\dsum\limits_{k = 1}{n}k^{2} = \dfrac{N\left( N + 1\right) \left( 2N +
+1\right) }{6},\dsum\limits_{k = 1}{n}k^{3} = \dfrac{N^{2}\left( N +
+1\right) ^{2}}{4}
+\]
+
+\item Calculer, en fonction de $m,$ l'espérance $\E\left( X\right) $ de
+la
+variable aléatoire $X.$
+
+\item Pour quelles valeurs de $m$ l'espérance est-elle positive ?
+
+\item Calculer, en fonction de $m$, la variance de $X.$
+\end{noliste}
+
+\item On observe $n$ parties successives et on note $Y_{n}\left(
+m\right) $
+le nombre de parties où le gain de $B$ est strictement positif.\\
+Donner la loi de probabilité de la variable aléatoire $Y_{n}\left(
+m\right) $, son espérance et sa variance en fonction de $n$ et de $m.$
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

@@ -1,0 +1,3397 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../macros_Livre.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+% \widowpenalty=10000
+% \clubpenalty=10000
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} ESSEC I 2018} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+\noindent
+Dans tous le sujet :
+\begin{noliste}{$\sbullet$}
+\item on désigne par $n$ un entier naturel, au moins égal à $2$,
+  
+\item $X$ est une \var à valeurs dans un intervalle $]0,\alpha[$, où
+  $\alpha$ est un réel strictement positif. On suppose que $X$ admet
+  une densité $f$ strictement positive et continue sur $]0,\alpha[$,
+  et nulle en dehors de $]0,\alpha[$.
+  
+\item on note $F$ la fonction de répartition de $X$.
+  
+\item $X_1$, $\ldots$, $X_n$ est une famille de \var mutuellement
+  indépendantes et de même loi que $X$.
+\end{noliste}
+On admet que toutes les variables aléatoires considérées sont définies
+sur le même espace probabilisé $(\Omega, \A, \Prob)$.
+
+
+\section{Lois des deux plus grands}
+
+\noindent
+Les notations et résultats de cette partie seront utilisés dans le reste
+du sujet.\\
+On définit deux variables aléatoires $Y_n$ et $Z_n$ de la façon 
+suivante.\\
+Pour tout $\omega \in \Omega$ :
+\begin{noliste}{$\sbullet$}
+  \item $Y_n(\omega) = \max(X_1(\omega), \ldots, X_n(\omega))$ est le 
+  plus grand des réels $X_1(\omega)$, $\ldots$, $X_n(\omega)$ ;\\
+  on remarque que $Y_n$ est définie également lorsque $n$ vaut $1$, de 
+  sorte que dans la suite du sujet on pourra considérer $Y_{n-1}$.
+  
+  \item $Z_n(\omega)$ est le \og deuxième plus grand \fg{} des nombres 
+  $X_1(\omega)$, $\ldots$, $X_n(\omega)$, autrement dit, une fois que 
+  ces $n$ réels sont ordonnés dans l'ordre croissant, $Z_n$ est 
+  l'avant-dernière valeur. On note que lorsque la plus grande valeur 
+  est présente plusieurs fois, $Z_n(\omega)$ et $Y_n(\omega)$ sont 
+  égaux.
+\end{noliste}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \item Loi de $Y_n$.\\
+  Soit $G_n$ la fonction de répartition de $Y_n$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que pour tout réel $x$ : $G_n(x)=F(x)^n$.
+    
+    \begin{proof}~\\
+      Soit $x \in \R$.
+      \begin{noliste}{$\sbullet$}
+	\item Tout d'abord :
+	\[
+	  \Ev{Y_n \leq x} \ = \ \Ev{X_1 \leq x} \cap \cdots \cap 
+	  \Ev{X_n \leq x} \ = \ \dcap{i=1}{n} \Ev{X_i \leq x}
+	\]
+	
+	\item On en déduit :
+	\[
+	  \begin{array}{rcl@{\qquad}>{\it}R{4cm}}
+	    G_n(x) & = & \Prob(\Ev{Y_n \leq x}) \ = \ \Prob\left(
+	    \dcap{i=1}{n} \Ev{X_i \leq x}\right)
+	    \\[.4cm]
+	    & = & \Prod{i=1}{n} \Prob(\Ev{X_i \leq x})
+	    & (car $X_1$, $\ldots$, $X_n$ sont indépendantes)
+	    \nl
+	    \nl[-.2cm]
+	    & = & \Prod{i=1}{n} F(x)
+	    & (car les \var $X_1$, $\ldots$, $X_n$ ont même loi)
+	    \nl
+	    \nl[-.2cm]
+	    & = & (F(x))^n
+	  \end{array}
+	\]
+      \end{noliste}
+      \conc{$\forall x \in \R$, $G_n(x) = (F(x))^n$}~\\[-1cm]
+    \end{proof}
+    
+    
+    \newpage
+
+    
+    \item En déduire que $Y_n$ est une variable aléatoire à densité 
+    et exprimer une densité $g_n$ de $Y_n$ en fonction de $f$, $F$
+    et $n$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item La fonction $F$ est la fonction de répartition de la \var 
+	$X$ qui est {\bf à densité}, donc $F$ est :
+	\begin{noliste}{$\stimes$}
+	  \item continue sur $\R$,
+	  \item de classe $\Cont{1}$ sur $\R$, sauf éventuellement en 
+	  $0$ et $\alpha$.
+	\end{noliste}
+	
+	\item La fonction $G_n$ est donc continue sur $\R$ car elle est 
+	la composée $h \circ F$ où :
+	\begin{noliste}{$\stimes$}
+	  \item $F$ est : 
+	\end{noliste}
+	  \begin{liste}{$-$}
+	    \item continue sur $\R$,
+	    \item telle que $F(\R) \subset [0,1]$ (car $F$ est une 
+	    fonction de répartition)
+	  \end{liste}
+	\begin{noliste}{$\stimes$}
+	  \item $h:x \mapsto x^n$ est continue sur $[0,1]$.
+	\end{noliste}
+	
+	\item De même $G_n$ est de classe $\Cont{1}$ sur $\R$ 
+	sauf éventuellement en $0$ et $\alpha$.\\
+	Finalement, la fonction $G_n$ est :
+	\begin{noliste}{$\stimes$}
+	  \item continue sur $\R$,
+	  \item de classe $\Cont{1}$ sur $\R$ sauf éventuellement en 
+	  $0$ et $\alpha$.
+	\end{noliste}
+	\conc{Ainsi, $Y_n$ est une \var à densité.}
+	
+	\item On obtient une densité $g_n$ de $Y_n$ en dérivant la 
+	fonction $G_n$ sur les intervalles ouverts.
+	\begin{noliste}{$\stimes$}
+	  \item Soit $x \in \ ]-\infty, 0[$.
+	  \[
+	    g_n(x) \ = \ G_n'(x) \ = \ n \, f(x) \, (F(x))^{n-1}
+	    \ = \ 0
+	  \]
+	  En effet, la fonction $f$ est nulle sur $]-\infty, 0[$.
+	  
+	  \item Soit $x \in \ ]0, \alpha[$.
+	  \[
+	    g_n(x) \ = \ G_n'(x) \ = \ n \, f(x) \, (F(x))^{n-1}
+	  \]
+	  
+	  \item Soit $x \in \ ] \alpha, + \infty[$.
+	  \[
+	    g_n(x) \ = \ G_n'(x) \ = \ n \, f(x) \, (F(x))^{n-1}
+	    \ = \ 0
+	  \]
+	  En effet, la fonction $f$ est nulle sur $]\alpha, +\infty[$.
+	  
+	  \item On choisit : $g_n(0)=0$ et $g_n(\alpha)=0$.
+	\end{noliste}
+	
+	\conc{Une densité de $Y_n$ est donc $g_n : x \mapsto \left\{
+	\begin{array}{cR{2cm}}
+	  n \, f(x) \, (F(x))^{n-1} & si $x \in \ ]0,\alpha[$
+	  \nl
+	  0 & sinon
+	\end{array}
+	\right.$}
+      \end{noliste}
+      
+      \begin{remark}
+        Comme la fonction $f$ est nulle en dehors de $]0,\alpha[$,
+        on peut généraliser la formule précédente de la façon 
+        suivante :~\\[-.4cm]
+        \[
+          \forall x \in \R, \ g_n(x) \ = \ n \, f(x) \, (F(x))^{n-1}
+        \]
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+
+    
+    \item Montrer que $Y_n$ admet une espérance.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item La \var $Y_n$ admet une espérance si et seulement si 
+	l'intégrale impropre $\dint{-\infty}{+\infty} t \, g_n(t) \dt$
+	est absolument convergente, ce qui équivaut à démontrer la 
+	convergence pour un calcul de moment du type $\dint{-\infty}
+	{+\infty} t^k g_n(t) \dt$.
+	
+	\item La fonction $g_n$ est nulle en dehors de $]0,\alpha[$,
+	donc :
+	\[
+	  \dint{-\infty}{+\infty} t \, g_n(t) \dt \ = \ 
+	  \dint{0}{\alpha} t \, g_n(t) \dt
+	\]
+	
+	
+	\newpage
+	
+	
+	\item Soit $t \in \ ]0, \alpha[$.\\
+	Comme la fonction $F$ est une fonction de répartition : 
+	$0 \leq F(t) \leq 1$. D'où : $0 \leq (F(t))^{n-1} \leq 1$.
+	Ainsi :
+	\[
+	  \begin{array}{cl}
+	    & 0 \leq t \leq \alpha
+	    \\[.4cm]
+	    \text{donc} & 0 \leq n \, t \, f(t) \, (F(t))^{n-1} \leq
+	    n \, \alpha \, f(t) \, (F(t))^{n-1}
+	    \\[.4cm]
+	    \text{d'où} & 0 \leq n \, t \, f(t) \, (F(t))^{n-1} \leq
+	    n \, \alpha \, f(t)
+	    \\[.4cm]
+	    \text{ainsi} & 0 \leq t \, g_{n-1}(t) \leq n \, \alpha \,
+	    f(t)
+	  \end{array}
+	\]
+	Finalement :
+	\begin{noliste}{$\stimes$}
+	  \item $\forall t \in \ ]0,\alpha[$, $0 \leq t \, g_{n-1}(t)
+	  \leq n \, \alpha \, f(t)$
+	  \item l'intégrale $\dint{0}{\alpha} f(t) \dt$ converge 
+	  car la fonction $f$ est une densité de $X$.
+	\end{noliste}
+	Par critère de comparaison des intégrales généralisées de 
+	fonctions continues positives, l'intégrale impropre 
+	$\dint{0}{\alpha} t \, g_{n-1}(t) \dt$ converge.
+      \end{noliste}
+      \conc{Donc la \var $Y_n$ admet une espérance.}~\\[-1.2cm]
+      
+      \begin{remarkL}{.96}
+        On peut démontrer de la même manière que toute \var $X$ bornée
+        (à valeurs dans un intervalle $]a,b[$ par exemple)
+        à densité admet une espérance. Démontrons le.\\[.1cm]
+        On note $f$ une densité de $X$. 
+        \begin{noliste}{$\sbullet$}
+          \item La \var $X$ admet une espérance si et seulement si 
+          l'intégrale impropre $\dint{-\infty}{+\infty} t \, f(t) \dt$
+          est absolument convergente.
+          
+          \item La fonction $f$ est nulle en dehors de $]a,b[$ car 
+          $X$ est à valeurs dans $]a,b[$, donc :
+          \[
+            \dint{-\infty}{+\infty} \vert t \, f(t) \vert \dt \ = \
+            \dint{a}{b} \vert t \, f(t) \vert \dt
+          \]
+          
+          \item Soit $t \in \ ]a, b[$.
+	  \[
+	    \begin{array}{cl@{\qquad}>{\it}R{4cm}}
+	      & a \leq t \leq b
+	      \\[.4cm]
+	      \text{donc} & a \, f(t) \leq t \, f(t) \leq b \, f(t)
+	      & (car $f(t) \geq 0$ puisque $f$ est une densité)
+	      \nl
+	      \nl[-.2cm]
+	      \text{d'où} & 0 \leq \vert t \, f(t) \vert \leq 
+	      \max(\vert a \vert, \vert b \vert) \, f(t)
+	    \end{array}
+	  \]
+	  Finalement :
+	  \begin{noliste}{$\stimes$}
+	    \item $\forall t \in \ ]a,b[$, $0 \leq \vert t \, f(t) \vert
+	    \leq \max(\vert a \vert, \vert b \vert) \, f(t)$
+	    \item l'intégrale $\dint{a}{b} f(t) \dt$ converge 
+	    car la fonction $f$ est une densité de $X$.
+	  \end{noliste}
+	  Par critère de comparaison des intégrales généralisées de 
+	  fonctions continues positives, l'intégrale impropre
+	  $\dint{a}{b} \vert t \, f(t) \vert \dt$ converge, c'est-à-dire
+	  que l'intégrale $\dint{a}{b} t \, f(t) \dt$ converge 
+	  absolument.
+        \end{noliste}
+	Ainsi, la \var $X$ admet une espérance.
+      \end{remarkL}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+  
+  
+  \newpage
+  
+  
+  \item Loi de $Z_n$.\\
+  Soit $H_n$ la fonction de répartition de $Z_n$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Soit $x$ un réel.
+    \begin{nonoliste}{(i)}
+      \item Soit $\omega \in \Omega$, justifier que $Z_n(\omega) \leq x$
+      si et seulement si dans la liste de $n$ éléments $X_1(\omega)$,
+      $\ldots$, $X_n(\omega)$, au moins $n-1$ sont inférieurs ou égaux
+      à $x$.\\
+      Donner une expression de l'événement $\Ev{Z_n \leq x}$ en 
+      fonction des événements $\Ev{X_k \leq x}$ et $\Ev{X_k >x}$ avec
+      $k \in \{1, \ldots, n \}$.
+      
+      \begin{proof}~
+        \begin{noliste}{$\sbullet$}
+	  \item Le réel $Z_n(\omega)$ est le deuxième plus grand 
+	  nombre parmi $X_1(\omega)$, $\ldots$, $X_n(\omega)$. Donc 
+	  $Z_n(\omega) \leq x$ si et seulement si tous les éléments 
+	  $X_1(\omega)$, $\ldots$, $X_n(\omega)$ sont inférieurs à 
+	  $x$, sauf éventuellement un (le plus grand élément parmi
+	  $X_1(\omega)$, $\ldots$, $X_n(\omega)$).
+	  
+	  \conc{Ainsi, $Z_n(\omega) \leq x$ si et seulement si, 
+	  dans la liste de $n$ éléments $X_1(\omega)$, $\ldots$, 
+	  $X_n(\omega)$,\\ 
+	  au moins $(n-1)$ sont inférieurs ou égaux 
+	  à $x$.}
+	  
+	  \item D'après ce qui précède, si $Z_n(\omega) \leq x$, 
+	  $(n+1)$ cas se présentent :
+        \end{noliste}
+        \begin{liste}{$\stimes$}
+          \item soit tous les $X_i(\omega)$ sont inférieurs à $x$, 
+          c'est-à-dire l'événement $\dcap{i=1}{n} \Ev{X_i \leq x}$
+          est réalisé.
+          
+          \item soit $X_1(\omega)$ est strictement 
+          supérieur à $x$, et les autres sont inférieurs à $x$, 
+          c'est-à-dire l'événement $\Ev{X_1 >x} \cap \left(
+          \dcap{i=2}{n} \Ev{X_i \leq x}\right)$ est réalisé.
+          
+          \item soit $X_2(\omega)$ est strictement 
+          supérieur à $x$, et les autres sont inférieurs à $x$, 
+          c'est-à-dire l'événement $\Ev{X_2 >x} \cap \Big(
+          \dcap{\tiny
+          \begin{array}{c}
+            i=1\\
+            i \neq 2
+          \end{array}
+          }{n} \Ev{X_i \leq x}\Big)$ est réalisé.
+          
+          \item $\cdots$
+          
+          \item soit $X_n(\omega)$ est strictement 
+          supérieur à $x$, et les autres sont inférieurs à $x$, 
+          c'est-à-dire l'événement $\Ev{X_n >x} \cap \left(
+          \dcap{i=1}{n-1} \Ev{X_i \leq x}\right)$ est réalisé.
+        \end{liste}
+        
+        \conc{On obtient alors :\\
+        $\begin{array}{rcl}
+        \Ev{Z_n \leq x} & = & 
+        \left(\dcap{i=1}{n} \Ev{X_i \leq x}
+        \right) \, \cup \, \Big( \Ev{X_1 >x} \, \cap \,
+        \Big(\dcap{i=2}{n} \Ev{X_i \leq x}\Big) \Big)
+        \\[.4cm]
+        & & \qquad \qquad \qquad \quad \, \cup \, \Big( \Ev{X_2 >x} \, 
+	\cap \,
+        \Big(\dcap{\tiny
+          \begin{array}{c}
+            i=1\\
+            i \neq 2
+          \end{array}
+          }{n} \Ev{X_i \leq x}\Big) \Big)
+        \\[.4cm]
+        & & \qquad \qquad \qquad \quad \, \cup \, \qquad  \cdots
+        \\[.2cm]
+        & & \qquad \qquad \qquad \quad \, \cup \, \Big( \Ev{X_{n+1} >x} 
+	\, \cap \,
+        \Big(\dcap{i=1}{n-1} \Ev{X_i \leq x}\Big) \Big)
+        \\[.6cm]
+        & = & \left(\dcap{i=1}{n} \Ev{X_i \leq x}
+        \right) \, \cup \, \Big( \dcup{k=1}{n} \Ev{X_k >x} \, \cap \,
+        \Big(\dcap{\tiny
+          \begin{array}{c}
+            i=1\\
+            i \neq k
+          \end{array}
+          }{n} \Ev{X_i \leq x}\Big) \Big)
+          \end{array}$}~\\[-1cm]
+      \end{proof}
+      
+      
+      \newpage
+
+      
+      \item Établir : $H_n(x) = n(1-F(x))(F(x))^{n-1} + F(x)^n$.
+      
+      \begin{proof}~
+        \begin{noliste}{$\sbullet$}
+	  \item Les événements $\dcap{i=1}{n} \Ev{X_i \leq x}$, 
+	  $\Ev{X_1 >x} \, \cap \,
+	  \Big(\dcap{i=2}{n} \Ev{X_i \leq x}\Big)$, $\ldots$, 
+	  $\Ev{X_{n+1} >x} \, \cap \,
+	  \Big(\dcap{i=1}{n-1} \Ev{X_i \leq x}\Big)$ sont 
+	  incompatibles. Donc :
+	  \[
+	    \Prob(\Ev{Z_n \leq x}) \ = \ \Prob\Big( \dcap{i=1}{n} 
+	    \Ev{X_i \leq x}\Big) + \Sum{k=1}{n} \Prob\Big(
+	    \Ev{X_k >x} \, \cap \, \big(\dcap{\tiny
+	    \begin{array}{c}
+	      i=1\\
+	      i \neq k
+	    \end{array}
+	    }{n} \Ev{X_i \leq x}\big) \Big)
+	  \]
+	  
+	  \item Soit $k \in \llb 1,n \rrb$. Comme les \var $X_1$, 
+	  $\ldots$, $X_n$ sont indépendantes, on obtient :
+	  \[
+	    \begin{array}{cl@{\qquad}>{\it}R{5cm}}
+	      & \Prob\Big(
+	      \Ev{X_k >x} \, \cap \, \big(\dcap{\tiny
+	      \begin{array}{c}
+		i=1\\
+		i \neq k
+	      \end{array}
+	      }{n} \Ev{X_i \leq x}\big) \Big)
+	      \\[.8cm]
+	      =& \Prob(\Ev{X_k >x}) \times \Prod{\tiny
+	      \begin{array}{c}
+		i=1\\
+		i \neq k
+	      \end{array}
+	      }{n} \Prob(\Ev{X_i \leq x})
+	      \\[.8cm]
+	      =& (1-F(x)) \, \Prod{\tiny
+	      \begin{array}{c}
+		i=1\\
+		i \neq k
+	      \end{array}
+	      }{n} F(x)
+	      & (car $X_1$, $\ldots$, $X_n$ ont même 
+	      fonction de répartition $F$)
+	      \nl
+	      \nl[-.2cm]
+	      =& (1-F(x))(F(x))^{n-1}
+	    \end{array}
+	  \]
+	  
+	  \item De même, par indépendance de $X_1$, $\ldots$, $X_n$ :
+	  \[
+	    \Prob\Big( \dcap{i=1}{n} \Ev{X_i \leq x}\Big) \ = \
+	    \Prod{i=1}{n} \Prob(\Ev{X_i \leq x}) \ = \ 
+	    \Prod{i=1}{n} F(x) \ = \ (F(x))^n
+	  \]
+	  
+	  \item On en déduit :
+	  \[
+	    \begin{array}{rcl}
+	      \Prob(\Ev{Z_n \leq x}) & = & (F(x))^n + 
+	      \Sum{k=1}{n} (1-F(x)) \, (F(x))^{n-1}
+	      \\[.4cm]
+	      & = & (F(x))^n + n \, (1-F(x)) \, (F(x))^{n-1}
+	    \end{array}
+	  \]
+        \end{noliste}
+        \conc{$H_n(x) \ = \ \Prob(\Ev{Z_n \leq x}) \ = \
+        n \, (1-F(x)) \, (F(x))^{n-1} + (F(x))^n$}~\\[-1cm]
+      \end{proof}
+
+    \end{nonoliste}
+    
+    \item Montrer que $Z_n$ est une variable à densité et qu'une 
+    densité de $Z_n$ est donnée par :
+    \[
+      h_n(x) \ = \ n(n-1) \, f(x) \, (1-F(x))(F(x))^{n-2}
+    \]
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item D'après la formule obtenue à la question précédente, 
+	la fonction $H_n$ est :
+	\begin{noliste}{$\stimes$}
+	  \item continue sur $\R$ en tant que composée et somme de 
+	  fonctions continues sur $\R$ (car la fonction $F$ l'est),
+	  
+	  \item de classe $\Cont{1}$ sur $\R$ sauf éventuellement 
+	  en $0$ et $\alpha$ en tant que composée et somme de 
+	  fonctions de classe $\Cont{1}$ sur $\R$ sauf 
+	  en $0$ et $\alpha$ (car la fonction $F$ l'est)
+	\end{noliste}
+	\conc{On en déduit que $Z_n$ est une \var à densité.}
+	
+	
+	\newpage
+	
+	
+	\item Pour déterminer une densité de $Z_n$, on dérive la 
+	fonction $H_n$ sur des intervalles ouverts.
+	\begin{noliste}{$\stimes$}
+	  \item Soit $x\in \ ]0, \alpha[$.
+	  \[
+	    \begin{array}{rcl}
+	      h_n(x) & = & \bcancel{n \, (-f(x)) \, (F(x))^{n-1}} + n \, 
+	      (1-F(x)) \, (n-1)f(x)(F(x))^{n-2} + 
+	      \bcancel{n \, f(x) \, (F(x))^{n-1}}
+	      \\[.2cm]
+	      & = & n(n-1) \, f(x) \, (1-F(x)) \, (F(x))^{n-2}
+	    \end{array}
+	  \]
+	  
+	  \item On raisonne de même sur les intervalles $]-\infty, 0[$ 
+	  et $]\alpha, +\infty[$.
+	  
+	  \item On choisit $h_n(0)=0$ et $h_n(\alpha)=0$.
+	\end{noliste}
+	\conc{Comme $f(0)=f(\alpha)=0$, on obtient bien :\\[.1cm]
+	$h_n : x \mapsto n(n-1) \, f(x) \, (1-F(x)) \, (F(x))^{n-2}$.}
+	~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+  \end{noliste}
+  
+  \item Simulation informatique.\\
+  On suppose que l'on a défini une fonction \Scilab{} d'entête {\tt 
+  function x = simulX(n)} qui retourne une simulation d'un échantillon 
+  de taille $n$ de la loi de $X$ sous la forme d'un vecteur de 
+  longueur $n$. Compléter la fonction qui suit pour qu'elle retourne le 
+  couple $(Y_n(\omega), Z_n(\omega))$ associé à l'échantillon 
+  simulé par l'instruction {\tt X = simulX(n)} :
+  \begin{scilab}
+     & \tcFun{function} [\tcVar{y}, \tcVar{z}] = 
+     DeuxPlusGrands(\tcVar{n}) \nl %
+     & \quad X = simulX(\tcVar{n}) \nl %
+     & \quad \tcIf{if} ... \nl %
+     & \quad \quad \tcVar{y} = X(1) ; \tcVar{z} = X(2) \nl %
+     & \quad \tcIf{else} \nl %
+     & \quad \quad ... \nl %
+     & \quad \tcIf{end} \nl %
+     & \quad \tcFor{for} k = 3:\tcVar{n} \nl %
+     & \quad \quad \tcIf{if} X(k) > y \nl %
+     & \quad \quad \quad \tcVar{z} = ... ; \tcVar{y} = ... \nl %
+     & \quad \quad \tcIf{else} \nl %
+     & \quad \quad \quad \tcIf{if} ... \nl %
+     & \quad \quad \quad \quad \tcVar{z} = ... \nl %
+     & \quad \quad \quad \tcIf{end} \nl %
+     & \quad \quad \tcIf{end} \nl %
+     & \quad \tcFor{end} \nl %
+     & \tcFun{endfunction}
+  \end{scilab}
+  
+  \begin{proof}~
+    \begin{scilabC}{2}
+      & \quad \tcIf{if} X(1) > X(2) \nl %
+      & \quad \quad \tcVar{y} = X(1) ; \tcVar{z} = X(2) \nl %
+      & \quad \tcIf{else} \nl %
+      & \quad \quad \tcVar{y} = X(2) ; \tcVar{z} = X(1) \nl %
+      & \quad \tcIf{end} \nl %
+      & \quad \tcFor{for} k = 3:\tcVar{n} \nl %
+      & \quad \quad \tcIf{if} X(k) > \tcVar{y} \nl %
+      & \quad \quad \quad \tcVar{z} = \tcVar{y} ; \tcVar{y} = X(k) \nl %
+      & \quad \quad \tcIf{else} \nl %
+      & \quad \quad \quad \tcIf{if} X(k) > \tcVar{z} \nl %
+      & \quad \quad \quad \quad \tcVar{z} = X(k) \nl %
+      & \quad \quad \quad \tcIf{end} \nl %
+      & \quad \quad \tcIf{end} \nl %
+      & \quad \tcFor{end}
+    \end{scilabC}
+    
+    
+    \newpage
+    
+    
+    Détaillons l'obtention de ce programme.
+    \begin{noliste}{$\sbullet$}
+      \item Comme précisé par l'énoncé, {\tt X = simulX(n)} est un 
+      vecteur de longueur $n$, contenant $n$ réalisations de la \var 
+      $X$ : $X_1(\omega)$, $\ldots$, $X_n(\omega)$.
+      
+      \item La variable {\tt y} doit contenir le plus grand 
+      élément parmi $X_1(\omega)$, $\ldots$, $X_n(\omega)$. Elle 
+      sera alors la réalisation $Y_n(\omega)$.
+      
+      \item De même, la variable {\tt z} doit contenir le second plus 
+      grand élément parmi $X_1(\omega)$, $\ldots$, $X_n(\omega)$.
+      Elle sera alors la réalisation $Z_n(\omega)$.
+      
+      \item L'idée derrière ce script est de parcourir le vecteur {\tt 
+      X}
+      et de mettre à jour les variables {\tt y} et {\tt z} au fur et 
+      à mesure.
+      \begin{noliste}{$\stimes$}
+	\item On commence donc par comparer {\tt X(1)} et {\tt X(2)}\\
+	La plus grande valeur est alors stockée dans {\tt y} et la 
+	seconde dans {\tt z}. Autrement dit :
+	\begin{noliste}{-}
+	  \item si {\tt X(1)} $>$ {\tt X(2)}, alors {\tt y} $=$ {\tt
+	  X(1)} et {\tt z} $=$ {\tt X(2)}
+	  \begin{scilabC}{2}
+	    & \quad \tcIf{if} X(1) > X(2) \nl %
+	    & \quad \quad \tcVar{y} = X(1) ; \tcVar{z} = X(2)
+	  \end{scilabC}
+	  
+	  \item si {\tt X(1)} $\leq$ {\tt X(2)}, alors {\tt y} $=$ {\tt
+	  X(2)} et {\tt z} $=$ {\tt X(1)}
+	  \begin{scilabC}{4}
+	    & \quad \tcIf{else} \nl %
+	    & \quad \quad \tcVar{y} = X(2) ; \tcVar{z} = X(1)
+	  \end{scilabC}
+	\end{noliste}
+	
+	\item On compare ensuite chaque nouvel élément {\tt X(k)} 
+	du vecteur {\tt X} à {\tt y}.
+	\begin{noliste}{-}
+	  \item Si {\tt X(k)} $>$ {\tt y}, alors :
+	\end{noliste}
+	  \begin{liste}{\tiny$\blacksquare$}
+	    \item {\tt X(k)} est le maximum de {\tt X(1)}, $\ldots$,
+	    {\tt X(k)},
+	    
+	    \item {\tt y} est donc le deuxième plus grand élément 
+	    parmi {\tt X(1)}, $\ldots$, {\tt X(k)} (puisque c'était 
+	    le maximum de {\tt X(1)}, $\ldots$, {\tt X(k-1)})
+	    
+	    \item la variable {\tt z} prend donc la valeur de 
+	    {\tt y}, et la variable {\tt y} celle de {\tt X(k)}.
+	  \end{liste}
+	\begin{noliste}{}
+	  \item On obtient donc :
+	  \begin{scilabC}{8}
+	    & \quad \quad \tcIf{if} X(k) > \tcVar{y} \nl %
+	    & \quad \quad \quad \tcVar{z} = \tcVar{y} ; \tcVar{y} = X(k)
+	  \end{scilabC}
+	  {\it (La mise à jour de la variable {\tt z} avant celle de la 
+	  variable {\tt y} a permis de ne pas écraser le contenu
+	  précédent de {\tt y})}
+	  
+	  \item[-] Si {\tt X(k)} $\leq$ {\tt y}, alors :
+	\end{noliste}
+	\begin{liste}{\tiny$\blacksquare$}
+	  \item {\tt y} est toujours le maximum de {\tt X(1)}, 
+	  $\ldots$, {\tt X(k)}. \\
+	  Il est donc inutile de mettre
+	  cette variable à jour.
+	  
+	  \item on compare alors {\tt X(k)} et {\tt z}.\\
+	  Si {\tt X(k)} $>$ {\tt z}, alors {\tt X(k)} est le 
+	  deuxième plus grand élément parmi {\tt X(1)}, $\ldots$, 
+	  {\tt X(k)}. \\
+	  On met donc à jour la variable {\tt z} :
+	  \begin{scilabC}{10}
+	    & \quad \quad \tcIf{else} \nl %
+	    & \quad \quad \quad \tcIf{if} X(k) > \tcVar{z} \nl %
+	    & \quad \quad \quad \quad \tcVar{z} = X(k)
+	  \end{scilabC}
+	  Sinon, {\tt z} reste la deuxième plus grande valeur de 
+	  {\tt X(1)}, $\ldots$, {\tt X(k)}. \\
+	  On ne la met donc pas à jour.
+	\end{liste}
+	
+	\item En réitérant ce procédé pour toutes les coordonnées de 
+	{\tt X}, on obtient que {\tt (y,z)} est bien une réalisation
+	de $(Y_n,Z_n)$.
+      \end{noliste}
+    \end{noliste}
+    
+    
+    \newpage
+    
+    
+    \begin{remark}
+      \begin{noliste}{$\sbullet$}
+        \item Afin de permettre une bonne compréhension des 
+        mécanismes en jeu, on a détaillé la réponse à cette question.
+        Cependant, écrire correctement la fonction \Scilab{} 
+        démontre la bonne compréhension et permet certainement 
+        d'obtenir tous les points alloués.
+        
+        \item On pourrait avoir envie d'écrire :
+        \begin{scilabC}{8}
+          & \quad \quad \tcIf{if} X(k) > \tcVar{y} \nl %
+	  & \quad \quad \quad \tcVar{y} = X(k) ; \tcVar{z} = \tcVar{y}
+        \end{scilabC}
+        Mais attention : en écrivant cela, on effectue les calculs
+        suivants :
+        \[
+          \begin{array}{lcR{6cm}}
+            {\tt y = X(k)} & \longleftrightarrow & {\tt y} contient 
+            {\tt X(k)}
+            \nl
+            \nl[-.2cm]
+            {\tt z = y} & \longleftrightarrow & {\tt z} contient {\tt 
+	    y} donc {\tt X(k)}\\ {\it (et non la valeur précédente de 
+            {\tt y})}
+          \end{array}
+        \]
+        D'où la mise à jour de {\tt z} avant celle de {\tt y}.
+      \end{noliste}
+    \end{remark}~\\[-1.4cm]
+  \end{proof}
+
+  
+  \item Premier exemple : loi uniforme.\\
+  On suppose dans cette question que $X$ suit la loi uniforme sur 
+  $]0,\alpha[$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Donner une densité de $Y_n$ et une densité de $Z_n$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item Si $X \suit {\cal U}(]0,\alpha[)$, alors :
+	\[
+	  f : x \mapsto \left\{
+	  \begin{array}{cR{3cm}}
+	    \dfrac{1}{\alpha} & si $x\in \ ]0,\alpha[$
+	    \nl
+	    \nl[-.2cm]
+	    0 & sinon
+	  \end{array}
+	  \right.
+	  \quad \text{et} \quad
+	  F : x \mapsto \left\{
+	  \begin{array}{cR{3cm}}
+	    0 & si $x\in \ ]-\infty,0]$
+	    \nl
+	    \nl[-.2cm]
+	    \dfrac{x}{\alpha} & si $x \in \ ]0,\alpha[$
+	    \nl
+	    \nl[-.2cm]
+	    1 & si $x \in [\alpha, + \infty[$
+	  \end{array}
+	  \right.
+	\]
+	
+	\item D'après la question \itbf{1.b)}, une densité de $Y_n$
+	est :
+	\[
+	  g_n : x \mapsto \left\{
+	  \begin{array}{cR{3cm}}
+	    n \, f(x) \, (F(x))^{n-1} & si $x\in \ ]0,\alpha[$
+	    \nl
+	    0 & sinon
+	  \end{array}
+	  \right.
+	\]
+	Soit $x \in \ ]0, \alpha[$.
+	\[
+	  g_n(x) \ = \ n \, f(x) \, (F(x))^{n-1} \ = \
+	  n \times \dfrac{1}{\alpha} \times 
+	  \left(\dfrac{x}{\alpha}\right)^{n-1}
+	  \ = \ \dfrac{n}{\alpha^{n}} \, x^{n-1}
+	\]
+	
+	\conc{Finalement : $g_n : x \mapsto \left\{
+	\begin{array}{cR{3cm}}
+	  \dfrac{n}{\alpha^{n}} \, x^{n-1} & si $x \in \ ]0,\alpha[$
+	  \nl
+	  \nl[-.2cm]
+	  0 & sinon
+	\end{array}
+	\right.$.}
+	
+	\item D'après la question \itbf{2.b)}, une densité de $Z_n$
+	est :
+	\[
+	  h_n : x \mapsto x \mapsto n(n-1) \, f(x) \, (1-F(x)) \,
+	  (F(x))^{n-2}
+	\]
+	\begin{noliste}{$\stimes$}
+	  \item La fonction $f$ est nulle en dehors de $]0,\alpha[$, 
+	  donc :
+	  \[
+	    \forall x \in \ ]-\infty, 0] \cup [\alpha, +\infty[, \
+	    h_n(x)=0
+	  \]
+	  
+	  
+	  \newpage
+	  
+	  
+	  \item Soit $x \in \ ]0,\alpha[$.
+	  \[
+	    \begin{array}{rcl}
+	      h_n(x) & = & n(n-1) \, f(x) \, (1-F(x)) \, (F(x))^{n-2}
+	      \\[.2cm]
+	      & = & n(n-1) \times \dfrac{1}{\alpha} \times \left(1- 
+	      \dfrac{x}{\alpha}
+	      \right) \, \left( \dfrac{x}{\alpha}\right)^{n-2}
+	      \\[.4cm]
+	      & = & \dfrac{n(n-1)}{\alpha^{n-1}} \times 
+	      \dfrac{\alpha - x}{\alpha} \, x^{n-2}
+	      \\[.4cm]
+	      & = & \dfrac{n(n-1)}{\alpha^{n}} \, (\alpha -x) \, 
+	      x^{n-2}
+	    \end{array}
+	  \]
+	\end{noliste}
+	\conc{Finalement : $h_n : x \mapsto \left\{
+	\begin{array}{cR{3cm}}
+	  \dfrac{n(n-1)}{\alpha^{n}} \, (\alpha -x) \, x^{n-2}
+	  & si $x \in \ ]0, \alpha[$
+	  \nl
+	  \nl[-.2cm]
+	  0 & sinon
+	\end{array}
+	\right.$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+
+    
+    \item Calculer l'espérance de $Y_n$ et de $Z_n$.
+  \end{noliste}
+\end{noliste}
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item D'après la question \itbf{1.c)}, la \var $Y_n$ admet une 
+	espérance.\\
+	D'après la question précédente, la fonction $g_n$ est nulle
+	en dehors de $]0,\alpha[$, donc :
+	\[
+	  \begin{array}{rcl}
+	    \E(Y_n) & = & \dint{-\infty}{+\infty} t \, g_n(t) \dt 
+	    \ = \ \dint{0}{\alpha} t \, g_n(t) \dt
+	    \\[.6cm]
+	    & = & \dint{0}{\alpha} t \, \dfrac{n}{\alpha^{n}} \,
+	    t^{n-1} \dt \ = \ \dfrac{n}{\alpha^{n}} \, 
+	    \dint{0}{\alpha} t^n \dt
+	    \\[.6cm]
+	    & = & \dfrac{n}{\alpha^{n}} \, \Prim{\dfrac{t^{n+1}}{n+1}}
+	    {0}{\alpha} \ = \ \dfrac{n}{\alpha^{n}} \times 
+	    \dfrac{\alpha^{n+1}}{n+1}
+	    \\[.6cm]
+	    & = & \dfrac{n}{n+1} \, \alpha
+	  \end{array}
+	\]
+	\conc{$\E(Y_n) \ = \ \dfrac{n}{n+1} \, \alpha$}
+	
+	\item Montrons que la \var $Z_n$ admet une espérance.
+	\begin{noliste}{$-$}
+	  \item La \var $Z_n$ admet une espérance si et seulement si 
+	  l'intégrale impropre $\dint{-\infty}{+\infty} t \, h_n(t) 
+	  \dt$ est absolument convergente, ce qui équivaut à 
+	  démontrer la convergence pour un calcul de moment du type
+	  $\dint{-\infty}{+\infty} t^k \, h_n(t) \dt$.
+	  
+	  \item La fonction $h_n$ est nulle en dehors de $]0,\alpha[$,
+	  donc :
+	  \[
+	    \dint{-\infty}{+\infty} t \, h_n(t) \dt \ = \ 
+	    \dint{0}{\alpha} t \, h_n(t) \dt
+	  \]
+	  \item Or la fonction $t \mapsto t \, h_n(t)$ est continue
+	  par morceaux sur $[0, \alpha]$
+	  en tant que produit de fonctions continues par 
+	  morceaux sur $[0,\alpha]$.\\[.1cm]
+	  On en déduit que l'intégrale $\dint{0}{\alpha} t \, h_n(t) 
+	  \dt$ est bien définie.
+	  \conc{Donc la \var $Z_n$ admet une espérance.}
+	\end{noliste}
+	
+	
+	\newpage
+	
+	
+	\item Calculons $\E(Z_n)$.
+	\[
+	  \begin{array}{rcl}
+	    \E(Z_n) & = & \dint{0}{\alpha} t \, h_n(t) \dt \ = \
+	    \dint{0}{\alpha} t \, \dfrac{n(n-1)}{\alpha^{n}} \,
+	    (\alpha -t) \, t^{n-2} \dt
+	    \\[.6cm]
+	    & = & \dfrac{n(n-1)}{\alpha^{n}} \, \dint{0}{\alpha}
+	    (\alpha -t) \, t^{n-1} \dt
+	    \\[.6cm]
+	    & = & \dfrac{n(n-1)}{\alpha^n} \left(\alpha \, 
+	    \dint{0}{\alpha} t^{n-1} \dt - \dint{0}{\alpha} t^n \dt
+	    \right)
+	    \\[.6cm]
+	    & = & \dfrac{n(n-1)}{\alpha^n} \left(\alpha 
+	    \Prim{\dfrac{t^n}{n}}{0}{\alpha} - \Prim{\dfrac{t^{n+1}}
+	    {n+1}}{0}{\alpha} \right)
+	    \\[.6cm]
+	    & = & \dfrac{n(n-1)}{\alpha^n} \left( \alpha \, 
+	    \dfrac{\alpha^n}{n} - \dfrac{\alpha^{n+1}}{n+1} \right)
+	    \ = \ \dfrac{n(n-1)\alpha^{\bcancel{n}+1}}
+	    {\bcancel{\alpha^n}}\left(\dfrac{1}{n} - \dfrac{1}{n+1}
+	    \right)
+	    \\[.6cm]
+	    & = & \bcancel{n}(n-1) \alpha \, \dfrac{\xcancel{n} +1
+	    -\xcancel{n}}{\bcancel{n}(n+1)}
+	    \ = \ \dfrac{n-1}{n+1} \, \alpha
+	  \end{array}
+	\]
+	\conc{$\E(Z_n) = \dfrac{n-1}{n+1} \, \alpha$}
+      \end{noliste}
+      
+      \begin{remarkL}{.97}%~\\
+      \begin{noliste}{-}
+        \item La continuité par morceaux de la fonction $t \mapsto 
+        t \, h_n(t)$ sur $[0,\alpha]$ suffit à conclure quant à la 
+	convergence de l'intégrale impropre $\dint{0}{\alpha}
+	t \, h_n(t) \dt$.\\
+	Cependant, on peut même démontrer que la 
+	fonction $t \mapsto t \, h_n(t)$ est continue sur le segment 
+	$[0,\alpha]$.
+        
+        \item Revenons sur l'hypothèse de continuité par morceaux.\\
+        Considérons la fonction $u : t \mapsto t \, g_n(t)$ par exemple.
+        \begin{noliste}{$\sbullet$}
+        \item Tout d'abord, il faut se rendre compte que la fonction
+          $u : t \mapsto t \, g_n(t)$ {\tt N'EST PAS} continue sur
+          $[0, \alpha]$. En fait, elle n'est pas continue en
+          $\alpha$. Par contre $u$ est continue sur
+          $]-\infty, \alpha[$ et $]\alpha, +\infty[$.
+
+        \item Pour autant, cela ne signifie pas que l'intégrale
+          $\dint{0}{\alpha} u(t) \dt$ est impropre.\\
+          En effet, la fonction $\restriction{u}{[0, \alpha[}$
+          (restriction de $u$ sur l'ensemble $[0, \alpha[$) 
+	  admet une limite finie en $\alpha$ (égale à $\alpha
+            \times \dfrac{n}{\alpha^n} \, 
+             \alpha^{n-1} = n$).\\[.1cm]
+	  Ainsi, $\restriction{u}{[0, \alpha[}$ est prolongeable 
+	  par
+          continuité en une fonction continue sur $[0, \alpha]$ ce qui
+          justifie que l'intégrale $\dint{0}{\alpha} u(t) \dt$ est bien
+          définie. \\
+          Mais c'est la fonction $\restriction{u}{[0, \alpha[}$ qui est
+          prolongée par continuité et en aucun cas $u$ (ce qui
+          n'aurait pas de sens : la fonction $u$ est définie en $0$
+          et en $\alpha$, il n'y a pas lieu de la prolonger en ces
+          points).
+
+        \item La notion de continuité par morceaux décrit 
+	complètement cette situation :
+	\end{noliste}
+          \begin{liste}{$\stimes$}
+          \item $u$ est continue sur les intervalles ouverts
+            $]-\infty, \alpha[$ et $]\alpha, +\infty[$. \\
+	    {\it(ici, elle n'est pas continue en $\alpha$)}
+          \item $u$ admet une limite finie à gauche en ces deux
+            points.
+          \item $u$ admet une limite finie à droite en ces deux
+            points.
+          \end{liste}
+          {\it (la limite à gauche est éventuellement différente de la
+            limite à droite)}\\
+          Ainsi, $u$ est {\bf continue par morceaux} sur $[0,\alpha]$.
+          % \item Cela correspond à la représentation suivante.
+          %   La fonction représentée en rouge est continue par
+          %   morceaux sur $[a, b]$ et son intégrale sur $[a, b]$ est
+          %   représentée par l'aire grisée.
+          % \item De manière non formelle, on pourrait dire que cette
+          %   notion est nécessaire lorsqu'on s'intéresse à
+          %   l'intégrale sur $[a,b]$ d'une fonction qui n'est pas
+          %   continue sur $[a,b]$, sans pour autant que l'intégrale
+          %   soit impropre en $a$ ou en $b$.
+      \end{noliste}
+      \end{remarkL}~\\[-1.4cm]
+%     \begin{center}
+%         %\shorthandoff{;}
+%         \begin{tikzpicture}
+%           [ xscale=2.5, yscale = 1, scale = .5, declare function =
+%           {myfunc(\x) = (\x-3)*(\x-5)^2*(\x-2)+2.3;}, ] %
+%           \draw[-] (2,0) -- (5.7,0); %
+%           \draw[-] (2,7) -- (2,-.8) node[below] {$a_0 = a$}; %
+%           \draw[-] (3.8,0) -- (3.8,-.8) node[below] {$a_1$}; %
+%           \draw[-] (4.5,0) -- (4.5,-.8) node[below] {$a_2$}; %
+%           \draw[-] (5.7,7) -- (5.7,-.8) node[below] {$a_3 = b$}; %
+%           \filldraw[draw=black, fill=gray!20] (2,0) -- (2, 5.2) plot
+%           [domain=2:3.8] (\x, {myfunc(\x)+2.2}) -- (3.8, 0) --
+%           (2,0); %
+%           \filldraw[draw=black, fill=gray!20] (3.8,0) -- (3.8, 3.8)
+%           plot [domain=3.8:4.5] (\x, \x) -- (4.5, 0) -- (3.8,0); %
+%           \filldraw[draw=black, fill=gray!20] (4.5,0) -- (4.5,
+%           {myfunc(4.5)-1.5}) plot [domain=4.5:5.7] (\x,
+%           {myfunc(\x)-1.5}) -- (5.7, 0) -- (4.5,0); %
+%           \draw[very thick, red, domain = 2:3.8, samples = 100] plot
+%           (\x, {myfunc(\x)+2.2}) node[above] {}; %
+%           \draw[very thick, red, domain = 3.8:4.5, samples = 2] plot
+%           (\x, {\x}) node[above] {}; %
+%           \draw[very thick, red, domain = 4.5:5.7, samples = 100] plot
+%           (\x, {myfunc(\x)-1.5}) node[above] {}; %
+%           % -- cycle;
+%         \end{tikzpicture}
+%     \end{center}~\\[-2.2cm]
+    \end{proof}
+  
+  
+  \newpage
+  
+  \begin{noliste}{1.}
+    \setcounter{enumi}{4}
+    \setlength{\itemsep}{4mm}
+  \item Deuxième exemple : loi puissance.\\
+  On suppose dans cette question que la densité $f$ est donnée par :
+  $f(x) = \left\{
+  \begin{array}{cR{2cm}}
+    \lambda \, \dfrac{x^{\lambda -1}}{\alpha^\lambda}
+    & si $x \in \ ]0,\alpha[$ 
+    \nl
+    \nl[-.2cm]
+    0 & sinon
+  \end{array}
+  \right.$
+  où $\lambda$ est une constante strictement positive.\\
+  On dit que $X$ suit la \emph{loi puissance} de paramètres 
+  $\alpha$ et $\lambda$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item 
+    \begin{nonoliste}{(i)}
+      \item Vérifier que $f$ est bien une densité de probabilité.
+      
+      \begin{proof}~
+        \begin{noliste}{$\sbullet$}
+	  \item La fonction $f$ est continue :
+        \end{noliste}
+        \begin{liste}{$\stimes$}
+          \item sur $]-\infty,0[$ et sur $]\alpha, +\infty[$ en 
+          tant que fonction constante,
+          
+          \item sur $]0,\alpha[$ en tant que fonction élévation 
+          à la puissance $\lambda -1$ (multipliée par un scalaire).
+        \end{liste}
+        \conc{Donc $f$ est continue sur $\R$ sauf éventuellement 
+        en $0$ et en $\alpha$.}
+        
+        \begin{noliste}{$\sbullet$}
+	  \item Soit $x \in \ ]-\infty, 0] \cup [\alpha, +\infty[$. 
+	  Alors : $f(x) = 0$, donc $f(x) \geq 0$.\\[.1cm]
+	  Soit $x \in \ ]0,\alpha[$. D'après l'énoncé : $\alpha >0$ 
+	  et $\lambda >0$.\\[.1cm]
+	  De plus : $x>0$. D'où : $f(x) = \lambda \, \dfrac{x^{\lambda
+	  -1}}{\alpha^\lambda} >0$.
+	  \conc{On en déduit : $\forall x \in \R$, $f(x) \geq 0$.}
+	  
+	  \item Montrons que l'intégrale $\dint{-\infty}{+\infty}
+	  f(t) \dt$ converge.
+        \end{noliste}
+        \begin{liste}{$\stimes$}
+          \item La fonction $f$ est nulle en dehors de $]0,\alpha[$,
+          donc : 
+          \[
+            \dint{-\infty}{+\infty} f(t) \dt \ = \ 
+            \dint{0}{\alpha} f(t) \dt
+          \]
+          
+          \item De plus, la fonction $f$ est continue par 
+          morceaux sur $[0,\alpha]$, donc l'intégrale 
+          $\dint{0}{\alpha} f(t) \dt$ est bien définie.
+          D'où l'intégrale $\dint{-\infty}{+\infty} f(t) \dt$ 
+          converge.
+        \end{liste}
+        
+        \begin{noliste}{$\sbullet$}
+	  \item Calculons $\dint{-\infty}{+\infty} f(t) \dt$.
+	  \[
+	   \begin{array}{rcl}
+	    \dint{-\infty}{+\infty} f(t) \dt & = & 
+	    \dint{0}{\alpha} f(t) \dt \ = \
+	    \dint{0}{\alpha} \lambda \, \dfrac{t^{\lambda -1}}
+	    {\alpha^\lambda} \dt \ = \ \dfrac{\lambda}{\alpha^\lambda}
+	    \, \dint{0}{\alpha} t^{\lambda -1} \dt
+	    \\[.6cm]
+	    & = & \dfrac{\lambda}{\alpha^\lambda} \, 
+	    \Prim{\dfrac{t^\lambda}{\lambda}}{0}{\alpha}
+	    \ = \ \bcancel{\dfrac{\lambda}{\alpha^\lambda}} \,
+	    \bcancel{\dfrac{\alpha^\lambda}{\lambda}} \ = \ 1
+	   \end{array}
+	  \]
+	  \conc{On a bien : $\dint{-\infty}{+\infty} f(t) \dt =1$.}
+        \end{noliste}
+        
+        \conc{On en déduit que la fonction $f$ est une densité de 
+        probabilité.}~\\[-1cm]
+      \end{proof}
+      
+      
+      \newpage
+
+      
+      \item Déterminer la fonction de répartition $F$ de $X$.
+      
+      \begin{proof}~\\
+        Soit $x \in \R$. Trois cas se présentent.
+        \begin{noliste}{$\sbullet$}
+	  \item \dashuline{Si $x \in \ ]-\infty,0]$}.
+	  \[
+	    F(x) \ = \ \dint{-\infty}{x} f(t) \dt \ = \ 0
+	  \]
+	  
+	  \item \dashuline{Si $x \in \ ] 0, \alpha[$}.
+	  \[
+	    F(x) \ = \ \dint{-\infty}{x} f(t) \dt \ = \ 
+	    \dint{0}{x} f(t) \dt \ = \ \dfrac{\lambda}{\alpha^\lambda}
+	    \, \dint{0}{x} t^{\lambda -1} \dt \ = \ 
+	    \dfrac{\lambda}{\alpha^\lambda} \, \Prim{\dfrac{
+	    t^\lambda}{\lambda}}{0}{x} \ = \ 
+	    \dfrac{\bcancel{\lambda}}{\alpha^\lambda} \, 
+	    \dfrac{x^\lambda}{\bcancel{\lambda}} \ = \
+	    \dfrac{x^\lambda}{\alpha^\lambda}
+	  \]
+	  
+	  \item \dashuline{Si $x \in \ [\alpha, +\infty[$}.
+	  \[
+	    F(x) \ = \ \dint{-\infty}{x} f(t) \dt \ = \
+	    \dint{0}{\alpha} f(t) \dt \ = \ 1
+	  \]
+        \end{noliste}
+        \conc{Finalement : $F: x \mapsto \left\{
+        \begin{array}{cR{3cm}}
+          0 & si $x \in \ ]-\infty, 0]$
+          \nl
+          \nl[-.2cm]
+          \dfrac{x^\lambda}{\alpha^\lambda} & si $x \in \ ]0, \alpha[$
+          \nl
+          \nl[-.2cm]
+          1 & si $x \in [\alpha, +\infty[$
+        \end{array}
+        \right.$}~\\[-1cm]
+      \end{proof}
+
+      
+      \item Calculer l'espérance de $X$.
+      
+      \begin{proof}~
+        \begin{noliste}{$\sbullet$}
+	  \item La \var $X$ admet une espérance si et seulement si 
+	  l'intégrale impropre $\dint{-\infty}{+\infty} t \, f(t) \dt$
+	  est absolument convergente, ce qui équivaut à 
+	  démontrer la convergence pour un calcul de moment du 
+	  type $\dint{-\infty}{+\infty} t^n \, f(t) \dt$.
+	  
+	  \item La fonction $t \mapsto t \, f(t)$ est nulle en dehors
+	  de $]0,\alpha[$, donc :
+	  \[
+	    \dint{-\infty}{+\infty} t \, f(t) \dt \ = \
+	    \dint{0}{\alpha} t \, f(t) \dt
+	  \]
+	  
+	  \item De plus, la fonction $t \mapsto t \, f(t)$ est continue 
+	  par 
+	  morceaux sur $[0,\alpha]$ en tant que produit de fonctions
+	  continues par morceaux sur $[0,\alpha]$. Donc l'intégrale 
+	  $\dint{0}{\alpha} t \, f(t) \dt$ est bien définie.
+	  \conc{Donc la \var $X$ admet une espérance.}
+	  
+	  \item Calculons $\E(X)$.
+	  \[
+	    \begin{array}{rcl}
+	      \E(X) & = & \dint{-\infty}{+\infty} t \, f(t) \dt
+	      \ = \ \dint{0}{\alpha} t \, f(t) \dt
+	      \\[.6cm]
+	      & = & \dint{0}{\alpha} t \, \lambda \, \dfrac{t^{\lambda 
+	      -1}}{\lambda} \dt \ = \ \dfrac{\lambda}{\alpha^\lambda}
+	      \, \dint{0}{\alpha} t^\lambda \dt
+	      \\[.6cm]
+	      & = & \dfrac{\lambda}{\alpha^\lambda} \, 
+	      \Prim{\dfrac{t^{\lambda +1}}{\lambda +1}}{0}{\alpha}
+	      \ = \ \dfrac{\lambda}{\bcancel{\alpha^\lambda}}
+	      \, \dfrac{\alpha^{\bcancel{\lambda}+1}}{\lambda +1}
+	      \\[.6cm]
+	      & = & \dfrac{\lambda}{\lambda +1} \, \alpha
+	    \end{array}
+	  \]
+	  \conc{$\E(X) = \dfrac{\lambda}{\lambda +1} \, 
+	  \alpha$}~\\[-1.4cm]
+        \end{noliste}
+      \end{proof}
+    \end{nonoliste}
+    
+    
+    \newpage
+    
+    
+    \item 
+    \begin{nonoliste}{(i)}
+      \item Montrer que $Y_n$ suit une loi puissance de paramètres 
+      à préciser en fonction de $n$, $\lambda$ et $\alpha$.
+      
+      \begin{proof}~
+        \begin{noliste}{$\sbullet$}
+	  \item D'après la question \itbf{1.b)}, la fonction de 
+	  répartition de $Y_n$ est : $G_n : x \mapsto 
+	  (F(x))^n$.
+	\end{noliste}
+	  \begin{liste}{$\stimes$}
+	    \item \dashuline{Soit $x \in \ ]-\infty, 0]$}. D'après 
+	    la question \itbf{5.a)(ii)} : $F(x)=0$.\\[.1cm]
+	    Donc : $G_n(x) = 0^n = 0$.
+	    
+	    \item \dashuline{Soit $x \in \ ]0, \alpha[$}.
+	    \[
+	      \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+		G_n(x) & = & (F(x))^{n} \ = \ 
+		\left( \dfrac{x^\lambda}{\alpha^\lambda} \right)^n
+		& (d'après la question \itbf{5.a)(i)})
+		\nl
+		\nl[-.2cm]
+		& = & \dfrac{x^{n \lambda}}{\alpha^{n \lambda}}
+	      \end{array}
+	    \]
+	    
+	    \item \dashuline{Soit $x \in [\alpha, +\infty[$}. D'après
+	    la question \itbf{5.a)(ii)} : $F(x)=1$.\\[.1cm]
+	    Donc : $G_n(x)=1^n=1$.
+	  \end{liste}
+	\begin{noliste}{}
+	  \item Finalement : $G_n : x \mapsto \left\{
+	  \begin{array}{cR{3cm}}
+	    0 & si $x \in \ ]- \infty, 0]$
+	    \nl
+	    \nl[-.2cm]
+	    \dfrac{x^{n \lambda}}{\alpha^{n 
+	    \lambda}} & si $x \in \ ]0, \alpha[$
+	    \nl
+	    \nl[-.2cm]
+	    1 & si $x \in [\alpha, + \infty[$
+	  \end{array}
+	  \right.$
+	  
+	  \item[$\sbullet$] On reconnaît la fonction de répartition
+	  de la loi puissance de 
+	  paramètres $n \lambda$ et $\alpha$.\\
+	  Or la fonction de répartition caractérise la loi.
+	  \conc{Donc $Y_n$ suit la loi puissance de paramètres 
+	  $n \lambda$ et $\alpha$.}~\\[-1.4cm]
+        \end{noliste}
+      \end{proof}
+      
+      \item En déduire l'espérance de $Y_n$.
+      
+      \begin{proof}~\\
+        Comme $Y_n$ suit une loi puissance,
+        on utilise la question \itbf{5.a)(iii)} avec 
+        $\lambda' = n \lambda$ et $\alpha'=\alpha$.
+        \conc{On en déduit que $Y_n$ admet une espérance et 
+        $\E(Y_n) \ = \ \dfrac{\lambda'}{\lambda'+1} \, \alpha'
+        \ = \ \dfrac{n \lambda}{n \lambda +1} \, \alpha$.}~\\[-1cm]
+      \end{proof}
+    \end{nonoliste}
+    
+    \item Calculer l'espérance de $Z_n$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item D'après la question \itbf{2.b)}, une densité de $Z_n$
+	est :
+	\[
+	  h_n : x \mapsto n(n-1) \, f(x) \, (1-F(x)) \, (F(x))^{n-2}
+	\]
+	
+	\item Comme la fonction $f$ est nulle en dehors de $]0, 
+	\alpha[$ :
+	\[
+	  \forall x \in \ ]-\infty, 0] \cup [\alpha, +\infty[, \
+	  h_n(x)=0
+	\]
+	
+	
+	\newpage
+	
+	
+	\item Soit $x \in \ ]0, \alpha[$.
+	\[
+	  \begin{array}{rcl}
+	    h_n(x) & = & n(n-1) \, f(x) \, (1-F(x)) \, (F(x))^{n-2}
+	    \\[.2cm]
+	    & = & n(n-1) \, \lambda \, \dfrac{x^{\lambda -1}}{\alpha^
+	    \lambda} \left(1- \dfrac{x^\lambda}{\alpha^\lambda}
+	    \right) \left( \dfrac{x^\lambda}{\alpha^\lambda}
+	    \right)^{n-2}
+	    \\[.6cm]
+	    & = & n(n-1) \, \lambda \, 
+	    \dfrac{x^{\lambda-1}}{\alpha^\lambda}
+	    \, \dfrac{\alpha^\lambda - x^\lambda}{\alpha^\lambda}
+	    \, \dfrac{x^{\lambda(n-2)}}{(\alpha^\lambda)^{n-2}}
+	    \\[.6cm]
+	    & = & n(n-1)\lambda \, (\alpha^\lambda - x^\lambda) \, 
+	    \dfrac{x^{\lambda (n-1)-1}}{(\alpha^\lambda)^n}
+	    \\[.6cm]
+	    & = & n(n-1) \lambda \left( \dfrac{x^{\lambda (n-1)-1}}{
+	    (\alpha^\lambda)^{n-1}} - \dfrac{x^{\lambda \, n-1}}{
+	    (\alpha^\lambda)^n}\right)
+	  \end{array}
+	\]
+	\conc{Finalement : $h_n : x \mapsto 
+	\left\{
+	\begin{array}{cR{3cm}}
+	  n(n-1) \lambda \left( \dfrac{x^{\lambda (n-1)-1}}{
+	    \alpha^{\lambda (n-1)}} - \dfrac{x^{\lambda n-1}}{
+	    \alpha^{\lambda n}}\right)
+	  & si $x \in ]0,\alpha[$
+	  \nl
+	  \nl[-.2cm]
+	  0 & sinon
+	\end{array}
+	\right.$}
+	
+	\item Avec le même raisonnement qu'en question \itbf{4.b)}, 
+	la \var $Z_n$ admet une espérance car la fonction 
+	$t \mapsto t \, h_n(t)$ est continue par morceaux sur 
+	$[0,\alpha]$.\\
+	Comme cette fonction est nulle en dehors de $]0,\alpha[$ : 
+	\[
+	  \E(Z_n) \ = \ \dint{-\infty}{+\infty} t \, h_n(t) \dt \ = \
+	  \dint{0}{\alpha} t \, h_n(t) \dt
+	\]
+	
+	\item Calculons d'abord l'intégrale $\dint{0}{\alpha} t \,
+	\dfrac{t^{\lambda n-1}}{\alpha^{\lambda n}} \dt$.
+	\[
+	  \dint{0}{\alpha} t \, \dfrac{t^{\lambda n-1}}{\alpha^{\lambda 
+	  n}} \dt \ = \ \dfrac{1}{\alpha^{\lambda n}} \, 
+	  \dint{0}{\alpha} t^{\lambda n } \dt \ = \ 
+	  \dfrac{1}{\alpha^{\lambda n}} \, \Prim{ \dfrac{t^{
+	  \lambda n +1}}{\lambda n +1}}{0}{\alpha} \ = \
+	  \dfrac{1}{\bcancel{\alpha^{\lambda n}}} \, 
+	  \dfrac{\alpha^{\bcancel{\lambda n} +1}}{\lambda n +1}
+	  \ = \ \dfrac{\alpha}{\lambda n +1}
+	\]
+	De même : $\dint{0}{\alpha} t \, \dfrac{t^{\lambda (n-1)-1}}
+	{\alpha^{\lambda (n-1)}} \dt \ = \ \dfrac{\alpha}
+	{\lambda (n-1) +1}$.
+	
+	\item On en déduit alors :
+	\[
+	  \begin{array}{rcl@{\qquad}>{\it}R{4cm}}
+	    \E(Z_n) & = & \dint{0}{\alpha} t \, h_n(t) \dt
+	    \ = \ \dint{0}{\alpha} t \, n(n-1) \lambda 
+	    \left( \dfrac{t^{\lambda (n-1)-1}}{
+	    \alpha^{\lambda (n-1)}} - \dfrac{t^{\lambda n-1}}{
+	    \alpha^{\lambda n}}\right) \dt
+	    \\[.6cm]
+	    & = & n(n-1) \lambda \left( \dint{0}{\alpha} t \, 
+	    \dfrac{t^{\lambda (n-1)-1}}{\alpha^{\lambda (n-1)}} \dt
+	    - \dint{0}{\alpha} t \, \dfrac{t^{\lambda n-1}}
+	    {\alpha^{\lambda n}} \dt\right)
+	    & (par linéarité de l'intégration)
+	    \nl
+	    \nl[-.2cm]
+	    & = & n(n-1) \lambda \left( \dfrac{\alpha}{\lambda (n-1)
+	    +1} - \dfrac{\alpha}{\lambda n +1}\right)
+	    \\[.6cm]
+	    & = & n(n-1) \lambda \alpha \, \dfrac{\bcancel{\lambda n} +
+	    \bcancel{1} - \left( \lambda (\bcancel{n}-1) 
+	    + \bcancel{1}\right)}
+	    {(\lambda (n-1) +1)(\lambda n +1)}
+	    \\[.6cm]
+	    & = & \dfrac{n(n-1) \alpha \, \lambda^2}
+	    {(\lambda (n-1) +1)(\lambda n +1)}
+	  \end{array}
+	\]
+	\conc{$\E(Z_n) \ = \ \dfrac{n(n-1) \alpha \, \lambda^2}
+	    {(\lambda (n-1) +1)(\lambda n +1)}$}
+      \end{noliste}
+      
+      
+      \newpage
+      
+      
+      \begin{remark}
+        Dans les questions \itbf{4.b)}, \itbf{5.a)(iii)} et 
+	\itbf{5.c)}, on utilise la
+        continuité par morceaux des fonctions en présence 
+        pour conclure quant à la convergence des intégrales 
+	concernées.\\
+        On aurait pu également utiliser le critère de comparaison 
+        des intégrales généralisées de fonctions continues 
+        positives (comme détaillé en question \itbf{1.c)}).
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+
+
+
+\section{Un problème d'optimisation}
+
+\noindent
+On reprend la notation de la partie précédente : $G_{n-1}$ est la
+fonction de répartition de $Y_{n-1}$, qui est le maximum de $X_1$, 
+$\ldots$, $X_{n-1}$.\\
+On répond dans cette partie au problème d'optimisation suivant : 
+trouver une fonction $\sigma$ définie sur $]0,\alpha[$ vérifiant les 
+trois propriétés :
+\begin{noliste}{$\sbullet$}
+  \item $\sigma$ est une bijection de $]0,\alpha[$ dans un intervalle 
+  $]0,\beta[$, avec $\beta$ un réel strictement positif.
+  \item $\sigma$ est de classe $\Cont{1}$ sur $]0,\alpha[$ et 
+  $\sigma'$ est à valeurs strictement positives sur $]0,\alpha[$.
+  \item on définit, pour tout $x \in \ ]0,\alpha[$ et tout $y \in 
+  \ ]0, \beta[$,
+  \[
+    \gamma(x,y) \ = \ (x-y) \, G_{n-1}(\sigma^{-1}(y))
+  \]
+  Alors pour tout $x \in \ ]0,\alpha[$, $\gamma(x,y)$ atteint son 
+  maximum lorsque $y = \sigma(x)$.
+\end{noliste}
+
+\begin{remark}
+  L'énoncé de cette partie II comporte une confusion entre les 
+  objets \og réel \fg{} et \og fonction \fg{}. En effet, le sujet 
+  énonce \og $\gamma(x,y)$ atteint son maximum lorsque ... \fg{}.
+  Il fallait comprendre \og $y \mapsto \gamma(x,y)$ atteint son 
+  maximum lorsque ... \fg{}.
+\end{remark}
+
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{5}
+  \item Analyse.\\
+  On suppose dans un premier temps qu'une telle fonction $\sigma$ 
+  vérifiant ces trois propriétés existe.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $\sigma^{-1}$ est dérivable sur $]0,\beta[$ et 
+    exprimer sa dérivée $(\sigma^{-1})'$ en fonction de $\sigma'$
+    et $\sigma^{-1}$.
+    
+    \begin{proof}~
+      La fonction $\sigma$ :
+      \begin{noliste}{$\stimes$}
+	\item réalise une bijection de $]0,\alpha[$ sur $]0,\beta[$,
+	\item est dérivable sur $]0,\alpha[$ (car de classe $\Cont{1}$ 
+	sur $]0,\alpha[$)
+	\item est telle que : $\forall x \in \ ]0,\alpha[$, 
+	$\sigma'(x) \neq 0$.
+      \end{noliste}
+      \conc{Alors $\sigma^{-1}$ est dérivable sur $]0,\beta[$ et 
+      $(\sigma^{-1})' = \dfrac{1}{\sigma' \circ \sigma^{-1}}$.}
+      
+      \begin{remark}
+        \begin{noliste}{$\sbullet$}
+	  \item On peut retrouver la formule de $(\sigma^{-1})'$
+	  via l'égalité $\sigma \circ \sigma^{-1} = \id$.\\
+	  En effet, en dérivant formellement cette égalité, on 
+	  obtient :
+	  \[
+	    (\sigma' \circ \sigma^{-1}) \times (\sigma^{-1})' \ = \
+	    1
+	  \]
+	  
+	  \item La formule $(\sigma^{-1})' = \dfrac{1}{\sigma' \circ 
+	  \sigma^{-1}}$ permet également de conclure que la 
+	  fonction $\sigma^{-1}$ est de classe $\Cont{1}$ sur 
+	  $]0,\beta[$, car $(\sigma^{-1})'$ est continue sur 
+	  $]0,\beta[$ en tant qu'inverse d'une fonction continue
+	  sur $]0,\beta[$, ne s'annulant pas sur cet 
+	  intervalle.
+        \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+    
+    
+    \newpage
+
+    
+    \item Calculer la dérivée partielle $\dfn{\gamma}{2}(x, y)$.
+    
+    \begin{proof}~\\
+      La fonction $\gamma$ est de classe $\Cont{1}$ sur 
+      $]0,\alpha[ \, \times \, ]0, \beta[$. En effet :
+      \begin{noliste}{$\sbullet$}
+	\item la fonction $(x,y) \mapsto x-y$ est de classe $\Cont{1}$
+	sur $]0,\alpha[ \, \times \, ]0, \beta[$ en tant que 
+	fonction polynomiale.
+	
+	\item la fonction $(x,y) \mapsto G_{n-1}(\sigma^{-1}(y))$
+	est de classe $\Cont{1}$ sur $]0,\alpha[ \, \times \, ]0, 
+	\beta[$, car elle est la composée $G_{n-1} \circ \sigma^{-1}
+	\circ \varphi$ où : 
+	\begin{noliste}{$\stimes$}
+	  \item $\varphi:(x,y) \mapsto y$ est :~\\[-.6cm]
+	\end{noliste}
+	  \begin{liste}{-}
+	    \item de classe $\Cont{1}$ sur $]0,\alpha[ \, \times \, ]0, 
+	    \beta[$ en tant que fonction polynomiale,
+	    
+	    \item telle que $\varphi(]0,\alpha[ \, \times \, ]0, 
+	    \beta[) \subset \ ]0,\beta[$
+	  \end{liste}
+	\begin{noliste}{$\stimes$}
+	  \item $\sigma^{-1}$ est :~\\[-.6cm]
+	\end{noliste}
+	  \begin{liste}{-}
+	    \item de classe $\Cont{1}$ sur $]0,\beta[$,
+	    \item telle que $\sigma^{-1}(]0,\beta[) \subset \ 
+	    ]0,\alpha[$.
+	  \end{liste}
+	\begin{noliste}{$\stimes$}
+	  \item $G_{n-1}$ est de classe $\Cont{1}$ sur $]0,\alpha[$
+	  d'après la question \itbf{1.b)}.
+	\end{noliste}
+      \end{noliste}
+      \conc{La fonction $\gamma$ est de classe $\Cont{1}$ sur $]0,
+      \alpha[ \, \times \, ]0,\beta[$ en tant que produit de 
+      fonctions \\[.1cm]
+      de classe $\Cont{1}$ sur $]0,\alpha[ \, \times \,
+      ]0,\beta[$.}
+      
+      Soit $(x,y) \in \ ]0,\alpha[ \, \times \, ]0,\beta[$.
+      \[
+       \begin{array}{rcl}
+        \dfn{\gamma}{2}(x,y) & = & - G_{n-1}(\sigma^{-1}(y)) +
+        (x-y) (\sigma^{-1})'(y) \, g_{n-1}(\sigma^{-1}(y))
+        \\[.2cm]
+        & = & - G_{n-1}(\sigma^{-1}(y)) + \dfrac{x-y}{\sigma'(\sigma^{-1}
+        (y))} \, g_{n-1}(\sigma^{-1}(y))
+       \end{array}
+      \]
+      \conc{$\forall (x,y) \in \ ]0,\alpha[ \, \times \, ]0,\beta[$,
+      $\dfn{\gamma}{2}(x,y) \ = \ - G_{n-1}(\sigma^{-1}(y)) + 
+      \dfrac{x-y}{\sigma'(\sigma^{-1}
+      (y))} \, g_{n-1}(\sigma^{-1}(y))$}
+      
+      \begin{remark}
+        On a détaillé ici la démonstration du caractère $\Cont{1}$
+        de la fonction $\gamma$. Autant de précision n'était 
+        sans doute pas attendu.
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+
+    \item Montrer que pour tout $x \in \ ]0, \alpha[$, on a 
+    $\dfn{\gamma}{2}(x, \sigma(x))=0$.\\
+    En déduire que pour tout $x \in \ ]0, \alpha[$ : 
+    \[
+      \sigma'(x) \, G_{n-1}(x) + \sigma(x) \, g_{n-1}(x) \ = \
+      x \, g_{n-1}(x)
+    \]
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item Soit $x \in \ ]0,\alpha[$.\\
+	D'après l'énoncé, la fonction $\psi : y \mapsto 
+	\gamma(x,y)$ atteint son maximum en $\sigma(x)$.\\
+	Or, si $\sigma(x)$ est un maximum de $\psi$, alors : 
+	$\psi'(\sigma(x))=0$.\\
+	Autrement dit, par définition de $\psi$ :
+	\[
+	  0 \ = \ \psi'(\sigma(x)) \ = \ \dfn{\gamma}{2}(x, \sigma(x))
+	\]
+	\conc{$\forall x \in \ ]0,\alpha[$, $\dfn{\gamma}{2}(x,
+	\sigma(x)) = 0$}
+	
+	
+	\newpage
+	
+	
+	\item Soit $x \in \ ]0,\alpha[$. D'après la question 
+	précédente :
+	\[
+	  \begin{array}{rcl}
+	    0 & = & \dfn{\gamma}{2}(x, \sigma(x))
+	    \\[.2cm]
+	    & = & - G_{n-1}(\sigma^{-1}(\sigma(x))) + 
+	    \dfrac{x - \sigma(x)}{\sigma'(\sigma^{-1}(\sigma(x)))}
+	    \, g_{n-1}(\sigma^{-1}(\sigma(x)))
+	    \\[.6cm]
+	    & = & -G_{n-1}(x) + \dfrac{x - \sigma(x)}{\sigma'(x)}
+	    \, g_{n-1}(x)
+	  \end{array}
+	\]
+	En multipliant cette égalité par $\sigma'(x)$ :
+	\[
+	  0 \ = \ -\sigma'(x) \, G_{n-1}(x) + (x-\sigma(x)) \, 
+	  g_{n-1}(x)
+	\]
+	\conc{D'où : $\forall x \in \ ]0,\alpha[$, $\sigma'(x) \,
+	G_{n-1}(x) + \sigma(x) \, g_{n-1}(x) \ = \ x \, 
+	g_{n-1}(x)$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+
+    
+    \item Montrer alors, pour tout $x \in \ ]0,\alpha[$ : 
+    \[
+      \sigma(x) \ = \ \dfrac{1}{G_{n-1}(x)} \, \dint{0}{x} t \, 
+      g_{n-1}(t) \dt \qquad (*)
+    \]
+    
+    \begin{proof}~\\
+      Soit $x \in \ ]0,\alpha[$. 
+      \begin{noliste}{$\sbullet$}
+	\item Soit $t \in \ ]0,x]$.
+	D'après la question précédente :
+	\[
+	  t \, g_{n-1}(t) \ = \ \sigma'(t) \, G_{n-1}(t) + \sigma(t) \,
+	  g_{n-1}(t) \ = \ (\sigma \times G_{n-1})'(t)
+	\]
+	En effet, on reconnaît ici la formule de dérivation d'un 
+	produit :
+        \[
+          (u \times v)' \ = \ u' \times v + u \times v'
+        \]
+        appliquée à $u = \sigma$ et $v = G_{n-1}$.\\[.1cm]
+	On souhaite intégrer cette égalité entre $0$ et $x$.
+	\begin{noliste}{-}
+	  \item On sait déjà que la fonction $G_{n-1}$ est continue 
+	  sur $\R$, donc sur $[0,x]$ (car la \var $Y_{n-1}$ est une 
+	  variable aléatoire à densité d'après la question \itbf{1.b)}).
+	  
+	  \item Il reste à montrer que la fonction $\sigma$ est 
+	  continue par morceaux sur $[0,x]$.\\
+	  On sait déjà que la fonction $\sigma$ est continue sur 
+	  $]0,x]$, car $x \in \ ]0,\alpha[$. Montrons donc que $\sigma$
+	  admet une limite à droite en $0$ finie.
+	\end{noliste}
+	\begin{liste}{$\stimes$}
+	  \item La fonction $\sigma$ est strictement croissante sur 
+	  $]0,\alpha[$, car : $\forall x \in \ ]0,\alpha[$, 
+	  $\sigma'(x) >0$ (d'après l'énoncé).
+	  
+	  \item De plus, d'après l'énoncé : $\sigma(]0,\alpha[) \ = \
+	  ]0, \beta[$. Donc, la fonction $\sigma$ est bornée sur 
+	  $]0,\alpha[$.
+	\end{liste}
+	\begin{noliste}{}
+	  \item Par théorème de la limite monotone, la fonction 
+	  $\sigma$ admet une limite à droite en $0$ finie.
+	  \conc{On en déduit que la fonction $\sigma$ est continue 
+	  par morceaux sur $[0,x]$.}
+	\end{noliste}
+	
+	\begin{remark}
+	  La croissance seule de la fonction $\sigma$ sur 
+	  $]0,\alpha[$ permet de conclure que $\sigma$ 
+	  admet une limite à gauche et à droite en tout point de 
+	  $]0,\alpha[$.
+	\end{remark}
+	
+	
+	\newpage
+	
+	
+	Soit $a \in \ ]0,x]$.
+	\[
+	  \dint{a}{x} t \, g_{n-1}(t) \dt \ = \ (\sigma \times G_{n-1})
+	  (x) - (\sigma \times G_{n-1})(a)
+	  \ = \ \sigma(x) \times G_{n-1}(x) - \sigma(a) \times 
+	  G_{n-1}(a)
+	\]
+	Or :
+	\begin{noliste}{$\stimes$}
+	  \item d'après ce qui précède, la limite $\dlim{a\to 0} 
+	  \sigma(a)$ est finie.
+	  \item de plus, comme la fonction $G_{n-1}$ est continue 
+	  en $0$ : 
+	  \[
+	    \dlim{a \to 0} G_{n-1}(a) \ = \
+	    G_{n-1}(0) \ = \ \dint{-\infty}{0} g_{n-1}(t)
+	    \dt \ = \ 0 
+	  \]
+	  {\it (car la fonction $g_{n-1}$ est nulle en dehors 
+	  de $]0,\alpha[$)}
+	\end{noliste}
+	On en déduit : $\dlim{a\to 0} \sigma(a) \, G_{n-1}(a)=0$. Ainsi 
+	:
+	\[
+	  \dint{0}{x} t \, g_{n-1}(t) \dt \ = \ \sigma(x) \, G_{n-1}(x)
+	\]
+
+	
+	\item De plus : $G_{n-1}(x) \ = \ \dint{-\infty}{x} g_{n-1}(t)
+	\dt \ = \ \dint{0}{x} g_{n-1}(t) \dt$.\\[.1cm]
+	Or : $\forall t \in \ ]0, \alpha[$, $g_{n-1}(t) >0$. Donc :
+	$G_{n-1}(x) >0$.
+      \end{noliste}
+      \conc{D'où : $\forall x \in \ ]0,\alpha[$, $\sigma(x) = 
+      \dfrac{1}{G_{n-1}(x)} \, \dint{0}{x} t \, g_{n-1}(t) 
+      \dt$.}~\\[-1cm]
+    \end{proof}
+    
+    \item À l'aide d'une intégration par parties, montrer que pour tout
+    $x \in \ ]0,\alpha[$, on a également : 
+    \[
+      \sigma(x) \ = \ x - \dint{0}{x} \dfrac{G_{n-1}(t)}{G_{n-1}(x)}
+      \dt \qquad (**)
+    \]
+    
+    \begin{proof}~\\
+      Soit $x \in \ ]0,\alpha[$. D'après la question précédente :
+      \[
+        \sigma(x) \ = \ \dfrac{1}{G_{n-1}(x)} \, \dint{0}{x} t \,
+        g_{n-1}(t) \dt
+      \]
+      Soit $a \in \ ]0, x]$. On procède par intégration par parties 
+      (IPP).
+      \[
+        \renewcommand{\arraystretch}{2}
+        \begin{array}{|rcl@{\qquad}rcl}
+          u(t) & = & t & u'(t) & = & 1 \\
+          v'(t) & = & g_{n-1}(t) & v(t) & = & G_{n-1}(t)
+        \end{array}
+        \]
+      Cette IPP est valide car les fonctions $u$ et $v$ sont 
+      $\Cont{1}$ sur $[a, x]$.\\
+      On obtient alors :
+      \[
+        \begin{array}{rcl}
+          \dfrac{1}{G_{n-1}(x)} \, \dint{a}{x} t \, g_{n-1}(t) \dt
+          & = & \dfrac{1}{G_{n-1}(x)} \left( \Prim{t \, G_{n-1}(t)}
+          {a}{x} - \dint{a}{x} G_{n-1}(t) \dt\right)
+          \\[.6cm]
+          & = & \dfrac{1}{G_{n-1}(x)} \left( x \, G_{n-1}(x) - 
+          a \, G_{n-1}(a) - \dint{a}{x} G_{n-1}(t) \dt \right)
+        \end{array}
+      \]
+      
+      
+      \newpage
+      
+      
+      Or, comme : $\forall a \in \R$, $0 \leq G_{n-1}(a) \leq 1$, alors 
+      $\dlim{a \to 0} a \, 
+      G_{n-1}(a) =0$. Donc :
+      \[
+        \begin{array}{rcl}
+          \sigma(x) & = & \dfrac{1}{G_{n-1}(x)} \left( x \, G_{n-1}(x)
+          - \dint{0}{x} G_{n-1}(t) \dt \right)
+          \\[.6cm]
+          & = & x - \dfrac{1}{G_{n-1}(x)} \, \dint{0}{x} G_{n-1}(t) \dt
+          \\[.6cm]
+          & = & x - \dint{0}{x} \dfrac{G_{n-1}(t)}{G_{n-1}(x)} \dt
+        \end{array}
+      \]
+      \conc{$\forall x \in \ ]0,\alpha[$, $\sigma(x) = x - \dint{0}{x}
+      \dfrac{G_{n-1}(t)}{G_{n-1}(x)} \dt$}~\\[-1cm]
+    \end{proof}
+  \end{noliste}
+  
+  \item Synthèse.\\
+  On suppose à présent que $\sigma$ est la fonction définie par 
+  l'égalité $(*)$ ou $(**)$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que pour tout $x \in \ ]0, \alpha[$, $0 < \sigma(x)
+    <x$.
+    
+    \begin{proof}~\\
+      Soit $x \in \ ]0,\alpha[$.
+      \begin{noliste}{$\sbullet$}
+	\item Montrons : $\sigma(x) >0$. On utilise pour cela 
+	l'expression $(*)$.
+	\begin{noliste}{-}
+	  \item On a déjà démontré en question \itbf{6.d)} : 
+	  $G_{n-1}(x) >0$.
+	  
+	  \item De plus : $\forall t \in \ ]0,x]$, $t \, g_{n-1}(t)
+	  >0$.\\[.1cm]
+	  Donc : $\dint{0}{x} t \, g_{n-1}(t) \dt >0$.
+	\end{noliste}
+	\conc{Finalement : $\sigma(x) >0$.}
+	
+	\item Montrons : $\sigma(x) < x$. On utilise pour cela 
+	l'expression $(**)$.
+	\begin{noliste}{-}
+	  \item Tout d'abord, soit $t \in \ ]0,x]$ : 
+	  $G_{n-1}(t) >0$. Donc : $\dfrac{G_{n-1}(t)}{G_{n-1}(x)}
+	  >0$.\\[.1cm]
+	  D'où : $\dint{0}{x} \dfrac{G_{n-1}(t)}{G_{n-1}(x)} \dt >0$.
+	  
+	  \item On en déduit :
+	  \[
+	    x - \dint{0}{x} \dfrac{G_{n-1}(t)}{G_{n-1}(x)} \dt
+	    < x-0 = x
+	  \]
+	\end{noliste}
+	\conc{Ainsi : $\sigma(x) <x$}~\\[-1.6cm]
+      \end{noliste}
+    \end{proof}
+
+    
+    \item Montrer que $\sigma$ est de classe $\Cont{1}$ sur $]0,\alpha[$
+    et que pour tout $x \in \ ]0,\alpha[$, $\sigma'(x)$ est du signe 
+    de $x- \sigma(x)$.\\
+    En déduire que $\sigma'$ est strictement positive sur $]0,\alpha[$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item On utilise l'expression $(*)$.
+	\begin{noliste}{-}
+	  \item La fonction $x \mapsto \dfrac{1}{G_{n-1}(x)}$ est de 
+	  classe $\Cont{1}$ sur $]0, \alpha[$ en tant qu'inverse de 
+	  la fonction $G_{n-1}$ de classe $\Cont{1}$ sur $]0,\alpha[$
+	  (d'après la question \itbf{1.b)}), qui ne s'annule pas 
+	  sur cet intervalle.\\
+	  En effet : $\forall x \in \ ]0,\alpha[$, $G_{n-1}(x)>0$.
+	  
+	  \item La fonction $t \mapsto t \, g_{n-1}(t)$ est continue
+	  sur $]0,\alpha[$.\\
+	  Donc la fonction $x \mapsto \dint{0}{x} t \, g_{n-1}(t) \dt$
+	  est de classe $\Cont{1}$ sur $]0,\alpha[$ en tant que 
+	  primitive de $t \mapsto t \, g_{n-1}(t)$.
+	\end{noliste}
+	\conc{Ainsi, la fonction $\sigma$ est de classe $\Cont{1}$ sur
+	$]0,\alpha[$\\ en tant que produit de fonctions de classe 
+	$\Cont{1}$ sur $]0,\alpha[$.}
+	
+	
+	\newpage
+	
+	
+	\item Soit $x \in \ ]0,\alpha[$.
+	\[
+	  \begin{array}{rcl}
+	    \sigma'(x) & = & \dfrac{x \, g_{n-1}(x) \, G_{n-1}(x) - 
+	    g_{n-1}(x) \, \dint{0}{x} t \, g_{n-1}(t) \dt}
+	    {(G_{n-1}(x))^2}
+	    \\[.6cm]
+	    & = & \dfrac{g_{n-1}(x) \, \bcancel{G_{n-1}(x)}}{(G_{n-1}(x)
+	    )^{\bcancel{2}}} \left(x - \dfrac{1}{G_{n-1}(x)} \,
+	    \dint{0}{x} t \, g_{n-1}(t) \dt\right)
+	    \\[.6cm]
+	    & = & \dfrac{g_{n-1}(x)}{G_{n-1}(x)} \, (x - \sigma(x))
+	  \end{array}
+	\]
+	Or : $g_{n-1}(x)>0$ et $G_{n-1}(x) >0$.
+	\conc{Donc $\sigma'(x)$ est du signe de $(x-\sigma(x))$.}
+	
+	\item D'après la question \itbf{7.a)} : $x-\sigma(x)>0$.
+	Donc : $\sigma'(x) >0$.
+	\conc{Ainsi, la fonction $\sigma$ est strictement 
+	croissante sur $]0,\alpha[$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+    
+    \item Montrer que $\sigma$ réalise une bijection de $]0,\alpha[$
+    dans $]0,\beta[$, avec $\beta = \E(Y_{n-1})$.
+    
+    \begin{proof}~\\
+      La fonction $\sigma$ est :
+      \begin{noliste}{$\stimes$}
+	\item continue sur $]0,\alpha[$ (car elle est de classe 
+	$\Cont{1}$ sur $]0,\alpha[$),
+	
+	\item strictement croissante sur $]0,\alpha[$.
+      \end{noliste}
+      Ainsi, $\sigma$ réalise une bijection de $]0,\alpha[$ sur 
+      $\sigma(]0,\alpha[)$.
+      \[
+        \sigma(]0,\alpha[) \ = \ \left] \dlim{x\to 0} \sigma(x), 
+        \dlim{x\to \alpha} \sigma(x) \right[
+      \]
+      \begin{noliste}{-}
+	\item Déterminons $\dlim{x \to 0} \sigma(x)$.\\
+	D'après la question \itbf{7.a)} : $\forall x \in \ ]0,
+	\alpha[$, $0 < \sigma(x) < x$.\\
+	Or : $\dlim{x\to 0} x =0$.\\
+	Donc, par théorème d'encadrement : $\dlim{x \to 0}
+	\sigma(x) =0$.
+	
+	\item Déterminons $\dlim{x \to \alpha} \sigma(x)$.\\
+	Tout d'abord :
+	\[
+	  \begin{array}{rcl@{\qquad}>{\it}R{4.5cm}}
+	    G_{n-1}(\alpha) & = & \dint{-\infty}{\alpha} g_{n-1}(t) \dt
+	    \\[.6cm]
+	    & = & \dint{-\infty}{+\infty} g_{n-1}(t) \dt
+	    & (car $g_{n-1}$ est nulle en dehors de $]0,\alpha[$)
+	    \nl
+	    \nl[-.2cm]
+	    & = & 1 & (car $g_{n-1}$ est une densité)
+	  \end{array}
+	\]
+	Ainsi :
+	\[
+	 \begin{array}{rcl@{\qquad}>{\it}R{4cm}}
+	  \dlim{x\to \alpha} \sigma(x) & = & \dfrac{1}{1} \, 
+	  \dint{0}{\alpha} t \, g_{n-1}(t) \dt
+	  \\[.6cm]
+	  & = & \dint{-\infty}{+\infty} t \, g_{n-1}(t) \dt
+	  & (car $g_{n-1}$ est nulle en dehors de $]0,\alpha[$)
+	  \nl
+	  \nl[-.2cm]
+	  & = & \E(Y_{n-1})
+	 \end{array}
+	\]
+	\conc{On en déduit que la fonction $\sigma$ réalise une 
+	bijection de $]0,\alpha[$ dans $]0,\beta[$ avec $\beta =
+	\E(Y_{n-1})$.}~\\[-1.2cm]
+      \end{noliste}
+    \end{proof}
+    
+    
+    \newpage
+
+    
+    \item On fixe un réel $x \in \ ]0, \alpha[$. Soit $y \in \ ]0, 
+    \beta[$, on pose $z= \sigma^{-1}(y)$.
+    \begin{nonoliste}{(i)}
+      \item Établir : 
+      \[
+        \gamma(x,y) \ = \ (x-z) \, G_{n-1}(z) + \dint{0}{z} G_{n-1}(t)
+        \dt
+      \]
+      
+      \begin{proof}~
+	\begin{noliste}{$\sbullet$}
+	  \item Tout d'abord :
+	  \[
+	    \gamma(x,y) \ = \ (x-y) \, G_{n-1}(\sigma^{-1}(y))
+	    \ = \ (x- \sigma(z)) \, G_{n-1}(\sigma^{-1}(\sigma(z)))
+	    \ = \ (x-\sigma(z)) \, G_{n-1}(z)
+	  \]
+	  
+	  \item Or, d'après l'expression $(**)$ : $\sigma(z) = 
+	  z - \dint{0}{z} \dfrac{G_{n-1}(t)}{G_{n-1}(z)} \dt$.
+	  
+	  \item Donc :
+	  \[
+	    \begin{array}{rcl}
+	      \gamma(x,y) & = & x \, G_{n-1}(z) - \left(z - \dint{0}{z}
+	      \dfrac{G_{n-1}(t)}{G_{n-1}(z)} \dt\right) G_{n-1}(z)
+	      \\[.6cm]
+	      & = & x \, G_{n-1}(z) - z \, G_{n-1}(z) + 
+	      \bcancel{G_{n-1}(z)} \, \dint{0}{z} \dfrac{G_{n-1}(t)}
+	      {\bcancel{G_{n-1}(z)}} \dt
+	      \\[.6cm]
+	      & = & (x-z) \, G_{n-1}(z) + \dint{0}{z} G_{n-1}(t) \dt
+	    \end{array}
+	  \]
+	\end{noliste}
+	\conc{$\gamma(x,y) \ = \ (x-z) \, G_{n-1}(z) + \dint{0}{z} 
+	G_{n-1}(t) \dt$}~\\[-1cm]
+      \end{proof}
+      
+      \item En déduire : $\gamma(x, \sigma(x)) - \gamma(x,y) \ = \
+      (z-x) \, G_{n-1}(z) - \dint{x}{z} G_{n-1}(t) \dt$.
+      
+      \begin{proof}~
+        \begin{noliste}{$\sbullet$}
+	  \item Tout d'abord :
+	  \[
+	    \gamma(x, \sigma(x)) \ = \ (x - \sigma(x)) \, G_{n-1}(
+	    \sigma^{-1}(\sigma(x))) \ = \ (x- \sigma(x)) \, G_{n-1}(x)
+	  \]
+	  Or : $\sigma(x) \ = \ x - \dint{0}{x} \dfrac{G_{n-1}(t)}
+	  {G_{n-1}(x)} \dt$. D'où :
+	  \[
+	    \begin{array}{rcl}
+	      \gamma(x,\sigma(x)) & = & x \, G_{n-1}(x) - \left(x - 
+	      \dint{0}{x}
+	      \dfrac{G_{n-1}(t)}{G_{n-1}(x)} \dt\right) G_{n-1}(x)
+	      \\[.6cm]
+	      & = & \bcancel{x \, G_{n-1}(x)} - \bcancel{x \, G_{n-1}(x)} 
+	      + 
+	      \bcancel{G_{n-1}(x)} \, \dint{0}{x} \dfrac{G_{n-1}(t)}
+	      {\bcancel{G_{n-1}(x)}} \dt
+	      \\[.6cm]
+	      & = & \dint{0}{x} G_{n-1}(t) \dt
+	    \end{array}
+	  \]
+	  
+	  \item On en déduit :
+	  \[
+	    \begin{array}{rcl}
+	      \gamma(x, \sigma(x)) - \gamma(x,y) & = & 
+	      \dint{0}{x} G_{n-1}(t) \dt - \left( (x-z) \, G_{n-1}(z)
+	      + \dint{0}{z} G_{n-1}(t) \dt\right)
+	      \\[.4cm]
+	      & = & (z-x) \, G_{n-1}(z) + \dint{z}{x} G_{n-1}(t) \dt
+	      \\[.4cm]
+	      & = & (z-x) \, G_{n-1}(z) - \dint{x}{z} G_{n-1}(t) \dt
+	    \end{array}
+	  \]
+        \end{noliste}
+        \conc{$\gamma(x, \sigma(x)) - \gamma(x,y) \ = \
+        (z-x) \, G_{n-1}(z) - \dint{x}{z} G_{n-1}(t) \dt$}~\\[-1cm]
+      \end{proof}
+      
+      
+      \newpage
+
+      
+      \item Déterminer le signe de $\gamma(x, \sigma(x)) - 
+      \gamma(x,y)$ et conclure que $\gamma(x,y)$ est maximal lorsque\\ 
+      $y = \sigma(x)$.
+      
+      \begin{proof}~\\
+      D'après la question précédente :
+      \[
+        \gamma(x, \sigma(x)) - \gamma(x,y) \ = \
+        (z-x) \, G_{n-1}(z) - \dint{x}{z} G_{n-1}(t) \dt
+      \]
+      Deux cas se présentent.
+        \begin{noliste}{$\sbullet$}
+	  \item \dashuline{Si $z \geq x$}.\\
+	  La fonction $G_{n-1}$ est croissante car c'est une fonction
+	  de répartition. Donc :
+	  \[
+	    \forall t \in [x,z], \ G_{n-1}(t) \leq G_{n-1}(z)
+	  \]
+	  Par croissance de l'intégration (les bornes sont 
+	  dans l'ordre croissant) :
+	  \[
+	    \dint{x}{z} G_{n-1}(t) \dt \ \leq \ 
+	    \dint{x}{z} G_{n-1}(z) \dt
+	  \]
+	  Or : $\dint{x}{z} G_{n-1}(z) \dt \ = \ G_{n-1}(z) \,
+	  \dint{x}{z} \dt \ = \ G_{n-1}(z) \Prim{t}{x}{z} \ = \
+	  (z-x) \, G_{n-1}(z)$.\\[.1cm]
+	  Donc : 
+	  \[
+	    \dint{x}{z} G_{n-1}(t) \dt \ \leq \ (z-x) \, G_{n-1}(z)
+	  \]
+	  On en déduit :
+	  \[
+	    (z-x) \, G_{n-1}(z) - \dint{x}{z} G_{n-1}(t) \dt \geq 0
+	  \]
+	  Ainsi, d'après l'expression trouvée à la question 
+	  précédente :
+	  \[
+	    \gamma(x, \sigma(x)) - \gamma(x,y) \geq 0
+	  \]
+	  
+	  \item \dashuline{Si $z \leq x$}.\\
+	  Par croissance de la fonction $G_{n-1}$ sur $]0,\alpha[$ :
+	  \[
+	    \forall t \in [z,x], \ G_{n-1}(t) \geq G_{n-1}(z)
+	  \]
+	  Par croissance de l'intégration (les bornes sont 
+	  dans l'ordre croissant) :
+	  \[
+	    \dint{z}{x} G_{n-1}(t) \dt \ \geq \ 
+	    \dint{z}{x} G_{n-1}(z) \dt
+	  \]
+	  Or : $\dint{z}{x} G_{n-1}(z) \dt \ = \ G_{n-1}(z) \,
+	  \dint{z}{x} \dt \ = \ G_{n-1}(z) \Prim{t}{z}{x} \ = \
+	  (x-z) \, G_{n-1}(z)$.\\[.1cm]
+	  Donc : 
+	  \[
+	    \dint{z}{x} G_{n-1}(t) \dt \ \geq \ -(z-x) \, G_{n-1}(z)
+	  \]
+	  D'où : $\dint{x}{z} G_{n-1}(t) \dt \ \leq \ (z-x) \, 
+	  G_{n-1}(z)$.
+	  On en déduit :
+	  \[
+	    (z-x) \, G_{n-1}(z) - \dint{x}{z} G_{n-1}(t) \dt \geq 0
+	  \]
+	  Ainsi, d'après l'expression trouvée à la question 
+	  précédente :
+	  \[
+	    \gamma(x, \sigma(x)) - \gamma(x,y) \geq 0
+	  \]
+        \end{noliste}
+        \conc{Finalement : $\forall (x,y) \in \ ]0,\alpha[ \, \times \,
+        ]0,\beta[$, $\gamma(x, \sigma(x)) - \gamma(x,y) \geq 0$.}
+        
+        
+        \newpage
+        
+        Soient $x \in \ ]0,\alpha[$ et $y \in \ ]0, \beta[$. 
+        D'après l'inégalité précédente :
+        \[
+          \gamma(x, \sigma(x)) \geq \gamma(x,y)
+        \]
+        C'est-à-dire, avec la même notation qu'en question \itbf{6.c)} 
+	($\psi : y \mapsto \gamma(x,y)$) : 
+        \[
+          \psi(\sigma(x)) \geq \psi(y)
+        \]
+        Ceci est vrai pour tout $y \in \ ]0, \beta[$, donc 
+        la fonction $\psi$ est maximale en $\sigma(x)$. 
+        \conc{Autrement dit,
+        la fonction $y \mapsto \gamma(x,y)$ est maximale en 
+        $\sigma(x)$.}~\\[-1cm]
+      \end{proof}
+    \end{nonoliste}
+  \end{noliste}
+  
+  \item Estimation de $\sigma(x)$.\\
+  Soit $x \in \ ]0,\alpha[$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item On considère la fonction $\varphi_x$ définie sur $\R_+$ par :
+    $\varphi_x(t) = 
+    \left\{
+    \begin{array}{cR{2cm}}
+      t & si $t \leq x$
+      \nl
+      0 & sinon
+    \end{array}
+    \right.$\\[.2cm]
+    En utilisant la relation $(*)$, montrer que $\sigma(x) = 
+    \dfrac{\E(\varphi_x(Y_{n-1}))}{\Prob(\Ev{Y_{n-1} \leq x})}$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item La fonction $g_{n-1}$ est nulle en dehors de $]0,
+	\alpha[$.\\
+	Donc, d'après le théorème de transfert, la \var $\varphi_x(
+	Y_{n-1})$ admet une espérance si et seulement si l'intégrale
+	$\dint{0}{\alpha} \varphi_x(t) g_{n-1}(t) \dt$ est 
+	absolument convergente.\\[.1cm]
+	Les fonctions $\varphi_x$ et $g_{n-1}$ étant à valeurs 
+	positives sur $]0,\alpha[$, cela revient à démontrer qu'elle 
+	est convergente.
+	
+	\item De plus, la fonction $\varphi_x$ est nulle sur $]x,
+	+\infty[$, donc :
+	\[
+	  \dint{0}{\alpha} \varphi_x(t) \, g_{n-1}(t) \dt \ = \
+	  \dint{0}{x} \varphi_x(t) \, g_{n-1}(t) \dt
+	\]
+	
+	\item Par définition de $\varphi_x$ :
+	\[
+	  \forall t \in \ ]0,x], \ \varphi_x(t) \, g_{n-1}(t)
+	  = t \, g_{n-1}(t)
+	\]
+	Or l'intégrale impropre $\dint{0}{x} t \,
+	g_{n-1}(t) \dt$ est bien définie car $Y_{n-1}$ admet une 
+	espérance.
+	\conc{On en déduit que la \var $\varphi_x(Y_{n-1})$ admet 
+	une espérance
+	et :\\ $\E(\varphi_x(Y_{n-1})) = \dint{0}{x} t \, g_{n-1}(t)
+	\dt$.}
+	
+	\item De plus, par définition de $G_{n-1}$ :
+	$G_{n-1}(x) = \Prob(\Ev{Y_{n-1} \leq x})$.
+	
+	\item On en déduit, d'après l'expression $(*)$ :
+	\[
+	  \dfrac{\E(\varphi_x(Y_{n-1}))}{\Prob(\Ev{Y_{n-1} \leq x})}
+	  \ = \ \dfrac{1}{G_{n-1}(x)} \, \E(\varphi_x(Y_{n-1}))
+	  \ = \ \dfrac{1}{G_{n-1}(x)} \, \dint{0}{x} t \, 
+	  g_{n-1}(t) \dt \ = \ \sigma(x)
+	\]
+	\conc{$\sigma(x) \ = \ \dfrac{\E(\varphi_x(Y_{n-1}))}
+	{\Prob(\Ev{Y_{n-1} \leq x})}$}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+    
+    
+    \newpage
+
+    
+    \item En déduire une fonction \Scilab{} {\tt function s = 
+    sigma(x,n)} qui retourne une valeur approchée de $\sigma(x)$
+    obtenue comme quotient d'une estimation de $\E(\varphi_x(Y_{n-1}))$
+    et de $\Prob(\Ev{Y_{n-1} \leq x})$.\\
+    On utilisera la fonction {\tt simulX} pour simuler des 
+    échantillons de la loi de $X$, et on rappelle que si {\tt v} est 
+    un vecteur, {\tt max(v)} est égal au plus grand élément de 
+    {\tt v}.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item On commence par écrire une fonction qui retourne une 
+	réalisation de la \var $Y_n$.
+	
+	\begin{scilab}
+	  & \tcFun{function} \tcVar{y} = simulY(\tcVar{n}) \nl %
+	  & \quad X = simulX(\tcVar{n}) \nl %
+	  & \quad \tcVar{y} = max(X) \nl %
+	  & \tcFun{endfunction}
+	\end{scilab}
+	
+	La première commande {\tt X = simulX(n)} permet de créer un 
+	vecteur {\tt X} contenant la réalisation d'un $n$-échantillon 
+	de même loi que $X$.\\
+	On sait de plus : $Y_n=\max(X_1, \ldots, X_n)$. D'où la 
+	commande : {\tt y = max(X)}.
+	
+	\item On code ensuite la fonction $\varphi_x$.
+	
+	\begin{scilab}
+	  & \tcFun{function} \tcVar{v} = phi(\tcVar{t},\tcVar{x}) \nl %
+	  & \quad \tcIf{if} \tcVar{t} <= \tcVar{x} \tcIf{then} \nl %
+	  & \quad \quad \tcVar{v} = \tcVar{t} \nl %
+	  & \quad \tcIf{else} \nl %
+	  & \quad \quad \tcVar{v} = 0 \nl %
+	  & \quad \tcIf{end} \nl %
+	  & \tcFun{endfunction}
+	\end{scilab}
+	
+	\item On finit par la fonction permettant d'obtenir une 
+	valeur approchée de $\sigma(x)$.
+	
+	\begin{scilab}
+	  & \tcFun{function} \tcVar{s} = sigma(\tcVar{x},\tcVar{n})
+	  \nl %
+	  & \quad N = 10000 \nl %
+	  & \quad V = zeros(1,N) \nl %
+	  & \quad W = zeros(1,N) \nl %
+	  & \quad \tcFor{for} k = 1:N \nl %
+	  & \quad \quad z = simulY(\tcVar{n}) \nl %
+	  & \quad \quad V(k) = phi(z,\tcVar{x}) \nl %
+	  & \quad \quad \tcIf{if} z <= \tcVar{x} \tcIf{then} \nl %
+	  & \quad \quad \quad W(k) = 1 \nl %
+	  & \quad \quad \tcIf{else} \nl %
+	  & \quad \quad \quad W(k) = 0 \nl %
+	  & \quad \quad \tcIf{end} \nl %
+	  & \quad \tcFor{end} \nl %
+	  & \quad esp = mean(V) \nl %
+	  & \quad prob = mean(W) \nl %
+	  & \quad \tcVar{s} = esp/prob \nl %
+	  & \tcFun{endfunction}
+	\end{scilab}
+	Détaillons ce programme.
+	\item La fonction {\tt sigma} a pour but de produire une 
+	approximation :
+	\begin{noliste}{$\stimes$}
+	  \item d'une part de $\E(\varphi_x(Y_{n-1}))$,
+	  \item d'autre part de $\Prob(\Ev{Y_{n-1} \leq x})$.
+	\end{noliste}
+	pour en déduire une valeur approchée de $\sigma(x) = 
+	\dfrac{\E(\varphi_x(Y_{n-1}))}{\Prob(\Ev{Y_{n-1} \leq x})}$.
+	
+	
+	\newpage
+	
+	
+	\item Pour obtenir une valeur approchée de 
+	$\E(\varphi_x(Y_{n-1}))$, l'idée est :
+	\begin{noliste}{$\stimes$}
+	  \item de simuler un grand nombre de fois ($N=10000$ est 
+	  ce grand nombre) la \var $\varphi_x(Y_{n-1})$.\\
+	  Formellement, on souhaite obtenir un $N$-uplet $(v_1, 
+	  \ldots, v_N)$ qui correspond à l'observation d'un 
+	  $N$-échantillon $(V_1, \ldots, V_N)$ de la \var $V= 
+	  \varphi_x(Y_{n-1})$.\\
+	  {\it (cela signifie que les \var $V_1$, $\ldots$, $V_N$
+	  sont indépendantes et sont de même loi que
+	  la \var $V= \varphi_x
+	  (Y_{n-1})$)}
+	  
+	  \item d'effectuer la moyenne de ces $N$ observations.
+	\end{noliste}
+	Cette idée est justifiée par la loi faible des grands 
+	nombres (LfGN) qui affirme : 
+	\[
+	  \dfrac{1}{N} \, \Sum{i=1}{N} v_i \ \simeq \ \E(V)  = 
+	  \E(\varphi_x(Y_{n-1}))
+	\]
+	
+	\item Dans le programme, les valeurs $(v_1, \ldots, v_N)$ 
+	sont obtenues par des appels successifs (à l'aide d'une 
+	structure itérative, ici une boucle {\tt for}) aux
+	fonctions {\tt simulY} et {\tt phi}, et stockées les 
+	unes après les autres dans le vecteur {\tt V}.
+	\begin{scilabC}{4}
+	  & \quad \tcFor{for} k = 1:N \nl %
+	  & \quad \quad z = simulY(\tcVar{n}) \nl %
+	  & \quad \quad V(k) = phi(z,\tcVar{x})
+	\end{scilabC}
+	Une fois cette boucle terminée, l'approximation formulée par 
+	la LfGN est obtenue en effectuant la moyenne de ces 
+	observations :
+	\begin{scilabC}{13}
+	  & \quad esp = mean(V)
+	\end{scilabC}
+	
+	\item Pour obtenir une valeur approchée de $\Prob(\Ev{Y_{n-1}
+	\leq x})$, l'idée est :
+	\begin{noliste}{$\stimes$}
+	  \item de simuler un grand nombre de fois (toujours $N$ fois)
+	  la \var $Y_{n-1}$.\\
+	  Formellement, on souhaite obtenir un $N$-uplet $(z_1, 
+	  \ldots, z_N)$ qui correspond à l'observation d'un 
+	  $N$-échantillon $(Z_1,\ldots, Z_N)$ de la \var $Y_{n-1}$.
+	  
+	  \item de compter le nombre de réalisations inférieures ou
+	  égales à $x$ dans cette observation.
+	\end{noliste}
+	Cette idée est toujours guidée par la LfGN qui affirme :
+	\[
+	  \dfrac{\text{nombre de $z_i$ inférieurs à $x$}}
+	  {\text{taille ($N$) de l'observation}} \ \simeq \ 
+	  \Prob(\Ev{Y_{n-1} \leq x})
+	\]
+	
+	\item Dans le programme, on stocke, à l'aide d'une structure 
+	itérative (la même boucle {\tt for} que précédemment),
+	dans chaque coordonnée
+	d'un vecteur {\tt W} :
+	\begin{noliste}{$\stimes$}
+	  \item la valeur $1$ si $z_i$ est inférieur à $x$,
+	  \item la valeur $0$ si $z_i$ est strictement supérieur à $x$.
+	\end{noliste}
+	
+	\begin{scilabC}{7}
+	  & \quad \quad \tcIf{if} z <= \tcVar{x} \tcIf{then} \nl %
+	  & \quad \quad \quad W(k) = 1 \nl %
+	  & \quad \quad \tcIf{else} \nl %
+	  & \quad \quad \quad W(k) = 0 \nl %
+	  & \quad \quad \tcIf{end}
+	\end{scilabC}
+	Une fois cette boucle terminée, l'approximation formulée par 
+	la LfGN est obtenue en effectuant la moyenne des 
+	coordonnées de {\tt W} : 
+	\begin{scilabC}{14}
+	  & \quad prob = mean(W)
+	\end{scilabC}
+	
+	
+	\newpage
+	
+	
+	\item À ce stade, le programme fournit :
+	\begin{noliste}{$\stimes$}
+	  \item une valeur approchée de $\E(\varphi_x(Y_{n-1})$ stockée
+	  dans {\tt esp},
+	  
+	  \item une valeur approchée de $\Prob(\Ev{Y_{n-1} \leq x})$
+	  stockée dans {\tt prob}.
+	\end{noliste}
+	Enfin, pour approcher le réel $\sigma(x)$, on 
+	effectue le quotient de ces deux approximations :
+	\begin{scilabC}{15}
+	  & \quad \tcVar{s} = esp/prob
+	\end{scilabC}~\\[-1.2cm]
+      \end{noliste}
+      
+      \begin{remark}
+      \begin{noliste}{$\sbullet$}
+	\item Un tel niveau d'explication n'est pas attendu aux 
+	concours : l'écriture du programme démontre la compréhension 
+	de toutes les commandes en question.\\
+	On décrit ici de manière précise les instructions afin d'aider
+	le lecteur un peu moins habile en \Scilab{}.
+	
+	\item L'énoncé suggérait d'écrire une seule fonction, ce qui 
+	est tout à fait faisable en définissant {\tt simulY} et 
+	{\tt phi} à l'intérieur de la fonction {\tt sigma}.\\
+	Cependant, l'utilisation de sous-fonctions favorise la 
+	clarté d'un programme en le structurant. On privilégiera 
+	donc, lorsque c'est possible, l'écriture d'un 
+	programme à l'aide de sous-fonctions.
+	
+	\item On pouvait également utiliser la commande {\tt find}
+	pour obtenir une valeur approchée de $\Prob(\Ev{Y_{n-1} \leq 
+	x})$ :
+	\begin{scilab}
+	  & \tcFun{function} \tcVar{s} = sigma(\tcVar{x},\tcVar{n})
+	  \nl %
+	  & \quad N = 10000 \nl %
+	  & \quad Z = zeros(1,N) \nl %
+	  & \quad V = zeros(1,N) \nl %
+	  & \quad \tcFor{for} k = 1:N \nl %
+	  & \quad \quad Z(k) = simulY(\tcVar{n}) \nl %
+	  & \quad \quad V(k) = phi(Z(k),\tcVar{x}) \nl %
+	  & \quad \tcFor{end} \nl %
+	  & \quad esp = mean(V) \nl %
+	  & \quad indices = find(Z <= x) \nl %
+	  & \quad prob = length(indices)/N \nl %
+	  & \quad \tcVar{s} = esp/prob \nl %
+	  & \tcFun{endfunction}
+	\end{scilab}
+	Dans le programme, le vecteur {\tt Z} contient $N$ réalisations
+	de la \var $Y_{n-1}$.\\
+	La commande {\tt (Z <= x)} fournit un vecteur 
+	de taille $N$ de $\eme{i}$ coordonnée :
+	  \begin{noliste}{$\stimes$}
+	    \item le booléen \og vrai \fg{} si la $\eme{i}$ coordonnée 
+	    de {\tt Z} est inférieure à $x$,
+	    
+	    \item le booléen \og faux \fg{} sinon.
+	  \end{noliste}
+	La commande {\tt find(Z <= x)} permet alors d'obtenir le 
+	vecteur des indices pour lesquels le booléen 
+	est \og vrai \fg{}.\\
+	Ainsi, {\tt length(indices)} renvoie la longueur du vecteur
+	{\tt indices}, c'est-à-dire le nombre de booléens \og vrai
+	\fg{} dans le vecteur {\tt (Z <= x)}. Autrement dit, 
+	{\tt length(indices)} renvoie le nombre de réalisations de 
+	$Y_{n-1}$ inférieures à $x$ parmi les $N$ observations.\\
+	Par loi faible des grands nombres :
+	$
+	  \dfrac{\text{nombre de $z_i$ inférieurs à $x$}}
+	  {\text{taille ($N$) de l'observation}} \ \simeq \ 
+	  \Prob(\Ev{Y_{n-1} \leq x})
+	$.\\[.2cm]
+	Donc la variable {\tt prob} est bien une valeur approchée 
+	de $\Prob(\Ev{Y_{n-1} \leq x})$.
+      \end{noliste}
+    \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+  
+  
+  \newpage
+  
+  
+  \item Exemples.\\
+  Donner une expression de $\sigma(x)$ pour tout $x \in \ ]0,\alpha[$
+  dans les cas suivants : 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item $X$ suit la loi uniforme sur $]0,\alpha[$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item D'après la question \itbf{4.a)} :
+	\[
+	  g_n : x \mapsto \left\{
+	  \begin{array}{cR{3cm}}
+	    \dfrac{n}{\alpha^n} \, x^{n-1} & si $x \in \ ]0, \alpha[$
+	    \nl
+	    \nl[-.2cm]
+	    0 & sinon
+	  \end{array}
+	  \right.
+	  \quad \text{et} \quad 
+	  G_n : x \mapsto \left\{
+	  \begin{array}{cR{3cm}}
+	    0 & si $x \in \ ]-\infty, 0]$
+	    \nl
+	    \nl[-.2cm]
+	    \left( \dfrac{x}{\alpha}\right)^n & si $x \in \ ]0,
+	    \alpha[$
+	    \nl
+	    \nl[-.2cm]
+	    1 & si $x \in [\alpha, + \infty[$
+	  \end{array}
+	  \right.
+	\]
+	
+	\item Soit $x \in \ ]0, \alpha[$.\\
+	Avec le même raisonnement qu'en question \itbf{8.a)}, d'après 
+	le théorème de transfert :
+	\[
+	  \begin{array}{rcl}
+	    \E(\varphi_x(Y_{n-1})) & = & \dint{0}{x} t \, g_{n-1}(t) \dt
+	    \ = \ \dint{0}{x} t \, \dfrac{n-1}{\alpha^{n-1}} \,
+	    t^{n-2} \dt
+	    \\[.6cm]
+	    & = & \dfrac{n-1}{\alpha^{n-1}} \, \dint{0}{x} t^{n-1} \dt
+	    \ = \ \dfrac{n-1}{\alpha^{n-1}} \Prim{\dfrac{t^n}{n}}
+	    {0}{x}
+	    \\[.6cm]
+	    & = & \dfrac{n-1}{\alpha^{n-1}} \, \dfrac{x^n}{n}
+	    \ = \ \dfrac{(n-1) \, x^n}{n \, \alpha^{n-1}}
+	  \end{array}
+	\]
+	
+	\item On en déduit : 
+	\[
+	  \sigma(x) \ = \ \dfrac{\E(\varphi_x(Y_{n-1}))}
+	  {G_{n-1}(x)} \ = \ \dfrac{\frac{(n-1) \, x^{\bcancel{n}}}
+	  {n \, \bcancel{\alpha^{n-1}}}}{\frac{\bcancel{x^{n-1}}}
+	  {\bcancel{\alpha^{n-1}}}}
+	  \ = \ \dfrac{n-1}{n} \,x
+	\]
+      \end{noliste}
+      \conc{$\forall x \in \ ]0,\alpha[$, $\sigma(x) = \dfrac{n-1}{n}
+      \, x$}~\\[-1cm]
+    \end{proof}
+
+    
+    \item $X$ suit la loi puissance de paramètres $\alpha$ et $\lambda$.
+    Votre résultat est-il en accord avec la courbe ci-dessous 
+    obtenue sous cette hypothèse, en utilisant la fonction {\tt sigma}
+    de la question précédente lorsque $n=6$, $\lambda=0,2$ et 
+    $\alpha = 50$ ? Justifier votre réponse.
+    
+    \begin{center}
+      \includegraphics[scale=.5]
+      {Figures/ESSEC-I_2018/Figure_ESSEC-I_2018.png}
+    \end{center}
+    
+    
+    \newpage
+    
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item D'après la question \itbf{5.b)(i)} :
+	\[
+	  g_n : x \mapsto \left\{
+	  \begin{array}{cR{3cm}}
+	    \dfrac{n \, \lambda \, x^{n \lambda -1}}{\alpha^{n \lambda}}
+	    & si $x \in \ ]0, \alpha[$
+	    \nl
+	    \nl[-.2cm]
+	    0 & sinon
+	  \end{array}
+	  \right.
+	  \quad \text{et} \quad 
+	  G_n : x \mapsto \left\{
+	  \begin{array}{cR{3cm}}
+	    0 & si $x \in \ ]-\infty, 0]$
+	    \nl
+	    \nl[-.2cm]
+	    \dfrac{x^{n \lambda}}{\alpha^{n \lambda}} & si 
+	    $x \in \ ]0, \alpha[$
+	    \nl
+	    \nl[-.2cm]
+	    1 & si $x \in [\alpha, +\infty[$
+	  \end{array}
+	  \right.
+	\]
+	
+	\item Soit $x \in \ ]0,\alpha[$.\\
+	D'après le théorème de transfert :
+	\[
+	  \begin{array}{rcl}
+	    \E(\varphi_x(Y_{n-1})) & = & \dint{0}{x} t \, g_{n-1}(t) \dt
+	    \ = \ \dint{0}{x} t \, \dfrac{(n-1) \lambda}{\alpha^{(n-1)
+	    \lambda}} \, t^{(n-1) \lambda -1} \dt
+	    \\[.6cm]
+	    & = & \dfrac{(n-1) \lambda}{\alpha^{(n-1) \lambda}} \, 
+	    \dint{0}{x} t^{(n-1) \lambda} \dt 
+	    \ = \ \dfrac{(n-1) \lambda}{\alpha^{(n-1) \lambda}} \,
+	    \Prim{\dfrac{t^{(n-1) \lambda +1}}{(n-1) \lambda +1}}
+	    {0}{x}
+	    \\[.6cm]
+	    & = & \dfrac{(n-1) \lambda}{\alpha^{(n-1) \lambda}} \,
+	    \dfrac{x^{(n-1) \lambda +1}}{(n-1) \lambda +1}
+	  \end{array}
+	\]
+	
+	\item On en déduit :
+	\[
+	  \sigma(x) \ = \ \dfrac{\E(\varphi_x(Y_{n-1})}{G_{n-1}(x)}
+	  \ = \ \dfrac{\frac{(n-1) \lambda \, x^{\bcancel{(n-1) 
+	  \lambda} +1}}{((n-1) \lambda +1) 
+	  \bcancel{\alpha^{(n-1) \lambda}}}}
+	  {\frac{\bcancel{x^{(n-1) \lambda}}}{\bcancel{
+	  \alpha^{(n-1) \lambda}}}} \ = \
+	  \dfrac{(n-1) \lambda}{(n-1) \lambda +1} \, x
+	\]
+	\conc{$\forall x \in \ ]0, \alpha[$, $\sigma(x) = 
+	\dfrac{(n-1) \lambda}{(n-1) \lambda +1} \, x$}
+	
+	\item On a ainsi prouvé que la fonction $\sigma$ est linéaire 
+	(de la forme $x \mapsto a \, x$). 
+	\conc{Sa courbe représentative est donc 
+	une droite passant par l'origine, \\
+	ce qui est en accord avec la 
+	courbe fournie par l'énoncé.}
+      \end{noliste}
+      
+      \begin{remark}
+        En remplaçant $n$, $\lambda$ et $\alpha$ par les valeurs données
+        par l'énoncé, on obtient :
+        \[
+          \forall x \in \ ]0,\alpha[, \ \sigma(x)  = \dfrac{(6-1) 
+          \, 0,2}{(6-1) \, 0,2 +1} \, x = \dfrac{1}{2} \, x
+        \]
+        Ce qui donne la courbe représentative suivante :
+        
+        \begin{center}
+	  \includegraphics[scale=.37]
+	  {Figures/ESSEC-I_2018/Figure2_ESSEC-I_2018.png}
+        \end{center}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+
+
+
+\newpage
+
+
+
+\section{Modélisation d'enchères}
+
+\noindent
+Un bien est mis en vente aux enchères et $n$ acheteurs $A_1$, $\ldots$,
+$A_n$ sont intéressés. Chaque acheteur $A_k$ attribue une valeur $x_k$ 
+à ce bien, appelée \emph{valeur privée}, qui n'est pas connue des 
+autres acheteurs. Afin de se procurer ce bien, $A_k$ propose ensuite, 
+de façon secrète, une \emph{mise} (on dit aussi une \emph{offre}) 
+$y_k$. Toutes les mises sont alors révélées simultanément et l'acheteur 
+qui remporte le bien est celui qui a proposé la plus grande mise. En 
+cas d'égalité, le gagnant est tiré au sort parmi ceux qui ont la mise 
+la plus importante.\\
+Le prix à payer par le gagnant au vendeur dépend du type d'enchère 
+organisé. On étudie ici deux formats d'enchères :
+\begin{noliste}{$\sbullet$}
+  \item l'\emph{enchère au premier prix}, ou enchère hollandaise : 
+  l'acheteur gagnant paye la mise qu'il a lui-même proposée. Ce type 
+  d'enchère correspond aux enchères dynamiques \og descendantes \fg{} :
+  la vente commence avec un prix très élevé et baisse progressivement.
+  Le premier qui accepte le prix remporte le bien.
+  
+  \item l'\emph{enchère au second prix}, ou enchère anglaise : 
+  l'acheteur gagnant paye le prix correspondant à la deuxième meilleure
+  mise.\\
+  Ce type d'enchère est presque équivalent aux enchères dynamiques \og
+  montantes \fg{} bien connues : le prix monte progressivement 
+  jusqu'à ce qu'il ne reste plus qu'un seul acheteur : celui qui est 
+  prêt à mettre le plus haut prix, et qui paye (à peu de chose près) le
+  prix de la deuxième offre après la sienne.
+\end{noliste}
+Pour chaque acheteur $A_k$, on appelle \emph{résultat net} ou 
+simplement \emph{résultat} de l'enchère, et on note $r_k$, le bénéfice 
+ou le perte résultant de l'opération. Pour l'acheteur qui a remporté 
+l'enchère, le résultat est la différence entre la valeur privée et le 
+prix payé. Pour les autres acheteurs, le résultat est considéré comme 
+nul.\\
+À titre d'exemple, considérons quatre acheteurs, dont les mises en 
+euros sont $y_1=50$, $y_2=100$, $y_3=80$ et $y_4=40$, alors l'acheteur 
+$A_2$ gagne l'enchère. Si sa valeur privée $x_2$ vaut $90$ euros, il 
+paye $100$ euros au vendeur pour un résultat de $r_2=-10$ euros s'il 
+s'agit d'une enchère au premier prix, et $80$ euros pour un résultat de 
+$r_2=10$ euros si c'est une enchère au second prix.\\
+On s'intéresse au problème suivant : à partir de l'information dont 
+dispose l'acheteur $k$, notamment à partir de sa valeur privée $x_k$, 
+comment doit-il choisir sa mise $y_k$ afin d'optimiser son résultat net 
+? On appelle \emph{stratégie} de l'acheteur $k$ une fonction $\sigma_k$ 
+telle que $y_k = \sigma_k(x_k)$.
+
+
+
+\subsection{Enchère au premier prix}
+
+\noindent
+On suppose que chaque acheteur $A_k$ a une valeur privée $x_k = 
+X_k(\omega)$ qui est une réalisation de la variable aléatoire $X_k$.\\
+Soit $\sigma$ la fonction définie à la partie II.\\
+Le problème étant symétrique, on se met par exemple à la place de 
+l'acheteur $n$, et on suppose que les $n-1$ premiers acheteurs 
+appliquent la stratégie $\sigma$, c'est-à-dire : pour tout $k\in \{1, 
+\ldots, n-1\}$, l'acheteur $k$ mise $\sigma(X_k)$.\\
+L'acheteur $n$ a une valeur privée $x_n$ et choisit une mise $y_n$.\\
+On note $E_n$ l'événement \og l'acheteur $A_n$ remporte l'enchère \fg{}.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{9}
+  \item En remarquant que $\Prob(\Ev{Y_{n-1} = \sigma^{-1}(y_n)}) = 0$,
+  montrer que $\Prob(E_n) = \Prob(\Ev{Y_{n-1} < \sigma^{-1}(y_n)})$.\\
+  On note $R_n$ la variable aléatoire donnant le résultat net de 
+  l'enchère pour l'acheteur $A_n$.\\
+  Justifier que $R_n = (x_n-y_n) \, \unq{}_{E_n}$ et en déduire que le 
+  résultat espéré de l'acheteur $A_n$ en fonction de sa valeur 
+  privée $x_n \in \ ]0,\alpha[$ et de l'offre $y_n \in \ ]0,\beta[$ 
+  est donné par :
+  \[
+    \E(R_n) \ = \ (x_n-y_n) \, G_{n-1}(\sigma^{-1}(y_n))
+  \]
+  
+  
+  \newpage
+  
+  
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+      \item L'événement $E_n$ est réalisé si et seulement si 
+      l'acheteur $A_n$ remporte l'enchère, c'est-à-dire si sa mise 
+      $y_n = \sigma(x_n)$ est :
+      \begin{noliste}{$\stimes$}
+	\item ou bien strictement supérieure aux mises des 
+	$n-1$ autres acheteurs : $\sigma(x_1)$, $\ldots$, 
+	$\sigma(x_n)$.\\
+	Cet événement s'écrit :
+	\[
+	  \dcap{k=1}{n-1} \Ev{\sigma(X_k) < y_n}
+	  \ = \ \Ev{\max\big( \sigma(X_1), \ldots, \sigma(X_{n-1})\big)
+	  < y_n}
+	\]
+	\begin{remark}
+	  On utilise généralement cette égalité d'événements pour une
+	  lecture de droite à gauche.\\
+	  Plus précisément,
+	  en notant $M_n = \max(X_1, \ldots, X_n)$, alors, pour tout 
+	  $x \in \R$ :
+	  \[
+	    \Ev{M_n \leq x} \ = \ \Ev{\max(X_1, \ldots, X_n) \leq x}
+	    \ = \ \dcap{i=1}{n} \Ev{X_i \leq x}
+	  \]
+	\end{remark}
+	
+	\item ou bien égale à une ou plusieurs mises (la plus haute) 
+	des $n-1$ 
+	autres acheteurs, puis est tirée au sort parmi celles-ci.\\
+	Cet événement s'écrit :
+	\[
+	  \Ev{\max\big( \sigma(X_1), \ldots, \sigma(X_n)\big)
+	  = y_n} \cap E_n
+	\]
+      \end{noliste}
+      Finalement :
+      \[
+        E_n = \Ev{\max(\sigma(X_1) , \ldots, \sigma(X_n)) \leq 
+        y_n} \cap E_n
+      \]
+      
+      \item D'après la question \itbf{7.b)}, la fonction $\sigma$
+      est strictement croissante sur $]0,\alpha[$, donc :
+      \[
+        \max(\sigma(x_1), \ldots, \sigma(x_{n-1})) \ = \ 
+        \sigma(\max(x_1, \ldots, x_{n-1}))
+      \]
+      En effet :
+      \begin{noliste}{$\stimes$}
+	\item d'une part, par définition de $\max(x_1, \ldots, 
+	x_{n-1})$ :
+	\[
+	  \forall i \in \llb 1, n-1 \rrb, \ x_i \leq 
+	  \max(x_1, \ldots, x_{n-1})
+	\]
+	Donc, par croissance de $\sigma$ sur $]0,\alpha[$ :
+	\[
+	  \forall i \in \llb 1, n-1 \rrb, \ \sigma(x_i) \leq 
+	  \sigma\big(\max(x_1, \ldots, x_{n-1})\big)
+	\]
+	Ceci est valable pour tout $i \in \llb 1, n-1 \rrb$, donc :
+	\[
+	  \max \big( \sigma(x_1), \ldots, \sigma(x_n)\big) \leq 
+	  \sigma\big( \max(x_1, \ldots, x_n)\big)
+	\]
+	
+	\item d'autre part, par définition de $\max\big( \sigma(x_1)
+	, \ldots, \sigma(x_{n-1})\big)$ :
+	\[
+	  \forall i \in \llb 1, n-1 \rrb, \ \sigma(x_i) \leq 
+	  \max\big( \sigma(x_1), \ldots, \sigma(x_{n-1})\big)
+	\]
+	Donc, en particulier :
+	\[
+	  \sigma\big(\max(x_1, \ldots, x_{n-1})\big) \leq \max\big(
+	  \sigma(x_1), \ldots, \sigma(x_{n-1})\big)
+	\]
+      \end{noliste}
+      Finalement, on a bien : $\sigma\big( \max(x_1, \ldots, x_n) \big)
+      \ = \ \max\big( \sigma(x_1), \ldots, \sigma(x_n) \big)$.
+      
+      \item On en déduit :
+      \[
+       \begin{array}{rcl@{\qquad}>{\it}R{4cm}}
+        E_n & = & \Ev{\max\big( \sigma(X_1), \ldots, \sigma(X_{n-1})
+        \big) \leq y_n} \cap E_n
+        \\[.4cm]
+        & = & \Ev{\sigma\big( \max(X_1, \ldots, X_{n-1})
+        \big) \leq y_n} \cap E_n
+        \\[.4cm]
+        & = & \Ev{\sigma(Y_{n-1}) \leq y_n} \cap E_n
+        \\[.4cm]
+        & = & \Ev{Y_{n-1} \leq \sigma^{-1}(y_n)} \cap E_n
+        & (par stricte croissance de $\sigma^{-1}$ sur $]0,\beta[$)
+        \nl
+        \nl[-.2cm]
+        & = & \Ev{Y_{n-1} < \sigma^{-1}(y_n)} \cup \big( \Ev{Y_{n-1} = 
+        \sigma^{-1}(y_n)} \cap E_n\big)
+       \end{array}
+      \]
+      
+      
+      \newpage
+      
+      
+      \item Par incompatibilité de ces deux événements :
+      \[
+        \Prob(E_n) \ = \ \Prob(\Ev{Y_{n-1} < \sigma^{-1}(y_n)})
+        + \Prob(\Ev{Y_{n-1} = \sigma^{-1}(y_n)} \cap E_n)
+      \]
+      De plus, d'après la question \itbf{1.b)}, la \var $Y_{n-1}$ est 
+      une variable aléatoire à densité, donc :
+      \[
+        \forall a \in \R, \ \Prob(\Ev{Y_{n-1} = a}) = 0
+      \]
+      En particulier : $\Prob(\Ev{Y_{n-1} = \sigma^{-1}(y_n)}) 
+      =0$.\\[.1cm]
+      Or $\Ev{Y_{n-1} = \sigma^{-1}(y_n)} \cap E_n \ \subset \ 
+      \Ev{Y_{n-1} = \sigma^{-1}(y_n)}$. Donc :
+      \[
+        0 \leq \Prob\big(\Ev{Y_{n-1} = \sigma^{-1}(y_n)} \cap E_n 
+        \big) \leq \Prob\big(\Ev{Y_{n-1} = \sigma^{-1}(y_n)} \big) =0
+      \]
+      Ainsi : $\Prob\big(\Ev{Y_{n-1} = \sigma^{-1}(y_n)} \cap E_n
+      \big) =0$.
+      \conc{On en déduit : $\Prob(E_n) = \Prob(\Ev{Y_{n-1} < 
+      \sigma^{-1}(y_n)})$.}
+      
+      \item D'après l'énoncé :
+      \begin{noliste}{$\stimes$}
+	\item si l'acheteur $A_n$ remporte l'enchère, alors le 
+	résultat $r_n$ de l'enchère est la différence entre la valeur
+	privée $x_n$ et le prix payé $y_n$ (car c'est une 
+	enchère au premier prix).\\
+	Donc, si l'acheteur $A_n$ remporte l'enchère : $r_n = 
+	x_n - y_n$.
+	
+	\item si l'acheteur $A_n$ ne remporte pas l'enchère, le 
+	résultat $r_n$ est nul : $r_n=0$.
+      \end{noliste}
+      
+      \item La variable aléatoire $\unq{}_{E_n}$ est définie par :
+      \[
+        \unq{}_{E_n} : \omega \mapsto \left\{
+        \begin{array}{cR{3cm}}
+          1 & si $\omega \in E_n$
+          \nl
+          0 & sinon
+        \end{array}
+        \right.
+      \]
+      Soit $\omega \in \Omega$. Deux cas se présentent :
+      \begin{noliste}{$\stimes$}
+	\item \dashuline{si $\omega \in E_n$}, c'est-à-dire si 
+	$E_n$ est réalisé, alors on a montré précédemment : $R_n(\omega)
+	=x_n-y_n$.\\
+	De plus, par définition de $\unq{}_{E_n}$ : $\unq{}_{E_n}
+	(\omega)=1$. Donc :
+	\[
+	  (x_n-y_n) \, \unq{}_{E_n}(\omega) \ = \ x_n-y_n \ = \
+	  R_n(\omega)
+	\]
+	
+	\item \dashuline{si $\omega \in \overline{E_n}$}, c'est-à-dire 
+	si $\overline{E_n}$ est réalisé (l'acheteur $A_n$ ne remporte 
+	pas l'enchère), alors on a montré : $R_n(\omega)=0$.\\
+	De plus, par définition de $\unq{}_{E_n}$ : $\unq{}_{E_n}
+	(\omega)=0$ (car $\omega \notin E_n$). Donc :
+	\[
+	  (x_n-y_n) \, \unq{}_{E_n}(\omega) \ = \ 0 \ = \
+	  R_n(\omega)
+	\]
+      \end{noliste}
+      Finalement : $\forall \omega \in \Omega, \ R_n(\omega) = 
+      (x_n - y_n) \, \unq{}_{E_n}(\omega)$.
+      \conc{D'où : $R_n = (x_n-y_n) \, \unq{}_{E_n}$.}
+      
+      \item La \var $\unq{}_{E_n}$ admet une espérance car c'est une 
+      \var finie. En effet : $\unq{}_{E_n}(\Omega) = \{0,1\}$.\\
+      Donc la \var $R_n$ admet une espérance en tant que multiple
+      de $\unq{}_{E_n}$.
+      
+      \item Par définition de l'espérance :
+      \[
+        \begin{array}{rcl}
+          \E(\unq{}_{E_n}) & = & \bcancel{0 \times \Prob(\Ev{\unq{}_{E_n}
+          =0})} + 1 \times \Prob(\Ev{\unq{}_{E_n} =1})
+          \\[.4cm]
+          & = & \Prob(\Ev{\unq{}_{E_n}=1})
+        \end{array}
+      \]
+      Soit $\omega \in \Omega$.
+      \[
+        \omega \in \Ev{\unq{}_{E_n}=1} \ \Leftrightarrow \
+        \unq{}_{E_n}(\omega) = 1 \ \Leftrightarrow \ \omega \in E_n
+      \]
+      Donc : $\Ev{\unq{}_{E_n}=1} \ = \ E_n$. Ainsi :
+      \[
+        \E(\unq{}_{E_n}) \ = \ \Prob(\Ev{\unq{}_{E_n} =1}) \ = \
+        \Prob(E_n)
+      \]
+      
+      
+      \newpage
+      
+      
+      \item On en déduit :
+      \[
+        \begin{array}{rcl@{\qquad}>{\it}R{4.5cm}}
+          \E(R_n) & = & \E\big( (x_n-y_n) \, \unq{}_{E_n}\big)
+          \\[.1cm]
+          & = & (x_n-y_n) \, \E(\unq{}_{E_n})
+          & (par linéarité de l'espérance)
+          \nl
+          \nl[-.3cm]
+          & = & (x_n-y_n) \, \Prob(E_n)
+          \\[.4cm]
+          & = & (x_n- y_n) \, \Prob(\Ev{Y_{n-1} < \sigma^{-1}(y_n)})
+          \\[.3cm]
+          & = & (x_n-y_n) \, G_{n-1}(\sigma^{-1}(y_n))
+          & (car $G_{n-1}$ est la fonction de répartition de 
+          $Y_{n-1}$)
+        \end{array}
+      \]
+      \conc{$\E(R_n) \ = \ (x_n-y_n) \, 
+      G_{n-1}(\sigma^{-1}(y_n))$}~\\[-1cm]
+    \end{noliste}
+    
+    \begin{remark}
+      Les variables aléatoires indicatrices ne font pas partie du 
+      programme d'ECE. Donnons néanmoins certaines de leurs
+      propriétés.\\
+      Soit $A$ un événement. On note $\unq{}_A$ la \var telle que :
+      \[
+        \unq{}_A : \omega \mapsto \left\{
+        \begin{array}{cR{3cm}}
+          1 & si $\omega \in A$
+          \nl
+          0 & sinon
+        \end{array}
+        \right.
+      \]
+      \begin{noliste}{$\sbullet$}
+	\item Loi de $\unq{}_A$.
+	\begin{noliste}{$\stimes$}
+	  \item Par définition de $\unq{}_A$, cette \var ne prend comme
+	  valeur que $0$ et $1$. \\
+	  Donc $\unq{}_A(\Omega) = \{0,1\}$.
+	  
+	  \item Soit $\omega \in \Omega$.
+	  \[
+	    \omega \in \Ev{\unq{}_A = 1} \ \Leftrightarrow \ 
+	    \unq{}_A(\omega) = 1 \ \Leftrightarrow \ \omega \in A
+	  \]
+	  D'où : $\Ev{\unq{}_A=1} = A$. Ainsi : $\Prob(\Ev{\unq{}_A 
+	  =1}) = \Prob(A)$.
+	\end{noliste}
+	On en déduit : $\unq{}_A \suit \Bern{\Prob(A)}$.
+	
+	\item En particulier :
+	\[
+	  \E(\unq{}_A) = \Prob(A) \quad \text{et} \quad 
+	  \V(\unq{}_A) = \Prob(A) (1-\Prob(A))
+	\]
+	
+	\item On peut aussi garder en tête les deux propriétés 
+	suivantes.\\
+	Soient $A$ et $B$ deux événements.
+	\begin{noliste}{$\stimes$}
+	  \item $\unq{}_{A \cap B} \ = \ \unq{}_A \times \unq{}_B$
+	  \item $\unq{}_{A \cup B} \ = \ \unq{}_A + \unq{}_B
+	  - \unq{}_{A \cap B}$
+	\end{noliste}
+      \end{noliste}
+    \end{remark}~\\[-1.4cm]
+  \end{proof}
+  
+  \item En déduire que pour optimiser son espérance de résultat, 
+  l'acheteur $A_n$ a intérêt à appliquer lui aussi la stratégie 
+  $\sigma$.\\
+  Il s'agit de ce que l'on appelle un \emph{équilibre de Nash} en 
+  théorie des jeux : si tous les acheteurs appliquent cette 
+  stratégie d'équilibre $\sigma$, alors aucun n'a intérêt à 
+  changer de stratégie.
+  
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+      \item Pour optimiser l'espérance du résultat de $A_n$, il faut
+      maximiser la fonction $y_n \mapsto \E(R_n)$, c'est-à-dire la 
+      fonction :
+      \[
+        y \ \mapsto \ (x-y) \, G_{n-1}(\sigma^{-1}(y)) = \gamma(x,y)
+      \]
+      
+      \item Or, d'après la question \itbf{7.b)(iii)}, la fonction 
+      $y \mapsto \gamma(x,y)$ est maximale en $\sigma(x)$.\\
+      Donc, pour maximiser $\E(R_n)$, l'acheteur $A_n$ doit choisir
+      $y_n=\sigma(x_n)$.
+    \end{noliste}
+    
+    \conc{Pour optimiser son espérance de résultat, l'acheteur $A_n$
+    doit donc appliquer la stratégie $\sigma$.}~\\[-1.2cm]
+  \end{proof}
+\end{noliste}
+
+
+
+\newpage
+
+
+
+\subsection{Enchère au second prix}
+
+\noindent
+On se met à nouveau à la place de l'acheteur $n$. Soit $m = \max(y_1, 
+\ldots, y_{n-1})$ la meilleure offre faite par les acheteurs $A_1$, 
+$\ldots$, $A_{n-1}$ (que $A_n$ ne connaît pas).
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{11}
+  \item \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Si on suppose que $m \geq x_n$, montrer que quelle que soit la
+    mise $y_n$, le résultat net $r_n$ pour $A_n$ est négatif ou nul. 
+    Que vaut $r_n$ pour le choix $y_n = x_n$ ?
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item L'acheteur $A_n$ remporte l'enchère si et seulement si
+	sa mise est supérieure à celle des autres acheteurs, 
+	c'est-à-dire : $y_n > m$ ou, $y_n=m$ et il est tiré au sort.\\
+	Quatre cas se présentent donc :
+	\begin{noliste}{$\stimes$}
+	  \item \dashuline{si $y_n > m$}, alors l'acheteur $A_n$
+	  remporte l'enchère. Donc $r_n$ est la différence entre 
+	  la valeur privée $x_n$ et le prix payé $m$ (car c'est une 
+	  enchère au second prix).\\
+	  Donc, si $A_n$ remporte l'enchère : $r_n = x_n -m$.\\
+	  Or on suppose : $m \geq x_n$. Donc $r_n \leq 0$.
+	  
+	  \item \dashuline{si $y_n=m$ et $A_n$ est tiré 
+	  au sort}, alors l'acheteur $A_n$ remporte l'enchère.\\
+	  Donc on a toujours : $r_n \leq 0$.
+	  
+	  \item \dashuline{si $y_n=m$ et $A_n$ n'est pas tiré 
+	  au sort}, alors il ne remporte pas 
+	  l'enchère. Donc $r_n=0$.
+	  
+	  \item \dashuline{si $y_n <m$}, alors l'acheteur $A_n$ ne 
+	  remporte pas l'enchère. Donc $r_n=0$.
+	\end{noliste}
+	\conc{Finalement, quelle que soit la mise $y_n$, on obtient :
+	$r_n \leq 0$.}
+	
+	\item Si $y_n =x_n$, quatre cas se présentent :
+	\begin{noliste}{$\stimes$}
+	  \item \dashuline{si $y_n > m$} :
+	  \[
+	    r_n \ = \ x_n-m \ = \ y_n - m \ \geq \ 0
+	  \]
+	  Or, d'après précédemment : $r_n \leq 0$. Donc : $r_n=0$.
+	  
+	  \item \dashuline{si $y_n=m$ et $A_n$ est tiré 
+	  au sort}, on obtient de même : $r_n=0$.
+	  
+	  \item \dashuline{si $y_n=m$ et $A_n$ n'est pas tiré 
+	  au sort}, alors : $r_n=0$.
+	  
+	  \item \dashuline{si $y_n <m$}, alors : $r_n=0$.
+	\end{noliste}
+	\conc{Finalement, si $y_n = x_n$, alors $r_n=0$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+
+    
+    \item Si on suppose que $m < x_n$, quel est le résultat pour $A_n$
+    dans les cas $y_n < m$ et $y_n \geq m$ ?
+    
+    \begin{proof}~\\
+      Dans cette question, on suppose : $m < x_n$. Deux cas se 
+      présentent :
+      \begin{noliste}{$\stimes$}
+	\item \dashuline{si $y_n < m$}, alors l'acheteur $A_n$ ne 
+	remporte pas l'enchère. \\
+	Donc : $r_n=0$.
+	
+	\item \dashuline{si $y_n \geq m$}, alors l'acheteur $A_n$
+	remporte l'enchère.\\
+	Donc : $r_n= x_n-m$.
+      \end{noliste}
+      \conc{Si $m<x_n$, alors : $r_n = \left\{
+      \begin{array}{cR{3cm}}
+        0 & si $y_n < m$
+        \nl
+        x_n-m & si $y_n \geq m$
+      \end{array}
+      \right.$.}
+      
+      \begin{remarkL}{.95}
+        Dans ce cas ($m<x_n$), si l'acheteur $A_n$ remporte l'enchère,
+        alors son résultat $r_n=x_n-m$ est strictement positif.
+      \end{remarkL}~\\[-1.4cm]
+    \end{proof}
+
+    
+    \newpage
+    
+    
+    \item En déduire que la meilleure stratégie pour $A_n$ consiste 
+    à prendre $y_n =x_n$.
+    
+    \begin{proof}~\\
+      Deux cas se présentent :
+      \begin{noliste}{$\sbullet$}
+	\item \dashuline{si $m \geq x_n$}.\\[.1cm]
+	D'après la question \itbf{12.a)} : $r_n \leq 0$.\\
+	De plus, si $y_n = x_n$, alors $r_n=0$.\\
+	Ainsi, la meilleure stratégie pour l'acheteur $A_n$ est de 
+	choisir $y_n = x_n$.
+	
+	\item \dashuline{si $m< x_n$}.
+	\begin{noliste}{-}
+	  \item D'après la question \itbf{12.b)} : $r_n = \left\{
+	  \begin{array}{cR{3cm}}
+	    0 & si $y_n < m$
+	    \nl
+	    x_n-m & si $y_n \geq m$
+	  \end{array}
+	  \right.$\\[.2cm]
+	  Or $x_n-m >0$. Donc, si $y_n \geq m$, alors $r_n >0$.
+	  
+	  \item Ainsi, la meilleure stratégie pour l'acheteur $A_n$
+	  est donc de choisir une mise $y_n$ telle que $y_n \geq m$.\\
+	  Dans ce cas, quelle que soit la mise $y_n$, $r_n=x_n-m$.
+	  
+	  \item Or : $x_n >m$. Donc, en choisissant $y_n = x_n$, on 
+	  est dans le cas $y_n \geq m$. Ainsi : $r_n = x_n-m>0$.
+	\end{noliste}
+	On en déduit qu'une stratégie optimale pour $A_n$ est de 
+	choisir $y_n =x_n$.
+      \end{noliste}
+      \conc{Finalement, dans tous les cas, une stratégie optimale 
+      pour $A_n$ est de choisir $y_n=x_n$.}~\\[-1.2cm]
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+Par symétrie, chaque acheteur a également intérêt à miser le montant de 
+sa valeur privée. On parle de \emph{stratégie dominante} : chaque 
+acheteur a une stratégie optimale indépendamment du comportement des 
+autres acheteurs.
+
+
+
+
+\subsection{Équivalence des revenus}
+
+
+\noindent
+On se met maintenant à la place du vendeur.\\
+Les valeurs privées des acheteurs sont données par les variables 
+aléatoires $X_1$, $\ldots$, $X_n$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{12}
+  \item Enchère au premier prix.\\
+  On suppose que le vendeur organise une enchère au premier prix, et 
+  que les acheteurs adoptent la stratégie d'équilibre $\sigma$ donnée
+  à la partie III-1.\\
+  On note $B_n$ la variable aléatoire donnant le \emph{bénéfice}, ou 
+  \emph{revenu}, du vendeur. Il s'agit du montant que paye l'acheteur
+  qui a remporté l'enchère.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Justifier que $B_n = \sigma(Y_n)$.
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item L'acheteur ayant la mise maximale remporte l'enchère et
+	paye donc $\max(y_1, \ldots, y_n)$ (car c'est une enchère au 
+	premier prix).
+	
+	\item Or, chaque acheteur adopte la stratégie $\sigma$. Donc :
+	$\forall i \in \llb 1,n \rrb$, $y_i = \sigma(x_i)$.\\
+	L'acheteur gagnant paye donc $\max\big(\sigma(x_1), \ldots,
+	\sigma(x_n)\big)$.
+	
+	\item De plus, par croissance de $\sigma$ sur $]0,\alpha[$ :
+	\[
+	  \max\big( \sigma(x_1), \ldots, \sigma(x_n)\big) \ = \
+	  \sigma\big(\max(x_1, \ldots, x_n)\big)
+	\]
+	{\it (la démonstration de cette égalité est détaillée en 
+	question \itbf{10.})}
+	
+	\item On en déduit que l'acheteur gagnant paye 
+	$\sigma\big(\max(x_1, \ldots, x_n)\big)$.
+      \end{noliste}
+      \conc{Ainsi : $B_n = \sigma\big(\max(X_1, \ldots, X_n)\big)
+      = \sigma(Y_n)$.}~\\[-1cm]
+    \end{proof}
+    
+    
+    \newpage
+
+    
+    \item En déduire :
+    \[
+      \E(B_n) \ = \ n \, \dint{0}{\alpha} \sigma(x) \, G_{n-1}(x) \,
+      f(x) \dx \ = \ n \, \dint{0}{\alpha} \left( \dint{0}{x} t \, 
+      g_{n-1}(t) \dt \right) f(x) \dx
+    \]
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item La fonction $g_n$ est nulle en dehors de $]0,\alpha[$.\\
+	Donc, d'après le théorème de transfert, la \var $B_n = 
+	\sigma(Y_n)$ admet une espérance si et seulement si 
+	l'intégrale $\dint{0}{\alpha} \sigma(x) \, g_n(x) \dx$ est 
+	absolument convergente.\\
+	Les fonctions $\sigma$ et $g_n$ étant à valeurs positives sur 
+	$]0,\alpha[$, cela revient à démontrer que cette intégrale est 
+	convergente.
+	
+	\item La fonction $x \mapsto \sigma(x) \, g_n(x)$ est continue
+	par morceaux sur $[0,\alpha]$ (d'après la question 
+	\itbf{6.d)}), donc l'intégrale $\dint{0}{
+	\alpha} \sigma(x) \, g_n(x) \dx$ est bien définie.
+	\conc{Ainsi, la \var $B_n = \sigma(Y_n)$ admet une 
+	espérance.}
+	
+	\item Soit $x \in \ ]0,\alpha[$.
+	\[
+	  \begin{array}{rcl@{\qquad}>{\it}R{4.5cm}}
+	    \sigma(x) \, g_n(x) & = & n \, \sigma(x) \, f(x) \, 
+	    (F(x))^{n-1}
+	    & (d'après la question \itbf{1.b)})
+	    \nl
+	    \nl[-.2cm]
+	    & = & n \, \sigma(x) \, f(x) \, G_{n-1}(x)
+	    & (d'après la question \itbf{1.a)})
+	  \end{array}
+	\]
+	\conc{Donc : $\E(B_n) \ = \ \E(\sigma(Y_n)) \ = \ \dint{0}
+	{\alpha} \sigma(x) \, g_n(x) \dx \ = \ n \, \dint{0}{\alpha}
+	\sigma(x) \, f(x) \, G_{n-1}(x) \dx$.}
+	
+	\item D'après l'expression $(*)$ en question \itbf{6.d)} :
+	\[
+	  \forall x \in \ ]0,\alpha[, \ \sigma(x) = 
+	  \dfrac{1}{G_{n-1}(x)} \, \dint{0}{x} t \, g_{n-1}(t) \dt
+	\]
+	D'où : $\forall x \in \ ]0,\alpha[$, $\sigma(x) \, 
+	G_{n-1}(x) = \dint{0}{x} t \, g_{n-1}(t) \dt$.\\[.2cm]
+	Ainsi : $\dint{0}{\alpha} \sigma(x) \, G_{n-1}(x) \,
+	f(x) \dx \ = \ \dint{0}{\alpha} \left(\dint{0}{x} t \,
+	g_{n-1}(t) \dt\right) \, f(x) \dx$.
+	\conc{$\E(B_n) \ = \ n \, \dint{0}{\alpha} \sigma(x) \, 
+	G_{n-1}(x) \, f(x) \dx \ = \ n \, \dint{0}{\alpha} \left(
+	\dint{0}{x} t \, g_{n-1}(t) \dt \right) \, f(x) \dx$}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+
+    
+    \item Montrer, à l'aide d'une intégration par parties :
+    \[
+      \E(B_n) \ = \ n \, \dint{0}{\alpha} x \, (1-F(x)) \, 
+      g_{n-1}(x) \dx
+    \]
+    
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+	\item D'après la question précédente :
+      \[
+        \E(B_n) \ = \ n \, \dint{0}{\alpha} \left(\dint{0}{x} t \,
+        g_{n-1}(t) \dt \right) f(x) \dx
+      \]
+      \item Soit $(a,b) \in \ ]0, \alpha[^2$ tels que $a \leq b$. On 
+      procède par intégration par parties (IPP).
+      \[
+        \renewcommand{\arraystretch}{2}
+        \begin{array}{|rcl@{\qquad}rcl}
+          u(x) & = & \dint{0}{x} t \, g_{n-1}(t) \dt & u'(x) & = & 
+          x \, g_{n-1}(x) \\
+          v'(x) & = & f(x) & v(x) & = & -(1-F(x))
+        \end{array}
+        \]
+      Cette IPP est valide car les fonctions $u$ et $v$ sont de classe
+      $\Cont{1}$ sur $[a, b]$.
+      
+      
+      \newpage
+      
+      
+      On obtient alors :
+      \[
+        \begin{array}{cl}
+          & \dint{a}{b} \left(\dint{0}{x} t \, g_{n-1}(t) \dt\right)
+          \, f(x) \dx
+          \\[.6cm]
+          =& \Prim{-\left(\dint{0}{x} t \, g_{n-1}(t) \dt \right)
+          (1-F(x))}{a}{b} + \dint{a}{b} x \, g_{n-1}(x) \, (1-F(x)) \dx
+        \end{array}
+      \]
+      Or :
+      \[
+       \begin{array}{cl}
+        & \Prim{-\left(\dint{0}{x} t \, g_{n-1}(t) \dt \right)
+          (1-F(x))}{a}{b} 
+        \\[.6cm] 
+        = &
+        - \left(\dint{0}{b} t \, g_{n-1}(t) \dt \right) \, 
+          (1-F(b)) + \left(\dint{0}{a} t \, g_{n-1}(t) \dt \right) \,
+          (1-F(a))
+       \end{array}
+      \]
+      De plus, comme la densité $f$ est nulle en dehors de $]0,\alpha[$ 
+      :
+      \begin{noliste}{$\stimes$}
+	\item d'une part $\dlim{a\to 0} F(a) \ = \ F(0) \ = \
+	\dint{-\infty}{0} f(t) \dt \ = \ 0$,
+	
+	\item d'autre part $\dlim{b\to \alpha} F(b) \ = \ F(\alpha) \ = 
+	\ \dint{-\infty}{\alpha} f(t) \dt \ = \ 
+	\dint{0}{\alpha} f(t) \dt \ = \ 1$
+      \end{noliste}
+      Enfin :
+      \[
+        \dlim{a\to 0} \dint{0}{a} t \, g_{n-1}(t) \dt = 0 \qquad 
+        \text{et} \qquad \dlim{b\to \alpha} \dint{0}{b} t \, g_{n-1}(t) 
+        \dt = \dint{0}{\alpha} t \, g_{n-1}(t) \dt = 
+        \E(Y_{n-1})
+      \]
+      \item Ainsi : 
+      \[
+        \dint{0}{\alpha} \left(\dint{0}{x} t \, g_{n-1}(t) \dt \right)
+        \, f(x) \dx \ = \ -\bcancel{\E(Y_{n-1}) \times (1-1)} + 
+        \bcancel{0 \times (1-0)} + \dint{0}{\alpha} x \, (1-F(x))
+        \, g_{n-1}(x) \dx
+      \]
+      \end{noliste}
+      \conc{On en déduit : $\E(B_n) \ = \ n \, \dint{0}{\alpha} x \, 
+      (1-F(x)) \, g_{n-1}(x) \dx$.}
+      
+      \begin{remark}
+      \begin{noliste}{$\sbullet$}
+        \item On remarque le choix non usuel d'une primitive de 
+        $v': x \mapsto f(x)$.\\
+        On choisit ici $v : x \mapsto -(1-F(x))$ plutôt que 
+        $v:x \mapsto F(x)$ afin d'obtenir plus rapidement le résultat
+        voulu. Néanmoins les calculs ne sont pas rendus plus 
+        complexes par le choix de $v : t \mapsto F(t)$.
+        \item Le programme officiel stipule que \og les techniques de 
+        calculs ({\bf intégration par parties}, changement de variables)
+        seront pratiquées sur des intégrales sur un segment \fg{}.
+        C'est pourquoi on se place ici sur le segment $[a,b]$ pour 
+        effectuer l'IPP (et non sur $]0, \alpha[$).
+      \end{noliste}
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+  
+  \item Enchère au second prix.\\
+  On suppose que le vendeur organise une enchère au second prix, et que 
+  les acheteurs adoptent la stratégie dominante de la partie III-2 : 
+  chacun mise autant que sa valeur privée.\\
+  On note $B_n'$ la variable aléatoire donnant le revenu du vendeur 
+  dans cette enchère.\\
+  Justifier que $\E(B_n') = \E(Z_n)$.
+  
+  \begin{proof}~
+   \begin{noliste}{$\sbullet$}
+    \item L'acheteur ayant la mise maximale emporte l'enchère. Dans une 
+    enchère au second prix, il paye la deuxième mise la plus élevée
+    parmi $y_1$, $\ldots$, $y_n$.
+    
+    
+    \newpage
+    
+    
+    \item Or, avec la stratégie de la question \itbf{12.c)} : 
+    $\forall i \in \llb 1, n \rrb$, $y_i=x_i$.\\[.2cm]
+    Donc l'acheteur gagnant paye la deuxième plus grande valeur parmi
+    $x_1$, $\ldots$, $x_n$.
+    \conc{Ainsi : $B_n'=Z_n$.}
+    
+    
+    
+    \item La \var $Z_n$ admet une espérance par critère de comparaison 
+    des intégrales généralisées de fonctions continues positives (même 
+    démonstration qu'en question \itbf{1.c)}).
+    \conc{Ainsi, la \var $B_n'$ admet une espérance et : $\E(B_n')
+    =\E(Z_n)$.}~\\[-1.4cm]
+   \end{noliste}
+  \end{proof}
+
+  
+  \item Établir : $\E(B_n) = \E(B_n')$.
+  
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+      \item D'après la question \itbf{2.b)} : 
+      \[
+       \begin{array}{rcl}
+        \E(Z_n) & = & \dint{0}{\alpha} x \, h_n(x) \dx \ = \
+        \dint{0}{\alpha} x \, n(n-1) \, f(x) \, (1-F(x)) \, (F(x))^{n-2}
+        \dx
+        \\[.6cm]
+        & = & n \, \dint{0}{\alpha} x \, (1-F(x)) \, (n-1) \, f(x) \,
+        (F(x))^{n-2} \dx
+       \end{array}
+      \]
+      
+      \item D'autre part, d'après la question \itbf{1.b)} : 
+      \[
+        \forall x \in \ ]0, \alpha[, \ g_{n-1}(x) = (n-1) \, f(x) \,
+        (F(x))^{n-2}
+      \]
+      D'où :
+      \[
+        \E(Z_n) \ = \ n \, \dint{0}{\alpha} x \, (1-F(x)) \, g_{n-1}(x)
+        \dx \ = \ \E(B_n)
+      \]
+    \end{noliste}
+    \conc{Ainsi : $\E(B_n') \ = \ \E(Z_n) \ = \ \E(B_n)$.}~\\[-1cm]
+  \end{proof}
+\end{noliste}
+Ainsi, le revenu moyen pour le vendeur est le même pour les enchères au 
+premier ou au second prix lorsque les acheteurs adoptent tous la 
+stratégie optimale. Plus généralement, on peut montrer que ce revenu 
+moyen est encore le même dans une très grande classe de formats 
+d'enchères, ce résultat portant le nom de \emph{principe d'équivalence 
+du revenu}.
+
+
+
+
+
+
+\end{document}

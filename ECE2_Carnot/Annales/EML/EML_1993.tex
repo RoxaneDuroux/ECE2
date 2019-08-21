@@ -1,0 +1,379 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EML 1993} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{EML 1993}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1993}}
+
+
+
+{\large \textbf{Concepteur : EML}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{EXERCICE 1}
+
+$f$ est l'endomorphisme de $\R^{3}$ dont la matrice dans la base
+canonique de $\R^{3},$ notée$\left( \vec{i},\vec{j},\vec{k}\right) $
+est $A$ : 
+\[
+A = \left( 
+\begin{array}{rrr}
+1 & 0 & -1 \\
+0 & 1 & 0 \\
+-1 & 2 & 1
+\end{array}
+\right)
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer les valeurs propres de $f$
+
+On les notrera $\lambda_{1},\lambda_{2},\lambda_{3}$ de sorte que
+$\lambda_{1}<\lambda_{2}<\lambda_{3}$
+
+\item En déduire, sans autre calcul, les réponses aux questions
+suivantes :\\
+$A$ est-elle diagonalisable ?\\
+$A$ est-elle inversible ?
+\end{noliste}
+
+\item Pour tout $p\in \left\{ 1,2,3\right\},$ montrer qu'il existe un
+vecteur popre $\overrightarrow{e_{p}}$ de $f$ associé à la valeur
+porpre $\lambda_{p}$ dont la $p^{i\grave{e}me}$ coordonnée dans la base
+canonique $\left( \vec{i},\vec{j},\vec{k}\right) $ est $1.$ Donner les
+coordonnées de $\overrightarrow{e_{p}}$ dans cette base.
+
+\item Soit $P$ la matrice de passage de $\left(
+\vec{i},\vec{j},\vec{k}\right) $ à la base $\left(
+\overrightarrow{e_{1}},\overrightarrow{e_{2}},\overrightarrow{e_{3}}\ri
+ht).$ Écrire $P.$ Calculer $P^{-1} :$ les calculs
+devront figurer sur la copie.
+
+\item Pour $n\in \N^{\times },$ calculer $A^{n} :$ on donnera de façon
+explicite les neufs coefficients de la matrice $A^{n}.$
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+Soit $f :\begin{array}[t]{lll}
+\R & \rightarrow & \R \\
+x & \mapsto & f\left( x\right) = {\dfrac{x + 1}{\sqrt{x^{2} + 1}}}-1
+\end{array}
+$
+
+\subsection*{I. Étude de f.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Former le tableau de variation de $f$
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Résoudre l'équation $f\left( x\right) = x$, d'inconnue $x\in \R$
+
+\item Résoudre l'équation $f\left( x\right) \leq x$, d'inconnue $x\in 
+\R$
+\end{noliste}
+
+\item Tracer la courbe représentative $\left( C\right) $ de $f$ dans un
+repère orthonormé d'unité 5cm, et préciser la position relative de
+$\left(
+C\right) $ et de la première bissectrice (on ne cherchera pas
+d'éventuels
+points d'inflexion)
+\end{noliste}
+
+\subsection*{II. Étude d'une suite récurrente.}
+
+On considère la suite $(u_{n})_{n\in \N}$ définie par : $u_{0}\in 
+\R$ et pour tout entier $n,$ $u_{n + 1} = f\left( u_{n}\right) $
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Que dire de $(u_{n})_{n\in \N}$ si $u_{0} = -1$ ou $u_{0} = 0$ ?
+
+\item On suppose ici $u_{0}<-1$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\forall n\in \N,\quad u_{n}<-1$
+
+\item En déduire que $\left( u_{n}\right)_{n\in \N}$ est croissante.
+
+\item Montrer que $(u_{n})_{n\in \N}$ converge vers un réel que l'on
+déterminera.
+\end{noliste}
+
+\item On suppose ici $-1<u_{0}<0$.
+
+Montrer que $\left( u_{n}\right)_{n\in \N}$ converge et déterminer
+sa limite.
+
+\item On suppose ici $u_{0}>0$.
+
+Sans en donner de démonstration, quel résultat obtiendrait-on
+concernant la
+convergence de $(u_{n})_{n\in \N}$ dans ce cas ?
+\end{noliste}
+
+\section*{EXERCICE 3}
+
+\subsection*{Question préliminaire}
+
+Soient $k$ et $n$ deux entiers naturels tels que $0<3k\leq n$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Démonter que\\
+pour tout $i$ tel que $0\leq i\leq k-1,C_{n}{i}\leq \frac{1}{2}C_{n}{i
++ 1}$\\
+puis que\\
+pour tout $i$ tel que $0\leq i\leq k,$ $C_{n}{i}\leq
+\frac{1}{2^{k-i}}C_{n}{k}$
+
+\item En déduire que $C_{n}{k}\leq
+\Sum{i = 0}{k}C_{n}{i}\leq 2C_{n}{k}$
+\end{noliste}
+\end{noliste}
+
+\noindent Monsieur X vend des journaux, sur le marché le samedi matin;
+il
+propose au choix, deux quotidiens A et B et il dispose d'un stock de 40
+exemplaires de A et 40 exemplaires de B.\\
+On suppose :
+
+\begin{noliste}{$\sbullet$}
+\item qu'aucun client ne demande A et B
+
+\item que si un client demande A (respectivement B) alors que le stock
+de A
+(respectivement B) est épuisé, il part sans demander B (respectivement
+A)
+
+\item que les demandes des clients sont indépendantes les unes des
+autres.
+\end{noliste}
+
+\noindent Un samedi, 60 clients se présentent dans la matinée. chaque
+client
+qui demande soit A soit B avec la même probabiltié $0,5.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item $Y$ est la variable aléatoire égale au nombre de clients qui
+demandent
+A dans cette matinée.\\
+Déterminer la loi de $Y$\\
+Donner son espérance et sa variance.
+
+\item On note $x$ la probabilité de l'évènement \textquotedblright
+Monsieur
+X ne satisfait pas toutes les demandes, cette matinée\textquotedblright
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer $x$ à l'aide de la loi de $Y.$
+
+\item Déduire de l'inégalité de Bienaymé-Tchebychev un majorant de $x.$
+
+\item Déduire de la question préliminaire un encadrement de $x.$
+
+\item Comparer, en utilisant des valeurs numériques approchées données
+en
+annexe, les résultats des questions \textbf{b} et \textbf{c}.
+\end{noliste}
+\end{noliste}
+
+\noindent Annexe : $C_{60}{20}\simeq 4,192.10^{15};\quad
+C_{60}{19}\simeq
+2.045;10^{15};\quad C_{60}{18}\simeq 9,250.10^{14}$
+
+\section*{EXERCICE 4}
+
+Pour tout entier $n$ on note : 
+\[
+I_{n} = \dint{0}{1}e^{-x^{2}}(1-x)^{n}dx\qquad \text{et\qquad }J_{n} =
+\dint{0}{1}xe^{-x^{2}}(1-x)^{n}dx.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Former le tableau de variation sur $[0,1]$ de $x\rightarrow
+xe^{-x^{2}} $..
+
+\item En déduire pour tout $n$ de $\N :$
+\[
+0\leq J_{n}\leq \frac{1}{\sqrt{2e}(n + 1)}
+\]
+
+\item Étudier la convergence de la suite $\left( J_{n}\right)_{n\in
+\N}$.
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item À l'aide d'une intégration par parties, établir pour tout $n$ de
+$\N$ : 
+\[
+I_{n} = \frac{1}{n + 1}-\frac{2}{n + 1}J_{n + 1}
+\]
+
+\item En déduire la limite de $I_{n}$ et celle de $n.I_{n}$ quand $n$
+tend
+vers $ + \infty $.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

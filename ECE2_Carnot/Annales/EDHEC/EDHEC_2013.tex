@@ -1,0 +1,494 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 2013} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\im}{\operatorname{Im}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum\limits}
+\newcommand{\dprod}{\prod}
+\newcommand{\lb}{\llbracket}
+\newcommand{\rb}{\rrbracket}
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.5
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 2013}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\indent \vspace{0.3cm}
+
+\Tbox{\begin{center} \textbf{\Huge Edhec 2013} \end{center} }
+
+\vspace{0.5cm}
+
+\section*{Exercice 1}
+
+\noindent On se propose d'étudier la suite $(u_{n})_{n \in \N}$,
+définie par la donnée de $u_{0} = 0$ et par la relation, valable pour
+tout entier naturel $n$ : $u_{n + 1} = \frac{u_{n}{2} + 1}{2}$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Montrer que, pour tout entier naturel $n$, on a : $0 \leq u_{n}
+\leq 1$. 
+
+\item Étudier les variations de la suite $(u_{n})$. 
+
+\item Déduire des questions précédentes que la suite $(u_{n})$ converge
+et donner sa limite. \\
+
+\end{noliste}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Écrire une fonction \Scilab{} qui renvoie la valeur de $u_{n}$.
+
+\item En déduire un programme,rédigé en \Scilab{}, qui permet de
+déterminer et d'afficher la plus petite valeur de $n$ pour laquelle on
+a : $0 < 1 - u_{n} < 10^{-3}$. \\
+
+\end{noliste}
+
+\item Pour tout entier naturel $n$, on pose $v_{n} = 1 - u_{n}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Pour tout entier naturel $k$, exprimer $v_{k} - v_{k + 1}$ en
+fonction de $v_{k}$.
+
+\item Simplifier, pour tout entier naturel $n$ non nul, la somme
+$\Sum{k = 0}{n-1} (v_{k} - v_{k + 1})$.
+
+\item Donner pour finir la nature de la série de terme général
+$v_{n}{2}$ ainsi que la valeur de $\Sum{n = 0}{+ \infty} v_{n}{2}$.
+
+\end{noliste}
+
+\end{noliste}
+
+\section*{Exercice 2}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item On note $\mathcal{B} = (e_{1}, e_{2}, e_{3})$ la base canonique
+de $\R^{3}$ et on considère l'endomorphisme $f$ de $\R^{3}$ dont la
+matrice dans la base $\mathcal{B}$ est : 
+\[
+ A = \begin{smatrix}
+2 & 1 & 2 \\
+-1 & -1 & -1 \\
+-1 & 0 & -1 \\
+\end{smatrix}
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Vérifier que l'on a $A^{2} \neq 0$ et calculer $A^{3}$. 
+
+\item Déterminer une base $(a)$ de $\kerf$ ainsi qu'une base $(b,c)$ de
+$\imf$.
+
+\item Montrer que $\imf^{2} = \kerf$. \\
+
+\end{noliste}
+
+\end{noliste}
+
+\noindent Dans la suite, on considère un endomorphisme $g$ de $\R^{3}$
+tel que : $g^{2} \neq 0$ et $g^{3} = 0$, ce qui signifie que $g \circ
+g$ n'est pas l'endomorphisme nul, mais que $g \circ g \circ g $ est
+l'endomorphisme nul. \\
+En désignant par $M$ la matrice de $g$ dans la base canonique
+$\mathcal{B}$ de $\R^{3}$, on a donc : 
+\[
+ M^{2} \neq 0 \ \text{ et } \ M^{3} = 0 
+\]
+
+On se propose de montrer, dans ce cas plus général, que $\img^{2} =
+\kerg$. \\
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Montrer que 0 est la seule valeur propre possible de $g$. 
+
+\item Montrer, en raisonnant par l'absurde, que 0 est effectivement la
+seule valeur propre de $g$.
+
+\item En déduire, toujours en raisonnant par l'absurde, que $g$ n'est
+pas diagonalisable. \\
+
+\end{noliste}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Justifier qu'il existe un vecteur $u$ de $\R^{3}$ tel que
+$g^{2}(u) \neq 0$.
+
+\item Montrer que $( \ u, g(u), g^{2}(u) \ )$ est une base de $\R^{3}$,
+que l'on notera $\mathcal{B}'$.
+
+\item Donner la matrice $N$ de $g$ dans la base $\mathcal{B}'$.
+
+\item Déterminer $\img$ et donner sa dimension. En déduire une base de
+$\kerg$. Pour finir, déterminer $\img^{2}$ puis conclure.
+
+\end{noliste}
+
+\end{noliste}
+
+\section*{Exercice 3}
+
+\noindent Dans cet exercice, la lettre $n$ désigne un entier naturel.
+\\
+On dispose d'une urne contenant au départ $n$ boules blanches et $(n +
+2)$ boules noires. On dispose également d'une réserve infinie de boules
+blanches et de boules noires. \\
+Pour tout entier naturel $j$, on dit que l'urne est dans l'état $j$
+lorsqu'elle contient $j$ boules blanches et $(j + 2)$ boules noires. Au
+départ, l'urne est donc dans l'état $n$. \\
+
+\noindent On réalise une succession d'épreuves, chaque épreuve se
+déroulant selon le protocole suivant : \\
+Pour tout entier naturel $j$ non nul, si l'urne est dans l'état $j$, on
+extrait une boule au hasard de l'urne.
+\begin{noliste}{$\sbullet$}
+
+\item Si l'on obtient une boule blanche, alors cette boule n'est pas
+remise dans l'urne et on enlève de plus une boule noire de l'urne,
+l'urne est alors dans l'état $(j-1)$. 
+
+\item Si l'on obtient une boule noire, alors cette boule est remise
+dans l'urne et on remet en plus une boule blanche et une boule noire
+dans l'urne, l'urne est alors dans l'état $(j + 1)$. \\
+
+\end{noliste}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Dans cette question, on suppose que $n = 1$ (l'urne contient donc
+une boule blanche et 3 boules noires) et on note $X_{1}$ la variable
+aléatoire égale au nombre de boules blanches encore présentes dans
+l'urne après la première épreuve et $X_{2}$ la variable aléatoire égale
+au nombre de boules blanches encore présentes dans l'urne après la
+deuxième épreuve. \\
+On admet que $X_{1}$ et $X_{2}$ sont définies sur un certain espace
+probabilisé $(\Omega, \mathcal{A}, \Pr)$ que l'on ne cherchera pas à
+détermine.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Donner la loi de $X_{1}$.
+
+\item Utiliser la formule des probabilités totales pour déterminer la
+loi de $X_{2}$.
+
+\item Simulation informatique de l'expérience aléatoire décrite
+ci-dessus. \\
+
+On rappelle que random($n$) renvoie au hasard un entier compris entre 0
+et $n-1$. \\
+Compléter le programme suivant pour qu'il simule l'expérience aléatoire
+décrite dans cet exercice et pour qu'il affiche les valeurs des
+variables aléatoires $X_{1}$ et $X_{2}$. \\
+
+\begin{verbatim}
+Program simul ;
+Var X1, X2, tirage : integer ;
+Begin
+Randomize;
+tirage : = random(4); If tirage = 0 then X1 : =..........else X1 :
+=..........;
+If (X1 = 0) then X2 : =..........
+ Else begin tirage : = random(6);
+ If tirage< = 1 then X2 : =..........else X2 : =..........;
+ end;
+Writeln(X1,X2);
+end.
+
+\end{verbatim}
+
+\end{noliste}
+
+\end{noliste}
+
+\noindent On revient au cas général ($n$ est donc un entier naturel
+quelconque supérieur ou égal à 1) et on décide que les tirages
+s'arrêtent dès que l'urne ne contient plus de boules blanches. \\
+Pour tout $j$ de $\N$, on note alors $E_{j}$ l'évènement : \og l'urne
+est dans l'état $j$ initialement et les tirages s'arrêtent au bout d'un
+temps fini \fg. On pose $e_{j} = \Prob\left(\Ev{E_{j}}\right)$ et l'on
+a bien sûr $e_{0} = 1$. \\
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item Montrer, en considérant les deux résultats possibles du premier
+tirage (c'est-à-dire au début du jeu lorsque l'urne est dans l'état
+$n$) que : 
+\[
+ \forall n \in \N^{\ast}, \ \ \ e_{n} = \frac{n}{2n + 2} e_{n-1} +
+\frac{n + 2}{2n + 2} e_{n + 1}. 
+\]
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Montrer par récurrence que : $\forall n \in \N, \ e_{n} \geq e_{n
++ 1}$.
+
+\item En déduire que la suite $(e_{n})$ est convergente.
+
+\end{noliste}
+
+\begin{center} On admet pour la suite que $\dlim{n \rightarrow +
+\infty} e_{n} = 0$. \end{center}
+
+\item Pour tout entier naturel $n$, on pose $u_{n} = (n + 1) e_{n}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Pour tout entier naturel $n$ de $\N^{\ast}$, écrire $u_{n + 1}$
+en fonction de $u_{n}$ et $u_{n-1}$.
+
+\item En déduire l'expression de $u_{n}$ en fonction de $n$ et $e_{1}$.
+
+\item Montrer enfin que l'on a : $\forall n \in \N, \ e_{n} = (2e_{1} -
+1) \frac{n}{n + 1} + \frac{1}{n + 1}$. 
+
+\end{noliste}
+
+Déterminer la valeur de $e_{1}$, puis en déduire, pour tout entier
+naturel $n$, l'expression de $e_{n}$ en fonction de $n$.
+
+\end{noliste}
+
+\section*{Problème}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item On considère la fonction $f$ définie pour tout $x$ réel par :
+$f(x) = \left\{
+\begin{array}{cl}
+ 1 - | x | \text{ si } x \in [-1 ; 1] \\
+0 \text{ sinon} \\
+\end{array}
+\right.$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Calculer $\dint{0}{1} f(x)\ dx$. En déduire sans calcul
+$\dint{-1}{0} f(x)\ dx$.
+
+\item Vérifier que $f$ peut être considérée comme une densité. \\
+
+\end{noliste}
+
+\end{noliste}
+
+\noindent On considère dorénavant une variable aléatoire $X$, définie
+sur un espace probabilisé $(\Omega, \mathcal{A}, \Pr)$, et admettant
+$f$ comme densité
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Établir l'existence de l'espérance de $X$, puis donner sa valeur.
+
+\item Établir l'existence de la variance de $X$, puis donner sa valeur.
+\\
+
+\end{noliste}
+
+\item Montrer que la fonction de répartition de $X$, notée $F_{X}$, est
+définie par : 
+\[
+F_{X}(x) = \left\{ 
+\begin{array}{l}
+ 0 \ \text{ si } \ x < -1 \\
+\dfrac{1}{2} + x + \dfrac{x^{2}}{2} \ \text{ si } -1 \leq x \leq 0 \\
+\dfrac{1}{2} + x -\dfrac{x^{2}}{2} \ \text{ si } 0 < x \leq 1
+\rule{0cm}{0.6cm} \\
+1 \ \text{ si } x > 1 \rule{0cm}{0.4cm} \\
+\end{array}
+\right. 
+\]
+
+\end{noliste}
+
+\noindent On pose $Y = \left| X \right|$ et on admet que $Y$ est une
+variable aléatoire à densité, elle aussi définie sur l'espace
+probabilisé $(\Omega, \mathcal{A}, \Pr)$. On note $F_{Y}$ sa fonction
+de répartition. \\
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+
+\item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Donner la valeur de $F_{Y}(x)$ lorsque $x$ est strictement
+négatif.
+
+\item Pour tout réel $x$ positif ou nul, exprimer $F_{Y}(x)$ à l'aide
+de la fonction $F_{X}$.
+
+\item En déduire qu'une densité de $Y$ est la fonction $g$ définie par
+: 
+\[
+g(x) = \left\{
+\begin{array}{cl}
+ 2(1-x) \text{ si } x \in [ 0 ; 1] \\
+\\0 \text{ sinon}
+\end{array}
+\right. 
+\]
+
+\item Montrer que $Y$ possède une espérance et une variance et les
+déterminer. \\
+
+\end{noliste}
+
+\item On considère deux variables aléatoires $U$ et $V$, elles aussi
+définies sur $(\Omega, \mathcal{A}, \Pr)$, indépendantes et suivant
+toutes les deux la loi uniforme sur $[0 ; 1]$. \\
+On pose $I = \Inf ( U,V)$, c'est-à-dire que, pour tout $\omega$ de
+$\Omega$, on a $I(\omega) = \operatorname{Min}( \ U(\omega), V(\omega)
+\ )$. \\
+On admet que $I$ est une variable aléatoire à densité, elle aussi
+définie sur $(\Omega, \mathcal{A}, \Pr)$, et on rappelle que, pour tout
+réel $x$, on a $\Prob\left(\Ev{U > x}\right) = \Prob( \ [U > x] \cap [
+V > x ] \ )$. \\
+Pour finir, on note $F_{I}$ la fonction de répartition de $I$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+
+\item Expliciter $F_{I}(x)$ pour tout réel $x$.
+
+\item En déduire que $I$ suit la même loi que $Y$. \\
+
+\end{noliste}
+
+\item On considère plus généralement $n$ variables aléatoires $X_{1},
+X_{2}, \dots, X_{n}$ ( $n \geq 2$ ), toutes définies sur $(\Omega,
+\mathcal{A}, \Pr)$, indépendantes et suivant la même loi uniforme sur
+$[ 0 ; 1]$. On pose $I_{n} = \Inf ( X_{1}, X_{2}, \dots, X_{n})$. \\
+Déterminer la fonction de répartition de $I_{n}$ et montrer que la
+suite $(I_{n})$ converge en loi vers une variable aléatoire dont on
+précisera la loi. \\
+
+\item Simulation informatique de la loi de $Y$. \\
+Compléter la déclaration de fonction suivante pour qu'elle simule la
+loi de $Y$. 
+
+\begin{verbatim}
+ Function y : real;
+ Var u,v : real;
+ Begin
+ Randomize;
+ u : =..........;v : =..........;
+ If(u<v) then y : =..........else y : =..........;
+ End;
+\end{verbatim}
+\end{noliste}
+
+\end{document} 

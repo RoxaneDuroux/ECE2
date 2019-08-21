@@ -1,0 +1,271 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1982} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+
+\begin{center}
+{\small CHAMBRE D\E\ COMMERCE ET D'INDUSTRIE DE PARIS}
+
+\textbf{DIRECTION DE L'ENSEIGNEMENT}
+
+Direction des Admissions et concours
+
+\underline{\hspace*{3cm}}
+
+{\Large ECOLE DES\ HAUTES\ ETUDES\ COMMERCIALES}
+
+{\Large E.S.C.P.-E.A.P.}
+
+{\Large ECOL\E\ SUPERIEUR\E\ D\E\ COMMERC\E\ D\E\ LYON}{\large }
+
+CONCOURS D'ADMISSION\ SUR\ CLASSES\ PREPARATOIRES
+
+\underline{\hspace*{3cm}}
+
+\textbf{OPTION GENERALE}
+
+{\Large MATHEMATIQUES I}
+
+\textbf{Année 1982}
+
+\underline{\hspace*{3cm}}
+\end{center}
+
+\begin{quotation}
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document :
+l'utilisation de toute calculatrice et de tout matériel électronique
+est
+interdite.}
+
+\noindent \textsl{Seule l'utilisation d'une règle graduée est
+autorisée.}
+
+\noindent \textsl{\hrulefill }
+\end{quotation}
+
+\noindent Toutes les matrices considérées dans ce problème sont à
+coefficients réels.\\
+La matrice $A$ a $n$ lignes et $p$ colonnes $(n,p)\in \N^{\times
+}\times \N^{\times }$ de rang égal à $\inf (n,p)$ est donnée.\\
+Quel que soit $k\in \N^{\times },$ on désigne par $I_{k}$ la matrice
+unité d'ordre $k.$
+
+\section*{PARTI\E\ I}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On suppose $p<n$ et on désigne par $\Gamma (A)$ l'ensemble des
+matrices $G$ carrés d'ordre $n,$ dites invariantes à gauche de $A,$
+satisfaisant à la condition 
+\[
+(1)\qquad GA = A
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $\Gamma (A)$ est non vide et est stable sous la
+multiplication des matrices.
+
+\item Montrer que le sous-ensemble $\Gamma ^{\prime }(A)$ de $\Gamma
+(A)$
+formé par les matrices inversibles de $\Gamma (A)$ a une structure de
+groupe
+pour le produit matriciel.
+
+\item Démontrer que toute matrice $G$ élément de $\Gamma (A)$ admet la
+valeur propre $ + 1.$ Déterminer un minorant de la dimension du
+sous-espace
+propre associé à cette valeur propre.
+\end{noliste}
+
+\item On suppose $p>n;$ déterminer l'ensemble $\Gamma (A)$ défini comme
+dans
+la question 1.
+\end{noliste}
+
+\section*{PARTI\E\ II}
+
+Dans cette partie, la matrice $G$ élément de $\Gamma (A)$, ainsi que la
+matrice $A,$ sont décomposées en deux blocs de la manière suivante :
+\[
+A = 
+\begin{smatrix}
+A_{1} \\... \\
+A_{2}\end{smatrix}
+\qquad G = 
+\begin{smatrix}
+G_{1} & \vdots & G_{2}\end{smatrix}
+\]
+où \\
+$A_{1}$ est une matrice carrée d'ordre $p$, SUPPOSE\E\ INVERSIBL\E\\
+$A_{2}$ est une matrice à $n-p$ lignes et $p$ colonnes\\
+$G_{1}$ est une matrice à $n$ lignes et $p$ colonnes\\
+$G_{2}$ est une matrice à $n$ lignes et $n-p$ colonnes.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Exprimer le produit $GA$ en fonction des matrices
+$G_{1},G_{2},A_{1}$
+et $A_{2}.$
+
+\item Montrer que $G$ est parfaitement déterminée par le choix de
+$G_{2}$ et
+donner une décomposition en deux blocs de $G$ exprimée en fonction de
+$A_{1},A_{2}$ et $G_{2}.$
+
+\item On désigne par $\Delta (A)$ l'ensemble des matrices $D$ carrées
+dites
+invariantes à droite de $A$ satisfaisant à la condition $AD = A.$ On
+note $^{t}A$ la transposée de $A.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que les ensembles $\Gamma (A)$ et $\Delta (^{t}A)$ sont
+en
+bijection.
+
+\item Montrer que les ensembles $\Delta (A)$ et $\Gamma (^{t}A)$ sont
+égaux.
+\end{noliste}
+\end{noliste}
+
+\section*{PARTI\E\ III}
+
+Dans cette partie, la matrice $A$ conserve sa décomposition en bloc
+définie
+en II, et la matrice $A_{1}$ est toujours supposée inversible. Quant à
+la
+matrice $G,$ élément de $\Gamma (A),$ on considère sa décomposition en
+quatre blocs.
+\[
+G = 
+\begin{smatrix}
+G_{1}{\prime } & \vdots & G_{2}{\prime } \\
+\cdots & \vdots & \cdots \\
+G_{3}{\prime } & \vdots & G_{4}{\prime }\end{smatrix}
+\]
+où \\
+$G_{1}{\prime }$ est une matrice carrée d'ordre $p.$\\
+$G_{2}{\prime }$ est une matrice à $p$ lignes et $n-p$ colonnes\\
+$G_{3}{\prime }$ est une matrice à $n-p$ lignes et $p$ colonnes\\
+$G_{4}{\prime }$ est une matrice carrée d'ordre $n-p.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Établir la relation $G_{1}{\prime } = I_{p}-G_{2}{\prime
+}A_{2}A_{1}{-1}$ et donner l'expression de $G_{3}{\prime }$ en fonction
+de 
+$G_{4}{\prime },$ $A_{1}$ et $A_{2}.$
+
+\item Soit $A^{d}$ la matrice à $p$ lignes et $n$ colonnes décomposée
+en
+deux blocs de la manière suivante :
+\[
+A^{q} = 
+\begin{smatrix}
+A_{1}{d} & \vdots & A_{2}{d}\end{smatrix}
+\]
+où \\
+$A_{1}{d}$ est une matrice carrée d'ordre $p$\\
+$A_{2}{d}$ est une matrice à $p$ lignes et $n-p$ colonnes.\\
+Exprimer le produit $AA^{d}$ en fonction de $A_{1},$ $A_{2},$
+$A_{1}{d}$ et 
+$A_{2}{d}.$
+
+\item On dit que la matrice $A^{d}$ est une inverse à droite de $A$
+relative 
+à l'élément invariant $G$ de $\Gamma (A)$ si $A,$ $A^{d}$ et $G$
+satisfont à
+la relation (2)
+\[
+(2)\qquad AA^{d} = G
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer $A_{1}{d}$ et $A_{2}{d}$ en fonction des matrices
+$A_{1},$ $A_{2}$ et $G_{2}{\prime }.$
+
+\item Déduire des résultats précédents que $G_{2}{\prime }$ et
+$G_{4}{\prime }$ sont liées par la relation de compatibilité (3)
+suivante :
+\[
+(3)\qquad A_{2}A_{1}{-1}G_{2}{\prime } = G_{4}{\prime }
+\]
+\end{noliste}
+
+\item Soit $\Gamma ^{\prime \prime }(A)$ le sous-ensemble de $\Gamma
+(A)$
+formé des matrices $G$ relativement auxquelles $A$ a un inverse à
+droite $A^{d}.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Démontrer que $\Gamma ^{\prime \prime }(A)$ est inclus dans
+$\Delta
+(A^{d})$\\
+En déduire que $G$ élément de $\Gamma ^{\prime \prime }(A)$ est
+idempotent
+(c'est-à-dire : $G^{2} = G)$
+
+\item Montrer que $G$ élément de $\Gamma ^{\prime \prime }(A)$ est
+diagonalisable.
+\end{noliste}
+
+\item Soit $G$ appartenant à $\Gamma ^{\prime \prime }(A);$ on suppose
+qu'il
+existe une matrice $A^{g}$, inverse à gauche de $A$ relativement à un
+élément $D$ de $\Delta (A),$ c'est-à-dire vérifiant $A^{g}A = D.$\\
+Montrer que $A^{g} = A^{d}.$
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

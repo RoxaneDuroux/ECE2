@@ -1,0 +1,459 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2010} %
+\author{} %
+\date{} %
+\begin{document}
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+%%DEBUT
+
+\begin{exerciceAP}~\\
+  Soit $n$ un entier naturel non nul. Un jardinier plante $n$ bulbes
+  de tulipe(s) dans son jardin.\\
+  Chaque bulbe a une probabilité $p \in ]0 ; 1[$ de donner une
+  fleur. Lorsqu'une tulipe fleurit une année, elle refleurit toutes
+  les années suivantes. Par contre si un bulbe n'a pas donné de fleur
+  une année, il a toujours une probabilité $p$ de donner une fleur
+  l'année suivante. On suppose de plus que les floraisons des
+  différents bulbes sont indépendantes. On pose $q = 1-p$.
+  \\[.2cm]
+  On suppose que l'expérience est modélisée par un espace probabilisé
+  $(\Omega , \A , P)$. \\
+  On appelle $T$ la variable aléatoire correspondant au nombre
+  d'années nécessaires pour que tous les bulbes fleurissent.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Loi géométrique, définition, propriétés.
+  \item Pour tout $h \in \llb 1 ; n \rrb$, on définit la variable
+    aléatoire $T_h$ égale au nombre d'années nécessaires pour que le
+    $h$-ième bulbe fleurisse. 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer la loi de $T_h$.
+    \item Exprimer $T$ en fonction de $T_1, T_2 ,\ \dots\ , T_n$. En
+      déduire la loi de $T$.
+    \end{noliste}
+  \item \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} 
+    \item Calculer $\dlim{N \rightarrow +\infty} \Sum{k=1}{n}
+      \binom{n}{k} (-1)^k N (q^k)^N$.
+    \item Calculer $\dlim{N \rightarrow +\infty} \Sum{k=1}{n} (-1)^k
+      \binom{n}{k} \Sum{j=1}{N} (q^k)^{j-1}$.
+    \item En déduire $\E(T)$ sous forme d'une somme.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soit $E$ un espace vectoriel de dimension finie $n \geq 1$. \\
+  Déterminer les endomorphismes $f$ de $E$ diagonalisables qui
+  vérifient $\im(f) \subset \ker(f)$.
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Comparaison de fonctions au voisinage de l'infini.
+  \item Soit $g$ la fonction définie sur $\R_+^*$ à valeurs réelles, telle que :
+    \[
+    \forall x \in ] 0 ; +\infty[,\ \ \ g(x) = x \ln^2 (x).
+    \]
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} 
+    \item Montrer que $g$ réalise une bijection de $] 1 ; +\infty[$
+      dans $] 0 ; +\infty[$. \\
+      Soit $h$ la bijection réciproque de la restriction de $g$ à
+      l'intervalle $]1 ; +\infty[$.
+    \item
+      \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Montrer que :
+        \[
+        \forall x > 0,\ \ \ \ln h(x) + 2 \ln ( \ln h(x) ) = \ln (x)
+        \]
+      \item En déduire un équivalent simple de $h(x)$ lorsque $x$ tend
+        vers $+\infty$.
+      \end{noliste}
+    \end{noliste}
+  \item Soit $X$ une variable aléatoire de densité $f$ définie par :
+    \[
+    f(x) = \left\{ 
+      \begin{array}{ll} 
+        \frac{1}{2 g (\vert x \vert)} & \text{ si } \vert x \vert <
+        \frac{1}{e} \text{ et } x \neq 0 \\ 
+        0 & \text{sinon} 
+      \end{array} \right.
+    \]
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Vérifier que $f$ est bien une densité de probabilité.
+    \item Montrer que $X$ possède une espérance et la calculer.
+    \item $X$ possède-t-elle une variance? \\
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  On note $\B = (e_1 , e_2 , e_3)$ la base canonique de $\R^3$. \\
+  Soit $f$ l'endomorphisme de $\R^3$ dont la matrice dans la base
+  $\B$ est $M = 
+  \begin{smatrix} 
+    1 & -1 & 1 \\
+    1 & 0 & 0 \\
+    0 & 1 & 0 
+  \end{smatrix}$. 
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Calculer $f(e_1 + e_2 + e_3)$, $f(e_2$ et $f(-e_1 + e_3)$.
+  \item Montrer que $M$ est semblable à la matrice $M'
+    = \begin{smatrix} 
+      1 & 0 & 0 \\ 
+      0 & 0 & -1 \\ 
+      0 & 1 & 0
+    \end{smatrix}$.
+  \item $M$ est-elle diagonalisable?
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~\\
+  Soit $X$ une variable aléatoire définie sur un espace probabilisé
+  $(\Omega , \A , P)$, qui suit la loi binomiale $\B (n ,
+  p)$, avec $n \geq 2$ et $0 < p < 1$.
+  \\[.2cm]
+  On définit sur $(\Omega , \A , P)$ une variable aléatoire $Y$ de la
+  façon suivante :
+  \begin{noliste}{$\stimes$}
+  \item pour tout $k \in \llb 1 ; n \rrb$, la réalisation de
+    l'évènement $[X=k]$ entraîne celle de l'évènement $[Y=k]$;
+  \item la loi conditionnelle de $Y$ sachant $[X=0]$ est la loi
+    uniforme sur $\llb 1 ; n \rrb$.
+  \end{noliste}
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Le modèle binomial. 
+  \item Déterminer la loi de probabilité de $Y$.
+  \item Calculer l'espérance $\E(Y)$ de $Y$.
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} \item Déterminer la loi de probabilité
+      conditionnelle de $Y$ sachant $[X \neq 0]$.
+    \item Calculer l'espérance, notée $\E(Y \ | \ \Ev{X \neq 0})$, de
+      la loi conditionnelle de $Y$ sachant $[X \neq 0]$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soit $A$ une matrice symétrique réelle d'ordre $n$ ($n \in \N^*$) et
+  vérifiant $A^k = I_n$. \\
+  Que peut-on dire dans les cas suivants : 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item $k$ est un entier naturel impair?
+  \item $k$ est un entier naturel pair non nul?
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~\\
+  Toutes les variables aléatoires de cet exercice sont définies sur un
+  espace probabilisé $(\Omega , \A , P)$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Espérance et variance d'une variable
+    aléatoire discrète finie; définition et interprétation.
+  \item Soient $a$ et $b$ deux réels tels que $a < b$. On considère
+    une variable aléatoire $X$ (discrète ou possédant une densité)
+    prenant toutes ses valeurs dans l'intervalle $[a, b]$ et ayant un
+    moment d'ordre 2.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} 
+  \item Montrer que pour tout réel $\lambda$, on a la relation $\V(X)
+    \leq \E\Big( \left(X - \lambda\right)^2 \Big)$.
+    \item En déduire que $\V(X) \leq \frac{(b-a)^2}{4}$.
+    \end{noliste}
+  \item Dans la suite $X$ est une variable aléatoire discrète ayant un
+    moment d'ordre 2.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} 
+  \item On suppose que $X$ suite une loi uniforme sur $\{ a, b \}$,
+    c'est-à-dire :
+      \[
+      \Prob(\Ev{X=a}) \ = \ \Prob(\Ev{X=b} ) \ = \ \frac{1}{2}
+      \]
+      Montrer alors qu'il y a égalité dans l'inégalité précédente.
+    \item Etude d'une réciproque : on suppose que $\V(X) =
+      \dfrac{(b-a)^2}{4}$.\\
+      Montrer que $X(\Omega) = \{ a, b \}$, puis que $X$ suit une loi
+      uniforme sur $\{ a, b \}$.
+    \end{noliste}
+  \item Que signifie le résultat précédent? (on pourra s'appuyer sur
+    l'interprétation de la variance)
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soient $X$ et $Y$ deux variables aléatoires définies sur un même
+  espace probabilisé $(\Omega , \A , P)$, indépendantes, suivant la
+  loi géométrique de paramètre $p \in \ ] 0 ; 1[$. \\
+  Pour tout $\omega \in \Omega$, on pose :
+  \[
+  M(\omega) =
+  \begin{smatrix} 
+    X(\omega) & 0 \\ 
+    1 & Y(\omega) 
+  \end{smatrix}
+  \] 
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer $\Prob( \{ w \in \Omega \ | \ M(\omega) \text{
+      inversible } \} )$.
+  \item Déterminer $\Prob( \{ w \in \Omega \ | \ M(\omega) \text{
+      diagonalisable } \} )$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~\\
+  Soit $n$ un entier supérieur ou égal à 2, et $p$ et $q$ deux réels
+  de $]0;1[$ tels que $p+q=1$. On considère deux variables aléatoires
+  discrètes $X$ et $Y$ définies sur une espace probabilisé $(\Omega ,
+  \A , P)$.\\
+  La loi du couple $(X , Y)$ est donnée par : \\
+  pour tout $(j,k)$ tels que $0 \leq j \leq n$ et $1 \leq k \leq n$,
+  \[
+  \Prob( [X=j] \cap [Y=k] ) = \left\{ 
+    \begin{array}{cc} 
+      \binom{n}{k} p^k q^{n-k} & \text{ si } k=j,\ j \neq 0 \\[.2cm] 
+      \frac{q^n}{n} & \text{ si } j=0 \\[.2cm] 
+      0 & \text{ si } k \neq j \text{ et } j \neq 0 
+    \end{array} 
+  \right.
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Loi d'un couple de variables aléatoires
+    discrètes. Lois marginales, lois conditionnelles.
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} \item Déterminer les lois marginales de $X$ et
+      $Y$ respectivement.
+    \item Calculer $\E(Y)$.
+    \end{noliste}
+  \item Soit $j$ un entier tel que $0 \leq j \leq n$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} \item Déterminer la loi conditionnelle de $Y$
+      sachant $[X=j]$.
+    \item Calculer l'espérance conditionnelle, notée $\E(Y \ | \ \Ev{X
+        = j})$, de la loi conditionnelle de $Y$ sachant $ [X=j]$.
+    \end{noliste}
+  \item
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm} 
+    \item Montrer que, pour tout $q \in \ ] 0 ; 1[$, on a :
+      \[
+      \Prob( [X=1] \cap [Y=1]) \neq \Prob([X=1]) \times \Prob( [Y=1] )
+      \]
+      Conclure.
+    \item Calculer $\Cov (X,Y)$. Montrer qu'il existe une valeur de
+      $q$ pour laquelle $\Cov (X,Y) = 0$.
+    \item Conclure.
+    \end{noliste} 
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Étudier la convergence de la suite $(u_n)_{n \in \N^* }$ définie par :
+  \[
+  \forall n \in \N^*,\ \ \ u_n = \frac{1}{n^{\alpha}} \Sum{k=1}{n} k
+  \ln \left( 1 + \frac{k}{n} \right)
+  \]
+  où $\alpha$ est un nombre réel, \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Dans le cas où $\alpha = 2$.
+  \item Dans le cas où $\alpha \neq 2$.
+
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Moment d'ordre $r$ d'une variable
+    aléatoire à densité; définition, existence.
+  \item Montrer qu'il existe deux réels $A$ et $B$, indépendants de
+    $x$, tels que, pour tout réel $x > 0$, on a :
+    \[
+    \dfrac{1}{x (x+1)} \ = \ \dfrac{A}{x} + \dfrac{B}{x+1}
+    \]
+  \item On pose :
+    \[
+    f(x) = \left\{ 
+      \begin{array}{cl} 
+        \dfrac{k}{x(x+1)} & \text{ si } x \geq 1 
+        \\[.4cm]
+        0 & \text{ sinon } 
+      \end{array} 
+    \right.
+    \]
+    où $k$ est un paramètre réel. \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer $k$ pour que $f$ soit une densité d'une variable
+      aléatoire $X$.
+    \item $X$ admet-elle une espérance?
+    \end{noliste}
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer la loi de $T = \lfloor X \rfloor$ où $\lfloor X
+      \rfloor$ désigne la partie entière de $X$.
+    \item En déduire la valeur de $\Sum{n=1}{+\infty} \ln \left( 1 +
+        \dfrac{1}{n(n+2) } \right)$.
+    \end{noliste}
+  \item Déterminer la loi de $Z = \dfrac{1}{X}$.
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer la loi de $Y = X - \lfloor X \rfloor$. 
+    \item Montrer que, pour tout entier $r \geq 1$, $Y$ admet un
+      moment d'ordre $r$.
+    \item Calculer $\E(Y)$. 
+    \end{noliste} 
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soit $n \geq 2$ et $A = 
+  \begin{smatrix} 
+    0 & 1 & \dots & 1 \\ 
+    1 & 0 & \dots & 1 \\ 
+    \vdots & & \ddots & \vdots \\ 
+    1 & 1 & \dots & 0
+  \end{smatrix} \in \mathcal{M}_n(\R)$.
+  \\[.2cm]
+  Calculer $A^{-1}$.
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définitions d'un estimateur, d'un
+    estimateur sans biais d'un paramètre réel inconnu $\theta$.
+    \\[.2cm]
+    Soit $Z$ une variable aléatoire discrète d'espérance $\E(Z) =
+    \theta$ ($\theta \in \R^*$) et de variance $\V(Z) = 1$.
+    \\[.2cm]
+    Pour $n$ entier de $\N^*$, on dispose d'un $n$-échantillon $(Z_1 ,
+    Z_2 ,\ \dots\ , Z_n)$ de variables aléatoires indépendantes et de
+    même loi que $Z$, définies sur un espace probabilisé $(\Omega , \A
+    , P)$.
+    \\[.2cm]
+    On pose $\overline{Z_n} = \frac{1}{n} \Sum{j=1}{n} Z_j$. On
+    suppose que $\theta$ est inconnu.
+  \item \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm} \item La variable aléatoire
+      $\overline{Z_n}$ est-elle un estimateur sans biais de $\theta$?
+    \item Quel est le risque quadratique de $\overline{Z_n}$ en
+      $\theta$?
+    \end{noliste}
+  \item Soient $\beta_1, \beta_2,\ \dots\ , \beta_n$ des réels non
+    nuls et $Y_n = \Sum{j=1}{n} \beta_j Z_j$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer la condition que doivent vérifier les réels
+      $\beta_1, \beta_2,\ \dots\ , \beta_n$, pour que, pour tout
+      $\theta \in \R^*$, on ait : $\E(Y_n) = \theta$ ?
+      \\[.2cm]
+      On suppose que cette condition est vérifiée. \\
+    \item Calculer $\Cov ( \overline{Z_n} , Y_n )$ et $\V(
+      \overline{Z_n} )$, où $\Cov$ désigne la covariance et $\V$ la
+      variance. \\
+      En déduire que $\V (\overline{Z_n} ) \leq
+      \V(Y_n)$. Interprétation.
+    \end{noliste}
+  \item Soient $\alpha_1, \alpha_2,\ \dots\ , \alpha_n$ des réels non
+    nuls.\\
+    On définit la variable aléatoire $U_n$ par : $U_n = \Sum{j=1}{n}
+    \alpha_j Z_j$,\\
+    et on suppose que $\E(U_n) = \theta$ et $\V(U_n) = \frac{1}{n}$. \\
+    Montrer que $U_n = \overline{Z_n}$ avec une probabilité égale à 1. 
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soit $f$ la fonction définie sur $\R_+^* \times \R_+^*$, à valeurs
+  réelles, par :
+  \[
+  f(x,y) = \frac{x^2 + xy + \sqrt{y} }{x \sqrt{y} }. 
+  \]
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $f$ est de classe $C^2$ sur $\R_+^* \times \R_+^*$.
+  \item Déterminer les points critiques de $f$. 
+  \item Quelle est la nature de ces points critiques?
+  \end{noliste}
+\end{exerciceSP}
+
+%%FIN
+
+\end{document}

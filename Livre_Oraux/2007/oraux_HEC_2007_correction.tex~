@@ -1,0 +1,641 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2007} %
+\author{} %
+\date{} %
+\begin{document}
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+%%DEBUT
+
+\begin{exerciceAP}~\\
+  Question de cours : Définition d'un estimateur; définitions du biais
+  et du risque quadratique d'un estimateur.
+  \\[.2cm]
+  On considère $n$ ($n>2$) variables aléatoires réelles indépendantes
+  $X_{1}$, ... , $X_{n}$ de même loi de densité :
+  \[
+  f_{0} (x) = \left\{ 
+    \begin{array}{cR{2cm}}
+      \dfrac{3x^{2}}{\theta ^{3}} & si $x\in \left[ 0,\theta \right]$ \nl
+      \nl[-.2cm]
+      0 & sinon
+    \end{array}
+  \right.
+  \]
+  où $\theta $ est un paramètre strictement positif. On pose :
+  \[
+  S=X_{1}+\cdots +X_{n}\text{\quad et\quad }T=\max \left( X_{1},\cdots
+    ,X_{n}\right)
+  \]
+  
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Calculer $\E\left( S\right) $ et $\V\left( S\right) .$
+
+  \item Calculer $\Prob\left( T\leq t\right) $. En déduire une
+    densité de $T$ puis $\E\left( T\right) $ et $\V\left( T\right) $.
+
+  \item On suppose maintenant que $\theta $ est un paramètre inconnu
+    qu'on se propose d'estimer.
+
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer qu'il existe des constantes réelles $a$ et $b$
+      telles que $S^{\prime }=aS$ et $T^{\prime }=bT$ soient des
+      estimateurs sans biais de $\theta $ \ Calculer $\V\left(
+        S^{\prime }\right) $ et $\V\left( T^{\prime }\right) $
+
+    \item Entre les deux estimateurs de $S^{\prime }$ et $T^{\prime }$
+      lequel doit-on préférer?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Un agriculteur souhaite améliorer le rendement de son exploitation
+  en utilisant de l'engrais. Une étude a montré que le rendement, en
+  tonnes par hectare, pour la variété de blé cultivée est donné par :
+  \[
+  f\left( B,N\right) =120B-8B^{2}+4BN-2N^{2}
+  \]
+  $B$ désigne la, quantité de semences de blé utilisée, $N$ la
+  quantité d'engrais utilisée.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer les extrema de la fonction $f$ ; donner leur
+    nature.
+  \item Si on suppose de plus qu'une contrainte de budget impose
+    $B+2N=23$ déterminer l'optimum de rendement.
+  \end{noliste}
+\end{exerciceSP}
+
+
+%%%%%\newpage
+
+
+\begin{exerciceAP}~\\
+  Soit $E$ un $\R$-espace vectoriel de dimension finie.\\
+  On note pour tout endomorphisme $u$ de $E$ et pour tout $\in
+  \N^{\ast },$ $u^{0}= \mathrm{Id}_{E}$ et : \
+  $u^{r} = \underset{r\text{ termes}}{\underbrace{u\circ \cdots \circ
+      u}}$.\\[.2cm]
+  On commence par considérer un endomorphisme non nul de $E$ tel que
+  pour tout $x\in E$ il existe $r\left( x\right) \in \N^{\ast }$ tel
+  que $u^{r\left( x\right) }(x) = 0$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Donner deux conditions suffisantes de diagonalisabilité d'une
+    matrice réelle (en toute généralité).
+
+  \item Montrer qu'il existe $r\in \N^{\ast }$ tel que $u^{r}$ soit
+    l'application nulle et que $u^{r-1}$ ne soit pas l'application
+    nulle.
+
+  \item Déterminer les valeurs propres de l'endomorphisme $u$; est-il
+    diagonalisable ?
+
+  \item On pose : \ $v=\Sum{k=0}{r-1}\frac{u^{k}}{k!}$.\\
+    Montrer que $v$ est un isomorphisme de $E$ sur $E$. Exprimer
+    l'inverse de $v$ en fonction de $u$
+
+  \item Donner une relation simple entre $\ker \left( u\right) $ et
+    $\ker \left( v-\mathrm{Id}\right)$.
+
+  \item Déterminer les valeurs propres de $v$.
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soient $n$ et $N$ des entiers non nuls. \\
+  Une urne contient $n$ jetons numérotés de 1 à $n$. On effectue
+  $N$ tirages avec remise dans cette urne.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Soit $F_{i}$ 1a, variable aléatoire égale au nombre de fois où
+    le jeton $i$ a été tiré.\\
+    Déterminer la loi de $F_{i}$.\\[.2cm]
+    On pose : $F = \Sum{i=1}{n}F_{i}$.\\
+    Déterminer la loi de $F$, son espérance et sa variance.\\
+    Les variables aléatoires $F_{i}$ sont-elles deux à deux
+    indépendantes ?
+
+  \item Pour tout $i\in \llb 1,n \rrb$ on note
+    $X_{i}$ la variable aléatoire égale à $0$ si le numéro $i$ n'a
+    pas été tiré et égale a 1 s'il été tiré au moins une fois.
+
+    Déterminer la loi de $X_{i}$, son espérance et sa variance.
+
+    Pour tout $\left( i,j\right) \in \llb 0,1\rrb^{2}$, déterminer la
+    probabilité : $\Prob_{\Ev{X_{i}=0}} \left( X_{j}=0\right)$.\\
+    Les variables $X_{i}$, et $X_{j}$ sont-elles indépendantes ?
+  \end{noliste}
+\end{exerciceSP}
+
+
+%%%%%\newpage
+
+
+\begin{exerciceAP}~\\
+  On considère un type de composants électroniques, dont la durée de
+  vie $X$, exprimée en heures, est une variable aléatoire de densité
+  $f$ telle que :
+  \[
+  f(t) = \left\{
+    \begin{array}{cR{2cm}}
+      \dfrac{c}{t^{2}} & si $t\geq 10$ \nl
+      \nl[-.2cm]
+      0 & sinon
+    \end{array}
+  \right.
+  \]
+
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Rappeler les qualités d'une densité de probabilité: en déduire
+    la valeur du réel $c$.
+
+  \item Déterminer les réels $m$ pour lesquels $\Prob\left( X\leq
+      m\right) =\Prob\left( X>m\right) .$
+
+  \item Quelle est la probabilité que. sur un lot de $5$ composants du
+    type précédent, $3$ au moins fonctionnent durant au moins $15$
+    heures ? \\\
+    Deux machines $A$ et $B$ sont équipées de composants du type préc%
+    édent. Plus précisément :
+    \begin{noliste}{$\stimes$}
+    \item $A$ contient deux composants et cesse de fonctionner dès que
+      l'un de ces composants est défectueux,
+      
+    \item $B$ contient également deux composants mais un seul de ces
+      composants suffit à la faire fonctionner
+    \end{noliste}
+    On note $T_{A}$, $T_{B}$ les durées de fonctionnement de ces
+    machines.
+
+  \item Déterminer une densité pour chacune des variables $T_{A}$ et $%
+    T_{B}$.
+    
+  \item Pour chacune des variables $T_{A}$ et $T_{B}$ indiquer si elle
+    possède une espérance. et le cas échéant, la calculer.
+  \end{noliste}
+
+
+
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Donner s'il en existe un exemple de trois vecteurs de $\R^{2}$
+    tels que deux quelconques d'entre eux soient linéairement indépendants.\\
+    Existe-t-il un endomorphisme de $\R^{2}$ dont ces trois vecteurs
+    soient vecteurs propres ?
+
+  \item Soit $f$ un endomorphisme de $\R^{n}$ et $\mathcal{F}$ une
+    famille de $n+1$ vecteurs propres de $f$ s'il en existe.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item $\mathcal{F}$ peut-elle être une famille libre ?
+    \item On suppose que toute sous-famille de $n$ vecteurs de
+      $\mathcal{F}$ est libre. \\
+      Démontrer que les $n+1$ valeurs propres associées respectivement
+      aux $n+1$ vecteurs de $\mathcal{F}$ sont égales.\\
+      Que peut-on en conclure pour $f$ ?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceSP}
+
+
+%%%%%\newpage
+
+
+\begin{exerciceAP}~\\
+  \textbf{Question de cours.} Rappeler la formule des probabilités
+  totales.\\[.2cm]
+  On lance deux pièces truquées : La pièce 1 donne pile avec une
+  probabilité $p_{1}$ et la pièce 2 donne pile avec une probabilité%
+  , $p_{2}$. \\
+  On effectue les lancers de la fa\c{c}on suivante : on choisit une
+  pièce uniformément au hasard et on lance la pièce choisie. Si on
+  obtient pile, on relance la même pièce et ainsi de suite jusqu'a ce
+  que l'on obtienne face; à ce moment on change de pièce - plus
+  généralement, dès que l'on obtient face, on change de pièce. On
+  suppose que $p_{1}$ et $p_{2}$ sont dans $\left] 0,1\right[ $
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Quelle est la probabilité de lancer la pièce 1 au $n$-ième
+    lancer?
+    
+  \item Quelle est la probabilité, notée $r_{n}$, d'obtenir pile au
+    $\eme{n}$ lancer?
+    
+  \item Calculer :$L=\dlim{n\rightarrow +\infty }r_{n}$.
+    
+  \item Dans cette question on suppose $p_{1}=1/3$ et $p_{2}=1/6$.\\
+    écrire en langage Pascal l'expression d'une fonction permettant de
+    calculer la valeur d'un rang $n_{0}$ à partir duquel :%
+    \begin{equation*}
+      \left \vert r_{n}-L\right \vert \leq 10^{-6}
+    \end{equation*}
+  \end{noliste}
+
+
+
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soit $u$ et $v$ deux endomorphismes de $\R^{2}$ dont les matrices
+  respectives dans la base canonique $\left( e_{1},e_{2}\right) $ de
+  $\R^{2}$ sont notées $A$ et $B$. On suppose que $AB=%
+  \begin{smatrix}
+    0 & 0 \\ 
+    0 & 0%
+  \end{smatrix}%
+  $ et $BA=%
+  \begin{smatrix}
+    0 & 1 \\ 
+    0 & 0%
+  \end{smatrix}%
+  $
+
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item $v$ peut-il être bijectif ? Déterminer $\im \left( v\right) $.
+
+  \item Déterminer $\ker \left( u\right) $
+
+  \item Donner la forme des matrices $A$ et $B$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+%%%%%\newpage
+
+
+\begin{exerciceAP}~\\
+  Soit $\alpha >0,$ $x_{0}>0$ et $f$ la fonction de $\R$ dans
+  $\mathbb{R}$ définie par :%
+  \[
+  f\left( x\right) =\frac{\alpha }{x_{0}}\left( \frac{x_{0}}{x}\right)
+  ^{\alpha +1}\text{ si }x\geq x_{0} \text{\quad et\quad \ } f\left(
+    x\right) = 0 \text{ sinon}
+  \]
+
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Donner la définition d'une variable aléatoire à densité et
+      vérifier que la fonction $f$ est bien la densité de probabilité
+      d'une. variable aléatoire réelle $X$.\\
+      Déterminer la fonction de répartition de $X$ et donner une allure de
+      son graphe.\\
+      On dit, que $X$ suit la loi de Pareto de paramètres $x_{0}$ et
+      $\alpha $.
+
+    \item Pour quelles valeurs de $\alpha $ 1a variable $X$ admet-elle une
+      espérance et une variance ? Calculer l'espérance de $X$ lorsqu'elle
+      existe.
+
+    \item On suppose $\alpha >1$ et on pose, pour tout $x>x_{0}$%
+      \begin{equation*}
+        M_{X}\left( x\right) =\frac{\dint{x}{+\infty }tf\left( t\right) dt}{%
+          \dint{x}{+\infty }f\left( t\right) dt}
+      \end{equation*}%
+      Calculer $M_{X}\left( x\right) $
+    \end{noliste}
+
+  \item On se propose d'établir une réciproque de la propriété
+    précédente. Soit $x_{0}>0$ et $Y$ une variable aléatoire à
+    valeurs dans $\left[ x_{0},+\infty \right[ $ de densité $h$ continue, 
+    à valeurs strictement positives, admettant une espérance et telle
+    qu'il existe un réel $k>1$ vérifiant : 
+    \begin{equation*}
+      \forall x>x_{0},\quad M_{Y}\left( x\right) =\frac{\dint{x}{+\infty
+        }th\left( t\right) dt}{\dint{x}{+\infty }h\left( t\right) dt}=kx
+    \end{equation*}
+
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item On pose, pour tout $x>x_{0}$%
+      \begin{equation*}
+        G\left( x\right) =\dint{x}{+\infty }h\left( t\right) dt
+      \end{equation*}%
+      Montrer que
+      \begin{equation*}
+        G\left( x\right) =\frac{1-k}{k}xG^{\prime }\left( x\right)
+      \end{equation*}
+
+    \item En calculant, pour tout $x>x_{0}$, la dérivée de la fonction $%
+      x\rightarrow x^{\frac{k}{k-1}}G\left( x\right) $, déterminer la valeur
+      de $G\left( x\right) $, puis la fonction de répartition de $Y$.\\
+      Quelle loi retrouve-t-on ?
+    \end{noliste}
+  \end{noliste}
+
+
+
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soient $X$ et $Y$ deux variables aléatoires binomiales de paramètres
+  $\left( n,1/2\right) $ indépendantes.\\
+  Calculer $\Prob\left( X=Y\right) .$
+\end{exerciceSP}
+
+%%%%%\newpage
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Rappeler la définition d'une famille génératrice et d'une
+    famille libre.\\[.2cm]
+    Dans l'espace vectoriel $C^{O}\left( \R\right) $ des fonctions
+    continues de $\R$ dans $\R$, on considère les trois
+    fonctions :
+    \[
+    f_{1}:x\rightarrow 1\quad f_{2}:x\rightarrow x\quad \text{et}
+    \quad f_{0}:x\rightarrow \left \{
+      \begin{array}{cc}
+        x\ln \left \vert x\right \vert & \text{si }x\neq 0 \\ 
+        0 & \text{si }x=0%
+      \end{array}%
+    \right. 
+    \]
+    Soit $E$ le sous-espace vectoriel de $C^{0}\left( \R%
+    \right) $ engendré par $\left( f_{1},f_{2},f_{3}\right) $
+
+  \item Prouver que la famille $\left( f_{1},f_{2},f_{3}\right) $ est
+    une base de $E$.
+
+  \item À toute fonction $f$ de $E$ on associe la fonction $\Phi
+    \left( f\right) $ définie par $\Phi \left( f\right) =\left(
+      xf\right) ^{\prime
+    },$ dérivée de la fonction $x\rightarrow x~f\left( x\right) $\\
+    Montrer que l'on définit ainsi un endomorphisme de $E$ dont on
+    donnera la matrice $M$ dans la base $\left(
+      f_{1},f_{2},f_{3}\right) $
+
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Montrer que $M$ est une matrice inversible et déterminer son
+      inverse (éviter le plus possible les calculs).
+      
+    \item Résoudre dans $E$ l'équation :%
+      \[
+      \Phi \left( f\right) =a+bx+x\ln \left \vert x\right \vert
+      \]
+      Déterminer en particulier une primitive de $g:x\rightarrow x\ln
+      \left \vert x\right \vert $ sur $\R$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soit $X$ et $Y$ deux variables aléatoires binomiales de paramètres $
+  \left( n,1/2\right)$.\\
+  Calculer $\Prob( \Ev{X = Y} )$.
+\end{exerciceSP}
+
+%%%%%\newpage
+
+\begin{exerciceAP}~\\
+  \textbf{Question de cours :} Définition d'une loi uniforme sur
+  l'intervalle $\left[ a,b\right] $ ($a<b$ )\\
+  Donner une densité, la fonction de répartition d'une telle loi.
+  \\
+  Soit $X$ une variable aléatoire suivant une loi uniforme sur $\left[ 0,1%
+  \right] $. On pose $Y=\min \left( X,1-X\right) $ et $Z=\left( X,1-X\right) $.
+
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Expliciter la fonction de répartition de $Y$. En déduire une
+    densité , puis $\E\left( Y\right) $ si elle existe
+
+  \item Expliciter la fonction de répartition de $Z$. En déduire une
+    densité, puis $\E\left( Z\right) $ si elle existe. 
+
+  \item Mêmes questions pour $R=Y/Z$
+
+  \item Écrire un programme en Pascal permettant d'obtenir une simulation des
+    lois de $X,$ $Y$ et $Z$
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  On considère l'endomorphisme $f$ de $\R^{4}$ dont la matrice dans la
+  base canonique de $\R^{4}$ est la matrice
+  \[
+  M =
+  \begin{smatrix}
+    -1 & -1 & -1 & 1 \\
+    -1 & -1 & 1 & -1 \\
+    -1 & 1 & -1 & -1 \\
+    1 & -1 & -1 & -1%
+  \end{smatrix}%
+  \]
+
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $f$ est diagonalisable
+    
+  \item On admet que les valeurs propres de $A$ sont $2$ et $-2.$
+    
+    Calculer $M^{n}$ pour tout $n$ entier naturel.
+  \end{noliste}
+\end{exerciceSP}
+
+
+%%%%%\newpage
+
+
+\begin{exerciceAP}~\\
+  \textbf{Question de cours} : énoncer la formule des probabilités
+  totales et la formule de Bayes.\\[.2cm]
+  Une coccinelle se déplace sur un tétraèdre régulier PQRS (une
+  pyramide) en longeant les arêtes. Elle est placée à l'instant $n=0$
+  sur le sommet $P$. On suppose que, si. elle se, trouve sur un sommet
+  à l'instant $n$, elle sera sur l'un des trois autres sommets à
+  l'instant $n+1$ de, fa\c{c}on équiprobable.
+  \\
+  Pour tout $n\in \N$ on note $p_{n}$ (respectivement $q_{n},\ r_{n}$
+  et $s_{n}$) la probabilité que la coccinelle se trouve sur le sommet
+  $P$ (respectivement $Q$, $R$ et $S$) à l'instant $n$.
+
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item On définit la matrice colonne $X_{n}$ par 
+    \begin{equation*}
+      X_{n}=\left( 
+        \begin{array}{c}
+          p_{n} \\ 
+          q_{n} \\ 
+          r_{n} \\ 
+          s_{n}%
+        \end{array}%
+      \right) 
+    \end{equation*}%
+    \\
+    Déterminer une matrice, carrée $A\in \mathcal{M}_{4}\left( \R%
+    \right) $, indépendante de $n$, telle que $X_{n+1}=AX_{n}$ pour
+    tout $n\in \N^{\ast }$
+
+  \item Montrer que cette matrice est diagonalisable.
+
+  \item Calculer $A^{n}$ pour tout $n\in \N^{\ast }$ ; donner une
+    expression de $p_{n},$ $q_{n},$ $r_{n}$ et $s_{n}$ en fonction de $n$.
+
+  \item On note $T$ le temps nécessaire à la coccinelle pour visiter
+    au moins 3 sommets distincts du tétraèdre. Déterminer la loi de $%
+    T$. Calculer son espérance.
+
+  \item On note $U$ le temps nécessaire à la coccinelle pour visiter
+    tous les sommets du tétraèdre. Montrer que pour tout entier $\ell $
+    supérieur on égal à 3%
+    \begin{equation*}
+      \Prob\left( U=\ell \right) =\frac{2^{\ell -1}-2}{3^{\ell -1}}
+    \end{equation*}
+
+  \item Déterminer l'espérance de $U$ si elle existe.
+  \end{noliste}  
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Un agriculteur souhaite améliorer le rendement de son exploitation
+  en utilisant de l'engrais. Une étude a montré que le rendement, en
+  tonnes par hectare, pour la variété de blé cultivée est donné par :
+  \[
+  f\left( B,N\right) =120B-8B^{2}+4BN-2N^{2}
+  \]
+  $B$ désigne la, quantité de semences de blé utilisée, $N$ la
+  quantité d'engrais utilisée.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer les extrema de la fonction $f$ ; donner leur nature.
+    
+  \item Si on suppose de plus qu'une contrainte de budget impose
+    $B+2N=23$ déterminer l'optimum de rendement.
+  \end{noliste}
+\end{exerciceSP}
+
+
+%%%%%\newpage
+
+
+\begin{exerciceAP}~\\
+  \textbf{Question de cours :} Donner une condition nécessaire ci
+  suffisante de diagonalisabilité d'une matrice.
+  \\[.2cm]
+  On considère l'endomorphisme de $\R^{4}$ dont la matrice dans la
+  base canonique de $\R^{4}$ est la matrice 
+  \begin{equation*}
+    M=%
+    \begin{smatrix}
+      -1 & -1 & -1 & 1 \\ 
+      -1 & -1 & 1 & -1 \\ 
+      -1 & 1 & -1 & -1 \\ 
+      1 & -1 & -1 & -1%
+    \end{smatrix}%
+  \end{equation*}
+
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Justifiez que $f$ est diagonalisable.
+
+  \item Montrer que $-2$ est valeur propre de $_{.}f$ et déterminer la
+    dimension du sous espace propre $E_{-2}$ associé
+
+  \item Calculer $f\left( 1,-1,-1,1\right) $. En déduire une autre valeur
+    propre ainsi que le sous-espace propre associé. 
+
+  \item Déterminer une  base $\mathcal{B}$ de $\R^{4}$ dans
+    laquelle la matrice $M^{\prime }$ de $f$ est diagonale. Soit $P$ la matrice
+    de passage de la base canonique de $\R^{4}$ à la base $\mathcal{B%
+    }$. Calculer $M^{\prime 2}$.
+
+  \item Calculer $M^{n}$ pour tout entier naturel $n$.
+
+  \item On considère les suites $\left( u_{n}\right) ,\left( v_{n}\right)
+    ,\left( w_{n}\right) ,$ $\left( t_{n}\right) $ définies par : $u_{0},\
+    v_{0},$ $w_{0}$, $t_{0}$ et 
+    \begin{equation*}
+      \left \{ 
+        \begin{array}{c}
+          u_{n+1}=\frac{1}{4}\left( -u_{n}-v_{n}-w_{n}+t_{n}\right)  \\ 
+          v_{n+1}=\frac{1}{4}\left( -u_{n}-v_{n}+w_{n}-t_{n}\right)  \\ 
+          w_{n+1}=\frac{1}{4}\left( -u_{n}+v_{n}-w_{n}-t_{n}\right)  \\ 
+          t_{n+1}=\frac{1}{4}\left( u_{n}-v_{n}-w_{n}-t_{n}\right) 
+        \end{array}%
+      \right. 
+    \end{equation*}%
+    Calculer $u_{n},\ v_{n},\ w_{n}$ et  $t_{n}$ en fonction de $u_{0},\ v_{0},$ 
+    $w_{0}$, $t_{0}$ et de $n$\\
+    Que dire de leurs limites respectives ?
+  \end{noliste}
+
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soient $A$, $B$, $C$, des événements de même probabilité $p$ et tels
+  que $\Prob\left( A\cap B\cap C\right) =0$
+
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Prouver que $p\leq \dfrac{2}{3}$
+
+  \item $p$ peut-il prendre la valeur $\dfrac{2}{3}\ ?$
+
+  \item On suppose en outre que $A$, $B$ et $C$ sont indépendants deux 
+    à deux. Prouver l'inégalité :%
+    \begin{equation*}
+      p\leq \frac{1}{2}
+    \end{equation*}
+
+  \item $p$ peut-il prendre la, valeur $\dfrac{1}{2}$ ?
+  \end{noliste}
+\end{exerciceSP}
+
+%%FIN
+
+\end{document}

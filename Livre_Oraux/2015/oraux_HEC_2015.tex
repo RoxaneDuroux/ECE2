@@ -1,0 +1,739 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+% \input{../../../macros.tex}
+\input{../../ECE2_Carnot/macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2015} %
+\author{} %
+\date{} %
+\begin{document}
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+%%DEBUT
+
+\subsection*{Sujet E 67}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 67; %
+% annee : 2015; % 
+% theme : ; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Condition nécessaire et suffisante pour
+    qu'un endomorphisme soit diagonalisable.\\
+    Soit $n$ un entier supérieur ou égal à $2$. On note $\B$ la base
+    canonique de $\R^n$.\\
+    Soit $v$ un vecteur de $\R^n$ de coordonnées $v_1,v_2,\hdots,v_n$
+    dans la base $\B$ telles que $\Sum{i=1}{n} v_i=2$.\\
+    On considère l'application $f$ définie sur $\R^n$ qui, à tout
+    $x=(x_1,x_2,\hdots,x_n)\in\R^n$, associe\\
+    $f(x)=x-\left(\Sum{i=1}{n} x_i\right) \cdot v$.
+
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $f$ est un endomorphisme de $\R^n$.
+    \item Déterminer $f \circ f$. L'endomorphisme $f$ et-il bijectif ?
+    \item Quelles sont les valeurs propres possibles de $f$ ?
+    \end{noliste}
+
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer les valeurs propres de $f$.
+    \item Quels sont les sous-espaces propres de $f$ ? L'endomorphisme
+      $f$ est-il diagonalisable ?
+    \end{noliste}
+
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Écrire la matrice $M$ de $f$ dans la base $\B$.
+    \item Montrer que les matrices $V =
+      \begin{smatrix}
+	v_1 & v_1 & \cdots & v_1\\
+	v_2 & v_2 & \cdots & v_2\\
+	\vdots & \vdots & & \vdots\\
+	v_n & v_n & \cdots & v_n
+      \end{smatrix}$ et $D = 
+      \begin{smatrix}
+        0 & 0 & \cdots & 0 \\
+        0 & 0 & \cdots & 0 \\
+        \vdots & \vdots & & \vdots\\
+        0 & 0 & \cdots & 2
+      \end{smatrix}$ sont semblables.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 67; %
+% annee : 2015; % 
+% theme : ; % 
+
+\begin{exerciceSP}~\\
+  Soit $X$ une variable aléatoire admettant une densité $f$
+  strictement positive sur $\R$ et possédant une espérance.\\
+  Pour tout $\alpha\in]0,1[$, on note $h_\alpha$ la fonction définie
+  sur $\R$ par : $h_\alpha(t)=\vert t \vert + (2\alpha -1)t$.\\
+  Pour tout $q\in\R$, on pose : $L(q)=E\left(h_\alpha(X-q)\right)$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Établir l'existence d'un unique réel $q_\alpha$ en lequel la
+    fonction $L$ est minimale.
+  \item On suppose que $\alpha=\dfrac{1}{2}$ et que $X$ suit la loi
+    $\Norm{0}{1}$. Calculer $q_{\frac{1}{2}}$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+%\newpage
+
+\subsection*{Sujet E 68}
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 68; %
+% annee : 2015; %
+% theme : vaExponentielle, vaDensite, vaGumbel, vaLCHP, vaMax,
+% vaConvergence, inegMarkov; %
+
+\begin{exerciceAP}~\\
+  {\it Dans cet exercice, toutes les variables sont définies sur un
+    espace probabilisé $(\Omega,\A,P)$.}
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition de la convergence en loi d'une
+    suite de variables aléatoires.
+  \item Soit $X$ une variable aléatoire strictement positive suivant
+    la loi exponentielle de paramètre $1$.\\
+    On pose : $Z=-\ln(X)$ et on note $F_Z$ la fonction de répartition
+    de $Z$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que pour tout $x\in\R$, on a :
+      $F_Z(x)=\ee^{-\ee^{-x}}$.
+    \item Montrer que $Z$ admet une densité de probabilité continue
+      $f_Z$ qui atteint sa valeur maximale en un unique point $x_0$.
+    \item Tracer l'allure de la courbe représentative de $F_Z$ dans le
+      plan rapporté à un repère orthogonal.
+    \item Que représente le point d'abscisse $x_0$ et d'ordonnée
+      $F_Z(x_0)$ pour cette courbe ?
+    \end{noliste}
+  \item On considère une suite de variables aléatoires $(X_n)_{n\geq
+      1}$ indépendantes et de même loi que $X$.\\
+    On pose pour tout $n\in\N^*$ : $Y_n=\max(X_1,\hdots,X_n)$ et
+    $Z_n=Y_n-\ln(n)$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer les fonctions de répartition $F_{Y_n}$ et
+      $F_{Z_n}$ de $Y_n$ et $Z_n$ respectivement.
+    \item Montrer que la suite de variables aléatoires $(Z_n)_{n\geq
+        1}$ converge en loi vers la variable aléatoire $Z$.
+    \item Établir pour tout réel $c>0$, l'inégalité : $\E(Y_n)\geq
+      c\Prob(Y_n\geq c)$.
+    \item En déduire $\dlim{n\to+\infty} \E(Y_n)$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 68; %
+% annee : 2015; % 
+% theme : ; % 
+
+\begin{exerciceSP}~\\
+  On considère la matrice $A = 
+  \begin{smatrix} 
+    1 & 1 & 0 \\
+    0 & 1 & 1 \\
+    0 & 0 & 1
+  \end{smatrix}$ de $\M{3}$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer les valeurs propres et les vecteurs propres de
+    $A$. La matrice $A$ est-elle diagonalisable ? inversible ?
+  \item On note $I$ la matrice identité de $\M{3}$. Établir
+    l'existence d'une matrice $N$ telle que $A=I+N$.\\
+    Déterminer pour tout $k\in\N$, la matrice $A^k$.
+  \item On rappelle l'identité remarquable :
+    $a^3+b^3=(a+b)(a^2-ab+b^2)$. Déterminer $A^{-1}$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+%\newpage
+
+
+\subsection*{Sujet E 69}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 69; %
+% annee : 2015; % 
+% theme : ; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition de la dimension d'un espace
+    vectoriel.\\
+    Soit $n\in\N^*$. On note $E_n$ le sous-espace vectoriel de $\R[X]$
+    constitué des polynômes de degré inférieur ou égal à $n-1$ et
+    $F_n$ le sous-espace vectoriel de $\R[X]$ engendré par $X,X^2,
+    \hdots, X^{n-1}, X^n$.
+
+  \item Montrer que les polynômes $P$ de $\R[X]$ vérifiant pour tout
+    $x\in\R$, $P(x+1) = P(x)$, sont les polynômes constants.
+  \item Préciser les dimensions respectives de $E_n$ et $F_n$.
+  \item Pour tout $P\in F_n$, on note $Q$ le polynôme tel que :
+    $\forall x\in\R$, $Q(x) = P(x+1) - P(x)$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Vérifier que $Q\in E_n$. QUelle relation existe-t-il entre
+      les degrés de $P$ et de $Q$ ?
+    \item Soit $\Delta$ l'application de $F_n$ sur $E_n$ qui à tout
+      $P\in F_n$ associe $Q=\Delta (P)$, où $\forall x\in\R$,
+      $Q(x) = P(x+1)- P(x)$.\\
+      Montrer que l'application $\Delta$ est un isomorphisme d'espaces
+      vectoriels.
+    \item Déterminer un polynôme $P$ vérifiant $\Delta (P)=X^3$. En
+      déduire la valeur des sommes $\Sum{k=1}{n} k^3$ et
+      $\Sum{k=0}{n-1} (2k+1)^3$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 69; %
+% annee : 2015; %
+% theme : sciLfGN, vaBinomiale, vaNormale; %
+
+\begin{exerciceSP}~\\
+  Après une alerte incendie, les $60$ élèves d'une école se
+  répartissent au hasard dans $5$ salles de classe.\\
+  Afin de savoir comment se répartissent les élèves on exécute le
+  programme \Scilab{} suivant :
+
+  \begin{scilab}
+    & Y = grand(100000, 1, \ttq{}bin\ttq{}, 60, 1/5) \nl %
+    & hisplot(0.5:25,Y) \nl %
+  \end{scilab}
+  qui donne la représentation ci-dessous :
+
+  \begin{center}
+    \includegraphics[scale=0.5]{Figures/Exo_incendie.png}
+  \end{center}
+  Que représente la valeur maximale prise par cet histogramme ?
+  Prouver un résultat concernant cette valeur.
+\end{exerciceSP}
+
+
+%\newpage
+
+\subsection*{Sujet E 70}
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 70; %
+% annee : 2015; %
+% theme : ; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Soit $I$ un intervalle de $\R$ et $f$ une
+    fonction continue sur $I$.\\
+    Propriétés de l'application $x \in I \mapsto \dint{a}{x} f(t)\dt$.\\
+    Soit $E$ l'espace vectoriel des fonctions continues sur $\R$ à
+    valeurs réelles.\\
+    Pour tout fonction $f \in E$, on note $T(f)$ l'application définie
+    sur $\R$ à valeurs réelles, telle que :
+    \[
+    \forall x\in\R, \ T(f)(x)=\dint{x-1}{x+1} f(t)\dt.
+    \]
+  \item Pour tout $a\in\R$, soit $f_a$ la fonction définie sur $\R$
+    par : $f_a(x)=\ee^{ax}$. Déterminer $T(f_a)$.
+  \item 
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Montrer que pour toute fonction $f\in E$, l'application
+      $T(f)$ appartient à $E$ et est de classe $\Cont 1$ sur
+      $\R$. Déterminer la fonction dérivée de la fonction $T(f)$.
+    \item On suppose que $f$ est une fonction bornée de $E$. Montrer
+      que $T(f)$ est bornée et établir l'existence d'un réel $K$ tel
+      que pour tout $(x,y)\in\R^2$, on a $\vert T(f)(x)-T(f)(y)\vert
+      \leq K \vert x-y\vert$.
+    \end{noliste}
+
+  \item Soit $T$ l'application de $E$ dans $E$ qui à $f\in E$, associe
+    $T(f)$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $T$ est un endomorphisme de $E$. Est-il
+      surjectif ?
+    \item Soit $n\in\N$ et $\R_n[X]$ l'espace vectoriel des polynômes
+      à coefficients réels de degré inférieur ou égal à $n$. Montrer
+      que $T\left( \R_n[X] \right) \subset \R_n[X]$.
+    \item Soit $T_n$ la restriction à $\R_n[X]$ de l'endomorphisme $T$
+      et $\B=(1,X,X^2,\hdots, X^n)$ la base canonique de $\R_n[X]$.
+      L'endomorphisme $T_n$ est-il diagonalisable ? $T_n$ est-il
+      bijectif ?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 70; %
+% annee : 2015; %
+% theme : vaBernoulli, vaIndep, vaCovariance, vaDiscrete, vaCovariance
+% ; %
+
+\begin{exerciceSP}~\\
+  Soit $(X_n)_{n\in\N^*}$ une suite de variables aléatoires
+  indépendantes définies sur un espace probabilisé $(\Omega,\A,P)$, de
+  même loi de Bernoulli de paramètre $\dfrac{1}{2}$. On pose pour tout
+  $n\in\N^*$ : $W_n=\Sum{k=1}{n} k X_k$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Calculer $\E(W_n)$ et $\V(W_n)$.
+  \item Les variables $W_n$ et $W_{n+1}$ sont-elles indépendantes ?
+  \end{noliste}
+\end{exerciceSP}
+
+
+%\newpage
+
+\subsection*{Sujet E 71}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 71; %
+% annee : 2015; % 
+% theme : ; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition d'un isomorphisme d'espaces vectoriels.\\
+    Dans tout l'exercice, $n$ désigne un entier supérieur ou égal à
+    $1$. Si $p\in\N$, on note $\R_p[X]$ l'ensemble des polynômes à
+    coefficients réels de degré inférieur ou égal à $p$.\\
+    On note $I_n$ la matrice identité de $\M{n}$. On rappelle que si
+    $A\in\M{n}$ et $P(X) = \Sum{k=0}{p} a_kX^k$ un polynôme de
+    $\R_p[X]$, alors $P(A)$ désigne la matrice $a_0 I_n+a_1 A+\cdots +
+    a_p A^p$.
+
+  \item Soit $A$ et $Q$ deux matrices de $\M{n}$.\\
+    On suppose que la matrice $Q$ est inversible, d'inverse notée
+    $Q^{-1}$.\\
+    Soit $P$ un polynôme à coefficients réels. Expliciter
+    $P(Q^{-1}AQ)$ en fonction de $P(A)$, $Q$ et $Q^{-1}$.
+
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Soit $x_1,x_2,\hdots,x_n$ des réels deux à deux distincts et
+      soit $\varphi$ l'application de $\R_{n-1}[X]$ dans $\R^n$ qui à
+      tout polynôme $P\in\R_{n-1}[X]$, associe le $n$-uplet
+      $\left(P(x_1), P(x_2), \hdots, P(x_n)\right)$. Montrer que
+      l'application $\varphi$ est bijective.
+
+    \item Soit $\lambda_1,\lambda_2,\hdots,\lambda_n$ $n$ réels
+      distincts non nuls et $T=(t_{i,j})_{1\leq i,j\leq n}\in\M{n}$
+      une matrice triangulaire telle que pour tout $i\in\llb 1,n\rrb$,
+      $t_{i,i}=\lambda_i$.\\
+      Établir l'existence d'un unique polynôme $P\in\R_{n-1}[X]$ tel
+      que pour tout $i\in\llb 1,\rrb$, on a : $\lambda_i \times
+      P(\lambda_i) = 1$.\\
+      Que vaut $T \times P(T)$ ? Conclure.
+    \end{noliste}
+  \item Déterminer un polynôme $P\in\R_2[X]$ tel que $\forall
+    (a,b,c)\in\R^3$, l'inverse de la matrice $A =
+    \begin{smatrix}
+      1 & a & b \\ 
+      0 & 2 & c \\ 
+      0 & 0 & 3
+    \end{smatrix}$ soit égale à $P(A)$.
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 71; %
+% annee : 2015; %
+% theme : vaBernoulli, vaDiscrete, vaCovariance, inegCauchySchwarz,
+% vaCouple ; %
+
+\begin{exerciceSP}~\\
+  Soit $X_1,X_2,\hdots,X_n$ $n$ variables aléatoires telles que pour
+  tout $k\in\llb 1,n\rrb$, $X_k$ suit la loi de Bernoulli de paramètre
+  $p_k$ avec $0 < p_k < 1$.\\
+  On pose : $Y = \Sum{k=1}{n} X_k$. Montrer que $\V(Y)\leq
+  \dfrac{n^2}{4}$.
+\end{exerciceSP}
+
+
+%\newpage
+
+\subsection*{Sujet E 73}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 73; %
+% annee : 2015; % 
+% theme : vaDiscrete, FPT; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Formule des probabilités totales.\\
+    Soit $n$ un entier naturel supérieur ou égal à $2$.\\
+    On considère $n$ urnes numérotées de $1$ à $n$ et $N$ un entier
+    naturel multiple de $2^n$.\\
+    Pour tout $k\in\llb 1,n\rrb$, la $k$-ième urne contient $N$ boules
+    dont $\dfrac{N}{2^k}$ boules blanches, les autres étant noires.\\
+    On tire dans l'urne $1$ une boule au l'on place dans l'urne $2$,
+    puis on tire dans l'urne $2$ une boule que l'on place dans l'urne
+    $3$ et ainsi de suite jusqu'à tirer dans l'urne $n-1$ une boule
+    que l'on place dans l'urne $n$, puis on tire une boule dans l'urne
+    $n$.\\
+    L'expérience est modélisée par un espace probabilisé
+    $(\Omega,\A,P)$.
+  \item Pour tout $k\in\llb 1,n\rrb$, soit $p_k$ la probabilité que la
+    boule tirée dans l'urne $k$ soit blanche.\\
+    Trouver une relation de récurrence entre $p_{k+1}$ et $p_k$
+    ($1\leq k\leq n-1$).
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer $p_n$ en fonction de $n$ et $N$.
+    \item Pour $n$ fixé, calculer $\dlim{N\to+\infty}
+      p_n$. Interpréter cette limite.
+    \end{noliste}
+  \item Soit $i\in\llb 1,n-1\rrb$. Calculer la probabilité
+    conditionnelle que la $n$-ième boule tirée soit blanche sachant
+    que la boule tirée dans l'urne $i$ est blanche.
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 73; %
+% annee : 2015; % 
+% theme : ; % 
+
+\begin{exerciceSP}~\\
+  Soit $(u_n)_{n\in\N^*}$ la suite définie par : $\forall n\in\N^*$,
+  $u_n=\dfrac{1}{n}\Sum{k=1}{n} \ln\left(\dfrac{k}{n}\right)$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que la suite $(u_n)_{n\in\N^*}$ est convergente et
+    calculer sa limite.
+  \item Quelle est la nature de la suite $(n!)^{\frac{1}{n}}$ ?
+  \end{noliste}
+\end{exerciceSP}
+
+
+%\newpage
+
+\subsection*{Sujet E 76}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 76; %
+% annee : 2015; % 
+% theme : vaDensite, vaMax, vaExponentielle, IPP, intImpropre; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition et propriétés de la fonction de
+    répartition d'une variable aléatoire à densité.\\
+    {\it Dans cet exercice, les variables aléatoires sont définies sur
+      un espace probabilisé $(\Omega,\A,P)$, à valeurs dans $\R_+$ et
+      admettent une densité.}\\
+    Soit $X$ une variable aléatoire à densité admettant une espérance
+    $\E(X)$. On note respectivement $F$ et $f$, la fonction de
+    répartition et une densité de $X$.\\
+    Soit $(X_n)_{n\in\N^*}$ une suite de variables aléatoires
+    indépendantes de même loi que $X$.
+
+  \item Pour $x\geq 0$ :
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Justifier la convergence de l'intégrale $\dint{x}{+\infty}
+      tf(t)\dt$.
+
+    \item Établir les inégalités : $\dint{x}{+\infty} tf(t) \dt \geq
+      x(1-F(x))\geq 0$.
+
+    \item Montrer à l'aide d'une intégration par parties que :
+      $\E(X)=\dint{0}{+\infty} (1-F(t))\dt$.
+    \end{noliste}
+
+  \item Pour tout $n\in\N^*$, on note $Z_n=\max(X_1,X_2,\hdots,X_n)$,
+    $G_n$ la fonction de répartition de $Z_n$ et $g_n$ une densité de
+    $Z_n$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Exprimer pour tout $t\in\R$, $G_n(t)$ en fonction de $F(t)$.
+    \item Établir l'existence de $\E(Z_n)$.
+    \item Pour $n\geq 2$, montrer que : $\E(Z_n)-\E(Z_{n-1})=
+      \dint{0}{+\infty} (F(t))^{n-1}(1-F(t))\dt$.
+    \item Soit $m>0$. On suppose que $X$ suit la loi exponentielle de
+      paramètre $m$ (d'espérance $\dfrac{1}{m}$). Calculer $\E(Z_n)$.\\
+      Donner un équivalent de $\E(Z_n)$ lorsque $n$ tend vers
+      $+\infty$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; %
+% sujet : E 76; %
+% annee : 2015; %
+% theme : ; %
+
+\begin{exerciceSP}~\\
+  Soit $n$ un entier supérieur ou égal à $2$ et $X$ une matrice
+  colonne non nulle de $\M{n,1}$.\\
+  On pose : $A=X ^t X$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $A$ est diagonalisable.
+  \item Déterminer les valeurs propres et les sous-espaces propres de
+    $A$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+%\newpage
+
+\subsection*{Sujet E 77}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 77; %
+% annee : 2015; % 
+% theme : ; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Donner des critères de convergence des
+    séries à termes positifs.\\
+    Soit $f$ la fonction définie sur $\R_+^*$ par $f(x) = \ln\left(
+      \dfrac{\ee}{2} \left(x + \dfrac{1}{x} \right)\right)$.\\
+    On note $(\Cont)$ la courbe représentative de $f$ dans le plan
+    rapporté à un repère orthonormé.
+  \item Dresser le tableau de variation de $f$.
+  \item
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Montrer que la courbe $(\Gamma)$ d'équation $y =
+      \ln\left(\dfrac{\ee}{2} \ x \right)$ est asymptote à $({\cal
+        C})$.
+    \item Tracer $({\cal C})$ et $(\Gamma)$ dans le même repère.
+    \end{noliste}
+  \item Établir pour tout réel $x\geq 1$, l'encadrement : $0\leq
+    f'(x)<1$.\\
+    En déduire que le signe de $f(x)-x$ pour tout $x\geq 1$ ainsi que
+    la position de $({\cal C})$ par rapport à la droite
+    $(\mathcal{D})$ d'équation $y = x$.
+  \item Soit le programme \Scilab{} suivant :\\[-.2cm]
+    \begin{scilab}
+      & \tcFun{function} \tcVar{y}=f(\tcVar{x}) \nl %
+      & \qquad \tcVar{y} = log(\%e \Sfois{} (\tcVar{x} + \tcVar{x}
+      \puis (-1))/2) \nl %
+      & \tcFun{endfunction} \nl %
+      & \nl %
+      & x = [0.01:0.1:5] ; \nl %
+      & plot2d(x, f(x), rect=[0,0,5,5]) \nl %
+      & \nl %
+      & x = [0,5] \nl %
+      & plot2d(x,x) \nl %
+      & \nl %
+      & u = input(\ttq{}u0=\ttq{}) \nl %
+      & x = [u] ; y = [0] \nl %
+      & \tcFor{for} k=1:10 \nl %
+      & \qquad z = f(u) \nl %
+      & \qquad x = [x,u] \nl %
+      & \qquad x = [x,z] \nl %
+      & \qquad y = [y,z,z] \nl %
+      & \qquad u = z \nl %
+      & \tcFor{end} \nl %
+      & plot2d(x,y) \nl %
+    \end{scilab}~\\[-.2cm]
+    Expliquer ce que fait ce programme et ce qu'il illustre.\\
+    Dans \texttt{plot2d}, \texttt{rect[0,0,5,5]} signifie que seule la
+    partie de la courbe contenue dans le rectangle $\{(x,y)\ / \ 0\leq
+    x\leq 5 \mbox{ et } 0\leq y \leq 5\}$ sera tracée.
+
+  \item Étudier la suite $(u_n)_{n\in\N}$ définie par :
+    $u_0\in[1,+\infty[$ et $\forall n\in\N$, $u_{n+1}=f(u_n)$.
+
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Justifier l'existence d'un réel $a>1$ tel que $x\in[1,a]
+      \Rightarrow f'(x)\leq \dfrac{1}{2}$.
+    \item On pose : $\forall n\in\N$, $v_n=u_n-1$. Quelle est la
+      nature de la série de terme général $v_n$ ?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+%\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 77; %
+% annee : 2015; % 
+% theme : vaDensite, vaConvergence, fctContinuite; % 
+
+\begin{exerciceSP}~\\
+  Soit $(X_n)_{n\in\N^*}$ une suite de variables aléatoires telles que
+  pour tout $n\geq 1$, $X_n$ admet une densité $f_n$ continue sur
+  $\R$, nulle sur $\R_-$ et sur $[\frac{2}{n}, +\infty [$, affine sur
+  $[0, \frac{1}{n}]$ et sur $[ \frac{1}{n}, \frac{2}{n}]$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer une densité $f_n$ de $X_n$.
+  \item Étudier la convergence en loi de la suite de variables
+    aléatoires $(X_n)_{n\in\N^*}$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+%\newpage
+
+\subsection*{Sujet E 79}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 79; %
+% annee : 2015; % 
+% theme : vaFDR, vaDensite, vaDiscrete, vaPartieEntiere, ; % 
+
+\begin{exerciceAP}~\\
+  {\it Toutes les variables aléatoires de cet exercice sont définies
+    sur un espace probabilisé $(\Omega,\A,P)$}.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition et propriétés de la fonction de
+    répartition d'une variable aléatoire à densité.\\
+    Soit $a$ un paramètre réel et $F$ la fonction définie sur $\R$, à
+    valeurs réelles, telle que :
+    \[
+    F(x)=\left\{
+      \begin{array}{cl}
+        1+\ln\left(\dfrac{x}{x+1}\right) & \mbox{ si $x\geq a$}\\
+        0 & \mbox{ si $x<a$}
+      \end{array}
+    \right.
+    \]
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $F$ est continue sur $\R$ si et seulement si
+      $a=\dfrac{1}{\ee -1}$.
+
+    \item Étudier les variations de $F$ et tracer l'allure de sa
+      courbe représentative dans un repère orthogonal du plan.
+    \end{noliste}
+
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $F$ est la fonction de répartition d'une
+      variable aléatoire $X$ à densité.
+    \item La variable aléatoire $X$ admet-elle une espérance ?
+    \end{noliste}
+
+  \item Soit $Y$ la variable aléatoire à valeurs dans $\N$ définie par
+    $Y=\lfloor X\rfloor$ (partie entière de $X$). On pose : $Z=X-Y$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Calculer $\Prob(Y=0)$ et montrer que pour tout $n\in\N^*$, on
+    a : $\Prob(Y=n) = \ln\left(1 + \dfrac{1}{n(n + 2)}\right)$.
+    \item Déterminer la fonction de répartition et une densité de $Z$.
+    \item Établir l'existence de l'espérance $\E(Z)$ de $Z$. Calculer
+      $\E(Z)$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 79; %
+% annee : 2015; % 
+% theme : ; % 
+
+\begin{exerciceSP}~\\
+  Soit $a$, $b$ et $c$ des réels non nuls vérifiant
+  $a^2+b^2+c^2 = 1$. On pose : $U = 
+  \begin{smatrix} 
+    a\\ 
+    b\\
+    c
+  \end{smatrix} \in \M{3,1}$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer la matrice $M=U ^t U$ (où $^t U$ est la matrice
+      transposée de la matrice colonne $U$).
+    \item $M$ est-elle diagonalisable ? inversible ?
+    \end{noliste}
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Pour $n\in\N^*$, calculer $M^n$.
+    \item Quelles sont les valeurs propres de $M$ et les sous-espaces
+      propres associés.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceSP}
+
+%%FIN
+
+\end{document}

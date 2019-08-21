@@ -1,0 +1,433 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 2007} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 2004}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+\textbf{ECRICOME 2007}
+\end{center}
+
+\section*{Exercice 1}
+
+Soit $a$ un réel strictement positif. On considère la fonction $f_{a}
+$ définie pour tout réel $t$ strictement positif par :
+
+\[
+f_{a}(t) = \dfrac 12(t + \dfrac{a^{2}}t)
+\]
+ainsi que la suite $(u_{n})_{n\epsilon \N}$ de nombre réels déterminée
+par son premier terme $u_{0}>0$ et par la relation de récurrence : 
+\[
+\forall n\in \mathbb{N\qquad }u_{n + 1} = f_{a}(u_{n})
+\]
+
+\subsection*{1) Étude des variations de la fonction $f_{a}$.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer la limite de $f_{a}(t)$ lorsque $t$ tend vers $ +
+\infty $.
+Justifier l'existence d'une asymptote oblique au voisinage de $ +
+\infty $ et
+donner la position de la courbe représentative de $f_{a}$ par rapport à
+cette asymptote.
+
+\item Déterminer la limite de $f_{a}(t)$ lorsque $t$ tend vers $0$ par
+valeurs positives. Interpréter graphiquement cette limite.
+
+\item Donner l'expression de la fonction dérivée de $f_{a}$ sur $\R^{*
++}$ et dresser le tableau de variation de $f_{a}$.
+
+\item En déduire que : 
+\[
+\forall t>0\qquad f_{a}(t)\geq a
+\]
+\end{noliste}
+
+\subsection*{2) Étude de la convergence de la suite $(u_{n})_{n\protect
+\epsilon 
+\N}$..}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Que dire de la suite $(u_{n})_{n\epsilon \N}$ dans le cas
+particulier où $u_{0} = a$ ?
+
+\item Dans la suite on revient au cas général $u_{0}>0$.\\
+Démontrer que : 
+\[
+\forall t>a\qquad 0<f_{a}{\prime }(t)<\frac 12
+\]
+
+\item Montrer que pour tout entier $n$, non nul : 
+\[
+\left. u_{n}\geq a\right.
+\]
+
+\item Prouver alors que pour tout entier $n$ non nul : 
+\[
+0\leq u_{n + 1}-a\leq \dfrac{1}{2}\left( u_{n}-a\right)
+\]
+Puis que : 
+\[
+\left| u_{n}-a\right| \leq \left( \dfrac{1}{2}\right)
+^{n-1}\left| u_{1}-a\right|
+\]
+
+\item En déduire la convergence de la suite $(u_{n})$ et indiquer sa
+limite.
+
+\item En utilisant ce qui précède, écrire un programme en
+langage \Scilab{} permettant d'afficher les $100$ premiers termes d'une
+suite $(u_{n})$, de premier terme $1$, convergeant vers $\sqrt{2}$.
+\end{noliste}
+
+\subsection*{3) Recherche d'extremum d'une fonction à deux variables.}
+
+On considère, sur $\R_{+}{*}\times \R_{+}{*}$, la
+fonction $g$ définie par~ : 
+\[
+g(x,y) = \frac 12(\frac 1x + \frac 1y)(1 + x)(1 + y)
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Calculer les dérivées partielles d'ordre $1$ et $2$ de $g$ sur 
+$\R_{+}{*}\times \R_{+}{*}.$
+
+\item Montrer que $g$ admet un extremum local sur $\R_{+}{*}\times 
+\R_{+}{*}$ dont on précisera la nature.
+
+\item Vérifier que~ : 
+\[
+g(x,y) = 1 + f_{1}(x) + f_{1}(y) + f_{1}(\frac xy)
+\]
+
+\item En déduire que l'extremum local est un extremum global de $g$ sur
+$\R_{+}{\ast }\times \R_{+}{\ast }$.
+\end{noliste}
+
+\section*{Exercice 2}
+
+$M_{2}(\R)$ désigne l'espace vectoriel des matrices carrées
+d'ordre $2$ à coefficients réels.\\
+La matrice $A$ suivante étant donnée 
+\[
+A = \left( 
+\begin{array}{cc}
+3 & -1 \\
+6 & -2
+\end{array}
+\right) 
+\]
+on définit l'application $\phi_{A}$ par : 
+\[
+\left. 
+\begin{array}{c}
+\phi_{A} :M_{2}(\R)\rightarrow M_{2}(\R) \\
+\qquad \quad \qquad \qquad M\mapsto \phi_{A}(M) = AM-MA
+\end{array}
+\right. 
+\]
+
+\subsection*{1) Diagonalisation de A.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Vérifier que $A^{2} = A.$ En déduire les valeurs propres
+possibles
+de $A$.
+
+\item Prouver que la matrice $A$ est diagonalisable et déterminer une
+matrice $P$ inversible de $M_{2}(\R)$ et une matrice diagonale $D$ de
+$M_{2}(\R)$ dont la première colonne est nulle vérifiant la
+relation : 
+\[
+A = PDP^{-1}
+\]
+Donner l'écriture matricielle de $P^{-1}.$
+\end{noliste}
+
+\subsection*{2) Diagonalisation de $\protect \phi_{A}.$}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que $\phi_{A}$ est un endomorphisme de $M_{2}(\R)$.
+
+\item Établir que $X^{3}-X$ est un polyn\^{o}me annulateur de
+$\phi_{A}$. En déduire les valeurs propres possibles de $\phi_{A}$.
+
+\item Montrer que la matrice $M$ est un vecteur propre de $\phi_{A}$
+associée à la valeur propre $\lambda $ si et seulement si la matrice $N
+= P^{-1}MP$ est non nulle et vérifie l'équation matricielle : 
+\[
+DN-ND = \lambda N
+\]
+
+\item On pose $N = \left( 
+\begin{array}{cc}
+a & b \\
+c & d
+\end{array}
+\right).$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Trouver l'ensemble des matrices $N$ telles que $DN-ND = 0$.
+
+\item En déduire que la famille $(A$,$M_{1})$ avec $M_{1} = \left( 
+\begin{array}{cc}
+-2 & 1 \\
+-6 & 3
+\end{array}
+\right) $ est une base du sous-espace propre $Ker\phi_{A}$ associé à
+la valeur propre $0$.
+
+\item Déterminer les deux autres valeurs propres non nulles
+$\lambda_{1}$
+et $\lambda_{2}$ de $\phi_{A}$ et \\
+caractériser les matrices $N$ associées.
+
+\item En déduire une base de chaque sous-espace propre
+$E_{\lambda_{1}}$
+et $E_{\lambda_{1}}$associé aux valeurs propres $\lambda_{1}$ et
+$\lambda
+_{2}. $
+\end{noliste}
+
+\item L'endomorphisme $\phi_{A}$ est-il diagonalisable ?
+\end{noliste}
+
+\section*{Exercice 3}
+
+Soucieux d'améliorer le flux de sa clientèle lors du passage en
+caisse, un gérant de magasin a réalisé les observations
+suivantes :
+
+\subsection*{1) Mode de paiement de la clientèle.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item L'étude du mode de paiement en fonction du montant des achats a
+permis d'établir les probabilités suivantes : 
+\[
+\left. 
+\begin{array}{c}
+P\left[ S = 0\cap U = 0\right] = 0.4 \\
+P\left[ S = 0\cap U = 1\right] = 0.3 \\
+P\left[ S = 1\cap U = 0\right] = 0.2 \\
+P\left[ S = 1\cap U = 1\right] = 0.1
+\end{array}
+\right.
+\]
+où $S$ représente la variable aléatoire prenant la valeur $0$ si
+le montant des achats est inférieur ou égal à $50$ euros,
+prenant la valeur $1$ sinon, et $U$ la variable aléatoire prenant la
+valeur $0$ si la somme est réglée par carte bancaire, prenant la
+valeur $1$ sinon.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer les lois de $S$ et $U$ et vérifier que la probabilité
+que le client règle par carte bancaire est égale à $p = \dfrac 35$.
+
+\item Calculer la covariance du couple $(S,U)$. Les variables $S$ et
+$U$
+sont-elles indé-pendantes ?
+
+\item Quelle est la probabilité que la somme réglée soit supérieure
+strictement à $50$ euros sachant que le client utilise un autre
+moyen de paiement que la carte bancaire ?
+\end{noliste}
+
+\item On suppose que les modes de règlement sont indépendants entre
+les individus.\\
+Une caissière reçoit $n$ clients dans sa journée $(n\geq 2)$.\\
+On définit trois variables aléatoires $C_{n},L_{1},L_{2}$ par :\\
+-$C_{n}$ comptabilise le nombre de clients qui paient par carte
+bancaire.\\
+-$L_{1}$(resp.$L_{2})$ est égale au rang du $1^{er}$ (resp.du
+$2^{\grave{e}me}$) client utilisant la carte bancaire comme moyen de
+paiement, s'il y
+en a au moins un (resp.au moins deux) et à zéro sinon.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Reconna\^{\i} tre la loi de $C_{n}$, rappeler la valeur de
+l'espérance et de la variance de cette variable aléatoire.
+
+\item Déterminer la loi de $L_{1}$ et vérifier que : 
+\[
+\Sum{k = 0}{n} P\left[ L_{1} = k\right] = 1
+\]
+
+\item Déterminer la loi de $L_{2}$.
+\end{noliste}
+\end{noliste}
+
+\subsection*{2) Étude du temps moyen de passage en caisse.}
+
+Après enquête, on estime que le temps de passage à une caisse,
+exprimé en unités de temps, est une variable aléatoire $T$ dont
+une densité de probabilité est donnée par la fonction $f$ définie par :
+
+\[
+\left\{ \left. 
+\begin{array}{l}
+f(x) = xe^{-x}\quad \text{si }x\geq 0 \\
+f(x) = 0\quad \quad \quad \text{si }x<0
+\end{array}
+\right. \right.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Rappeler la définition d'une densité de probabilité d'une
+variable aléatoire $X$ suivant une loi exponentielle de paramètre
+$\lambda = 1$. Donner la valeur de l'espérance et de la variance de
+$X$.
+
+\item Utiliser la question précédente pour vérifier que $f$ est
+bien une densité de probabilité, puis montrer que $T$ admet une
+espérance que l'on déterminera.\\
+Quel est le temps moyen de passage en caisse ?
+
+\item
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Démontrer que la fonction de répartition de $T$, notée $F_{T}$
+est définie par : 
+\[
+\left. 
+\begin{array}{l}
+\forall x<0\qquad F_{T}(x) = 0 \\
+\forall x\geq 0\qquad F_{T}(x) = 1-(x + 1)e^{-x}
+\end{array}
+\right.
+\]
+
+\item Montrer que la probabilité que le temps de passage en caisse soit
+inférieur à deux unités(de temps) sachant qu'il est supérieur à une
+unité est égale à $\dfrac{2e-3}{2e}.$
+\end{noliste}
+
+\item Un jour donné, trois clients $A,B,C$ se présentent simultanément
+devant deux caisses libres. Par courtoisie, $C$ décide de
+laisser passer $A $ et $B$ et de prendre la place du premier d'entre
+eux qui
+aura terminé. On suppose que les variables $T_{A}$ et $T_{B}$
+correspondant
+au temps de passage en caisse de $A$ et $B$ sont indépendantes.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item $M$ désignant le temps d'attente du client $C$ exprimer $M$ en
+fonction de $T_{A}$ et $T_{B}$.
+
+\item Montrer que la fonction de répartition de la variable aléatoire
+$M$ est donnée par : 
+\[
+\left\{ 
+\begin{array}{l}
+\forall t\in \R^{+}\mathbb{\qquad }P\left[ M\leq t\right]
+ = 1-(1 + t)^{2}e^{-2t} \\
+\forall t\in \R^{-\ast }\mathbb{\qquad }P\left[ M\leq t\right] = 0
+\end{array}
+\right.
+\]
+
+\item Prouver que $M$ est une variable à densité et expliciter une
+densité de $M$.
+\end{noliste}
+\end{noliste}
+
+\end{document}
+

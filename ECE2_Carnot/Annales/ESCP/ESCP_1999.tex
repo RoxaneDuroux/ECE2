@@ -1,0 +1,430 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ESCP 1999} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{ESCP 1999}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1999}}
+
+
+
+{\large \textbf{Concepteur : ESCP}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+
+\section*{EXERCICE I}
+
+Soit $\mathfrak{M}_{2}\left( \R\right) $ l'ensemble des matrices
+carr"es d'ordre 2 muni de sa structure d'espace vectoriel et soit $J$
+la matrice 
+\[
+J = \left( 
+\begin{array}{cc}
+0 & 1 \\
+1 & 0
+\end{array}
+\right) 
+\]
+On considère l'application $S$ de $\mathfrak{M}_{2}\left( \R\right) $
+dans lui-même qui associe à tout élément $M$ de $\mathfrak{M}_{2}\left(
+
+\R\right) $ l'élément $S(M) = J\,M\,J$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que l'application $S$ ainsi définie est un automorphisme
+de
+l'espace vectoriel $\mathfrak{M}_{2}\left( \R\right).$ Quel est
+l'automorphisme réciproque de $S$ ?
+
+\item Montrer que si $M$ et $N$ sont deux éléments quelconques de
+$\mathfrak{M}_{2}\left( \R\right) $, on a $S(MN) = S(M)S(N)$
+\end{noliste}
+
+\item On considère les éléments 
+\[
+I = \left( 
+\begin{array}{cc}
+1 & 0 \\
+0 & 1
+\end{array}
+\right) \;J = \left( 
+\begin{array}{cc}
+0 & 1 \\
+1 & 0
+\end{array}
+\right) \;K = \left( 
+\begin{array}{cc}
+1 & 0 \\
+0 & -1
+\end{array}
+\right) \;L = \left( 
+\begin{array}{cc}
+0 & 1 \\
+-1 & 0
+\end{array}
+\right)
+\]
+Montrer que $(I,J,K,L)$ forme une base de l'espace vectoriel
+$\mathfrak{M}_{2}\left( \R\right) $.
+
+\item Montrer que $I,\,J,\,K,\,L$ sont des vecteurs propres de $S$.
+Déterminer la matrice représentant l'auto\-morphisme $S$ dans la base
+$\left(
+I,J,K,L\right) $.
+
+\item Soit $\mathcal{F}$ l'ensemble des éléments $M$ de
+$\mathfrak{M}_{2}\left( \R\right) $ vérifiant $S(M) = M$ et soit
+$\mathcal{G}$
+l'ensemble des éléments $M$ de $\mathfrak{M}_{2}\left( \R\right) $(R)
+Vérifiant $S(M) = -M$. Montrer que $\mathcal{F}$ et $\mathcal{G}$ sont
+des
+sous-espaces vectoriels de $\mathfrak{M}_{2}\left( \R\right) $ et
+que tout élément $M$ de $\mathfrak{M}_{2}\left( \R\right) $ peut
+s'écrire d'une manière et d'une seule sous la forme $M = M_{+} + M_{-}$
+avec $M_{+}\in \mathcal{F}$ et $M_{-}\in \mathcal{G}$.
+
+A titre d'exemple, déterminer les matrices $A_{+}$ et $A_{-}$ lorsque
+$A = \left( 
+\begin{array}{cc}
+3 & -1 \\
+1 & -2
+\end{array}
+\right) $.
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que le produit de deux matrices appartenant à
+$\mathcal{F}$
+appartient aussi à $\mathcal{F}$. Que peut-on dire du produit de deux
+éléments de $\mathcal{G}$ ?
+
+\item Plus précisément, pour deux matrices $M$ et $N$ de
+$\mathfrak{M}_{2}\left( \R\right) $, exprimer $(MN)_{+}$ et $(MN)_{-}$
+en
+fonction de $M_{+}$, $M_{-}$, $N_{+}$ et $N_{-}$.
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE II}
+
+Pour tout entier $k$ supérieur ou égal à 2, soit $f_{k}$ la fonction
+définie
+sur $\left] 0, + \infty \right[ $ par :
+
+\[
+f_{k}(x) = \dfrac{\ln ^{k}\left( x\right) }{x-1}\text{ si }x>0\text{ et
+}x\neq
+1\;\text{et }f_{k}\left( 1\right) = 0
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Étude des fonctions $f_{k}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Soit $k$ un entier supérieur ou égal à 2.
+
+Justifier la dérivabilité de la fonction $f_{k}$ sur $\left] 0,1\right[
+\ \cup \left] 1, + \infty \right[ $ et préciser la valeur de la dérivée
+$f_{k}{\prime }(x)$, pour tout $x$ appartenant à $\left] 0,1\right[ \
+\cup \left] 1, + \infty \right[ $.
+
+Montrer que $f_{k}$ est dérivable en 1 et donner, selon les valeurs de
+$k $,
+la valeur de $f_{k}{\prime }(1)$
+
+\item On considère les fonctions auxiliaires $\varphi_{k}$ définies,
+pour
+tout $x>0$, par 
+\[
+\varphi_{k}(x) = k(x-1)-xln(x).
+\]
+Étudier, pour tout entier $k$ supérieur ou égal à 2, les variations de
+la
+fonction $\varphi_{k}$. Montrer que l'équation $\varphi_{k}\left(
+x\right)
+ = 0$ admet une racine unique dans l'intervalle $\left] 1, + \infty
+\right[ $.
+Dans la suite, on notera $a_{k}$ cette racine.
+
+\item En distinguant les cas $k = 2$, $k$ pair supérieur ou égal à 4,
+$k$
+impair supérieur ou égal à 3, donner le tableau de variation de la
+fonction $f_{k}$ (on précisera les limites aux bornes).
+\end{noliste}
+
+\item Étude asymptotique de la suite $\left( a_{k}\right)_{k\geq 2}$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que, pour tout entier $k$ supérieur ou égal à 2,
+$e^{k-1}\leq a_{k}\leq e^{k}$
+
+\item Pour tout entier $k$ supérieur ou égal à 2, on pose $a_{k} =
+e^{k}\left(
+1 + \delta_{k}\right) $. Montrer que le réel $\delta_{k}$ vérifie
+l'équation 
+\[
+-ke^{-k} = \left( 1 + \delta_{k}\right) \ln \left( 1 +
+\delta_{k}\right)
+\]
+Justifier l'inégalité : $\left| \ln \left( 1 + \delta_{k}\right)
+\right| \leq ke^{1-k}$. En déduire que la suite $\left( \delta
+_{k}\right)_{k\geq 2}$ a une limite nulle et, plus précisément, que
+$\delta_{k}$ est équivalent à $-ke^{-k}$ quand $k$ tend vers l'infini.
+
+\item Justifier, en conclusion, la relation 
+\[
+a_{k} = e^{k}-k + o\left( k\right) \text{ quand }k\rightarrow + \infty
+\]
+\end{noliste}
+
+\item Calcul approché des nombres $a_{k}$.
+
+Écrire un programme en -\Scilab{} donnant une valeur approchée à moins
+de $10^{-4}$ près du nombre $a_{4}$.
+\end{noliste}
+
+\section*{EXERCICE III}
+
+Une chaîne de fabrication produit des objets dont certains peuvent être
+défectueux. Pour modéliser ce processus on considère une suite $\left(
+X_{n}\right)_{n\geq 1}$ de variables aléatoires de Bernoulli
+indépendantes, de paramètre p, $(0<p<1)$. La variable aléatoire $X_{n}$
+prend la
+valeur 1 si le $n^{i\grave{e}me}$ objet produit est défectueux et prend
+la
+valeur 0 s'il est de bonne qualité.\\
+Pour contrôler la qualité des objets produits, on effectue des
+prélèvements
+aléatoires et on considère une suite $\left( Y_{n}\right)_{n\geq 1}$
+de variables aléatoires de Bernoulli indépendantes, de paramètre
+$p^{\prime }
+$, ($0<p^{\prime }<1$), telle que $Y_{n}$ prend la valeur 1 si le
+$n^{i\grave{e}me}$ objet produit est contrôlé et 0 s'il ne l'est pas.\\
+Toutes les variables aléatoires $X_{n}$ et $Y_{n}$ sont définies sur un
+même
+espace probabilisé $\Omega $, muni d'une probabilité notée $p$ et sont
+supposées toutes indépendantes entre elles.\\
+La probabilité conditionnelle d'un évènement $A$ sachant un évènement
+$B$
+est notée $\mathbf{P}_{B}\left( A\right) $\\
+Pour tout entier $n\geq 1$, on pose $Z_{n} = X_{n}Y_{n}$. La variable
+aléatoire $Z_{n}$ ainsi définie vaut donc 1 si le $n^{i\grave{e}me}$
+objet est à
+la fois défectueux et contrôlé et 0 sinon.\\
+L'objet de l'exercice est d'étudier le nombre d'objets défectueux
+produits
+par la chaîne avant qu'un objet défectueux n'ait été détecté.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer, pour tout entier $n\geq 1$, la loi de la variable
+aléatoire $Z_{n}$ et la covariance des variables $X_{n}$ et $Z_{n}$. En
+déduire
+que les variables $X_{n}$ et $Z_{n}$ ne sont pas indépendantes.
+
+\textsl{Par contre, il résulte des hypothèses (et on ne demande pas de
+le
+justifier) que, pour tout entier }$n$\textsl{, la variable aléatoire
+}$Z_{n}$\textsl{\ est indépendante des variables }$\left( X_{i},i\ne
+n\right) $\textsl{\ et des variables }$\left( Y_{i},i\ne n\right)
+$\textsl{, de même
+que des variables }$\left( Z_{i},i\ne n\right) $\textsl{.}
+
+\item Soit, pour tout entier $n\geq 1$, $A_{n}$ l'évènement :
+\textquotedblleft le $n^{i\grave{e}me}$ objet fabriqué est le premier
+qui
+ait été contrôlé et trouvé défectueux\textquotedblleft.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer $A_{n}$ à l'aide des variables aléatoires
+$Z_{1},\,Z_{2},\dots,\,Z_{n}$ et déterminer $p\left( A_{n}\right) $.
+
+\item Montrer qu'on finira, presque sûrement, par détecter un objet
+défectueux.
+\end{noliste}
+
+\item Soit un entier $n\geq 2$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout entier $k$ vérifiant $1\leq k\leq n-1$, calculer
+la probabilité des évènements \\
+$\left( X_{k} = 1\right) \cap A_{n}$ et $\left( X_{k} = 1\right) \cap
+\left(
+Z_{k} = 0\right) $.
+
+On note $B_{k}$ l'évènement $\left( Z_{k} = 0\right) $. Montrer
+l'égalité des
+probabilités conditionnelles
+
+\[
+\mathbf{P}_{A_{n}}\left( X_{k} = 1\right) = \mathbf{P}_{B_{k}}\left(
+X_{k} = 1\right) = \dfrac{p-pp^{\prime }}{1-pp^{\prime }}
+\]
+
+\item Montrer que si $x_{1},\;x_{2},\dots,\;x_{n-1}$ est une suite
+quelconque de nombres égaux à 0 ou à 1, on a 
+\[
+\mathbf{P}_{A_{n}}\left( X_{1} = x_{1},X_{2} = x_{2},\dots,X_{n-1} =
+x_{n-1}\right) = \prod_{i = 1}{n-1}\mathbf{P}_{A_{n}}\left(
+X_{i} = x_{i}\right)
+\]
+
+\item Soit $S_{n} = \Sum{j = 1}{n-1}X_{j}$ le nombre d'objets
+défectueux fabriqués avant le $n^{i\grave{e}me}$ objet et soit un
+entier $m$ vérifiant $0\leq m\leq n-1$. Calculer
+$\mathbf{P}_{A_{n}}\left(
+S_{n} = m\right) $
+
+\item Déterminer l'espérance de $S_{n}$ pour la probabilité
+conditionnelle
+sachant $A_{n}$.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

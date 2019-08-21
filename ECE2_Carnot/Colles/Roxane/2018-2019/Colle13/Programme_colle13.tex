@@ -1,0 +1,340 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+  
+\input{../../../macros.tex}
+
+
+
+\begin{document}
+\begin{flushleft}
+ECE2 \\
+Mathématiques
+\end{flushleft}
+
+
+\vspace{0.1cm}
+
+\begin{center}
+\textbf{\Large{Programme de colle - Semaine 13}}
+\end{center}
+
+\hrule
+
+\vspace*{0,2cm}
+
+\section*{Notation}
+
+\noindent
+On adoptera les principes suivants pour noter les étudiants :
+\begin{noliste}{$\stimes$}
+\item si l'étudiant sait répondre à la question de cours, il 
+aura une note $>8$.
+\item si l'étudiant ne sait pas répondre à la question de 
+cours ou s'il y a trop d'hésitations, il aura une note $\leq 8$.
+\end{noliste}
+
+
+\section*{Questions de cours}
+
+\noindent
+\begin{noliste}{-}
+ \item {\bf Transformation affine d'une \var uniforme}\\
+ {\it On demandera à l'étudiant de démontrer l'une des {\bf implications} 
+ suivantes.}
+ \begin{noliste}{1.}
+    \item $ X \suit \Uc{0}{1} \quad \Leftrightarrow \quad 
+    Y=(b-a)X+a \suit \Uc{a}{b}$
+    
+    \item $ X \suit \Uc{a}{b} \quad \Leftrightarrow \quad 
+    Y=\dfrac{1}{b-a}(X-a) \suit \Uc{0}{1}$
+  \end{noliste}
+ 
+ \begin{proof}~
+  \begin{noliste}{$\sbullet$}
+      \item Notons $h : x \mapsto (b-a)x +a$, de telle sorte que $Y=h(X)$.\\
+      Comme $X \suit \Uc{0}{1}$, alors $X(\Omega) = [0,1]$. On en déduit :
+      \[
+        \begin{array}{rcl@{\quad}>{\it}R{5.5cm}}
+          Y(\Omega) &=& \big(h(X)\big)(\Omega) \ = \ h \big(X(\Omega)\big)
+          \\[.2cm]
+          &=& h([0,1])
+          \\[.2cm]
+          &=& \left[ h(0), h(1) \right]
+          & (car $h$ est continue et strictement croissante sur $[0,1]$)
+          \nl
+          \nl[-.2cm]
+          &=& [a,b]
+        \end{array}
+      \]
+      Donc : $Y(\Omega) = [a,b]$.
+
+
+      \item Déterminons la fonction de répartition de $Y$, $F_Y$.\\
+      Soit $x\in\R$.
+      \begin{noliste}{$\stimes$}
+        \item Soit $x<a$, alors
+        $\Ev{Y\leq x}=\varnothing$ car $Y(\Omega)=[a,b]$. Ainsi :
+        \[
+          F_Y(x) = \Prob(\Ev{Y \leq x})
+          = \Prob(\varnothing) = 0
+        \]
+        
+        \item Soit $x>b$, alors 
+        $\Ev{Y\leq x}=\Omega$ car $Y(\Omega)=[a,b]$. Ainsi :
+        \[
+          F_Y(x) = \Prob(\Ev{Y \leq x}) = \Prob(\Omega) = 1
+        \]
+  
+        \item Soit $x \in [a,b]$.
+        \[
+          \begin{array}{rcl@{\quad}>{\it}R{4cm}}
+            F_Y(x) &=& \Prob(\Ev{Y \leq x})
+            \ = \ \Prob(\Ev{(b-a)X+a \leq x})
+            \\[.2cm]
+            &=& \Prob \left(\Ev{X \leq \dfrac{x-a}{b-a}}\right)
+            \ = \ F_X \left( \dfrac{x-a}{b-a} \right)
+            \\[.4cm]
+            &=& \dfrac{x-a}{b-a} & (par définition de $F_X$ et car $ 
+            \dfrac{x-a}{b-a} \in [0,1]$)
+          \end{array}
+        \]
+      \end{noliste}
+      On reconnaît la fonction de répartition de la loi $\Uc{a}{b}$. Comme 
+      la fonction de répartition caractérise la loi, on en déduit que $Y 
+      \suit \Uc{a}{b}$.
+    \end{noliste}
+ \end{proof}
+ 
+ 
+ \newpage
+ 
+ 
+ \item {\bf Méthode d'inversion pour la loi exponentielle}\\
+ Soit $\lambda \in \ ]0,+\infty[$.\\
+ $X\suit \mathcal{U}([0,1[) \quad \Rightarrow \quad Y=-\dfrac{1}{\lambda} 
+ \, \ln(1-X) \suit \Exp{\lambda}$
+ 
+ \begin{proof}~
+  \begin{noliste}{$\sbullet$}
+    \item Notons $h : x \mapsto - \dfrac{1}{\lambda} \ \ln(1-x)$, de telle 
+    sorte que $Y = h(X)$.\\
+    Comme $X \suit \Uc{0}{1}$, alors $X(\Omega) = \ ]0,1[$. On en déduit :
+    \[
+      \begin{array}{rcl@{\quad}>{\it}R{6cm}}
+        Y(\Omega) &=& \big(h(X)\big)(\Omega) \ = \ h\big( X(\Omega)\big)
+        \\[.2cm]
+        &=& h(]0,1[)
+        \\[.2cm]
+        &=& \left] \dlim{x\to 0} h(0), \dlim{x\to 1} h(x) \right[
+        & (car $h$ est continue et strictement croissante sur $]0,1[$ $(*)$)
+        \nl
+        \nl[-.2cm]
+        &=& ]0, +\infty[
+      \end{array}
+    \]
+    Ainsi : $Y(\Omega) = \ ]0,+\infty[$.\\
+    On peut démontrer $(*)$ par une rapide étude de fonction :
+    \begin{noliste}{$\stimes$}
+      \item la fonction $h$ est dérivable (donc continue) sur $]0,1[$ en tant   
+      que composée de fonctions dérivables.
+      
+      \item soit $x \in \ ]0,1[$.
+      \[
+        h'(x) \ = \ - \dfrac{1}{\lambda} \ \left(- \dfrac{1}{1-x}\right)
+        \ = \ \dfrac{1}{\lambda (1-x)} >0
+      \]
+      Donc la fonction $h$ est strictement croissante sur $]0,1[$.
+    \end{noliste}
+
+
+    \item Déterminons la fonction de répartition de $Y$.
+    \begin{noliste}{$\stimes$}
+      \item Soit $y\leq 0$, alors $\Ev{Y\leq x}=\varnothing$ car 
+      $Y(\Omega)=[0,+\infty[$. Donc :
+      \[
+        F_Y(y) = \Prob(\Ev{Y\leq y}) = \Prob(\varnothing) = 0
+      \]
+
+      \item Soit $y\in \ ]0,+\infty[$.
+      \[
+        \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+          F_Y(y) &=& \Prob(\Ev{Y\leq y})
+          \\[.2cm]
+          &=& \Prob\left(\Ev{ -\dfrac{1}{\lambda} \ln(1-X) 
+          \leq y}\right)
+          \\[.6cm]
+          &=& \Prob(\Ev{\ln(1-X) \geq -\lambda y}) & (car $-\lambda<0$)
+          \nl
+          \nl[-.2cm]
+          &=& \Prob\left(\Ev{1-X \geq \ee^{-\lambda y}}\right) & (car la 
+          fonction $\exp$ est strictement croissante sur $\R$)
+          \nl
+          \nl[-.2cm]
+          &=& \Prob\left(\Ev{ X \leq  1 - \ee^{-\lambda y}}\right)
+          \\[.2cm]
+          &=& F_X\left( 1-\ee^{-\lambda y} \right)
+        \end{array}
+      \]
+      Or on a les équivalences suivantes :
+      \[
+        \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+          0< y  & \Leftrightarrow & 0 > -\lambda > -\lambda \, y 
+          & (car $-\lambda <0$)
+          \nl
+          \nl[-.2cm]
+          & \Leftrightarrow & 1=\ee^0 > \ee^{-\lambda y} > 0 & (car la 
+          fonction $\exp$ est strictement croissante sur $\R$)
+          \nl
+          \nl[-.2cm]
+          & \Leftrightarrow & 0 < 1-\ee^{-\lambda y} < 1
+        \end{array}
+      \]
+      De plus, comme $X \suit \Uc{0}{1}$ : $F_X : u \mapsto \left\{
+      \begin{array}{l@{\quad}>{}R{2cm}}
+        0 & si $u\leq 0$\nl
+        u & si $u\in \ ]0,1[$\nl
+        1 & si $u\geq 1$
+      \end{array}
+      \right.$,\\ 
+      donc $F_X\left( 1-\ee^{-\lambda y} \right)= 1-\ee^{-\lambda y}$.
+    \end{noliste}
+  \end{noliste}
+  
+  
+  \newpage
+  
+  
+  \noindent
+  Finalement : $F_Y : y \mapsto \left\{
+  \begin{array}{l@{\quad}>{}R{1.5cm}}
+    0 & si $y\leq 0$\nl
+    1-\ee^{-\lambda y} & si $y > 0$
+  \end{array}
+  \right.$. \\[.2cm]
+  On reconnaît la fonction de répartition de la loi exponentielle de 
+  paramètre $\lambda$. Or la fonction de répartition caractérise la loi 
+  d'une \var, donc $Y\suit \Exp{\lambda}$.
+ \end{proof}
+ 
+ 
+ \item {\bf Propriétés de $\Phi$, où $\Phi$ est la fonction de 
+ répartition d'une loi $\Norm{0}{1}$}
+ \begin{noliste}{$\sbullet$}
+    \item $
+      \phi(0) = \Prob(\Ev{X\leq 0})=\dfrac{1}{2}
+    $
+    
+    \item Pour tout $x\in\R$ :
+    \[
+      \phi(-x) = 1-\phi(x)
+    \]
+    
+    \item Pour tout $x\in\R$ :
+    \[
+      \Prob(\Ev{\vert X \vert \leq x})=2\phi(x)-1
+    \]
+  \end{noliste}
+ 
+ \begin{proof}~
+  \begin{noliste}{$\sbullet$}
+    \item Comme $\varphi$ est une densité, $\dint{-\infty}{+\infty} 
+    \varphi(t) \dt$ converge. De plus :
+    \[
+      \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+        \dint{-\infty}{+\infty} \varphi(t)\dt &=& 2 \dint{-\infty}{0} 
+        \varphi(t)\dt & (car $\varphi$ est paire)
+        \nl
+        \nl[-.2cm]
+        &=& 2 \, \phi(0)
+        \\[.2cm]
+        &=& 2 \, \Prob(\Ev{X\leq 0})
+      \end{array}
+    \]
+    
+    \item Soit $x\in\R$.
+    \[
+      \phi(-x) = \dint{-\infty}{-x} \varphi(t)\dt
+    \]
+    On effectue alors le changement de variable $\Boxed{u =\psi(t)}$, avec 
+    la fonction $\psi$ de classe $\Cont{1}$ définie par $\psi : t\mapsto 
+    -t$.
+    \[
+      \left|
+      \begin{array}{P{8cm}}
+        $u = -t$ \nl
+        $\hookrightarrow$ $du = -\dt$ \quad et \quad $dt = - \ du$ \nl
+        \vspace{-.4cm}
+        \begin{noliste}{$\sbullet$}
+          \item $t = -\infty \ \Rightarrow \ u = +\infty$
+          \item $t = -x \ \Rightarrow \ u = x$ %
+          \vspace{-.4cm}
+        \end{noliste}
+      \end{array}
+      \right.
+    \]
+    On a donc :
+    \[
+      \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+        \dint{-\infty}{-x} \varphi(t)\dt &=& \dint{x}{+\infty} 
+        \varphi(-u) \ du
+        \\[.4cm]
+        &=& \dint{x}{+\infty} \varphi(u) \ du & (car $\varphi$ est paire)
+        \nl
+        \nl[-.2cm]
+        &=& \dint{-\infty}{+\infty} \varphi(u) \ du - \dint{-\infty}{x} 
+        \varphi(u) \ du
+        \\[.4cm]
+        &=& 1 - \phi(x)
+      \end{array}
+    \]
+    
+    \item Soit $x\in\R$.
+    \[
+      \begin{array}{rcl@{\quad}>{\it}R{5cm}}
+        \Prob(\Ev{\vert X \vert \leq x}) &=& \Prob(\Ev{-x \leq X \leq 
+        x})
+        \\[.2cm] 
+        &=& \phi(x)-\phi(-x)
+        \\[.2cm]
+        &=& \phi(x) - (1-\phi(x))
+        \\[.2cm]
+        &=& 2 \, \phi(x)-1
+      \end{array}
+    \]
+  \end{noliste}
+ \end{proof}
+\end{noliste}
+
+
+\newpage
+
+
+\section*{Connaissances exigibles}
+
+\begin{noliste}{-}
+ \item Définition v.a. à densité, caractérisation fonction de 
+  répartition (fdr) et densité de probabilité, lien entre fdr et densité
+  \item Formules de calcul de $\Prob(\Ev{a\leq X\leq b})$ et autres, 
+  pour $X$ une v.a. à densité
+  \item Définition, linéarité et croissance de l'espérance d'une v.a. à 
+  densité
+  \item Théorème de transfert
+  \item Moments d'ordre $r$
+  \item Définitions et propriétés de la variance et de l'écart-type
+  \item Définition indépendance de deux v.a., lemme des coalitions, 
+  $\E(XY)=\E(X)\E(Y)$ et\\ $\V(X+Y)=\V(X)+\V(Y)$ {\bf si $X$ et $Y$ 
+  sont indépendantes}
+  \item Ensemble image, densité, fonction de répartition, espérance, variance, 
+  graphes : loi uniforme, loi exponentielle, lois normales
+  \item Transformation affine d'une loi uniforme
+  \item Propriétés de la fonction de répartition $\Phi$ d'une loi
+  $\Norm{0}{1}$
+  \item Transformée affine d'une loi gaussienne
+  \item Lecture de la table de la loi $\Norm{0}{1}$
+\end{noliste}
+
+
+
+\end{document}

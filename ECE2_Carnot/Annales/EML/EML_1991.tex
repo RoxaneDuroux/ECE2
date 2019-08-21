@@ -1,0 +1,328 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EML 1991} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\ker}{\operatorname{Ker}}
+\renewcommand{\im}{\operatorname{Im}}
+\newcommand{\rg}{\operatorname{rg}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\id}{\operatorname{id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{EML 1991}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT\vspace*{3cm}
+
+\begin{center}
+{\LARG\E\textbf{BANQUE COMMUNE D'ÉPREUVES}}
+
+
+
+{\large \textsc{CONCOURS D ADMISSION DE 1991}}
+
+
+
+{\large \textbf{Concepteur : EML}}
+
+
+
+\rule{2.39cm}{0.05cm}
+
+
+
+{\Large \textbf{OPTION ÉCONOMIQUE}}
+
+
+
+{\Large \textbf{MATHÉMATIQUES }}
+
+
+
+{\Large Lundi 9 mai, de 14h à 18h}
+
+
+
+\rule{2.39cm}{0.05cm}
+\end{center}
+
+\textit{La présentation, la lisibilité, l'orthographe, la qualité
+de la rédaction, la clarté et la précision des raisonnements
+entreront pour une part importante dans l'appréciation des copies.}
+
+\textit{Les candidats sont invités à \textbf{encadrer} dans la mesure
+du possible les résultats de leurs calculs.}
+
+\textit{Ils ne doivent faire usage d'aucun document. L'utilisation de
+toute
+calculatrice et de tout matériel électronique est interdite. Seule
+l'utilisation d'une règle graduée est autorisée.}
+
+\textit{Si au cours de l'épreuve, un candidat repère ce qui lui semble
+être une erreur d'énoncé, il la signalera sur sa copie et
+poursuivra sa composition en expliquant les raisons des initiatives
+qu'il sera
+amené à prendre.}
+
+\vspace*{3cm}
+\section*{EXERCICE 1}
+
+Soient $\alpha \in \R_{+}{\times }$, $A(\alpha ) = \left( 
+\begin{array}{ccc}
+1 & 0 & \alpha \\
+0 & 1 & 0 \\
+\alpha & 0 & 1
+\end{array}
+\right) \in \mathfrak{M}_{3}(\R)$, et $f_{\alpha }$ l'endomorphisme
+de $\R^{3}$ dont la matrice dans la base canonique de $\R^{3}
+$ est $A(\alpha )$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer les valeurs propres de $f_{\alpha }$.
+
+\item $f_{\alpha }$ est-il diagonalisable ?
+
+\item Pour quelles valeurs de $\alpha $, $f_{\alpha }$ est-il un
+isomorphisme ?
+\end{noliste}
+
+\item Déterminer une base de $\R^{3}$ formée de vecteurs propres de
+$f_{\alpha }$.
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On considère la fonction définie sur $\R$ par : $
+\begin{array}{ccc}
+f :\R & \longrightarrow & \R \\
+x & \longmapsto & f(x) = x^{2} + 4x + 2.
+\end{array}
+$
+
+Étudier les variations de $f$ sur $\R$. Discuter suivant les valeurs
+du paramètre réel $\mathfrak{M}$, le nombre de solutions de l'équation
+$f(x) = m$. Résoudre $f(x) = -1$.
+
+\item On considère la suite $(u_{n})_{n\in \N}$ déterminée par la
+donnée de $u_{0}\in \R$, et la relation de récurrence $u_{n + 1} =
+u_{n}{2} + 4u_{n} + 2$ pour tout $n$ entier naturel.
+
+On rappelle la définition suivante : une suite $(v_{n})_{n\in \N}$
+est dite stationnaire si elle vérifie : 
+\[
+\exists N\in \N,\forall n\in \N,\left( n\geq 
+N\Rightarrow v_{n + 1} = v_{n}\right).
+\]
+
+Montrer qu'il existe trois valeurs de $u_{0}$ pour lesquelles la suite
+$(u_{n})_{n\in \N}$ est stationnaire.
+
+\item Montrer que, pour tout entier naturel $n$, $u_{n + 1} + 2 =
+(u_{n} + 2)^{2}$.
+En déduire la nature de la suite $(u_{n})_{n\in \N}$ suivant les
+valeurs de $u_{0}$.
+\end{noliste}
+
+\section*{EXERCICE 3}
+
+Une urne contient $p$ jetons numérotés de $1$ à $p$ ($p\geq 2$). On
+effectue $N$ tirages successifs ($N\geq 1$) : chaque tirage consiste à
+prendre un jeton dans l'urne, noter son numéro, puis remettre le jeton
+dans
+l'urne.\\
+Pour tout entier $i$ compris entre $1$ et $p$, on définit les variables
+aléatoires $F_{i}$ et $X_{i}$ comme suit :
+
+\begin{noliste}{$\sbullet$}
+\item $F_{i}$ est le nombre de fois où le jeton numéroté $i$ a été tiré
+
+\item $X_{i}$ prend la valeur $0$ si le jeton numéroté $i$ n'a pas été
+tiré
+et prend la valeur $1$ si le jeton numéroté $i$ a été tiré au moins une
+fois.
+\end{noliste}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \textbf{Étude des variables aléatoires $F_{i}$.}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout $i$ compris entre $1$ et $p$, déterminer l'espérance et
+la variance de la variable aléatoire $F_{i}$.
+
+\item On considère la variable aléatoire $F = \Sum{i = 1}{p}F_{i}$.
+
+Que vaut $F$ ? Calculer l'espérance et la variance de $F$.
+
+\item Est-ce que les variables aléatoires $F_{i}$ sont deux à deux
+indépendantes ?
+\end{noliste}
+
+\item \textbf{Étude des variables aléatoires $X_{i}$.}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout $i$ compris entre $1$ et $p$, déterminer l'espérance et
+la variance de la variable aléatoire $X_{i}$.
+
+\item Soient $i$ et $j$ deux entiers distincts compris entre $1$ et
+$p$.
+
+Déterminer la probabilité pour que $X_{i} = 0$ sachant que $X_{j} = 0$.
+
+Est-ce que les variables aléatoires $X_{i}$ et $X_{j}$ sont
+indépendantes ?
+
+\item Déterminer l'espérance de la variable aléatoire $X = \Sum{i =
+1}{p}X_{i}$.
+\end{noliste}
+
+\item \textbf{Application}
+
+Vous êtes responsable du service après-vente d'une chaîne de magasins.
+Ce service est présent sur quinze sites et, au total, il reçoit en
+moyenne
+cinquante appels par jour.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item En utilisant le début de l'exercice pour modéliser cette
+situation, donner une interprétation des variables aléatoires $F_{i}$,
+$X_{i} $ et $X$.
+
+\item Calculer des valeurs approchées à $10^{-1}$ près de
+l'espérance de $F_{i}$, de l'espérance de $X_{i}$ et de l'espérance de
+$X$.
+
+Commenter brièvement ces résultats.
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE 4}
+
+Pour tout entier $n\geq 1$, on pose 
+\[
+I_{n} = \dint{0}{1}x^{n}\ln (1 + x^{2})dt\quad \quad \text{ et }\quad
+\quad J_{n} = \dint{0}{1}\dfrac{x^{n}}{1 + x^{2}}dx.
+\]
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item \textbf{Étude de la suite $(J_{n})_{n\geq 1}$.}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $J_{1}$.
+
+\item Montrer que, pour tout entier $n\geq 1$, $0\leq
+J_{n}\leq \dfrac{1}{n + 1}$.
+
+\item Étudier la convergence de la suite $(J_{n})_{n\geq 1}$.
+\end{noliste}
+
+\item \textbf{Étude de la suite $(I_{n})_{n\geq 1}$.}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item À l'aide d'une intégration par parties, montrer que, pour tout
+entier $n\geq 1$, 
+\[
+I_{n} = \dfrac{\ln 2}{n + 1}-\dfrac{2}{n + 1}J_{n + 2}.
+\]
+
+\item Étudier la convergence de la suite $(I_{n})_{n\geq 1}$.
+
+\item Déterminer un équivalent de $I_{n}$ lorsque $n$ tend vers $ +
+\infty $.
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

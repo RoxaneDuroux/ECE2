@@ -1,0 +1,686 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill septembre 2017 \\
+ Mathématiques\\[.2cm]} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1cm} ORAUX HEC 2009} %
+\author{} %
+\date{} %
+
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+\section{Annales 2009}
+
+ %\setcounter{exercice}{0}
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Soit $(A_{i})_{i \in I}$ un système complet d'évènements,
+c'est-à-dire vérifiant que $A_{i} \cap A_{j} = \emptyset$ si $i \neq
+j$, $ \dcup{i \in I} A_{i} = \Omega$ et $\Prob\left(\Ev{A_{i}}\right)
+\neq 0$ pour tout $i$. \\
+ Alors pour tout évènement $E$, on a $\Prob\left(\Ev{E}\right) = \Sum{i
+\in I} \Prob( E \cap A_{i}) = \Sum{i \in I}
+\Prob\left(\Ev{A_{i}}\right) P_{A_{i}} (E)$. \\
+ \item $p_{1} = q_{1} = r_{1} = \frac{1}{3}$ (on choisit au hasard). \\
+ \item $p_{n} + q_{n} + r_{n} = 1$ car les évènements associés forment
+un système complet d'évènements. \\
+ \item On a $p_{n + 1} = \frac{1}{3} p_{n} + \frac{1}{12} r_{n}$. \\
+ $q_{n + 1} = \frac{1}{3} p_{n} + q_{n} + \frac{7}{12} r_{n}$. \\
+ $r_{n + 1} = \frac{1}{3} p_{n} + \frac{1}{3} r_{n}$. \\
+ \item $p_{n} = \frac{1}{3} p_{n-1} + \frac{ 1}{12} r_{n-1} = \left(
+\frac{1}{3} p_{n-1} + \frac{1}{3} r_{n-1} \right) - \frac{1}{3} r_{n-1}
++ \frac{1}{12} r_{n-1} = r_{n} - \frac{1}{4} r_{n-1}$. \\
+ \item $r_{n + 1} = \frac{1}{3} p_{n} + \frac{1}{3} r_{n} = \frac{1}{3}
+r_{n} - \frac{1}{12} r_{n-1} + \frac{1}{3} r_{n} = \frac{2}{3} r_{n} -
+\frac{1}{12} r_{n-1}$ et en multipliant par 12 on a : $12 r_{n + 1} - 8
+r_{n} + r_{n-1} = 0$, qui est bien une relation de récurrence linéaire
+double. \\
+\\
+ On étudie l'équation caractéristique : $12 r^{2} - 8 r + 1 = 0$ a pour
+discriminant $\Delta = 64 - 48 = 16$ donc les racines sont $r_{1} =
+\frac{8 -4}{24} = \frac{1}{6}$ et $r_{2} = \frac{8 + 4}{24} =
+\frac{1}{2}$. \\
+\\
+ On obtient $r_{n} = a \left( \frac{1}{6} \right)^{n} + b \left(
+\frac{1}{2} \right)^{n}$, puis on étudie les premières valeurs : \\
+ $r_{1} = \frac{1}{3}$ donc $\frac{1}{6} a + \frac{1}{2} b =
+\frac{1}{3}$, ou encore $\frac{a + 3b - 2}{6} = 0$. \\
+ $r_{2} = \frac{1}{3} r_{n} + \frac{1}{3} p_{1} = \frac{2}{9}$ donc $
+\frac{1}{36} a + \frac{1}{4} b = \frac{2}{9}$, ou encore $\frac{ a + 9
+b - 8}{36} = 0$. \\
+ D'où $a = 2 - 3b$, puis $2-3b + 9 b - 8 = 0$, $b = 1$ et $a = -1$. \\
+ Enfin $r_{n} = - \left( \frac{1}{6} \right)^{n} + \left( \frac{1}{2}
+\right)^{n}$. \\
+\\
+ Ensuite on a $p_{n} = r_{n} - \frac{1}{4} r_{n-1} = - \left(
+\frac{1}{6} \right)^{n} + \left( \frac{1}{2} \right)^{n} + \frac{1}{4}
+\left( \frac{1}{6} \right)^{n-1} - \frac{1}{4} \left( \frac{1}{2}
+\right)^{n-1} = \left( \frac{1}{6} \right)^{n} \left[ - 1 + \frac{6}{4}
+\right] + \left( \frac{1}{2} \right)^{n} \left[ 1 - \frac{2}{4} \right]
+= \frac{1}{2} \left[ \left( \frac{1}{6} \right)^{n} + \left(
+\frac{1}{2} \right)^{n} \right]$. \\
+\\
+ Enfin on a $q_{n} = 1 - r_{n} - p_{n} = 1 + \frac{1}{2} \left(
+\frac{1}{6} \right)^{n} - \frac{3}{2} \left( \frac{1}{2} \right)^{n}$.
+\\
+ \item On a $p_{n} \rightarrow 0$, $r_{n} \rightarrow 0$ et $q_{n}
+\rightarrow 1$. \\
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Une matrice symétrique vérifie $M = {}{t} M$ donc $(I, M, {}{t} M)$
+sont bien liées. \\
+ Si une telle matrice est diagonalisable : \\
+ 1er cas : la relation de dépendance ne concerne pas la transposée,
+alors $M = \lambda I = {}{t} M$ est bien diagonalisable. \\
+ 2e cas : on a ${}{t} M = \lambda I$, alors ${}{t} M = M = \lambda I$
+est bien diagonalisable. \\
+ 3e cas : On a ${}{t} M = \alpha M$, alors on a $m_{i,j} = \alpha
+m_{j,i} = \alpha^{2} m_{i,j}$ donc $\alpha^{2} = 1$, et $M$ est
+symétrique (donc diagonalisable) ou antisymétrique (et on ne sait rien
+dire). \\
+ 4e cas : on a $M = \alpha I + \beta {}{t} M$. \\
+ $M$ est diagonalisable et s'écrit $P D P^{-1}$, et $I = P I P^{-1}$
+donc on obtient $\beta {}{t} M = P \left(\Ev{ D - \alpha I}\right)
+P^{-1}$ et enfin ${}{t} M = P \left(\Ev{ \frac{1}{\beta} ( D - \alpha
+I)}\right) P^{-1} = P D' P^{-1}$ est diagonalisable dans la même base
+que $M$ car $D'$ est diagonale. \\
+ On pourrait encore dire bien des choses avec la théorie des matrices
+orthogonales, mais comme elle est hors programme...
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item La loi géométrique est la loi d'attente du premier succès dans
+une succession illimitée d'épreuves de Bernouilli identiques et
+indépendantes, de paramètre $p$. \\
+ Si $X \suit \mathcal{G} (p)$, on a $X(\Omega) = \N^*$ et pour tout $k
+\in \N^*$, $\Prob\left(\Ev{\Ev{X = k}}\right) = (1-p)^{k-1} p$. \\
+ De plus $X$ admet une espérance et une variance, et $\E(X) =
+\frac{1}{p}$ et $\V(X) = \frac{1-p}{p^{2}}$. \\
+ \item Soit $x$ un réel de $]0 ; 1[$.
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item La somme des termes d'une suite géométrique donne $\Sum{k =
+1}{n} x^{k-1} = \frac{1 - t^{n}}{1-t}$. \\
+ On intègre sur $[ 0 ; x]$ ces fonctions continues : \\
+ $\dint{0}{x} \frac{1-t^{n}}{1-t}\ dt = \Sum{k = 1}{n} \dint{0}{x}
+t^{k-1}\ dt = \Sum{k = 1}{n}\left[ \ \frac{t^{k}}{k} \right]_{0}{x} =
+\Sum{k = 1}{n}\frac{x^{k}}{k}$. \\
+ \item On a $ 0 \leq 1-x < 1-t \leq 1$ sur $[ 0 ; 1[$, donc $0 \leq
+\frac{1}{1-t} \leq \frac{1}{1-x}$ et $0 \leq \frac{t^{x}}{1-t} \leq
+\frac{t^{n}}{1-x}$. \\
+ On intègre sur $[ 0 ; x]$ : $ 0 \leq \dint{0}{x} \frac{t^{n}}{1-t}\ dt
+\leq \frac{1}{1-x} \dint{0}{x} t^{n}\ dt = \frac{x^{n + 1} }{(n + 1)
+(1-x)} \xrightarrow[ n \rightarrow + \infty]{} 0$ donc par théorème de
+comparaison, $\dlim{n \rightarrow + \infty} \dint{0}{x}
+\frac{t^{n}}{1-t}\ dt = 0$. \\
+ \item On en déduit que pour tout $n \in \N$, $S_{n} = \Sum{k = 1}{n}
+\frac{x^{k}}{k} = \dint{0}{x} \frac{1}{1-t}\ dt - \dint{0}{x}
+\frac{t^{n}}{1-t}\ dt \xrightarrow[ n \rightarrow + \infty]{}
+\dint{0}{x} \frac{1}{1-t}\ dt = \left[ - \ln (| 1-t | ) \right]_{0}{x}
+= - \ln (1-x) $. \\
+ La suite des sommes partielles converge vers $- \ln (1-x)$ donc la
+série converge et $\Sum{k = 1}{+ \infty} \frac{x^{k}}{k} = - \ln
+(1-x)$. \\
+ \end{noliste}
+ \item \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $X(\Omega) = \N^*$ donc $Y(\Omega) = \left\{ \frac{1}{n}\ \big|\
+n \in \N^* \right\}$. \\
+ De plus pour tout $n \in \N^*$, $P \left(\Ev{ Y = \frac{1}{n}}\right)
+= \Prob\left(\Ev{\Ev{ X = n}}\right) = q^{n-1} p$, où $q = 1-p$. \\
+ \item Le moment d'ordre $r$ de $Y$ existe si et seulement si la série
+$\Sum{n = 1}{+ \infty} \left( \frac{1}{n} \right)^{r} q^{n-1} p$
+converge absolument, ce qui est équivalent à la convergence si la série
+est à termes positifs. \\
+ Or on a pour tout $n \geq 1$, pour tout $r \geq 1$, $n^{r} \geq 1$
+donc $0 \leq \frac{1}{n^{r}} \leq 1$ et enfin $0 \leq \frac{ p q^{n-1}
+}{n^{r}} \leq q^{n-1} p$. \\
+ Or la série de terme général $q^{n-1} p$ converge (série géométrique
+avec $ | q | 1$, donc par théorème de comparaison des séries à termes
+positifs, la série converge et converge absolument car elle est à
+termes positifs. \\
+ \item $\E(Y) = \Sum{n = 1}{+ \infty} \frac{1}{n} p q^{n-1} =
+\frac{p}{q} \Sum{n = 1}{+ \infty} \frac{q^{n}}{n} = \frac{ - p \ln
+(1-q) }{q} = \frac{ - p \ln p}{1-p}$. \\
+ \end{noliste}
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit la matrice $A = \begin{smatrix}
+1 & 2 \\
+3 & 4 \\
+-1 & 4 \\
+\end{smatrix}
+$.\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item On prend $B$ quelconque, on a $A B = \begin{smatrix}
+1 & 2 \\
+3 & 4 \\
+-1 & 4 \\
+\end{smatrix}
+\begin{smatrix}
+a & b & c \\
+d & e & f \\
+\end{smatrix}
+ = \begin{smatrix}
+a + 2d & b + 2e & c + 2f \\
+3 a + 4d & 3b + 4e & 3c + 4f \\
+-a + 4d & -b + 4e & -c + 4f \\
+\end{smatrix}
+$. \\
+ En identifiant les coefficients, on obtient trois systèmes sur
+$(a,d)$, $(b, e)$ et $(c,f)$, et la résolution du premier donne $a = d
+= 0$ et $a + 2d = 1$ (absurde). \\
+ Il n'y a donc pas de solution. \\
+ \item On prend $c$ quelconque, on a $C A = \begin{smatrix}
+a & b & c \\
+d & e & f \\
+\end{smatrix}
+\begin{smatrix}
+1 & 2 \\
+3 & 4 \\
+-1 & 4 \\
+\end{smatrix}
+ = \begin{smatrix}
+a + 3b-c & 2a + 4b + 4c \\
+d + 3e-f & 2d + 4e + 4f \\
+\end{smatrix}
+$. \\
+ En identifiant les coefficients, on obtient deux systèmes sur
+$(a,b,c)$ et $(d,e,f)$ dont la résolution donne $a = -2b-2c$ et $b = c
++ 1$ donc $a = -4c - 2$ qui a une infinité de solutions (une pour
+chaque valeur réelle de $c$). \\
+ De même le deuxième donne une infinité de solutions, et il y a donc
+une infinité de solutions à l'équation matricielle $C A = I_{2}$.
+
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~\\
+ On considère la suite réelle $(u_{n})_{n \in \N}$ définie par : 
+ 
+\[
+ u_{0} = 3,\ u_{1} = \frac{29}{9} \text{ et } \forall n \in \N,\ u_{n +
+2} = 9 - \frac{26}{u_{n + 1}} + \frac{24}{u_{n} u_{n + 1}}.
+ 
+\]
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item L'ensemble des suites réelles vérifiant $a u_{n + 2} + b u_{n +
+1} + c u_{n}$ est obtenu à l'aide de l'étude de l'équation
+caractéristique $a r^{2} + b r + c$ et de son discriminant $\Delta$. \\
+ Si $\Delta = 0$, il y a une unique solution $r_{0}$ à l'équation, et
+les suites solutions sont les $(u_{n})$ telles que pour tout $n$,
+$u_{n} = a r_{0}{n} + b n r_{0}{n}$. \\
+ Si $\Delta > 0$, il y a deux solutions distinctes $r_{1}$ et $r_{2}$ à
+l'équation, et les suites solutions sont les $(u_{n})$ telles que pour
+tout $n$, $u_{n} = a r_{1}{n} + b r_{2}{n}$. \\
+ Enfin si $\Delta < 0$, on ne connaît pas les solutions (elles
+s'écrivent avec des nombres complexes ou des sinus et cosinus). \\
+ \item Il faut garder les valeurs de $u_{n}$ et $u_{n-1}$ pour obtenir
+celle de $u_{n + 1}$, donc il faut déjà deux variables $u$ et $v$. \\
+ De plus quand on donne la valeur de $u_{n + 1}$, on efface la valeur
+de $u_{n}$, qui était dans $u$, et qu'on doit pourtant redonner à $v$
+pour l'étape suivante (vous me suivez ?? ?) donc il faut une variable
+auxiliaire pour ne pas la perdre. \\
+ Cela donne : \\
+ var u, v, aux : real ; k, n : integer; \\
+ readln (n) \\
+ u : = 29/9 ; v : = 3 ; \\
+ for k : = 2 to n do \\
+ begin \\
+ aux : = u; u : = 9 - 26 / u + 24 / ( u $\ast$ v) ; v : = aux ; \\
+ end; \\
+ writeln (u ) ; \\
+\\
+ On peut rajouter quelques fioritures pour rendre le programme plus
+facile à l'utilisateur ( writeln ('n ?') au début, writeln( ' la valeur
+du terme d'ordre n de la suite est ') avant le résultat). \\
+ \item Il existe une unique suite vérifiant $a_{0} = 3$ et $a_{n + 1} =
+a_{n} \times u_{n}$ (définition par récurrence des suites). \\
+ Il faut alors vérifier que $a_{n + 3} = 9 a_{n + 2} - 26 a_{n + 1} +
+24 a_{n}$, et que $(a_{n})$ est à valeurs dans $\N^*$. \\
+ Pour la relation de récurrence linéaire, on écrit : \\
+ $a_{n + 3} = u_{n + 2} a_{n + 2} = \left( 9 - \frac{26}{u_{n + 1}} +
+\frac{24}{u_{n} u_{n + 1}} \right) a_{n + 2} = 9 a_{n + 2} - 26 \frac{
+a_{n + 2}}{u_{n + 1}} + 24 \frac{ a_{n + 2}}{u_{n} u_{n + 1}}$. \\
+\\
+ Or $a_{n + 2}{u_{n + 1}} = \frac{ a_{n + 1} u_{n + 1} }{ u_{n + 1} } =
+a_{n + 1}$ et $ \frac{a_{n + 2} }{u_{n} u_{n + 1} } = \frac{a_{n + 1}
+}{u_{n}} = \frac{ a_{n} u_{n} }{u_{n}} = a_{n}$ donc on a bien : \\
+ $a_{n + 3} = 9 a_{n + 2} - 26 a_{n + 1} + 24 a_{n}$. \\
+\\
+ On montre par récurrence que pour tout $n$, $a_{n} \in \Z$. \\
+ Initialisation : $a_{0} = 3 \in \N^*$, $a_{1} = u_{0} a_{0} = 9$ et
+$a_{2} = u_{1} a_{1} = 9 \frac{29}{9} = 29$ donc c'est bon. \\
+ Hérédité : on suppose qu'il existe $n \geq 2$ tel que $a_{n}$,
+$a_{n-1}$ et $a_{n-2}$ soient des entiers naturels non nuls. \\
+ Alors $9 a_{n + 2}$, $26 a_{n + 1}$ et $24 a_{n}$ sont des entiers, et
+par somme $a_{n + 3}$ est un entier. \\
+\\
+ Je ne vois pas du tout comment montrer que la suite $(a_{n})$ est à
+termes positifs, ce qui est pourtant essentiel pour prouver que la
+suite $(u_{n})$ est bien définie. \\
+ La question suivante permet de le prouver, mais a priori ici il
+faudrait le montrer sans s'en servir.... \\
+ \item Récurrence pas trop difficile : \\
+ Initialisation : $a_{0} = 3$, et $2^{0} + 3^{0} + 4^{0} = 1 + 1 + 1 =
+3$. \\
+ $2^{1} + 3^{1} + 4^{1} = 9 = a_{1}$, et $2^{2} + 3^{2} + 4^{2} = 29 =
+a_{2}$. \\
+ Hérédité : on suppose qu'il existe $n \geq 0$ tel que $a_{k} = 2^{k} +
+3^{k} + 4^{k}$ pour $ 0 \leq k \leq n + 2$. \\
+ On a alors $a_{n + 3} = 9 ( 2^{n + 2} + 3^{n + 2} + 4^{n + 2} ) - 26 (
+2^{n + 1} + 3^{n + 1} + 4^{n + 1} ) + 24 ( 2^{n} + 3^{n} + 4^{n}) =
+2^{n + 2} ( 9 - 13 + 6) + 3^{n + 1} ( 27 - 26 + 8) + 4^{n + 1} ( 36 -
+26 + 6) = 2 \times 2^{n + 2} + 3^{2} \times 3^{n + 1} + 4^{2} \times
+4^{n + 1} = 2^{n + 3} + 3^{n + 3} + 4^{n + 3}$. \\
+\\
+ Cela prouve que $a_{n} > 0$, puis que $u_{n} = \frac{a_{n +
+1}}{a_{n}}$ est bien définie. \\
+ \item On a alors $u_{n} = \frac{ a_{n + 1}}{a_{n}} = \frac{2^{n + 1} +
+3^{n + 1} + 4^{n + 1} }{2^{n} + 3^{n} + 4^{n}}$. \\
+ Le numérateur s'écrit $4^{n + 1} \left( \frac{1}{2^{n + 1} } + \left(
+\frac{3}{4} \right)^{n + 1} + 1 \right) \sim 4^{n + 1}$. \\
+ De même $2^{n} + 3^{n} + 4^{n} \sim 4^{n}$, donc $u_{n} \sim
+\frac{4^{n + 1} }{4^{n}} = 4$ donc $\dlim{n \rightarrow + \infty} u_{n}
+= 4$. \\
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soient $X_{1}$ et $X_{2}$ deux variables aléatoires définies sur un
+espace probabilisé $(\Omega, \mathcal{A}, P)$, indépendantes et de lois
+géométriques de paramètres $p_{1}$ et $p_{2}$ respectivement ($p_{i}
+\in \ ]0 ; 1[$ pour $i = 1,2$). \\
+ On pose $U = X_{1} + X_{2}$ et $T = X_{1} - X_{2}$.
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Commençons avec le calcul de la covariance. \\
+ $\Cov ( U, T) = \Cov( X_{1} + X_{2}, X_{1} - X_{2}) = \V(X_{1}) -
+\V(X_{2}) = \frac{1-p_{1}}{p_{1}{2}} - \frac{1- p_{2}}{p_{2}{2}} =
+\frac{ p_{2}{2} - p_{1} p_{2}{2} - p_{1}{2} + p_{1}{2} p_{2} }{p_{1}{2}
+p_{2}{2}} = \frac{ (p_{2} - p_{1}) (p_{1} + p_{2}) + p_{1} p_{2} (
+p_{1} - p_{2})}{(p_{1} p_{2} )^{2}} = \frac{p_{1} - p_{2}}{(p_{1} p_{2}
+)^{2}} ( p_{1} p_{2} - p_{1} - p_{2})$. \\
+ Ce dernier facteur est non nul car $0 < p_{1} p_{2} < p_{2}$ donc
+$-p_{2} - p_{1} < p_{1} p_{2} - p_{2} - p_{1} < -p_{1} < 0$. \\
+ Enfin on a $p_{1} \neq p_{2}$, donc $p_{1} - p_{2} \neq 0$, et donc
+$\Cov ( U,T) \neq 0$, donc $U$ et $T$ ne sont pas indépendantes. \\
+ \item Cette fois on a $\Cov (U,V) = \V(X_{1}) - \V(X_{2}) = 0$ ce qui
+ne permet pas de conclure. \\
+ On a $U (\Omega) = \llb 2 ; + \infty \llb$ et $T(\Omega) = \Z$. \\
+ Pour tout $n \geq 2$, pour tout $k \in \Z$, $\Prob( [U = n] \cap [ T =
+k] ) = P \left( \left[X_{1} = \frac{n + k}{2}\right] \cap \left[ X_{2}
+= \frac{n-k}{2} \right] \right)$. \\
+ Prenons une valeur nulle, par exemple avec $n + k$ impair, donc $n =
+2$ et $k = 1$. \\
+ $\Prob( [U = 2] \cap [T = 1] ) = 0$, et $\Prob\left(\Ev{\Ev{ U =
+2}}\right) = \Prob( [ X_{1} = 1] \cap [X_{2} = 1] ) =
+\Prob\left(\Ev{\Ev{ X_{1} = 1}}\right) \Prob\left(\Ev{\Ev{X_{2} =
+1}}\right) \neq 0$. \\
+ De même $ [ \ \Ev{ X_{1} = 2} \cap \Ev{X_{2} = 1}] \subset \Ev{T = 1}$
+donc $\Prob\left(\Ev{\Ev{ T = 1}}\right) \geq P [ \ \Ev{ X_{1} = 2}
+\cap \Ev{X_{2} = 1}] = \Prob\left(\Ev{\Ev{ X_{1} = 2}}\right)
+\Prob\left(\Ev{\Ev{ X_{2} = 1}}\right) \neq 0$. \\
+\\
+ Les variables $U$ et $T$ ne sont donc pas indépendantes.
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+
+ \begin{exercice}{\it (Exercice avec préparation)}~\\
+ Soient $(a,b,c) \in \R^{3}$ et $A = \begin{smatrix}
+1 & a & b \\
+0 & 1 & c \\
+0 & 0 & 1 \\
+\end{smatrix}
+$. \\
+ On pose $N = A- I$ et $M = N^{2} - N$ (où $I$ désigne la matrice
+identité de $\M{3}$. \\
+\\
+ Soient $u$ et $v$ les endomorphismes de $\R^{3}$ canoniquement
+associés aux matrices $M$ et $N$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Deux matrices $M$ et $N$ sont semblables s'il existe $P$
+inversible telle que $M = P N P^{-1}$. \\
+ On prouve que deux matrices sont semblables si et seulement si ce sont
+deux matrices d'un même endomorphisme dans des bases distinctes, et on
+en déduit que les dimensions de leurs noyaux et leurs images sont
+égales, que leurs valeurs propres sont égales, et que les sous-espaces
+propres associés sont de même dimension. \\
+ Enfin on obtient que l'une est inversible si et seulement si l'autre
+l'est, et que l'une est diagonalisable siet seulement si l'autre l'est.
+\\
+ Enfin on sait que si $M$ et $N$ sont semblables, pour tout $n \in \N$
+(et même $n \in \Z$ si elles sont inversibles), $M^{n}$ et $N^{n}$ sont
+semblables et plus précisément : $M^{n} = P N^{n} P^{-1}$. \\
+ \item $A$ est triangulaire donc son unique valeur propre est 1. On en
+déduit par l'absurde que $A$ est diagonalisable si et seulement si $A =
+I$, donc si et seulement si $a = b = c = 0$. \\
+ \item $0 \notin \spc A$ donc $A$ est inversible. \\
+ $A$ étant triangulaire, on peut déterminer son inverse avec un pivot
+qui sera très rapide : on obtient $A^{-1} = \begin{smatrix}
+1 & -a & -b + ac \\
+0 & 1 & -c \\
+0 & 0 & 1 \\
+\end{smatrix}
+ = I + M$ en calculant $M = \begin{smatrix}
+0 & -a & -b + ac \\
+0 & 0 & -c \\
+0 & 0 & 0 \\
+\end{smatrix}
+$. \\
+ \item On suppose dans cette question que le rang de $u$ est égal à 2. 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+ \item $N$ est nilpotente, de la forme $\begin{smatrix}
+0 & a & b & \\
+0 & 0 & c \\
+0 & 0 & 0 \\
+\end{smatrix}
+$, avec $a \neq 0$ et $c \neq 0$, sinon les trois colonnes seraient
+colinéaires et $u$ serait de rang 1. \\
+ On a alors $N^{2} = \begin{smatrix}
+0 & 0 & a c & \\
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+\end{smatrix}
+\neq 0$, et $N^{3} = 0$. \\
+ D'où $u^{2} \neq 0$, on prend $x$ tel que $u^{2} (x) \neq 0$. \\
+ Soient alors $a,\ b$ et $c$ tels que $a x + b u(x) + c u^{2} (x) = 0$.
+\\
+ On compose par $u^{2}$, on a $a u^{2} (x) + b u^{3} (x) + c u^{4} (x)
+= a u^{2} (x) = u^{2} (0) = 0$, et $u^{2} (x) \neq 0$ donc $a = 0$. \\
+ Ensuite on a $b u(x) + cu^{2} (x) = 0$, on compose par $u$ et on a $b
+u^{2} (x) + c u^{3} (x) = b u^{2} (x) = u ( 0) = 0$ donc $b = 0$, et
+enfin $c u^{2} (x) = 0$ donc $c = 0$. \\
+ La famille $(u^{2} (x), u(x), x)$ est donc libre et de cardinal 3 donc
+c'est une base.
+ \\
+\\
+ Dans cette base on a $ u( u^{2} (x)) = u ( u^{2} (x)) = u^{3} (x) =
+0$. \\
+ Ensuite $u( u(x) ) = u^{2} (x)$ et enfin on a $u(x) = u(x)$ donc la
+matrice de $u$ est $\begin{smatrix}
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+0 & 0 & 0 \\
+\end{smatrix}
+$, et $N$ est bien semblable à cette matrice, car elles sont deux
+matrices associées au même endomorphisme. \\
+ \item $Mat_{ \mathcal{B} } (v) = \begin{smatrix}
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+0 & 0 & 0 \\
+\end{smatrix}
+^{2} - \begin{smatrix}
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+0 & 0 & 0 \\
+\end{smatrix}
+ = \begin{smatrix}
+0 & -1 & 1 \\
+0 & 0 & -1 \\
+0 & 0 & 0 \\
+\end{smatrix}
+$ vérifie les conditions de la question précédente : nilpotente d'ordre
+3, triangulaire et de rang 2 : en appliquant cette question, on montre
+que cette matrice, et donc $M$, sont semblables à la matrice
+$\begin{smatrix}
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+0 & 0 & 0 \\
+\end{smatrix}
+$, elle-même semblable à $N$. \\
+ Finalement $M$ et $N$ sont bien semblables. \\
+ \item Il existe alors $P$ inversible telle que $M = P N P^{-1}$. \\
+ On en déduit que $A^{-1} = I + P N P^{-1} = P I P^{-1} + P N P^{-1} =
+P \left(\Ev{ I + N }\right) P^{-1} = P A P^{-1}$ et $A$ et $A^{-1}$
+sont donc semblables. \\
+ \end{noliste}
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soit $X$ une variable aléatoire que suit la loi de Poisson de
+paramètre $\lambda > 0$. \\
+ On désigne l'espérance par $E$. \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item Le théorème de transfert assure que c'est équivalent à la
+convergence absolue, et par positivité à la convergence, de la série
+$\Sum{n = 0}{+ \infty} \frac{1}{1 + n} \times \frac{\lambda^{n}
+e^{-\lambda} }{n!}$. \\
+ Enfin on a $ 0 \leq \frac{1}{1 + n} \times \frac{\lambda^{n}
+e^{-\lambda} }{n!} \leq \frac{\lambda^{n} e^{-\lambda} }{n!}$ donc par
+comparaison des séries à termes positifs (cette dernière suite est le
+terme général d'une série exponentielle convergente), la série converge
+et l'espérance de $\frac{1}{1 + X}$ existe bien. \\
+ \item La majoration précédente montre que $\E\left( \frac{1}{1 + X}
+\right) \leq \Sum{n = 0}{+ \infty} \frac{\lambda^{n} e^{-\lambda} }{n!}
+= 1$ (somme des probabilités de la loi de Poisson de paramètre
+$\lambda$. \\
+ Ensuite on écrit que $ 1 + n \geq n$ donc $\frac{1}{1 + n} \leq
+\frac{1}{n}$, et $\frac{1}{1 + n} \frac{\lambda^{n} e^{-\lambda}}{n!}
+\leq \frac{1}{\lambda} \frac{ \lambda^{n + 1} e^{- \lambda} }{(n +
+1)!}$. \\
+ On obtient alors $\E\left( \frac{1}{1 + X} \right) \leq
+\frac{1}{\lambda} \Sum{n = 0}{+ \infty} \frac{ \lambda^{n + 1} e^{-
+\lambda} }{(n + 1)!} \leq \frac{1}{\lambda} \Sum{n = 1}{+ \infty}
+\frac{ \lambda^{n} e^{- \lambda} }{n!} \leq \frac{1}{\lambda} \Sum{n =
+0}{+ \infty} \frac{ \lambda^{n} e^{- \lambda} }{n!} \leq
+\frac{1}{\lambda}$. \\
+\\
+ On obtient bien que $\E\left( \frac{1}{1 + X} \right) \leq \min \left(
+1, \frac{1}{\lambda} \right)$.
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ \begin{exercice}{\it (Exercice avec préparation)}~\\
+ Une urne contient des boules blanches, noires et rouges. Les
+proportions respectives de ces boules sont $b$ pour les blanches, $n$
+pour les noires et $r$ pour les rouges ($b + n + r = 1$). \\
+ On effectue dans cette urne des tirages successifs indépendants avec
+remise. Les proportions de boules restent ainsi les mêmes au cours de
+l'expérience. \\
+ On modélise l'expérience par un espace probabilisé $(\Omega,
+\mathcal{A}, P)$.
+ \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item La loi d'un couple $(X,Y)$ de variables aléatoires discrètes est
+la donnée de $(X,Y) (\Omega)$, ensemble des couples $(i,j)$ de valeurs
+telles que l'évènement $\Ev{X = i} \cap \Ev{Y = j}$ est possible. \\
+ Les lois marginales sont les lois des variables $X$ et $Y$, obtenues à
+partir du couple et de la formule des probabilités totales. \\
+ \item Pour $k \in \N^*$, on note $Z_{k}$ la variable aléatoire qui
+prend la valeur $ + 1$ si une boule blanche est tirée au $k$-ième
+tirage. On note $S_{k} = Z_{1} + \dots + Z_{k}$.
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item $S_{1} = Z_{1}$ vérifie $Z_{1} (\Omega) = \{ -1 ; 0 ; 1 \}$,
+avec $\Prob\left(\Ev{\Ev{ Z_{1} = -1}}\right) = n$,
+$\Prob\left(\Ev{\Ev{ Z_{1} = 0}}\right) = r$ et $\Prob\left(\Ev{\Ev{
+Z_{1} = 1}}\right) = b$, d'espérance $\E(Z_{1}) = b - n$ et de variance
+: \\
+ $\V(Z_{1}) = b ( b-n-1)^{2} + r (b-n)^{2} + n (b-n + 1)^{2} =
+(b-n)^{2} ( b + r + n) + b + n + 2 ( n (b-n) - b (b-n) ) \\
+\V(Z_{1}) = (b-n)^{2} + b + n - 2 n^{2} - 2 b^{2} = -n^{2} - b^{2} - 2
+b n + b + n \\
+\V(Z_{1}) = - (n + b)^{2} + n + b = - (1-r)^{2} + 1-r = (1-r) ( 1 - 1 +
+r) = r (1-r)$. \\
+\\
+ D'où par linéarité de l'espérance et indépendance des tirages pour la
+variance $S_{k}$ a pour espérance $k (b-n)$ et pour variance $k r
+(1-r)$. \\
+ \item $g_{k}(t) = E \left(t^{S_{k}} \right) = E \left( t^{ \Sum{i =
+1}{k} Z_{i}} \right) = E \left( \prod\limits_{i = 1}{k} t^{ Z_{i}}
+\right) = \prod\limits_{i = 1}{k} E \left( t^{ Z_{i}} \right)$ par
+indépendance des variables $Z_{i}$, qui donnent l'indépendance des
+variables $t^{Z_{i}}$. \\
+ De plus comme elles suivent toutes la même loi, on a $g_{k}(t) =
+\left[ E \left( t^{ Z_{1}} \right) \right]^{k}$. \\
+\\
+ Enfin on a par théorème de transfert, $\E\left( t^{Z_{1}} \right) =
+t^{-1} \times n + t^{0} \times r + t^{1} \times b = \frac{n}{t} + r + b
+t = \frac{ n + r t + b t^{2}}{t}$. \\
+\\
+ Enfin on a $g_{k}(t) = \left( \frac{ n + r t + b t^{2}}{t}
+\right)^{k}$. \\
+ \item $g_{k}(t) = \Sum{a \in S_{k} (\Omega) } t^{a}
+\Prob\left(\Ev{\Ev{S_{k} = a}}\right)$ donc $g_{k}'(t) = \Sum{a \in
+S_{k} (\Omega) } a t^{k-1} \Prob\left(\Ev{\Ev{ S_{k} = a}}\right)$ et
+enfin $g_{k}'(1) = \Sum{a \in S_{k} (\Omega) } a 1^{k-1}
+\Prob\left(\Ev{\Ev{ S_{k} = a}}\right) = \Sum{a \in S_{k} (\Omega) } a
+\Prob\left(\Ev{\Ev{ S_{k} = a}}\right) = \E( S_{k})$. \\
+\\
+ On calcule $g_{k}'(t) = k \times \frac{ (r + 2bt) t - n -rt - b
+t^{2}}{t^{2}} \times \left( \frac{ n + r t + b t^{2}}{t} \right)^{k-1}
+= k \times \frac{b t^{2} - n}{t^{2}} \times \left( \frac{ n + r t + b
+t^{2}}{t} \right)^{k-1}$ et enfin $\E( S_{k}) = g_{k}'(1) = k( b -n) (n
++ r + b)^{k-1} = k(b-n) $ car $n + r + b = 1$. \\
+ \end{noliste}
+ \item 
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item $X_{1} \suit \mathcal{G} (b)$, $\E(X_{1}) = \frac{1}{b}$ et
+$\V(X_{1}) = \frac{1-b}{b^{2}}$. \\
+ \item Si $X_{1} = k$, on sait qu'on a pas tiré de boule blanche; on
+est donc dans la situation de deux couleurs, noir de proportion
+$\frac{n}{n + r}$ et rouge de proportion $\frac{r}{n + r}$. \\
+ On a alors $P_{\Ev{X_{1} = k}} ( R_{1} \cap \dots \cap R_{k-1} ) =
+\left( \frac{r}{n + r} \right)^{k-1}$. \\
+ \item C'est la loi binomiale de paramètres $k-1$ et $\frac{r}{n + r}$.
+\\
+ \item Avec le système complet d'évènements $\Ev{X_{1} = k}_{k \in
+\N^*}$ on a pour tout $i \in \N$ :\\
+ $\Prob\left(\Ev{\Ev{W = i}}\right) = \Sum{k = 1}{+ \infty}
+\Prob\left(\Ev{\Ev{X_{1} = k}}\right) P_{\Ev{X_{1} = k}} \Ev{W = i} =
+\Sum{k = i + 1}{+ \infty} b (r + n)^{k-1} \binom{k}{i} \left(
+\frac{r}{r + n} \right)^{i} \left( \frac{n}{r + n} \right)^{k-1-i} =
+\Sum{k = i + 1}{+ \infty} b \binom{k}{i} r^{i} n^{k-1-i}$. \\
+ \end{noliste}
+ \item On note $Y_{1}$ la variable représentant le numéro du tirage
+auquel une boule noire sort pour la première fois.
+ \begin{noliste}{a)}
+ \setlength{\itemsep}{2mm} 
+ \item Si $k = l$, la probabilité est nulle (on ne peut pas tirer en
+même temps une boule noire et une blanche. \\
+ Si $k < l$ on a des rouges en position 1 à $k-1$, une blanche en
+position $k$, une blanche ou une rouge en positions $k + 1$ à $l-1$ et
+une noire en position $l$. \\
+ D'où $P \left(\Ev{ X_{1} = k, Y_{1} = l}\right) = r^{k-1} b (r +
+b)^{l-k-1} n$. \\
+ Par symétrie si $k >l$, $\Prob\left(\Ev{X_{1} = k, Y_{1} = l}\right) =
+r^{l-1} n (r + n)^{k-l-1} b$. \\
+\\
+ $\Prob\left(\Ev{\Ev{X_{1} = 1}}\right) \Prob\left(\Ev{\Ev{Y_{1} =
+1}}\right) \neq 0 = \Prob\left(\Ev{ X_{1} = 1, Y_{1} = l}\right)$ donc
+$X_{1}$ et $Y_{1}$ ne sont pas indépendantes. \\
+ \item L'une des deux variables vaut toujours 1, et l'autre vaut une
+valeur $k \geq 2$. \\
+ D'où $X_{1} Y_{1} (\Omega) = \llb 2 ; + \infty \llb$ et
+$\Prob\left(\Ev{ X_{1} Y_{1} = k}\right) = \Prob\left(\Ev{ X_{1} = 1,
+Y_{1} = k}\right) + \Prob\left(\Ev{ X_{1} = k, Y_{1} = 1}\right) =
+b^{k-1} n + n^{k-1} b $. \\
+ On obtient en sommant $\E(X_{1} Y_{1}) = n \left( \frac{1}{(1-b)^{2}}
+- 1 \right) + n \left( \frac{1}{(1-b)^{2}} - 1 \right) = \frac{1}{n} +
+\frac{1}{b} - n-b = \frac{1}{n} + \frac{1}{b} - 1$. \\
+\\
+ On a ensuite $\Cov (X_{1}, Y_{1}) = E ( X_{1} Y_{1}) - \E(X_{1})
+\E(Y_{1}) = \frac{1}{n} + \frac{1}{b} - 1 - \frac{1}{n} - \frac{1}{b} =
+-1$. \\
+ \end{noliste} 
+ \end{noliste}
+ \noindent \textbf{\underline{Exercice sans préparation}} \\
+\\
+ Soient $n \geq 2$ et $(x_{1}, x_{2},\ \dots\, x_{n}) \in \R^{n} -
+\{(0,\ \dots\,0) \}$. \\
+ On pose $X = \begin{smatrix}
+x_{1} \\
+x_{2} \\
+\vdots \\
+x_{n} \\
+\end{smatrix}
+$, puis $B = {}{t}X X$ et $A = X {}{t} X$. \begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+ \item $B = \Sum{k = 1}{n} x_{k}{2}$ est un réel. \\
+ \item $A$ est symétrique donc diagonalisable, on doit trouver la somme
+des dimensions égale à $n$. \\
+ On étudie l'équation $A Y = \lambda Y \Leftrightarrow (X {}{t} X) Y =
+\lambda Y \Leftrightarrow X ({}{t} X Y) = \lambda Y \Leftrightarrow
+({}{t} X Y) X = \lambda Y \Leftrightarrow \left( \Sum{k = 1}{n} x_{k}
+y_{k} \right) X = \lambda Y$. \\
+ Deux possibilités : soit $\lambda = 0$, et on obtient $\Sum{k = 1}{n}
+x_{k} y_{k} = 0$. \\
+ Soit $\lambda \neq 0$; alors $Y = \frac{ \left( \Sum{k = 1}{n} x_{k}
+y_{k} \right)}{\lambda} X$ est colinéaire à $X$. \\
+ Calculons alors $ X {}{t} X X = \left( \Sum{k = 1}{n} x_{k}{2} \right)
+X$ donc $\lambda_{0} = \left( \Sum{k = 1}{n} x_{k}{2} \right) \neq 0$
+est valeur propre et $X$ un vecteur propre associé, et ce qui précède
+donne $E_{\lambda_{0}} (A) = \Vect{ X}$. \\
+ On a obtenu de plus $\spc ( A) = \{ \lambda_{0}, 0 \}$. \\
+\\
+ Il reste à déterminer $\ker A$, qui doit être de dimension $n-1$. \\
+ Les colonnes de $A$ sont toutes égales à $x_{k} X$, et il existe $i$
+tel que $x_{i} \neq 0$. \\
+ On a alors $C_{k} = x_{k} X = \frac{x_{k}}{x_{i}} \times x_{i} X =
+\frac{x_{k}}{x_{i}} C_{i}$ et $C_{k} - \frac{x_{k}}{x_{i}} C_{1} = 0$.
+\\
+ On trouve que pour tout $k \neq i$, $e_{k} - \frac{x_{k}}{x_{i}} e_{i}
+\in \ker A$. \\
+ La famille obtenue est libre car échelonnée et admet $n-1$ vecteurs
+donc c'est une base de $\ker A$. \\
+\\
+ Cet exercice ne peut être résolu qu'en écrivant la matrice $A$
+explicitement, afin de comprendre à la vue de la matrice comment
+trouver cette base de $\ker A$ (qui semble sortir de nulle part dans
+cette correction!!).
+ \end{noliste}
+ \end{exercice}
+
+ \newpage
+
+ 
+
+\end{document}

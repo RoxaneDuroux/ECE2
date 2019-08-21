@@ -1,0 +1,664 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2013} %
+\author{} %
+\date{} %
+\begin{document}
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+%%DEBUT
+
+\begin{exerciceAP}~\\
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Le schéma binomial.
+  \item Soit $(X_n)_{ n \in \N^* }$ une suite de variables aléatoires
+    définies sur un espace probabilisé $(\Omega , \A , P )$,
+    indépendantes et de même loi de Bernoulli de paramètre
+    $\dfrac{1}{2}$.\\
+    On pose, pour tout $n \in \N^*$, $W_n = \Sum{k=1}{n} k X_k$ et
+    $s_n = \frac{ n ( n+1 ) }{ 2 }$.
+
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer l'espérance $E ( W_n )$ et la variance $V ( W_n )$ de
+      la variable aléatoire $W_n$.
+    \item Calculer les probabilités $\Prob( W_n = 0)$ et $P ( W_n = s_n)$.
+    \item Calculer, selon les valeurs de $n$, la probabilité $P ( W_n
+      = 3 )$.
+    \end{noliste}
+
+  \item Montrer que pour tout $k \in \llb 0 ; s_n \rrb$, on a :
+    $\Prob( W_n = k ) = P ( W_n = s_n - k )$.
+
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer pour tout $j \in \llb 0 ; s_n \rrb$ la loi de
+      probabilité conditionnelle de $W_{n+1}$ sachant $(W_n = j)$.
+    \item En déduire les relations :
+      \[
+      P ( W_{n+1} = k ) = \left\{ 
+        \begin{array}{ll} 
+          \frac{ 1 }{ 2 } P ( W_n = k ) & \text{ si } k \leq n \\ 
+          \\ 
+          \frac{ 1 }{ 2 } P (W_n = k) + \frac{ 1 }{ 2 }
+          P ( W_n = k-n-1) & \text{ si } n+1 \leq k \leq s_n \\ 
+          \\
+          \frac{ 1 }{ 2 } P ( W_n = k-n-1) & \text{ si } s_n + 1 \leq
+          k \leq s_{n+1} 
+        \end{array} 
+      \right.
+      \]
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~
+  On pose pour tout $n \in \N^*$ : $S_n = \Sum{k=1}{n} k^2
+  \ln \left( \frac{ k }{ n } \right)$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer $\dlim{n \rightarrow + \infty} \dfrac{S_n}{ n^3}$.
+
+  \item En déduire la limite lorsque $n$ tend vers $+\infty$ de
+    $\frac{1}{n^3} \Sum{k=1}{n} k^2 \ln \left( \frac{ k+1 }{ n }
+    \right)$.
+
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~\\
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition de l'indépendance de deux
+    variables aléatoires discrètes.
+
+  \item Soit $n$ un entier supérieur ou égal à 1. On jette $n$ fois de
+    suite un dé pipé dont les 6 faces ne comportent que les nombres 1,
+    2 et 3, et on suppose que les résultats des lancers sont
+    indépendants.\\[.2cm]
+    À chaque lancer, la probabilité d'obtenir 1 est $p$, celle
+    d'obtenir 2 est $q$, et celle d'obtenir 3 est $1-p-q$, où $p$ et
+    $q$ sont deux paramètres réels strictement positifs vérifiant
+    $p+q<1$.\\
+
+    Soit $X$ (resp. $Y$) la variable aléatoire égale au nombre de 1
+    (resp. 2) obtenus en $n$ lancers consécutifs. 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Quelles sont les lois respectives de $X$ et $Y$?
+    \item Déterminer la loi du couple $(X,Y)$.
+    \item Les variables aléatoires $X$ et $Y$ sont-elles indépendantes?
+    \item Déterminer le biais et le risque quadratique de l'estimateur
+      $T_n = \frac{ X }{ n+1 }$ du paramètre $p$.
+    \end{noliste}
+
+  \item On suppose dans cette question que le nombre de lancers
+    effectués avec ce dé est une variable aléatoire $N$ suivant la loi
+    de Poisson de paramètre $\lambda > 0$.\\
+
+    Soit $X$ (resp. $Y$) la variable aléatoire égale au nombre de 1
+    (resp. 2) obtenus en $N$ lancers consécutifs. 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer les lois de $X$ et $Y$ respectivement.
+    \item Vérifier que $X$ et $Y$ sont indépendantes.
+    \item $T = \dfrac{ X }{ N + 1 }$ est-il un estimateur sans biais du
+      paramètre $p$ ?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+\begin{exerciceSP}~\\
+  Soit $A$ une matrice carrée de $\mathcal{M}_3 ( \R ) $.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que si $A$ est diagonalisable, $A^3$ l'est aussi.
+  \item On suppose dans cette question que $A = 
+    \begin{smatrix} 
+      0 & 0 & 1 \\ 
+      1 & 0 & 0 \\ 
+      0 & 1 & 0 
+    \end{smatrix}$. 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer $A^3$.
+    \item La matrice $A$ est-elle diagonalisable?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~\\
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Écrire, sous forme d'intégrale, la
+    probabilité qu'une variable aléatoire suivant la loi normale
+    centrée réduite appartienne à un segment $[a;b]$. Dans quelle
+    théorème cette probabilité apparaît-elle comme une limite ?\\
+
+    Soit $X$ une variable aléatoire définie sur un espace probabilisé
+    $(\Omega , \A , P)$ suivant la loi normale centrée réduite. On
+    note $\Phi$ la fonction de répartition de de $X$. On pose $Y =
+    \vert X \vert$ (valeur absolue de $X$).
+
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $Y$ admet une espérance et une variance et les calculer.
+    \item Calculer $E ( X Y )$.
+    \end{noliste}
+
+  \item On pose $Z = X + Y$. 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer $P ( Z=0 )$.
+    \item Exprimer la fonction de répartition de $Z$ à l'aide de
+      $\Phi$ et indiquer l'allure de sa représentation graphique.
+    \item La variable aléatoire $Z$ admet-elle une densité? Est-elle discrète?
+    \end{noliste}
+
+  \item Soit $y \in \R$. 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Exprimer à l'aide de $\Phi$, selon les valeurs de $y$, la
+      probabilité $\Prob( [X \leq 1] \cap [Y \leq y] )$.
+    \item Pour quelle valeur de $y$ les évènements $(X \leq 1)$ et $(Y
+      \leq y)$ sont-ils indépendants?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soit $A$ une matrice de $\mathcal{M}_2 (\R)$ telle que $A^3=0$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $A^2=0$.
+  \item Montrer que l'ensemble des matrices $M \in \mathcal{M}_2 ( \R
+    )$ telles que $AM = MA$ est un espace vectoriel. Quelle est sa
+    dimension ?
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition de la convergence en loi d'une
+    suite de variables aléatoires.\\
+
+    Soit $(X_n)_{ n \in \N }$ une suite de variables aléatoires
+    indépendantes définies sur un espace probabilité $(\Omega , \A ,
+    P)$, suivant toutes la loi de Bernoulli de paramètre
+    $\frac{1}{2}$.\\
+
+    On définit la suite de variables aléatoires $(Z_n)_{ n \in \N }$
+    par les relations :
+    \[
+    Z_0 = \frac{ X_0 }{ 2 } \ \text{ et } \ \forall n \in \N^* \ , \
+    Z_n = \frac{ Z_{n-1} + X_n }{ 2 } .
+    \]
+
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Pour tout $n \in \N^*$, exprimer $Z_n$ en fonction des
+      variables aléatoires $X_0 , X_1 , \dots , X_n$.
+    \item Les variables aléatoires $Z_{n-1}$ et $X_n$ sont-elles
+      indépendantes ?
+    \item Pour tout $n \in \N$, calculer $E (Z_n)$ et $V (Z_n)$.
+    \end{noliste}
+
+  \item Montrer que pour tout $n \in \N$ la variable aléatoire
+    $2^{n+1} Z_n$ suit la loi uniforme discrète sur $\llb 0 ; 2^{n+1}
+    - 1 \rrb$.
+
+  \item Montrer que la suite de variables aléatoires $(Z_n)_{ n \in \N
+    }$ converge en loi vers une variable à densité dont on précisera
+    la loi.
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Justifier, pour tout $n \in \N^*$, l'existence de l'intégrale
+    $\dint{0}{1} \frac{ x^n \ln x }{ x^n - 1 } \ dx$.
+  \item On pose pour tout $n \in \N^*$ : $u_n = \dint{0}{1} \frac{ x^n
+      \ln x }{ x^n - 1 } \ dx$.\\
+    Étudier la nature (convergence ou divergence) de la suite $(u_n)_{
+      n \in \N^* }$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Écrire une formule de Taylor à l'ordre $p$
+    avec reste intégral, applicable à une fonction définie sur
+    $[0;1]$, de classe $C^{p+1}$ sur cet intervalle $(p \in \N)$.
+
+  \item Soit $x$ un réel de l'intervalle $[0;1[$. 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Justifier pour tout $t \in [0;x]$, l'encadrement : $0 \leq
+      \frac{ x - t }{ 1 - t } \leq x $.
+    \item Démontrer l'égalité : $\ln (1-x) = - \Sum{n=1}{+\infty}
+      \frac{ x^n }{ n }$.
+    \end{noliste}
+
+  \item Soit $X$ une variable aléatoire discrète définie sur un espace
+    probabilisé $(\Omega , \A , P)$ telle que pour tout $n \in \N^*$,
+    on a : $\Prob(X=n) = \frac{ 1 }{ n ( n+1) }$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $\Prob(X \in \N^*) = 1$.
+    \item Étudier l'existence des moments de $X$.
+    \item Montrer que pour tout $s \in [0;1]$, la variable aléatoire
+      $s^X$ admet une espérance, que l'on note $E (s^X)$, et vérifier
+      que si $s \in ]0;1[$, on a :
+      \[
+      E ( s^X ) = \frac{ s + (1-s) \ln (1-s) }{ s } . 
+      \]
+
+    \item Pour tout $s \in [0;1]$, on pose $\phi(s) = E
+      (s^X)$. Montrer que la fonction $\phi$ est continue sur le
+      segment $[0;1]$. Est-elle dérivable sur cet intervalle?
+
+    \item Calculer, lorsqu'elles existent, l'espérance et la variance
+      de $X s^X$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que l'application $f : x \mapsto x^3 + x^2 + x$ de
+    $\R$ dans $\R$ est bijective.
+  \item Quelles sont les fonctions polynômes surjectives?
+  \item Quelles sont les fonctions polynômes injectives?
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Formule des probabilités totales.\\
+    Soit $p$ et $q$ deux réels vérifiant $0<p<1$ et $p+2q=1$. On note
+    $\Delta$ la matrice de $\mathcal{M}_3 ( \R )$ définie par :
+    \[
+    \Delta = 
+    \begin{smatrix} 
+      p & q & q \\ 
+      q & p & q \\ 
+      q & q & p 
+    \end{smatrix}
+    \]
+
+  \item Justifier que $\Delta$ est une matrice diagonalisable.
+
+  \item Soit $D$ la matrice diagonale de $\mathcal{M}_3 ( \R )$
+    semblable à $\Delta$ dont les éléments diagonaux sont écrits dans
+    l'ordre croissant. Que peut-on dire de la limite des coefficients
+    de $D^n$ lorsque $n$ tend vers $+\infty$.\\
+
+    Un village possède trois restaurants $R_1$, $R_2$ et $R_3$. Un
+    couple se rend dans un de ces trois restaurants chaque dimanche. A
+    l'instant $n=1$ (c'est-à-dire le premier dimanche) il choisit le
+    restaurant $R_1$, puis tous les dimanches suivants (instants
+    $n=2$, $n=3$, etc.) il choisit le même restaurant que le dimanche
+    précédent avec la probabilité $p$ ou change de restaurant avec la
+    probabilité $2q$, chacun des deux autres restaurants étant choisis
+    avec la même probabilité.\\
+
+    On suppose que l'expérience est modélisée par un espace
+    probabilisé $(\Omega , \A , P)$.
+
+  \item Calculer la probabilité que le couple déjeune dans le
+    restaurant $R_1$, respectivement $R_2$, respectivement $R_3$, le
+    $n$-ième dimanche ($n \geq 2$).
+
+  \item Soit $T$ la variable aléatoire égale au rang du premier
+    dimanche où le couple retourne au restaurant $R_1$, s'il y
+    retourne, et 0 sinon. 
+
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer la loi de $T$.
+    \item Établir l'existence de l'espérance et de la variance de $T$
+      et les calculer.
+    \end{noliste}
+
+  \item Écrire une procédure scilab permettant de calculer la
+    fréquence de visite du restaurant $R_1$ par le couple en 52
+    dimanches.
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soit $n \in \N^*$. On définit la fonction réelle $f_n$ par :
+  $\forall x \in \R$, $f_n (x) = x + 1 - \frac{ e^x }{ n }$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que pour tout $n \in \N^*$, il existe un unique nombre
+    réel négatif $x_n$ tel que $f_n ( x_n ) = 0$.
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que la suite $(x_n)_{ n \in \N^* }$ est décroissante
+      et convergente.
+    \item Calculer la limite $\ell$ de la suite $(x_n)_{ n \in \N^* }$.
+    \end{noliste}
+  \item On pose $y_n = x_n - \ell$. Déterminer un équivalent de $y_n$
+    lorsque $n$ tend vers $+\infty$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Condition suffisante de diagonalisabilité
+    d'une matrice.\\
+
+    Soit $A$ la matrice de $\mathcal{M}_3 (\R)$ définie par : $A
+    = 
+    \begin{smatrix} 
+      0 & 1 & 0 \\ 
+      0 & 0 & 1 \\ 
+      -2 & 1 & 2
+    \end{smatrix}$.
+
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Soit $\lambda \in \R$. Montrer que le système $A X = \lambda
+      X$ d'inconnue $X \in \mathcal{M}_{3,1} (\R)$ possède des
+      solutions non nulles si et seulement si $(\lambda^2-1) (\lambda
+      -2) = 0$. Donner alors les solutions de ce système.
+
+    \item En déduire une matrice inversible $P$ et une matrice
+      diagonale $D$ telles que $A = P D P^{-1}$.
+    \end{noliste}
+
+  \item Soit $(x_n)_{ n \in \N}$ une suite réelle définie par : pour
+    tout $n \in \N$, $x_{n+3} = 2 x_{n+2} + x_{n+1} - 2 x_n$.\\
+
+    On pose pour tout $n \in \N$ : $X_n = 
+    \begin{smatrix} 
+      x_n \\
+      x_{n+1} \\ 
+      x_{n+2} 
+    \end{smatrix}$ et $Y_n = P^{-1} X_n$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Quelle relation a-t-on entre $X_{n+1}$, $X_n$ et $A$?
+    \item En déduire l'expression de $Y_n$ en fonction de $n$, $D$ et
+      $Y_0$.
+    \item Donner une condition nécessaire et suffisante sur $x_0$,
+      $x_1$ et $x_2$ pour que la suite $(x_n)_{n \in \N}$ soit
+      convergente (respectivement, pour que la série $\sum\limits_{ n
+        \geq 0 } x_n$ soit convergente).
+    \end{noliste}
+
+  \item On pose $B = 
+    \begin{smatrix} 
+      5 & 0 & -2 \\
+      4 & 3 & -4 \\
+      8 & 0 & -5
+    \end{smatrix}$ et pour tout $(a,b) \in \R^2$, $M(a, b) = 
+    \begin{smatrix} 
+      5b & a & -2b \\
+      4 b & 3b & a - 4 b \\
+      -2 a + 8 b & a & 2a - 5 b 
+    \end{smatrix}$.
+
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que tout vecteur propre de $A$ est vecteur propre de
+      $B$. La réciproque est-elle vraie?
+    \item En déduire que $M(a,b)$ est diagonalisable et préciser ses
+      valeurs propres.
+    \item Déterminer les couples $(a,b) \in \R^2$ pour lesquelles la
+      suite $( M(a,b)^n )_{ n \in \N }$ converge vers la matrice
+      nulle, c'est-à-dire que chacun de ses neuf coefficients est le
+      terme général d'une suite convergeant vers 0.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Soit $p \in ]0;1[$. Soit $(X_n)_{ n \in \N^* }$ une suite de
+  variables aléatoires définies sur un espace probabilisé $(\Omega ,
+  \A , P )$ indépendantes et de même loi donnée par :
+  \[
+  \forall n \in \N^* , \ P (X_n = -1) = p \ \ \text{ et } \ \ P (X_n =
+  1) = 1 - p
+  \]
+  On pose pour tout $n \in \N^*$, $Z_n = \prod\limits_{i=1}^n X_i$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Calculer l'espérance $E (Z_n) $ de $Z_n$ et $\dlim{ n
+      \rightarrow + \infty } E (Z_n)$.
+  \item Quelle est la loi de $Z_n$?
+  \item Pour quelles valeurs de $p$ les variables aléatoires $Z_1$ et
+    $Z_2$ sont-elles indépendantes?
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Soit $f$ une fonction de classe $C^2$
+    définie sur une partie de $\R^2$ à valeurs réelles. Rappeler la
+    définition d'un point critique et la condition suffisante
+    d'extremum local en un point.\\
+
+    Soit $X$ une variable aléatoire discrète finie définie sur un
+    espace probabilisé $(\Omega , \A , P)$.\\
+    On pose pour tout $n \in \N^*$ : $X ( \Omega ) = \{ x_1 , \dots ,
+    x_n \} \subset \R$ et on suppose que $\forall i \in \llb 1 ; n
+    \rrb$, $P (X=x_i) \neq 0$.\\
+
+    On définit l'entropie de $X$ par : $ H(X) = - \frac{ 1 }{ \ln 2 }
+    \Sum{i=1}{n} P (X=x_i) \ln \big( \Prob(X=x_i) \big)$.
+
+  \item Soient $x_1 , x_2 , x_3 , x_4$ quatre réels distincts. On
+    considère un jeu de 32 cartes dont on tire une carte au
+    hasard. Soit $X$ la variable aléatoire prenant les valeurs
+    suivantes : 
+    \begin{noliste}{$\stimes$}
+    \item $x_1$ si la carte tirée est rouge (coeur ou carreau),
+    \item $x_2$ si la carte tirée est un pique,
+    \item $x_3$ si la carte tirée est le valet, la dame, le roi ou
+      l'as de trèfle,
+    \item $x_4$ dans les autres cas.
+    \end{noliste}
+
+    On tire une carte notée $C$ et un enfant décide de déterminer la
+    valeur $X(C)$ en posant dans l'ordre les questions suivantes
+    auxquelles il lui est répondu par "oui" ou par "non". LA carte $C$
+    est-elle rouge? La carte $C$ est-elle un pique ? La carte $C$
+    est-elle le valet, la dame, le roi ou l'as de trèfle ? \\
+    Soit $N$ la variable aléatoire égale au nombre de questions posées
+    (l'enfant cesse de poser des questions dès qu'il a obtenu une
+    réponse "oui"). 
+
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer l'entropie $H(X)$ de $X$.
+    \item Déterminer la loi et l'espérance $E (N)$ de $N$. Comparer
+      $\E(N)$ et $H(X)$.
+    \end{noliste}
+
+  \item Soit $f$ la fonction définie sur $\R^2$ à valeurs réelles
+    telle que : $f(x,y) = x \ln x + y \ln y + (1-x-y) \ln
+    (1-x-y)$. 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Préciser le domaine de définition de $f$. Dessiner ce
+      domaine dans le plan rapporté à un repère orthonormé.
+    \item Montrer que $f$ ne possède qu'un seul point critique et
+      qu'en ce point, $f$ admet un extremum local.
+    \item Soit $X$ une variable aléatoire réelle prenant les valeurs
+      $x_1$, $x_2$ et $x_3$ avec les probabilités non nulles $p_1$,
+      $p_2$ et $p_3$ respectivement.\\
+
+      Calculer $H(X)$ et montrer que $H(X)$ est maximale lorsque
+      $p_1=p_2=p_3 = \frac{1}{3}$.
+    \end{noliste}   
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  On rappelle l'identité remarquable $a^3 + b^3 = (a+b) (a^2 - a b +
+  b^2)$.\\
+  Soit $n \in \N^*$ et $A$ et $B$ deux matrices de $\mathcal{M}_n ( \R
+  )$ vérifiant $A^3 = 0$, $A B = B A$ et $B$ inversible. \\
+  Montrer que $A + B$ est inversible.
+\end{exerciceSP}
+
+
+\newpage
+
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Critères de convergence d'une intégrale
+    sur un intervalle du type $[a ; +\infty[$ ($a \in \R$).
+
+  \item Soit $x \in \R_+^*$. 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Établir la convergence de l'intégrale $\dint{0}{+\infty}
+      \frac{ e^{ -t } }{ x + t } \ dt$. On pose alors $f(x) =
+      \dint{0}{+\infty} \frac{ e^{ -t } }{ x + t } \ dt$.
+
+    \item Montrer que $f$ est monotone sur $\R_+^*$.
+
+    \end{noliste}
+
+  \item Soit $g$ et $h$ les fonctions définies sur $\R_+^*$ à valeurs
+    réelles telles que :
+    \[
+    g(x) = \dint{0}{1} \frac{ e^{ -t } - 1 }{ x + t } \ dt \ \ \
+    \text{ et } \ \ \ h(x) = \dint{1}{+\infty} \frac{ e^{ -t } }{ x +
+      t } \ dt .
+    \]
+
+    \begin{noliste}{a)}
+      \setlength{\itemsep}{2mm}
+    \item Soit $\varphi$ la fonction définie sur $[0;1]$ par :
+      $\varphi (t) = \left\{
+        \begin{array}{ll} 
+          \frac{ e^{ -t } - 1 }{t} & \text{ si } t \in ] 0 ; 1] \\ 
+          \\ 
+          -1 & \text{ si } t = 0 
+        \end{array} \right.$ \\
+      Montrer que $\varphi$ est continue sur le segment $[0;1]$.
+
+    \item En déduire que la fonction $g$ est bornée sur $\R_+^*$.
+
+    \item Montrer de même que la fonction $h$ est bornée sur $\R_+^*$.
+
+    \item Montrer que pour tout $x > 0$, on a : $f(x) = \ln (x+1) -
+      \ln x + g(x) + h(x)$. En déduire un équivalent de $f(x)$ lorsque
+      $x$ tend vers 0.
+
+    \end{noliste}
+
+  \item À l'aide de l'encadrement $0 \leq \frac{ 1 }{ x } - \frac{ 1
+    }{ x + t } \leq \frac{ t }{ x^2 }$ valable pour tout $x > 0$ et
+    pour tout $t \geq 0$, montrer que $f(x)$ est équivalent à $\frac{
+      1 }{ x } $ lorsque $x$ tend vers $+\infty$.
+  \end{noliste}
+\end{exerciceAP}
+
+
+\begin{exerciceSP}~\\
+  Les variables aléatoires sont définies sur un espace probabilisé
+  $(\Omega , \A , P)$. \\ 
+  Soit $X$ une variable aléatoire qui suit la loi de Poisson de
+  paramètre $\lambda > 0$ et soit $Y$ une variable aléatoire
+  indépendante de $X$ telle que : $ Y ( \Omega ) = \{ 1 ; 2 \} , P ( Y
+  = 1 ) = P ( Y = 2 ) = \frac{ 1 }{ 2 }$. On pose $Z = X Y$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+
+  \item Déterminer la loi de $Z$.
+
+  \item On admet que : $\Sum{ k = 0 }{ +\infty } \frac{ \lambda^{ 2k }
+    }{ (2k)! } = \frac{ e^{ \lambda } + e^{ - \lambda } }{ 2 }
+    $. Quelle est la probabilité que $Z$ prenne une valeur paire?
+
+  \end{noliste}
+\end{exerciceSP}
+
+%%FIN
+
+\end{document}

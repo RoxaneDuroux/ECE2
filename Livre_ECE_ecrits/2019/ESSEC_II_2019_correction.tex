@@ -1,0 +1,2006 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+% \input{../macros_Livre.tex}
+\input{../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} ESSEC II 2019} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.4cm}
+
+%%DEBUT
+
+\noindent %
+Un modèle probabiliste d'une expérience aléatoire représente dans un
+certain sens le désordre qui intervient dans l'expérience et il est
+donc naturel que des outils soient introduits qui permettent de
+mesurer l'intensité de ce désordre. C'est le cas de la notion
+d'entropie qui fait l'objet du présent problème. On considèrera
+différentes situations et notamment la façon dont on mesure
+l'information que deux variables aléatoires s'apportent
+mutuellement.\\
+Dans la première partie on étudie le cas plus simple techniquement de
+variables dont la loi admet une densité. Les deuxièmes et troisièmes
+parties sont consacrées au cas discret. Dans la deuxième partie, on
+introduit les différentes notions d'entropie pour le cas de variables
+discrètes et dans la troisième partie, on examine comment on peut
+mesurer l'information apportée mutuellement par deux variables
+aléatoires.\\
+Toutes les variables aléatoires intervenant dans le problème sont
+définies sur un espace probabilisé $(\Omega, \A, \Prob)$.\\
+Pour toute variable aléatoire $Y$, on notera $\E(Y)$ son espérance
+lorsqu'elle existe.
+
+
+\subsection*{Première partie : Entropie différentielle d'une variable
+  à densité}
+
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+\item La fonction logarithme de base $2$, notée $\log_2$, est définie
+  sur $\R_+^*$ par : $\log_2(x) = \dfrac{\ln(x)}{\ln(2)}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que pour tout $(x,y)$ élément de $\R_+^* \times
+    \R_+^*$, on a : $\log_2(x \, y) = \log_2(x) + \log_2(y)$.
+    
+    \begin{proof}~\\
+      Soit $(x,y) \in \R_+^* \times \R_+^*$.
+      \[
+        \begin{array}{rcl@{\qquad}>{\it}R{3cm}}
+          \log_2 (x \, y)
+          & = & \dfrac{\ln(x \, y)}{\ln(2)} 
+          \\[.6cm]
+          & = & \dfrac{\ln(x) + \ln(y)}{\ln(2)}
+          & (par propriété de la fonction $\ln$)
+            \nl
+            \nl[-.2cm]
+          & = & \dfrac{\ln(x)}{\ln(2)} + \dfrac{\ln(y)}{\ln(2)}
+          \\[.6cm]
+          & = & \log_2(x) + \log_2(y)
+        \end{array}
+      \]
+      \conc{$\forall (x,y) \in \R_+^* \times \R_+^*$, $\log_2(x \, y)
+        = \log_2(x) + \log_2(y)$}~\\[-1cm]
+    \end{proof}
+    
+  \item Vérifier que pour tout réel $\alpha$ :
+    $\log_2\left(2^\alpha\right) = \alpha$.
+
+    \begin{proof}~\\
+      Soit $\alpha \in \R$.
+      \[
+        \log_2\left(2^\alpha \right) \ = \ \dfrac{\ln\left( 2^\alpha
+          \right)}{ \ln(2)} \ = \ \dfrac{\alpha \, \bcancel{\ln(2)}}{
+          \bcancel{\ln(2)}} \ = \ \alpha
+      \]
+      \conc{$\forall \alpha \in \R$, $\log_2\left( 2^\alpha \right) =
+        \alpha$}~\\[-1cm]
+    \end{proof}
+
+    
+    \newpage
+
+    
+  \item Montrer que la fonction $\log_2$ est concave sur $\R_+^*$.
+
+    \begin{proof}~\\
+      La fonction $\log_2$ est de classe $\Cont{2}$ sur
+      $\R_+^*$ car la fonction $\ln$ l'est.\\
+      Soit $x \in \R_+^*$.
+      \[
+        (\log_2)'(x) \ = \ \dfrac{1}{x \, \ln(2)}
+      \]
+      \[
+        (\log_2)''(x) \ = \ -\dfrac{1}{x^2 \, \ln(2)} \ < \ 0
+      \]
+      \conc{On en déduit que la fonction $\log_2$ est concave sur
+        $\R_+^*$.}
+      \begin{remarkL}{.95}
+        On pouvait répondre à cette question grâce à d'autres
+        caractérisations de la concavité.
+        \begin{noliste}{\scriptsize 1.}
+        \item La fonction $\log_2$ est de classe $\Cont{1}$ sur
+          $\R_+^*$ car la fonction $\ln$ l'est.\\
+          Soit $x \in \R_+^*$.
+          \[
+            (\log_2)'(x) \ = \ \dfrac{1}{x \, \ln(2)}
+          \]
+          La fonction $(\log_2)'$ est donc décroissante sur $\R_+^*$.\\
+          On en déduit que la fonction $\log_2$ est concave sur
+          $\R_+^*$.
+          
+        \item
+          \begin{noliste}{$\sbullet$}
+          \item Tout d'abord :
+            \[
+              \begin{array}{c}
+                \text{La fonction $\log_2$ est concave sur $\R_+^*$}
+                \\[.2cm]
+                \rotatebox{90}{$\Leftrightarrow$}
+                \\[.2cm]
+                \forall \lambda \in [0,1], \ \forall (x,y)
+                \in \R_+^* \times \R_+^*, \ \log_2\big(\lambda \, x + (1-
+                \lambda) y\big) \geq \lambda \, \log_2(x) + (1- \lambda)
+                \log_2(y)
+              \end{array}
+            \]
+            
+          \item Soit $\lambda \in [0,1]$. Soit $(x,y) \in \R_+^* \times
+            \R_+^*$.
+            \[
+              \begin{array}{cl@{\qquad}>{\it}R{3cm}}
+                & \log_2\big(\lambda \, x + (1-
+                  \lambda) y\big) \ \geq \ \lambda \, \log_2(x) + (1- \lambda)
+                  \log_2(y)
+                \\[.4cm]
+                \Leftrightarrow & \dfrac{\ln\big(\lambda \, x + (1-
+                                  \lambda) y\big)}{\ln(2)} \ \geq \ \lambda \,
+                                  \dfrac{\ln(x)}{ \ln(2)} + (1- \lambda)
+                                  \dfrac{\ln(y)}{\ln(2)}
+                \\[.6cm]
+                \Leftrightarrow & \ln\big(\lambda \, x + (1-
+                \lambda) y\big) \ \geq \ \lambda \, \ln(x) + (1- \lambda)
+                \ln(y)
+                & (car $\ln(2) >0$)                  
+              \end{array}
+            \]
+            Cette dernière inégalité est vraie car la fonction $\ln$ est
+            concave sur $\R_+^*$. Par équivalence, la première est vraie.
+          \end{noliste}
+          On en déduit que la fonction $\log_2$ est concave sur $\R_+^*$.
+        \end{noliste}
+      \end{remarkL}~\\[-1.4cm]
+    \end{proof}
+  \end{noliste}
+
+
+  \newpage
+  
+  
+\item Soit $X$ une variable aléatoire réelle à densité, et soit $f$
+  une densité de $X$. On appelle {\bf support} de $f$ l'ensemble $I=
+  \{x \in \R \ | \ f(x) >0\}$, et on suppose que $I$ est un intervalle
+  de $\R$ d'extrémités $a$ et $b$ ($a<b$, $a$ et $b$ finis ou
+  infinis). L'{\bf entropie différentielle} de $X$ est, sous réserve
+  d'existence, le réel :
+  \[
+    h(X) \ = \ - \dint{a}{b} f(x) \, \log_2 \big(f(x)\big) \dx
+  \]
+  Montrer : $h(X) = - \E\Big(\log_2\big(f(X)\big)\Big)$.
+
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item Par théorème de transfert, la \var $\log_2\big(f(X)\big)$
+      admet une espérance si et seulement si l'intégrale
+      $\dint{-\infty}{+\infty} \log_2\big(f(x)\big) \, f(x) \dx$ est
+      absolument convergente.
+      
+    \item De plus, par définition du support, la fonction $f$ est
+      nulle en dehors de l'intervalle $I$ d'extrémités $a$ et $b$, donc :
+      \[
+        \dint{-\infty}{+\infty} f(x) \, \log_2\big(f(x)\big) \dx \ = \
+        \dint{a}{b} f(x) \, \log_2\big(f(x)\big) \dx
+      \]
+    \end{noliste}
+    \conc{Ainsi, sous réserve de convergence absolue :\\
+      $h(X) \ = \ - \dint{a}{b} f(x) \, \log_2\big(f(x)\big) \dx \ = \
+      - \E\Big(\log_2 \big(f(x) \big) \Big)$.}
+
+    \begin{remark}
+      L'énoncé précise que $I$ est un intervalle de $\R$ {\bf
+        d'extrémités} $a$ et $b$. C'est donc l'un des intervalles
+      suivants : $]a,b[$, $]a,b]$, $[a,b[$ ou $[a,b]$.
+    \end{remark}~\\[-1.4cm]
+  \end{proof}
+  
+\item Soit $X$ une variable aléatoire de densité $f$ de support $I$,
+  intervalle de $\R$ d'extrémités $a$ et $b$. On suppose que $X$ admet
+  une entropie différentielle.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Soit $c$ un réel, et soit $Y$ la variable aléatoire définie
+    par $Y = c+X$.
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Déterminer une densité de $Y$.
+    \end{nonoliste}
+  \end{noliste}
+      
+      \begin{proof}~
+        \begin{noliste}{$\sbullet$}
+        \item Déterminons la fonction de répartition de la \var $Y$.\\
+          Soit $x \in \R$.
+          \[
+            F_Y(x) \ = \ \Prob(\Ev{Y \leq x}) \ = \ \Prob(\Ev{c+X \leq
+              x}) \ = \ \Prob(\Ev{X \leq x-c}) \ = \ F_X(x-c)
+          \]
+          \conc{Finalement : $F_Y : x \mapsto F_X(x-c)$.}
+          
+        \item La fonction $F_Y$ est continue sur $\R$ car elle est la composée
+          $F_X \circ g_1$ de :
+          \begin{noliste}{$\stimes$}
+          \item $g_1 : x \mapsto x-c$ qui :~\\[-.6cm]
+          \end{noliste}
+          \begin{liste}{-}
+          \item est continue sur $\R$,
+            
+          \item vérifie : $g_1(\R) \subset \R$.
+          \end{liste}
+          \begin{noliste}{$\stimes$}
+          \item $F_X$ qui est continue sur $\R$, car $X$ est une \var
+            à densité.
+          \end{noliste}
+
+        \item La fonction $F_Y$ est de classe $\Cont{1}$ sur $\R$ sauf
+          (éventuellement) en un nombre fini de points avec des
+          arguments similaires à ceux de la continuité sur $\R$.
+          \conc{On en déduit que $Y$ est une \var à densité.}
+
+          
+          \newpage
+          
+          
+          \begin{remark}
+            \begin{noliste}{$\sbullet$}
+            \item Si $F_X$ est de classe $\Cont{1}$ sur $\R$, alors la
+              fonction $F_Y$ est également de classe $\Cont{1}$ sur
+              $\R$ en tant composée $F_X \circ g_1$ (même démonstration
+              que la continuité de $F_Y$ sur $\R$).
+              
+            \item Si $F_X$ n'est pas de classe $\Cont{1}$ sur $\R$,
+              on peut déterminer plus précisément les points
+              où la fonction $F_Y$ n'est pas de classe $\Cont{1}$.
+              \begin{noliste}{$\stimes$}
+              \item Comme $X$ est une \var à densité, sa fonction de
+                répartition $F_X$ est de classe $\Cont{1}$ sur $\R$ sauf
+                en un nombre fini de points. Notons
+                $\{x_1, \ldots, x_n\}$ l'ensemble des
+                points où la fonction $F_X$ n'est pas de classe $\Cont{1}$.
+              
+              \item Comme $F_Y : x \mapsto F_X(x-c)$, on en déduit que
+                la fonction $F_Y$ est de classe $\Cont{1}$ sur $\R$ sauf
+                en $x_1+c$, $\ldots$, $x_n +c$.
+              \end{noliste}
+            \end{noliste}
+          \end{remark}
+          
+        \item Pour déterminer une densité $f_Y$ de $Y$, on dérive la
+          fonction $F_Y$ en les points où elle est
+          de classe $\Cont{1}$. Soit $x \in \R$.
+          \begin{noliste}{$\stimes$}
+          \item \dashuline{Si $F_X$ est de classe $\Cont{1}$ en $x$}.
+            \[
+              f_Y(x) \ = \ F_Y'(x) \ = \ (F_X \circ g_1)'(x) \ = \ (F_X'
+              \circ g_1)(x) \times g_1'(x)\ = \ F_X'\big(g_1(x) \big) \times 1
+              \ = \  F_X'(x-c) \ = \ f(x-c)
+            \]
+            
+          \item \dashuline{Si $F_X$ n'est pas de classe $\Cont{1}$ en
+              $x$}, on choisit : $f_Y(x) = f(x-c)$.
+          \end{noliste}
+          \conc{Finalement : $f_Y : x \mapsto f(x-c)$.}
+        \end{noliste}
+        \begin{remark}
+          Afin de permettre une bonne compréhension du calcul, on a
+          rédigé ici en détails la dérivation de la
+          composée. Cependant, fournir le résultat correct permet
+          sans aucun doute d'obtenir la totalité des points alloués à
+          ce calcul.
+        \end{remark}~\\[-1.4cm]
+      \end{proof}
+
+    \begin{noliste}{(i)}
+      \setcounter{enumii}{1}
+    \item Justifier l'existence de l'entropie différentielle $h(Y)$,
+      et la déterminer en fonction de $h(X)$.
+    \end{noliste}
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item D'après la question \itbf{2.}, la \var $Y$ admet une
+        entropie différentielle si et seulement si la \var
+        $\log_2\big(f_Y(Y) \big)$ admet une espérance.
+        
+      \item On remarque de plus :
+        \[
+          \begin{array}{rcl@{\qquad}>{\it}R{3.5cm}}
+            \log_2\big( f_Y(Y) \big)
+            & = & \log_2\big( f(Y-c) \big)
+            & (d'après la question précédente)
+              \nl
+              \nl[-.2cm]
+            & = & \log_2\Big( f\big( (X+ \bcancel{c}) - \bcancel{c}
+                  \big) \Big)
+            & (par définition de\\ la \var $Y$)
+              \nl
+              \nl[-.2cm]
+            & = & \log_2 \big( f(X) \big)
+          \end{array}
+        \]
+        
+      \item Or, d'après l'énoncé, la \var $X$ admet une entropie
+        différentielle. Donc la \var $\log_2\big( f(X) \big)$ admet
+        une espérance.\\
+        On en déduit que la \var $\log_2\big( f_Y(Y) \big)$ admet une
+        espérance.
+        \conc{Ainsi, la \var $Y$ admet une entropie différentielle.}
+        
+      \item De plus, toujours d'après la question \itbf{2.} :
+        \[
+          h(Y) \ = \ -\E \Big( \log_2 \big( f_Y(Y) \big) \Big) \ = \ -
+          \E\Big( \log_2 \big( f(X) \big) \Big) \ = \ h(X)
+        \]
+        \conc{$h(Y) \ = \ h(X)$}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+
+    
+    \newpage
+
+    
+  \begin{noliste}{a)}
+    \setcounter{enumii}{1}
+  \item Soit $\alpha$ un réel strictement positif, et soit $Z$ la
+    variable aléatoire définie par $Z = \alpha \, X$.
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Déterminer une densité de $Z$.
+    \end{nonoliste}
+  \end{noliste}
+
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item Déterminons la fonction de répartition de la \var $Z$.\\
+      Soit $x \in \R$.
+      \[
+        \begin{array}{rcl@{\qquad}>{\it}R{3.5cm}}
+          F_Z(x)
+          & = & \Prob(\Ev{Z \leq x}) \ = \ \Prob(\Ev{\alpha \, X \leq
+                x})
+          \\[.2cm]
+          & = & \Prob\left( \Ev{X \leq \dfrac{x}{\alpha}} \right)
+          & (car $\alpha >0$)
+            \nl
+            \nl[-.2cm]
+          & = & F_X\left( \dfrac{x}{\alpha} \right)
+        \end{array}
+      \]
+      \conc{Finalement : $F_Z : x \mapsto F_X\left( \dfrac{x}{\alpha} \right)$.}
+      
+    \item La fonction $F_Z$ est continue sur $\R$ car elle est la
+      composée $F_X \circ g_2$ de :
+      \begin{noliste}{$\stimes$}
+      \item $g_2 : x \mapsto \dfrac{x}{\alpha}$ qui :
+        \begin{noliste}{-}
+        \item est continue sur $\R$,
+          
+        \item vérifie : $g_2(\R) \subset \R$.
+        \end{noliste}
+        
+      \item $F_X$ qui est continue sur $\R$, car $X$ est une \var à densité.
+      \end{noliste}
+      
+    \item La fonction $F_Z$ est de classe $\Cont{1}$ sur $\R$ sauf
+      (éventuellement) en un nombre fini de points avec des arguments
+      similaires à ceux de la continuité sur $\R$.
+      \begin{remark}
+        \begin{noliste}{$\sbullet$}
+        \item Si $F_X$ est de classe $\Cont{1}$ sur $\R$, alors la
+          fonction $F_Z$ est également de classe $\Cont{1}$ sur $\R$
+          en tant que composée $F_X \circ g_2$ (même démonstration que
+          la continuité de $F_Z$ sur $\R$).
+          
+        \item Si $F_X$ n'est pas de classe $\Cont{1}$ sur $\R$,
+          \begin{noliste}{$\stimes$}
+          \item on note comme précédemment $\{x_1, \ldots, x_n\}$ l'ensemble
+            des points où la fonction $F_X$ n'est pas de classe $\Cont{1}$,
+            
+          \item comme $F_Z : x \mapsto F_X \left( \dfrac{x}{\alpha}
+            \right)$, on en déduit que la fonction $F_Z$ est de classe
+            $\Cont{1}$ sur $\R$ sauf en $\alpha \, x_1$, $\ldots$,
+            $\alpha \, x_n$.
+          \end{noliste}
+        \end{noliste}
+      \end{remark}
+
+    \item Pour déterminer une densité $f_Z$ de $Z$, on dérive la
+      fonction $F_Z$ en les points où elle est de classe
+      $\Cont{1}$. Soit $x \in \R$.
+      \begin{noliste}{$\stimes$}
+      \item \dashuline{Si $F_X$ est de classe $\Cont{1}$ en $x$}.
+        \[
+          f_Z(x) \ = \ F_Z'(x) \ = \ (F_X \circ g_2)'(x) \ = \ (F_X'
+          \circ g_2)(x) \times g_2'(x) \ = \ F_X'\big(g_2(x)\big)
+          \times \dfrac{1}{\alpha} \ = \ \dfrac{1}{\alpha} \
+          F_X'\left( \dfrac{x}{\alpha} \right) \ = \ \dfrac{1}{\alpha}
+          \ f\left( \dfrac{x}{\alpha} \right)
+        \]
+        
+      \item \dashuline{Si $F_X$ n'est pas de classe $\Cont{1}$ en
+          $x$}, on choisit : $f_Z(x) = \dfrac{1}{\alpha} \ f\left(
+          \dfrac{x}{\alpha} \right)$.
+      \end{noliste}
+      \conc{Finalement : $f_Z : x \mapsto \dfrac{1}{\alpha} \ f\left(
+          \dfrac{x}{\alpha} \right)$.}~\\[-1.4cm]
+    \end{noliste}
+  \end{proof}
+
+
+  \newpage
+  
+      
+  \begin{noliste}{(i)}
+    \setcounter{enumii}{1}
+    \item Justifier l'existence de l'entropie différentielle $h(Z)$,
+      et la déterminer en fonction de $h(X)$.
+  \end{noliste}
+
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item D'après la question \itbf{2.}, la \var $Y$ admet une
+      entropie différentielle si et seulement si la \var
+      $\log_2\big(f_Z(Z) \big)$ admet une espérance.
+      
+    \item On remarque de plus :
+      \[
+        \begin{array}{rcl@{\qquad}>{\it}R{3.5cm}}
+          \log_2\big( f_Z(Z) \big)
+          & = & \log_2\left( \dfrac{1}{\alpha} \ f\left(
+                \dfrac{X}{\alpha} \right) \right)
+          & (d'après la question précédente)
+            \nl
+            \nl[-.2cm]
+          & = & \log_2\left( \dfrac{1}{\alpha} \ f\left( \dfrac{
+                \bcancel{\alpha} \, X}{\bcancel{\alpha}} \right) \right)
+          & (par définition de\\ la \var $Y$)
+          \nl
+          \nl[-.2cm]
+          & = & \log_2 \left( \dfrac{1}{\alpha} \ f(X) \right)
+          \\[.6cm]
+          & = & \log_2\left( \dfrac{1}{\alpha} \right) + \log_2 \big(
+                f(X) \big)
+          & (d'après la question \itbf{1.a)})
+        \end{array}
+      \]
+      Enfin :
+      \[
+        \log_2\left( \dfrac{1}{\alpha} \right) \ = \ \dfrac{\ln\left(
+            \frac{1}{\alpha} \right)}{\ln(2)} \ = \ \dfrac{-
+          \ln(\alpha)}{\ln(2)} \ = \ -\log_2(\alpha)
+      \]
+      \conc{Ainsi : $\log_2 \big( f_Z(Z) \big) \ = \ \log_2\big( f(X) \big) -
+        \log_2( \alpha)$.}
+      
+    \item Or, d'après l'énoncé, la \var $X$ admet une entropie
+      différentielle. Donc la \var $\log_2\big( f(X) \big)$ admet
+      une espérance.\\
+      On en déduit que la \var $\log_2\big( f_Z(Z) \big)$ admet une
+      espérance en tant que transformée affine d'une \var qui en admet une.
+      \conc{Ainsi, la \var $Z$ admet une entropie différentielle.}
+      
+    \item De plus, toujours d'après la question \itbf{2.} :
+      \[
+        \begin{array}{rcl@{\qquad}>{\it}R{3.5cm}}
+          h(Z)
+          & = & -\E \Big( \log_2 \big( f_Z(Z) \big) \Big)
+          \\[.4cm]
+          & = & - \E\Big( \log_2 \big( f(X) \big) - \log_2(\alpha)
+                \Big)
+          \\[.4cm]
+          & = & - \Big( \E\left( \log_2 \big( f(X) \big) \right) -
+                \log_2(\alpha) \Big)
+          & (par linéarité de l'espérance)
+            \nl
+            \nl[-.2cm]
+          & = & h(X) + \log_2(\alpha)
+        \end{array}
+      \]
+      \conc{$h(Z) \ = \ h(X) + \log_2(\alpha)$}~\\[-1.4cm]
+    \end{noliste}
+  \end{proof}
+
+  
+\item On détermine dans cette question l'entropie différentielle de
+  quelques variables aléatoires suivant des lois classiques.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Soit $a>0$. On considère $X$ une variable aléatoire de loi
+    uniforme sur $[0,a]$.
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Donner une densité de $X$.
+    \end{nonoliste}
+
+    \begin{proof}~
+      \conc{Une densité $f$ de $X$ est : $f : x \mapsto \left\{
+          \begin{array}{cR{2.5cm}}
+            0 & si $x \in \ ]-\infty, 0[$
+            \nl
+            \nl[-.2cm]
+            \dfrac{1}{a} & si $x \in [0,a]$
+            \nl
+            \nl[-.2cm]
+            0 & si $x \in \ ]a, +\infty[$
+          \end{array}
+          \right.$}~\\[-1cm]
+    \end{proof}
+
+    
+    \newpage
+
+    
+    \begin{nonoliste}{(i)}
+      \setcounter{enumiii}{1}
+    \item Justifier l'existence de l'entropie différentielle $h(X)$,
+      et la déterminer.
+    \end{nonoliste}
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item On commence par remarquer que, par définition de $f$, son
+        support $I$ est l'intervalle $[0,a]$.\\
+        Alors, d'après la définition de l'entropie, $X$ admet une
+        entropie différentielle si et seulement si l'intégrale
+        $\dint{0}{a} f(x) \, \log_2\big( f(x) \big) \dx$ est convergente.
+        
+      \item Or la fonction $x \mapsto f(x) \, \log_2 \big( f(x) \big)$
+        est continue par morceaux sur le segment $[0,a]$. On en déduit
+        que l'intégrale $\dint{0}{a} f(x) \, \log_2 \big(f(x) \big)
+        \dx$ converge.
+        \conc{Ainsi, la \var $X$ admet une entropie différentielle.}
+        
+      \item De plus :
+        \[
+          \begin{array}{rcl@{\qquad}>{\it}R{3.5cm}}
+            h(X)
+            & = & -\dint{0}{a} f(x) \log_2 \big( f(x) \big) \dx
+            \\[.4cm]
+            & = & -\dint{0}{a} \dfrac{1}{a} \ \log_2 \left( \dfrac{1}{a}
+                  \right) \dx
+            & (par définition de $f$ sur $[0,a]$)
+              \nl
+              \nl[-.2cm]
+            & = & \dfrac{1}{a} \, \log_2(a) \ \dint{0}{a} \dx
+            \\[.6cm]
+            & = & \dfrac{1}{a} \, \log_2(a) \ \Prim{x}{0}{a}
+            \\[.6cm]
+            & = & \dfrac{1}{a} \, \log_2(a) \, (a-0)
+            \\[.6cm]
+            & = & \log_2(a)
+          \end{array}
+        \]
+        \conc{$h(X) = \log_2(a)$}
+      \end{noliste}
+      % \begin{remark}
+      %   On aurait aussi pu rédiger la preuve de l'existence de $h(X)$
+      %   en exploitant complètement la question \itbf{2.} de la manière
+      %   suivante.
+      %   \begin{noliste}{$\sbullet$}
+      %   \item D'après la question \itbf{2.}, la \var $X$ admet une
+      %     entropie différentielle si et seulement la \var $\log_2
+      %     \big( f(X) \big)$ admet une espérance.
+          
+      %   \item Par théorème de transfert, la \var $\log_2\big(f(X)\big)$
+      %     admet une espérance si et seulement si l'intégrale
+      %     $\dint{-\infty}{+\infty} \log_2\big(f(x)\big) \, f(x) \dx$ est
+      %     absolument convergente.
+          
+      %   \item De plus, la fonction $f$ est
+      %     nulle en dehors de l'intervalle $[0,a]$, donc :
+      %     \[
+      %       \dint{-\infty}{+\infty} f(x) \, \log_2\big(f(x)\big) \dx \ = \
+      %       \dint{0}{a} f(x) \, \log_2\big(f(x)\big) \dx
+      %     \] 
+      %   \end{noliste}
+      % \end{remark}
+    \end{proof}
+
+    \begin{nonoliste}{(i)}
+      \setcounter{enumiii}{2}
+    \item Déterminer une condition nécessaire et suffisante sur $a$
+      pour que $h(X)>0$.
+    \end{nonoliste}
+
+    \begin{proof}~\\
+      D'après la question précédente :
+      \[
+        \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+          h(X) > 0
+          & \Leftrightarrow & \log_2(a) > 0
+          \\[.2cm]
+          & \Leftrightarrow & \dfrac{\ln(a)}{\ln(2)} >0
+          \\[.6cm]
+          & \Leftrightarrow & \ln(a) >0
+          & (car $\ln(2) >0$)
+            \nl
+            \nl[-.2cm]
+          & \Leftrightarrow & a > 1
+          & (par stricte croissance de la fonction $\exp$ sur $\R$)
+        \end{array}
+      \]
+      \conc{$h(X) >0 \ \Leftrightarrow \ a >1$}~\\[-1cm]
+    \end{proof}
+
+
+    \newpage
+    
+    
+  \item On considère $Y$ une variable aléatoire de loi normale centrée
+    réduite. Montrer que $Y$ admet une entropie différentielle et :
+    $h(Y) = \dfrac{1}{2} \ \log_2(2 \pi \ee)$.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Une densité de $Y$ est : $f_Y : x \mapsto
+        \dfrac{1}{\sqrt{2 \pi}} \ \ee^{-\frac{x^2}{2}}$.\\
+        On en déduit que le support de $f_Y$ est l'intervalle $I = \
+        ]-\infty, + \infty[$.\\
+        Alors, la \var $Y$ admet une entropie différentielle si et
+        seulement si l'intégrale $\dint{-\infty}{+\infty} f_Y(x) \,
+        \log_2 \big( f_Y(x) \big) \dx$ est convergente.
+        
+      \item Soit $x \in \R$.
+        \[
+          \begin{array}{rcl@{\qquad}>{\it}R{3cm}}
+            \log_2 \big( f_Y(x) \big)
+            & = & \log_2\left( \dfrac{1}{\sqrt{2 \pi}} \, \ee^{-
+                  \frac{x^2}{2}} \right)
+            \\[.6cm]
+            & = & \log_2\left(\dfrac{1}{\sqrt{2 \pi}}\right) +
+                  \log_2\left( \ee^{- \frac{x^2}{2}} \right)
+            & (d'après la question \itbf{1.a)})
+              \nl
+              \nl[-.2cm]
+            & = & \dfrac{\ln\left( \frac{1}{\sqrt{ 2 \pi}}
+                  \right)}{\ln(2)} + \dfrac{\ln \left( \ee^{-
+                  \frac{x^2}{2}} \right)}{\ln(2)}
+            \\[.6cm]
+            & = & \dfrac{-\frac{1}{2} \, \ln(2 \pi)}{\ln(2)} +
+                  \dfrac{- \frac{x^2}{2}}{\ln(2)}
+            \\[.6cm]
+            & = & - \dfrac{1}{2} \ \dfrac{\ln(2 \pi)}{\ln(2)} -
+                  \dfrac{1}{\ln(2)} \ \dfrac{x^2}{2} 
+            \\[.6cm]
+            & = & - \dfrac{1}{2} \ \log_2(2 \pi)- \dfrac{1}{2 \ln(2)} \
+                 x^2
+          \end{array}
+        \]
+        Ainsi :
+        \[
+          \begin{array}{rcl@{\qquad}>{\it}R{3.5cm}}
+            f_Y(x) \, \log_2 \big( f_Y(x) \big)
+            & = & f_Y(x) \left( - \dfrac{1}{2} \ \log_2(2 \pi)-
+                  \dfrac{1}{2 \ln(2)} \ x^2 \right)
+            \\[.6cm]
+            & = & - \dfrac{1}{2} \ \log_2(2 \pi) \ f_Y(x) -
+                  \dfrac{1}{2 \ln(2)} \ x^2 \, f_Y(x)
+          \end{array}
+        \]
+        
+      \item Or,
+        \begin{noliste}{$\stimes$}
+        \item l'intégrale $\dint{-\infty}{+\infty} f_Y(x) \dx$ est
+          convergente car $f_Y$ est une densité. De plus :
+          \[
+            \dint{-\infty}{+\infty} f_Y(x) \dx \ = \  1
+          \]
+          
+        \item l'intégrale $\dint{-\infty}{+\infty} x^2 \, f_Y(x) \dx$
+          est convergente car la \var $Y$ admet un moment d'ordre
+          $2$. De plus :
+          \[
+            \dint{-\infty}{+\infty} x^2 \, f_Y(x) \dx \ = \ \E(Y^2)
+          \]
+          D'après la formule de Koenig-Huygens : $\V(Y) \ = \ \E(Y^2)
+          - \big( \E(Y)\big)^2$. Ainsi :
+          \[
+            \dint{-\infty}{+\infty} x^2 \, f_Y(x) \dx \ = \ \E(Y^2) \
+            = \ \V(X) + \big(\E(Y)\big)^2 \ = \ 1 - 0 \ = \ 1
+          \]
+
+
+          \newpage
+
+          
+        \item On en déduit que l'intégrale $\dint{-\infty}{+\infty}
+          f_Y(x) \, \log_2\big( f_Y(x) \big) \dx$ est convergente en tant que
+          combinaison linéaire d'intégrales convergentes.
+          \conc{Ainsi, la \var $Y$ admet une entropie différentielle.}
+          
+        \item De plus :
+          \[
+            \begin{array}{cl@{\qquad}>{\it}R{5cm}}
+              & h(Y)
+              \\[.2cm]
+              = & -\dint{-\infty}{+\infty} f_Y(x) \, \log_2 \big(
+                    f_Y(x) \big) \dx
+              \\[.4cm]
+              = & -\dint{-\infty}{+\infty} - \dfrac{1}{2} \ \log_2(2
+                    \pi) \, f_Y(x) - \dfrac{1}{2 \ln(2)} x^2 \, f_Y(x)
+                    \dx
+              & (d'après les calculs précédents)
+                \nl
+                \nl[-.2cm]
+              = & \dfrac{1}{2} \ \log_2 (2 \pi) \
+                    \dint{-\infty}{+\infty} f_Y(x) \dx + \dfrac{1}{2
+                    \ln(2)} \ \dint{-\infty}{+\infty} x^2 \, f_Y(x)
+                    \dx
+              & (par linéarité de l'intégrale, car les intégrales en
+                présence sont convergentes)
+                \nl
+                \nl[-.2cm]
+              = & \dfrac{1}{2} \ \log_2 (2 \pi) \times 1 + \dfrac{1}{2
+                  \ln(2)} \times 1
+              \\[.6cm]
+              = & \dfrac{1}{2} \left( \log_2(2 \pi) +
+                  \dfrac{1}{\ln(2)} \right)
+              \\[.6cm]
+              = & \dfrac{1}{2} \left( \log_2(2 \pi) +
+                  \dfrac{\ln(\ee)}{ \ln(2)} \right)
+              \\[.6cm]
+              = & \dfrac{1}{2} \big( \log_2(2 \pi) + \log_2(\ee) \big)
+            \end{array}
+          \]
+        \end{noliste}
+        \conc{D'après la question \itbf{1.a)}, on obtient : $h(Y) \ =
+          \ \dfrac{1}{2} \ \log_2(2 \pi \ee)$.}
+      \end{noliste}
+      \begin{remark}
+        On a en particulier démontré dans nos calculs l'égalité
+        suivante :
+        \[
+          \dfrac{1}{\ln(\ee)} \ = \ \log_2(\ee)
+        \]
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+    
+  \item On considère $Z$ une variable aléatoire de loi exponentielle
+    de paramètre $\lambda$ ($\lambda >0$). Justifier l'existence de
+    l'entropie différentielle $h(Z)$ et la déterminer.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item Une densité de $Z$ est :
+        \[
+          f_Z : x \mapsto \left\{
+            \begin{array}{cR{2.5cm}}
+              0 & si $x \in \ ]-\infty, 0[$
+                  \nl
+                  \nl[-.2cm]
+              \lambda \, \ee^{-\lambda \, x} & si $x \in [0,+\infty[$
+            \end{array}
+          \right.
+        \]
+        On en déduit que le support de $f_Z$ est l'intervalle $I = \
+        [0, + \infty[$.\\
+        Alors, la \var $Z$ admet une entropie différentielle si et
+        seulement si l'intégrale $\dint{0}{+\infty} f_Z(x) \,
+        \log_2 \big( f_Z(x) \big) \dx$ est convergente.
+        
+      \item Soit $x \in [0,+\infty[$.
+        \[
+          \begin{array}{rcl@{\qquad}>{\it}R{3cm}}
+            \log_2 \big( f_Z(x) \big)
+            & = & \log_2\left( \lambda \, \ee^{-
+                  \lambda \, x} \right)
+            \\[.6cm]
+            & = & \log_2\left(\lambda\right) +
+                  \log_2\left( \ee^{- \lambda \, x} \right)
+            & (d'après la question \itbf{1.a)})
+              \nl
+              \nl[-.2cm]
+            & = & \log_2(\lambda) + \dfrac{\ln \left( \ee^{-
+                  \lambda \, x} \right)}{\ln(2)}
+            \\[.6cm]
+            & = & \log_2(\lambda) +
+                  \dfrac{- \lambda \, x}{\ln(2)}
+            \\[.6cm]
+            & = & \log_2(\lambda)- \dfrac{\lambda}{\ln(2)} \ x
+          \end{array}
+        \]
+        Ainsi :
+        \[
+          \begin{array}{rcl}
+            f_Z(x) \, \log_2 \big( f_Z(x) \big)
+            & = & f_Y(x) \left( \log_2(\lambda)-
+                  \dfrac{\lambda}{\ln(2)} \ x \right) 
+            \\[.6cm]
+            & = & \log_2(\lambda) \ f_Z(x) -
+                  \dfrac{\lambda}{\ln(2)} \ x \, f_Z(x)
+          \end{array}
+        \]
+
+      \item Or,
+        \begin{noliste}{$\stimes$}
+        \item l'intégrale $\dint{0}{+\infty} f_Z(x) \dx$ est
+          convergente car $f_Z$ est une densité. De plus, comme $f_Z$
+          est nulle en dehors de $[0,+\infty[$ :
+          \[
+            \dint{0}{+\infty} f_Z(x) \dx \ = \
+            \dint{-\infty}{+\infty} f_Z(x) \dx \ = \  1
+          \]
+          
+        \item l'intégrale $\dint{0}{+\infty} x \, f_Z(x) \dx$
+          est convergente car la \var $Z$ admet une espérance. De
+          plus, toujours comme $f_Z$ est nulle en dehors de $[0,+\infty[$ :
+          \[
+            \dint{0}{+\infty} x \, f_Z(x) \dx \ = \ 
+            \dint{-\infty}{+\infty} x \, f_Z(x) \dx \ = \ \E(Z) \ = \
+            \dfrac{1}{\lambda}
+          \]
+        \end{noliste}
+          
+        \item On en déduit que l'intégrale $\dint{0}{+\infty}
+          f_Z(x) \, \log_2\big( f_Z(x) \big) \dx$ est convergente en tant que
+          combinaison linéaire d'intégrales convergentes.
+          \conc{Ainsi, la \var $Z$ admet une entropie différentielle.}
+
+          
+          \newpage
+          
+          
+        \item De plus :
+          \[
+            \begin{array}{cl@{\qquad}>{\it}R{5cm}}
+              & h(Z)
+              \\[.2cm]
+              = & -\dint{0}{+\infty} f_Z(x) \, \log_2\big( f_Z(x)
+                    \big) \dx
+              \\[.4cm]
+              = & - \dint{0}{+\infty} \log_2(\lambda) \ f_Z(x) -
+                  \dfrac{\lambda}{\ln(2)} \ x \, f_Z(x) \dx
+              & (d'après les calculs précédents)
+                \nl
+                \nl[-.2cm]
+              = & - \log_2(\lambda) \ \dint{0}{+\infty} f_Z(x) \dx +
+                    \dfrac{\lambda}{\ln(2)} \ \dint{0}{+\infty} x \,
+                    f_Z(x) \dx
+              & (par linéarité de l'intégrale, car les intégrales en
+                présence sont convergentes)
+                \nl
+                \nl[-.2cm]
+              = & - \log_2(\lambda) \times 1 + \dfrac{\bcancel{\lambda}}{\ln(2)}
+                  \times \dfrac{1}{\bcancel{\lambda}}
+              \\[.6cm]
+              = & - \log_2(\lambda) + \log_2(\ee)
+            \end{array}
+          \]
+          \conc{D'après la question \itbf{1.a)}, on obtient : $h(Z) \
+            = \ \log_2 \left( \dfrac{\ee}{\lambda} \right)$.}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+    
+  \item Soit $f$ la fonction définie sur $\R$ par $f(x) = \dfrac{1}{2}
+    \ \lambda \, \ee^{-\lambda \, |x|}$ ($\lambda >0$).
+    \begin{nonoliste}{(i)}
+    \item Montrer que $f$ est une densité de probabilité sur $\R$.
+    \end{nonoliste}
+  \end{noliste}
+  
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item La fonction $x \mapsto \ee^{-\lambda | x |}$ est continue
+      sur $\R$ car elle est la composée $\exp \circ g_3$ de :
+      \begin{noliste}{$\stimes$}
+      \item $g_3 : x \mapsto -\lambda | x|$ qui :
+        \begin{noliste}{-}
+        \item est continue sur $\R$ en tant que produit de fonctions
+          continues sur $\R$,
+          
+        \item vérifie : $g_3(\R) \subset \R$ (en fait on a même :
+          $g_3(\R) \subset \ ]-\infty, 0]$).
+        \end{noliste}
+        
+      \item $\exp$ qui est continue sur $\R$.
+      \end{noliste}
+      \conc{On en déduit que la fonction $f$ est continue sur $\R$.}
+
+      \begin{remarkL}{.95}
+        Afin de permettre une bonne compréhension de ce point, on a
+        rédigé ici en détails la continuiré de la
+        composée. Cependant, à ce stade du sujet, une phrase plus
+        succinte du type \og la
+        fonction $f$ est continue sur $\R$ en tant que composée et
+        produit de fonctions continues sur $\R$ \fg{} permettait sans
+        doute d'obtenir la totalité des points alloués à cette
+        question.
+      \end{remarkL}
+      
+    \item Soit $x \in \R$.\\
+      Comme $\lambda >0$ et $\ee^{-\lambda | x |} >0$, on obtient :
+      $f(x) >0$.
+      \conc{$\forall x \in \R$, $f(x) \geq 0$}
+
+
+      \newpage
+      
+      
+    \item Montrons que l'intégrale $\dint{-\infty}{+\infty} f(x) \dx$
+      converge et vaut $1$.
+      \begin{noliste}{$\stimes$}
+      \item Soit $A \in [0, +\infty[$.
+        \[
+          \begin{array}{rcl}
+            \dint{0}{A} f(x) \dx
+            & = & \dint{0}{A} \dfrac{1}{2} \ \lambda \, \ee^{- \lambda
+                  | x |} \dx
+            \\[.6cm]
+            & = & \dfrac{1}{2} \ \dint{0}{A} \lambda \, \ee^{- \lambda
+                  \, x} \dx
+            \\[.6cm]
+            & = & \dfrac{1}{2} \ \Prim{- \ee^{-\lambda x}}{0}{A}
+            \\[.6cm]
+            & = & \dfrac{1}{2} \left(-\ee^{-\lambda A} + 1\right)
+          \end{array}
+        \]
+        Or, comme $\lambda >0$ : $\dlim{A \to +\infty} \ee^{- \lambda
+          A} = 0$.
+        \conc{On en déduit que l'intégrale $\dint{0}{+\infty} f(x)
+          \dx$ est convergente et vaut $\dfrac{1}{2}$.}
+        
+      \item Soit $A \in \ ]-\infty, 0]$.
+        \[
+          \begin{array}{rcl}
+            \dint{A}{0} f(x) \dx
+            & = & \dint{A}{0} \dfrac{1}{2} \ \lambda \, \ee^{- \lambda
+                  | x |} \dx
+            \\[.6cm]
+            & = & \dfrac{1}{2} \ \dint{A}{0} \lambda \, \ee^{ \lambda
+                  \, x} \dx
+            \\[.6cm]
+            & = & \dfrac{1}{2} \ \Prim{\ee^{\lambda x}}{0}{A}
+            \\[.6cm]
+            & = & \dfrac{1}{2} \left(1 - \ee^{\lambda A}\right)
+          \end{array}
+        \]
+        Or, comme $\lambda >0$ : $\dlim{A \to -\infty} \ee^{\lambda
+          A} = 0$.
+        \conc{On en déduit que l'intégrale $\dint{-\infty}{0} f(x)
+          \dx$ est convergente et vaut $\dfrac{1}{2}$.}
+        \conc{Finalement, l'intégrale $\dint{-\infty}{+\infty} f(x)
+          \dx$ est convergente.}
+        
+      \item De plus :
+        \[
+          \dint{-\infty}{+\infty} f(x) \dx \ = \ \dint{-\infty}{0}
+          f(x) \dx + \dint{0}{+\infty} f(x) \dx \ = \ \dfrac{1}{2} +
+          \dfrac{1}{2} \ = \ 1
+        \]
+        \conc{$\dint{-\infty}{+\infty} f(x) \dx \ = \ 1$}
+      \end{noliste}
+      \conc{On en déduit que la fonction $f$ est une densité de probabilité.}
+    \end{noliste}
+    \begin{remark}
+      L'intégrale $\dint{-\infty}{+\infty} f(x) \dx$ est impropre en
+      ses deux bornes. On rappelle que pour démontrer que de telles
+      intégrales sont convergentes, on démontre :
+      \begin{noliste}{\scriptsize 1.}
+      \item que l'intégrale $\dint{c}{+\infty} f(x) \dx$ est convergente,
+        
+      \item que l'intégrale $\dint{-\infty}{c} f(x) \dx$ est convergente.
+      \end{noliste}
+      où $c$ est un réel fixé. Fréquemment, on choisit $c=0$, comme
+      c'est le cas pour cette question.
+    \end{remark}~\\[-1.4cm]
+  \end{proof}
+  
+  \begin{noliste}{(i)}
+    \setcounter{enumii}{1}
+  \item Soit $W$ une variable aléatoire de densité $f$. Justifier
+    l'existence de l'entropie différentielle $h(W)$ et la déterminer.
+  \end{noliste}
+  
+  \begin{proof}~
+    \begin{noliste}{$\sbullet$}
+    \item Par définition de $f$, son support est $]-\infty,
+      +\infty[$.\\
+      Ainsi, la \var $W$ admet une entropie différentielle si et
+      seulement si l'intégrale $\dint{-\infty}{+\infty} f(x) \, \log_2
+      \big( f(x) \big) \dx$ est convergente.
+      
+    \item Soit $x \in \R$.
+      \[
+        \begin{array}{rcl@{\qquad}>{\it}R{3cm}}
+          \log_2 \big( f(x) \big)
+          & = & \log_2\left( \dfrac{1}{2} \, \lambda \, \ee^{-
+                \lambda \, \vert x \vert} \right)
+          \\[.6cm]
+          & = & -\log_2(2) + \log_2\left(\lambda\right) +
+                \log_2\left( \ee^{- \lambda \, \vert x \vert} \right)
+          & (d'après la question \itbf{1.a)})
+            \nl
+            \nl[-.2cm]
+          & = & -1 + \log_2(\lambda) + \dfrac{\ln \left( \ee^{-
+                \lambda \, \vert x \vert} \right)}{\ln(2)}
+          & (car $\log_2(2^1) = 1$ d'après \itbf{1.b)})
+            \nl
+            \nl[-.2cm]
+          & = & -1+ \log_2(\lambda) +
+                \dfrac{- \lambda \, \vert x \vert}{\ln(2)}
+          \\[.6cm]
+          & = & -1+ \log_2(\lambda)- \dfrac{\lambda}{\ln(2)} \ \vert x \vert
+        \end{array}
+      \]
+      Ainsi :
+      \[
+        \begin{array}{rcl}
+          f(x) \, \log_2 \big( f(x) \big)
+          & = & f(x) \left( -1+ \log_2(\lambda)-
+                \dfrac{\lambda}{\ln(2)} \ \vert x \vert\right)
+          \\[.6cm]
+          & = & \big(-1 + \log_2(\lambda)\big) \, f(x) -
+                \dfrac{\lambda}{\ln(2)} \ \vert x \vert \, f(x)
+        \end{array}
+      \]
+      
+    \item Or l'intégrale $\dint{-\infty}{+\infty} f(x) \dx$ est
+      convergente car $f$ est une densité. De plus :
+      \[
+        \dint{-\infty}{+\infty} f(x) \dx \ = \ 1
+      \]
+        
+    \item Démontrons maintenant que l'intégrale
+      $\dint{-\infty}{+\infty} \vert x \vert \, f(x) \dx$ est convergente.
+      \begin{noliste}{$\stimes$}
+      \item La fonction $x \mapsto \vert x \vert \, f(x)$ est continue
+        sur $\R$ en tant que produit de fonctions continues sur $\R$.
+
+
+        \newpage
+
+        
+      \item Soit $A \in [0,+\infty[$.
+        \[
+          \begin{array}{rcl@{\qquad}>{\it}R{3cm}}
+            \dint{0}{A} \vert x \vert \, f(x) \dx
+            & = & \dfrac{1}{2} \ \dint{0}{A} x \ \lambda \, \ee^{-
+                  \lambda x} \dx
+            \\[.6cm]
+            & = & \dfrac{1}{2} \ \dint{0}{A} x \, f_Z(x) \dx
+            & (car $Z \suit \Exp{\lambda}$)
+          \end{array}
+        \]
+        Or la \var $Z$ admet une espérance. Ainsi, avec le même raisonnement
+        qu'en question \itbf{4.c)}, on en déduit que l'intégrale
+        $\dint{0}{+\infty} x \, f_Z(x) \dx$ est convergente et :
+        \[
+          \dint{0}{+\infty} x \, f_Z(x) \dx \ = \ \E(Z) \ = \
+          \dfrac{1}{\lambda}
+        \]
+        \conc{Finalement, l'intégrale $\dint{0}{+\infty} \vert x \vert
+          f(x) \dx$ est convergente et :\\
+          $\dint{0}{+\infty} \vert x \vert \, f(x) \dx \ = \
+          \dfrac{1}{2} \times \dfrac{1}{\lambda}$.}
+        
+      \item Soit $A \in \ ]-\infty, 0]$.
+        \[
+          \begin{array}{rcl}
+            \dint{A}{0} \vert x \vert \, f(x) \dx
+            & = & \dfrac{1}{2} \ \dint{A}{0} (-x) \, \lambda \ee^{-
+                  \lambda \, (-x)} \dx
+            \\[.6cm]
+            & = & - \dfrac{1}{2} \ \dint{A}{0} x \, \lambda
+                  \ee^{\lambda x} \dx
+          \end{array}
+        \]
+        Pour calculer l'intégrale $\dint{A}{0} x \, \lambda
+        \ee^{\lambda x} \dx$, on procède par intégration par parties (IPP).
+        \[
+          \renewcommand{\arraystretch}{2.2}
+          \begin{array}{|rcl@{\qquad}rcl}
+            u(x) & = & x & u'(x) & = & 1 \\
+            v'(x) & = & \lambda \ee^{\lambda x} & v(x) & = & \ee^{\lambda x}
+          \end{array}
+        \]
+        Cette IPP est valide car les fonctions $u$ et $v$ sont 
+        de classe $\Cont{1}$
+        sur $[A, 0]$. On obtient :
+        \[
+          \begin{array}{rcl}
+            \dint{A}{0} x \, \lambda \ee^{\lambda x} \dx
+            & = & \Prim{x \ \lambda \ee^{\lambda x}}{A}{0} -
+                  \dint{A}{0} \ee^{\lambda x} \dx
+            \\[.6cm]
+            & = & \left(0 -\lambda \, A \, \ee^{\lambda \, A}\right) -
+                  \Prim{ \dfrac{1}{\lambda} \, \ee^{\lambda x}}{A}{0}
+            \\[.6cm]
+            & = & - \lambda \, A \, \ee^{\lambda \, A}
+                  -\dfrac{1}{\lambda} \, (1-\ee^{\lambda \, A})
+            \\[.6cm]
+            & = & -\dfrac{1}{\lambda} + \dfrac{1}{\lambda} \
+                  \ee^{\lambda A} - \lambda \, A \, \ee^{\lambda \, A}
+          \end{array}
+        \]
+
+
+        \newpage
+
+        
+        \noindent
+        Or, comme $\lambda >0$ :
+        \begin{noliste}{-}
+        \item $\dlim{A \to - \infty} \ee^{\lambda \, A} \ = \ 0$,
+          
+        \item $\dlim{A \to - \infty} A \, \ee^{\lambda \, A} \ = \ 0$,
+          par croissances comparées.
+        \end{noliste}
+        On en déduit que l'intégrale $\dint{-\infty}{0} x \, \lambda
+        \ee^{\lambda x} \dx$ est convergente et vaut $-
+        \dfrac{1}{\lambda}$.
+        \conc{Ainsi, l'intégrale $\dint{-\infty}{0} \vert x \vert \,
+          f(x) \dx$ est convergente et :\\
+          $\dint{-\infty}{0} \vert x \vert \, f(x) \dx \ = \
+          -\dfrac{1}{2} \times \left(- \dfrac{1}{\lambda}\right) \ = \
+          \dfrac{1}{2} \ \dfrac{1}{\lambda}$.}
+      \end{noliste}
+      \conc{On en déduit que l'intégrale $\dint{-\infty}{+\infty}
+        \vert x \vert \, f(x) \dx$ est convergente.}
+      De plus :
+      \[
+        \dint{-\infty}{+\infty} \vert x \vert \, f(x) \dx \ = \
+        \dint{-\infty}{0} \vert x \vert \, f(x) \dx +
+        \dint{0}{+\infty} \vert x \vert \, f(x) \dx
+        \ = \ \dfrac{1}{2} \ \dfrac{1}{\lambda} + \dfrac{1}{2} \
+        \dfrac{1}{\lambda} \ = \ \dfrac{1}{\lambda}
+      \]
+      \conc{$\dint{-\infty}{+\infty} \vert x \vert \, f(x) \dx \ = \
+        \dfrac{1}{\lambda}$}
+      
+    \item On en déduit que l'intégrale $\dint{-\infty}{+\infty} f(x)
+      \, \log_2 \big( f(x) \big) \dx$ est convergente en tant que
+      combinaison linéaire d'intégrales convergentes.
+      \conc{Ainsi, la \var $W$ admet une entropie différentielle.}
+      
+    \item De plus :
+      \[
+        \begin{array}{cl@{\qquad}>{\it}R{5cm}}
+          & h(W)
+          \\[.2cm]
+          = & - \dint{-\infty}{+\infty} f(x) \, \log_2\big( f(x) \big)
+              \dx
+          \\[.4cm]
+          = & - \dint{-\infty}{+\infty} \big(-1+ \log_2(\lambda) \big)
+              \, f(x) - \dfrac{\lambda}{\ln(2)} \, f(x) \dx
+          & (d'après les calculs précédents)
+            \nl
+            \nl[-.2cm]
+          = & \big(1- \log_2(\lambda) \big) \ \dint{-\infty}{+\infty}
+              f(x) \dx - \dfrac{\lambda}{\ln(2)} \
+              \dint{-\infty}{+\infty} \vert x \vert \, f(x) \dx
+          & (par linéarité de l'intégrale, car les intégrales en
+            présence sont convergentes)
+            \nl
+            \nl[-.2cm]
+          = & \big(1- \log_2(\lambda)\big) \times 1 -
+              \dfrac{\bcancel{\lambda}}{ \ln(2)} \times
+              \dfrac{1}{\bcancel{\lambda}}
+          \\[.6cm]
+          = & 1 - \log_2(\lambda) + \log_2(\ee)
+        \end{array}
+      \]
+      \conc{D'après la question \itbf{1.a)}, on obtient : $h(W) = 1 +
+        \log_2 \left( \dfrac{\ee}{\lambda} \right)$.}~\\[-1.4cm]
+    \end{noliste}
+  \end{proof}
+  \begin{remark}
+    On dit que la \var $W$ suit la {\it loi de Laplace de paramètre
+      $(0,1)$}. L'étude de cette loi est classique aux concours. On
+    pourra par exemple regarder l'épreuve ESSEC I 2017 pour une
+    étude plus détaillée de cette loi.
+  \end{remark}
+  
+  
+\item On dit qu'un couple $(X,Y)$ de variables aléatoires est un
+  couple gaussien centré si, pour tout $(\alpha, \beta) \in \R^2$,
+  $\alpha \, X + \beta \, Y$ est une variable de loi normale centrée,
+  c'est-à-dire qu'il existe $\gamma \in \R$ et une variable aléatoire
+  $Z$ de loi normale centrée réduite tels que $\alpha \, X + \beta \,
+  Y$ a même loi que $\gamma \, Z$. On considère un tel couple $(X,Y)$
+  et on noté $\sigma^2$ la variance de $X$. On suppose : $\sigma^2
+  >0$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que $X$ suit une loi normale centrée.
+
+    \begin{proof}~\\
+      Comme $(X,Y)$ est un couple gaussien centré, alors {\bf pour tout}
+      $(\alpha, \beta) \in \R^2$, $\alpha \, X + \beta \, Y$ suit une
+      loi normale centrée. {\bf En particulier}, la \var $1 \cdot X + 0 \cdot
+      Y=X$ suit une loi normale centrée.\\
+      De plus, d'après l'énoncé : $\V(X) = \sigma^2$.
+      \conc{Finalement : $X \suit \Norm{0}{\sigma^2}$.}~\\[-1cm]
+    \end{proof}
+    
+  \item Calculer $h(X)$.
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item D'après la question précédente : $X \suit \Norm{0}{\sigma^2}$.
+        \conc{On en déduit que $X$ suit la même loi que la \var
+          $\sigma \, Z$, où : $Z \suit \Norm{0}{1}$.}
+
+        \begin{remark}
+          \begin{noliste}{$\sbullet$}
+          \item On rappelle qu'on a le résultat suivant :
+            \[
+              X \suit \Norm{m}{\sigma^2} \quad \Leftrightarrow \quad a
+              \, X + b \suit \Norm{am +b}{a^2 \, \sigma^2}
+            \]
+            
+          \item En particulier :
+            \[
+              Z \suit \Norm{0}{1} \quad \Leftrightarrow \quad \sigma
+              \, Z \suit \Norm{0}{\sigma^2}
+            \]
+          \end{noliste}
+        \end{remark}
+        
+      \item De plus, d'après la question \itbf{4.b)}, la \var $Z$
+        admet une entropie différentielle et :
+        \[
+          h(Z) \ = \ \dfrac{1}{2} \, \log_2(2 \pi \ee)
+        \]
+        
+      \item Enfin, d'après la question \itbf{3.b)(ii)} :
+        \begin{noliste}{$\stimes$}
+        \item la \var $X$ admet une entropie différentielle,
+          
+        \item on obtient de plus :
+          \[
+            h(X) \ = \ h(Z) + \log_2(\sigma) \ = \ \dfrac{1}{2} \,
+            \log(2 \pi \ee) + \dfrac{1}{2} \, \log_2(\sigma^2) \ = \
+            \dfrac{1}{2} \, \log_2(2 \pi \, \ee \, \sigma^2)
+          \]
+        \end{noliste}
+        \conc{$h(X) \ = \ \dfrac{1}{2} \, \log_2(2 \pi \, \ee \,
+          \sigma^2)$}~\\[-1.4cm]
+      \end{noliste}
+    \end{proof}
+    
+  \item On suppose désormais que $X$ et $Y$ suivent la même loi
+    normale centrée de variance $\sigma^2$ et on admet que les
+    propriétés de l'espérance des variables discrètes se généralisent
+    aux variables aléatoires quelconques.
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Montrer que $\E(XY)$ existe.
+
+      \begin{proof}~\\
+        Les \var $X$ et $Y$ suivent une loi normale.\\
+        Elles admettent donc chacune un moment d'ordre $2$.
+        \conc{On en déduit que la \var $XY$ admet
+          une espérance.}
+
+
+        \newpage
+        
+
+        \begin{remark}
+          \begin{noliste}{$\sbullet$}
+          \item On rappelle que, dans le cas général, la \var produit
+            $XY$ admet une espérance si les \var $X$ et $Y$ admettent
+            {\bf un moment d'ordre $2$}.
+            
+          \item On peut se demander d'où provient cette hypothèse liée
+            aux moments d'ordre $2$.\\
+            Elle est issue d'un théorème de domination. Détaillons ce
+            point.\\
+            Remarquons tout d'abord : $(X-Y)^2 \geq 0$.\\
+            On en déduit : $X^2 -2 \, XY + Y^2 \geq 0$.\\
+            Et, en réordonnant : $XY \leq \dfrac{1}{2} \ X^2 +
+            \dfrac{1}{2} \ Y^2$. Ou encore :
+            \[
+              0 \ \leq \ \vert XY \vert \ \leq \ \dfrac{1}{2} \ X^2 +
+              \dfrac{1}{2} \ Y^2
+            \]
+            Comme $X$ et $Y$ admettent un moment d'ordre $2$, la \var
+            $\frac{1}{2} \ X^2 + \frac{1}{2} \ Y^2$ admet une
+            espérance comme combinaison linéaire de \var qui en
+            admettent une.\\
+            Ainsi, par théorème de domination (présenté seulement dans
+            le programme ECS), la \var $|XY|$ admet une espérance. Il
+            en est de même de la \var $XY$.
+          \end{noliste}
+        \end{remark}~\\[-1.4cm]
+      \end{proof}
+      
+    \item Montrer de plus, pour tout réel $\lambda$ : $\lambda^2 \,
+      \E\left( Y^2 \right) + 2 \lambda \, \E(XY) + \E\left( X^2
+      \right) \ \geq \ 0$.
+      
+      \begin{proof}~\\
+        Soit $\lambda \in \R$.
+        \[
+          \begin{array}{rcl@{\qquad}>{\it}R{3cm}}
+            \lambda^2 \, \E(Y^2) + 2 \lambda \, \E(XY) + \E(X^2)
+            & = & \E\left( \lambda^2 \, Y^2 + 2 \lambda \, XY + X^2
+                  \right)
+            & (par linéarité de l'espérance)
+              \nl
+              \nl[-.2cm]
+            & = & \E\Big( (\lambda \, Y + X)^2 \Big)
+          \end{array}
+        \]
+        Or : $(\lambda \, Y + X)^2 \geq 0$.\\
+        Ainsi, par croissance de l'espérance : $\E \Big( (\lambda Y +
+        X)^2 \Big) \geq 0$.
+        \conc{On en déduit : $\lambda^2 \, \E(Y^2) + 2 \lambda \,
+          \E(XY) + \E(X^2) \geq 0$.}
+        \begin{remark}
+          On prêtera attention à la différence de nature des deux
+          inégalités citées plus haut : 
+          \begin{noliste}{$\stimes$}
+          \item l'inégalité $(\lambda \, Y + X)^2 = 0$ est une inégalité
+            entre {\bf variables aléatoires}. Ainsi, \og $0$ \fg{} est ici
+            la variable aléatoire constante égale à $0$.
+            
+          \item l'inégalité $\E\Big( (\lambda \, Y +X)^2 \Big) \geq 0$
+            est une inégalité entre {\bf réels}. Ainsi, \og $0$ \fg{}
+            ici tout simplement le réel $0$.
+          \end{noliste}
+        \end{remark}~\\[-1.4cm]
+      \end{proof}
+      
+    \item En déduire : $\big( \E(XY) \big)^2 \ \leq \ \E\left( X^2
+      \right) \, \E\left( Y^2 \right)$.
+
+      \begin{proof}~
+        \begin{noliste}{$\sbullet$}
+        \item La fonction $g$ définie par : 
+          \[
+            \forall \lambda \in \R, \quad P(\lambda) = \lambda^2 \,
+            \E(Y^2) + 2 \lambda \, \E(XY) + \E(X^2)
+          \]
+          est une fonction polynomiale de degré $2$ en $\lambda$.
+
+          
+          \newpage
+
+          
+        \item De plus, d'après la question précédente : $\forall
+          \lambda \in \R$, $g(\lambda) \geq 0$.\\
+          Cette fonction polynomiale étant de signe constant, on en
+          déduit que le  discriminant du polynôme associé est négatif.
+          Or :
+          \[
+             \Delta \ = \ \big(2 \, \E(XY)\big)^2 - 4 \, \E(Y^2) \,
+             \E(X^2) \ = \ 4 \, \Big(\big(\E(XY)\big)^2 - \E(Y^2) \, \E(X^2)\Big)
+          \]
+          On obtient donc :
+          \[
+            \Delta \leq 0 \quad \Leftrightarrow \quad
+            \big(\E(XY)\big)^2 \ \leq \  \E(Y^2) \, \E(X^2)
+          \]
+        \end{noliste}
+        \conc{Ainsi : $\big(\E(XY)\big)^2 \ \leq \ \E(Y^2) \, \E(X^2)$.}
+        \begin{remarkL}{.8}
+          On reconnaît ici exactement le principe de démonstration de l'inégalité
+          de Cauchy-Schwarz :
+          \[
+            \big(\cov(X,Y)\big)^2 \ \leq \ \V(X) \, \V(Y)
+          \]
+        \end{remarkL}~\\[-1.4cm]
+      \end{proof}
+      
+    \item On pose $\rho = \dfrac{\E(XY)}{\sigma^2}$. Montrer : $\rho
+      \in [-1,1]$.
+    \end{nonoliste}
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item D'après la question précédente :
+        \[
+          \begin{array}{rcl@{\qquad}>{\it}R{4cm}}
+            \big(\E(XY)\big)^2 \ \leq \ \E(Y^2) \, \E(X^2)
+            & \Leftrightarrow & \sqrt{\big(\E(XY)\big)^2} \ \leq \
+                                \sqrt{\E(Y^2) \, \E(X^2)}
+            & (par stricte croissance de $\sqrt{\cdot}$ sur
+              $[0,+\infty[$)
+              \nl
+              \nl[-.2cm]
+            & \Leftrightarrow & \left\vert \E(XY) \right\vert \ \leq \
+                                \sqrt{\E(Y^2)} \, \sqrt{\E(X^2)}
+          \end{array}
+        \]
+        
+      \item De plus, par fomule de Koenig-Huygens :
+        \[
+          \begin{array}{ccccc@{\qquad}>{\it}R{3cm}}
+            \V(X) & = & \E(X^2) & - & \big(\E(X)\big)^2
+            \\[.2cm]
+            \shortparallel & & & & \shortparallel
+            \\
+            \sigma^2 & & & & 0
+            & (car $X$ est une \var centrée)
+          \end{array}
+        \]
+        Ainsi : $\E(X^2) = \sigma^2$. De même : $\E(Y^2) = \sigma^2$.
+        
+      \item On en déduit :
+        \[
+          \begin{array}{rcl@{\qquad}>{\it}R{3cm}}
+            \left\vert \E(XY) \right\vert \ \leq \
+            \sqrt{\E(Y^2)} \, \sqrt{\E(X^2)}
+            & \Leftrightarrow & \left\vert \E(XY) \right\vert \ \leq \
+                                \sqrt{\sigma^2} \, \sqrt{\sigma^2}
+            \\[.2cm]
+            & \Leftrightarrow & \left\vert \E(XY) \right\vert \ \leq \
+                                \sigma^2
+            \\[.2cm]
+            & \Leftrightarrow & \dfrac{\left\vert \E(XY)
+                                \right\vert}{\sigma^2} \ \leq \ 1
+            \\[.6cm]
+            & \Leftrightarrow & \left\vert \dfrac{\E(XY)}{\sigma^2}
+                                \right\vert \ \leq \ 1
+            & (car $\sigma^2 \geq 0$)
+              \nl
+              \nl[-.2cm]
+            & \Leftrightarrow & | \rho | \ \leq \ 1
+          \end{array}
+        \]
+      \end{noliste}
+      \conc{Ainsi : $-1 \ \leq \ \rho \ \leq \ 1$.}
+
+
+      \newpage
+
+      
+        \begin{remark}
+          \begin{noliste}{$\sbullet$}
+          \item On reconnaît ici le {\it coefficient de corrélation linéaire} défini
+            par :
+            \[
+              \rho \ = \ \dfrac{\cov(X,Y)}{\sqrt{\V(X)} \, \sqrt{\V(Y)}}
+            \]
+            dans le cas où $X$ et $Y$ sont deux \var :
+            \begin{noliste}{$\stimes$}
+            \item centrées (dans ce cas, par formule de Koenig-Huygens
+              : $\Cov(X,Y) = \E(XY)$),
+              
+            \item de variance $\sigma^2$.
+            \end{noliste}
+            
+          \item Le programme d'ECE ne définit ce coefficient que pour des
+          \var discrètes. On peut cependant généraliser cette
+          définition au cas de \var quelconques. Cette question et la
+          suivante montrent que l'on conserve les grandes propriétés
+          du coefficient de corrélation linéaire défini en cours.
+          \end{noliste}
+        \end{remark}~\\[-1.4cm]
+      \end{proof}
+
+    \begin{nonoliste}{(i)}
+      \setcounter{enumiii}{4}
+    \item Que vaut $\rho$ si $X$ et $Y$ sont indépendantes ?
+    \end{nonoliste}
+
+    \begin{proof}~\\
+      Si les \var $X$ et $Y$ sont indépendantes, alors :
+      \[
+        \begin{array}{rcl@{\qquad}>{\it}R{3cm}}
+          \E(XY)
+          & = & \E(X) \, \E(Y)
+          \\[.2cm]
+          & = & 0
+          & (car $X$ et $Y$ sont des \var centrées)
+        \end{array}
+      \]
+      \conc{Ainsi, si les \var $X$ et $Y$ sont indépendantes, alors : $\rho \
+        = \ \dfrac{\E(XY)}{\sigma^2} \ = \ 0$.}
+      \begin{remark}
+        Remarquons bien qu'on démontre ici {\bf l'implication} :
+        \[
+          \text{$X$ et $Y$ indépendantes} \quad \Rightarrow \quad \rho =0
+        \]
+        Ce n'est en rien une équivalence.
+      \end{remark}~\\[-1.4cm]
+    \end{proof}
+    
+  \item On suppose $|\rho| <1$. On appelle {\bf entropie jointe} du
+    couple $(X,Y)$ le réel :
+    \[
+      h(X,Y) \ = \ \log_2\left(2 \pi \, \ee \, \sigma^2 \, \sqrt{1-
+          \rho^2} \right)
+    \]
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item À quelle condition $h(X,Y)$ est-elle nulle ?
+
+      \begin{proof}~\\
+        On a les équivalences suivantes :
+        \[
+          \begin{array}{rcl@{\qquad}>{\it}R{4cm}}
+            h(X,Y) = 0
+            & \Leftrightarrow & \log_2 \left( 2 \pi \, \ee \, \sigma^2
+                                \, \sqrt{1- \rho^2}\right) \ = \ 0
+            \\[.4cm]
+            & \Leftrightarrow & \dfrac{\ln\left( 2 \pi \, \ee \,
+                                \sigma^2 \, \sqrt{1- \rho^2}\right)}{
+                                \ln(2)} \ = \ 0
+            \\[.6cm]
+            & \Leftrightarrow & \ln\left( 2 \pi \, \ee \,
+                                \sigma^2 \, \sqrt{1- \rho^2}\right) \
+                                = \ 0
+            \\[.6cm]
+            & \Leftrightarrow & 2 \pi \, \ee \, \sigma^2 \, \sqrt{1-
+                                \rho^2} \ = \ 1
+            & (par bijectivité de la fonction $\exp$ sur $\R$)
+          \end{array}
+        \]
+
+
+        \newpage
+
+
+        \noindent
+        De plus :
+        \[
+          \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+            2 \pi \, \ee \, \sigma^2 \, \sqrt{1-
+            \rho^2} \ = \ 1
+            & \Leftrightarrow & \sqrt{1- \rho^2} \ = \ \dfrac{1}{2 \pi
+                                \ee \sigma^2}
+            \\[.6cm]
+            & \Leftrightarrow & 1- \rho^2 \ = \ \left( \dfrac{1}{2 \pi
+                                \ee \sigma^2} \right)^2
+            & (par bijectivité de la fonction $x \mapsto x^2$ sur
+              $[0,+\infty[$)
+              \nl
+              \nl[-.2cm]
+            & \Leftrightarrow & \rho^2 \ = \ 1 - \dfrac{1}{\big( 2 \pi
+                                \ee \sigma^2\big)^2}
+          \end{array}
+        \]
+        \conc{Finalement : $h(X,Y) = 0 \ \Leftrightarrow \ \rho \in
+          \left\{- \sqrt{1 - \dfrac{1}{\big( 2 \pi \ee
+                \sigma^2\big)^2}} \ , \ \sqrt{1 - \dfrac{1}{\big( 2 \pi
+                  \ee \sigma^2\big)^2}} \right\} $.}
+        \begin{remark}
+          Cette question est un peu vague :
+          \begin{noliste}{$\stimes$}
+          \item demande-t-on une condition
+            nécessaire ? suffisante ? nécessaire et suffisante ?
+            
+          \item demande-t-on une condition sur $\rho$ ou sur un autre
+            paramètre ?
+          \end{noliste}
+          Sans plus de précisions, on considèrera que les termes \og
+          nécessaire et suffisante \fg{} sont sous-entendus. On choisit
+          par ailleurs dans ce corrigé de considérer qu'on demande
+          bien une condition sur le paramètre $\rho$.
+        \end{remark}~\\[-1.4cm]
+      \end{proof}
+      
+    \item L'{\bf information mutuelle} de $X$ et $Y$ est définie par :
+      \[
+        I(X,Y) \ = \ h(X) + h(Y) - h(X,Y)
+      \]
+      Calculer $I(X,Y)$.
+
+      \begin{proof}~\\
+        On calcule :
+        \[
+          \begin{array}{rcl@{\qquad}>{\it}R{3cm}}
+            I(X,Y)
+            & = & h(X) + h(Y) - h(X,Y)
+            \\[.2cm]
+            & = & \dfrac{1}{2} \, \log_2(2 \pi \, \ee \, \sigma^2) +
+                  \dfrac{1}{2} \, \log_2(2 \pi \, \ee \, \sigma^2) -
+                  \log_2\left( 2 \pi \, \ee \, \sigma^2 \, \sqrt{1-
+                  \rho^2} \right)
+            & (d'après la question \itbf{5.b)})
+              \nl
+              \nl[-.2cm]
+            & = & \log_2(2 \pi \, \ee \, \sigma^2) - \log_2\left(2 \pi
+                  \, \ee \, \sigma^2 \, \sqrt{1- \rho^2}\right)
+            \\[.4cm]
+            & = & -\log_2\left( \dfrac{ \bcancel{2\pi \, \ee \, \sigma^2} \,
+                  \sqrt{1- \rho^2}}{\bcancel{2\pi \, \ee \,
+                  \sigma^2}} \right)
+            & (d'après la question \itbf{1.a)})
+              \nl
+              \nl[-.2cm]
+            & = & -\log_2\left(\sqrt{1- \rho^2}\right)
+          \end{array}
+        \]
+        \conc{Finalement : $I(X,Y) \ = \ -\dfrac{1}{2} \, \log_2(1-
+          \rho^2)$}~\\[-1cm]
+      \end{proof}
+
+
+      \newpage
+      
+      
+    \item Montrer : $I(X,Y) \geq 0$.
+
+      \begin{proof}~\\
+        On a la succession d'équivalences suivante :
+        \[
+          \begin{array}{rcl@{\qquad}>{\it}R{5cm}}
+            I(X,Y) \geq 0
+            & \Leftrightarrow & -\dfrac{1}{2} \, \log_2(1- \rho^2)
+                                \geq 0
+            & (d'après la question précédente)
+              \nl
+              \nl[-.2cm]
+            & \Leftrightarrow & \log_2(1- \rho^2) \leq 0
+            \\[.4cm]
+            & \Leftrightarrow & \dfrac{\ln(1- \rho^2)}{\ln(2)} \leq 0
+            \\[.6cm]
+            & \Leftrightarrow & \ln(1- \rho^2) \leq 0
+            & (car $\ln(2) >0$)
+              \nl
+              \nl[-.2cm]
+            & \Leftrightarrow & 1- \rho^2 \leq 1
+            & (par stricte croissance de la fonction $\exp$ sur $\R$)
+              \nl
+              \nl[-.2cm]
+            & \Leftrightarrow & 0 \leq \rho^2
+          \end{array}
+        \]
+        La dernière inégalité est vraie. Ainsi, par équivalence, la
+        première inégalité aussi.
+        \conc{Finalement : $I(X,Y) \geq 0$.}~\\[-1cm]
+      \end{proof}
+      
+    \item Quelle est la limite de $I(X,Y)$ quand $\rho$ tend vers $1$ ?
+    \end{nonoliste}
+
+    \begin{proof}~
+      \begin{noliste}{$\sbullet$}
+      \item D'après la question \itbf{5.d)(ii)} :
+        \[
+          I(X,Y) \ = \ -\dfrac{1}{2} \, \log_2(1- \rho^2) \ = \
+          -\dfrac{1}{2} \ \dfrac{\ln(1- \rho^2)}{\ln(2)}
+        \]
+        
+      \item Tout d'abord, comme $\dlim{\rho \to 1} 1- \rho^2 = 0$,
+        alors : $\dlim{\rho \to 1} \ln(1-\rho^2) \ = \ - \infty$.
+      \end{noliste}
+      \conc{Comme de plus $-\dfrac{1}{2 \, \ln(2)} <0$, on obtient :
+        $\dlim{\rho \to 1} I(X,Y) = + \infty$.}~\\[-1cm]
+    \end{proof}
+  \end{noliste}
+\end{noliste}
+
+
+\newpage
+
+
+\subsection*{Deuxième partie : Généralités sur l'entropie des
+  variables discrètes}
+
+\noindent
+Soit $A$ un ensemble fini non vide. On dit que $X$ est une variable
+aléatoire dont la loi est à support $A$, si $X$ est à valeurs dans $A$
+et si pour tout $x \in A$ : $\Prob(\Ev{X = x}) >0$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{5}
+\item Soit $X$ une variable aléatoire de loi à support $\{0,1,2,
+  \ldots, n\}$ où $n$ est un entier naturel. On appelle {\bf entropie}
+  de $X$ le réel :
+  \[
+    H(X) \ = \ - \Sum{k=0}{n} \Prob(\Ev{X = k}) \, \log_2\big(
+    \Prob(\Ev{X = k})\big)
+  \]
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item On définit la fonction $g : \{0, \ldots,n\} \to \R$ en posant
+    $g(k) = \log_2 \big( \Prob(\Ev{X = k}) \big)$ pour $k$ élément de
+    $\{0, 1, \ldots, n\}$. Montrer : $H(X) = - \E \big(g(X)\big)$.
+    
+  \item Montrer : $H(X) \geq 0$.
+    
+  \item Soit $p$ un réel tel que $0 < p < 1$.\\
+    On suppose dans cette
+    question que $X$ suit la loi de Bernoulli $\Bern{p}$.
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Calculer $H(X)$ en fonction de $p$. On note $\psi$ la
+      fonction qui, à $p$, associe $H(X)$.
+      
+    \item Montrer que $\psi$ est concave sur $]0,1[$.
+      
+    \item Déterminer la valeur $p_0$ où $\psi$ est maximale.
+    \end{nonoliste}
+    
+  \item On suppose dans cette question que la loi de $X$ est à support
+    $\{0,1,2,3\}$ avec les probabilités :
+    \[
+      \Prob(\Ev{X = 0}) = \dfrac{1}{2} \quad ; \quad \Prob(\Ev{X = 1})
+      = \dfrac{1}{4} \quad ; \quad \Prob(\Ev{X = 2}) = \Prob(\Ev{X =
+        3}) = \dfrac{1}{8}
+    \]
+    Calculer $H(X)$.
+  \end{noliste}
+  
+\item On souhaite écrire une fonction en \Scilab{} pour calculer
+  l'entropie d'une variable aléatoire $X$ dont le support de la loi
+  est de la forme $A = \{0,1, \ldots, n\}$ où $n$ est un entier
+  naturel. On suppose que le vecteur {\tt P} de \Scilab{} est tel que
+  pour tout $k$ de $A$, ${\tt P(k + 1)} = \Prob(\Ev{X =
+    k})$. Compléter la fonction ci-dessous d'argument {\tt P} qui
+  renvoie l'entropie de $X$, c'est-à-dire $-\Sum{k=0}{n} \Prob(\Ev{X =
+    k}) \, \log_2\big( \Prob(\Ev{X = k}) \big)$.
+  \begin{scilab}
+    & \tcFun{function} \tcVar{h} = \underline{Entropie}(\tcVar{P})
+    \nl %
+    & ... \nl %
+    & \tcFun{endfunction}
+  \end{scilab}
+  Si nécessaire, on pourra utiliser l'instruction {\tt length(P)} qui
+  donne le nombre d'éléments de {\tt P}.\\
+  On souhaite maintenant démontrer quelques inégalités concernant
+  l'entropie.
+  
+\item On commence par une inégalité générale, appelée {\bf Inégalité
+    de Jensen}.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Soit $N \geq 2$. Soit $X$ une variable aléatoire de loi à
+    support $\{x_1, x_2, \ldots, x_N\}$ où les $x_i$ sont des éléments
+    distincts de $\R_+$. On pose $\Prob(\Ev{X = x_i}) = p_i$.\\
+    Montrer que, pour tout $1 \leq i \leq N$, on a : $p_i <
+    1$.\\[.4cm]
+    On désire démontrer par récurrence la propriété suivante :
+    \[
+      \begin{array}{rc@{\qquad}>{\it}R{12cm}}
+        \PP{N} & : & {\bf Pour toute fonction $\varphi$ convexe sur
+                     $\R_+$, si $X$ est une variable aléatoire de loi
+                     à support $A \subset \R_+$ avec $\Card(A) = N$,
+                     on a : $\E\big(\varphi(X)\big) \geq \varphi\big(
+                     \E(X) \big)$}
+      \end{array}
+    \]
+    
+  \item Montrer que $\PP{2}$ est vraie.
+
+
+    \newpage
+
+
+  \item Soit $N \geq 3$. On suppose que $\PP{N-1}$ est vérifiée. Soit
+    $X$ une variable aléatoire de loi à support $A= \{x_1, x_2,
+    \ldots, x_N\}$ où les $x_i$ sont des éléments distincts de
+    $\R_+$. On pose : $\Prob(\Ev{X = x_i}) = p_i$.\\
+    Pour $i$ tel que $1 \leq i \leq N-1$, on pose : $p_i' =
+    \dfrac{p_i}{1 - p_N}$.
+    \begin{nonoliste}{(i)}
+      \setlength{\itemsep}{2mm}
+    \item Montrer : $\Sum{i=1}{N-1} p_i' = 1$ et $ \forall i \in \llb 1,
+      N-1 \rrb$, $0< p_i' <1$.
+      
+    \item Soit $Y$ une variable aléatoire de loi à support $\{x_1,
+      \ldots, x_{N-1}\}$ telle que $\Prob(\Ev{Y = x_i}) = p_i'$ pour
+      $1 \leq i \leq N-1$. Montrer : $\Sum{i=1}{N-1} p_i' \,
+      \varphi(x_i) \ \geq \ \varphi\left( \Sum{i=1}{N-1} p_i' \, x_i
+      \right)$.
+      
+    \item Montrer : $\E\big( \varphi(X) \big) \ \geq \ \varphi\big( \E(X)
+      \big)$.
+    \end{nonoliste}
+    
+  \item Montrer que, si $\varphi$ est {\it concave} sur $\R_+$, on a :
+    $\E\big( \varphi(X)\big) \ \leq \ \varphi\big( \E(X) \big)$.
+  \end{noliste}
+  
+\item Soit $X$ une variable aléatoire de loi à support $\{0,1, \ldots,
+  n\}$. On pose, pour $k$ tel que $0 \leq k \leq n$, $p_k =
+  \Prob(\Ev{X = k})$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer : $\Sum{k=0}{n} p_k \, \log_2\left( \dfrac{1}{(n+1) \,
+        p_k} \right) \ \leq \ \log_2\left( \Sum{k=0}{n}
+      \dfrac{p_k}{(n+1) \, p_k}\right) \ = \ 0$.
+    
+  \item Montrer : $\Sum{k=0}{n} p_k \, \log_2 \big( (n+1) \, p_k \big)
+    \ = \ \log_2(n+1) - H(X)$.
+    
+  \item Montrer : $H(X) \leq \log_2(n+1)$.
+    
+  \item On suppose que $X$ suit la loi uniforme sur $\{0,1, \ldots,
+    N\}$. Calculer $H(X)$.
+  \end{noliste}
+  
+\item Soient $X$ et $Y$ deux variables aléatoires {\it de même loi} à
+  support $\{0,1, \ldots, n\}$. On suppose en outre $X$ et $Y$
+  indépendantes.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer : $\Prob(\Ev{X = Y}) \ = \ \Sum{k=0}{n} \big(
+    \Prob(\Ev{X = k})\big)^2$.
+    
+  \item On pose $v(k) = \Prob(\Ev{X = k})$ pour tout $k$ élément de
+    $\{0,1, \ldots, n\}$. Montrer :
+    \[
+      2^{\E\left( \log_2\big(v(X)\big)\right)} \ \leq \ \E\left(
+      2^{\log_2 \big(v(X)\big)}\right) \ = \ \E\big(v(X)\big)
+    \]
+      
+  \item En déduire : $2^{-H(X)} \ \leq \ \Prob(\Ev{X = Y})$.
+    
+  \item Donner un exemple de loi où l'inégalité précédente est une
+    égalité.
+  \end{noliste}
+\end{noliste}
+
+
+\subsection*{Troisième partie : Entropie jointe et information
+  mutuelle de deux variables discrètes}
+
+\noindent
+Soient $X$ et $Y$ deux variables aléatoires de lois à support $\{0,1,
+\ldots, n\}$. On appelle {\bf entropie jointe} de $X$ et $Y$ le réel :
+\[
+  H(X,Y) \ = \ - \Sum{k=0}{n} \, \Sum{j=0}{n} \Prob(\Ev{X = k} \cap
+  \Ev{Y = j}) \, \log_2 \big( \Prob(\Ev{X = k} \cap \Ev{Y = j}) \big)
+\]
+avec la convention : $0 \times \log_2(0) = 0$.
+\begin{noliste}{1.}
+  \setlength{\itemsep}{4mm}
+  \setcounter{enumi}{10}
+\item
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item On définit la fonction $g : \{0,1, \ldots , n \}^2 \to \R \up
+    \{-\infty\}$ en posant pour $(k,j) \in \{0,1, \ldots, n\}^2$ :
+    \[
+      g(k,j) \ = \ \log_2 \big( \Prob(\Ev{X = k} \cap \Ev{Y = j})\big)
+    \]
+    Montrer : $H(X,Y) = -\E\big( g(X,Y) \big)$.
+    
+  \item Montrer : $H(X,Y) = H(Y,X)$.
+    
+  \item Pour tout $k$ tel que $0 \leq k \leq n$, on pose :
+    \[
+      H(Y \, | \, X = k) \ = \ -\Sum{j=0}{n} \Prob_{\Ev{X = k}} (\Ev{Y
+        = j}) \, \log_2 \left( \Prob_{\Ev{X = k}}(\Ev{Y = j}) \right)
+    \]
+    On appelle {\bf entropie conditionnelle} de $Y$ sachant $X$ le
+    réel :
+    \[
+      H(Y \, | \, X) \ = \ \Sum{k=0}{n} \Prob(\Ev{X = k}) \, H(Y \, |
+      \, X = k)
+    \]
+    Montrer : $H(X,Y) \ = \ H(X) + H(Y \, | \, X)$.
+    
+  \item Montrer que pour tout couple de variables aléatoires $X$ et
+    $Y$ de lois à support $\{0,1, \ldots ,n\}$, on a :
+    \[
+      H(X) - H(X \, | \, Y) \ = \ H(Y) - H(Y \, | \, X)
+    \]
+  \end{noliste}
+  
+\item On considère dans cette question deux variables aléatoires de
+  lois à support $\{0,1,2,3\}$. On suppose que la loi conjointe de
+  $(X,Y)$ est donnée par le tableau suivant :
+  \[
+    % \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|>{\centering\small}c||
+      *{4}{>{\centering\arraybackslash\small$}m{7mm}<{$}|
+      }}
+    % \hhline{~|*{3}{-}}
+      \hline
+      \diagbox[width=1.2cm, height=1.2cm]
+      {\scalebox{1}{$j$}}
+      {\scalebox{1}{$k$}}
+      & \cellcolor{gray!20} 0 & \cellcolor{gray!20} 1  
+      & \cellcolor{gray!20} 2 & \cellcolor{gray!20} 3 \\
+      \hline
+      \hline
+      \rule[18pt]{0pt}{0pt}
+      \cellcolor{gray!20} 0
+      \rule[-15pt]{0pt}{0pt} 
+      & \dfrac{1}{8} & \dfrac{1}{16} & \dfrac{1}{32} 
+      & \dfrac{1}{32} \\
+      \hline
+      \rule[18pt]{0pt}{0pt}
+      \cellcolor{gray!20} 1
+      \rule[-15pt]{0pt}{0pt} 
+      & \dfrac{1}{16} & \dfrac{1}{8} & \dfrac{1}{32}
+      & \dfrac{1}{32} \\
+      \hline
+      \rule[18pt]{0pt}{0pt}
+      \cellcolor{gray!20} 2
+      \rule[-15pt]{0pt}{0pt} 
+      & \dfrac{1}{16} & \dfrac{1}{16} & \dfrac{1}{16} 
+      & \dfrac{1}{16} \\
+      \hline
+      \rule[18pt]{0pt}{0pt}
+      \cellcolor{gray!20} 3
+      \rule[-15pt]{0pt}{0pt} 
+      & \dfrac{1}{4} & 0 & 0 & 0 \\
+      \hline
+    \end{tabular}
+  \]
+  (on lit dans la $\eme{k}$ colonne et la $\eme{j}$ ligne la valeur de
+  $\Prob(\Ev{X = k} \cap \Ev{Y = j})$)
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer la loi de $X$ et montrer : $H(X) = \dfrac{7}{4}$.
+    
+  \item Déterminer la loi de $Y$ et calculer $H(Y)$.
+    
+  \item Montrer : $H(X \, | \, Y) = \dfrac{11}{8}$.
+    
+  \item Que vaut $H(Y \, | \, X)$ ?
+    
+  \item Calculer $H(X,Y)$.
+  \end{noliste}
+  
+\item Soient $X$ et $Y$ deux variables aléatoires de lois à support
+  $\{0,1, \ldots, n\}$. On appelle {\bf information mutuelle} de $X$
+  et de $Y$ le réel :
+  \[
+    I(X,Y) \ = \ \Sum{k=0}{n} \, \Sum{j=0}{n} \Prob(\Ev{X = k} \cap
+    \Ev{Y = j}) \, \log_2 \left( \dfrac{\Prob(\Ev{X = k} \cap \Ev{Y =
+          j})}{\Prob(\Ev{X = k}) \, \Prob(\Ev{Y = j})} \right)
+  \]
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer : $I(X,Y) = I(Y,X)$.
+    
+  \item Montrer : $I(X,Y) = H(X) - H(X \, | \, Y)$.
+    
+  \item Montrer : $I(X,X) = H(X)$.
+    
+  \item Que vaut $I(X,Y)$ si $X$ et $Y$ sont indépendantes ?
+  \end{noliste}
+
+
+  \newpage
+  
+  
+\item Soient $X$ et $Y$ deux variables aléatoires de lois à support
+  $\{0,1, \ldots, n\}$. On fixe $0 \leq k \leq n$. Pour $0 \leq j \leq
+  n$, on pose : $p_j = \dfrac{\Prob(\Ev{X = k} \cap \Ev{Y = j})}{
+    \Prob(\Ev{X = k})}$. On suppose que $p_j >0$ pour tout $0 \leq j
+  \leq n$ et on pose : $x_j = \dfrac{\Prob(\Ev{X = k}) \, \Prob(\Ev{Y
+      = j})}{\Prob(\Ev{X = k} \cap \Ev{Y = j})}$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer : $\Sum{j=0}{n} p_j = 1$.
+    
+  \item Soit $Z_k$ une variable aléatoire de loi à support $\{x_0,
+    \ldots, x_n \}$ dont la loi est donnée par $\Prob(\Ev{Z_k = x_j})
+    =~p_j$ pour $0 \leq j \leq n$. Montrer :
+    \[
+      \E\big( \log_2(Z_k) \big) \ \leq \ 0
+    \]
+    
+  \item En déduire : $I(X,Y) \geq 0$.
+  \end{noliste}
+\end{noliste}
+\end{document}

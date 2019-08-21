@@ -1,0 +1,659 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+  lmargin=2cm,rmargin=2cm,tmargin=2.5cm,bmargin=2.5cm}
+
+\input{../../../macros.tex}
+
+% \renewcommand{\thesection}{\Roman{section}.\hspace{-.3cm}}
+% \renewcommand{\thesubsection}{\Alph{subsection}.\hspace{-.2cm}}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques \\} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+                                    % de largeur 0,4 point. Mettre 0pt
+                                    % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-1.6cm} HEC 2011} %
+\author{} %
+\date{} %
+\begin{document}
+\maketitle %
+\vspace{-1.2cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+%%DEBUT
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 3; %
+% annee : 2012; % 
+% theme : ; % 
+ 
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition d'une série convergente. Pour
+    quels réels $x >0$ la série de terme général $(\ln x)^n$ est-elle
+    convergente? Calculer alors sa somme.
+
+  \item Pour tout entier $n$ supérieur ou égal à 1, on note $f_n$ la
+    fonction définie sur l'intervalle $]0,+\infty[$, à valeurs
+    réelles, par : $f_n(x)= (\ln x)^n-x$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer les dérivées première et seconde $f_n^{'}$ et
+      $f_n^{''}$ de la fonction $f_n$.
+    \item Montrer que la fonction $f_1$ ne s'annule jamais.
+    \item Justifier l'existence d'un réel $a \in ]0,1[$ vérifiant
+      l'égalité : $f_2(a)=0$.
+    \end{noliste}
+  \item On suppose désormais que $n$ est un entier supérieur ou égal à
+    3, et on s'intéresse aux solutions de l'équation $f_n(x)=0$ sur
+    l'intervalle $]1,+\infty[$. On donne : $\ln 2 \simeq 0,693$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Dresser le tableau de variations de $f_n$ sur $]1,+\infty[$
+      et montrer que l'équation $f_n(x)=0$ admet deux racines, notées
+      $u_n$ et $v_n$, sur $]1,+\infty[$. ($u_n$ désigne la plus petite
+      des deux racines).
+    \item Calculer $\lim \limits_{n \to +\infty} v_n$.
+    \end{noliste}
+  \item Montrer que la suite $(u_n)_{n \geq 3} $ est convergente et
+    calculer sa limite.
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 3; %
+% annee : 2012; % 
+% theme : ; % 
+
+\begin{exerciceSP}~\\
+  Soit $p$ un réel de $]0,1[$ et $q=1-p$. Soit $(X_n)_{n \in \N^*}$
+  une suite de variables aléatoires indépendantes définies sur un
+  espace probabilisé $(\Omega, \A, \Prob)$, de même loi de
+  Bernoulli telle que : \\ 
+  $\forall k \in \N^*$, $\Prob([X_k=1])=p$ et
+  $\Prob([X_k=0])=q$. Pour $n$ entier de $\N^*$, on définit pour
+  tout $k \in \llb 1,n \rrb$ la variable aléatoire $Y_k=
+  X_{k}+X_{k+1}$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer pour tout $k \in \llb 1, n  \rrb$, $Cov(Y_k, Y_{k+1})$.
+    \item Montrer que $ 0 < Cov(Y_k, Y_{k+1}) \leq \frac{1}{4}$.
+    \end{noliste}
+  \item Calculer pour tout couple $(k,l)$ tel que $1 \leq k < l \leq
+    n$, $Cov(Y_k, Y_l)$.
+  \item On note $\varepsilon$ un réel strictement positif
+    fixé. Montrer que $\lim \limits_{n \to +\infty} \Prob \left(
+      \left[ \left| \frac{1}{n} \sum \limits_{k=1}^n Y_k-2p \right|>
+        \varepsilon\right] \right)=0$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 4; %
+% annee : 2012; % 
+% theme : ; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Formule des probabilités totales.
+  \item Pour tout couple $(n,p)$ d'entiers naturels, on pose :
+    $I_{n,p}= \dint{0}{1} x^n(1-x)^p dx$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer $I_{n,0}$.
+    \item Exprimer $I_{n, p+1}$ en fonction de $I_{n+1,p}$.
+    \item En déduire l'expression de $I_{n,p}$ en fonction de $n$ et
+      $p$.\\
+      On dispose de $N$ urnes ($N \geq 1$) notées $U_1$, $U_2$, ....,
+      $U_N$. Pour tout $k \in \llb 1, N \rrb$, l'urne $U_k$ contient
+      $k$ boules rouges et $N-k$ boules blanches.\\
+      On choisit au hasard une urne avec une probabilité
+      proportionnelle au nombre de boules rouges qu'elle contient;
+      dans l'urne ainsi choisie, on procède à une suite de tirages
+      d'une seule boule avec remise dans l'urne considérée.\\ 
+      on suppose que l'expérience précédente est modélisée par un
+      espace probabilisé $(\Omega, \A, \Prob)$.
+    \end{noliste}
+  \item Pour tout $k \in \llb 1 ,N \rrb$, calculer la probabilité de
+    choisir l'urne $U_k$.\\  
+    Soit $n$ un entier fixé de $\N^*$. On note $E_n$ et $R_{2n+1}$ les
+    évènements suivants : \\ 
+    $E_n=$"au cours des $2n$ premiers tirages, on a obtenu $n$ boules
+    rouges et $n$ boules blanches"; \\ 
+    $R_{2n+1}=$"on a obtenu une boule rouge au $2n+1$-ième tirage".\\
+  \item \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item exprimer $\Prob(E_n)$ sous forme d'une somme.
+    \item Donner une expression de la probabilité conditionnelle
+      $P_{E_n}(R_{2n+1})$.
+    \end{noliste}
+  \item Montrer que $\lim \limits_{ N \to + \infty} P_{E_n}(R_{2n+1})=
+    \frac{I_{n+2,n}}{I_{n+1,n}}= \frac{n+2}{2n+3}$.
+  \end{noliste}
+
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 4; %
+% annee : 2012; % 
+% theme : ; % 
+
+\begin{exerciceSP}~\\
+  On note $\mathcal{M}_2(\R)$ l'espace vectoriel des matrices carrées
+  réelles d'ordre 2.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Donner une base de $\mathcal{M}_2(\R)$ .
+  \item Peut-on trouver une base de $\mathcal{M}_2(\R)$ formée de
+    matrices inversibles?
+  \item Peut-on trouver une base de $\mathcal{M}_2(\R)$ formée de
+    matrices diagonalisables?
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 6; %
+% annee : 2012; % 
+% theme : ; % 
+
+\begin{exerciceAP}~\\
+  Soit $X$ une variable aléatoire définie sur un espace probabilisé
+  $(\Omega, \A, \Prob)$, à valeurs dans $[0, \theta]$ où
+  $\theta$ est un paramètre réel strictement positif inconnu. Une
+  densité $f$ de $X$ est donnée par $f(x)= \left\{\begin{array}{lr}
+      \frac{2x}{\theta^2} & \text{si } x \in ]0, \theta] \\ 0 &
+      \text{sinon}
+    \end{array} \right.$
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Estimateur sans biais; risque quadratique
+    d'un estimateur.
+  \item Calculer l'espérance et la variance de $X$.\\ 
+    Pour tout entier $n \in \N^*$, soit $(X_1,X_2,...,X_n)$ un
+    $n$-échantillon de variables aléatoires indépendantes et de même
+    loi que $X$. On pose pour tout $n \in \N^*$: $\overline{X_n}=
+    \frac{1}{n} \sum \limits_{i=1}^n X_i$. \\ 
+  \item \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer la fonction de répartition $F$ de $X$.
+    \item Tracer dans un repère orthogonal l'allure de la courbe
+      représentative de $F$.
+    \end{noliste}
+  \item \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer un estimateur $T_n$ de $\theta$, sans biais et de
+      la forme $c \overline{X_n}$, où $c$ est un réel que l'on
+      précisera.
+    \item Quels sont les risques quadratiques respectifs associés aux
+      estimateurs $\overline{X_n}$ et $T_n$ de $\theta$ ?
+    \end{noliste}
+  \item On pose pour tout $n \in \N^*$: $M_n=max(X_1, X_2, ..., X_n)$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer la fonction de répartition $G_n$ et une densité
+      $g_n$ de $M_n$.
+    \item Calculer l'espérance de $M_n$. En déduire un estimateur sans
+      biais $W_n$ de $\theta$. 
+    \item Entre $T_n$ et $W_n$, quel estimateur doit-on préférer pour
+      estimer $\theta$?  
+    \end{noliste}
+  \item Soit $\alpha$ un réel donné vérifiant $0 < \alpha < 1$. 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Établir l'existence de deux réels $a$ et $b$ tels que $0 < a
+      < 1$ et $0 < b < 1$, vérifiant $\Prob(M_n \leq a \theta)=
+      \frac{\alpha}{2}$ et $\Prob(b  \theta  \leq M_n \leq \theta)=
+      \frac{\alpha}{2}$. 
+    \item En déduire un intervalle de confiance pour le paramètre
+      $\theta$ au niveau de confiance $1-\alpha$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 6; %
+% annee : 2012; % 
+% theme : ; % 
+
+\begin{exerciceSP}~\\
+  Pour $n \in \N^*$, soit $A$ une matrice de $\mathcal{M}_n(\R)$
+  vérifiant : $A^3+A^2+A=0$. On note $I$ la matrice identité de
+  $\mathcal{M}_n(\R)$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item On suppose que $A$ est inversible. Déterminer $A^{-1}$ en
+    fonction de $A$ et $I$.
+  \item On suppose que $A$ est symétrique. Montrer que $A=0$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 7; %
+% annee : 2012; % 
+% theme : ; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition de l'indépendance de deux
+    variables aléatoires finies.\\ 
+    Une puce fait une suite de sauts de longueur 1 dans un plan muni
+    d'un repère orthonormé $(O, \vec{i}, \vec{j})$; chaque saut est
+    effectué au hasard et avec équiprobabilité dans l'une des quatre
+    directions portées par les axes $O \vec{i}$ et $O \vec{j}$.\\ 
+    Pour tout $n \in \N$, on note $M_n$ la position de la puce après
+    $n$ sauts et $X_n$ (resp $Y_n$) l'abscisse (resp. l'ordonnée) du
+    point $M_n$.\\ 
+    On suppose qu'à l'instant initial 0, la puce est à l'origine $O$
+    du repère; c'est-à-dire que $M_0=O$.\\ 
+    L'expérience est modélisée par un espace probabilisé $(\Omega, \A,
+    \Prob)$.
+  \item Pour tout $n \geq 1$, on pose $T_n= X_n- X_{n-1}$. On suppose
+    que les variables aléatoires $T_1, T_2, ..., T_n$ sont
+    indépendantes. 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer la loi de $T_n$. Calculer l'espérance $\E(T_n)$
+      et la variance $\V(T_n)$ de $T_n$.
+    \item Exprimer pour tout ,$n \in \N^*$, $X_n$ en fonction de
+      $T_1$, $T_2$, ..., $T_n$.
+    \item Que vaut $\E(X_n)$?
+    \item Calculer $\E(X_n^2)$ en fonction de $n$.
+    \end{noliste}
+  \item Pour tout $n \in \N$, on note $Z_n$ la variable aléatoire
+    égale à la distance $O M_n$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Les variables $X_n$ et $Y_n$ sont-elles indépendantes?
+    \item Établir l'inégalité : $\E(Z_n) \leq \sqrt{n}$.
+    \end{noliste}
+  \item Pour tout $n \in \N^*$, on note $p_n$ la probabilité que la
+    puce soit revenue à l'origine O après $n$ sauts.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Si $n$ est impair, que vaut $p_n$? 
+    \item On suppose que $n$ est pair et on pose : $n=2m$ ($m \in
+      \N^*$). On donne la formule : $\sum \limits_{k=0}^m \binom{m}{k}
+      ^2 = \binom{2m}{m}$.\\
+      Établir la relation : $p_{2m}= \binom{2m}{m}^2 \times
+      \frac{1}{4^{2m}}$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 7; %
+% annee : 2012; % 
+% theme : ; % 
+
+\begin{exerciceSP}~\\
+  On définit la suite $(v_n)_{n \in \N^*}$ par : $\forall n \in \N^*$,
+  $v_n= \Sum{k=n}{+\infty} \dfrac{1}{k^3}$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que la suite $(v_n)_{n \in \N^*}$ est convergente et
+    calculer sa limite.
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que pour tout entier $m \geq 1$, on a : $\sum
+      \limits_{k=n}^{n+m} \frac{1}{(k+1)^3} \leq
+      \dint{n}{n+m+1}\frac{dx}{x^3} \leq \sum \limits_{k=n}^{n+m}
+      \frac{1}{k^3} $.
+    \item En déduire un équivalent de $v_n$ lorsque $n$ tend vers $+\infty$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 8; %
+% annee : 2012; % 
+% theme : ; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition de deux matrices semblables.\\
+    Soit $E$ un espace vectoriel réel de dimension 3 muni d'une base
+    $\mathcal{B}=(i,j,k)$. Soit $f$ l'endomorphisme de $E$ défini par
+    $f(i)= i-j+k$, $f(j)=i+2j$ et $f(k)= j+k$.\\ 
+    On note Id l'application identité de $E$, $f^0=Id$ et pour tout $k
+    \in \N^*$, $f^k= f \circ f^{k-1}$.
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $(2 Id-f) \circ (f^2-2f+2Id)=0$ (endomorphisme
+      nul de $E$)
+    \item L'endomorphisme $f$ est-il un automorphisme? 
+    \item Déterminer les valeurs propres de $f$ ainsi que les
+      sous-espaces propres associés.
+    \item L'endomorphisme $f$ est-il diagonalisable ?  
+    \end{noliste}
+
+  \item Soit $P$ un sous-espace vectoriel de $E$ défini par $P=
+    \{(x,y,z) \in E | ax+by+cz=0 \text{ dans la base } \mathcal{B}\}$,
+    où $(a,b,c) \neq (0,0,0)$.\\
+    Soit $U$, $V$ et $W$ trois vecteurs de $E$ dont les composantes
+    dans la base $\mathcal{B}$ sont : $(-b,a,0)$ pour $U$, $(0,c,-b)$
+    pour $V$ et $(-c,0,a)$ pour $W$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que les sous-espace vectoriel engendré par $(U,V,W)$
+      est de dimension 2. 
+    \item En déduire tous les sous-espace vectoriels $P$ qui vérifient
+      $f(P) \subset P$. 
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 8; %
+% annee : 2012; % 
+% theme : ; % 
+
+\begin{exerciceSP}~\\
+  Soit $X$ une variable aléatoire qui suit la loi normale centrée
+  réduite, de fonction de répartition $\Phi$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Montrer pour tout réel $a >1$ et pour tout réel $x>0$,
+    l'encadrement suivant :
+    \[
+    0 \leq x(1 - \Phi(ax)) \leq \sqrt{\frac{2}{\pi}}e^{-ax^2/2}
+    \]
+  \item En déduire que $\lim \limits_{a \to +\infty} \dint{0}{+\infty}
+    x(1-\Phi(ax))dx=0$.
+  \end{noliste}
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 10; %
+% annee : 2012; % 
+% theme : ; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours: Convexité d'une fonction définie sur un
+    intervalle $\R$.
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Justifier que $\forall x \in \R$, l'intégrale $\dint{0}{x}
+      e^{t^2}dt$ est convergente. On pose : $f(x)= \dint{0}{x}
+      e^{t^2}dt= \dint{0}{x} \exp(t^2)dt$.
+    \item Montrer que $f$ est de classe $\mathcal{C}^2$ sur
+      $\R$. Étudier la parité et la convexité de $f$.
+    \item Étudier les variations de $f$ sur $\R$ et tracer l'allure de
+      la courbe représentative de $f$ dans un repère orthogonal du
+      plan.
+    \end{noliste}
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Établir pour tout $n \in \N^*$ l'existence d'un unique réel
+      $u_n$ vérifiant $f(u_n)= \frac{1}{n}$
+    \item Montrer que la suite $(u_n)_{n \in \N^*}$ est décroissante
+      et convergente.
+    \item Déterminer $\lim \limits_{n \to +\infty} u_n$.
+    \end{noliste}
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Établir pour tout $u \in [0, \ln 2]$, l'encadrement : $1+u
+      \leq e^u \leq 1+2u$.
+    \item En interprétant le résultat de la question 3.c), en déduire
+      qu'il existe un entier naturel $n_0$ tel que pour tout $n \geq
+      n_0$, on a : $\dint{0}{u_n} (1+t^2)dt \leq \frac{1}{n} \leq
+      \dint{0}{u_n} (1+2t^2)dt$.
+    \item Montrer que $\dlim{n \to +\infty} n u_n^3=0$ et en déduire
+      un équivalent de $u_n$ lorsque $n$ tend vers $+\infty$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 10; %
+% annee : 2012; % 
+% theme : ; % 
+
+\begin{exerciceSP}~\\
+  Soit $X$ une variable aléatoire définie sur un espace probabilisé
+  $(\Omega, \A, \Prob)$, suivant la loi géométrique de paramètre
+  $p \in ]0,1[$ (d'espérance $\frac{1}{p}$) et $Y$ une variable
+  aléatoire telle que :  
+  \[
+  Y= \left\{
+    \begin{array}{lr}
+      0 & \text{ si $X$ est impair} \\
+      \frac{X}{2} & \text{ si $X$ est pair} 
+    \end{array} 
+  \right.
+  \]
+  Déterminer la loi de $Y$, puis calculer l'espérance de $Y$.
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 11; %
+% annee : 2012; % 
+% theme : ; % 
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Loi d'un couple de variables aléatoires
+    discrètes; lois marginales et lois conditionnelles.\\ 
+    Soit $X$ et $Y$ deux variables aléatoires définies sur un espace
+    probabilisé $(\Omega, \A, \Prob)$.\\
+    Soit $p$ un réel de $]0,1[$. On pose : $q= 1-p$.\\
+    On suppose que :
+    \begin{itemize}
+    \item $X$ suit une loi de Poisson de paramètre $\lambda >0$;
+    \item $Y(\Omega)= \N$;
+    \item pour tout $n \in \N$, la loi conditionnelle de $Y$ sachant
+      $[X=n]$ est une loi binomiale de paramètres $n$ et $p$.
+    \end{itemize}
+  \item Déterminer la loi du couple $(X,Y)$.
+  \item Montrer que $Y$ suit une loi de Poisson de paramètre $\lambda p$.
+  \item Déterminer la loi de $X-Y$.
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Établir l'indépendance des variables aléatoires $Y$ et $X-Y$.
+    \item Calculer le coefficient de corrélation linéaire de $X$ et $Y$.\\ \\
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 11; %
+% annee : 2012; % 
+% theme : ; %
+
+\begin{exerciceSP}~\\
+  Soit $A$ une matrice de $\mathcal{M}_n(\R)$ diagonalisable $(n \geq
+  1)$. On suppose qu'il existe $k \in \N^*$ tel que
+  $A^k=I_n$. (matrice identité de $\mathcal{M}_n(\R)$).\\
+  Montrer que $A^2=I_n$.
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 21; %
+% annee : 2012; % 
+% theme : ; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours: Définition et propriétés des fonctions de
+    classe $\mathcal{C}^p$ ($p \in \N$).\\
+    Soit $\alpha$ un  réel non nul et soit $f_1$ et $f_2$ les
+    fonctions définies sur $\R$ par : $\forall x \in \R$, $f_1(x)=
+    e^{\alpha x}$ et $f_2(x)= x e^{\alpha x}$.\\ 
+    On note $E$ le sous-espace vectoriel des fonctions de $\R$ dans
+    $\R$ engendré par $f_1$ et $f_2$.\\ 
+    Soit $\Delta$ l'application qui, à toute fonction de $E$, associe
+    sa fonction dérivée.
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $(f_1,f_2)$ est une base de $E$.
+    \item Montrer que $\Delta$ est un endomorphisme de $E$. Donner la
+      matrice $A$ de $\Delta$ dans la base $(f_1, f_2)$.
+    \item L'endomorphisme $\Delta$ est-il bijectif? diagonalisable? 
+    \end{noliste}
+  \item Calculer $A^{-1}$. En déduire l'ensemble des primitives sur
+    $\R$ de la fonction $f$ définie par : $f(x)= (2x-3)e^{\alpha x}$.
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer pour tout $n\in \N$ la matrice $A^n$.
+    \item En déduire la dérivée $n$-ième $f^{(n)}$ de la fonction $f$
+      définie dans la question 3.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 21; %
+% annee : 2012; % 
+% theme : ; %
+
+\begin{exerciceSP}~\\
+  Soit $X$ une variable aléatoire définie sur un espace probabilisé
+  $(\Omega, \A, \Prob)$ qui suit une loi de Poisson de paramètre
+  $\lambda >0$. On pose : $Y=(-1)^X$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Déterminer $Y(\Omega)$. Calculer l'espérance $\E(Y)$ de $Y$.
+  \item Trouver la loi de $Y$.
+  \end{noliste} 
+\end{exerciceSP}
+
+
+\newpage
+
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 22; %
+% annee : 2012; % 
+% theme : ; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours: Critères de convergence d'une intégrale impropre.\\
+    Soit $f$ la fonction définie pour $x$ réel par : $f(x)=
+    \dint{0}{1} t^{-x} \sqrt{1+t}dt$.
+  \item Montrer que le domaine de définition de $f$ est $D= ]-\infty,
+    1[$.
+  \item Déterminer le sens de variation de $f$ sur $D$.
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Établir pour tout $x \in D$, l'encadrement : $ 0 \leq
+      \frac{1}{1-x} \leq f(x) \leq \frac{\sqrt{2}}{1-x}$.
+    \item En déduire $\lim \limits_{x \to -\infty} f(x)$ et $\lim
+      \limits_{ x \to 1^- } f(x)$.
+    \end{noliste}
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer $f(0)$.
+    \item Établir pour tout $x <0$, une relation entre $f(x)$ et $f(x+1)$.
+    \item En déduire un équivalent de $f(x)$ lorsque $x$ tend vers 1
+      par valeurs inférieures.
+    \end{noliste}
+  \item Tracer la courbe représentative de $f$ dans le plan rapporté à
+    un repère orthogonal.
+  \end{noliste}
+\end{exerciceAP}
+
+%%% EPR %%% HEC;
+% type : oralSP; % 
+% sujet : E 22; %
+% annee : 2012; % 
+% theme : ; %
+
+\begin{exerciceSP}~\\
+  Soit $n$ un entier supérieur ou égal à 1. On considère $n$ boules
+  numérotées de 1 à $n$ que l'on place au hasard dans $n$ urnes,
+  chaque urne pouvant recevoir de 0 à $n$ boules. 
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Calculer la probabilité $p_n$ que chaque urne reçoive
+    exactement 1 boule. 
+  \item Montrer que la suite $(p_n)_{n \in \N^*}$ est décroissante et
+    convergente. 
+  \item Déterminer la limite de la suite $(p_n)_{n \in \N^*}$.
+  \end{noliste}
+\end{exerciceSP}
+
+%%FIN
+
+\end{document}

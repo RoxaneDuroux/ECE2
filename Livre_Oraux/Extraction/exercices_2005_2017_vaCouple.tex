@@ -1,0 +1,268 @@
+\subsection*{Exercices oraux HEC 2014}
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 26; %
+% annee : 2014; %
+% theme : vaCouple, vaDiscrete, vaFctGeneratrice, vaCovariance,
+% denombrement, fct2var; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition de l'indépendance de deux
+    variables aléatoires discrètes. Lien entre indépendance et
+    covariance.\\
+    Soit $X$ et $Y$ deux variables aléatoires discrètes finies à
+    valeurs dans $\N$, définies sur un espace probabilisé
+    $(\Omega,\A,P)$. On suppose que $X(\Omega)\subset \llb0,n\rrb$ et
+    $Y(\Omega) \subset \llb 0, m \rrb$, où $n$ et $m$ sont deux
+    entiers de $\N^*$.\\
+    Pour tout couple $(i,j) \in \llb 0, n \rrb \times \llb 0, m \rrb$,
+    on pose : $p_{i,j} = \Prob(\Ev{X=i} \cap \Ev{Y=j})$.\\
+    Soit $F_X$ et $F_Y$ les deux fonctions de $\R$ dans $\R$ définies
+    par : $F_X(x)=\Sum{i=0}{n} \Prob(\Ev{X=i})x^i$ et \\
+    $F_Y(x)=\Sum{j=0}{m} \Prob(\Ev{Y=j})x^j$.\\
+    Soit $Z=(X,Y)$ et $G_Z$ la fonction de $\R^2$ dans $\R$ définie
+    par : $G_Z(x,y)=\Sum{i=0}{n}\Sum{j=0}{m} p_{i,j}x^iy^j$.
+
+  \item Donner la valeur de $G_Z(1,1)$ et exprimer les espérances de
+    $X$, $Y$ et $XY$, puis la covariance de $(X,Y)$ à l'aide des
+    dérivées partielles premières et secondes de $G_Z$ au point
+    $(1,1)$.
+
+  \item Soit $f$ une fonction polynomiale de deux variables définies
+    sur $\R^2$ par : $f(x,y) = \Sum{i=0}{n} \Sum{j=0}{m}
+    a_{i,j}x^iy^j$ avec $a_{i,j} \in \R$.\\
+    On suppose que pour tout couple $(x,y)\in\R^2$, on a $f(x,y)=0$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que pour tout $(i,j) \in \llb0, n \rrb \times \llb 0,
+    m \rrb$, on a $a_{i,j}=0$.
+    \item En déduire que $X$ et $Y$ sont indépendantes, si et
+      seulement si, pour tout $(x,y)\in\R^2$,\\
+      $G_Z(x,y)=F_X(x)F_Y(y)$. (on pourra poser : $a_{i,j}=p_{i,j} -
+      \Prob(\Ev{X=i})\Prob(\Ev{Y=j})$).
+    \end{noliste}
+
+  \item Une urne contient des jetons portant chacun une des lettres
+    $A$, $B$ ou $C$. La proportion des jetons portant la lettre $A$
+    est $p$, celle des jetons portant la lettre $B$ est $q$ et celle
+    des jetons portant la lettre $C$ est $r$, où $p$, $q$ et $r$ sont
+    trois réels strictement positifs vérifiant $p+q+r=1$.\\
+    Soit $n\in\N^*$. On effectue $n$ tirages d'un jeton avec remise
+    dans cette urne. On note $X$ (resp. $Y$) la variable aléatoire
+    égale au nombre de jetons tirés portant la lettre $A$ (resp. $B$)
+    à l'issue de ces $n$ tirages.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Quelles sont les lois de $X$ et $Y$ respectivement ?
+      Déterminer $F_X$ et $F_Y$.
+    \item Déterminer la loi de $Z$. En déduire $G_Z$.
+    \item Les variables aléatoires $X$ et $Y$ sont-elles indépendantes
+      ?
+    \item Calculer la covariance de $(X,Y)$. Le signe de cette
+      covariance était-il prévisible ?
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+
+%%% EPR %%% HEC;
+% type : oralAP; %
+% sujet : E 39; %
+% annee : 2014; %
+% theme : vaDiscrete, vaPoisson, vaCouple, vaCovariance, vaSomme, FPT; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : \\
+    Loi d'un couple de variables aléatoires discrètes. Lois
+    marginales. Lois conditionnelles.
+  \end{noliste}
+  Soit $c$ un réel strictement positif et soit $X$ et $Y$ deux
+  variables aléatoires à valeurs dans $\N$ définies sur un espace
+  probabilisé $(\Omega, \A, \Prob)$, telles que :
+  \[
+  \forall (i,j)\in\N^2, \ \Prob(\Ev{X=i}\cap\Ev{Y=j}) =
+  c\dfrac{i+j}{i!j!}
+  \]
+  \begin{noliste}{1.}
+    \setcounter{enumi}{1}
+  \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+  \item Montrer que pour tout $i\in\N$, on a : $\Prob(\Ev{X=i}) = c
+    \dfrac{(i+1)}{i!} \ \ee$. \\
+    En déduire la valeur de $c$.
+    \item Montrer que $X$ admet une espérance et une variance et les
+      calculer.
+    \item Les variables aléatoires $X$ et $Y$ sont-elles indépendantes
+      ?
+    \end{noliste}
+  \item
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Déterminer la loi de $X+Y-1$.
+    \item En déduire la variance de $X+Y$.
+    \item Calculer la covariance de $X$ et de $X+5Y$.\\
+      Les variables aléatoires $X$ et $X+5Y$ sont-elles indépendantes
+      ?
+    \end{noliste}
+
+  \item On pose : $Z=\dfrac{1}{X+1}$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Montrer que $Z$ admet une espérance et la calculer.
+    \item Déterminer pour $i\in\N$, la loi conditionnelle de $Y$
+      sachant $\Ev{X=i}$.
+    \item Pour $A\in\A$, on pose : $g_A(Y)=\Sum{k=0}{+\infty} k
+      P_A(\Ev{Y=k})$.\\
+      Établir l'existence d'une fonction affine $f$ telle que, pour
+      tout $\omega\in\Omega$, on a : 
+      \[
+      g_{\Ev{X=X(\omega)}}(Y) = f(Z(\omega))
+      \]
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+
+\subsection*{Exercices oraux HEC 2016}
+
+%%% EPR %%% HEC;
+% type : oralAP; % 
+% sujet : E 85; %
+% annee : 2016; % 
+% theme : vaCouple, vaCovariance, vaDiscrete, vaMoments; % 
+
+\begin{exerciceAP}~\\
+Toutes les variables aléatoires qui interviennent dans l'exercice sont 
+supposées définies sur le même espace probabilisé 
+$(\Omega,\A,\Prob)$.
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Définition et propriétés de la covariance 
+  de deux variables aléatoires discrètes.\\
+  Soit $p$, $q$ et $r$ des réels fixés de l'intervalle $]0,1[$ tels que 
+  $p+q+r=1$. \\
+  Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires à 
+  valeurs dans $\{-1,0,1\}$, indépendantes et de même loi donnée par :
+  \[
+    \forall n \in\N^*, \ \Prob(\Ev{X_n=1})=p, \ \Prob(\Ev{X_n=-1})=q, \ 
+    \Prob(\Ev{X_n=0})=r.
+  \]
+  On pose pour tout entier $n\geq 1$ : $Y_n=\Prod{k=1}{n} X_k$.
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Pour tout entier $n\geq 1$, préciser $Y_n(\Omega)$ et 
+    calculer $\Prob(\Ev{Y_n=0})$.
+    
+    \item Pour tout entier $n\geq 1$, calculer $\E(X_n)$ et $\E(Y_n)$.
+  \end{noliste}
+  
+  \item On pose pour tout entier $n\geq 1$, on a : 
+  $p_n=\Prob(\Ev{Y_n=1})$.
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Calculer $p_1$ et $p_2$.
+    
+    \item Établir une relation de récurrence entre $p_{n+1}$ et 
+    $p_n$.
+    
+    \item En déduire que pour tout entier $n\geq 1$, on a : 
+    $p_n=\dfrac{(p+q)^n +(p-q)^n}{2}$.
+    
+    \item Pouvait-on à l'aide de la question $2$, trouver 
+    directement la loi de $Y_n$ ?
+  \end{noliste}
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item Établir l'inégalité : $(p+q)^n > (p-q)^{2n}$. Calculer 
+    $\V(Y_n)$.
+    
+    \item Calculer la covariance $\cov(Y_n,Y_{n+1})$ des deux 
+    variables aléatoires $Y_n$ et $Y_{n+1}$.
+  \end{noliste}
+\end{noliste}
+\end{exerciceAP} 
+
+
+\subsection*{Exercices oraux HEC 2017}
+
+%%% EPR %%% HEC;
+% type : oralAP;
+% sujet : E 81;
+% annee : 2017;
+% theme : vaDiscrete, vaGeometrique, sciSimuVaDiscrete, denombrement,
+% vaCouple; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Question de cours
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Définition et propriétés de la loi géométrique.
+      
+      \item Compléter la ligne de code \Scilab{} contenant des points
+      d'interrogation pour que la fonction {\tt geo} suivante 
+      fournisse une simulation de la loi géométrique dont le 
+      paramètre est égal à l'argument $p$ de la fonction.
+      \begin{scilab}
+        & \tcFun{function} \tcVar{x} = geo(\tcVar{p}) \nl %
+        & \qquad \tcVar{x} = 1; \nl %
+        & \qquad \tcFor{while} rand() ??? \nl %
+        & \qquad \qquad \tcVar{x} = \tcVar{x} + 1; \nl %
+        & \qquad \tcFor{end}; \nl %
+        & \tcFun{endfunction}
+      \end{scilab}~
+    \end{noliste}
+   \end{noliste}
+    Une urne contient trois jetons numérotés $1$, $2$ et $3$. On 
+    effectue dans cette urne, une suite de tirages d'un jeton avec 
+    remise.
+    \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+      \setcounter{enumi}{1}
+      \item On note $Y$ la variable aléatoire égale au nombre de 
+      tirages nécessaires pour obtenir, pour la première fois, deux
+      numéros successifs distincts.
+      \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+	\item Reconnaître la loi de la variable aléatoire $Y-1$.
+	
+	\item Déterminer l'espérance $\E(Y)$ et la variance $\V(Y)$
+	de la variable aléatoire $Y$.
+      \end{noliste}
+      
+      \item On note $Z$ la variable aléatoire égale au nombre de 
+      tirages nécessaires pour obtenir, pour la première fois, les 
+      trois numéros.
+      \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+	\item Soit deux entiers $k \geq 2$ et $\ell \geq 3$.\\
+	Calculer $\Prob(\Ev{Y=k} \cap \Ev{Z=\ell})$ selon les 
+	valeurs de $k$ et $\ell$.
+	
+	\item En déduire que, pour tout entier $\ell \geq 3$, on a :
+	$\Prob(\Ev{Z = \ell}) = \dfrac{2}{3} \, \left( 
+	\dfrac{2^{\ell-2} -1}{3^{\ell -2}}\right)$.
+	
+	\item Calculer $\E(Z)$.
+      \end{noliste}
+      
+      \item D'une manière plus générale, calculer l'espérance de la 
+      variable aléatoire égale au nombre de tirages nécessaires 
+      pour obtenir, pour la première fois, tous les numéros, dans 
+      l'hypothèse où l'urne contient au départ $n$ jetons, numérotés
+      de $1$ à $n$.
+    \end{noliste}
+\end{exerciceAP} 
+
+

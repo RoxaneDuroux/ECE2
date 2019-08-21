@@ -1,0 +1,487 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} EDHEC 2002} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+\renewcommand{\leq}{\leq}
+\renewcommand{\geq}{\geq }
+
+\newcommand{\dlim}{\lim}
+\newcommand{\dsum}{\sum}
+\newcommand{\dprod}{\prod}
+
+
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Edhec 2002}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{center}
+{\Huge EDHEC}
+
+\textbf{School of management\vspace{3cm}}
+
+{\large ECOLE DE HAUTES ETUDES COMMERCIALES DU NORD}
+
+{\large Concours d'admission sur classes préparatoires}
+
+\underline{\hspace{3cm}}
+
+{\LARGE MATHEMATIQUES}
+
+{\large Option économique}
+
+\textbf{Année 2002}
+\end{center}
+
+\noindent \textsl{La présentation, la lisibilité, l'orthographe, la
+qualité
+de la rédaction, la clarté et la précision des raisonnements entreront
+pour
+une part importante dans l'appréciation des copies.}
+
+\noindent \textsl{Les candidats sont invités à encadrer dans la mesure
+du
+possible les résultats de leurs calculs.}
+
+\noindent \textsl{Ils ne doivent faire usage d'aucun document : seule
+l'utilisation d'une règle graduée est autorisée.\vspace{1cm}}
+
+\noindent \textbf{L'utilisation de toute calculatrice et de tout
+matériel électronique est interdite.}\vspace{1cm}
+
+\section*{Exercice 1}
+
+Pour tout réel $x,$ on note $[x]$ la partie entière de $x,$
+c'est-à-dire
+l'unique nombre entier vérifiant $ :[x]\leq x<[x] + 1.$\\
+Soit $X$ une variable aléatoire suivant la loi exponentielle de
+paramètre $
+\lambda $ $(\lambda >0).$\\
+On pose $Y = [X],$ $Y$ est donc la partie entière de $X$ et on a $
+:\forall
+k\in \Z,\quad (Y = k)\Leftrightarrow (k\leq X<k + 1).$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $Y$ prend des valeurs dans $\N.$
+
+\item Pour tout $k$ de $\N^{\times },$ calculer $P\left(\Ev{Y =
+k-1}\right).$
+
+\item En déduire que la variable aléatoire $Y + 1$ suit une loi
+géométrique
+dont on déterminera le paramètre.
+
+\item Donner l'espérance et la variance de $Y + 1.$ En déduire
+l'espérance et
+la variance de $Y.$
+\end{noliste}
+
+\item On pose $Z = X-Y.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Déterminer $Z(\Omega ).$
+
+\item En utilisant le système complet d'événements $(Y = k)_{k\in \N},$
+montrer que :
+\[
+\forall x\in \lbrack 0;1[,\quad P\left(\Ev{Z\leq x}\right) =
+\dfrac{1-e^{- \lambda x}}{1-e^{- \lambda }}.
+\]
+
+\item En déduire une densité $f$ de $Z.$
+
+\item Déterminer l'espérance $\E(Z)$ de $Z.$ Ce résultat était-il
+prévisible ?
+\vspace{1cm}
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 2}
+
+On désigne par $n$ un entier naturel non nul.\\
+On lance $n$ fois une pièce de monnaie donnant "\textsl{pile}" avec la
+probabilité $p$ (avec $0<p<1)$ et "\textsl{face}" avec la probabilité
+$q = 1-p.
+$ On appelle $k$-chaine une suite de $k$ lancers consécutifs ayant tous
+donné
+"\textsl{pile}", cette suite devant être suivie d'un "\textsl{face}" ou
+être
+la dernière suite du tirage.\\
+Pour tout $k$ de $\{1,..,n\},$ on note $Y_{k}$ la variable aléatoire
+égale
+au nombre total de $k$-chaines de "\textsl{pile}" obtenues au cours de
+ces $n
+$ lancers.\\
+Pour tout $k$ de $\{1,..,n\},$ on pourra noter $P_{k}$ l'évènement "on
+obtient "\textsl{pile}" au $k^{\grave{e}me}$ lancer"\\
+Par exemple, avec $n = 11,$ si l'on a obtenu les résultats $
+P_{1}P_{2}F_{3}F_{4}P_{5}P_{6}P_{7}F_{8}P_{9}F_{10}P_{11}$ alors $Y_{1}
+= 2,$ $
+Y_{2} = 1$ et $Y_{3} = 1.$\\
+Le but de cet exercice est de déterminer, pour tout $k$ de
+$\{1,..,n\},$
+l'espérance de $Y_{k},$ noté $\E(Y_{k}).$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Déterminer la loi de $Y_{n}$ et donner $\E(Y_{n}).$
+
+\item Montrer que $P\left(\Ev{Y_{n-1} = 1}\right) = 2qp^{n-1}$ et
+donner $\E(Y_{n-1}).$
+
+\item Dans cette question, $k$ désigne un élément de $\{1,..,n-2\}.$\\
+Pour tout $i$ de $\{1,..,n\},$ on note $X_{i,k}$ la variable aléatoire
+qui
+vaut $1$ si une $k$-chaine de "\textsl{pile}" commence au
+$i^{\grave{e}me}$
+lancer et qui vaut $0$ sinon.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Calculer $P\left(\Ev{X_{1,k} = 1}\right).$
+
+\item Soit $i\in \{2,..,n-k\}.$ Montrer que $P\left(\Ev{X_{i,k} =
+1}\right) = q^{2}p^{k}.$
+
+\item Montrer que $P\left(\Ev{X_{n-k + 1,k} = 1}\right) = qp^{k}.$
+
+\item Exprimer $Y_{k}$ en fonction des variables $X_{i,k}$ puis
+déterminer $\E(Y_{k}).$\vspace{1cm}
+\end{noliste}
+\end{noliste}
+
+\section*{Exercice 3}
+
+On note $f$ la fonction définie sur $\R_{+}$ par $ :\left\{ 
+\begin{array}{ll}
+f(x) = \dfrac{-x\ln x}{1 + x^{2}} & \forall x>0, \\
+f(0) = 0. & 
+\end{array}
+\right. $
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Vérifier que $f$ est continue sur $\R_{+}.$
+
+\item Étudier le signe de $f(x).$
+\end{noliste}
+
+\item Montrer que l'on définit bien une fonction $F$ sur $\R_{+}$ en
+posant :
+\[
+\forall x\in \R_{+},\quad F(x) = \dint{0}{x}f(t)dt.
+\]
+
+\item Pour tout $x$ de $\R_{+},$ on pose $g(x) = F(x)-x.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $g$ est dérivable sur $\R_{+}$ et que, pour $x>0,$
+on peut écrire $g^{\prime }(x)$ sous la forme $g^{\prime }(x) =
+\dfrac{-xh(x)}{1 + x^{2}}.$
+
+\item Étudier les variations de $h,$ puis en déduire son signe (on
+donne $\ln \dfrac{\sqrt{5}-1}{2}\simeq -0,48).$
+
+\item En déduire le signe de $g(x).$
+\end{noliste}
+
+\item On définit la suite $(u_{n})$ par la donnée de son premier terme
+$u_{0} = 1$ et la relation de récurrence, valable pour tout $n$ de $\N$
+: $u_{n + 1} = F(u_{n}).$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Établir par récurrence que $ :\forall n\in \N,\quad u_{n}\in
+\lbrack 0;1].$
+
+\item Montrer, en utilisant le résultat de la troisième question, que
+$(u_{n})$ est décroissante.
+
+\item En déduire que la suite $(u_{n})$ converge et donner
+$\underset{n\rightarrow + \infty }{\lim }u_{n}.$
+\end{noliste}
+\end{noliste}
+
+\section*{Problème}
+
+\subsection*{Partie 1 : Étude d'un ensemble de matrices.}
+
+On considère les matrices suivantes de $\mathfrak{M}_{4}(\R) :$
+\[
+I = 
+\begin{smatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{smatrix}
+\quad ;\quad J = 
+\begin{smatrix}
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0
+\end{smatrix}
+\quad ;\quad K = 
+\begin{smatrix}
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0
+\end{smatrix}
+\quad ;\quad L = 
+\begin{smatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0
+\end{smatrix}.
+\]
+On note $E$ l'ensemble des matrices $M$ s'écrivant $M = aI + bJ + cK +
+dL,$ où $a,b,c
+$ et $d$ décrivent $\R.$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $E$ est un espace vectoriel.
+
+\item Montrer que la famille $(I,J,K,L)$ est libre.
+
+\item Donner la dimension de $E.$
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer, en les calculant explicitement que
+$J^{2},K^{2},L^{2},J^{3}$
+et $K^{3}$ appartiennent à $E.$
+
+\item En déduire, sans aucun calcul matriciel, que $JK,KJ,KL,LK,JL$ et
+$LJ$
+appartiennent aussi à $E.$
+
+\item Établir enfin que le produit de deux matrices de $E$ est encore
+une
+matrice de $E.$
+\end{noliste}
+
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $L$ est diagonalisable.
+
+\item Déterminer les valeurs propres de $L$ ainsi que les sous-espaces
+propres associés à ces valeurs propres.
+\end{noliste}
+
+\item On considère les vecteurs : $u_{1} = 
+\begin{smatrix}
+1 \\
+1 \\
+1 \\
+1
+\end{smatrix}
+$ $;$ $u_{2} = 
+\begin{smatrix}
+1 \\
+-1 \\
+1 \\
+-1
+\end{smatrix}
+$ $;$ $u_{3} = 
+\begin{smatrix}
+1 \\
+1 \\
+-1 \\
+-1
+\end{smatrix}
+$ $;$ $u_{4} = 
+\begin{smatrix}
+1 \\
+-1 \\
+-1 \\
+1
+\end{smatrix}.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer que $(u_{1},u_{2},u_{3},u_{4})$ est une base de
+$\mathfrak{M}_{4,1}(\R).$
+
+\item Vérifier que $u_{1},u_{2},u_{3},u_{4}$ sont des vecteurs propres
+de $L$ et de $J + K.${\Large }
+\end{noliste}
+\end{noliste}
+
+\subsection*{Partie 2 : Étude d'un mouvement aléatoire.}
+
+Dans cette partie, $p$ désigne un réel de $]0;1[.$\\
+Les sommets d'un carré sont numérotés $1,2,3$ et $4$ de telle façon que
+les
+cotés du carré relient le sommet $1$ au sommet $2,$ le sommet $2$ au
+sommet $
+3,$ le sommet $3$ au sommet $4,$ le sommet $4$ au sommet $1,$ les
+diagonales
+reliant elles le sommet $1$ au sommet $3$ ainsi que le sommet $2$ au
+sommet $
+4.$\\
+Un pion se déplace sur les sommets de ce carré selon le protocole
+suivant :
+
+\begin{noliste}{$\sbullet$}
+\item Le pion est sur le sommet $1$ au départ.
+
+\item Lorsque le pion est à un instant donné sur un sommet du carré, il
+se déplace à l'instant suivant vers un sommet voisin (relié par un
+coté) avec la
+probabilité $p$ ou vers un sommet opposé (relié par une diagonale) avec
+la
+probabilité $1-2p.$
+\end{noliste}
+
+\noindent On note $X_{n}$ la variable aléatoire égale au numéro du
+sommet
+sur lequel se trouve le pion à l'instant $n.$ On a donc $X_{0} = 1$
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item 
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Écrire la matrice $A,$ carré d'ordre $4,$ dont le terme situé à
+l'intersection de la $i^{\grave{e}me}$ ligne et de la $j^{\grave{e}me}$
+colonne est égal à la probabilité conditionnelle $P\left(\Ev{X_{n + 1}
+= i/X_{n} = j}\right).$
+
+\item Vérifier que $A$ s'écrit comme combinaison linéaire de $J + K$ et
+$L.$
+\end{noliste}
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Pour tout $i$ de $\{1,2,3,4\},$ calculer $Au_{i}.$ En déduire
+qu'il
+existe une matrice $D$ diagonale et une matrice $P$ inversible telles
+que $
+A = PDP^{-1}.\ $Expliciter $D$ et $P.$
+
+\item Calculer $P^{2}$ puis en déduire $P^{-1}.$
+\end{noliste}
+
+\item Pour tout $n$ de $\N,$ on pose $C_{n} = 
+\begin{smatrix}
+P\left(\Ev{X_{n} = 1}\right) \\
+P\left(\Ev{X_{n} = 2}\right) \\
+P\left(\Ev{X_{n} = 3}\right) \\
+P\left(\Ev{X_{n} = 4}\right)
+\end{smatrix}.$
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer, à l'aide de la formule des probabilités totales que
+$C_{n + 1} = AC_{n}.$
+
+\item En déduire que $C_{n} = \dfrac{1}{4}PD^{n}PC_{0},$ puis donner la
+loi de 
+$X_{n}$ pour tout entier naturel $n$ supérieur ou égal à $1.$
+\end{noliste}
+\end{noliste}
+
+\label{fin}
+
+\end{document}
+

@@ -1,0 +1,143 @@
+\subsection*{Exercices oraux HEC 2016}
+
+%EPR% HEC;
+% type : oralSP; % 
+% sujet : E 83; %
+% annee : 2016; % 
+% theme : vaDensite, vaUniformeDensite, vaDiscrete, vaUniformeDiscrete,
+% vaConvergence; % 
+
+\begin{exerciceSP}~\\
+Les variables aléatoires de cet exercice sont supposées définies sur un 
+espace probabilisé $(\Omega,\A,\Prob)$.\\
+Soit $Z$ une variable aléatoire qui suit la loi uniforme sur 
+l'intervalle $[0,1]$ et pour tout entier $n\geq 1$, on note $Y_n$ une 
+variable aléatoire à valeurs dans 
+$\left\{0,\dfrac{1}{n},\dfrac{2}{n},\hdots, \dfrac{n-1}{n}\right\}$ 
+telle que : 
+\[
+  \forall k\in\llb 0,n-1\rrb, \ 
+  \Prob\left(\Ev{Y_n=\dfrac{k}{n}}\right)=\dfrac{1}{n}
+\]
+Soit $f$ une fonction définie et continue sur $[0,1]$. Montrer que 
+$\dlim{n\to+\infty} \E(f(Y_n))=\E(f(Z))$.
+\end{exerciceSP} 
+
+
+%EPR% HEC;
+% type : oralAP; % 
+% sujet : E 88; %
+% annee : 2016; % 
+% theme : vaConvergence, vaPartieEntiere, vaDensite, vaExponentielle,
+% vaDiscrete, vaGeometrique, vaUniformeDensite; % 
+
+\begin{exerciceAP}~\\
+Toutes les variables aléatoires qui interviennent dans l'exercice sont 
+supposées définies sur le même espace probabilisé $(\Omega, 
+\A,\Prob)$.
+\begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+  \item Question de cours : Convergence en loi d'une suite de variables 
+  aléatoires.\\
+  Dans tout l'exercice, $X$ désigne une variable aléatoire suivant la 
+  loi exponentielle de paramètre $\lambda>0$.
+  
+  \item 
+  \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+    \item On pose : $T=\lfloor X\rfloor$ (partie entière de $X$). 
+    Montrer que la loi de $T$ est donnée par :
+    \[
+      \forall k \in\N, \ 
+      \Prob(\Ev{T=k}) = \Big(1 - \ee^{-\lambda} \Big) \, 
+      \Big(\ee^{-\lambda}\Big)^k
+    \]
+    
+    \item Quelle est la loi de $T+1$ ? En déduire l'espérance et la 
+    variance de $T$.
+  \end{noliste}
+  
+  \item On pose : $Z=X-\lfloor X\rfloor$.\\
+  Montrer que $Z$ est une variable aléatoire à densité et déterminer 
+  une densité de $Z$.
+
+  \item Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires 
+  indépendantes telles que, pour tout $n\in\N^*$, $X_n$ suit une loi 
+  exponentielle de paramètre $\dfrac{\lambda}{n}$. On pose pour tout 
+  $n\in\N^*$ : $Z_n=X_n-\lfloor X_n\rfloor$.\\
+  Montrer que la suite de variables aléatoires $(Z_n)_{n\geq 1}$ 
+  converge en loi vers une variable aléatoire dont on précisera la loi.
+\end{noliste}
+\end{exerciceAP} 
+
+
+\subsection*{Exercices oraux HEC 2017}
+
+%EPR% HEC;
+% type : oralAP; %
+% sujet : E 91; %
+% annee : 2017; %
+% theme : vaDiscrete, vaUniformeDiscrete, vaMax, estimBiais, 
+% estimation; %
+
+\begin{exerciceAP}~
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \item Question de cours : définition d'un estimateur sans biais
+    d'un paramètre inconnu.
+  \end{noliste}
+  
+  \noindent
+  Soit $N$ un entier supérieur ou égal à $2$.\\
+  Soit $(X_n)_{n\geq 1}$ une suite de variables aléatoires 
+  indépendantes, définies sur le même espace probabilisé 
+  $(\Omega, \A, \Prob)$, et suivant chacune la loi uniforme discrète
+  sur $\llb 1,N \rrb$.
+  \begin{noliste}{1.}
+    \setlength{\itemsep}{2mm}
+    \setcounter{enumi}{1}
+    \item Pour tout entier $n\geq 1$, on pose : $s_n(N) = 
+    \Sum{k=1}{N-1} \left( \dfrac{k}{N} \right)^n$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Montrer que la suite $(s_n(N))_{n\geq 1}$ est 
+      strictement monotone et convergente.
+      
+      \item Trouver sa limite.
+    \end{noliste}
+    
+    \item Pour tout entier $n\geq 1$, on pose : $T_n = \max(X_1,
+    X_2, \ldots, X_n)$.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Calculer pour tout $k\in \llb 1,N \rrb$, $\Prob(
+      \Ev{T_n=k})$.
+      
+      \item Montrer que $\E(T_n) = N - s_n(N)$.
+    \end{noliste}
+    
+    \item 
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Justifier que $\Prob(\Ev{ \vert T_N - N \vert \geq 1})$
+      tend vers $0$ quand $n$ tend vers l'infini.
+      
+      \item En déduire, pour tout $\eps>0$, la limite de 
+      $\Prob(\Ev{\vert T_n - N \vert \geq \eps})$ quand $n$ tend 
+      vers l'infini.
+    \end{noliste}
+    
+    \item On suppose dans cette question que $N$ est un paramètre 
+    inconnu.
+    \begin{noliste}{a)}
+    \setlength{\itemsep}{2mm}
+      \item Expliquer pourquoi on ne peut pas dire que $T_n + s_n(N)$
+      est un estimateur sans biais de $N$.
+      
+      \item Trouver une suite convergente et asymptotiquement sans 
+      biais d'estimateurs de $N$.
+    \end{noliste}
+  \end{noliste}
+\end{exerciceAP} 
+
+

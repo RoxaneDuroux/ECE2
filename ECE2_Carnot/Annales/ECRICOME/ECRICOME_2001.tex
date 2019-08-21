@@ -1,0 +1,469 @@
+\documentclass[11pt]{article}%
+\usepackage{geometry}%
+\geometry{a4paper,
+ lmargin = 2cm,rmargin = 2cm,tmargin = 2.5cm,bmargin = 2.5cm}
+
+\input{../../macros.tex}
+
+\pagestyle{fancy} %
+\lhead{ECE2 \hfill Mathématiques\\
+} %
+\chead{\hrule} %
+\rhead{} %
+\lfoot{} %
+\cfoot{} %
+\rfoot{\thepage} %
+
+\renewcommand{\headrulewidth}{0pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\renewcommand{\footrulewidth}{0.4pt}% : Trace un trait de séparation
+ % de largeur 0,4 point. Mettre 0pt
+ % pour supprimer le trait.
+
+\setlength{\headheight}{14pt}
+
+\title{\bf \vspace{-2cm} ECRICOME 2001} %
+\author{} %
+\date{} %
+\begin{document}
+
+\maketitle %
+\vspace{-1.4cm}\hrule %
+\thispagestyle{fancy}
+
+\vspace*{.2cm}
+
+
+% DEBUT DU DOC À MODIFIER : tout virer jusqu'au début de l'exo
+
+%Définition et changement de valeurs de
+compteurs%newcounter{cpt1}{section} compteur cpt1 remis à 0 à chaque
+aumentation par stepcounter du compteur section%setcounter{cpt1}{3} on
+met le compteur à 3%addtocounter{cpt1}{5} on ajoute 5 au compteur%
+stepcounter{cpt1} on ajoute 1% ifthenelse{test}{alors}{sinon} (page
+206) pour subordonner à une condition % whiledo{test}{commande} pour
+faire une boucle (page 206 aussi) % value{cpt1} pour noter dans le
+document la valeur de cpt1 
+%Définition définitive d'opérateurs
+mathématiques\newcommand{\ch}{\operatorname{ch}} 
+\newcommand{\sh}{\operatorname{sh}}
+\renewcommand{\tanh}{\operatorname{th}}
+\renewcommand{\sinh}{\operatorname{sh}}
+\renewcommand{\cosh}{\operatorname{ch}}
+\newcommand{\argsh}{\operatorname{argsh}}
+\newcommand{\argch}{\operatorname{argch}}
+\newcommand{\argth}{\operatorname{argth}}
+\newcommand{\Id}{\operatorname{Id}}
+
+%Définition de nouvelles couleurs : rgb(trois paramètres red green blue
+entre 0 et 1); cmyk (quatre cyan magenta yellow black) entre 0 et 1;
+gray (entre 0 et 1) et black, white, red, green, blue, cyan, magenta,
+yellow% definecolor{0gris}{gray}{0.8} 
+% Nouvelle commande pour encadrer le titre car shabox ne veut que d'une
+seule ligne; ATTENTION A LA TAILLE; petite différence avec shadowbox ou
+doublebox, voire fcolorbox ou colorbox (au lieu de shabox; laisser le
+parbox tranquille sauf pour la taille de la boîte
+\newcommand{\Tbox}[1]{\begin{center} \shabox{\parbox{0.6
+\linewidth}{#1}} \end{center}} %[1] pour 1 paramètre ; #1 pour ce que
+fait le 1er paramètre; entre accolades ce que fait la commande
+%Mise en page en mode fancy : en-têtes et pieds de pages puis
+définition des en-têtes et pieds de pages\pagestyle{fancy}
+\lhead{ECE 2 - Mathématiques \\
+Quentin Dunstetter - ENC-Bessières 2011$\backslash$2012}
+\chead{}
+\rhead{Epreuve Ecricome 2001}
+\rfoot[ \ \thepage]{\thepage}
+\cfoot{}
+\lfoot{}
+\thispagestyle{fancy} %Mise en page de la 1ère page en mode fancy
+%Trait en bas et en haut de la page (entre en-tête et texte et texte et
+pied de page)\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%DEBUT DU DOCUMENT
+\noindent {\Large \textbf{ECRI%TCIMACRO{\TeXButton{TeX
+field}{\colorbox[gray]{0.95}{COME}}}%BeginExpansion
+\colorbox[gray]{0.95}{COME}%EndExpansion
+}}\vspace{0.3cm}
+
+\noindent \textbf{Banque d'épreuves communes}
+
+\noindent aux concours des Ecoles
+
+\noindent esc%TCIMACRO{\TeXButton{TeX
+field}{\colorbox[gray]{0.95}{bordeaux}} }%BeginExpansion
+\colorbox[gray]{0.95}{bordeaux}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{marseille}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{marseille}
+%EndExpansion
+/ icn%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{nancy}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{nancy}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{reims}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{reims}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX field}{\colorbox[gray]{0.95}{rouen}}
+}%BeginExpansion
+\colorbox[gray]{0.95}{rouen}
+%EndExpansion
+/ esc%TCIMACRO{\TeXButton{TeX
+field}{\colorbox[gray]{0.95}{toulouse}}}%BeginExpansion
+\colorbox[gray]{0.95}{toulouse}%EndExpansion
+\vspace{1cm}
+
+\begin{center}
+{\large CONCOURS D'ADMISSION }\vspace{0.5cm}
+
+\textbf{option économique} \vspace{0.5cm}
+
+{\Large \textbf{MATHÉMATIQUES}} \vspace{0.5cm}
+
+\textbf{Année 2001}
+\end{center}
+
+\noindent \textbf{Aucun instrument de calcul n'est autorisé.}
+
+\noindent \textbf{Aucun document n'est autorisé.}
+
+\noindent L'énoncé comporte \pageref{fin} pages
+
+\begin{quotation}
+\noindent Les candidats sont invités à soigner la présentation de leur
+copie, à mettre en évidence les principaux résultats, à respecter les
+notations de l'énoncé, et à donner des démonstrations complètes (mais
+brèves) de leurs affirmations.
+\end{quotation}
+
+\newpage
+
+\section*{EXERCICE 1}
+
+Dans cet exercice on étudie l'évolution au cours du temps d'un titre
+dans
+une bourse de valeurs.
+
+\subsection*{I. Le but de la première partie est de calculer les
+puissances
+successives de la matrice :}
+
+\[
+M(a) = 
+\begin{smatrix}
+1-2a & a & a \\
+a & 1-2a & a \\
+a & a & 1-2a
+\end{smatrix}
+\]
+où $a$ représente un nombre réel.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Montrer que, pour tous réels $a$, $b$, on a : $M(a).M(b) = M(a +
+b-3ab)$.
+
+\item En déduire les valeurs de $a$ pour lesquelles la matrice $M(a)$
+est
+inversible et exprimer son inverse.
+
+\item Justifier le fait que $M(a)$ est diagonalisable.
+
+\item Déterminer le réel $a_{0}$ non nul, tel que : 
+\[
+\left[ M(a_{0})\right] ^{2} = M(a_{0})
+\]
+
+\item On considère les matrices : 
+\[
+P = M(a_{0})\quad \text{et}\quad Q = I-P
+\]
+où $I$ désigne la matrice carrée unité d'ordre $3$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Montrer qu'il existe un réel $\alpha $, que l'on exprimera en
+fonction
+de $a$, tel que : 
+\[
+M(a) = P + \alpha Q
+\]
+
+\item Calculer $P^{2}$, $QP$, $PQ$, $Q^{2}$.
+
+\item Pour tout entier naturel $n$, non nul, montrer que $\left[
+M(a)\right]
+^{n}$ s'écrit comme combinaison linéaire de $P$ et $Q$.
+
+\item Expliciter alors la matrice $\left[ M(a)\right] ^{n}$.
+\end{noliste}
+\end{noliste}
+
+\subsection*{II. \textbf{Évolution d'un titre boursier au cours du
+temps.}}
+
+Dans la suite de l'exercice, on suppose que $a\in \left]\ 0\ ;\
+\dfrac{2}{3}\
+\right[ $.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item On définit des suites $(p_{n})_{n\in \N^{\ast }}$, $
+(q_{n})_{n\in \N^{\ast }}$, $(r_{n})_{n\in \N^{\ast }}$ par
+leur premier terme $p_{1}$, $q_{1}$, $r_{1}$, et les relations de
+récurrence : 
+\[
+\left\{
+\begin{array}{cl}
+p_{n + 1} = (1-2a)p_{n} + aq_{n} + ar_{n} \\
+q_{n + 1} = ap_{n} + (1-2a)q_{n} + ar_{n} \\
+r_{n + 1} = ap_{n} + aq_{n} + (1-2a)r_{n}
+\end{array}
+\right.
+\]
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer $p_{n}$, $q_{n}$, $r_{n}$ en fonction de $
+n,p_{1},q_{1},r_{1}. $
+
+\item Étudier la convergence de ces suites.
+\end{noliste}
+
+\item Dans une bourse de valeurs, un titre donné peut monter, rester
+stable,
+ou baisser. Dans un modèle mathématique, on considère que :
+
+\begin{noliste}{$\sbullet$}
+\item le premier jour le titre est stable ;
+
+\item si un jour $n$, le titre monte, le jour $n + 1$, il montera avec
+la
+probabilité $\dfrac{2}{3}$, restera stable avec la probabilité
+$\dfrac{1}{6}$, et baissera avec la probabilité $\dfrac{1}{6}$;
+
+\item si un jour $n$, le titre est stable, le jour $n + 1$, il montera
+avec la
+probabilité $\dfrac{1}{6}$, restera stable avec la probabilité
+$\dfrac{2}{3}$, et baissera avec la probabilité $\dfrac{1}{6}$;
+
+\item si un jour $n$, le titre baisse, le jour $n + 1$, il montera avec
+la
+probabilité $\dfrac{1}{6}$, restera stable avec la probabilité
+$\dfrac{1}{6}$, et baissera avec la probabilité $\dfrac{2}{3}$.
+\end{noliste}
+
+\noindent On note $M_{n}$ (respectivement $S_{n}$, respectivement
+$B_{n}$) l'
+évènement \textquotedblleft le titre donné monte (respectivement reste
+stable, respectivement baisse) le jour $n$.
+
+\begin{noliste}{a)}
+ \setlength{\itemsep}{2mm}
+\item Exprimer les probabilités de hausse, de stabilité, et de baisse
+au
+jour $n + 1$ en fonction de ces mêmes probabilités au jour $n$.
+
+\item En déduire les probabilités de hausse, de stabilité, et de baisse
+au
+jour $n$.
+
+\item Quelles sont les limites de ces probabilités lorsque $n$ tend
+vers
+l'infini ?
+\end{noliste}
+\end{noliste}
+
+\section*{EXERCICE 2}
+
+Un système est constitué de $n$ composants. On suppose que les
+variables aléatoires $T_{1},T_{2},\ldots,T_{n}$ mesurant le temps de
+bon fonctionnement de chacun des $n$ composants sont indépendantes, de
+même loi, la loi exponentielle de paramètre $\lambda >0$.
+
+\subsection*{I. Calcul du nombre moyen de composants défaillants entre
+les
+instants $0$ et $t$.}
+
+On note $N_{t}$ la variable aléatoire égale au nombre de composants
+défaillants entre les instants $0$ et $t$ avec $t\geq 0$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour tous les entiers $i$ de $\{1,2,\ldots,n\}$, calculer la
+probabilité de l'évènement $\{T_{i}<t\}$.
+
+\item Montrer que $N_{t}$ suit une loi binômiale. Préciser ses
+paramètres et
+son espérance $\E(N_{t})$.
+
+\item \'A partir de quel instant $t_{0}$ le nombre moyen de composants
+défaillants dépasse-t-il la moitié du nombre de composants ?
+\end{noliste}
+
+\subsection*{II. Montage en série.}
+
+On suppose que le système fonctionne correctement si tous les
+composants
+eux-mêmes fonctionnent correctement et note $S_{n}$ la variable
+aléatoire
+mesurant le temps de bon fonctionnement du système.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Pour $t\in \R$, exprimer l'évènement $\{S_{n}>t\}$ en fonction
+des évènements : 
+\[
+\{T_{1}>t\},\;\{T_{2}>t\},\;\ldots \;\{T_{n}>t\}.
+\]
+
+\item Déterminer alors la fonction de répartition $F_{n}$, de $S_{n}$,
+puis définir sa densité $f_{n}$.
+
+\item Reconnaître la loi de $S_{n}$ et donner sans calcul l'espérance $
+\E(S_{n})$ et la variance $\V(S_{n})$ de $S_{n}$.
+\end{noliste}
+
+\subsection*{III. Montage en parallèle.}
+
+On suppose maintenant que le système fonctionne correctement si l'un au
+moins des composants fonctionne correctement et note $U_{n}$ la
+variable aléatoire mesurant le temps de bon fonctionnement du système.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Exprimer $\{U_{n}<t\}$ en fonction des évènements $\{T_{1}<t\},\;
+\{T_{2}<t\},\;\ldots \;\{T_{n}<t\}$.
+
+\item Déterminer alors la fonction de répartition $G_{n}$ de $U_{n}$
+puis
+montrer que sa densité $g_{n}$ est définie par : 
+\[
+\left\{
+\begin{array}{cl}
+g_{n}(t) = n\lambda \left( 1-e^{-\lambda t}\right) ^{n-1}e^{-\lambda
+t}, & 
+t\geq 0 \\
+g_{n}(t) = 0, & t<0
+\end{array}
+\right.
+\]
+
+\item Montrer l'existence de l'espérance $\E(U_{n})$ de $U_{n}$ et
+prouver
+que : 
+\[
+\E(U_{n}) = \dfrac{1}{\lambda }\Sum{k = 0}{n-1}\dfrac{(-1)^{k}}{k +
+1}C_{n}{k + 1}
+\]
+puis, que pour tous entiers naturels $n$, 
+\[
+\E(U_{n + 1})-\E(U_{n}) = \dfrac{1}{\lambda (n + 1)}
+\]
+
+\item Par sommation de la relation précédente, et en utilisant
+l'équivalent
+simple : 
+\[
+\Sum{k = 1}{n}\dfrac{1}{k}\underset{n\rightarrow + \infty }{\sim }\ln n
+\]
+donner un équivalent simple de $\E(U_{n})$ lorsque $n$ tend vers $ +
+\infty $.
+\end{noliste}
+
+\section*{EXERCICE 3}
+
+On désigne par $n$ un entier naturel non nul et $a$ un réel strictement
+positif.\\
+On se propose d'étudier les racines de l'équation : 
+\[
+(E_{n})\; :\;\dfrac{1}{x} + \dfrac{1}{x + 1} + \dfrac{1}{x + 2} +
+\ldots + \dfrac{1}{x + 2n} = a
+\]
+\'A cet effet, on introduit la fonction $f_{n}$, de la variable réelle
+$x$ dé
+finie par : 
+\[
+f_{n}(x) = \dfrac{1}{x} + \dfrac{1}{x + 1} + \dfrac{1}{x + 2} + \cdots
++ \dfrac{1}{x + 2n}-a
+\]
+
+\subsection*{I. Étude d'un cas particulier.}
+
+Pour cette question seulement, on prend $a = \dfrac{11}{6}$ et $n = 1$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Représenter la fonction $f_{1}$ relativement à un repère
+orthonormal
+du plan. (unité graphique 2 cm)
+
+\item Calculer $f_{1}(1)$, puis déterminer les racines de $(E_{1})$.\\
+(On donne $\sqrt{37} = 6{,}08$ à $10^{-2}$ près par défaut)
+\end{noliste}
+
+\subsection*{II. Dénombrement des racines de $(E_{n})$.}
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Dresser le tableau de variations de $f_{n}$.
+
+\item Justifier l'existence de racines de l'équation $(E_{n})$ et en
+déterminer le nombre.
+\end{noliste}
+
+\subsection*{III. Équivalent de la plus grande des racines quand $n$
+tend
+vers $ + \infty $.}
+
+On note $x_{n}$ la plus grande des racines de $(E_{n})$.
+
+\begin{noliste}{1.}
+ \setlength{\itemsep}{4mm}
+\item Justifier que $x_{n}>0$.
+
+\item Démontrer que pour tout réel $x>1$ : 
+\[
+\dfrac{1}{x}<\ln \dfrac{x}{x-1}<\dfrac{1}{x-1}
+\]
+En déduire que pour $x$ réel strictement positif : 
+\[
+f_{n}(x)-\dfrac{1}{x} + a<\ln (1 + \dfrac{2n}{x})<f_{n}(x)-\dfrac{1}{x
++ 2n} + a
+\]
+puis, que : 
+\[
+a-\dfrac{1}{x_{n}}<\ln \left( 1 + \dfrac{2n}{x_{n}}\right)
+<a-\dfrac{1}{x_{n} + 2n}
+\]
+
+\item Montrer que pour tout $n$ entier naturel, non nul : 
+\[
+x_{n}>\dfrac{2n}{\exp a-1}
+\]
+
+\item Quelle est la limite de $x_{n}$, puis la limite de $\ln (1 +
+\dfrac{2n}{x_{n}})$, lorsque $n$ tend vers $ + \infty $ ?
+
+\item Prouver enfin l'existence d'un réel $\delta $, que l'on exprimera
+en
+fonction de $a$, tel que l'on ait, au voisinage de l'infini,
+l'équivalent
+suivant
+\[
+x_{n}\underset{n\rightarrow + \infty }{\sim }\delta.n
+\]
+
+\end{noliste}
+
+\begin{center}
+Fin de l'épreuve \label{fin}
+\end{center}
+
+\end{document}
+
